@@ -30,12 +30,14 @@ class UserController extends BaseController
         if ($validation->fails()) {
             return $this->sendError($validation->messages()->all());
         }
+
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->type = 'user';
         $user->password =  Hash::make($request->password);
         $user->save();
+        dd($user);
         $userRes =new  UserNotAuthResource($user);
         return $this->sendResponse($userRes,'تم التسجيل بنجاح');
     }
