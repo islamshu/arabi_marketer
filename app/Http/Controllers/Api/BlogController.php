@@ -115,8 +115,8 @@ class BlogController extends BaseController
             }
         }
 
-        // $res = new BlogResource($service);
-        // return $this->sendResponse($res,'تم الاضافة بنجاح');
+        $res = new BlogResource($service);
+        return $this->sendResponse($res,'تم الاضافة بنجاح');
 
     }
 }
