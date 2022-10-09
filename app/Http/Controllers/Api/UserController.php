@@ -30,7 +30,6 @@ class UserController extends BaseController
         if ($validation->fails()) {
             return $this->sendError($validation->messages()->all());
         }
-        dd($request->all());
 
         $user = new User();
         $user->name = $request->name;
