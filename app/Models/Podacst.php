@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Podacst extends Model
+{
+    use HasFactory;
+    public function category()
+    {
+        return $this->belongsToMany(Category::class, 'podcast_categories','podcast_id', 'category_id');
+    }
+    public function keywords()
+    {
+        return $this->belongsToMany(KeyWord::class, 'podacst_keywords','podcast_id', 'keyword_id');
+    }
+}
