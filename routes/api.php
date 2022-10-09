@@ -28,9 +28,7 @@ use Illuminate\Support\Facades\Route;
 // Sample API route
 Route::get('/profits', [SampleDataController::class, 'profits'])->name('profits');
 
-// Route::post('/register', [RegisteredUserController::class, 'apiStore']);
 
-// Route::post('/login', [AuthenticatedSessionController::class, 'apiStore']);
 
 Route::post('/forgot_password', [PasswordResetLinkController::class, 'apiStore']);
 
