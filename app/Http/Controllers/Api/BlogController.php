@@ -36,7 +36,6 @@ class BlogController extends BaseController
     }
     public function get_all()
     {
-        dd(auth('api')->id());
         $blogs = Blog::orderBy('id', 'desc')->paginate(5);
         $res = BlogResource::collection($blogs)->response()->getData(true);
         return $this->sendResponse($res, 'جميع المقالات');
