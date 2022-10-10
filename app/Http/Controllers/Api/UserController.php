@@ -9,11 +9,13 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\BlogResource;
 use App\Http\Resources\CategoryResource;
+use App\Http\Resources\PodcastResource;
 use App\Http\Resources\ServiceResource;
 use App\Http\Resources\UserNotAuthResource;
 use App\Http\Resources\UserResource;
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Podacst;
 use App\Models\Service;
 use App\Models\SouialUser;
 use App\Models\UserCategory;
@@ -37,6 +39,7 @@ class UserController extends BaseController
         $user->name = $request->name;
         $user->email = $request->email;
         $user->type = 'user';
+        $user->image = 'uploads/users/defult_user.png';
         $user->password =  Hash::make($request->password);
         $user->save();
         $userRes =new  UserNotAuthResource($user);
@@ -140,5 +143,10 @@ class UserController extends BaseController
         $service = Service::where('user_id',auth('api')->id())->orderby('id','desc')->paginate(5);
         $res = ServiceResource::collection($service)->response()->getData(true);
          return $this->sendResponse($res,'جميع الخدمات  ');
+     }
+     public function get_podcasts(){
+        $service = Podacst::where('user_id',auth('api')->id())->orderby('id','desc')->paginate(5);
+        $res = PodcastResource::collection($service)->response()->getData(true);
+         return $this->sendResponse($res,'جميع البدوكاست  ');
      }
 }

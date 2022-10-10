@@ -47,8 +47,7 @@ Route::post('/edit_profile_step_3', [UserController::class, 'edit_profile_step_3
 Route::get('/profile', [UserController::class, 'profile']);
 Route::get('/my_blogs', [UserController::class, 'get_blog']);
 Route::get('/my_services', [UserController::class, 'get_service']);
-
-
+Route::get('/my_podcasts', [UserController::class, 'get_podcasts']);
 Route::get('/type_of_user', [UserController::class, 'type_of_user']);
 //end profile
 
@@ -68,6 +67,7 @@ Route::get('/service_keyword', [ServiceController::class, 'service_keyword']);
 Route::get('/get_specialty', [ServiceController::class, 'get_specialty']);
 Route::post('/add_service', [ServiceController::class, 'store']);
 Route::get('/get_all_service', [ServiceController::class, 'get_all']);
+
 //end service 
 
 //start podcasts
