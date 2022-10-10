@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class BaseController extends Controller
 {
     public function sendResponse($result  , $message){
-        $response = ['success' => true , 'data' => $result, 'message' => $message];
+        $response = ['success' => true , 'data' => $result, 'message' => $message,'code'=>200];
         return response()->json($response , 200)->getData(true);
     }
     public function sendErrornew( $message){
