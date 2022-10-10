@@ -83,7 +83,7 @@ class BlogController extends BaseController
         $service->title = ['ar' => $request->title, 'en' => $request->title];
         $service->description = ['ar' => $request->description, 'en' => $request->description];
         $service->image = $request->image->store('blog');
-        $service->user_id = auth('api')->id();
+        $service->user_id = 3;
         $service->save();
         foreach ($request->category as $category) {
             $cat = new BlogCategory();
