@@ -16,4 +16,13 @@ class Podacst extends Model
     {
         return $this->belongsToMany(KeyWord::class, 'podacst_keywords','podcast_id', 'keyword_id');
     }
+    /**
+     * Get the user that owns the Podacst
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

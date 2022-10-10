@@ -82,7 +82,9 @@ class BlogController extends BaseController
         $validation = Validator::make($request->all(), [
             'title'=>'required',
             'description' => 'required',
-            'image'=>'required'
+            'image'=>'required',
+            'category'=>'required',
+            'keywords'=>'required', 
         ]);
         if ($validation->fails()) {
             return $this->sendError($validation->messages()->all());

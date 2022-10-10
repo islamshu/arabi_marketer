@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\BlogController;
 use App\Http\Controllers\Api\GeneralController;
+use App\Http\Controllers\Api\PodcastController;
 use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
@@ -45,6 +46,9 @@ Route::post('/edit_profile_step_2', [UserController::class, 'edit_profile_step_2
 Route::post('/edit_profile_step_3', [UserController::class, 'edit_profile_step_3']);
 Route::get('/profile', [UserController::class, 'profile']);
 Route::get('/my_blogs', [UserController::class, 'get_blog']);
+Route::get('/my_services', [UserController::class, 'get_service']);
+
+
 Route::get('/type_of_user', [UserController::class, 'type_of_user']);
 //end profile
 
@@ -56,9 +60,6 @@ Route::post('/add_blog', [BlogController::class, 'store']);
 Route::get('/get_all_blogs', [BlogController::class, 'get_all']);
 Route::get('/get_week', [BlogController::class, 'get_week']);
 
-
-
-
 //end blog 
 
 //start service
@@ -66,9 +67,16 @@ Route::get('/service_category', [ServiceController::class, 'service_category']);
 Route::get('/service_keyword', [ServiceController::class, 'service_keyword']);
 Route::get('/get_specialty', [ServiceController::class, 'get_specialty']);
 Route::post('/add_service', [ServiceController::class, 'store']);
-
+Route::get('/get_all_service', [ServiceController::class, 'get_all']);
 //end service 
 
+//start podcasts
+Route::get('/podcast_category', [PodcastController::class, 'podcast_category']);
+Route::get('/podcast_keywords', [PodcastController::class, 'podcast_keyword']);
+Route::get('/get_all_podcasts', [PodcastController::class, 'get_all']);
+Route::post('/add_podcast', [PodcastController::class, 'store']);
+
+//end podcasts
 
 //start general data
 Route::get('/get_all_countires', [GeneralController::class, 'get_all_countires']);

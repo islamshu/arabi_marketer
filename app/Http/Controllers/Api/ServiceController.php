@@ -17,6 +17,7 @@ use App\Models\ServiceFiles;
 use App\Models\ServiceKeyword;
 use App\Models\ServiceSpecialy;
 use App\Models\Specialty;
+use Validator;
 
 class ServiceController extends BaseController
 {
@@ -27,16 +28,35 @@ class ServiceController extends BaseController
     public function service_category(){
         $category = Category::ofType('service')->orderBy('id', 'asc')->get();
         $userRes =KeywordResource::collection($category);
-        return $this->sendResponse($userRes,'جميع الكلمات المفتاحية الخاصة بالمقالات');
+        return $this->sendResponse($userRes,'جميع الكلمات المفتاحية الخاصة بالخدمات');
     }
     public function service_keyword(){
         $category = KeyWord::ofType('service')->orderBy('id', 'asc')->get();
         $userRes =CategoryResource::collection($category);
-        return $this->sendResponse($userRes,'جميع التصنيفات الخاصة بالمقالات');
+        return $this->sendResponse($userRes,'جميع التصنيفات الخاصة بالخدمات');
+    }
+    public function get_all(){
+       $service = Service::orderby('id','desc')->paginate(5);
+       $res = ServiceResource::collection($service)->response()->getData(true);
+        return $this->sendResponse($res,'جميع الخدمات  ');
     }
     public function store(Request $request){
-                $res = new ServiceResource(Service::find(119));
-                return $this->sendResponse($res,'edit');
+        $validation = Validator::make($request->all(), [
+            'title'=>'required',
+            'description' => 'required',
+            'images'=>'required',
+            'price'=>'required',
+            'url'=>'required',
+            'specialties'=>'required',
+            'types'=>'required',
+            'keywords'=>'required', 
+            'has_file'=>'required',
+            'attach_file'=>  $request->has_file == 'yes'?'required' : '' ,
+          
+        ]);
+        if ($validation->fails()) {
+            return $this->sendError($validation->messages()->all());
+        }
                 $service = new Service();
                 $service->title = ['ar' => $request->title, 'en' => $request->title];
                 $service->description = ['ar' => $request->description, 'en' => $request->description];
@@ -56,13 +76,13 @@ class ServiceController extends BaseController
                 $service->images = json_encode($image_array);
                 $service->save();
 
-                foreach ($request->specialty as $specialty) {
+                foreach ($request->specialties as $specialty) {
                     $spe = new ServiceSpecialy();
                     $spe->service_id = $service->id;
                     $spe->specialts_id = $specialty;
                     $spe->save();
                 }
-                foreach ($request->type as $category) {
+                foreach ($request->types as $category) {
                     $cat = new ServiceCategory();
                     $cat->service_id = $service->id;
                     $cat->category_id = $category;
@@ -94,26 +114,20 @@ class ServiceController extends BaseController
                 }
 
 
-                if ($request->has_file == 'نعم') {
-                    foreach ($request->files as $key => $file) {
-                        if ($key == 'icon') {
-                            continue;
-                        } else {
-                            foreach ($file as $keyy => $imagex) {  
-                                $imageNamee = '/' . time() + $keyy . '_service_file.' . $imagex->getClientOriginalExtension();
-                                $imagex->move('uploads/service_file', $imageNamee);
-                                $file = new ServiceFiles();
-                                $file->service_id = $service->id;
-                                $file->file =  $imageNamee;
-                                $file->save();
-                            }
-                        }
+                if ($request->has_file == 'yes') {
+                    foreach ($request->attach_file as $keyy => $imagex) {  
+                        $imageNamee = '/' . time() + $keyy . '_service_file.' . $imagex->getClientOriginalExtension();
+                        $imagex->move('uploads/service_file', $imageNamee);
+                        $file = new ServiceFiles();
+                        $file->service_id = $service->id;
+                        $file->file =  $imageNamee;
+                        $file->save();
                     }
                 }
-                // $ser = new 
+                $ser = new ServiceResource($service);
+                return $this->sendResponse($ser,'Addedd Successfuly');
 
                 
-                return $service;
        
     }
 }

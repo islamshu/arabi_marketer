@@ -33,4 +33,13 @@ class Service extends Model
     {
         return $this->hasMany(ServiceFiles::class, 'service_id');
     }
+    /**
+     * Get the user that owns the Service
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

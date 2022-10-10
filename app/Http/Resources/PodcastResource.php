@@ -2,9 +2,10 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Blog;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ServiceResource extends JsonResource
+class PodcastResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,26 +19,14 @@ class ServiceResource extends JsonResource
             'id'=>$this->id,
             'title'=>$this->title,
             'description'=>$this->description,
-            'price'=>$this->price,
-            'url'=>$this->url,
-            'images'=>$this->get_image($this),
-            'thumb_image'=>asset('uploads'.$this->image),
             'user_info'=>new UserMainInfoResource($this->user),
             'categories'=>$this->get_category($this),
             'keywords'=>$this->get_keywords($this),
-            'specialties'=>$this->get_specialties($this),
-            'files'=>$this->get_files($this),
-
+            'image'=>asset('uploads/'.$this->image),
+            'google_SSR'=>$this->url,
+            'Apple_SSR'=>$this->apple_url,
+            'SoundCloud_SSR'=>$this->sound_url,
         ];
-    }
-    public function get_image($data){
-        $images = $data->images;
-        $image_array =[];
-        $images = json_decode($images);
-        foreach($images as $image){
-            array_push($image_array , asset('uploads/'.$image));
-        }
-        return $image_array;
     }
     function get_category($data){
         $category = $data->category;
@@ -45,15 +34,6 @@ class ServiceResource extends JsonResource
     }
     function get_keywords($data){
         $category = $data->keywords;
-        return KeywordResource::collection($category);
-    }
-    function get_files($data){
-        $category = $data->files;
-        
-        return FilesServiceResourse::collection($category);
-    }
-    function get_specialties($data){
-        $category = $data->specialty;
         return KeywordResource::collection($category);
     }
 }

@@ -9,10 +9,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\BlogResource;
 use App\Http\Resources\CategoryResource;
+use App\Http\Resources\ServiceResource;
 use App\Http\Resources\UserNotAuthResource;
 use App\Http\Resources\UserResource;
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Service;
 use App\Models\SouialUser;
 use App\Models\UserCategory;
 use Validator;
@@ -134,4 +136,9 @@ class UserController extends BaseController
         return $this->sendResponse($res, 'جميع المقالات');
         // return ['success'=>true,'blogs'=>BlogResource::collection($blogs)->response()->getData(true),'message'=>'جميع المقالات'];
     }
+    public function get_service(){
+        $service = Service::where('user_id',auth('api')->id())->orderby('id','desc')->paginate(5);
+        $res = ServiceResource::collection($service)->response()->getData(true);
+         return $this->sendResponse($res,'جميع الخدمات  ');
+     }
 }
