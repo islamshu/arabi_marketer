@@ -63,6 +63,8 @@
                                 <tr>
                                     <th>عنوان الاستشارة </th>
                                     <th>اسم المستخدم</th>
+                                    <th>تاريخ الاضافة </th>
+
                                     <th>العمليات</th>
                                 </tr>
                             </thead>
@@ -71,6 +73,7 @@
                                 <tr>
                                  <td>{{ $item->title }}</td>
                                  <td>{{ $item->user->name }}</td>
+                                 <td>{{ $item->created_at->format('Y-m-d') }}</td>
 
                                  <td>
                                     <a href="{{ route('consloution.edit', $item->id) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
