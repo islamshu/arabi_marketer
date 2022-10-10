@@ -19,6 +19,7 @@ use Carbon\CarbonImmutable;
 use DateInterval;
 use DatePeriod;
 use DateTime;
+use Validator;
 
 class BlogController extends BaseController
 {
@@ -78,7 +79,14 @@ class BlogController extends BaseController
 
     public function store(Request $request)
     {
-
+        $validation = Validator::make($request->all(), [
+            'title'=>'required',
+            'description' => 'required',
+            'image'=>'required'
+        ]);
+        if ($validation->fails()) {
+            return $this->sendError($validation->messages()->all());
+        }
         $service = new Blog();
         $service->title = ['ar' => $request->title, 'en' => $request->title];
         $service->description = ['ar' => $request->description, 'en' => $request->description];
