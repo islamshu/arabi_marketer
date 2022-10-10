@@ -39,7 +39,7 @@ class UserController extends BaseController
         $user->name = $request->name;
         $user->email = $request->email;
         $user->type = 'user';
-        $user->image = 'uploads/users/defult_user.png';
+        $user->image = 'users/defult_user.png';
         $user->password =  Hash::make($request->password);
         $user->save();
         $userRes =new  UserNotAuthResource($user);
