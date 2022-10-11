@@ -101,7 +101,7 @@ Route::group(['middleware' => 'is_login'], function () {
 
 //start consultation
 Route::get('/consultation_category', [ConsultationController::class, 'consultation_category']);
-Route::get('/consultation_keyword', [ConsultationController::class, 'consultation_keyword']);
+Route::get('/consultation_keywords', [ConsultationController::class, 'consultation_keyword']);
 Route::get('/consultation_places', [ConsultationController::class, 'places']);
 Route::get('/consultation_payments', [ConsultationController::class, 'payments']);
 
