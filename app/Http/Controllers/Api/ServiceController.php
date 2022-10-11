@@ -80,7 +80,7 @@ class ServiceController extends BaseController
                 }
                 $service->images = json_encode($image_array);
                 $service->save();
-                $specialties = explode()
+
                 foreach ($request->specialties as $specialty) {
                     $spe = new ServiceSpecialy();
                     $spe->service_id = $service->id;
