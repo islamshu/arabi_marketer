@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\GeneralController;
 use App\Http\Controllers\Api\PodcastController;
 use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\VideoController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
@@ -79,10 +80,18 @@ Route::get('/podcast_category', [PodcastController::class, 'podcast_category']);
 Route::get('/podcast_keywords', [PodcastController::class, 'podcast_keyword']);
 Route::get('/get_all_podcasts', [PodcastController::class, 'get_all']);
 Route::get('/single_podcast/{id}', [PodcastController::class, 'single'])->name('single_podcast');
-
 Route::post('/add_podcast', [PodcastController::class, 'store']);
 
 //end podcasts
+
+
+//start Video
+Route::get('/video_category', [VideoController::class, 'video_category']);
+Route::get('/video_keywords', [VideoController::class, 'video_keyword']);
+Route::get('/get_all_videos', [VideoController::class, 'get_all']);
+Route::get('/single_video/{id}', [VideoController::class, 'single'])->name('single_video');
+
+
 
 //start general data
 Route::get('/get_all_countires', [GeneralController::class, 'get_all_countires']);
