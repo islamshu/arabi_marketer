@@ -100,9 +100,8 @@ class BlogController extends BaseController
         $service->user_id = 3;
         $service->save();
         $category = json_decode($request->category);
-        dd($category);
         // $categorys = explode(',', $request->keywords);
-        foreach ($request->category as $category) {
+        foreach ($category as $category) {
             $cat = new BlogCategory();
             $cat->blog_id = $service->id;
             $cat->category_id = $category;
