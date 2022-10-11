@@ -10,7 +10,9 @@ use App\Models\Payment;
 use App\Models\Placetype;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
+use App\Http\Resources\ConsultingResource;
 use App\Http\Resources\PaymentResource;
+use App\Models\Consulting;
 
 class ConsultationController extends BaseController
 {
@@ -33,6 +35,12 @@ class ConsultationController extends BaseController
         $category = Payment::orderBy('id', 'asc')->get();
         $userRes = PaymentResource::collection($category);
         return $this->sendResponse($userRes, 'جميع طرق الدفع المتاحة ');
+    }
+    public function all_consultation(){
+        $cons = Consulting::orderby('id','desc')->get();
+        $res = ConsultingResource::collection($cons)->response()->getData(true);
+        return $this->sendResponse($res, 'جميع الاستشارات');
+
     }
 
 }

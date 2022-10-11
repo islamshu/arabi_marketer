@@ -104,7 +104,7 @@ Route::get('/consultation_category', [ConsultationController::class, 'consultati
 Route::get('/consultation_keywords', [ConsultationController::class, 'consultation_keyword']);
 Route::get('/consultation_places', [ConsultationController::class, 'places']);
 Route::get('/consultation_payments', [ConsultationController::class, 'payments']);
-
+Route::get('/get_all_consultation', [ConsultationController::class, 'all_consultation']);
 
 
 //start general data
