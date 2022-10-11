@@ -93,6 +93,12 @@ class BlogController extends BaseController
         return $this->sendResponse($res, 'جميع المقالات');
 
     }
+    public function related_blogs($id){
+        $blogs =   Blog::where('id','!=',$id)->orderby('id','desc')->take(5)->get();
+        $res= BlogResource::collection($blogs);
+        return $this->sendResponse($res, 'جميع المقالات');
+
+    }
     public function single($id){
         $blog = Blog::find($id);
         $res = new BlogResource($blog);
