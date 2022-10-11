@@ -16,13 +16,13 @@ class VideoController extends Controller
     public function video_category(){
         $category = Category::ofType('video')->orderBy('id', 'asc')->get();
         $userRes =KeywordResource::collection($category);
-        return $this->sendResponse($userRes,'جميع التصنيفات الخاصة بالخدمات');
+        return $this->sendResponse($userRes,'جميع التصنيفات الخاصة بالفيديوهات');
 
     }
     public function video_keyword(){
         $category = KeyWord::ofType('video')->orderBy('id', 'asc')->get();
         $userRes =CategoryResource::collection($category);
-        return $this->sendResponse($userRes,'جميع الكلمات المفتاحية الخاصة بالخدمات');
+        return $this->sendResponse($userRes,'جميع الكلمات المفتاحية الخاصة بالفيديوهات');
     }
     public function single($id){
         $service = Video::find($id);
