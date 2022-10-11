@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use App\Models\Blog;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class BlogResource extends JsonResource
+class RelatedBlogResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -24,13 +24,12 @@ class BlogResource extends JsonResource
             'keywords'=>$this->get_keywords($this),
             'image'=>asset('public/uploads/'.$this->image),
             'url'=>route('single_blog',$this->id),
-            'related_blog' =>$this->get_related($this),
             
         ];
     }
     function get_related($data){
       $blogs =   Blog::where('id','!=',$this->id)->orderby('id','desc')->take(5)->get();
-      return RelatedBlogResource::collection($blogs);
+      return 'd';
     }
     function get_category($data){
         $category = $data->category;
