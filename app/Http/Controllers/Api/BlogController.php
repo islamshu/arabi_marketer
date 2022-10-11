@@ -78,9 +78,9 @@ class BlogController extends BaseController
         $title = $request->title;
         $query = Blog::query();
         $query->when(request('title') != null, function ($q) use ($title) {
-            return $q->where('title','like',$title);
+            return $q->where('title','like','%'.$title.'%');
         });
-        $blogs = $query->paginate(6);
+        $blogs = $query->orderby('id','desc')->paginate(6);
 
         $res = BlogResource::collection($blogs)->response()->getData(true);
         return $this->sendResponse($res, 'جميع المقالات');
