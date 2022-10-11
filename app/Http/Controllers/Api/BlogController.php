@@ -99,6 +99,7 @@ class BlogController extends BaseController
         $service->image = $request->image->store('blog');
         $service->user_id = 3;
         $service->save();
+        return $request->all();
         foreach ($request->category as $category) {
             $cat = new BlogCategory();
             $cat->blog_id = $service->id;
