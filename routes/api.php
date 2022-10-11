@@ -57,6 +57,8 @@ Route::get('/blog_category', [BlogController::class, 'blog_category']);
 Route::get('/blog_keyword', [BlogController::class, 'blog_keyword']);
 Route::post('/add_blog', [BlogController::class, 'store']);
 Route::get('/get_all_blogs', [BlogController::class, 'get_all']);
+Route::get('/single_blog/{id}', [BlogController::class, 'single']);
+
 Route::get('/get_week', [BlogController::class, 'get_week']);
 
 //end blog 

@@ -74,7 +74,11 @@ class BlogController extends BaseController
         }
         return($dates);
     }
-
+    public function single($id){
+        $blog = Blog::find($id);
+        $res = new BlogResource($blog);
+        return $this->sendResponse($res,'تم أرجاع المقال بنجاح');
+    }
 
 
     public function store(Request $request)
