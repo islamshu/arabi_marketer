@@ -89,7 +89,7 @@ Route::post('/add_podcast', [PodcastController::class, 'store']);
 Route::get('/video_category', [VideoController::class, 'video_category']);
 Route::get('/video_keywords', [VideoController::class, 'video_keyword']);
 Route::get('/get_all_videos', [VideoController::class, 'get_all']);
-Route::get('/add_video', [VideoController::class, 'store']);
+Route::post('/add_video', [VideoController::class, 'store']);
 Route::get('/single_video/{id}', [VideoController::class, 'single'])->name('single_video');
 
 
