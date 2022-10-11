@@ -80,7 +80,7 @@ class BlogController extends BaseController
         $query->when($request->title != null, function ($q) use ($title) {
             return $q->where('title','like','%'.$title.'%');
         });
-        $query->where($request->category_id !=null, function ($q) use ($request) {
+        $query->when($request->category_id !=null, function ($q) use ($request) {
             return $q->with(['category' => function ($query) use ($request) {
                 $query->where('category_id', $request->category_id);
             }]);
