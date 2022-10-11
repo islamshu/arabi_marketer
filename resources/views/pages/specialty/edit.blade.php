@@ -11,7 +11,7 @@
             <input type="file" id="imageedit" name="icon" class="form-control image">
         </div>
         <div class="form-group">
-            <img src="{{ asset('uploads/' . $specialty->image) }}" style="width: 100px"
+            <img src="{{ asset('public/uploads/' . $specialty->image) }}" style="width: 100px"
                 class="img-thumbnail image-preview" alt="">
         </div>
         <div class="row">

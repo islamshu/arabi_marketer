@@ -11,7 +11,7 @@
             <input type="file" id="imageedit"  name="flag" class="form-control image">
         </div>
         <div class="form-group">
-            <img src="{{ asset('uploads/' . $country->flag) }}" style="width: 100px" class="img-thumbnail image-preview"
+            <img src="{{ asset('public/uploads/' . $country->flag) }}" style="width: 100px" class="img-thumbnail image-preview"
                 alt="">
         </div>
         <div class="row">

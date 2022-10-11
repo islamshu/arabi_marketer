@@ -117,7 +117,7 @@
                         </div>
                         @foreach (json_decode($service->images) as $item)
                         <div class="form-group">
-                            <img src="{{ asset('uploads/'.$item) }}" style="width: 100px"
+                            <img src="{{ asset('public/uploads/'.$item) }}" style="width: 100px"
                                 class="img-thumbnail image-preview" alt="">
                         </div>
                         @endforeach

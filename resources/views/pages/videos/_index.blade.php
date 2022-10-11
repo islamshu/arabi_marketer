@@ -14,7 +14,7 @@
         <tbody>
             @foreach ($videos as $item)
             <tr>
-                <td><img src="{{ asset('uploads/'.$item->image) }}" width="80" height="50" alt=""></td>
+                <td><img src="{{ asset('public/uploads/'.$item->image) }}" width="80" height="50" alt=""></td>
 
              <td>{{ $item->title }}</td>
              <th><a href="{{ $item->url }}" target="_blacnk"><i class="fa fa-eye"></i></a></th>

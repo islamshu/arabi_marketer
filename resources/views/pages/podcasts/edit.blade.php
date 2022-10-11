@@ -68,7 +68,7 @@
             
                         </div>
                         <div class="form-group">
-                            <img src="{{ asset('uploads/'.$podcast->image) }}" style="width: 100px"
+                            <img src="{{ asset('public/uploads/'.$podcast->image) }}" style="width: 100px"
                                 class="img-thumbnail image-preview" alt="">
                         </div>
             

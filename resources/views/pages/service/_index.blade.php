@@ -12,7 +12,7 @@
         <tbody>
             @foreach ($services as $item)
             <tr>
-             <td><img src="{{ asset('uploads/'.$item->image) }}" width="50" height="50" alt=""></td>
+             <td><img src="{{ asset('public/uploads/'.$item->image) }}" width="50" height="50" alt=""></td>
              <td>{{ $item->title }}</td>
              <td>{{ $item->title }}</td>
              <td>{{ date('Y-m-d', strtotime($item->created_at)); }}</td>

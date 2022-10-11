@@ -11,7 +11,7 @@
         <input type="file" id="imagestore_edit"  name="icon" class="form-control image">
     </div>
     <div class="form-group">
-        <img src="{{ asset('uploads/'.$payment->logo) }}" style="width: 100px"
+        <img src="{{ asset('public/uploads/'.$payment->logo) }}" style="width: 100px"
             class="img-thumbnail image-preview" alt="">
     </div>
     <div class="row">
