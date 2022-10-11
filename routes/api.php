@@ -42,6 +42,8 @@ Route::post('/verify_token', [AuthenticatedSessionController::class, 'apiVerifyT
 Route::get('/users', [SampleDataController::class, 'getUsers']);
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
+Route::group(['middleware' => 'is_login'], function () {
+
 Route::post('/edit_profile', [UserController::class, 'edit_profile']);
 Route::post('/edit_profile_step_2', [UserController::class, 'edit_profile_step_2']);
 Route::post('/edit_profile_step_3', [UserController::class, 'edit_profile_step_3']);
@@ -49,6 +51,7 @@ Route::get('/profile', [UserController::class, 'profile']);
 Route::get('/my_blogs', [UserController::class, 'get_blog']);
 Route::get('/my_services', [UserController::class, 'get_service']);
 Route::get('/my_podcasts', [UserController::class, 'get_podcasts']);
+});
 Route::get('/type_of_user', [UserController::class, 'type_of_user']);
 //end profile
 
@@ -56,6 +59,7 @@ Route::get('/type_of_user', [UserController::class, 'type_of_user']);
 //start blog
 Route::get('/blog_category', [BlogController::class, 'blog_category']);
 Route::get('/blog_keyword', [BlogController::class, 'blog_keyword']);
+
 Route::post('/add_blog', [BlogController::class, 'store']);
 Route::get('/get_all_blogs', [BlogController::class, 'get_all']);
 Route::get('/single_blog/{id}', [BlogController::class, 'single'])->name('single_blog');
@@ -68,7 +72,10 @@ Route::get('/get_week', [BlogController::class, 'get_week']);
 Route::get('/service_category', [ServiceController::class, 'service_category']);
 Route::get('/service_keyword', [ServiceController::class, 'service_keyword']);
 Route::get('/get_specialty', [ServiceController::class, 'get_specialty']);
+Route::group(['middleware' => 'is_login'], function () {
+
 Route::post('/add_service', [ServiceController::class, 'store']);
+});
 Route::get('/single_service/{id}', [ServiceController::class, 'single'])->name('single_service');
 
 Route::get('/get_all_service', [ServiceController::class, 'get_all']);
@@ -80,7 +87,9 @@ Route::get('/podcast_category', [PodcastController::class, 'podcast_category']);
 Route::get('/podcast_keywords', [PodcastController::class, 'podcast_keyword']);
 Route::get('/get_all_podcasts', [PodcastController::class, 'get_all']);
 Route::get('/single_podcast/{id}', [PodcastController::class, 'single'])->name('single_podcast');
+Route::group(['middleware' => 'is_login'], function () {
 Route::post('/add_podcast', [PodcastController::class, 'store']);
+});
 
 //end podcasts
 
@@ -89,7 +98,9 @@ Route::post('/add_podcast', [PodcastController::class, 'store']);
 Route::get('/video_category', [VideoController::class, 'video_category']);
 Route::get('/video_keywords', [VideoController::class, 'video_keyword']);
 Route::get('/get_all_videos', [VideoController::class, 'get_all']);
+Route::group(['middleware' => 'is_login'], function () {
 Route::post('/add_video', [VideoController::class, 'store']);
+});
 Route::get('/single_video/{id}', [VideoController::class, 'single'])->name('single_video');
 
 
