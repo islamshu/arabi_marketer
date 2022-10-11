@@ -15,7 +15,7 @@ use App\Models\VideoCateogry;
 use App\Models\VideoKeyword;
 use Youtube;
 
-class VideoController extends Controller
+class VideoController extends BaseController
 {
     public function video_category(){
         $category = Category::ofType('video')->orderBy('id', 'asc')->get();
