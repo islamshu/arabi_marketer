@@ -27,6 +27,7 @@ class ServiceResource extends JsonResource
             'keywords'=>$this->get_keywords($this),
             'specialties'=>$this->get_specialties($this),
             'files'=>$this->get_files($this),
+            'url_to_this_service'=>route('single_service',$this->id),
 
         ];
     }

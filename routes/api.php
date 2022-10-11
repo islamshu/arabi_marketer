@@ -68,6 +68,8 @@ Route::get('/service_category', [ServiceController::class, 'service_category']);
 Route::get('/service_keyword', [ServiceController::class, 'service_keyword']);
 Route::get('/get_specialty', [ServiceController::class, 'get_specialty']);
 Route::post('/add_service', [ServiceController::class, 'store']);
+Route::get('/single_service/{id}', [ServiceController::class, 'single'])->name('single_service');
+
 Route::get('/get_all_service', [ServiceController::class, 'get_all']);
 
 //end service 

@@ -40,6 +40,11 @@ class ServiceController extends BaseController
        $res = ServiceResource::collection($service)->response()->getData(true);
         return $this->sendResponse($res,'جميع الخدمات  ');
     }
+    public function single($id){
+        $service = Service::find($id);
+        $ser = new ServiceResource($service);
+        return $this->sendResponse($ser,' تم ارجاع الخدمة بنجاح');
+    }
     public function store(Request $request){
         $validation = Validator::make($request->all(), [
             'title'=>'required',
