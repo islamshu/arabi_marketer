@@ -97,9 +97,11 @@ class BlogController extends BaseController
         $category_id =[];
         $blog = Blog::find($id);
         foreach($blog->category as $cat){
-            dd($cat);
+            array_push($category_id,$cat->id);
         }
-        $blogs =   Blog::where('id','!=',$id)->orderby('id','desc')->take(5)->get();
+        $blogs =   Blog::with(['category' => function ($query) use ($category_id) {
+            $query->whereIn('category_id', $category_id);
+        }])->where('id','!=',$id)->orderby('id','desc')->take(5)->get();
         $res= BlogResource::collection($blogs);
         return $this->sendResponse($res, 'جميع المقالات');
 
