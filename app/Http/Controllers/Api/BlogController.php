@@ -74,6 +74,18 @@ class BlogController extends BaseController
         }
         return($dates);
     }
+    public function serach(Request $request){
+        $title = $request->title;
+        $query = Blog::query();
+        $query->when(request('title') != null, function ($q) use ($title) {
+            return $q->where('title','like',$title);
+        });
+        $blogs = $query->paginate(6);
+
+        $res = BlogResource::collection($blogs)->response()->getData(true);
+        return $this->sendResponse($res, 'جميع المقالات');
+
+    }
     public function single($id){
         $blog = Blog::find($id);
         $res = new BlogResource($blog);

@@ -27,7 +27,6 @@ class ConsultingResource extends JsonResource
             'place'=>new KeywordResource($this->place),
             'user_info'=> new UserMainInfoResource($this->user),
             'type'=>new KeywordResource($this->type)
-
         ];
     }
 }
