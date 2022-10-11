@@ -10,6 +10,7 @@ use App\Models\Payment;
 use App\Models\Placetype;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
+use App\Http\Resources\PaymentResource;
 
 class ConsultationController extends BaseController
 {
@@ -30,7 +31,7 @@ class ConsultationController extends BaseController
     }
     public function payments(){
         $category = Payment::orderBy('id', 'asc')->get();
-        $userRes = KeywordResource::collection($category);
+        $userRes = PaymentResource::collection($category);
         return $this->sendResponse($userRes, 'جميع طرق الدفع المتاحة ');
     }
 
