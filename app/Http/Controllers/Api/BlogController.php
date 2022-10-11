@@ -99,7 +99,7 @@ class BlogController extends BaseController
         foreach($blog->category as $cat){
             array_push($category_id,$cat->id);
         }
-        $blogs =   Blog::with(['category' => function ($query) use ($category_id) {
+        $blogs =   Blog::has('category')->with(['category' => function ($query) use ($category_id) {
             $query->whereIn('category_id', $category_id);
         }])->where('id','!=',$id)->orderby('id','desc')->take(5)->get();
         $res= BlogResource::collection($blogs);
