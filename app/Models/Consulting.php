@@ -26,5 +26,9 @@ class Consulting extends Model
     {
         return $this->belongsTo(Placetype::class);
     }
+    public function type()
+    {
+        return $this->belongsTo(Category::class);
+    }
 
 }
