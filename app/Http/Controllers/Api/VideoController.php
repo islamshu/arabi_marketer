@@ -10,8 +10,10 @@ use App\Models\Category;
 use App\Models\KeyWord;
 use App\Models\Video;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Api\BaseController;
 
-class VideoController extends Controller
+
+class VideoController extends BaseController
 {
     public function video_category(){
         $category = Category::ofType('video')->orderBy('id', 'asc')->get();
