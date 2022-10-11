@@ -23,7 +23,8 @@ class BlogResource extends JsonResource
             'categories'=>$this->get_category($this),
             'keywords'=>$this->get_keywords($this),
             'image'=>asset('public/uploads/'.$this->image),
-            'url'=>route('single_blog',$this->id)
+            'url'=>route('single_blog',$this->id),
+            'related_blog' =>BlogResource::collection(Blog::where('id','!=',$this->id)->orderby('id','desc')->take(5)->get())
             
         ];
     }
