@@ -16,4 +16,13 @@ class Video extends Model
     {
         return $this->belongsToMany(KeyWord::class, 'video_keywords','video_id', 'keyword_id');
     }
+    /**
+     * Get the user that owns the Video
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
