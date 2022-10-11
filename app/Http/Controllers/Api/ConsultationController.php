@@ -9,8 +9,9 @@ use App\Models\KeyWord;
 use App\Models\Payment;
 use App\Models\Placetype;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Api\BaseController;
 
-class ConsultationController extends Controller
+class ConsultationController extends BaseController
 {
     public function consultation_category(){
         $category = Category::ofType('consultation')->orderBy('id', 'asc')->get();
