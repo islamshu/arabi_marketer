@@ -68,7 +68,7 @@ class VideoController extends BaseController
                 }
                 $vi->title = $request->title;
                 $vi->description = $request->description;
-                $vi->user_id =$request->user_id;
+                $vi->user_id =auth('api')->id();
                 $vi->image = $image;
                 $vi->type = $request->type_video;
 
