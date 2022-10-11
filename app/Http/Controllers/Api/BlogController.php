@@ -94,6 +94,11 @@ class BlogController extends BaseController
 
     }
     public function related_blogs($id){
+        $category_id =[];
+        $blog = Blog::find($id);
+        foreach($blog->category as $cat){
+            dd($cat);
+        }
         $blogs =   Blog::where('id','!=',$id)->orderby('id','desc')->take(5)->get();
         $res= BlogResource::collection($blogs);
         return $this->sendResponse($res, 'جميع المقالات');
