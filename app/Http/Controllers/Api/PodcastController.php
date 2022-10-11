@@ -33,6 +33,11 @@ class PodcastController extends BaseController
        $res = PodcastResource::collection($service)->response()->getData(true);
         return $this->sendResponse($res,'جميع البودكاست  ');
     }
+    public function single($id){
+        $service = Podacst::find($id);
+        $ser = new PodcastResource($service);
+        return $this->sendResponse($ser,' تم ارجاع البودكاست بنجاح');
+    }
     public function store(Request $request){
         // dd($request->image);
         $validation = Validator::make($request->all(), [

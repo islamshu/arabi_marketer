@@ -26,6 +26,7 @@ class PodcastResource extends JsonResource
             'google_SSR'=>$this->url,
             'Apple_SSR'=>$this->apple_url,
             'SoundCloud_SSR'=>$this->sound_url,
+            'url_for_this_podcast'=>route('single_podcast',$this->id)
         ];
     }
     function get_category($data){
