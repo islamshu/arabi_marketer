@@ -17,7 +17,7 @@ class PaymentResource extends JsonResource
         return [
             'id'=>$this->id,
             'title'=>$this->title,
-            'image'=>$this->logo
+            'image'=>asset('public/uploads/'.$this->logo)
         ];
     }
 }
