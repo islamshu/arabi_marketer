@@ -70,7 +70,7 @@ class VideoController extends BaseController
                 $vi->description = $request->description;
                 $vi->user_id =auth('api')->id();
                 $vi->image = $image;
-                $vi->type = $request->type_video;
+                $vi->type = $request->type;
 
                 $vi->source = 'test';
                 $vi->save();
