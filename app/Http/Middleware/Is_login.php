@@ -19,15 +19,9 @@ class Is_login
         if (auth('api')->check()) {
             return $next($request);
         }
-        $response['status']['status'] = false;
-        $response['status']['HTTP_code'] = 401;
-        $response['status']['HTTP_response'] = 'Unauthorized';
-        if(request()->header('Lang') == null || request()->header('Lang') == 'en'){
-        $response['status']['message'] = "Unauthorized or Signed in from another device";
-        }else{
-            $response['status']['message'] = "تم التسجيل من جهاز آخر او من جهاز غير مصرح به";
-
-        }
+        $response = ['success' => false, 'message' => 'you need to login','code'=>400];
+        if (!empty($errorMessages))
+            $response['data'] = $errorMessages;
         return response()->json($response , 200);
       }
     
