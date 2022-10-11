@@ -19,7 +19,6 @@ class ConsultationController extends BaseController
         return $this->sendResponse($userRes, 'جميع الكلمات المفتاحية الخاصة بالاستشارات');
     }
     public function consultation_keyword(){
-        dd('r');
         $category = KeyWord::ofType('consultation')->orderBy('id', 'asc')->get();
         $userRes = KeywordResource::collection($category);
         return $this->sendResponse($userRes, 'جميع الكلمات المفتاحية الخاصة بالاستشارات');
