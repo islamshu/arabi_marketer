@@ -37,7 +37,7 @@ class BlogController extends BaseController
     }
     public function get_all()
     {
-        $blogs = Blog::orderBy('id', 'desc')->paginate(5);
+        $blogs = Blog::orderBy('id', 'desc')->paginate(6);
         $res = BlogResource::collection($blogs)->response()->getData(true);
         return $this->sendResponse($res, 'جميع المقالات');
         // return ['success'=>true,'blogs'=>BlogResource::collection($blogs)->response()->getData(true),'message'=>'جميع المقالات'];
