@@ -22,7 +22,8 @@ class BlogResource extends JsonResource
             'user_info'=>new UserMainInfoResource($this->user),
             'categories'=>$this->get_category($this),
             'keywords'=>$this->get_keywords($this),
-            'image'=>asset('uploads/'.$this->image),
+            'image'=>asset('public/uploads/'.$this->image),
+            
         ];
     }
     function get_category($data){
