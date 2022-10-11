@@ -29,7 +29,7 @@ class BlogResource extends JsonResource
         ];
     }
     function get_related($data){
-      $blogs =   Blog::where('id','!=',$this->id)->orderby('id','desc')->take(5)->get();
+      $blogs =   Blog::where('id','!=',$this->id)->orderby('id','desc')->take(1)->get();
       return BlogResource::collection($blogs);
     }
     function get_category($data){
