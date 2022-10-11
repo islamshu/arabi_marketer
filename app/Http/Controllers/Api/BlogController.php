@@ -78,7 +78,6 @@ class BlogController extends BaseController
         $title = $request->title;
         $query = Blog::query();
         $query->when($request->title != null, function ($q) use ($title) {
-            dd($title);
             return $q->where('title','like','%'.$title.'%');
         });
         $blogs = $query->orderby('id','desc')->paginate(6);
