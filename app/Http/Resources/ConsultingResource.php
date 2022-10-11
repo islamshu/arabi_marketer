@@ -20,7 +20,7 @@ class ConsultingResource extends JsonResource
             'description'=>$this->description,
             'color'=>$this->color,
             'hour'=>$this->hour,
-            'minutes'=>$this->minute,
+            'minutes'=>$this->min,
             'price'=>$this->price,
             'url'=>$this->url,
             'payment'=>new PaymentResource($this->payment),
