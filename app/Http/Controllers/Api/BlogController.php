@@ -77,7 +77,8 @@ class BlogController extends BaseController
     public function serach(Request $request){
         $title = $request->title;
         $query = Blog::query();
-        $query->when(request('title') != null, function ($q) use ($title) {
+        $query->when($request->title != null, function ($q) use ($title) {
+            dd($ti);
             return $q->where('title','like','%'.$title.'%');
         });
         $blogs = $query->orderby('id','desc')->paginate(6);
