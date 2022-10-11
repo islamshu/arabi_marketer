@@ -81,7 +81,7 @@ class BlogController extends BaseController
             return $q->where('title','like','%'.$title.'%');
         });
         $query->has('category')->with(['category' => function ($query) use ($request) {
-            $query->select('category_id', $request->category_id);
+            $query->where('category_id', $request->category_id);
         }]);
         $blogs = $query->orderby('id','desc')->paginate(6);
 
