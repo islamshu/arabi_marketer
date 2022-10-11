@@ -22,7 +22,7 @@ class UserMainInfoResource extends JsonResource
         'email'=>$this->email,
         'first_name'=>$this->first_name,
         'last_name'=>$this->last_name,
-        'image'=>$this->image == null ? asset('uploads/users/defult_user.png') : asset('uploads/'.$this->image)
+        'image'=>$this->image == null ? asset('public/uploads/users/defult_user.png') : asset('public/uploads/'.$this->image)
        ];
     }
 }
