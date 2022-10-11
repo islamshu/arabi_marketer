@@ -80,9 +80,13 @@ class BlogController extends BaseController
         $query->when($request->title != null, function ($q) use ($title) {
             return $q->where('title','like','%'.$title.'%');
         });
-        $query->has('category')->with(['category' => function ($query) use ($request) {
-            $query->where('category_id', $request->category_id);
-        }]);
+        $query->where($request->category_id !=null, function ($q) use ($request) {
+            return $q->has('category')->with(['category' => function ($query) use ($request) {
+                $query->where('category_id', $request->category_id);
+            }]);
+        });
+
+       
         $blogs = $query->orderby('id','desc')->paginate(6);
 
         $res = BlogResource::collection($blogs)->response()->getData(true);
