@@ -30,7 +30,7 @@ class BlogResource extends JsonResource
     }
     function get_related($data){
       $blogs =   Blog::where('id','!=',$this->id)->orderby('id','desc')->take(5)->get();
-      return $this->toArray($blogs);
+      return 'd';
     }
     function get_category($data){
         $category = $data->category;
