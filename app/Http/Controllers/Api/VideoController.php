@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 use App\Models\VideoCateogry;
 use App\Models\VideoKeyword;
+use Validator;
 use Youtube;
 
 class VideoController extends BaseController
@@ -40,13 +41,26 @@ class VideoController extends BaseController
     }
     public function store(Request $request)
     {
+        $validation = Validator::make($request->all(), [
+            'title'=>'required',
+            'description' => 'required',
+            'thum_image'=>'required',
+            'types'=>'required',
+            'keywords'=>'required', 
+            'type'=>'required',
+            'url'=>  $request->type == 'url'?'required' : '' ,
+            'video'=>  $request->type == 'video'?'required' : '' ,
+        ]);
+        if ($validation->fails()) {
+            return $this->sendError($validation->messages()->all());
+        }
                 $vi = new Video();
-                $image = $request->image->store('video');
-                if($request->type_video == 'file'){
+                $image = $request->thum_image->store('video');
+                if($request->type == 'file'){
                     $video = Youtube::upload($request->video->getPathName(), [
                         'title'       => $request->title,
                         'description' => $request->description,
-                    ])->withThumbnail($request->image->getPathName());
+                    ])->withThumbnail($request->thum_image->getPathName());
                     $vi->url = "https://www.youtube.com/watch?v=" . $video->getVideoId();
 
                 }else{
@@ -90,6 +104,7 @@ class VideoController extends BaseController
                     }
                 }
    
-        return redirect()->back();
-    }
+                $res = new VideoResource($vi);
+                return $this->sendResponse($res,'addedd succeffuly');
+            }
 }
