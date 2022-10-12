@@ -18,4 +18,12 @@ class ProfileController extends Controller
         $users = User::where('type','marketer')->get();
         return view('pages.marketers.index')->with('users',$users);
     }
+    public function updateStatus(Request $request)
+{
+    $user = User::findOrFail($request->user_id);
+    $user->status = $request->status;
+    $user->save();
+
+    return response()->json(['message' => 'User status updated successfully.']);
+}
 }

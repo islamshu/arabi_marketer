@@ -10,7 +10,7 @@
                 role="tablist">
                 <!--begin:::Tab item-->
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link text-active-primary pb-5 " href="/" >
+                    <a class="nav-link text-active-primary pb-5 " href="/">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen001.svg-->
                         <span class="svg-icon svg-icon-2 me-2">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -25,13 +25,18 @@
 
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link text-active-primary pb-5 active" >
+                    <a class="nav-link text-active-primary pb-5 active">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen001.svg-->
                         <span class="svg-icon svg-icon-2 me-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path opacity="0.3" d="M21 22H14C13.4 22 13 21.6 13 21V3C13 2.4 13.4 2 14 2H21C21.6 2 22 2.4 22 3V21C22 21.6 21.6 22 21 22Z" fill="currentColor"></path>
-                                <path d="M10 22H3C2.4 22 2 21.6 2 21V3C2 2.4 2.4 2 3 2H10C10.6 2 11 2.4 11 3V21C11 21.6 10.6 22 10 22Z" fill="currentColor"></path>
-                                </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none">
+                                <path opacity="0.3"
+                                    d="M21 22H14C13.4 22 13 21.6 13 21V3C13 2.4 13.4 2 14 2H21C21.6 2 22 2.4 22 3V21C22 21.6 21.6 22 21 22Z"
+                                    fill="currentColor"></path>
+                                <path
+                                    d="M10 22H3C2.4 22 2 21.6 2 21V3C2 2.4 2.4 2 3 2H10C10.6 2 11 2.4 11 3V21C11 21.6 10.6 22 10 22Z"
+                                    fill="currentColor"></path>
+                            </svg>
                         </span>
                         <!--end::Svg Icon-->المسوقين
                     </a>
@@ -87,26 +92,30 @@
                 </thead>
                 <tbody>
                     @foreach ($users as $item)
-                    <tr>
-                     <td><img src="{{ asset('public/uploads/'.$item->image) }}" width="50" height="50" alt=""></td>
-                     <td>{{ $item->name }}</td>
-                     <td>{{ $item->email }}</td>
-                     <td>{{ $item->status }}</td>
-                     <td>{{ date('Y-m-d', strtotime($item->created_at)); }}</td>
-                     <td>
-                        <a href="{{ route('services.edit', $item->id) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
-                        <form style="display: inline"
-                            action="{{ route('services.destroy', $item->id) }}"
-                            method="post">
-                            @method('delete') @csrf
-                            <button type="submit" class="btn btn-danger delete-confirm"><i
-                                    class="fa fa-trash"></i></button>
-                        </form>
-                    </td>
-                    </tr>
-                        
+                        <tr>
+                            <td><img src="{{ asset('public/uploads/' . $item->image) }}" width="50" height="50"
+                                    alt=""></td>
+                            <td>{{ $item->name }}</td>
+                            <td>{{ $item->email }}</td>
+                            <td>
+                                <input type="checkbox" data-id="{{ $user->id }}" name="status" class="js-switch"
+                                    {{ $user->status == 1 ? 'checked' : '' }}>
+
+                            </td>
+                            <td>{{ date('Y-m-d', strtotime($item->created_at)) }}</td>
+                            <td>
+                                <a href="{{ route('services.edit', $item->id) }}" class="btn btn-info"><i
+                                        class="fa fa-edit"></i></a>
+                                <form style="display: inline" action="{{ route('services.destroy', $item->id) }}"
+                                    method="post">
+                                    @method('delete') @csrf
+                                    <button type="submit" class="btn btn-danger delete-confirm"><i
+                                            class="fa fa-trash"></i></button>
+                                </form>
+                            </td>
+                        </tr>
                     @endforeach
-                </tfoot>
+                    </tfoot>
             </table>
             {{-- <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="kt_tab_pane_4" role="tabpanel">
@@ -122,7 +131,7 @@
             </div> --}}
             <!--end:::Tabs-->
             <!--begin:::Tab content-->
-            
+
             <!--end:::Tab content-->
         </div>
         <!--end::Card body-->
@@ -134,5 +143,21 @@
 
 
 @section('scripts')
-   
+<script>
+    $(document).ready(function(){
+    $('.js-switch').change(function () {
+        let status = $(this).prop('checked') === true ? 1 : 0;
+        let userId = $(this).data('id');
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: '{{ route('users.update.status') }}',
+            data: {'status': status, 'user_id': userId},
+            success: function (data) {
+                console.log(data.message);
+            }
+        });
+    });
+});
+</script>
 @endsection
