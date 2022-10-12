@@ -7,7 +7,7 @@ use App\Models\User;
 use Hash;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
-use App\Http\Livewire\Consulting;
+use App\Models\Consulting;
 use App\Http\Resources\BlogResource;
 use App\Http\Resources\CategoryResource;
 use App\Http\Resources\ConsultingResource;
