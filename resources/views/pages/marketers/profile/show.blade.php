@@ -35,6 +35,7 @@
                                 <a href="#" class="text-gray-800 text-hover-primary fs-2 fw-bolder me-1">{{ $user->name }}</a>
                                 <a href="#">
                                     <!--begin::Svg Icon | path: assets/media/icons/duotune/general/gen026.svg-->
+                                    @if($user->status == 1)
                                     <span class="svg-icon svg-icon-1 svg-icon-primary"><svg
                                             xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
                                             viewBox="0 0 24 24">
@@ -45,6 +46,7 @@
                                                 d="M14.8563 9.1903C15.0606 8.94984 15.3771 8.9385 15.6175 9.14289C15.858 9.34728 15.8229 9.66433 15.6185 9.9048L11.863 14.6558C11.6554 14.9001 11.2876 14.9258 11.048 14.7128L8.47656 12.4271C8.24068 12.2174 8.21944 11.8563 8.42911 11.6204C8.63877 11.3845 8.99996 11.3633 9.23583 11.5729L11.3706 13.4705L14.8563 9.1903Z"
                                                 fill="white"></path>
                                         </svg></span>
+                                        @endif
                                     <!--end::Svg Icon-->
                                 </a>
 
