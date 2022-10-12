@@ -1,7 +1,9 @@
 @extends('layout.main')
 <style>
-    .count{
-        background: red
+    .count {
+        background: black;
+        border-radius: 21px;
+        padding: 6px;
     }
 </style>
 <x-base-layout>
@@ -14,7 +16,7 @@
                 role="tablist">
                 <!--begin:::Tab item-->
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link text-active-primary pb-5 " href="/" >
+                    <a class="nav-link text-active-primary pb-5 " href="/">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen001.svg-->
                         <span class="svg-icon svg-icon-2 me-2">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -29,13 +31,18 @@
 
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link text-active-primary pb-5 active" >
+                    <a class="nav-link text-active-primary pb-5 active">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen001.svg-->
                         <span class="svg-icon svg-icon-2 me-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path opacity="0.3" d="M21 22H14C13.4 22 13 21.6 13 21V3C13 2.4 13.4 2 14 2H21C21.6 2 22 2.4 22 3V21C22 21.6 21.6 22 21 22Z" fill="currentColor"></path>
-                                <path d="M10 22H3C2.4 22 2 21.6 2 21V3C2 2.4 2.4 2 3 2H10C10.6 2 11 2.4 11 3V21C11 21.6 10.6 22 10 22Z" fill="currentColor"></path>
-                                </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none">
+                                <path opacity="0.3"
+                                    d="M21 22H14C13.4 22 13 21.6 13 21V3C13 2.4 13.4 2 14 2H21C21.6 2 22 2.4 22 3V21C22 21.6 21.6 22 21 22Z"
+                                    fill="currentColor"></path>
+                                <path
+                                    d="M10 22H3C2.4 22 2 21.6 2 21V3C2 2.4 2.4 2 3 2H10C10.6 2 11 2.4 11 3V21C11 21.6 10.6 22 10 22Z"
+                                    fill="currentColor"></path>
+                            </svg>
                         </span>
                         <!--end::Svg Icon-->{{ $user->name }}
                     </a>
@@ -66,24 +73,29 @@
 
             <ul class="nav nav-tabs nav-line-tabs nav-line-tabs-2x mb-5 fs-6">
                 <li class="nav-item">
-                    <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_4">الخدمات <span class="count">{{ $user->services->count() }}</span></a>
+                    <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_4">الخدمات <span
+                            class="count">{{ $user->services->count() }}</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_5">المقالات <span class="count">{{ $user->blogs->count() }}</span></a>
+                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_5">المقالات <span
+                            class="count">{{ $user->blogs->count() }}</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_6">الفيديوهات <span class="count">{{ $user->videos->count() }}</span></a>
+                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_6">الفيديوهات <span
+                            class="count">{{ $user->videos->count() }}</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_7">البودكاست <span class="count">{{ $user->podcasts->count() }}</span></a>
+                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_7">البودكاست <span
+                            class="count">{{ $user->podcasts->count() }}</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_8">الاستشارات<span class="count">{{ $user->consutiong->count() }}</span></a>
+                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_8">الاستشارات<span
+                            class="count">{{ $user->consutiong->count() }}</span></a>
                 </li>
-                
+
             </ul>
 
-            
+
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="kt_tab_pane_4" role="tabpanel">
                     @include('pages.marketers.profile.services')
@@ -101,15 +113,14 @@
                 <div class="tab-pane fade" id="kt_tab_pane_8" role="tabpanel">
                     @include('pages.marketers.profile.consutiong')
                 </div>
-              
+
             </div>
             <!--end:::Tabs-->
             <!--begin:::Tab content-->
-            
+
             <!--end:::Tab content-->
         </div>
         <!--end::Card body-->
     </div>
 
 </x-base-layout>
-
