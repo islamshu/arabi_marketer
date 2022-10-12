@@ -64,6 +64,9 @@ class ConsultationController extends BaseController
             'hour'=>'required',
             'mints'=>'required',
         ]);
+        if ($validation->fails()) {
+            return $this->sendError($validation->messages()->all());
+        }
         $con = Consulting::create([
             'title' => $request->title,
             'description' => $request->description,
