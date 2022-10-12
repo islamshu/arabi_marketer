@@ -24,6 +24,7 @@ class BlogResource extends JsonResource
             'keywords'=>$this->get_keywords($this),
             'image'=>asset('public/uploads/'.$this->image),
             'url'=>route('single_blog',$this->id),
+            'comments'=>CommentResourse::collection($this->comments)
             // 'related_blog' =>$this->get_related($this),
             
         ];

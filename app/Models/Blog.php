@@ -29,4 +29,13 @@ class Blog extends Model
     {
         return $this->belongsTo(User::class);
     }
+    /**
+     * Get all of the comments for the Blog
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
