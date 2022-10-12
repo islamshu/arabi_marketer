@@ -5,6 +5,7 @@
                 <th>الصورة </th>
 
                 <th>عنوان الفيديو</th>
+                <th>اضيف بواسطة</th>
                 <th>رابط على اليوتيوب</th>
                 <th>تاريخ الاضافة</th>
                 <th>الحالة</th>
@@ -17,6 +18,8 @@
                 <td><img src="{{ asset('public/uploads/'.$item->image) }}" width="80" height="50" alt=""></td>
 
              <td>{{ $item->title }}</td>
+             <th><a href="{{ route('marketer.show',$item->user->id) }}">{{ $item->user->name }}</a></th>
+
              <th><a href="{{ $item->url }}" target="_blacnk"><i class="fa fa-eye"></i></a></th>
              <td>{{ date('Y-m-d', strtotime($item->created_at)); }}</td>
              <td>

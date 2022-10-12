@@ -4,6 +4,7 @@
             <tr>
                 <th>صورة المقال</th>
                 <th>عنوان</th>
+                <th>اضيف بواسطة</th>
                 <th>العمليات</th>
             </tr>
         </thead>
@@ -12,6 +13,8 @@
             <tr>
              <td><img src="{{ asset('public/uploads/'.$item->image) }}" width="50" height="50" alt=""></td>
              <td>{{ $item->title }}</td>
+             <th><a href="{{ route('marketer.show',$item->user->id) }}">{{ $item->user->name }}</a></th>
+
             
              <td>
                 <a href="{{ route('blogs.edit', $item->id) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>

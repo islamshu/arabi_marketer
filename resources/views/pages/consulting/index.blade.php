@@ -62,7 +62,7 @@
                             <thead>
                                 <tr>
                                     <th>عنوان الاستشارة </th>
-                                    <th>اسم المستخدم</th>
+                                    <th>اضيف بواسطة </th>
                                     <th>تاريخ الاضافة </th>
 
                                     <th>العمليات</th>
@@ -72,7 +72,7 @@
                                 @foreach ($consls as $item)
                                 <tr>
                                  <td>{{ $item->title }}</td>
-                                 <td>{{ $item->user->name }}</td>
+                                 <th><a href="{{ route('marketer.show',$item->user->id) }}">{{ $item->user->name }}</a></th>
                                  <td>{{ $item->created_at->format('Y-m-d') }}</td>
 
                                  <td>
