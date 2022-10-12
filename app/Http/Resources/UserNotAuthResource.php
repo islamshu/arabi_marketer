@@ -28,12 +28,21 @@ class UserNotAuthResource extends JsonResource
             'country'=> new CountryResource(Country::find($this->country_id)),
             'city'=>new CityResource(City::find($this->city_id)),
             'type'=>$this->get_type($this),
+            'status'=>$this->status,
             'number_of_blogs'=>$this->blogs->count(),
             'number_of_services'=>$this->services->count(),
             'number_of_videos'=>$this->videos->count(),
             'number_of_podcasts'=>$this->podcasts->count(),
             'number_of_consutiong'=>$this->consutiong->count(),
+            'finance'=>$this->get_finance($this),
             'Social'=>SocialResource::collection($this->socials)
+        ];
+    }
+    function get_finance($data){
+        return [
+            'total'=>$data->total,
+            'available'=>$data->available,
+            'pending'=>$data->pending,
         ];
     }
     function get_type($data){
