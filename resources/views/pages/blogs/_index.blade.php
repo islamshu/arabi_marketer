@@ -15,7 +15,7 @@
              <td><img src="{{ asset('public/uploads/'.$item->image) }}" width="50" height="50" alt=""></td>
              <td>{{ $item->title }}</td>
              <th><a href="{{ route('marketer.show',$item->user->id) }}">{{ $item->user->name }}</a></th>
-             <th>{{ $item->comments->count() }}</th>
+             <th><a href="{{ route('show_comments',$item->id) }}">{{ $item->comments->count() }}</a> </th>
 
             
              <td>

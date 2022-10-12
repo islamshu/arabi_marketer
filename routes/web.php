@@ -166,6 +166,10 @@ Route::middleware('auth')->group(function () {
     Route::get('get_form_country',[CountryController::class, 'get_form_country'])->name('get_form_country');
     Route::resource('services',ServiceController::class);
     Route::resource('blogs',BlogController::class);
+    Route::get('show_comments/{id}',[BlogController::class,'show_comments'])->name('show_comments');
+    Route::post('update_comment_status/',[BlogController::class,'update_comment_status'])->name('comment.update.status');
+
+    
     Route::resource('podcasts',PodacstController::class);
     Route::resource('videos', VideoController::class);
     Route::resource('consloution', ConsultingController::class);

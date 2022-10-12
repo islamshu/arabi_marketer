@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Models\BlogKeyword;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\KeyWord;
 use DB;
 use Illuminate\Http\Request;
@@ -112,6 +113,17 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function show_comments($id){
+        $blog = Blog::find($id);
+        $comments= $blog->comments;
+        return view('pages.blogs.comments')->with('blog',$blog)->with('comments',$comments);
+    }
+    public function update_comment_status(Request $request){
+        $comment  = Comment::find($request->comment_id);
+        $comment->status = $request->status;
+        $comment->save();
+        return true;
+    }
     public function edit($id)
     {
         $blog = Blog::find($id);
