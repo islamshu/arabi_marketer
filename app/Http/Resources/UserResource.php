@@ -25,6 +25,11 @@ class UserResource extends JsonResource
         'image'=>asset('uploads/'.$this->image),
         'country'=> new CountryResource(Country::find($this->country_id)),
         'city'=>new CityResource(City::find($this->city_id)),
+        'number_of_blogs'=>$this->blogs->count(),
+        'number_of_services'=>$this->services->count(),
+        'number_of_videos'=>$this->videos->count(),
+        'number_of_podcasts'=>$this->podcasts->count(),
+        'number_of_consutiong'=>$this->consutiong->count(),
         'token'=>$this->createToken('Personal Access Token')->accessToken,
        ];
     }

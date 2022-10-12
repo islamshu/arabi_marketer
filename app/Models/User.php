@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use Laravel\Passport\HasApiTokens;
+use League\OAuth1\Client\Server\Server;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -53,6 +54,31 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
+    /**
+     * Get all of the comments for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function services()
+    {
+        return $this->hasMany(Service::class);
+    }
+    public function videos()
+    {
+        return $this->hasMany(Video::class);
+    }
+    public function podcasts()
+    {
+        return $this->hasMany(podcasts::class);
+    }
+    public function blogs()
+    {
+        return $this->hasMany(Blog::class);
+    }
+    public function consutiong()
+    {
+        return $this->hasMany(Consulting::class);
+    }
     public function types()
     {
         return $this->hasMany(UserCategory::class);
