@@ -25,7 +25,7 @@ class BlogResource extends JsonResource
             'image'=>asset('public/uploads/'.$this->image),
             'url'=>route('single_blog',$this->id),
             'comment_number'=>$this->comments->where('status',1)->count(),
-            'comments'=>CommentResourse::collection($this->comments)
+            'comments'=>CommentResourse::collection($this->comments->where('status',1))
             // 'related_blog' =>$this->get_related($this),
             
         ];
