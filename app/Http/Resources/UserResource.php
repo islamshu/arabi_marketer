@@ -23,6 +23,7 @@ class UserResource extends JsonResource
         'first_name'=>$this->first_name,
         'last_name'=>$this->last_name,
         'image'=>asset('uploads/'.$this->image),
+        'status'=>$this->status,
         'country'=> new CountryResource(Country::find($this->country_id)),
         'city'=>new CityResource(City::find($this->city_id)),
         'number_of_blogs'=>$this->blogs->count(),
@@ -30,7 +31,15 @@ class UserResource extends JsonResource
         'number_of_videos'=>$this->videos->count(),
         'number_of_podcasts'=>$this->podcasts->count(),
         'number_of_consutiong'=>$this->consutiong->count(),
+        'finance'=>$this->get_finance($this),
         'token'=>$this->createToken('Personal Access Token')->accessToken,
        ];
+    }
+    function get_finance($data){
+        return [
+            'total'=>$data->total,
+            'available'=>$data->available,
+            'pending'=>$data->pending,
+        ];
     }
 }
