@@ -1,65 +1,5 @@
 @extends('layout.main')
-    <style>
-    .switchh {
-      position: relative;
-      display: inline-block;
-      width: 60px;
-      height: 34px;
-    }
-    
-    .switchh input { 
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-    
-    .slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #ccc;
-      -webkit-transition: .4s;
-      transition: .4s;
-    }
-    
-    .slider:before {
-      position: absolute;
-      content: "";
-      height: 26px;
-      width: 26px;
-      left: 4px;
-      bottom: 4px;
-      background-color: white;
-      -webkit-transition: .4s;
-      transition: .4s;
-    }
-    
-    input:checked + .slider {
-      background-color: #2196F3;
-    }
-    
-    input:focus + .slider {
-      box-shadow: 0 0 1px #2196F3;
-    }
-    
-    input:checked + .slider:before {
-      -webkit-transform: translateX(26px);
-      -ms-transform: translateX(26px);
-      transform: translateX(26px);
-    }
-    
-    /* Rounded sliders */
-    .slider.round {
-      border-radius: 34px;
-    }
-    
-    .slider.round:before {
-      border-radius: 50%;
-    }
-    </style>
+
 <x-base-layout>
 
     <div class="card card-flush">
@@ -158,13 +98,8 @@
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->email }}</td>
                             <td>
-                                <label class="switchh" data-id="{{ $item->id }}"
-                                    @if ($item->status == 1) data-check="true" @else data-check="false" @endif>
-                                    <input type="checkbox" type="checkbox" data-id="{{ $item->id }}" name="status"
-                                        {{ $item->status == 1 ? 'checked' : '' }}>
-                                    <span class="slider round swatched"></span>
-                                </label>
-                                {{-- <input type="checkbox" data-id="{{ $item->id }}" name="status" class="js-switch" {{ $item->status == 'active' ? 'checked' : '' }}> --}}
+                                <input type="checkbox" data-id="{{ $item->id }}" name="status" class="js-switch"
+                                    {{ $item->status == 1 ? 'checked' : '' }}>
                             </td>
                             <td>{{ date('Y-m-d', strtotime($item->created_at)) }}</td>
                             <td>
@@ -207,25 +142,24 @@
 
 
 @section('scripts')
-<script>
- 
- $(document).ready(function() {
-    $("#example").on("change", ".switchh", function(){
-            let status = $(this).data('check') === false ? 1 : 0;
-            let userId = $(this).data('id');
-            $.ajax({
-                type: "GET",
-                dataType: "json",
-                url: '{{ route('users.update.status') }}',
-                data: {
-                    'status': status,
-                    'user_id': userId
-                },
-                success: function(data) {
-                    console.log(data.message);
-                }
+    <script>
+        $(document).ready(function() {
+            $("#example").on("change", ".js-switch", function() {
+                let status = $(this).prop('checked') === true ? 1 : 0;
+                let userId = $(this).data('id');
+                $.ajax({
+                    type: "GET",
+                    dataType: "json",
+                    url: '{{ route('users.update.status') }}',
+                    data: {
+                        'status': status,
+                        'user_id': userId
+                    },
+                    success: function(data) {
+                        console.log(data.message);
+                    }
+                });
             });
         });
-    });
-</script>
+    </script>
 @endsection
