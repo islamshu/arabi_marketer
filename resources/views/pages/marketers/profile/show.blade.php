@@ -1,5 +1,9 @@
 @extends('layout.main')
-
+<style>
+    .count{
+        background: red
+    }
+</style>
 <x-base-layout>
 
     <div class="card card-flush">
@@ -62,19 +66,19 @@
 
             <ul class="nav nav-tabs nav-line-tabs nav-line-tabs-2x mb-5 fs-6">
                 <li class="nav-item">
-                    <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_4">الخدمات</a>
+                    <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_4">الخدمات <span class="count">{{ $user->services->count() }}</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_5">المقالات </a>
+                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_5">المقالات <span class="count">{{ $user->blogs>count() }}</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_6">الفيديوهات</a>
+                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_6">الفيديوهات <span class="count">{{ $user->videos>count() }}</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_7">البودكاست</a>
+                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_7">البودكاست <span class="count">{{ $user->podcasts>count() }}</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_8">الاستشارات</a>
+                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_8">الاستشارات<span class="count">{{ $user->consutiong>count() }}</span></a>
                 </li>
                 
             </ul>
