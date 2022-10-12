@@ -504,7 +504,8 @@ if (this.files && this.files[0]) {
 <script>
     $(document).ready(function () {
     $('#example').DataTable();
-   
+    $('.example').DataTable();
+
 });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"

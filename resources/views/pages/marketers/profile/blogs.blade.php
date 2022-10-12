@@ -1,4 +1,4 @@
-<table id="example" class="display" style="width:100%">
+<table  class="example display" style="width:100%">
     <thead>
         <tr>
             <th>صورة المقال</th>
