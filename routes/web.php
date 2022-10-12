@@ -76,7 +76,7 @@ Route::prefix('log')->name('log.')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::resource('users', UsersController::class);
-    Route::get('prifles_edit',[ProfileController::class,'edit_all']);
+    Route::get('marketers',[ProfileController::class,'markters']);
     Route::get('user/getData', [UsersController::class, 'getData'])->name('users.getDat');
     Route::resource('specialtys', SpecialtyController::class);
     Route::resource('payments', PaymentController::class);
