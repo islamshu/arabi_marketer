@@ -145,7 +145,8 @@
 @section('scripts')
 <script>
     $(document).ready(function(){
-    $('.js-switch').change(function () {
+        $('.js-switch').on( 'change', function () {
+
         let status = $(this).prop('checked') === true ? 1 : 0;
         let userId = $(this).data('id');
         $.ajax({
