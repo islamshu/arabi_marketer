@@ -1,5 +1,4 @@
 @extends('layout.main')
-<style>
     <style>
     .switchh {
       position: relative;
