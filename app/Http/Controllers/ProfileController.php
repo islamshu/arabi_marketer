@@ -33,13 +33,13 @@ class ProfileController extends Controller
         $services = $user->services;
         $blogs = $user->blogs;
         $videos = $user->videos;
-        $podcats = $user->podcasts;
+        $podcasts = $user->podcasts;
 
         return view('pages.marketers.profile.show')
         ->with('user', $user)
         ->with('services',$services)
         ->with('blogs',$blogs)
-        ->with('podcats',$podcats)
+        ->with('podcasts',$podcasts)
 
         ->with('videos',$videos);
 
