@@ -6,7 +6,7 @@
         padding: 6px;
     }
     .cur{
-        font-size: 8px
+        font-size: 15px
     }
 </style>
 <x-base-layout>
