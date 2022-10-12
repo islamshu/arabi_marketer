@@ -213,12 +213,12 @@
  
  $(document).ready(function() {
         $('.switchh').change(function() {
-            let status = $(this).data('check') === false ? 'active' : 'deactive';
+            let status = $(this).data('check') === false ? 1 : 0;
             let userId = $(this).data('id');
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: '{{ route('vednor.update.status', app()->getLocale()) }}',
+                url: '{{ route('users.update.status') }}',
                 data: {
                     'status': status,
                     'user_id': userId
