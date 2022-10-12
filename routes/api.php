@@ -51,6 +51,8 @@ Route::group(['middleware' => 'is_login'], function () {
     Route::get('/my_blogs', [UserController::class, 'get_blog']);
     Route::get('/my_services', [UserController::class, 'get_service']);
     Route::get('/my_podcasts', [UserController::class, 'get_podcasts']);
+    Route::get('/get_videos', [UserController::class, 'get_videos']);
+    Route::get('/get_consultations', [UserController::class, 'get_consultations']);
 });
 Route::get('/type_of_user', [UserController::class, 'type_of_user']);
 //end profile

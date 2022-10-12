@@ -7,18 +7,22 @@ use App\Models\User;
 use Hash;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
+use App\Http\Livewire\Consulting;
 use App\Http\Resources\BlogResource;
 use App\Http\Resources\CategoryResource;
+use App\Http\Resources\ConsultingResource;
 use App\Http\Resources\PodcastResource;
 use App\Http\Resources\ServiceResource;
 use App\Http\Resources\UserNotAuthResource;
 use App\Http\Resources\UserResource;
+use App\Http\Resources\VideoResource;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Podacst;
 use App\Models\Service;
 use App\Models\SouialUser;
 use App\Models\UserCategory;
+use App\Models\Video;
 use Validator;
 
 class UserController extends BaseController
@@ -138,6 +142,18 @@ class UserController extends BaseController
         $res = BlogResource::collection($blogs)->response()->getData(true);
         return $this->sendResponse($res, 'جميع المقالات');
         // return ['success'=>true,'blogs'=>BlogResource::collection($blogs)->response()->getData(true),'message'=>'جميع المقالات'];
+    }
+    public function get_consultations()
+    {
+        $cons = Consulting::where('user_id',auth('api')->id())->orderby('id', 'desc')->get();
+        $res = ConsultingResource::collection($cons)->response()->getData(true);
+        return $this->sendResponse($res, 'جميع الاستشارات');
+    }
+    public function get_videos()
+    {
+        $cons = Video::where('user_id',auth('api')->id())->orderby('id', 'desc')->get();
+        $res = VideoResource::collection($cons)->response()->getData(true);
+        return $this->sendResponse($res, 'جميع الاستشارات');
     }
     public function get_service(){
         $service = Service::where('user_id',auth('api')->id())->orderby('id','desc')->paginate(5);
