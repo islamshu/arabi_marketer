@@ -42,7 +42,7 @@ class UserController extends BaseController
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->type = 'user';
+        $user->type = 'marketer';
         $user->image = 'users/defult_user.png';
         $user->password =  Hash::make($request->password);
         $user->save();
