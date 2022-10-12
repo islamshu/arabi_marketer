@@ -98,8 +98,8 @@
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->email }}</td>
                             <td>
-                                <input type="checkbox" data-id="{{ $user->id }}" name="status" class="js-switch"
-                                    {{ $user->status == 1 ? 'checked' : '' }}>
+                                <input type="checkbox" data-id="{{ $item->id }}" name="status" class="js-switch"
+                                    {{ $item->status == 1 ? 'checked' : '' }}>
 
                             </td>
                             <td>{{ date('Y-m-d', strtotime($item->created_at)) }}</td>
