@@ -282,6 +282,11 @@ return array(
             'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen018.svg", "svg-icon-2"),
         ),
         array(
+            'title' => 'Marketers',
+            'path'  => 'marketers',
+            'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen016.svg", "svg-icon-2"),
+        ),
+        array(
             'title' => 'Services',
             'path'  => 'services',
             'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen016.svg", "svg-icon-2"),
