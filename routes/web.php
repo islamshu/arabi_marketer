@@ -16,6 +16,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PlacetypeController;
 use App\Http\Controllers\PodacstController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\SpecialtyController;
@@ -75,6 +76,7 @@ Route::prefix('log')->name('log.')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::resource('users', UsersController::class);
+    Route::get('prifles_edit',[ProfileController::class,'edit_all']);
     Route::get('user/getData', [UsersController::class, 'getData'])->name('users.getDat');
     Route::resource('specialtys', SpecialtyController::class);
     Route::resource('payments', PaymentController::class);
