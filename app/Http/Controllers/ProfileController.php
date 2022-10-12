@@ -30,7 +30,10 @@ class ProfileController extends Controller
     }
     public function show($id){
         $user = User::find($id);
-        return view('pages.marketers.profile.show')->with('user', $user);
+        $services = $user->services;
+        return view('pages.marketers.profile.show')
+        ->with('user', $user)
+        ->with('services',$services);
 
     }
 }
