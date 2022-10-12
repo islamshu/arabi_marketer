@@ -145,13 +145,13 @@ class UserController extends BaseController
     }
     public function get_consultations()
     {
-        $cons = Consulting::where('user_id',auth('api')->id())->orderby('id', 'desc')->get();
+        $cons = Consulting::where('user_id',auth('api')->id())->orderby('id', 'desc')->paginate(5);
         $res = ConsultingResource::collection($cons)->response()->getData(true);
         return $this->sendResponse($res, 'جميع الاستشارات');
     }
     public function get_videos()
     {
-        $cons = Video::where('user_id',auth('api')->id())->orderby('id', 'desc')->get();
+        $cons = Video::where('user_id',auth('api')->id())->orderby('id', 'desc')->paginate(5);
         $res = VideoResource::collection($cons)->response()->getData(true);
         return $this->sendResponse($res, 'جميع الاستشارات');
     }
