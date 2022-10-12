@@ -122,12 +122,12 @@
                                         <!--end::Svg Icon-->
                                         <div class="fs-2 fw-bolder counted" data-kt-countup="true"
                                             data-kt-countup-value="4500" data-kt-countup-prefix="$"
-                                            data-kt-initialized="1">$4,500</div>
+                                            data-kt-initialized="1">{{ $user->total }}</div>
                                     </div>
                                     <!--end::Number-->
 
                                     <!--begin::Label-->
-                                    <div class="fw-bold fs-6 text-gray-400">Earnings</div>
+                                    <div class="fw-bold fs-6 text-gray-400">Total</div>
                                     <!--end::Label-->
                                 </div>
                                 <!--end::Stat-->
@@ -150,12 +150,12 @@
                                             </svg></span>
                                         <!--end::Svg Icon-->
                                         <div class="fs-2 fw-bolder counted" data-kt-countup="true"
-                                            data-kt-countup-value="75" data-kt-initialized="1">75</div>
+                                            data-kt-countup-value="75" data-kt-initialized="1">{{ $user->available }}</div>
                                     </div>
                                     <!--end::Number-->
 
                                     <!--begin::Label-->
-                                    <div class="fw-bold fs-6 text-gray-400">Projects</div>
+                                    <div class="fw-bold fs-6 text-gray-400">Available</div>
                                     <!--end::Label-->
                                 </div>
                                 <!--end::Stat-->
@@ -179,12 +179,12 @@
                                         <!--end::Svg Icon-->
                                         <div class="fs-2 fw-bolder counted" data-kt-countup="true"
                                             data-kt-countup-value="60" data-kt-countup-prefix="%"
-                                            data-kt-initialized="1">%60</div>
+                                            data-kt-initialized="1">{{ $user->pending }}</div>
                                     </div>
                                     <!--end::Number-->
 
                                     <!--begin::Label-->
-                                    <div class="fw-bold fs-6 text-gray-400">Success Rate</div>
+                                    <div class="fw-bold fs-6 text-gray-400">Pending</div>
                                     <!--end::Label-->
                                 </div>
                                 <!--end::Stat-->
@@ -193,18 +193,6 @@
                         </div>
                         <!--end::Wrapper-->
 
-                        <!--begin::Progress-->
-                        <div class="d-flex align-items-center w-200px w-sm-300px flex-column mt-3">
-                            <div class="d-flex justify-content-between w-100 mt-auto mb-2">
-                                <span class="fw-bold fs-6 text-gray-400">Profile Completion</span>
-                                <span class="fw-bolder fs-6">50%</span>
-                            </div>
-
-                            <div class="h-5px mx-3 w-100 bg-light mb-3">
-                                <div class="bg-success rounded h-5px" role="progressbar" style="width: 50%;"
-                                    aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
                         <!--end::Progress-->
                     </div>
                     <!--end::Stats-->
