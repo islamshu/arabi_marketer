@@ -211,7 +211,6 @@
  
  $(document).ready(function() {
     $("#example").on("change", ".switchh", function(){
-            alert('dd');
             let status = $(this).data('check') === false ? 1 : 0;
             let userId = $(this).data('id');
             $.ajax({
