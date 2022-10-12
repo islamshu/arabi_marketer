@@ -5,6 +5,7 @@
                 <th>صورة المقال</th>
                 <th>عنوان</th>
                 <th>اضيف بواسطة</th>
+                <th>عدد التعليقات</th>
                 <th>العمليات</th>
             </tr>
         </thead>
@@ -14,6 +15,7 @@
              <td><img src="{{ asset('public/uploads/'.$item->image) }}" width="50" height="50" alt=""></td>
              <td>{{ $item->title }}</td>
              <th><a href="{{ route('marketer.show',$item->user->id) }}">{{ $item->user->name }}</a></th>
+             <th>{{ $item->comments->count() }}</th>
 
             
              <td>
