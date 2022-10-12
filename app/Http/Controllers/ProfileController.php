@@ -10,7 +10,7 @@ class ProfileController extends Controller
     public function edit_prr(){
         $users = User::get();
         foreach($users as $user){
-            $user->image = 'users/defult_user.png';
+            $user->name = $user->first_name;
             $user->save();
         }
     }
