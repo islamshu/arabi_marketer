@@ -36,7 +36,7 @@ class ProfileController extends Controller
         return view('pages.marketers.profile.show')
         ->with('user', $user)
         ->with('services',$services)
-        ->with('blogs',$services);
+        ->with('blogs',$blogs);
 
     }
 }
