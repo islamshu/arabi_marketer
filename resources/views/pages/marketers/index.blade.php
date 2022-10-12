@@ -61,7 +61,6 @@
       border-radius: 50%;
     }
     </style>
-</style>
 <x-base-layout>
 
     <div class="card card-flush">
