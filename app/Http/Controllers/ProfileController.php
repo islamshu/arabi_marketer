@@ -10,7 +10,7 @@ class ProfileController extends Controller
     public function edit_prr(){
         $users = User::get();
         foreach($users as $user){
-            $user->name = $user->first_name;
+            $user->name = $user->first_name != null ? $user->first_name : $user->name;
             $user->save();
         }
     }
