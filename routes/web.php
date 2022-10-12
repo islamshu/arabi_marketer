@@ -167,7 +167,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('services',ServiceController::class);
     Route::resource('blogs',BlogController::class);
     Route::get('show_comments/{id}',[BlogController::class,'show_comments'])->name('show_comments');
-    Route::post('update_comment_status/',[BlogController::class,'update_comment_status'])->name('comment.update.status');
+    Route::get('update_comment_status/',[BlogController::class,'update_comment_status'])->name('comment.update.status');
 
     
     Route::resource('podcasts',PodacstController::class);
