@@ -107,6 +107,9 @@ Route::get('/consultation_keywords', [ConsultationController::class, 'consultati
 Route::get('/consultation_places', [ConsultationController::class, 'places']);
 Route::get('/consultation_payments', [ConsultationController::class, 'payments']);
 Route::get('/get_all_consultation', [ConsultationController::class, 'all_consultation']);
+Route::group(['middleware' => 'is_login'], function () {
+    Route::post('/add_consultion', [ConsultationController::class, 'store']);
+});
 
 
 //start general data

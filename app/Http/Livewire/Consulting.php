@@ -15,8 +15,6 @@ class Consulting extends Component
     public $i = 1;
     public $inputs = [];
     public $successMessage;
-  
-    
     public $values;
     
     public function add($i)
@@ -38,7 +36,6 @@ class Consulting extends Component
             'place' => 'required',
             'color'=>'required',
             'user'=>'required'
-
         ]);
 
         $this->currentSection = 2;
