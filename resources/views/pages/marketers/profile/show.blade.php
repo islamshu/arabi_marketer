@@ -68,7 +68,7 @@
                                                 rx="2" fill="currentColor"></rect>
                                         </svg></span>
                                     <!--end::Svg Icon-->
-                                    {{ $user->types }}
+                                    {{ $user->type }}
                                 </a>
                              
                                 <a href="#"
