@@ -103,8 +103,12 @@
                             </td>
                             <td>{{ date('Y-m-d', strtotime($item->created_at)) }}</td>
                             <td>
+                                <a href="{{ route('marketer.show', $item->id) }}" class="btn btn-success"><i
+                                    class="fa fa-eye"></i></a>
                                 <a href="{{ route('services.edit', $item->id) }}" class="btn btn-info"><i
                                         class="fa fa-edit"></i></a>
+
+                                    
                                 <form style="display: inline" action="{{ route('services.destroy', $item->id) }}"
                                     method="post">
                                     @method('delete') @csrf
