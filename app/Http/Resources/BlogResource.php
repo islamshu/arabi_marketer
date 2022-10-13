@@ -46,7 +46,7 @@ class BlogResource extends JsonResource
     function get_rate($data){
         return[
             'number_of_user_rate'=>$data->rate->count(),
-            'rate'=>$data->rate->sum('rate') / $data->rate->count()
+            'rate'=>$data->rate->count() == 0 ? 0 : $data->rate->sum('rate') / $data->rate->count()
         ];
     }
 }
