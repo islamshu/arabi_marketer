@@ -105,7 +105,7 @@
                             <td>
                                 <a href="{{ route('marketer.show', $item->id) }}" class="btn btn-success"><i
                                     class="fa fa-eye"></i></a>
-                                <a href="{{ route('services.edit', $item->id) }}" class="btn btn-info"><i
+                                {{-- <a href="{{ route('services.edit', $item->id) }}" class="btn btn-info"><i
                                         class="fa fa-edit"></i></a>
 
                                     
@@ -114,7 +114,7 @@
                                     @method('delete') @csrf
                                     <button type="submit" class="btn btn-danger delete-confirm"><i
                                             class="fa fa-trash"></i></button>
-                                </form>
+                                </form> --}}
                             </td>
                         </tr>
                     @endforeach
