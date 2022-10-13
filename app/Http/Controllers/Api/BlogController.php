@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\BlogResource;
 use App\Http\Resources\KeywordResource;
+use App\Models\RateBlog;
 use Carbon\Carbon;
 use Carbon\CarbonImmutable;
 use DateInterval;
@@ -166,5 +167,14 @@ class BlogController extends BaseController
         $res = new BlogResource($service);
         return $this->sendResponse($res,'تم الاضافة بنجاح');
 
+    }
+    public function add_rate(Request $request){
+        $rate = new RateBlog();
+        $rate->blog_id = $request->blog_id;
+        $rate->rate = $request->rate;
+        $rate->save();
+        $blog = Blog::find($request->blog_id);
+        $res = new BlogResource($blog);
+        return $this->sendResponse($res,'تم اضافة التقيم بنجاح  ');
     }
 }

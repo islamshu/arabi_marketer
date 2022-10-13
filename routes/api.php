@@ -64,7 +64,7 @@ Route::get('/blog_category', [BlogController::class, 'blog_category']);
 Route::get('/blog_keyword', [BlogController::class, 'blog_keyword']);
 Route::post('/add_blog', [BlogController::class, 'store']);
 Route::post('/add_comment', [CommentController::class, 'store']);
-
+Route::post('/add_rate', [BlogController::class, 'add_rate']);
 Route::get('/get_all_blogs', [BlogController::class, 'get_all']);
 Route::get('/single_blog/{id}', [BlogController::class, 'single'])->name('single_blog');
 Route::get('/blog_search', [BlogController::class, 'serach']);

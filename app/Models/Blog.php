@@ -38,4 +38,8 @@ class Blog extends Model
     {
         return $this->hasMany(Comment::class);
     }
+    public function rate()
+    {
+        return $this->hasMany(RateBlog::class);
+    }
 }

@@ -25,7 +25,8 @@ class BlogResource extends JsonResource
             'image'=>asset('public/uploads/'.$this->image),
             'url'=>route('single_blog',$this->id),
             'comment_number'=>$this->comments->where('status',1)->count(),
-            'comments'=>CommentResourse::collection($this->comments->where('status',1))
+            'comments'=>CommentResourse::collection($this->comments->where('status',1)),
+            'rate'=>$this->get_rate($this)
             // 'related_blog' =>$this->get_related($this),
             
         ];
@@ -41,5 +42,11 @@ class BlogResource extends JsonResource
     function get_keywords($data){
         $category = $data->keywords;
         return KeywordResource::collection($category);
+    }
+    function get_rate($data){
+        return[
+            'number_of_user_rate'=>$data->rate->count(),
+            'rate'=>$data->rate->sum('rate') / $data->rate->count()
+        ];
     }
 }
