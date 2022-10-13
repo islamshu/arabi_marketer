@@ -235,3 +235,44 @@
     </div>
 
 </x-base-layout>
+@section('scripts')
+<script>
+    function myFunction(id) {
+        // alert('worker_status_'+id);
+        // alert($('#worker_status_'+id).val());
+
+        let status = $('#worker_status_' + id).val();
+
+        let booked_id = id;
+        $.ajax({
+            type: 'post',
+            url: "{{ route('update_status_video') }}",
+            data: {
+                "_token": "{{ csrf_token() }}",
+                'status': status,
+                'booked_id': booked_id,
+            },
+            beforeSend: function() {},
+            success: function(data) {
+                if (data['status'] == true) {
+                    if (status == 1) {
+                        $('#worker_status_' + id).css("backgroundColor", "#5fc69e")
+                    } else if (status == 0) {
+                        $('#worker_status_' + id).css("backgroundColor", "#a1a5b7")
+                    } else if (status == 2) {
+                        $('#worker_status_' + id).css("backgroundColor", "#f1416c")
+                    }
+                    toastr.options.closeButton = true;
+                    toastr.options.closeMethod = 'fadeOut';
+                    toastr.options.closeDuration = 100;
+                    toastr.success('{{ __('Updated successfully') }}');
+
+                } else {
+                    alert('Whoops Something went wrong!!');
+                }
+
+            }
+        });
+    }
+</script>
+@endsection
