@@ -8,6 +8,7 @@ use App\Http\Requests\ResetPasswordRequest;
 use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\Api\BaseController;
 use App\Mail\SendResetMail;
+use App\Models\Password as ModelsPassword;
 use Mail;
 use Str;
 
@@ -16,7 +17,7 @@ class ForgotPasswordController extends BaseController
     public function forgot() {
         $credentials = request()->validate(['email' => 'required|email']);
 
-      $password =   Password::create([
+      $password =   ModelsPassword::create([
         'email'=>request()->email,
         'token'=>Str::random(60),
         ]);
