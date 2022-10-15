@@ -13,6 +13,7 @@ use App\Http\Resources\CategoryResource;
 use App\Http\Resources\ConsultingResource;
 use App\Http\Resources\PodcastResource;
 use App\Http\Resources\ServiceResource;
+use App\Http\Resources\UserNormalNotAuthResource;
 use App\Http\Resources\UserNotAuthResource;
 use App\Http\Resources\UserResource;
 use App\Http\Resources\VideoResource;
@@ -46,7 +47,7 @@ class UserController extends BaseController
         $user->image = 'users/defult_user.png';
         $user->password =  Hash::make($request->password);
         $user->save();
-        $userRes =new  UserNotAuthResource($user);
+        $userRes =new  UserNormalNotAuthResource($user);
         return $this->sendResponse($userRes,'تم التسجيل بنجاح');
     }
     public function login(Request $request){
