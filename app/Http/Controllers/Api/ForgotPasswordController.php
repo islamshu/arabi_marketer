@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\Api\BaseController;
 use App\Mail\SendResetMail;
 use App\Models\Password as ModelsPassword;
+use Carbon\Carbon;
 use Mail;
 use Str;
 
@@ -20,6 +21,7 @@ class ForgotPasswordController extends BaseController
       $password =   ModelsPassword::create([
         'email'=>request()->email,
         'token'=>Str::random(60),
+        'created_at'=>Carbon::now()
         ]);
         $url = route('api_reset',$password->token);
         Mail::to(request()->email)->send(new SendResetMail($url));
