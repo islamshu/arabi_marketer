@@ -47,11 +47,12 @@ Route::post('/login', [UserController::class, 'login']);
 Route::group(['middleware' => 'is_login'], function () {
     Route::post('/edit_profile', [UserController::class, 'edit_profile']);
     Route::get('/be_marketer', [UserController::class, 'be_marketer']);
+    Route::get('/profile', [UserController::class, 'profile']);
+
 });
 Route::group(['middleware' => 'is_login','middleware' => 'Is_markter'], function () {
     Route::post('/edit_profile_step_2', [UserController::class, 'edit_profile_step_2']);
     Route::post('/edit_profile_step_3', [UserController::class, 'edit_profile_step_3']);
-    Route::get('/profile', [UserController::class, 'profile']);
     Route::get('/my_blogs', [UserController::class, 'get_blog']);
     Route::get('/my_services', [UserController::class, 'get_service']);
     Route::get('/my_podcasts', [UserController::class, 'get_podcasts']);
