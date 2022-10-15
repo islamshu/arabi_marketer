@@ -139,5 +139,7 @@ class ServiceController extends BaseController
         $comment->service_id = $request->service_id;
         $comment->body = $request->body;
         $comment->save();
+        $ser = new ServiceResource($service);
+        return $this->sendResponse($ser,'Addedd Comment Successfuly');  
     }
 }
