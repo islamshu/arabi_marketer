@@ -22,6 +22,7 @@ class UserNormalNotAuthResource extends JsonResource
             'id'=>$this->id,
             'name'=>$this->name,
             'email'=>$this->email,
+            'type'=>$this->type,
             // 'first_name'=>$this->first_name,
             // 'last_name'=>$this->last_name,
             'image'=>asset('uploads/'.$this->image),
