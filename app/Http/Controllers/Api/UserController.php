@@ -78,6 +78,19 @@ class UserController extends BaseController
 
         }
     }
+    public function be_marketer(){
+        $user = auth()->user();
+        if($user->type == 'user'){
+            $user->type = 'marketer';
+            $user->save();
+            $res = new UserResource($user);
+            return $this->sendResponse($res,'تم التحويل الى مسوق  بنجاح بانتظار موافقة الادارة');
+        }elseif($user->type =='marketer'){
+            return $this->sendError('انت بالفعل مسوق لدينا ');
+        }elseif($user->type != 'user' && $user->type !='marketer'){
+            return $this->sendError('يوجد خطا ما لدينا');
+        }
+    }
     public function edit_profile(Request $request){
         $user = auth('api')->user();
         $validation = Validator::make($request->all(), [
