@@ -17,8 +17,7 @@ class Is_markter
     public function handle($request, Closure $next)
     {
         if (auth('api')->check()) {
-            dd(auth('api')->user()->type );
-            if(auth('api')->user()->type == 'markter'){
+            if(auth('api')->user()->type == 'marketer'){
                 return $next($request);
             }else{
                 $response = ['success' => false, 'message' => 'you are not markter','code'=>400];
