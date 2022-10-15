@@ -7,13 +7,22 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ResetPasswordRequest;
 use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\Api\BaseController;
+use App\Mail\SendResetMail;
+use Mail;
+use Str;
 
 class ForgotPasswordController extends BaseController
 {
     public function forgot() {
         $credentials = request()->validate(['email' => 'required|email']);
 
-        Password::sendResetLink($credentials);
+      $password =   Password::create([
+        'email'=>request()->email,
+        'token'=>Str::random(60),
+        ]);
+        $url = route('api_reset').'/'.$password->token;
+        Mail::to(request()->email)->send(new SendResetMail($url));
+
 
         return $this->sendResponse('forget','Reset password link sent on your email id.');
     }

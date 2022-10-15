@@ -46,7 +46,7 @@ Route::get('/get_all_markter', [HomeController::class, 'get_all_markter']);
 Route::post('/forgot_password', [PasswordResetLinkController::class, 'apiStore']);
 Route::post('/verify_token', [AuthenticatedSessionController::class, 'apiVerifyToken']);
 Route::post('password/email', [ForgotPasswordController::class, 'forgot']);
-Route::post('reset_my_password/{user}', [ForgotPasswordController::class, 'reset']);
+Route::post('reset_my_password/{user}', [ForgotPasswordController::class, 'reset'])->name('api_reset');
 
 
 
