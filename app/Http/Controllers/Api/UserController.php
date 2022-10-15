@@ -81,6 +81,7 @@ class UserController extends BaseController
     public function be_marketer(){
         $user = auth()->user();
         if($user->type == 'user'){
+            dd($user);
             $user->type = 'marketer';
             $user->save();
             $res = new UserResource($user);
