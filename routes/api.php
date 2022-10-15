@@ -77,7 +77,9 @@ Route::get('/type_of_user', [UserController::class, 'type_of_user']);
 //start blog
 Route::get('/blog_category', [BlogController::class, 'blog_category']);
 Route::get('/blog_keyword', [BlogController::class, 'blog_keyword']);
+Route::group(['middleware' => 'is_login'], function () {
 Route::post('/add_blog', [BlogController::class, 'store']);
+});
 Route::post('/add_comment', [CommentController::class, 'store']);
 Route::post('/add_rate', [BlogController::class, 'add_rate']);
 Route::get('/get_all_blogs', [BlogController::class, 'get_all']);
