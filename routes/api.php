@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\BlogController;
 use App\Http\Controllers\Api\CommentController;
 use App\Http\Controllers\Api\ConsultationController;
 use App\Http\Controllers\Api\GeneralController;
+use App\Http\Controllers\Api\HomeController;
 use App\Http\Controllers\Api\PodcastController;
 use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\UserController;
@@ -32,6 +33,7 @@ use Illuminate\Support\Facades\Route;
 // Sample API route
 Route::get('/profits', [SampleDataController::class, 'profits'])->name('profits');
 
+Route::get('/home', [HomeController::class, 'home']);
 
 
 Route::post('/forgot_password', [PasswordResetLinkController::class, 'apiStore']);
@@ -89,6 +91,7 @@ Route::get('/single_service/{id}', [ServiceController::class, 'single'])->name('
 Route::get('/get_all_service', [ServiceController::class, 'get_all']);
 
 //end service 
+
 
 //start podcasts
 Route::get('/podcast_category', [PodcastController::class, 'podcast_category']);
