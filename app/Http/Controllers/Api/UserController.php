@@ -13,6 +13,7 @@ use App\Http\Resources\CategoryResource;
 use App\Http\Resources\ConsultingResource;
 use App\Http\Resources\PodcastResource;
 use App\Http\Resources\ServiceResource;
+use App\Http\Resources\UserNormalAuthResource;
 use App\Http\Resources\UserNormalNotAuthResource;
 use App\Http\Resources\UserNotAuthResource;
 use App\Http\Resources\UserResource;
@@ -91,7 +92,7 @@ class UserController extends BaseController
         $user->city_id = $request->city_id;
         $user->email = $request->email;
         $user->save();
-        $userRes =new  UserNotAuthResource($user);
+        $userRes =new  UserNormalAuthResource($user);
         return $this->sendResponse($userRes,'تم تعديل البيانات بنجاح');
     }
     public function edit_profile_step_2(Request $request){
