@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Password extends Model
 {
     use HasFactory;
+    protected $table = 'password_resets';
 }
