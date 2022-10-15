@@ -46,6 +46,9 @@ Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
 Route::group(['middleware' => 'is_login'], function () {
     Route::post('/edit_profile', [UserController::class, 'edit_profile']);
+    Route::get('/be_marketer', [UserController::class, 'be_marketer']);
+});
+Route::group(['middleware' => 'is_login','middleware' => 'Is_markter'], function () {
     Route::post('/edit_profile_step_2', [UserController::class, 'edit_profile_step_2']);
     Route::post('/edit_profile_step_3', [UserController::class, 'edit_profile_step_3']);
     Route::get('/profile', [UserController::class, 'profile']);
@@ -54,8 +57,8 @@ Route::group(['middleware' => 'is_login'], function () {
     Route::get('/my_podcasts', [UserController::class, 'get_podcasts']);
     Route::get('/get_videos', [UserController::class, 'get_videos']);
     Route::get('/get_consultations', [UserController::class, 'get_consultations']);
-    Route::get('/be_marketer', [UserController::class, 'be_marketer']);
 });
+
 Route::get('/type_of_user', [UserController::class, 'type_of_user']);
 //end profile
 
