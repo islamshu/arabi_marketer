@@ -43,6 +43,8 @@ class ServiceController extends BaseController
     }
     public function single($id){
         $service = Service::find($id);
+        $service->viewer+=1;
+        $service->save();
         $ser = new ServiceResource($service);
         return $this->sendResponse($ser,' تم ارجاع الخدمة بنجاح');
     }
