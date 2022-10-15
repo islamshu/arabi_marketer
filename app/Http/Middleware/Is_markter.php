@@ -16,13 +16,22 @@ class Is_markter
     
     public function handle($request, Closure $next)
     {
-        if (auth('api')->user()->type == 'markter') {
-            return $next($request);
+        if (auth('api')->check()) {
+            if(auth('api')->user()->type == 'markter'){
+                return $next($request);
+            }else{
+                $response = ['success' => false, 'message' => 'you are not markter','code'=>400];
+                if (!empty($errorMessages))
+                    $response['data'] = $errorMessages;
+                return response()->json($response , 200);
+            }
+        }else{
+            $response = ['success' => false, 'message' => 'you need to login','code'=>400];
+            if (!empty($errorMessages))
+                $response['data'] = $errorMessages;
+            return response()->json($response , 200);
         }
-        $response = ['success' => false, 'message' => 'you are not markter','code'=>400];
-        if (!empty($errorMessages))
-            $response['data'] = $errorMessages;
-        return response()->json($response , 200);
+       
       }
     
         
