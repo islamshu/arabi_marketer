@@ -14,10 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('blogs', function (Blueprint $table) {
-            $table->unsignedBigInteger('blog_id');
-            $table->foreign('blog_id')
-                ->references('id')->on('blogs')
-                ->onDelete('cascade');
+            $table->unsignedBigInteger('status')->default(0);
+     
         });
     }
 
