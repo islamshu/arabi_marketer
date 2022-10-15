@@ -38,7 +38,7 @@ class BlogController extends BaseController
     }
     public function get_all()
     {
-        $blogs = Blog::orderBy('id', 'desc')->paginate(6);
+        $blogs = Blog::where('status',1)->orderBy('id', 'desc')->paginate(6);
         $res = BlogResource::collection($blogs)->response()->getData(true);
         return $this->sendResponse($res, 'جميع المقالات');
         // return ['success'=>true,'blogs'=>BlogResource::collection($blogs)->response()->getData(true),'message'=>'جميع المقالات'];
@@ -78,6 +78,7 @@ class BlogController extends BaseController
     public function serach(Request $request){
         $title = $request->title;
         $query = Blog::query();
+        $query->where('status',1);
         $query->when($request->title != null, function ($q) use ($title) {
             return $q->where('title','like','%'.$title.'%');
         });
@@ -102,7 +103,7 @@ class BlogController extends BaseController
         }
         $blogs =   Blog::has('category')->with(['category' => function ($query) use ($category_id) {
             $query->whereIn('category_id', $category_id);
-        }])->where('id','!=',$id)->orderby('id','desc')->take(5)->get();
+        }])->where('status',1)->where('id','!=',$id)->orderby('id','desc')->take(5)->get();
         $res= BlogResource::collection($blogs);
         return $this->sendResponse($res, 'جميع المقالات');
 
