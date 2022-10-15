@@ -79,8 +79,7 @@ class UserController extends BaseController
         }
     }
     public function be_marketer(){
-        $user = auth()->user();
-        dd($user);
+        $user = auth('api')->user();
 
         if($user->type == 'user'){
             $user->type = 'marketer';
