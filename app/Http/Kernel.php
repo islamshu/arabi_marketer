@@ -65,7 +65,9 @@ class Kernel extends HttpKernel
         'throttle'         => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified'         => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'is_login' =>Is_login::class,
-        'Is_markter'=>Is_markter::class
+        'Is_markter'=>Is_markter::class,
+        'is_able_markter'=>Is_able_markter::class,
+
 
     ];
 }
