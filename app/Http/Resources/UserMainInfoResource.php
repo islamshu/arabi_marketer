@@ -21,6 +21,7 @@ class UserMainInfoResource extends JsonResource
         'name'=>$this->name,
         'email'=>$this->email,
         'first_name'=>$this->first_name,
+        'type'=>$this->type,
         'last_name'=>$this->last_name,
         'number_of_blogs'=>$this->blogs->count(),
         'number_of_services'=>$this->services->count(),

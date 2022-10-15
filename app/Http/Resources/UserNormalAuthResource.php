@@ -25,7 +25,7 @@ class UserNormalAuthResource extends JsonResource
             // 'first_name'=>$this->first_name,
             // 'last_name'=>$this->last_name,
             'type'=>$this->type,
-            'image'=>asset('uploads/'.$this->image),
+            'image'=>$this->image == null ? asset('public/uploads/users/defult_user.png') : asset('public/uploads/'.$this->image),
             'token'=>$this->createToken('Personal Access Token')->accessToken,
 
             // 'country'=> new CountryResource(Country::find($this->country_id)),

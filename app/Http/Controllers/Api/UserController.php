@@ -63,7 +63,12 @@ class UserController extends BaseController
         if ($user) {
             if (Hash::check($request->password, $user->password)) {
                 $token = $user->createToken('Personal Access Token')->accessToken;
-                $res = New UserNormalAuthResource($user);
+                if($user->type =='user'){
+                    $res = New UserNormalAuthResource($user);
+                }else{
+                    $res = New UserResource($user);
+
+                }
                 return $this->sendResponse($res,'تم تسجيل الدخول بنجاح');
             } else {
                 return $this->sendError('كلمة المرور غير صحيحة');
