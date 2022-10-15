@@ -27,11 +27,11 @@ class HomeController extends BaseController
         $res['blog']['new']= $blogs;
         $res['blog']['best']= $blogs;
 
-        $videos = VideoResource::collection(Video::orderBy('id','desc')->take(6)->get());
+        $videos = VideoResource::collection(Video::orderBy('id','desc')->take(4)->get());
         $res['video']= $videos;
 
         
-        $podcast = PodcastResource::collection(Podacst::orderBy('id','desc')->take(6)->get());
+        $podcast = PodcastResource::collection(Podacst::orderBy('id','desc')->take(3)->get());
         $res['Podcast']= $podcast;
 
         return $this->sendResponse($res,'home page');
