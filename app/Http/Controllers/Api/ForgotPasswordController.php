@@ -21,7 +21,7 @@ class ForgotPasswordController extends BaseController
         'email'=>request()->email,
         'token'=>Str::random(60),
         ]);
-        $url = route('api_reset').'/'.$password->token;
+        $url = route('api_reset',$password->token);
         Mail::to(request()->email)->send(new SendResetMail($url));
 
 
