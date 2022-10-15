@@ -17,7 +17,6 @@ class Is_able_markter
     public function handle($request, Closure $next)
     {
         if (auth('api')->check()) {
-            dd(auth('api')->user()->status);
             if(auth('api')->user()->type == 'marketer' ){
                 if(auth('api')->user()->status == 1){
                     return $next($request);
