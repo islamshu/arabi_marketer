@@ -25,6 +25,8 @@ use App\Models\Service;
 use App\Models\SouialUser;
 use App\Models\UserCategory;
 use App\Models\Video;
+use App\Notifications\BeMarkterNotification;
+use Notification;
 use Validator;
 
 class UserController extends BaseController
@@ -84,6 +86,15 @@ class UserController extends BaseController
         if($user->type == 'user'){
             $user->type = 'marketer';
             $user->save();
+            $date = [
+                'id'=>$user->id,
+                'name' => $user->name,
+                'url' => route('marketer.show',$user->id),
+                'title' => 'Have a new Markter',
+                'time' => $user->updated_at
+            ];
+            $admins = User::where('type','Admin')->get();
+            Notification::send($admins, new BeMarkterNotification($date));
             $res = new UserResource($user);
             return $this->sendResponse($res,'تم التحويل الى مسوق  بنجاح بانتظار موافقة الادارة');
         }elseif($user->type =='marketer'){
