@@ -35,6 +35,8 @@ Route::get('/profits', [SampleDataController::class, 'profits'])->name('profits'
 
 Route::get('/home', [HomeController::class, 'home']);
 Route::get('/get_markter/{id}', [HomeController::class, 'get_markter']);
+Route::get('/get_all_markter', [HomeController::class, 'get_all_markter']);
+
 
 
 Route::post('/forgot_password', [PasswordResetLinkController::class, 'apiStore']);

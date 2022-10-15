@@ -20,36 +20,42 @@ use App\Models\User;
 
 class HomeController extends BaseController
 {
-    public function home(){
-        $services = ServiceResource::collection(Service::orderby('id','desc')->take(6)->get());
-        $res['service']['new']= $services;
-        $res['service']['best']= $services;
+    public function home()
+    {
+        $services = ServiceResource::collection(Service::orderby('id', 'desc')->take(6)->get());
+        $res['service']['new'] = $services;
+        $res['service']['best'] = $services;
 
-        $blogs = BlogResource::collection(Blog::orderBy('id','desc')->take(6)->get());
-        $res['blog']['new']= $blogs;
-        $res['blog']['best']= $blogs;
+        $blogs = BlogResource::collection(Blog::orderBy('id', 'desc')->take(6)->get());
+        $res['blog']['new'] = $blogs;
+        $res['blog']['best'] = $blogs;
 
-        $videos = VideoResource::collection(Video::orderBy('id','desc')->take(4)->get());
-        $res['video']= $videos;
+        $videos = VideoResource::collection(Video::orderBy('id', 'desc')->take(4)->get());
+        $res['video'] = $videos;
 
-        
-        $podcast = PodcastResource::collection(Podacst::orderBy('id','desc')->take(3)->get());
-        $res['Podcast']= $podcast;
 
-        return $this->sendResponse($res,'home page');
-    
+        $podcast = PodcastResource::collection(Podacst::orderBy('id', 'desc')->take(3)->get());
+        $res['Podcast'] = $podcast;
+
+        return $this->sendResponse($res, 'home page');
     }
-    public function get_markter($id){
+    public function get_markter($id)
+    {
         $user = User::find($id);
-        if($user){
-            if($user->type != 'marketer'){
+        if ($user) {
+            if ($user->type != 'marketer') {
                 return $this->sendError('هذا ليس حساب مسوق !');
             }
-            $userRes =new  UserNotAuthResource($user);
-            return $this->sendResponse($userRes,'الملف الشخصي');
-        }else{
+            $userRes = new  UserNotAuthResource($user);
+            return $this->sendResponse($userRes, 'الملف الشخصي');
+        } else {
             return $this->sendError('لا يوجد حساب !');
-
         }
+    }
+    public function get_all_markter()
+    {
+        $users = User::where('type', 'marketer')->where('status', 1)->get();
+        $res = UserNotAuthResource::collection($users)->response()->getData(true);
+        return $this->sendResponse($res, 'all markters');
     }
 }
