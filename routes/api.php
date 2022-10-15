@@ -34,13 +34,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/profits', [SampleDataController::class, 'profits'])->name('profits');
 
 Route::get('/home', [HomeController::class, 'home']);
+
+
+// start marketer
 Route::get('/get_markter/{id}', [HomeController::class, 'get_markter']);
 Route::get('/get_all_markter', [HomeController::class, 'get_all_markter']);
 
 
 
 Route::post('/forgot_password', [PasswordResetLinkController::class, 'apiStore']);
-
 Route::post('/verify_token', [AuthenticatedSessionController::class, 'apiVerifyToken']);
 
 
