@@ -15,6 +15,8 @@ use App\Models\Service;
 use App\Models\Video;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
+use App\Http\Resources\UserNotAuthResource;
+use App\Models\User;
 
 class HomeController extends BaseController
 {
@@ -35,8 +37,19 @@ class HomeController extends BaseController
         $res['Podcast']= $podcast;
 
         return $this->sendResponse($res,'home page');
-        
+    
+    }
+    public function get_markter($id){
+        $user = User::find($id);
+        if($user){
+            if($user->type != 'markter'){
+                return $this->sendError('هذا ليس حساب مسوق !');
+            }
+            $userRes =new  UserNotAuthResource($user);
+            return $this->sendResponse($userRes,'الملف الشخصي');
+        }else{
+            return $this->sendError('لا يوجد حساب !');
 
-
+        }
     }
 }
