@@ -43,6 +43,14 @@ class BlogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function updateStatus(Request $request)
+    {
+        $user = Blog::findOrFail($request->blog_id);
+        $user->status = $request->status;
+        $user->save();
+
+        return response()->json(['message' => 'Blog status updated successfully.']);
+    }
     public function store(Request $request)
     {
         try {

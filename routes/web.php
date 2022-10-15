@@ -79,6 +79,8 @@ Route::middleware('auth')->group(function () {
     Route::get('marketers',[ProfileController::class,'markters']);
     Route::get('marketer/{id}',[ProfileController::class,'show'])->name('marketer.show');
     Route::get('/status/update',[ProfileController::class,'updateStatus'])->name('users.update.status');    
+    Route::get('/status/blogs',[BlogController::class,'updateStatus'])->name('blogs.update.status');    
+
     Route::get('user/getData', [UsersController::class, 'getData'])->name('users.getDat');
     Route::resource('specialtys', SpecialtyController::class);
     Route::resource('payments', PaymentController::class);
