@@ -25,7 +25,7 @@ class Is_able_markter
                     if (!empty($errorMessages))
                         $response['data'] = $errorMessages;
                     return response()->json($response , 200);  
-                }elseif(auth('api')->user()->status == 1){
+                }elseif(auth('api')->user()->status == 0){
                     $response = ['success' => false, 'message' => 'Your account is under review','code'=>400];
                     if (!empty($errorMessages))
                         $response['data'] = $errorMessages;
