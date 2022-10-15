@@ -879,6 +879,7 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         'App\\Models\\RateBlog' => __DIR__ . '/../..' . '/app/Models/RateBlog.php',
         'App\\Models\\Service' => __DIR__ . '/../..' . '/app/Models/Service.php',
         'App\\Models\\ServiceCategory' => __DIR__ . '/../..' . '/app/Models/ServiceCategory.php',
+        'App\\Models\\ServiceComment' => __DIR__ . '/../..' . '/app/Models/ServiceComment.php',
         'App\\Models\\ServiceFiles' => __DIR__ . '/../..' . '/app/Models/ServiceFiles.php',
         'App\\Models\\ServiceKeyword' => __DIR__ . '/../..' . '/app/Models/ServiceKeyword.php',
         'App\\Models\\ServiceSpecialy' => __DIR__ . '/../..' . '/app/Models/ServiceSpecialy.php',

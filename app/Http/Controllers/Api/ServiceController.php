@@ -13,6 +13,7 @@ use App\Models\Category;
 use App\Models\KeyWord;
 use App\Models\Service;
 use App\Models\ServiceCategory;
+use App\Models\ServiceComment;
 use App\Models\ServiceFiles;
 use App\Models\ServiceKeyword;
 use App\Models\ServiceSpecialy;
@@ -130,9 +131,13 @@ class ServiceController extends BaseController
                     }
                 }
                 $ser = new ServiceResource($service);
-                return $this->sendResponse($ser,'Addedd Successfuly');
-
-                
-       
+                return $this->sendResponse($ser,'Addedd Successfuly');  
+    }
+    public function add_comment(Request $request){
+        $service = Service::find($request->service_id);
+        $comment = new ServiceComment();
+        $comment->service_id = $request->service_id;
+        $comment->body = $request->body;
+        $comment->save();
     }
 }

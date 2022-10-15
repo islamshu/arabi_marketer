@@ -138,6 +138,7 @@ return array(
     'App\\Models\\RateBlog' => $baseDir . '/app/Models/RateBlog.php',
     'App\\Models\\Service' => $baseDir . '/app/Models/Service.php',
     'App\\Models\\ServiceCategory' => $baseDir . '/app/Models/ServiceCategory.php',
+    'App\\Models\\ServiceComment' => $baseDir . '/app/Models/ServiceComment.php',
     'App\\Models\\ServiceFiles' => $baseDir . '/app/Models/ServiceFiles.php',
     'App\\Models\\ServiceKeyword' => $baseDir . '/app/Models/ServiceKeyword.php',
     'App\\Models\\ServiceSpecialy' => $baseDir . '/app/Models/ServiceSpecialy.php',

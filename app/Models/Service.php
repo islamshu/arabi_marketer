@@ -42,4 +42,13 @@ class Service extends Model
     {
         return $this->belongsTo(User::class);
     }
+    /**
+     * Get all of the comments for the Service
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()
+    {
+        return $this->hasMany(ServiceComment::class);
+    }
 }

@@ -96,6 +96,8 @@ Route::get('/get_specialty', [ServiceController::class, 'get_specialty']);
 Route::group(['middleware' => 'is_login','middleware' => 'is_able_markter'], function () {
 
     Route::post('/add_service', [ServiceController::class, 'store']);
+    Route::post('/add_service_comment', [ServiceController::class, 'add_comment']);
+
 });
 Route::get('/single_service/{id}', [ServiceController::class, 'single'])->name('single_service');
 Route::get('/get_all_service', [ServiceController::class, 'get_all']);

@@ -27,6 +27,8 @@ class ServiceResource extends JsonResource
             'keywords'=>$this->get_keywords($this),
             'specialties'=>$this->get_specialties($this),
             'files'=>$this->get_files($this),
+            'comment_number'=>$this->comments->where('status',1)->count(),
+            'comments'=>CommentResourse::collection($this->comments->where('status',1)),
             'url_to_this_service'=>route('single_service',$this->id),
 
         ];
