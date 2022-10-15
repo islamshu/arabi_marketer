@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\Is_able_markter;
 use App\Http\Middleware\Is_login;
 use App\Http\Middleware\Is_markter;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
