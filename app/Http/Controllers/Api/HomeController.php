@@ -41,6 +41,7 @@ class HomeController extends BaseController
     }
     public function get_markter($id){
         $user = User::find($id);
+        dd($user->type);
         if($user){
             if($user->type != 'markter'){
                 return $this->sendError('هذا ليس حساب مسوق !');
