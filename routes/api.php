@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\BlogController;
 use App\Http\Controllers\Api\CommentController;
 use App\Http\Controllers\Api\ConsultationController;
+use App\Http\Controllers\Api\ForgotPasswordController;
 use App\Http\Controllers\Api\GeneralController;
 use App\Http\Controllers\Api\HomeController;
 use App\Http\Controllers\Api\PodcastController;
@@ -44,6 +45,8 @@ Route::get('/get_all_markter', [HomeController::class, 'get_all_markter']);
 
 Route::post('/forgot_password', [PasswordResetLinkController::class, 'apiStore']);
 Route::post('/verify_token', [AuthenticatedSessionController::class, 'apiVerifyToken']);
+Route::post('password/email', [ForgotPasswordController::class, 'forgot']);
+Route::post('password/reset', [ForgotPasswordController::class, 'reset']);
 
 
 
