@@ -23,13 +23,13 @@ class Is_markter
                 $response = ['success' => false, 'message' => 'you are not markter','code'=>400];
                 if (!empty($errorMessages))
                     $response['data'] = $errorMessages;
-                return response()->json($response , 400);
+                return response()->json($response , 200);
             }
         }else{
             $response = ['success' => false, 'message' => 'you need to login','code'=>400];
             if (!empty($errorMessages))
                 $response['data'] = $errorMessages;
-            return response()->json($response , 400);
+            return response()->json($response , 200);
         }
        
       }
