@@ -71,10 +71,10 @@
                                 <input type="text" name="title" required class="form-control"
                                     value="{{ old('title') }}" id="title">
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-7">
                                 <label for="email"> الموضوع  : <span class="required"></span></label>
-                                <input type="text" name="body" required class="form-control"
-                                    value="{{ old('body') }}" id="body">
+                                <textarea name="body" required  class="form-control" id="body" cols="30" rows="10"></textarea>
+                               
                             </div>
     
     
