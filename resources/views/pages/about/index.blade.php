@@ -67,7 +67,7 @@
                                 </div>
                                 <div class="form-group col-md-8">
                                     <label for="email"> من نحن  : <span class="required"></span></label>
-                                    <textarea name="body" class="form-control" id="" cols="30" rows="10"></textarea>
+                                    <textarea name="body" class="form-control" required id="" cols="30" rows="10"></textarea>
                                    
                                 </div>
     

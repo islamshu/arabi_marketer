@@ -10,6 +10,7 @@ use App\Http\Controllers\ConsultingController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\Documentation\ReferencesController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\HowItWorkController;
 use App\Http\Controllers\KeyWordController;
 use App\Http\Controllers\Logs\AuditLogsController;
 use App\Http\Controllers\Logs\SystemLogsController;
@@ -94,6 +95,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('places', PlacetypeController::class);
     Route::resource('city', CityController::class);
     Route::resource('about', AboutPageController::class);
+    Route::resource('howItWords', HowItWorkController::class);
 
     Route::post('get_form_city', [CityController::class,'get_form_city'])->name('get_form_city');
     Route::post('update_city/{id}', [CityController::class, 'update_city'])->name('update_city');
