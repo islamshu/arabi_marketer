@@ -54,7 +54,7 @@
                 <div class="tab-pane fade active show" id="kt_ecommerce_settings_general" role="tabpanel">
 
                     <!--begin::Form-->
-                    <div class="col-md-8" id="form_toshow" style="display: none;margin-top:5px">
+                    <div class="col-md-8" id="form_toshow" >
                         <form id="sendmemessage">
                             @csrf
     
