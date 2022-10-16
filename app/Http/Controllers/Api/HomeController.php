@@ -15,8 +15,10 @@ use App\Models\Service;
 use App\Models\Video;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
+use App\Http\Resources\HowItWorksResourse;
 use App\Http\Resources\UserNotAuthResource;
 use App\Models\AboutPage;
+use App\Models\HowItWork;
 use App\Models\User;
 
 class HomeController extends BaseController
@@ -25,6 +27,11 @@ class HomeController extends BaseController
     {
         $about_section = AboutPage::select('title','body')->first();
         $res['about'] = $about_section;
+
+        $howItWork = HowItWork::orderby('order','asc')->get();
+        $hows = HowItWorksResourse::collection($howItWork);
+        $res['howItWorks']['best'] = $hows;
+
         $services = ServiceResource::collection(Service::orderby('id', 'desc')->take(6)->get());
         $res['service']['new'] = $services;
         $res['service']['best'] = $services;
