@@ -20,6 +20,7 @@ use App\Http\Resources\UserResource;
 use App\Http\Resources\VideoResource;
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\MarkterSoical;
 use App\Models\Podacst;
 use App\Models\Service;
 use App\Models\SouialUser;
@@ -149,16 +150,37 @@ class UserController extends BaseController
     }
     public function edit_profile_step_3(Request $request){
         $user = auth('api')->user();
-        foreach($user->socials as $s){
-            $s->delete();
+        $social = $user->soical;
+        if($social == null){
+            $social = new MarkterSoical();
+            $social->instagram = $request->instagram;
+            $social->facebook = $request->facebook;
+            $social->twitter = $request->twitter;
+            $social->pinterest = $request->pinterest;
+            $social->snapchat = $request->snapchat;
+            $social->linkedin = $request->linkedin;
+            $social->website = $request->website;
+            $social->followers_number = $request->followers_number;
+            $social->user_id = $user->id;
+            $social->save();
+        }else{
+            $social->instagram = $request->instagram;
+            $social->facebook = $request->facebook;
+            $social->twitter = $request->twitter;
+            $social->pinterest = $request->pinterest;
+            $social->snapchat = $request->snapchat;
+            $social->linkedin = $request->linkedin;
+            $social->website = $request->website;
+            $social->followers_number = $request->followers_number;
+            $social->save(); 
         }
-        dd($user->soical->delete);
-        foreach($request->social as $social){
-            $usersocial = new SouialUser();
-            $usersocial->user_id = $user->id;
-            $usersocial->url = $social;
-            $usersocial->save();
-        }
+       
+        // foreach($request->social as $social){
+        //     $usersocial = new SouialUser();
+        //     $usersocial->user_id = $user->id;
+        //     $usersocial->url = $social;
+        //     $usersocial->save();
+        // }
         $userRes =new  UserNotAuthResource($user);
         return $this->sendResponse($userRes,'تم تعديل البيانات بنجاح');
     }

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources',
 
-use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Http\Resources\Json\JsonResource',
 
 class SocialResource extends JsonResource
 {
@@ -15,7 +15,14 @@ class SocialResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'url'=>$this->url
+            'instagram'=> 'instagram',
+            'facebook'=> 'facebook',
+            'twitter'=> 'twitter',
+            'pinterest'=> 'pinterest',
+            'snapchat'=> 'snapchat',
+            'linkedin'=> 'linkedin',
+            'website'=> 'website',
+            'followers_number'=> 'followers_number',
         ];
     }
 }
