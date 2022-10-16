@@ -55,40 +55,37 @@
                 <div class="col-md-8" id="form_toshow" style="display: none;margin-top:5px">
                     <form id="sendmemessage">
                         @csrf
-
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <label for="email"> الدولة : <span class="required"></span></label>
-                                <select name="country_id" required class="form-control">
-                                    <option value="" selected disabled>اختر الدولة</option>
-                                    @foreach (App\Models\Country::get() as $item)
-                                    <option value="{{ $item->id }}" >{{ $item->title }} </option>
-
-                                    @endforeach
-                                </select>
-                            </div>
+    
+                        <div class="form-group">
+                            <label data-error="wrong" data-success="right" for="form3">الصورة <span
+                                    class="required"></span></label>
+                            <input type="file" id="imagestore" required name="image" class="form-control image">
+                        </div>
+                        <div class="form-group">
+                            <img src="{{ asset('uploads/product_images/default.png') }}" style="width: 100px"
+                                class="img-thumbnail image-preview" alt="">
                         </div>
                         <div class="row">
-                            <div class="form-group col-md-6">
-                                <label for="email"> العنوان بالعربية: <span class="required"></span></label>
-                                <input type="text" name="title_ar" required class="form-control"
-                                    value="{{ old('title_ar') }}" id="title_ar">
+                            <div class="form-group col-md-7">
+                                <label for="email"> العنوان : <span class="required"></span></label>
+                                <input type="text" name="title" required class="form-control"
+                                    value="{{ old('title') }}" id="title">
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="email"> العنوان بالانجليزية : <span class="required"></span></label>
-                                <input type="text" name="title_en" required class="form-control"
-                                    value="{{ old('title_en') }}" id="title_en">
+                                <label for="email"> الموضوع  : <span class="required"></span></label>
+                                <input type="text" name="body" required class="form-control"
+                                    value="{{ old('body') }}" id="body">
                             </div>
-
-
-
-
-
-
+    
+    
+    
+    
+    
+    
                         </div>
                         <br>
-
-
+    
+    
                         <button class="btn btn-info" type="submit">اضافة</i></button>
                     </form>
                 </div>
@@ -157,159 +154,20 @@
 @section('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 
-    <script>
-        $(document).ready(function() {
-            "use strict";
 
-            // Class definition
-            var KTDatatablesServerSide = function() {
-                // Shared variables
-                var table;
-                var dt;
-                var filterPayment;
-                // Private functions
-                var initDatatable = function() {
-                    if ($.fn.DataTable.isDataTable('#kt_datatable_example_2')) {
-                        $('#kt_datatable_example_2').DataTable().ajax.reload();
-                        return;
-                    }
-                    dt = $("#kt_datatable_example_2").DataTable({
-                        searchDelay: 500,
-                        processing: true,
-                        serverSide: true,
-                        stateSave: true,
-
-
-                        select: {
-                            style: 'multi',
-                            selector: 'td:first-child input[type="checkbox"]',
-                            className: 'row-selected'
-                        },
-                        ajax: {
-                            url: "{{ route('getBlogData') }}",
-                        },
-                        columns: [{
-                                data: 'id'
-                            },
-                            {
-
-                                data: 'title.en'
-                            },
-
-
-                            {
-                                data: null
-                            }
-                        ],
-                        columnDefs: [{
-                                targets: -1,
-                                data: null,
-                                orderable: false,
-                                className: 'text-end',
-                                render: function(data, type, row) {
-                                    var url = data.id;
-                                    var url_delete = "service_category_delete/" + url;
-                                    return '\
-                                                               <a  onclick = SelectedPeopleRecord("' +
-                                        url +
-                                        '") class="btn btn-sm btn-clean btn-icon btn-info" title="Edit details">\
-                                                                     <i class="la la-edit"></i>\
-                                                                       </a>\
-                                                                    <a href="javascript:;" data-id="' + url +
-                                        '" onclick = delete_record("' + url + '","' +
-                                        url_delete +
-                                        '") data-route="route("specialtys.destroy",' + url + ')" class="btn btn-sm btn-clean btn-icon btn-danger deleteRecord" title="Delete">\
-                                                                 		<i class="la la-trash"></i>\
-                                                                               </a>\
-                                                                            ';
-                                },
-                            },
-
-
-                        ],
-
-                    });
-
-                    table = dt.$;
-                    // Re-init functions on every table re-draw -- more info: https://datatables.net/reference/event/draw
-                    dt.on('draw', function() {
-                        KTMenu.createInstances();
-                    });
-                }
-                return {
-                    init: function() {
-                        initDatatable();
-                    }
-                }
-            }();
-            // On document ready
-            KTUtil.onDOMContentLoaded(function() {
-                KTDatatablesServerSide.init();
-            });
-
-        });
-    </script>
     <script type="text/javascript">
-        var SelectedPeopleRecord = function(id) {
+  
 
-            $("#exampleModaledit").modal('show');
-            $.ajax({
-                type: 'post',
-                url: "{{ route('get_form_city') }}",
-                data: {
-                    "_token": "{{ csrf_token() }}",
-                    'id': id
-                },
-                beforeSend: function() {},
-                success: function(data) {
-                    $('#edit_form').html(data);
-
-
-                }
-            });
-
-
-        }
-        var delete_record = function(id, route) {
-
-
-            $.ajax({
-                url: route,
-                type: 'delete',
-                data: {
-                    "id": id,
-                    "_token": "{{ csrf_token() }}",
-                },
-                success: function() {
-                    swal("Deleted successfully", {
-                        buttons: false,
-                        timer: 2000,
-                        icon: "success"
-                    });
-                    setTimeout(function() {
-                        window.location.reload();
-                    }, 1000);
-                }
-            });
-
-
-        }
-
-
-        $('#sendmemessage').on('submit', function(e) {
+       
+  $('#sendmemessage').on('submit', function(e) {
             e.preventDefault();
             var frm = $('#sendmemessage');
-
-
-            var data = $(this).serialize();
-            store("{{ route('city.store') }}", 'post', data, '#kt_datatable_example_4', 'sendmemessage',
-                '#exampleModal', 'Added successfully');
+            var formData = new FormData(frm[0]);
+            formData.append('file', $('#imagestore')[0].files[0]);
+            storefile("{{ route('howItWords.store') }}",'post', formData,'#kt_datatable_example_2','sendmemessage','#exampleModal','Added successfully');
             $("#sendmemessage")[0].reset();
 
 
-        });
-        $("#slide-toggle-button").click(function() {
-            $("#form_toshow").slideToggle("slow");
         });
     </script>
 @endsection
