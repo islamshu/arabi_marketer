@@ -151,6 +151,7 @@ class UserController extends BaseController
     public function edit_profile_step_3(Request $request){
         $user = auth('api')->user();
         $social = $user->soical;
+        dd($social);
         if($social == null){
             $social = new MarkterSoical();
             $social->instagram = $request->instagram;
