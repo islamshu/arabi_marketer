@@ -16,12 +16,15 @@ use App\Models\Video;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\UserNotAuthResource;
+use App\Models\AboutPage;
 use App\Models\User;
 
 class HomeController extends BaseController
 {
     public function home()
     {
+        $about_section = AboutPage::select('title','body')->first();
+        $res['about'] = $about_section;
         $services = ServiceResource::collection(Service::orderby('id', 'desc')->take(6)->get());
         $res['service']['new'] = $services;
         $res['service']['best'] = $services;
