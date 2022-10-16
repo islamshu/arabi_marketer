@@ -109,7 +109,6 @@
             var data = $(this).serialize();
             store("{{ route('about.store') }}", 'post', data, '#kt_datatable_example_4', 'sendmemessage',
                 '#exampleModal', 'Added successfully');
-            $("#sendmemessage")[0].reset();
 
 
         });
