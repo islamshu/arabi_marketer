@@ -59,7 +59,7 @@ Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
 Route::group(['middleware' => 'is_login'], function () {
     Route::post('/edit_profile', [UserController::class, 'edit_profile']);
-    Route::get('/be_marketer', [UserController::class, 'be_marketer']);
+    Route::post('/be_marketer', [UserController::class, 'be_marketer']);
     Route::get('/profile', [UserController::class, 'profile']);
 
 });
