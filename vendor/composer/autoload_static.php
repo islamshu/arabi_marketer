@@ -856,6 +856,7 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         'App\\Http\\Resources\\UserResource' => __DIR__ . '/../..' . '/app/Http/Resources/UserResource.php',
         'App\\Http\\Resources\\VideoResource' => __DIR__ . '/../..' . '/app/Http/Resources/VideoResource.php',
         'App\\Mail\\SendResetMail' => __DIR__ . '/../..' . '/app/Mail/SendResetMail.php',
+        'App\\Models\\AboutPage' => __DIR__ . '/../..' . '/app/Models/AboutPage.php',
         'App\\Models\\Blog' => __DIR__ . '/../..' . '/app/Models/Blog.php',
         'App\\Models\\BlogCategory' => __DIR__ . '/../..' . '/app/Models/BlogCategory.php',
         'App\\Models\\BlogKeyword' => __DIR__ . '/../..' . '/app/Models/BlogKeyword.php',

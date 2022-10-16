@@ -115,6 +115,7 @@ return array(
     'App\\Http\\Resources\\UserResource' => $baseDir . '/app/Http/Resources/UserResource.php',
     'App\\Http\\Resources\\VideoResource' => $baseDir . '/app/Http/Resources/VideoResource.php',
     'App\\Mail\\SendResetMail' => $baseDir . '/app/Mail/SendResetMail.php',
+    'App\\Models\\AboutPage' => $baseDir . '/app/Models/AboutPage.php',
     'App\\Models\\Blog' => $baseDir . '/app/Models/Blog.php',
     'App\\Models\\BlogCategory' => $baseDir . '/app/Models/BlogCategory.php',
     'App\\Models\\BlogKeyword' => $baseDir . '/app/Models/BlogKeyword.php',
