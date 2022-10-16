@@ -152,6 +152,7 @@ class UserController extends BaseController
         foreach($user->socials as $s){
             $s->delete();
         }
+        dd($user->soical);
         foreach($request->social as $social){
             $usersocial = new SouialUser();
             $usersocial->user_id = $user->id;

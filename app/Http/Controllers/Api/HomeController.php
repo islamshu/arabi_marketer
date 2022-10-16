@@ -62,6 +62,5 @@ class HomeController extends BaseController
         // $array = [34,36];
         // dd($request->all());
 
-        dd($explode_id);
     }
 }
