@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('about_pages', function (Blueprint $table) {
             $table->id();
+            $table->text('title');
+            $table->text('body');
             $table->timestamps();
         });
     }

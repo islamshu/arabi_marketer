@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutPageController;
 use App\Http\Controllers\Account\SettingsController;
 use App\Http\Controllers\Auth\SocialiteLoginController;
 use App\Http\Controllers\BlogController;
@@ -92,6 +93,8 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('places', PlacetypeController::class);
     Route::resource('city', CityController::class);
+    Route::resource('about', AboutPageController::class);
+
     Route::post('get_form_city', [CityController::class,'get_form_city'])->name('get_form_city');
     Route::post('update_city/{id}', [CityController::class, 'update_city'])->name('update_city');
 
