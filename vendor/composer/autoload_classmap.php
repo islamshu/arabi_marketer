@@ -128,6 +128,7 @@ return array(
     'App\\Models\\Country' => $baseDir . '/app/Models/Country.php',
     'App\\Models\\Gallery' => $baseDir . '/app/Models/Gallery.php',
     'App\\Models\\KeyWord' => $baseDir . '/app/Models/KeyWord.php',
+    'App\\Models\\MarkterSoical' => $baseDir . '/app/Models/MarkterSoical.php',
     'App\\Models\\Password' => $baseDir . '/app/Models/Password.php',
     'App\\Models\\Payment' => $baseDir . '/app/Models/Payment.php',
     'App\\Models\\Placetype' => $baseDir . '/app/Models/Placetype.php',
