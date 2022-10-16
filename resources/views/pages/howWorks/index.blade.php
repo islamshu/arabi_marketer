@@ -169,5 +169,8 @@
 
 
         });
+        $("#slide-toggle-button").click(function() {
+            $("#form_toshow").slideToggle("slow");
+        });
     </script>
 @endsection
