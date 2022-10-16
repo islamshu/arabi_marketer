@@ -129,7 +129,7 @@ class UserController extends BaseController
         $user = auth('api')->user();
         $user->pio = $request->cv;
         $user->save();
-       dd( json_encode(($request->type)));
+
         if($request->type != null){
             foreach($request->type as $type){
                 $is_ext = UserCategory::where('user_id',$user->id)->where('type_id',$type)->first();
