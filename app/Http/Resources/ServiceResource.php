@@ -21,7 +21,7 @@ class ServiceResource extends JsonResource
             'price'=>$this->price,
             'url'=>$this->url,
             'images'=>$this->get_image($this),
-            'thumb_image'=>asset('uploads/'.$this->image),
+            'thumb_image'=>asset('public/uploads/'.$this->image),
             'user_info'=>new UserMainInfoResource($this->user),
             'categories'=>$this->get_category($this),
             'keywords'=>$this->get_keywords($this),
@@ -39,7 +39,7 @@ class ServiceResource extends JsonResource
         $image_array =[];
         $images = json_decode($images);
         foreach($images as $image){
-            array_push($image_array , asset('uploads/'.$image));
+            array_push($image_array , asset('public/uploads/'.$image));
         }
         return $image_array;
     }
