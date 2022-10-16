@@ -11,9 +11,8 @@ class AboutPageController extends Controller
         return view('pages.about.index')->with('page',AboutPage::first());
     }
     public function store(Request $request){
-        $about = AboutPage::firstOrCreate([
-            'id' => 1
-        ], [
+        $about = AboutPage::first()->update([
+           
             'title' => $request->title,
             'body' => $request->body
         ]);
