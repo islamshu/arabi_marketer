@@ -48,15 +48,15 @@ class VideoController extends BaseController
             'types'=>'required',
             'keywords'=>'required', 
             'type'=>'required',
-            'url'=>  $request->type == 'url'?'required' : '' ,
-            'video'=>  $request->type == 'video'?'required' : '' ,
+            'url'=>  $request->type == 0?'required' : '' ,
+            'video'=>  $request->type == 1?'required' : '' ,
         ]);
         if ($validation->fails()) {
             return $this->sendError($validation->messages()->all());
         }
                 $vi = new Video();
                 $image = $request->thum_image->store('video');
-                if($request->type == 'video'){
+                if($request->type == 1){
                     $video = Youtube::upload($request->video->getPathName(), [
                         'title'       => $request->title,
                         'description' => $request->description,
@@ -74,7 +74,9 @@ class VideoController extends BaseController
 
                 $vi->source = 'test';
                 $vi->save();
-                foreach ($request->types as $category) {
+                $types = json_decode($request->types, true);
+
+                foreach ($types as $category) {
                     $cat = new VideoCateogry();
                     $cat->video_id = $vi->id;
                     $cat->category_id = $category;
