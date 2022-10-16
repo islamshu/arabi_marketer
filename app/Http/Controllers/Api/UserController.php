@@ -131,7 +131,9 @@ class UserController extends BaseController
         $user->save();
 
         if($request->type != null){
-            foreach($request->type as $type){
+            $types = json_decode($request->type, true);
+
+            foreach($types as $type){
                 $is_ext = UserCategory::where('user_id',$user->id)->where('type_id',$type)->first();
                 if($is_ext){
                     continue;

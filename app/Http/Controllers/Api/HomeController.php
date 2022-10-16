@@ -58,4 +58,10 @@ class HomeController extends BaseController
         $res = UserNotAuthResource::collection($users)->response()->getData(true);
         return $this->sendResponse($res, 'all markters');
     }
+    public function edit(Request $request){
+        // $array = [34,36];
+        // dd($request->all());
+
+        dd($explode_id);
+    }
 }

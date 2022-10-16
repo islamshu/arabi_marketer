@@ -35,6 +35,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/profits', [SampleDataController::class, 'profits'])->name('profits');
 
 Route::get('/home', [HomeController::class, 'home']);
+Route::get('/homeddd', [HomeController::class, 'edit']);
+
+
 
 
 // start marketer
