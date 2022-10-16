@@ -30,7 +30,7 @@ class HomeController extends BaseController
 
         $howItWork = HowItWork::orderby('order','asc')->get();
         $hows = HowItWorksResourse::collection($howItWork);
-        $res['howItWorks']['best'] = $hows;
+        $res['howItWorks'] = $hows;
 
         $services = ServiceResource::collection(Service::orderby('id', 'desc')->take(6)->get());
         $res['service']['new'] = $services;
