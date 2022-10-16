@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class HowItWorkController extends Controller
 {
     public function index(){
-        return view('pages.howWorks.index')->with('hows',HowItWork::orderby('order','asce')->get());
+        return view('pages.howWorks.index')->with('hows',HowItWork::orderby('order','asc')->get());
     }
     public function store(Request $request){
         $order = new HowItWork();
