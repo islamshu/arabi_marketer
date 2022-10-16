@@ -48,15 +48,15 @@ class VideoController extends BaseController
             'types'=>'required',
             'keywords'=>'required', 
             'type'=>'required',
-            'url'=>  $request->type == 0?'required' : '' ,
-            'video'=>  $request->type == 1?'required' : '' ,
+            'url'=>  $request->type == 1?'required' : '' ,
+            'video'=>  $request->type == 0?'required' : '' ,
         ]);
         if ($validation->fails()) {
             return $this->sendError($validation->messages()->all());
         }
                 $vi = new Video();
                 $image = $request->thum_image->store('video');
-                if($request->type == 1){
+                if($request->type == 0){
                     $video = Youtube::upload($request->video->getPathName(), [
                         'title'       => $request->title,
                         'description' => $request->description,
