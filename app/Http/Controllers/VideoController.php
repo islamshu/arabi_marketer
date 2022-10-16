@@ -35,7 +35,7 @@ class VideoController extends Controller
             DB::transaction(function () use ($request) {
                 $vi = new Video();
                 $image = $request->image->store('video');
-                if($request->type == 'file'){
+                if($request->type == 1){
                     $video = Youtube::upload($request->video->getPathName(), [
                         'title'       => $request->title,
                         'description' => $request->description,
