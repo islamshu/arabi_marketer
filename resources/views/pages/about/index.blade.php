@@ -60,15 +60,15 @@
     
     
                             <div class="row">
-                                <div class="form-group col-md-6">
-                                    <label for="email"> العنوان بالعربية: <span class="required"></span></label>
-                                    <input type="text" name="title_ar" required class="form-control"
-                                        value="{{ old('title_ar') }}" id="title_ar">
+                                <div class="form-group col-md-8">
+                                    <label for="email"> العنوان : <span class="required"></span></label>
+                                    <input type="text" name="title" required class="form-control"
+                                        value="{{ old('title') }}" id="title">
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <label for="email"> العنوان بالانجليزية : <span class="required"></span></label>
-                                    <input type="text" name="title_en" required class="form-control"
-                                        value="{{ old('title_en') }}" id="title_en">
+                                <div class="form-group col-md-8">
+                                    <label for="email"> من نحن  : <span class="required"></span></label>
+                                    <textarea name="body" class="form-control" id="" cols="30" rows="10"></textarea>
+                                   
                                 </div>
     
     
