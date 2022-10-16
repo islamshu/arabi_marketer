@@ -36,7 +36,7 @@ class UserNotAuthResource extends JsonResource
             'number_of_podcasts'=>$this->podcasts->count(),
             'number_of_consutiong'=>$this->consutiong->count(),
             'finance'=>$this->get_finance($this),
-            'Social'=>new SocialResource($this->social)
+            'social'=>new SocialResource($this->soical)
         ];
     }
     function get_finance($data){
