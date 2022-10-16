@@ -55,7 +55,7 @@
 
                     <!--begin::Form-->
                     <div class="col-md-8" id="form_toshow" >
-                        <form id="sendmemessage">
+                        <form id="sendmemessage" style="direction: rtl">
                             @csrf
     
     
@@ -107,7 +107,7 @@
 
 
             var data = $(this).serialize();
-            store("{{ route('store_blog_category') }}", 'post', data, '#kt_datatable_example_4', 'sendmemessage',
+            store("{{ route('about.store') }}", 'post', data, '#kt_datatable_example_4', 'sendmemessage',
                 '#exampleModal', 'Added successfully');
             $("#sendmemessage")[0].reset();
 
