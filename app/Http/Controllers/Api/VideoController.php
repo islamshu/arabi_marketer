@@ -114,7 +114,7 @@ class VideoController extends BaseController
     public function update(Request $request)
     {
         $vi = Video::find($request->video_id);
-        dd(auth('api')->id());
+        dd($vi->user_id);
         if ($vi->user_id == auth('api')->id()) {
             return $this->sendError('فقط صاحب الفيديو من يمكنه التعديل');
         }
