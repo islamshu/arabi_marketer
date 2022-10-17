@@ -183,7 +183,7 @@ class VideoController extends BaseController
     public function serach(Request $request){
         $title = $request->title;
         $query = Video::query();
-        $query->where('status',1);
+        // $query->where('status',1);
         $query->when($request->title != null, function ($q) use ($title) {
             return $q->where('title','like','%'.$title.'%');
         });
