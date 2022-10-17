@@ -175,7 +175,7 @@ class VideoController extends BaseController
     {
         $video = Video::find($video_id);
         if ($video->user_id != auth('api')->id()) {
-            return $this->sendError('فقط صاحب الفيديو من يمكنه التعديل');
+            return $this->sendError('فقط صاحب الفيديو من يمكنه الحذف');
         }
         $video->delete();
         return $this->sendResponse('delete', 'deleted succeffuly');
