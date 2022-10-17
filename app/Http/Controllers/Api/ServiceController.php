@@ -224,6 +224,15 @@ class ServiceController extends BaseController
                 $ser = new ServiceResource($service);
                 return $this->sendResponse($ser,'updated Successfuly');  
     }
+    public function delete($video_id)
+    {
+        $video = Service::find($video_id);
+        if ($video->user_id != auth('api')->id()) {
+            return $this->sendError('فقط صاحب الخدمة من يمكنه الحذف');
+        }
+        $video->delete();
+        return $this->sendResponse('delete', 'deleted succeffuly');
+    }
     public function add_comment(Request $request){
         $service = Service::find($request->service_id);
         $comment = new ServiceComment();

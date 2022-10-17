@@ -105,6 +105,7 @@ Route::group(['middleware' => 'is_login','middleware' => 'is_able_markter'], fun
 
     Route::post('/add_service', [ServiceController::class, 'store']);
     Route::post('/update_service', [ServiceController::class, 'update']);
+    Route::delete('/delete_service/{id}', [ServiceController::class, 'delete']);
 
 });
 Route::group(['middleware' => 'is_login'], function () {
