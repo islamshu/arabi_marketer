@@ -171,5 +171,14 @@ class VideoController extends BaseController
         $res = new VideoResource($vi);
         return $this->sendResponse($res, 'Updated succeffuly');
     }
+    public function delete($video_id)
+    {
+        $video = Video::find($video_id);
+        if ($video->user_id != auth('api')->id()) {
+            return $this->sendError('فقط صاحب الفيديو من يمكنه التعديل');
+        }
+        $video->delete();
+        return $this->sendResponse('delete', 'deleted succeffuly');
+    }
 }
 
