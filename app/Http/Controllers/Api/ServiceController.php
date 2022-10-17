@@ -135,6 +135,95 @@ class ServiceController extends BaseController
                 $ser = new ServiceResource($service);
                 return $this->sendResponse($ser,'Addedd Successfuly');  
     }
+    public function update(Request $request){
+      
+                $service = Service::find($request->service_id);
+                $service->title = ['ar' => $request->title, 'en' => $request->title];
+                $service->description = ['ar' => $request->description, 'en' => $request->description];
+                $service->price = $request->price;
+                $service->url = $request->url;
+                $image_array = array();
+                if($request->images != null){
+                    foreach ($request->images as $key => $image) {
+
+                        array_push($image_array, $image->store('service'));
+                    }
+                    foreach ($request->images as $key => $im) {
+                        if ($key == 0) {
+                            $service->image = $im->store('service');
+                        }
+                    }
+                    $service->images = json_encode($image_array);
+
+                }
+                
+                $service->save();
+                $servicespecialty = ServiceSpecialy::where('service_id',$service->id)->get();
+                foreach($servicespecialty as $se){
+                    $se->delete();
+                }
+                foreach ($request->specialties as $specialty) {
+                    $spe = new ServiceSpecialy();
+                    $spe->service_id = $service->id;
+                    $spe->specialts_id = $specialty;
+                    $spe->save();
+                }
+                $servicecategory = ServiceCategory::where('service_id',$service->id)->get();
+                foreach($servicecategory as $se){
+                    $se->delete();
+                }
+                foreach ($request->types as $category) {
+                    $cat = new ServiceCategory();
+                    $cat->service_id = $service->id;
+                    $cat->category_id = $category;
+                    $cat->save();
+                }
+
+                // dd($request->keywords);
+                $keywords = explode(',',$request->keywords);
+                $servicekey = ServiceKeyword::where('service_id',$service->id)->get();
+                foreach($servicekey as $se){
+                    $se->delete();
+                }
+                foreach ($keywords as $s) {
+                    $keyword = KeyWord::ofType('service')->where('title', $s)->where('title', $s)->first();
+                    if ($keyword) {
+                        $key = new ServiceKeyword();
+                        $key->service_id = $service->id;
+                        $key->keyword_id = $keyword->id;
+                        $key->save();
+                    } else {
+
+                        $keyword = new KeyWord();
+                        $keyword->title = ['ar' => $s, 'en' => $s];
+                        $keyword->type = 'service';
+                        $keyword->save();
+
+                        $key = new ServiceKeyword();
+                        $key->service_id = $service->id;
+                        $key->keyword_id = $keyword->id;
+                        $key->save();
+                    }
+                }
+
+
+                if ($request->has_file == 'yes') {
+                    $servicefile = ServiceFiles::where('service_id',$service->id)->get();
+                    foreach($servicefile as $se){
+                        $se->delete();
+                    }
+                    foreach ($request->attach_file as $keyy => $imagex) {  
+                        $imageNamee = '/' . time() + $keyy . '_service_file.' . $imagex->getClientOriginalExtension();
+                        $imagex->move('uploads/service_file', $imageNamee);
+                        $file = new ServiceFiles();
+                        $file->service_id = $service->id;
+                        $file->file =  $imageNamee;
+                        $file->save();
+                    }
+                }
+                $ser = new ServiceResource($service);
+                return $this->sendResponse($ser,'updated Successfuly');  
+    }
     public function add_comment(Request $request){
         $service = Service::find($request->service_id);
         $comment = new ServiceComment();

@@ -104,6 +104,7 @@ Route::get('/service_search', [ServiceController::class, 'serach']);
 Route::group(['middleware' => 'is_login','middleware' => 'is_able_markter'], function () {
 
     Route::post('/add_service', [ServiceController::class, 'store']);
+    Route::post('/update_service', [ServiceController::class, 'update']);
 
 });
 Route::group(['middleware' => 'is_login'], function () {
