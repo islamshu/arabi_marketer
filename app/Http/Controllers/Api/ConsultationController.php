@@ -85,4 +85,24 @@ class ConsultationController extends BaseController
         $res = new ConsultingResource($con);
         return $this->sendResponse($res,'تم الاضافة بنجاح');
     }
+    public function serach(Request $request){
+        $title = $request->title;
+        $query = Consulting::query();
+        // $query->where('status',1);
+        $query->when($request->title != null, function ($q) use ($title) {
+            return $q->where('title','like','%'.$title.'%');
+        });
+        $query->when($request->category_id !=null, function ($q) use ($request) {
+            return $q->has('type')->with(['type' => function ($query) use ($request) {
+                $query->where('category_id', $request->category_id);
+            }]);
+        });
+
+       
+        $blogs = $query->orderby('id','desc')->paginate(6);
+
+        $res = ConsultingResource::collection($blogs)->response()->getData(true);
+        return $this->sendResponse($res, 'جميع البودكاست');
+
+    }
 }

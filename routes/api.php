@@ -160,6 +160,8 @@ Route::get('/get_all_consultation', [ConsultationController::class, 'all_consult
 Route::group(['middleware' => 'is_login','middleware' => 'is_able_markter'], function () {
     Route::post('/add_consultion', [ConsultationController::class, 'store']);
 });
+Route::get('consultation_search', [ConsultationController::class, 'serach']);
+
 
 
 //start general data
