@@ -99,7 +99,7 @@ Route::get('/related_blogs/{id}', [BlogController::class, 'related_blogs']);
 Route::get('/service_category', [ServiceController::class, 'service_category']);
 Route::get('/service_keyword', [ServiceController::class, 'service_keyword']);
 Route::get('/get_specialty', [ServiceController::class, 'get_specialty']);
-Route::get('/service_search', [BlogController::class, 'serach']);
+Route::get('/service_search', [ServiceController::class, 'serach']);
 
 Route::group(['middleware' => 'is_login','middleware' => 'is_able_markter'], function () {
 
