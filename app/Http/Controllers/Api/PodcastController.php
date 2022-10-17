@@ -155,8 +155,15 @@ class PodcastController extends BaseController
 
             $res = new PodcastResource($service);
             return $this->sendResponse($res,'updated succeffuly');
-
-
+    }
+    public function delete($video_id)
+    {
+        $video = Podacst::find($video_id);
+        if ($video->user_id != auth('api')->id()) {
+            return $this->sendError('فقط صاحب البودكاست من يمكنه التعديل');
+        }
+        $video->delete();
+        return $this->sendResponse('delete', 'deleted succeffuly');
     }
     
 }
