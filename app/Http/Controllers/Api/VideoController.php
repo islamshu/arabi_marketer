@@ -197,7 +197,7 @@ class VideoController extends BaseController
         $blogs = $query->orderby('id','desc')->paginate(6);
 
         $res = VideoResource::collection($blogs)->response()->getData(true);
-        return $this->sendResponse($res, 'جميع المقالات');
+        return $this->sendResponse($res, 'جميع الفيديوهات');
 
     }
 }

@@ -165,5 +165,25 @@ class PodcastController extends BaseController
         $video->delete();
         return $this->sendResponse('delete', 'deleted succeffuly');
     }
+    public function serach(Request $request){
+        $title = $request->title;
+        $query = Podacst::query();
+        // $query->where('status',1);
+        $query->when($request->title != null, function ($q) use ($title) {
+            return $q->where('title','like','%'.$title.'%');
+        });
+        $query->when($request->category_id !=null, function ($q) use ($request) {
+            return $q->has('category')->with(['category' => function ($query) use ($request) {
+                $query->where('category_id', $request->category_id);
+            }]);
+        });
+
+       
+        $blogs = $query->orderby('id','desc')->paginate(6);
+
+        $res = PodcastResource::collection($blogs)->response()->getData(true);
+        return $this->sendResponse($res, 'جميع البودكاست');
+
+    }
     
 }
