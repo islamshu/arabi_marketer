@@ -46,6 +46,10 @@
                 <li class="nav-item">
                     <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_1">المقالات</a>
                 </li>
+                   <li class="nav-item">
+                    <a class="nav-link " data-bs-toggle="tab" href="#kt_tab_pane_3"> المقالات المعلقة</a>
+                </li>
+             
              
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_2">اضف جديد</a>
@@ -58,6 +62,11 @@
                 <div class="tab-pane fade show active" id="kt_tab_pane_1" role="tabpanel">
                     @include('pages.blogs._index')
                 </div>
+                <div class="tab-pane fade" id="kt_tab_pane_3" role="tabpanel">
+                    @include('pages.blogs.bending')
+                </div>
+
+                
                
                 <div class="tab-pane fade" id="kt_tab_pane_2" role="tabpanel">
                     @include('pages.blogs._create')
