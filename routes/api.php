@@ -96,6 +96,8 @@ Route::get('/related_blogs/{id}', [BlogController::class, 'related_blogs']);
 Route::get('/service_category', [ServiceController::class, 'service_category']);
 Route::get('/service_keyword', [ServiceController::class, 'service_keyword']);
 Route::get('/get_specialty', [ServiceController::class, 'get_specialty']);
+Route::get('/service_search', [BlogController::class, 'serach']);
+
 Route::group(['middleware' => 'is_login','middleware' => 'is_able_markter'], function () {
 
     Route::post('/add_service', [ServiceController::class, 'store']);
@@ -134,6 +136,9 @@ Route::get('/video_category', [VideoController::class, 'video_category']);
 Route::get('/video_keywords', [VideoController::class, 'video_keyword']);
 Route::get('/get_all_videos', [VideoController::class, 'get_all']);
 Route::get('/single_video/{id}', [VideoController::class, 'single'])->name('single_video');
+Route::get('/video_search', [VideoController::class, 'serach']);
+
+
 Route::group(['middleware' => 'is_login','middleware' => 'is_able_markter'], function () {
 
     Route::post('/add_video', [VideoController::class, 'store']);
