@@ -121,6 +121,8 @@ Route::get('/single_podcast/{id}', [PodcastController::class, 'single'])->name('
 Route::group(['middleware' => 'is_login','middleware' => 'is_able_markter'], function () {
 
     Route::post('/add_podcast', [PodcastController::class, 'store']);
+    Route::post('/update_podcast', [PodcastController::class, 'update']);
+
 });
 
 //end podcasts
@@ -148,7 +150,6 @@ Route::get('/consultation_places', [ConsultationController::class, 'places']);
 Route::get('/consultation_payments', [ConsultationController::class, 'payments']);
 Route::get('/get_all_consultation', [ConsultationController::class, 'all_consultation']);
 Route::group(['middleware' => 'is_login','middleware' => 'is_able_markter'], function () {
-
     Route::post('/add_consultion', [ConsultationController::class, 'store']);
 });
 

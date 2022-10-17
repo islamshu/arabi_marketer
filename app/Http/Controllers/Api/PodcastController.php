@@ -60,9 +60,10 @@ class PodcastController extends BaseController
             $service->time = $request->time;
             $service->image = $request->image->store('podcast');
             $service->save();
+            $types = json_decode($request->types, true);
 
 
-            foreach ($request->types as $category) {
+            foreach ($types as $category) {
                 $cat = new PodcastCategory();
                 $cat->podcast_id = $service->id;
                 $cat->category_id = $category;
@@ -100,4 +101,62 @@ class PodcastController extends BaseController
 
 
     }
+    public function update(Request $request){
+        // dd($request->image);
+        
+            $service = Podacst::find($request->podcast_id);
+            $service->title = $request->title;
+            $service->description = $request->description;
+            $service->url = $request->google_SSR;
+            $service->apple_url  = $request->apple_SSR ;
+            $service->sound_url  = $request->soundCloud_SSR ;
+            $service->time = $request->time;
+            if($request->image != null){
+                $service->image = $request->image->store('podcast');
+            }
+            $service->save();
+
+            PodcastCategory::where('podcast_id', $service->id)->delete();
+            $types = json_decode($request->types, true);
+
+            foreach ($types as $category) {
+                $cat = new PodcastCategory();
+                $cat->podcast_id = $service->id;
+                $cat->category_id = $category;
+                $cat->save();
+            }
+
+            // dd($request->keywords);
+            $keywords = explode(',', $request->keywords);
+            PodacstKeyword::where('podcast_id', $service->id)->delete();
+
+            foreach ($keywords as $s) {
+                $keyword = KeyWord::ofType('podcast')->where('title',$s)->where('title',$s)->first();
+                if ($keyword) {
+                    $key = new PodacstKeyword();
+                    $key->podcast_id = $service->id;
+                    $key->keyword_id = $keyword->id;
+                    $key->save();
+                } else {
+
+                    $keyword = new KeyWord();
+                    $keyword->title = ['ar' =>$s, 'en' =>$s];
+                    $keyword->type = 'podcast';
+                    $keyword->save();
+
+                    $key = new PodacstKeyword();
+                    $key->podcast_id = $service->id;
+                    $key->keyword_id = $keyword->id;
+                    $key->save();
+                }
+            }
+
+
+
+            $res = new PodcastResource($service);
+            return $this->sendResponse($res,'updated succeffuly');
+
+
+    }
+    
 }
