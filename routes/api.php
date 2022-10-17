@@ -134,6 +134,8 @@ Route::get('/single_video/{id}', [VideoController::class, 'single'])->name('sing
 Route::group(['middleware' => 'is_login','middleware' => 'is_able_markter'], function () {
 
     Route::post('/add_video', [VideoController::class, 'store']);
+    Route::post('/update_video', [VideoController::class, 'update']);
+
 });
 //end Video
 
