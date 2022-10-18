@@ -105,7 +105,7 @@
                                 <tr>
                                 <td>{{ $item->title }}</td>
                                  <td>{{ @$item->body }}</td>
-                                 <td><img src="{{ asset('uploads/'.$item->image) }}" width="50" height="50" alt=""></td>
+                                 <td><img src="{{ asset('public/uploads/'.$item->image) }}" width="50" height="50" alt=""></td>
                                  
                                 </tr>
                                     
