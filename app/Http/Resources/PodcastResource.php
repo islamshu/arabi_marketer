@@ -22,7 +22,7 @@ class PodcastResource extends JsonResource
             'user_info'=>new UserMainInfoResource($this->user),
             'categories'=>$this->get_category($this),
             'keywords'=>$this->get_keywords($this),
-            'image'=>asset('uploads/'.$this->image),
+            'image'=>asset('public/uploads/'.$this->image),
             'google_SSR'=>$this->url,
             'Apple_SSR'=>$this->apple_url,
             'SoundCloud_SSR'=>$this->sound_url,
