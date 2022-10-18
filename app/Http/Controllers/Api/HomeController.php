@@ -45,6 +45,7 @@ class HomeController extends BaseController
 
         $blogs = BlogResource::collection(Blog::orderBy('id', 'desc')->take(6)->get());
         $res['blog_categotry']= CategoryBlogResource::collection(Category::ofType('blog')->get());
+        $res['blog']=CategoryBlogResource::collection(Category::ofType('blog')->get());
 
         $res['blog']['new'] = $blogs;
         $res['blog']['best'] = $blogs;
