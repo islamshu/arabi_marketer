@@ -12,7 +12,7 @@ class HowItWorkController extends Controller
     }
     public function store(Request $request){
         $order = new HowItWork();
-        $order->image = $request->image->store('works');
+        $order->image = $request->image->store('specialty');
         $order->title = $request->title;
         $order->body = $request->body;
         $order->order = HowItWork::count() +1 ;
