@@ -62,12 +62,12 @@
                             <div class="row">
                                 <div class="form-group col-md-8">
                                     <label for="email"> العنوان : <span class="required"></span></label>
-                                    <input type="text" name="title" required class="form-control"
-                                        value="{{ old('title') }}" id="title">
+                                    <input type="text" name="title"  required class="form-control"
+                                        value="{{ $about->title }}" id="title">
                                 </div>
                                 <div class="form-group col-md-8">
                                     <label for="email"> من نحن  : <span class="required"></span></label>
-                                    <textarea name="body" class="form-control" required id="" cols="30" rows="10"></textarea>
+                                    <textarea name="body" class="form-control" required id="" cols="30" rows="10">{{ $about->body }}</textarea>
                                    
                                 </div>
     
