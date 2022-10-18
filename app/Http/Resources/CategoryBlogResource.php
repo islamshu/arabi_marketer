@@ -18,7 +18,7 @@ class CategoryBlogResource extends JsonResource
         return [
             'id'=>$this->id,
             'title'=>$this->title,
-            'blogs'=> get_blogs($this),
+            'blogs'=>$this->get_blogs($this),
         ];
     }
     public function get_blogs($data){
