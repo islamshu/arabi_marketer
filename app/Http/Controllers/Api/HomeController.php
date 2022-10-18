@@ -18,6 +18,7 @@ use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\CategoryResource;
 use App\Http\Resources\HowItWorksResourse;
 use App\Http\Resources\UserNotAuthResource;
+use App\Http\Resources\UserResource;
 use App\Models\AboutPage;
 use App\Models\Category;
 use App\Models\HowItWork;
@@ -44,6 +45,8 @@ class HomeController extends BaseController
         $blogs = BlogResource::collection(Blog::orderBy('id', 'desc')->take(6)->get());
         $res['blog']['new'] = $blogs;
         $res['blog']['best'] = $blogs;
+        $markter = User::where('type','marketer')->where('status',1)->take(4)->get();
+        $res['markter'] = UserResource::collection($markter);
 
         $videos = VideoResource::collection(Video::orderBy('id', 'desc')->take(4)->get());
         $res['video'] = $videos;
