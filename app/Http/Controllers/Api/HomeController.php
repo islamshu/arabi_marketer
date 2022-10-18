@@ -15,6 +15,7 @@ use App\Models\Service;
 use App\Models\Video;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
+use App\Http\Resources\CategoryBlogResource;
 use App\Http\Resources\CategoryResource;
 use App\Http\Resources\HowItWorksResourse;
 use App\Http\Resources\UserNotAuthResource;
