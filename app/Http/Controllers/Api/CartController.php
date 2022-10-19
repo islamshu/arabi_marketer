@@ -28,7 +28,10 @@ class CartController extends BaseController
             return $this->sendError('الخدمة غير متوفرة');
  
         }
-        $cart = Cart::where('user_id',auth('api')->id())->where('service_id',$service->id)->first()->delete();
+        $cart = Cart::where('user_id',auth('api')->id())->where('service_id',$service->id)->first();
+        if($cart){
+            $cart->delete();
+        }
         $cart = new Cart();
         $cart->user_id = auth('api')->id();
         $cart->owner_id = $service->user_id;
