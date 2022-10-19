@@ -12,7 +12,7 @@ use Validator;
 class CartController extends BaseController
 {
     public function index(){
-        $carts = Cart::where('user_id',auth('api')->id)->orderby('id','desc')->get();
+        $carts = Cart::where('user_id',auth('api')->id())->orderby('id','desc')->get();
         $res =  CartResource::collection($carts);
         return $this->sendResponse($res,'all carts');
     }
