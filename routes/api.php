@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\BlogController;
+use App\Http\Controllers\Api\CartController;
 use App\Http\Controllers\Api\CommentController;
 use App\Http\Controllers\Api\ConsultationController;
 use App\Http\Controllers\Api\ForgotPasswordController;
@@ -132,6 +133,11 @@ Route::group(['middleware' => 'is_login','middleware' => 'is_able_markter'], fun
     Route::post('/add_podcast', [PodcastController::class, 'store']);
     Route::post('/update_podcast', [PodcastController::class, 'update']);
     Route::delete('/delete_podcast/{id}', [PodcastController::class, 'delete']);
+
+});
+Route::group(['middleware' => 'is_login'], function () {
+
+    Route::post('/add_to_cart', [CartController::class, 'store']);
 
 });
 
