@@ -138,7 +138,7 @@ Route::group(['middleware' => 'is_login','middleware' => 'is_able_markter'], fun
 Route::group(['middleware' => 'is_login'], function () {
     Route::get('/carts', [CartController::class, 'index']);
     Route::post('/add_to_cart', [CartController::class, 'store']);
-    Route::delete('/delete_from_carts', [CartController::class, 'delete']);
+    Route::delete('/delete_from_carts/{id}', [CartController::class, 'delete']);
 
     
 });
