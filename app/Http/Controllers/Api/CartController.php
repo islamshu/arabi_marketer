@@ -41,4 +41,13 @@ class CartController extends BaseController
         $res = new CartResource($cart);
         return $this->sendResponse($res,'added');
     }
+    public function delete($id){
+        $cart = Cart::find($id);
+        if(!$cart){
+            return $this->sendError('يوجد خطأ ما !');
+        }
+        $cart->delete();
+        return $this->sendResponse('delete', 'deleted succeffuly');
+
+    }
 }
