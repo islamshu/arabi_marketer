@@ -110,7 +110,8 @@ if (!function_exists('get_svg_icon')) {
 function get_video_form_url($url){
 //    $url_cut = explode("v=",$url);
   $url_cut =  strrchr( $url, 'v=');
-   return $url_cut;
+  
+   return str_replace('v=','',$url_cut);
 }
 if (!function_exists('theme')) {
     /**
