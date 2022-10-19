@@ -108,7 +108,7 @@ if (!function_exists('get_svg_icon')) {
 }
 
 function get_video_form_url($url){
-   $url_cut = explode("?v=",$url);
+   $url_cut = explode("https://www.youtube.com/watch?v=",$url);
    return $url_cut[0];
 }
 if (!function_exists('theme')) {
