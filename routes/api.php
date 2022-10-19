@@ -136,7 +136,7 @@ Route::group(['middleware' => 'is_login','middleware' => 'is_able_markter'], fun
 
 });
 Route::group(['middleware' => 'is_login'], function () {
-
+    Route::post('/carts', [CartController::class, 'index']);
     Route::post('/add_to_cart', [CartController::class, 'store']);
 
 });

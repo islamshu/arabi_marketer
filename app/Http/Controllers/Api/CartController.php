@@ -11,6 +11,11 @@ use Validator;
 
 class CartController extends BaseController
 {
+    public function index(){
+        $carts = Cart::where('user_id',auth('api')->id)->orderby('id','desc')->get();
+        $res =  CartResource::collection($carts);
+        return $this->sendResponse($res,'all carts');
+    }
     public function store(Request $request){
         $validation = Validator::make($request->all(), [
             'service_id' => 'required',
