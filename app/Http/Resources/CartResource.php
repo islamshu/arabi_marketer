@@ -17,9 +17,9 @@ class CartResource extends JsonResource
     {
         return [
             'id'=>$this->id,
-            'user_id'=>$this->user,
-            'owner_id'=>$this->owner,
-            'service'=>$this->service,
+            'user_id'=>new UserNormalNotAuthResource($this->user),
+            'owner_id'=>new UserNotAuthResource($this->owner),
+            'service'=>new ServiceResource($this->service),
             'price'=>$this->price,
             
             
