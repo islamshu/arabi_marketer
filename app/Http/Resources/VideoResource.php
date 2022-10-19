@@ -24,6 +24,7 @@ class VideoResource extends JsonResource
             'keywords'=>$this->get_keywords($this),
             'thum_image'=>asset('public/uploads/'.$this->image),
             'url'=>$this->url,
+            'embede'=>get_video_form_url($this->url),
             'url_for_this_video'=>route('single_video',$this->id)
         ];
     }
