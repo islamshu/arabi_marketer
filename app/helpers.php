@@ -111,7 +111,7 @@ function get_video_form_url($url){
 //    $url_cut = explode("v=",$url);
   $url_cut =  strrchr( $url, 'v=');
   
-   return str_replace('v=','',$url_cut);
+   return 'https://www.youtube.com/embed/'.str_replace('v=','',$url_cut);
 }
 if (!function_exists('theme')) {
     /**
