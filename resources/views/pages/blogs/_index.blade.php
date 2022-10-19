@@ -7,6 +7,8 @@
                 <th>اضيف بواسطة</th>
                 <th>عدد التعليقات</th>
                 <th>الحالة</th>
+                                <th>تاريخ الاضافة</th>
+
                 <th>العمليات</th>
             </tr>
         </thead>
@@ -22,6 +24,8 @@
                 <input type="checkbox" data-id="{{ $item->id }}" name="status" class="js-switch"
                     {{ $item->status == 1 ? 'checked' : '' }}>
             </td>
+            <td>{{ $item->created_at->format('Y-m-d') }}</td>
+
              <td>
                 <a href="{{ route('blogs.edit', $item->id) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
                 <form style="display: inline"
