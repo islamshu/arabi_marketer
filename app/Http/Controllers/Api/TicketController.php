@@ -33,6 +33,7 @@ class TicketController extends BaseController
         // $files = json_decode($request->files);
         foreach($request->files as $file){
             $fi = new TicketFile();
+            dd($file);
             $fi->file = $file->store('tickets');
             $fi->ticket_id = $ticket->id;
             $fi->save();
