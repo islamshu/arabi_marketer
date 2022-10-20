@@ -2,29 +2,23 @@
     <thead>
         <tr>
             <th>عنوان الاستشارة </th>
-            <th>اسم المستخدم</th>
-            <th>تاريخ الاضافة </th>
+            <th>اضيف بواسطة </th>
+            <th>سعر الشراء</th>
+            <th>تاريخ الشراء</th>
+            <th>رقم الطلبية </th>
 
-            <th>العمليات</th>
         </tr>
     </thead>
     <tbody>
         @foreach ($consls as $item)
         <tr>
-         <td>{{ $item->title }}</td>
-         <td>{{ $item->user->name }}</td>
-         <td>{{ $item->created_at->format('Y-m-d') }}</td>
+         <td>{{ $item->consultion->title }}</td>
+         <td>{{ $item->consultion->user->name }}</td>
+         <th>{{ $item->price }}</th>
+         <th>{{ date('Y-m-d', strtotime($item->created_at)) }}</th>
+         <th><a target="_blank" href="{{ route('order.show',$item->order->id) }}">#{{$item->order->code }}</a> </th>
 
-         <td>
-            <a href="{{ route('consloution.edit', $item->id) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
-            <form style="display: inline"
-                action="{{ route('consloution.destroy', $item->id) }}"
-                method="post">
-                @method('delete') @csrf
-                <button type="submit" class="btn btn-danger delete-confirm"><i
-                        class="fa fa-trash"></i></button>
-            </form>
-        </td>
+     
         </tr>
             
         @endforeach
