@@ -66,7 +66,7 @@
                                             </span>
                                             <!--end::Svg Icon-->تاريخ الشراء</div>
                                         </td>
-                                        <td class="fw-bold text-end">{{ {{ date('Y-m-d', strtotime($order->created_at)); }} }}/td>
+                                        <td class="fw-bold text-end">{{ date('Y-m-d', strtotime($order->created_at)) }}</td>
                                     </tr>
                                     <!--end::Date-->
                                     <!--begin::Payment method-->
