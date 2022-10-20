@@ -79,6 +79,9 @@ Route::prefix('log')->name('log.')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::resource('users', UsersController::class);
     Route::get('marketers',[ProfileController::class,'markters']);
+    Route::get('customers',[ProfileController::class,'markters']);
+    Route::get('customer/{id}',[ProfileController::class,'show_customer'])->name('customer.show');
+
     Route::get('marketer/{id}',[ProfileController::class,'show'])->name('marketer.show');
     Route::get('/status/update',[ProfileController::class,'updateStatus'])->name('users.update.status');    
     Route::get('/status/blogs',[BlogController::class,'updateStatus'])->name('blogs.update.status');    

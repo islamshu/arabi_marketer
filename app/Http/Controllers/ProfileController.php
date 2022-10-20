@@ -20,6 +20,12 @@ class ProfileController extends Controller
         $users = User::where('type', 'marketer')->get();
         return view('pages.marketers.index')->with('users', $users);
     }
+    public function users()
+    {
+        $users = User::where('type', 'user')->get();
+        return view('pages.customers.index')->with('users', $users);
+    }
+
     public function updateStatus(Request $request)
     {
         $user = User::findOrFail($request->user_id);
@@ -46,4 +52,24 @@ class ProfileController extends Controller
 
 
     }
+    public function show_customer($id){
+        $user = User::find($id);
+        $services = $user->services;
+        $blogs = $user->blogs;
+        $videos = $user->videos;
+        $podcasts = $user->podcasts;
+        $consls =$user->consutiong;
+
+        return view('pages.marketers.profile.show')
+        ->with('user', $user)
+        ->with('services',$services)
+        ->with('blogs',$blogs)
+        ->with('podcasts',$podcasts)
+        ->with('consls',$consls)
+        ->with('videos',$videos);
+
+
+    }
+
+    
 }
