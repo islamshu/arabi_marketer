@@ -487,30 +487,10 @@
 
                                     @endforeach
                                    
-                                   
-                                    <!--end::Products-->
-                                    <!--begin::Subtotal-->
+                                  
                                     <tr>
-                                        <td colspan="4" class="text-end">Subtotal</td>
-                                        <td class="text-end">$264.00</td>
-                                    </tr>
-                                    <!--end::Subtotal-->
-                                    <!--begin::VAT-->
-                                    <tr>
-                                        <td colspan="4" class="text-end">VAT (0%)</td>
-                                        <td class="text-end">$0.00</td>
-                                    </tr>
-                                    <!--end::VAT-->
-                                    <!--begin::Shipping-->
-                                    <tr>
-                                        <td colspan="4" class="text-end">Shipping Rate</td>
-                                        <td class="text-end">$5.00</td>
-                                    </tr>
-                                    <!--end::Shipping-->
-                                    <!--begin::Grand total-->
-                                    <tr>
-                                        <td colspan="4" class="fs-3 text-dark text-end">Grand Total</td>
-                                        <td class="text-dark fs-3 fw-bolder text-end">$269.00</td>
+                                        <td colspan="2" class="fs-3 text-dark text-end">Grand Total</td>
+                                        <td class="text-dark fs-3 fw-bolder text-end">{{ $order->total }}</td>
                                     </tr>
                                     <!--end::Grand total-->
                                 </tbody>
