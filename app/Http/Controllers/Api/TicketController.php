@@ -12,7 +12,7 @@ use Validator;
 class TicketController extends BaseController
 {
     public function index(){
-        $tickets = Ticket::where('user_id',auth()->id())->paginate(6);
+        $tickets = Ticket::get();
         dd($tickets);
         $res = TicketResourse::collection($tickets)->response()->getData(true);
         return $this->sendResponse($res,'جميع التذاكر');
