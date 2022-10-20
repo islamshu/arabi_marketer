@@ -71,7 +71,7 @@ class ProfileController extends Controller
         $services = Service::whereIn('id',$service)->get(); 
         $consls = Consulting::whereIn('id',$cons)->get(); 
 
-        return view('pages.marketers.profile.show')
+        return view('pages.customers.profile.show')
         ->with('user', $user)
         ->with('orders',$orders)
         ->with('services',$services)

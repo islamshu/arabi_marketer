@@ -119,7 +119,7 @@
                                         <!--end::Svg Icon-->
                                         <div class="fs-2 fw-bolder counted" data-kt-countup="true"
                                             data-kt-countup-value="4500" data-kt-countup-prefix="$"
-                                            data-kt-initialized="1"><span class="cur"> $
+                                            data-kt-initialized="1"><span class="cur"> ريال
                                             </span>{{ $user->total }}</div>
                                     </div>
                                     <!--end::Number-->
@@ -140,7 +140,7 @@
                                         <!--end::Svg Icon-->
                                         <div class="fs-2 fw-bolder counted" data-kt-countup="true"
                                             data-kt-countup-value="75" data-kt-initialized="1"><span class="cur">
-                                                $ </span>{{ $user->available }}</div>
+                                                ريال </span>{{ $user->available }}</div>
                                     </div>
                                     <!--end::Number-->
 
@@ -160,7 +160,7 @@
                                         <!--end::Svg Icon-->
                                         <div class="fs-2 fw-bolder counted" data-kt-countup="true"
                                             data-kt-countup-value="60" data-kt-countup-prefix="%"
-                                            data-kt-initialized="1"><span class="cur"> $
+                                            data-kt-initialized="1"><span class="cur"> ريال
                                             </span>{{ $user->pending }} </div>
                                     </div>
                                     <!--end::Number-->
@@ -187,22 +187,48 @@
         <div class="card-body">
             <ul class="nav nav-tabs nav-line-tabs nav-line-tabs-2x mb-5 fs-6">
                 <li class="nav-item">
-                    <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_3">الطلبات <span
-                            class="count">{{ $orders->count() }}</span></a>
+                    <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_4">الخدمات <span
+                            class="count">{{ $user->services->count() }}</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " data-bs-toggle="tab" href="#kt_tab_pane_4">الخدمات <span
-                            class="count">{{ $service_count }}</span></a>
+                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_5">المقالات <span
+                            class="count">{{ $user->blogs->count() }}</span></a>
                 </li>
-                
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_6">الفيديوهات <span
+                            class="count">{{ $user->videos->count() }}</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_7">البودكاست <span
+                            class="count">{{ $user->podcasts->count() }}</span></a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_8">الاستشارات<span
-                        class="count">{{ $consl_count }}</span></a>
-                    </li>
+                            class="count">{{ $user->consutiong->count() }}</span></a>
+                </li>
+
             </ul>
 
 
-         
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="kt_tab_pane_4" role="tabpanel">
+                    @include('pages.marketers.profile.services')
+                </div>
+                <div class="tab-pane fade" id="kt_tab_pane_5" role="tabpanel">
+                    @include('pages.marketers.profile.blogs')
+
+                </div>
+                <div class="tab-pane fade" id="kt_tab_pane_6" role="tabpanel">
+                    @include('pages.marketers.profile.videos')
+                </div>
+                <div class="tab-pane fade" id="kt_tab_pane_7" role="tabpanel">
+                    @include('pages.marketers.profile.podcasts')
+                </div>
+                <div class="tab-pane fade" id="kt_tab_pane_8" role="tabpanel">
+                    @include('pages.marketers.profile.consutiong')
+                </div>
+
+            </div>
         </div>
 
         <!--end::Card body-->
