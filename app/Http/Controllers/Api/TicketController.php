@@ -32,8 +32,8 @@ class TicketController extends BaseController
         $ticket->save();
         // $files = json_decode($request->files);
         foreach($request->files as $key=>$file){
-            $filename = '/' . time() + rand(11111,9999) . '_service_file.' . $file->getClientOriginalExtension();
-            $file->move('uploads/service_file', $filename);
+          $filename=  ($file->store('rr'));
+          dd($filename);
             $fi = new TicketFile();
             $fi->file = $filename;
             $fi->ticket_id = $ticket->id;
