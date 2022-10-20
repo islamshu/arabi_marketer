@@ -20,7 +20,7 @@
                 <th><a href="{{ route('marketer.show',$item->service->user->id) }}">{{ $item->service->user->name }}</a></th>
                 <th>{{ $item->price }}</th>
                 <th>{{ date('Y-m-d', strtotime($item->created_at)) }}</th>
-                <th><a target="_blank" href="{{ route('order.show',$item->order->id) }}"></a> #{{$item->order->code }}</th>
+                <th><a target="_blank" href="{{ route('order.show',$item->order->id) }}">#{{$item->order->code }}</a> </th>
 
                </tr>
                 
