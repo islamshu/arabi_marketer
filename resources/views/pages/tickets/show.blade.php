@@ -61,10 +61,13 @@
                          
                     
                             <div class="form-group col-md-8">
-                    
                                 <br><label> الموضوع :</label>
                                 <textarea name="description" class="form-control form-control-solid" >{{ $ticket->body }}</textarea>
-                    
+                            </div>
+                            <div>
+                                @foreach ($ticket->files as $key=>$item)
+                                    <a target="_blank" href="{{ asset('public/uploads/'.$item->file) }}">الملف ({{ $key +1 }}) </a>
+                                @endforeach
                             </div>
                     
                          
