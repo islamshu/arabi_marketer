@@ -33,11 +33,7 @@
                 </a>
                 <!--end::Button-->
                 <!--begin::Button-->
-                <a href="/metronic8/demo1/../demo1/apps/ecommerce/sales/edit-order.html" class="btn btn-success btn-sm me-lg-n7">Edit Order</a>
-                <!--end::Button-->
-                <!--begin::Button-->
-                <a href="/metronic8/demo1/../demo1/apps/ecommerce/sales/add-order.html" class="btn btn-primary btn-sm">Add New Order</a>
-                <!--end::Button-->
+
             </div>
             <!--begin::Order summary-->
             <div class="d-flex flex-column flex-xl-row gap-7 gap-lg-10">
@@ -46,7 +42,7 @@
                     <!--begin::Card header-->
                     <div class="card-header">
                         <div class="card-title">
-                            <h2>Order Details (#14534)</h2>
+                            <h2>Order Details (#{{ $order->code }})</h2>
                         </div>
                     </div>
                     <!--end::Card header-->

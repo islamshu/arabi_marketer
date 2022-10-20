@@ -82,7 +82,7 @@ class ProfileController extends Controller
     }
     public function show_order($id){
         $order = Order::find($id);
-        return view('pages.customers.order');
+        return view('pages.customers.order')->with('order',$order);
 
     
     }
