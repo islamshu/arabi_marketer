@@ -42,7 +42,7 @@
                     <!--begin::Card header-->
                     <div class="card-header">
                         <div class="card-title">
-                            <h2>Order Details (#{{ $order->code }})</h2>
+                            <h2>Order  (#{{ $order->code }})</h2>
                         </div>
                     </div>
                     <!--end::Card header-->
