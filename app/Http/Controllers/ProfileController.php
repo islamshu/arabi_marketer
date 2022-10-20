@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Consulting;
+use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -55,20 +57,27 @@ class ProfileController extends Controller
     public function show_customer($id){
         $user = User::find($id);
         $orders = $user->orders;
-        $services = $user->services;
-        $blogs = $user->blogs;
-        $videos = $user->videos;
-        $podcasts = $user->podcasts;
-        $consls =$user->consutiong;
+        $service = [];
+        $cons =[];
+        foreach($orders as $order){
+            foreach($order->orderdetiles as $detile){
+                if($detile->type == 'service'){
+                    array_push($service,$detile->service_id);
+                }else{
+                    array_push($cons,$detile->service_id);
+                }
+            }
+        }
+        $services = Service::whereIn('id',$service)->get(); 
+        $consls = Consulting::whereIn('id',$cons)->get(); 
 
         return view('pages.marketers.profile.show')
         ->with('user', $user)
         ->with('orders',$orders)
         ->with('services',$services)
-        ->with('blogs',$blogs)
-        ->with('podcasts',$podcasts)
-        ->with('consls',$consls)
-        ->with('videos',$videos);
+        ->with('service_count',count($service))
+        ->with('consl_count',count($cons));
+
 
 
     }

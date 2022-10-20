@@ -188,36 +188,18 @@
             <ul class="nav nav-tabs nav-line-tabs nav-line-tabs-2x mb-5 fs-6">
                 <li class="nav-item">
                     <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_4">الخدمات <span
-                            class="count">{{ $orders->orderdetiles->where('type','service')->count() }}</span></a>
+                            class="count">{{ $service_count }}</span></a>
                 </li>
                 
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_8">الاستشارات<span
-                        class="count">{{ $orders->orderdetiles->where('type','consultation')->count() }}</span></a>
+                        class="count">{{ $consl_count }}</span></a>
                     </li>
 
             </ul>
 
 
-            {{-- <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="kt_tab_pane_4" role="tabpanel">
-                    @include('pages.marketers.profile.services')
-                </div>
-                <div class="tab-pane fade" id="kt_tab_pane_5" role="tabpanel">
-                    @include('pages.marketers.profile.blogs')
-
-                </div>
-                <div class="tab-pane fade" id="kt_tab_pane_6" role="tabpanel">
-                    @include('pages.marketers.profile.videos')
-                </div>
-                <div class="tab-pane fade" id="kt_tab_pane_7" role="tabpanel">
-                    @include('pages.marketers.profile.podcasts')
-                </div>
-                <div class="tab-pane fade" id="kt_tab_pane_8" role="tabpanel">
-                    @include('pages.marketers.profile.consutiong')
-                </div>
-
-            </div> --}}
+         
         </div>
 
         <!--end::Card body-->
