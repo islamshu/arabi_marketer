@@ -70,7 +70,6 @@ class ProfileController extends Controller
         }
         $services = Service::whereIn('id',$service)->get(); 
         $consls = Consulting::whereIn('id',$cons)->get(); 
-        dd($service,$service);
 
         return view('pages.customers.profile.show')
         ->with('user', $user)
