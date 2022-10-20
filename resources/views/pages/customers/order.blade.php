@@ -437,7 +437,7 @@
                                 <!--begin::Table head-->
                                 <thead>
                                     <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
-                                        <th class="min-w-175px">Product</th>
+                                        <th class="min-w-175px">Service/Consultion</th>
                                         <th class="min-w-100px text-end">Type</th>
                                         <th class="min-w-100px text-end">Total</th>
                                     </tr>
