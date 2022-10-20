@@ -425,7 +425,7 @@
                     <!--begin::Card header-->
                     <div class="card-header">
                         <div class="card-title">
-                            <h2>Order #14534</h2>
+                            <h2>Order #{{ $order->code }}</h2>
                         </div>
                     </div>
                     <!--end::Card header-->
@@ -438,9 +438,7 @@
                                 <thead>
                                     <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
                                         <th class="min-w-175px">Product</th>
-                                        <th class="min-w-100px text-end">SKU</th>
-                                        <th class="min-w-70px text-end">Qty</th>
-                                        <th class="min-w-100px text-end">Unit Price</th>
+                                        <th class="min-w-100px text-end">Type</th>
                                         <th class="min-w-100px text-end">Total</th>
                                     </tr>
                                 </thead>
@@ -448,68 +446,46 @@
                                 <!--begin::Table body-->
                                 <tbody class="fw-semibold text-gray-600">
                                     <!--begin::Products-->
+                                    @foreach ($order->orderdetiles as $item)
                                     <tr>
+                                        @php
+                                             if($item->type == 'service'){
+                                                $service = Service::find($item->service_id);
+                                            }else{
+                                                $service = Consulting::find($item->service_id);
+                                            }
+                                        @endphp
                                         <!--begin::Product-->
                                         <td>
                                             <div class="d-flex align-items-center">
                                                 <!--begin::Thumbnail-->
-                                                <a href="/metronic8/demo1/../demo1/apps/ecommerce/catalog/edit-product.html" class="symbol symbol-50px">
-                                                    <span class="symbol-label" style="background-image:url(/metronic8/demo1/assets/media//stock/ecommerce/1.gif);"></span>
-                                                </a>
+                                                
                                                 <!--end::Thumbnail-->
                                                 <!--begin::Title-->
                                                 <div class="ms-5">
-                                                    <a href="/metronic8/demo1/../demo1/apps/ecommerce/catalog/edit-product.html" class="fw-bold text-gray-600 text-hover-primary">Product 1</a>
-                                                    <div class="fs-7 text-muted">Delivery Date: 20/10/2022</div>
+                                                    @if($itme->type =='service')
+                                                    <a href="{{ route('services.edit',$item->service_id) }}" class="fw-bold text-gray-600 text-hover-primary">{{ $service->title }}</a>
+                                                    @else
+                                                    <a href="{{ route('consloution.edit',$item->service_id) }}" class="fw-bold text-gray-600 text-hover-primary">{{ $service->title }}</a>
+                                                    @endif
                                                 </div>
                                                 <!--end::Title-->
                                             </div>
                                         </td>
                                         <!--end::Product-->
                                         <!--begin::SKU-->
-                                        <td class="text-end">04118006</td>
+                                        <td class="text-end">{{ $item->type }}</td>
                                         <!--end::SKU-->
                                         <!--begin::Quantity-->
-                                        <td class="text-end">2</td>
+                                        <td class="text-end">{{ $item->price }}</td>
                                         <!--end::Quantity-->
                                         <!--begin::Price-->
-                                        <td class="text-end">$120.00</td>
-                                        <!--end::Price-->
-                                        <!--begin::Total-->
-                                        <td class="text-end">$240.00</td>
+                                
                                         <!--end::Total-->
                                     </tr>
-                                    <tr>
-                                        <!--begin::Product-->
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Thumbnail-->
-                                                <a href="/metronic8/demo1/../demo1/apps/ecommerce/catalog/edit-product.html" class="symbol symbol-50px">
-                                                    <span class="symbol-label" style="background-image:url(/metronic8/demo1/assets/media//stock/ecommerce/100.gif);"></span>
-                                                </a>
-                                                <!--end::Thumbnail-->
-                                                <!--begin::Title-->
-                                                <div class="ms-5">
-                                                    <a href="/metronic8/demo1/../demo1/apps/ecommerce/catalog/edit-product.html" class="fw-bold text-gray-600 text-hover-primary">Footwear</a>
-                                                    <div class="fs-7 text-muted">Delivery Date: 20/10/2022</div>
-                                                </div>
-                                                <!--end::Title-->
-                                            </div>
-                                        </td>
-                                        <!--end::Product-->
-                                        <!--begin::SKU-->
-                                        <td class="text-end">04893004</td>
-                                        <!--end::SKU-->
-                                        <!--begin::Quantity-->
-                                        <td class="text-end">1</td>
-                                        <!--end::Quantity-->
-                                        <!--begin::Price-->
-                                        <td class="text-end">$24.00</td>
-                                        <!--end::Price-->
-                                        <!--begin::Total-->
-                                        <td class="text-end">$24.00</td>
-                                        <!--end::Total-->
-                                    </tr>
+                                    @endforeach
+                                   
+                                   
                                     <!--end::Products-->
                                     <!--begin::Subtotal-->
                                     <tr>
