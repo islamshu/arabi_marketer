@@ -64,9 +64,9 @@
                                                     <path d="M19 0.400024H1C0.4 0.400024 0 0.800024 0 1.40002V4.40002C0 5.00002 0.4 5.40002 1 5.40002H19C19.6 5.40002 20 5.00002 20 4.40002V1.40002C20 0.800024 19.6 0.400024 19 0.400024Z" fill="currentColor"></path>
                                                 </svg>
                                             </span>
-                                            <!--end::Svg Icon-->Date Added</div>
+                                            <!--end::Svg Icon-->تاريخ الشراء</div>
                                         </td>
-                                        <td class="fw-bold text-end">20/10/2022</td>
+                                        <td class="fw-bold text-end">{{ {{ date('Y-m-d', strtotime($order->created_at)); }} }}/td>
                                     </tr>
                                     <!--end::Date-->
                                     <!--begin::Payment method-->
@@ -83,25 +83,26 @@
                                             </span>
                                             <!--end::Svg Icon-->Payment Method</div>
                                         </td>
-                                        <td class="fw-bold text-end">Online 
-                                        <img src="/metronic8/demo1/assets/media/svg/card-logos/visa.svg" class="w-50px ms-2"></td>
+                                        <td class="fw-bold text-end">Paypal 
                                     </tr>
-                                    <!--end::Payment method-->
-                                    <!--begin::Date-->
                                     <tr>
                                         <td class="text-muted">
                                             <div class="d-flex align-items-center">
-                                            <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm006.svg-->
+                                            <!--begin::Svg Icon | path: icons/duotune/finance/fin008.svg-->
                                             <span class="svg-icon svg-icon-2 me-2">
                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M20 8H16C15.4 8 15 8.4 15 9V16H10V17C10 17.6 10.4 18 11 18H16C16 16.9 16.9 16 18 16C19.1 16 20 16.9 20 18H21C21.6 18 22 17.6 22 17V13L20 8Z" fill="currentColor"></path>
-                                                    <path opacity="0.3" d="M20 18C20 19.1 19.1 20 18 20C16.9 20 16 19.1 16 18C16 16.9 16.9 16 18 16C19.1 16 20 16.9 20 18ZM15 4C15 3.4 14.6 3 14 3H3C2.4 3 2 3.4 2 4V13C2 13.6 2.4 14 3 14H15V4ZM6 16C4.9 16 4 16.9 4 18C4 19.1 4.9 20 6 20C7.1 20 8 19.1 8 18C8 16.9 7.1 16 6 16Z" fill="currentColor"></path>
+                                                    <path opacity="0.3" d="M3.20001 5.91897L16.9 3.01895C17.4 2.91895 18 3.219 18.1 3.819L19.2 9.01895L3.20001 5.91897Z" fill="currentColor"></path>
+                                                    <path opacity="0.3" d="M13 13.9189C13 12.2189 14.3 10.9189 16 10.9189H21C21.6 10.9189 22 11.3189 22 11.9189V15.9189C22 16.5189 21.6 16.9189 21 16.9189H16C14.3 16.9189 13 15.6189 13 13.9189ZM16 12.4189C15.2 12.4189 14.5 13.1189 14.5 13.9189C14.5 14.7189 15.2 15.4189 16 15.4189C16.8 15.4189 17.5 14.7189 17.5 13.9189C17.5 13.1189 16.8 12.4189 16 12.4189Z" fill="currentColor"></path>
+                                                    <path d="M13 13.9189C13 12.2189 14.3 10.9189 16 10.9189H21V7.91895C21 6.81895 20.1 5.91895 19 5.91895H3C2.4 5.91895 2 6.31895 2 6.91895V20.9189C2 21.5189 2.4 21.9189 3 21.9189H19C20.1 21.9189 21 21.0189 21 19.9189V16.9189H16C14.3 16.9189 13 15.6189 13 13.9189Z" fill="currentColor"></path>
                                                 </svg>
                                             </span>
-                                            <!--end::Svg Icon-->Shipping Method</div>
+                                            <!--end::Svg Icon-->Payment Status</div>
                                         </td>
-                                        <td class="fw-bold text-end">Flat Shipping Rate</td>
+                                        <td class="fw-bold text-end"><button @if($order->payment_status == 'paid') class="btn btn-success" @else  class="btn btn-warning" @endif>{{ $order->payment_status }}</button> 
                                     </tr>
+                                    <!--end::Payment method-->
+                                    <!--begin::Date-->
+                                    
                                     <!--end::Date-->
                                 </tbody>
                                 <!--end::Table body-->
