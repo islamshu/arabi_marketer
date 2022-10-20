@@ -65,6 +65,8 @@ class CartController extends BaseController
         $order->user_id = auth('api')->id();
         $order->code = date('Ymd-His').rand(10,99);
         $order->payment_status = 'paid';
+        $order->total = $total;
+
         $order->save();
         foreach($carts as $cart){
             if($cart->type == 'service'){
