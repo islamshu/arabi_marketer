@@ -38,7 +38,7 @@
                                     fill="currentColor"></path>
                             </svg>
                         </span>
-                        <!--end::Svg Icon-->المسوقين
+                        <!--end::Svg Icon-->المستخدمين
                     </a>
 
                 </li>
@@ -103,7 +103,7 @@
                             </td>
                             <td>{{ date('Y-m-d', strtotime($item->created_at)) }}</td>
                             <td>
-                                <a href="{{ route('marketer.show', $item->id) }}" class="btn btn-success"><i
+                                <a href="{{ route('customer.show', $item->id) }}" class="btn btn-success"><i
                                         class="fa fa-eye"></i></a>
                                 {{-- <a href="{{ route('services.edit', $item->id) }}" class="btn btn-info"><i
                                         class="fa fa-edit"></i></a>
