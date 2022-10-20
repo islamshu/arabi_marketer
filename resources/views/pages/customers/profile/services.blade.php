@@ -5,16 +5,20 @@
                 <th>صورة الخدمة</th>
                 <th>اسم الخدمة</th>
                 <th>اضيفة بواسطة</th>
-          
+                <th>سعر الشراء</th>
+                <th>تاريخ الشراء</th>
+
             </tr>
         </thead>
         <tbody>
             @foreach ($services as $item)
             <tr>
-                <td><img src="{{ asset('public/uploads/'.$item->image) }}" width="50" height="50" alt=""></td>
-                <td>{{ $item->title }}</td>
-                <th><a href="{{ route('marketer.show',$item->user->id) }}">{{ $item->user->name }}</a></th>
-             
+                <td><img src="{{ asset('public/uploads/'.$item->service->image) }}" width="50" height="50" alt=""></td>
+                <td>{{ $item->service->title }}</td>
+                <th><a href="{{ route('marketer.show',$item->service->user->id) }}">{{ $item->user->name }}</a></th>
+                <th>{{ $item->price }}</th>
+                <th>{{ date('Y-m-d', strtotime($item->created_at)) }}</th>
+
                </tr>
                 
             @endforeach

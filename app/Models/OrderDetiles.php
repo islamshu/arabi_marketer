@@ -9,5 +9,18 @@ class OrderDetiles extends Model
 {
     use HasFactory;
     protected $guarded=[];
+    /**
+     * Get the user that owns the OrderDetiles
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function service()
+    {
+        return $this->belongsTo(Service::class, 'product_id');
+    }
+    public function consultion()
+    {
+        return $this->belongsTo(Consulting::class, 'product_id');
+    }
 
 }

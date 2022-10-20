@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Consulting;
 use App\Models\Order;
+use App\Models\OrderDetiles;
 use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -63,14 +64,14 @@ class ProfileController extends Controller
         foreach($orders as $order){
             foreach($order->orderdetiles as $detile){
                 if($detile->type == 'service'){
-                    array_push($service,$detile->product_id);
+                    array_push($service,$detile);
                 }else{
-                    array_push($cons,$detile->product_id);
+                    array_push($cons,$detile);
                 }
             }
         }
-        $services = Service::whereIn('id',$service)->get(); 
-        $consls = Consulting::whereIn('id',$cons)->get(); 
+        $services = OrderDetiles::whereIn('id',$service)->get(); 
+        $consls = OrderDetiles::whereIn('id',$cons)->get(); 
 
         return view('pages.customers.profile.show')
         ->with('user', $user)
