@@ -36,7 +36,7 @@ class TicketController extends BaseController
                 continue;
             } else {
                 foreach ($file as $keyy => $imagex) {  
-                    $imageNamee = '/' . time() + $keyy . '_ticket_file.' . $imagex->getClientOriginalExtension();
+                    $imageNamee = 'ticket_file/' . time() + $keyy . '_ticket_file.' . $imagex->getClientOriginalExtension();
                     $imagex->move('uploads/ticket_file', $imageNamee);
                     $file = new TicketFile();
                     $file->ticket_id = $ticket->id;
