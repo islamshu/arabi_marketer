@@ -447,8 +447,9 @@
                                 <tbody class="fw-semibold text-gray-600">
                                     <!--begin::Products-->
                                     @foreach ($order->orderdetiles as $item)
-                                    <tr></tr>
+                                  
                                     <tr>
+                                        <td></td>
                                         @php
                                              if($item->type == 'service'){
                                                 $service = App\Models\Service::find($item->product_id);
