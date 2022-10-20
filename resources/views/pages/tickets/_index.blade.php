@@ -29,9 +29,9 @@
                 @endif
              </td>
              <td>
-                <a href="{{ route('videos.edit', $item->id) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
+                <a href="{{ route('tickets.show', $item->id) }}" class="btn btn-info"><i class="fa fa-eye"></i></a>
                 <form style="display: inline"
-                    action="{{ route('videos.destroy', $item->id) }}"
+                    action="{{ route('tickets.destroy', $item->id) }}"
                     method="post">
                     @method('delete') @csrf
                     <button type="submit" class="btn btn-danger delete-confirm"><i
