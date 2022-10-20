@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Consulting;
+use App\Models\Order;
 use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -78,9 +79,12 @@ class ProfileController extends Controller
         ->with('consls',$consls)
         ->with('service_count',count($service))
         ->with('consl_count',count($cons));
+    }
+    public function show_order($id){
+        $order = Order::find($id);
+        return view('pages.customers.order');
 
-
-
+    
     }
 
     
