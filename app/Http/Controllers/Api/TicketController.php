@@ -31,13 +31,19 @@ class TicketController extends BaseController
         $ticket->user_id = auth('api')->id();
         $ticket->save();
         // $files = json_decode($request->files);
-        foreach($request->files as $key=>$file){
-          $filename=  ($file->store('rr'));
-          dd($filename);
-            $fi = new TicketFile();
-            $fi->file = $filename;
-            $fi->ticket_id = $ticket->id;
-            $fi->save();
+        foreach ($request->files as $key => $file) {
+            if ($key == 'icon') {
+                continue;
+            } else {
+                foreach ($file as $keyy => $imagex) {  
+                    $imageNamee = '/' . time() + $keyy . '_ticket_file.' . $imagex->getClientOriginalExtension();
+                    $imagex->move('uploads/service_file', $imageNamee);
+                    $file = new TicketFile();
+                    $file->service_id = $ticket->id;
+                    $file->file =  $imageNamee;
+                    $file->save();
+                }
+            }
         }
 
         $res = new TicketResourse($ticket);
