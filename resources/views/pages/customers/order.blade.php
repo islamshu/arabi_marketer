@@ -80,7 +80,7 @@
                                                     <path d="M19 0.400024H1C0.4 0.400024 0 0.800024 0 1.40002V4.40002C0 5.00002 0.4 5.40002 1 5.40002H19C19.6 5.40002 20 5.00002 20 4.40002V1.40002C20 0.800024 19.6 0.400024 19 0.400024Z" fill="currentColor"></path>
                                                 </svg>
                                             </span>
-                                            <!--end::Svg Icon-->تاريخ الشراء</div>
+                                            <!--end::Svg Icon-->Payment Date </div>
                                         </td>
                                         <td class="fw-bold text-end">{{ date('Y-m-d', strtotime($order->created_at)) }}</td>
                                     </tr>
