@@ -22,6 +22,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\SpecialtyController;
+use App\Http\Controllers\TicketController;
 use App\Http\Controllers\VideoController;
 use App\Http\Livewire\Edit_consl;
 use App\Http\Livewire\EditConsoltion;
@@ -78,6 +79,8 @@ Route::prefix('log')->name('log.')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::resource('users', UsersController::class);
+    Route::resource('tickets', TicketController::class);
+
     Route::get('marketers',[ProfileController::class,'markters']);
     Route::get('customers',[ProfileController::class,'users']);
     Route::get('customer/{id}',[ProfileController::class,'show_customer'])->name('customer.show');

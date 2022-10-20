@@ -17,7 +17,6 @@ class TicketFileResourse extends JsonResource
         return[
           'id'=>$this->id,
           'file'=>asset('public/uploads/'.$this->file)
-
         ];
     }
 }
