@@ -782,6 +782,7 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         'App\\Http\\Controllers\\Api\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/HomeController.php',
         'App\\Http\\Controllers\\Api\\PodcastController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/PodcastController.php',
         'App\\Http\\Controllers\\Api\\ServiceController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/ServiceController.php',
+        'App\\Http\\Controllers\\Api\\TicketController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/TicketController.php',
         'App\\Http\\Controllers\\Api\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/UserController.php',
         'App\\Http\\Controllers\\Api\\VideoController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/VideoController.php',
         'App\\Http\\Controllers\\Auth\\AuthenticatedSessionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/AuthenticatedSessionController.php',

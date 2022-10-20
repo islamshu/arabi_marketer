@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\GeneralController;
 use App\Http\Controllers\Api\HomeController;
 use App\Http\Controllers\Api\PodcastController;
 use App\Http\Controllers\Api\ServiceController;
+use App\Http\Controllers\Api\TicketController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\VideoController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
@@ -140,6 +141,8 @@ Route::group(['middleware' => 'is_login'], function () {
     Route::post('/add_to_cart', [CartController::class, 'store']);
     Route::delete('/delete_from_carts/{id}', [CartController::class, 'delete']);
     Route::get('/checkout', [CartController::class, 'checkout']);
+    Route::get('/tickets', [TicketController::class, 'index']);
+    Route::get('/add_ticket', [TicketController::class, 'store']);
 
 
 

@@ -41,6 +41,7 @@ return array(
     'App\\Http\\Controllers\\Api\\HomeController' => $baseDir . '/app/Http/Controllers/Api/HomeController.php',
     'App\\Http\\Controllers\\Api\\PodcastController' => $baseDir . '/app/Http/Controllers/Api/PodcastController.php',
     'App\\Http\\Controllers\\Api\\ServiceController' => $baseDir . '/app/Http/Controllers/Api/ServiceController.php',
+    'App\\Http\\Controllers\\Api\\TicketController' => $baseDir . '/app/Http/Controllers/Api/TicketController.php',
     'App\\Http\\Controllers\\Api\\UserController' => $baseDir . '/app/Http/Controllers/Api/UserController.php',
     'App\\Http\\Controllers\\Api\\VideoController' => $baseDir . '/app/Http/Controllers/Api/VideoController.php',
     'App\\Http\\Controllers\\Auth\\AuthenticatedSessionController' => $baseDir . '/app/Http/Controllers/Auth/AuthenticatedSessionController.php',
