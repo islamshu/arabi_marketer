@@ -14,7 +14,7 @@
             <tr>
              <td>#{{ $item->code }}</td>
              <td>{{ $item->total }}</td>
-             <td>{{ $item->payment_status }}</td>
+             <td> <button @if($item->payment_status == 'paid') class="btn btn-success" @else  class="btn btn-warning" @endif>{{ $item->payment_status }}</button></td>
              <td>{{ date('Y-m-d', strtotime($item->created_at)); }}</td>
              <td>
                 <a href="{{ route('services.edit', $item->id) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
