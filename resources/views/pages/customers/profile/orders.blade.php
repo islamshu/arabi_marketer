@@ -17,14 +17,8 @@
              <td> <button @if($item->payment_status == 'paid') class="btn btn-success" @else  class="btn btn-warning" @endif>{{ $item->payment_status }}</button></td>
              <td>{{ date('Y-m-d', strtotime($item->created_at)); }}</td>
              <td>
-                <a href="{{ route('services.edit', $item->id) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
-                <form style="display: inline"
-                    action="{{ route('services.destroy', $item->id) }}"
-                    method="post">
-                    @method('delete') @csrf
-                    <button type="submit" class="btn btn-danger delete-confirm"><i
-                            class="fa fa-trash"></i></button>
-                </form>
+                <a href="{{ route('order.show', $item->id) }}" class="btn btn-info"><i class="fa fa-eye"></i></a>
+               
             </td>
             </tr>
                 
