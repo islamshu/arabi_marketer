@@ -18,4 +18,13 @@ class Ticket extends Model
     {
         return $this->belongsTo(User::class);
     }
+    /**
+     * Get all of the comments for the Ticket
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function files()
+    {
+        return $this->hasMany(TicketFile::class);
+    }
 }

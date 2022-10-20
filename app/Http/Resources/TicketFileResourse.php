@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class TicketResourse extends JsonResource
+class TicketFileResourse extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,11 +15,8 @@ class TicketResourse extends JsonResource
     public function toArray($request)
     {
         return[
-            'title'=>$this->title,
-            'body'=>$this->body,
-            'status'=>$this->status,
-            'user_info'=>new UserMainInfoResource($this->user),
-            'files'=>TicketFileResourse::collection($this->files)
+          'id'=>$this->id,
+          'file'=>$this->file
 
         ];
     }

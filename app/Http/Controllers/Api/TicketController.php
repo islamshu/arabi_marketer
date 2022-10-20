@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\TicketResourse;
 use App\Models\Ticket;
+use App\Models\TicketFile;
 use Validator;
 
 class TicketController extends BaseController
@@ -29,6 +30,14 @@ class TicketController extends BaseController
         $ticket->body = $request->body;
         $ticket->user_id = auth('api')->id();
         $ticket->save();
+        // $files = json_decode($request->files);
+        foreach($request->files as $file){
+            $fi = new TicketFile();
+            $fi->file = $file->store('tickets');
+            $fi->ticket_id = $ticket->id;
+            $fi->save();
+        }
+
         $res = new TicketResourse($ticket);
         return $this->sendResponse($res,'تم الاضافة بنجاح');
     }
