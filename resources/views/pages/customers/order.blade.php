@@ -447,6 +447,7 @@
                                 <tbody class="fw-semibold text-gray-600">
                                     <!--begin::Products-->
                                     @foreach ($order->orderdetiles as $item)
+                                    <tr></tr>
                                     <tr>
                                         @php
                                              if($item->type == 'service'){
@@ -483,6 +484,7 @@
                                 
                                         <!--end::Total-->
                                     </tr>
+
                                     @endforeach
                                    
                                    
