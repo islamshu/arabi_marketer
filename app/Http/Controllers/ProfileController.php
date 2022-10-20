@@ -75,6 +75,7 @@ class ProfileController extends Controller
         ->with('user', $user)
         ->with('orders',$orders)
         ->with('services',$services)
+        ->with('consls',$consls)
         ->with('service_count',count($service))
         ->with('consl_count',count($cons));
 
