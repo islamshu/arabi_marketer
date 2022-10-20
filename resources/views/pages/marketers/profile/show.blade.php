@@ -187,7 +187,11 @@
         <div class="card-body">
             <ul class="nav nav-tabs nav-line-tabs nav-line-tabs-2x mb-5 fs-6">
                 <li class="nav-item">
-                    <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_4">الخدمات <span
+                    <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_3">الطلبات <span
+                            class="count">{{ $orders->count() }}</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " data-bs-toggle="tab" href="#kt_tab_pane_4">الخدمات <span
                             class="count">{{ $service_count }}</span></a>
                 </li>
                 
@@ -195,7 +199,6 @@
                     <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_8">الاستشارات<span
                         class="count">{{ $consl_count }}</span></a>
                     </li>
-
             </ul>
 
 
