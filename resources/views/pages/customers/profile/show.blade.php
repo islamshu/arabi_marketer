@@ -210,7 +210,6 @@
                     @include('pages.customers.profile.services')
                 </div>
                 <div class="tab-pane fade" id="kt_tab_pane_8" role="tabpanel">
-                    @include('pages.customers.profile.consutiong')
                 </div>
     
             </div>
