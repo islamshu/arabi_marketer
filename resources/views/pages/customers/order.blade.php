@@ -450,9 +450,9 @@
                                     <tr>
                                         @php
                                              if($item->type == 'service'){
-                                                $service = Service::find($item->service_id);
+                                                $service = App\Models\Service::find($item->service_id);
                                             }else{
-                                                $service = Consulting::find($item->service_id);
+                                                $service =  App\Models\Consulting::find($item->service_id);
                                             }
                                         @endphp
                                         <!--begin::Product-->
