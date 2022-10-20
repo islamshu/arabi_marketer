@@ -61,6 +61,7 @@ class ProfileController extends Controller
         $cons =[];
         foreach($orders as $order){
             foreach($order->orderdetiles as $detile){
+                dd($detile);
                 if($detile->type == 'service'){
                     array_push($service,$detile->service_id);
                 }else{
