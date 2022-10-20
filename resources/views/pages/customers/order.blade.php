@@ -450,9 +450,9 @@
                                     <tr>
                                         @php
                                              if($item->type == 'service'){
-                                                $service = App\Models\Service::find($item->service_id);
+                                                $service = App\Models\Service::find($item->product_id);
                                             }else{
-                                                $service =  App\Models\Consulting::find($item->service_id);
+                                                $service =  App\Models\Consulting::find($item->product_id);
                                             }
                                         @endphp
                                         <!--begin::Product-->
@@ -464,9 +464,9 @@
                                                 <!--begin::Title-->
                                                 <div class="ms-5">
                                                     @if($item->type =='service')
-                                                    <a href="{{ route('services.edit',$item->service_id) }}" class="fw-bold text-gray-600 text-hover-primary">{{ $service->title }}</a>
+                                                    <a href="{{ route('services.edit',$item->product_id) }}" class="fw-bold text-gray-600 text-hover-primary">{{ $service->title }}</a>
                                                     @else
-                                                    <a href="{{ route('consloution.edit',$item->service_id) }}" class="fw-bold text-gray-600 text-hover-primary">{{ $service->title }}</a>
+                                                    <a href="{{ route('consloution.edit',$item->product_id) }}" class="fw-bold text-gray-600 text-hover-primary">{{ $service->title }}</a>
                                                     @endif
                                                 </div>
                                                 <!--end::Title-->
