@@ -44,7 +44,7 @@
                                     <path d="M15 8H20L14 2V7C14 7.6 14.4 8 15 8Z" fill="currentColor"></path>
                                 </svg>
                             </span>
-                            <!--end::Svg Icon-->الطلب {{ $order->code }}  
+                            <!--end::Svg Icon--># {{ $order->code }}  
                         </a>
     
                     </li>
