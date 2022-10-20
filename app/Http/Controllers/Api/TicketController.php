@@ -12,8 +12,7 @@ use Validator;
 class TicketController extends BaseController
 {
     public function index(){
-        $tickets = Ticket::get();
-        dd($tickets);
+        $tickets = Ticket::where('user_id',auth('api')->id())->paginate(6);
         $res = TicketResourse::collection($tickets)->response()->getData(true);
         return $this->sendResponse($res,'جميع التذاكر');
     }
