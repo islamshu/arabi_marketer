@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\CartResource;
 use App\Models\Cart;
+use App\Models\Consulting;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Validator;
@@ -23,10 +24,14 @@ class CartController extends BaseController
         if ($validation->fails()) {
             return $this->sendError($validation->messages()->all());
         }
-        $service = Service::find($request->service_id);
+        if($request->type == 'service'){
+            $service = Service::find($request->service_id);
+        }else{
+            $service = Consulting::find($request->service_id);
+        }
+
         if(!$service){
             return $this->sendError('الخدمة غير متوفرة');
- 
         }
         $cart = Cart::where('user_id',auth('api')->id())->where('service_id',$service->id)->first();
         if($cart){
