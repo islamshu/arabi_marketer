@@ -36,6 +36,7 @@ class CartController extends BaseController
         $cart->user_id = auth('api')->id();
         $cart->owner_id = $service->user_id;
         $cart->service_id = $service->id;
+        $cart->type =$request->type;
         $cart->price = $service->price;
         $cart->save();
         $res = new CartResource($cart);

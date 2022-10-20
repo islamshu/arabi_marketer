@@ -31,4 +31,8 @@ class Cart extends Model
     {
         return $this->belongsTo(Service::class);
     }
+    public function consltuon()
+    {
+        return $this->belongsTo(Consulting::class,'service_id');
+    }
 }

@@ -19,11 +19,19 @@ class CartResource extends JsonResource
             'id'=>$this->id,
             'user_id'=>new UserNormalNotAuthResource($this->user),
             'owner_id'=>new UserNotAuthResource($this->owner),
-            'service'=>new ServiceResource($this->service),
+            'type'=>$this->type,
+            'service'=>$this->get_type($this),
             'price'=>$this->price,
-            
-            
+           
         ];
+    }
+    function get_type($data){
+        if($data->type == 'service'){
+            return new ServiceResource($this->service);
+        }else{
+            return new ConsultingResource($this->consltuon);
+
+        }
     }
  
 }
