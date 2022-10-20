@@ -463,7 +463,7 @@
                                                 <!--end::Thumbnail-->
                                                 <!--begin::Title-->
                                                 <div class="ms-5">
-                                                    @if($itme->type =='service')
+                                                    @if($item->type =='service')
                                                     <a href="{{ route('services.edit',$item->service_id) }}" class="fw-bold text-gray-600 text-hover-primary">{{ $service->title }}</a>
                                                     @else
                                                     <a href="{{ route('consloution.edit',$item->service_id) }}" class="fw-bold text-gray-600 text-hover-primary">{{ $service->title }}</a>
