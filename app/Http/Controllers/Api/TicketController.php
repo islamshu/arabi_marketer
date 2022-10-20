@@ -13,7 +13,7 @@ class TicketController extends BaseController
 {
     public function index(){
         $tickets = Ticket::where('user_id',auth()->id())->paginate(6);
-        dd($ticket);
+        dd($tickets);
         $res = TicketResourse::collection($tickets)->response()->getData(true);
         return $this->sendResponse($res,'جميع التذاكر');
     }
