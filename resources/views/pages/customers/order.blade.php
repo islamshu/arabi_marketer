@@ -179,7 +179,7 @@
                                                 </div>
                                             </td>
                                             <td class="fw-bold text-end">
-                                              {{ $order->total }}
+                                              {{ $order->total }}$
                                                    
                                         </tr>
                                         <!--end::Payment method-->
@@ -478,7 +478,7 @@
                                         <td class="text-end">{{ $item->type }}</td>
                                         <!--end::SKU-->
                                         <!--begin::Quantity-->
-                                        <td class="text-end">{{ $item->price }}</td>
+                                        <td class="text-end">{{ $item->price }}$</td>
                                         <!--end::Quantity-->
                                         <!--begin::Price-->
                                 
@@ -490,7 +490,7 @@
                                   
                                     <tr>
                                         <td colspan="2" class="fs-3 text-dark text-end">Grand Total</td>
-                                        <td class="text-dark fs-3 fw-bolder text-end">{{ $order->total }}</td>
+                                        <td class="text-dark fs-3 fw-bolder text-end">{{ $order->total }}$</td>
                                     </tr>
                                     <!--end::Grand total-->
                                 </tbody>
