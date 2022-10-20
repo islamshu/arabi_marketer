@@ -188,29 +188,18 @@
             <ul class="nav nav-tabs nav-line-tabs nav-line-tabs-2x mb-5 fs-6">
                 <li class="nav-item">
                     <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_4">الخدمات <span
-                            class="count">{{ $user->services->count() }}</span></a>
+                            class="count">{{ $orders->orderdetiles->where('type','service')->count() }}</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_5">المقالات <span
-                            class="count">{{ $user->blogs->count() }}</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_6">الفيديوهات <span
-                            class="count">{{ $user->videos->count() }}</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_7">البودكاست <span
-                            class="count">{{ $user->podcasts->count() }}</span></a>
-                </li>
+                
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_8">الاستشارات<span
-                            class="count">{{ $user->consutiong->count() }}</span></a>
-                </li>
+                        class="count">{{ $orders->orderdetiles->where('type','consultation')->count() }}</span></a>
+                    </li>
 
             </ul>
 
 
-            <div class="tab-content" id="myTabContent">
+            {{-- <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="kt_tab_pane_4" role="tabpanel">
                     @include('pages.marketers.profile.services')
                 </div>
@@ -228,7 +217,7 @@
                     @include('pages.marketers.profile.consutiong')
                 </div>
 
-            </div>
+            </div> --}}
         </div>
 
         <!--end::Card body-->

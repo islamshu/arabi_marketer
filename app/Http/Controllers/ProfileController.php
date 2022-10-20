@@ -54,6 +54,7 @@ class ProfileController extends Controller
     }
     public function show_customer($id){
         $user = User::find($id);
+        $orders = $user->orders;
         $services = $user->services;
         $blogs = $user->blogs;
         $videos = $user->videos;
@@ -62,6 +63,7 @@ class ProfileController extends Controller
 
         return view('pages.marketers.profile.show')
         ->with('user', $user)
+        ->with('orders',$orders)
         ->with('services',$services)
         ->with('blogs',$blogs)
         ->with('podcasts',$podcasts)
