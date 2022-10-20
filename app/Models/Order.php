@@ -13,5 +13,14 @@ class Order extends Model
     {
         return $this->hasMany(OrderDetiles::class);
     }
+    /**
+     * Get the user that owns the Order
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'foreign_key', 'other_key');
+    }
 
 }

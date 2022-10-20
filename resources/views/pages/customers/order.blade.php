@@ -146,16 +146,10 @@
                                         <td class="fw-bold text-end">
                                             <div class="d-flex align-items-center justify-content-end">
                                                 <!--begin:: Avatar -->
-                                                <div class="symbol symbol-circle symbol-25px overflow-hidden me-3">
-                                                    <a href="/metronic8/demo1/../demo1/apps/ecommerce/customers/details.html">
-                                                        <div class="symbol-label">
-                                                            <img src="/metronic8/demo1/assets/media/avatars/300-23.jpg" alt="Dan Wilson" class="w-100">
-                                                        </div>
-                                                    </a>
-                                                </div>
+                                                
                                                 <!--end::Avatar-->
                                                 <!--begin::Name-->
-                                                <a href="/metronic8/demo1/../demo1/apps/ecommerce/customers/details.html" class="text-gray-600 text-hover-primary">Dan Wilson</a>
+                                                <a href="{{ route('customer.show',$order->user->id) }}" class="text-gray-600 text-hover-primary">{{ $order->user->name }}</a>
                                                 <!--end::Name-->
                                             </div>
                                         </td>
@@ -175,25 +169,12 @@
                                             <!--end::Svg Icon-->Email</div>
                                         </td>
                                         <td class="fw-bold text-end">
-                                            <a href="/metronic8/demo1/../demo1/apps/user-management/users/view.html" class="text-gray-600 text-hover-primary">dam@consilting.com</a>
+                                            {{ $order->user->email }}
                                         </td>
                                     </tr>
                                     <!--end::Payment method-->
                                     <!--begin::Date-->
-                                    <tr>
-                                        <td class="text-muted">
-                                            <div class="d-flex align-items-center">
-                                            <!--begin::Svg Icon | path: icons/duotune/electronics/elc003.svg-->
-                                            <span class="svg-icon svg-icon-2 me-2">
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M5 20H19V21C19 21.6 18.6 22 18 22H6C5.4 22 5 21.6 5 21V20ZM19 3C19 2.4 18.6 2 18 2H6C5.4 2 5 2.4 5 3V4H19V3Z" fill="currentColor"></path>
-                                                    <path opacity="0.3" d="M19 4H5V20H19V4Z" fill="currentColor"></path>
-                                                </svg>
-                                            </span>
-                                            <!--end::Svg Icon-->Phone</div>
-                                        </td>
-                                        <td class="fw-bold text-end">+6141 234 567</td>
-                                    </tr>
+                                 
                                     <!--end::Date-->
                                 </tbody>
                                 <!--end::Table body-->
