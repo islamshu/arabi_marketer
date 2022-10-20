@@ -66,7 +66,7 @@
                             </div>
                             <div>
                                 @foreach ($ticket->files as $key=>$item)
-                                    <a target="_blank" href="{{ asset('public/uploads/'.$item->file) }}">الملف ({{ $key +1 }}) </a>
+                                &nbsp;   <a target="_blank" href="{{ asset('public/uploads/'.$item->file) }}">الملف ({{ $key +1 }}) </a> &nbsp;
                                 @endforeach
                             </div>
                     
