@@ -20,7 +20,7 @@ class Order extends Model
      */
     public function user()
     {
-        return $this->belongsTo(User::class, 'foreign_key', 'other_key');
+        return $this->belongsTo(User::class);
     }
 
 }
