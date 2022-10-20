@@ -139,6 +139,7 @@ return array(
     'App\\Models\\KeyWord' => $baseDir . '/app/Models/KeyWord.php',
     'App\\Models\\MarkterSoical' => $baseDir . '/app/Models/MarkterSoical.php',
     'App\\Models\\Order' => $baseDir . '/app/Models/Order.php',
+    'App\\Models\\OrderDetiles' => $baseDir . '/app/Models/OrderDetiles.php',
     'App\\Models\\Password' => $baseDir . '/app/Models/Password.php',
     'App\\Models\\Payment' => $baseDir . '/app/Models/Payment.php',
     'App\\Models\\Placetype' => $baseDir . '/app/Models/Placetype.php',

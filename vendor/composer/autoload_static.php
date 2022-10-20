@@ -880,6 +880,7 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         'App\\Models\\KeyWord' => __DIR__ . '/../..' . '/app/Models/KeyWord.php',
         'App\\Models\\MarkterSoical' => __DIR__ . '/../..' . '/app/Models/MarkterSoical.php',
         'App\\Models\\Order' => __DIR__ . '/../..' . '/app/Models/Order.php',
+        'App\\Models\\OrderDetiles' => __DIR__ . '/../..' . '/app/Models/OrderDetiles.php',
         'App\\Models\\Password' => __DIR__ . '/../..' . '/app/Models/Password.php',
         'App\\Models\\Payment' => __DIR__ . '/../..' . '/app/Models/Payment.php',
         'App\\Models\\Placetype' => __DIR__ . '/../..' . '/app/Models/Placetype.php',
