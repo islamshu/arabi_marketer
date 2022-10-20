@@ -6,6 +6,8 @@ use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\CartResource;
 use App\Models\Cart;
 use App\Models\Consulting;
+use App\Models\Order;
+use App\Models\OrderDetiles;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Validator;
@@ -54,6 +56,34 @@ class CartController extends BaseController
         }
         $cart->delete();
         return $this->sendResponse('delete', 'deleted succeffuly');
+
+    }
+    public function checkout(){
+        $carts = Cart::where('user_id',auth('api')->id())->get();
+        $total = $carts->sum('price');
+        $order = new Order();
+        $order->user_id = auth('api')->id();
+        $order->code = date('Ymd-His').rand(10,99);
+        $order->payment_status = 'paid';
+        $order->save();
+        foreach($carts as $cart){
+            if($cart->type == 'service'){
+                $service = Service::find($cart->service_id);
+            }else{
+                $service = Consulting::find($cart->service_id);
+            }
+            $OrderDetiles = new OrderDetiles();
+            $OrderDetiles->order_id = $order->id;
+            $OrderDetiles->owner_id = $service->user_id;
+            $OrderDetiles->price = $service->price;
+            $OrderDetiles->type = $cart->type;
+            $OrderDetiles->product_id = $cart->service_id;
+            $OrderDetiles->save();
+        }
+        foreach($carts as $cart){
+            $cart->delete();
+        }
+        return true;
 
     }
 }
