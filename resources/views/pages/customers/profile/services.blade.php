@@ -15,7 +15,7 @@
             <tr>
                 <td><img src="{{ asset('public/uploads/'.$item->service->image) }}" width="50" height="50" alt=""></td>
                 <td>{{ $item->service->title }}</td>
-                <th><a href="{{ route('marketer.show',$item->service->user->id) }}">{{ $item->user->name }}</a></th>
+                <th><a href="{{ route('marketer.show',$item->service->user->id) }}">{{ $item->service->user->name }}</a></th>
                 <th>{{ $item->price }}</th>
                 <th>{{ date('Y-m-d', strtotime($item->created_at)) }}</th>
 
