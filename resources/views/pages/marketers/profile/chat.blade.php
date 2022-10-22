@@ -143,7 +143,7 @@
                     <!--begin::Layout-->
                     <div class="d-flex flex-column flex-lg-row">
                         <!--begin::Sidebar-->
-                        <div class="flex-column flex-lg-row-auto w-100 w-lg-300px w-xl-400px mb-10 mb-lg-0">
+                        <div class="flex-column flex-lg-row-auto w-30 w-lg-300px w-xl-400px mb-10 mb-lg-0">
                             <!--begin::Contacts-->
                             <div class="card card-flush">
                                 <!--begin::Card header-->
