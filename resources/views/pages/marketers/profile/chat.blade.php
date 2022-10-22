@@ -244,7 +244,7 @@
                                                 
                                             <!--begin::Wrapper-->
                                             @foreach ($messages as $item)
-                                            @if($item->receiver_id != $sender ) 
+                                            @if($item->receiver_id != $sender->id ) 
                                             <div class="d-flex flex-column align-items-start" >
                                                 @else
                                                 <div class="d-flex flex-column align-items-end" >
