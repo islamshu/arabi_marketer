@@ -209,7 +209,7 @@
                 
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_9">الرسائل<span
-                            class="count">{{ $user->users->count() }}</span></a>
+                            class="count">{{ count($users) }}</span></a>
                 </li>
 
             </ul>
