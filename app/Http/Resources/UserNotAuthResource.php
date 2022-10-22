@@ -32,7 +32,7 @@ class UserNotAuthResource extends JsonResource
             'city'=>new CityResource(City::find($this->city_id)),
             'type'=>$this->get_type($this),
             'status'=>$this->status,
-            'followe_number'=>$this->follower->count(),
+            'followe_number'=>Followr::where('marketer_id',$this->id)->count(),
             'number_of_blogs'=>$this->blogs->count(),
             'number_of_services'=>$this->services->count(),
             'number_of_videos'=>$this->videos->count(),
