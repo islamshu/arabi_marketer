@@ -299,41 +299,34 @@
                                         data-kt-scroll-wrappers="#kt_content, #kt_app_content, #kt_chat_messenger_body"
                                         data-kt-scroll-offset="5px">
                                         <!--begin::Message(in)-->
-                                        @foreach ($messages as $item)
-                                            <div class="d-flex justify-content-start mb-10">
+                                       
 
-                                                <!--begin::Wrapper-->
-                                                @if ($item->receiver_id != $sender->id)
-                                                    <div class="d-flex flex-column align-items-start">
-                                                    @else
-                                                        <div class="d-flex flex-column align-items-end">
-                                                @endif
-                                                <!--begin::User-->
-
-                                                <div class="d-flex align-items-center mb-2">
-                                                    <!--begin::Avatar-->
-                                                    <div class="symbol symbol-35px symbol-circle">
-                                                        <img alt="Pic"
-                                                            src=" {{ asset('public/uploads/' . $item->receiver->image) }}">
-                                                    </div>
-                                                    <!--end::Avatar-->
-                                                    <!--begin::Details-->
-                                                    <div class="ms-3">
-                                                        <a href="#"
-                                                            class="fs-5 fw-bold text-gray-900 text-hover-primary me-1">{{ $item->receiver->name }}</a>
-                                                        <span class="text-muted fs-7 mb-1">2 mins</span>
-                                                    </div>
-                                                    <!--end::Details-->
+                                    @foreach ($messages as $item)
+                                    <div class="d-flex justify-content-end mb-10">
+                                        <!--begin::Wrapper-->
+                                        <div class="d-flex flex-column align-items-@if ($item->receiver_id != $sender->id)start @else end @endif">
+                                            <!--begin::User-->
+                                            <div class="d-flex align-items-center mb-2">
+                                                <!--begin::Details-->
+                                                <div class="me-3">
+                                                    <span class="text-muted fs-7 mb-1">5 mins</span>
+                                                    <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary ms-1">You</a>
                                                 </div>
-                                                <!--end::User-->
-                                                <!--begin::Text-->
-                                                <div class="p-5 rounded bg-light-info text-dark fw-semibold mw-lg-400px text-start"
-                                                    data-kt-element="message-text">{{ $item->message }}</div>
-                                                <!--end::Text-->
-                                        @endforeach
-
+                                                <!--end::Details-->
+                                                <!--begin::Avatar-->
+                                                <div class="symbol symbol-35px symbol-circle">
+                                                    <img alt="Pic" src="{{ asset('public/uploads/' . $item->receiver->image) }}">
+                                                </div>
+                                                <!--end::Avatar-->
+                                            </div>
+                                            <!--end::User-->
+                                            <!--begin::Text-->
+                                            <div class="p-5 rounded bg-light-primary text-dark fw-semibold mw-lg-400px text-end" data-kt-element="message-text">{{$item->message}}</div>
+                                            <!--end::Text-->
+                                        </div>
+                                        <!--end::Wrapper-->
                                     </div>
-
+                                    @endforeach
 
 
                                     <!--end::Wrapper-->
