@@ -306,10 +306,11 @@
                                         <div class="d-flex justify-content-start mb-10">
                                                 
                                             <!--begin::Wrapper-->
-                                            @foreach ($messages as $item)
 
                                             <div class="d-flex flex-column align-items-start">
                                                 <!--begin::User-->
+                                                @foreach ($messages as $item)
+
                                                 <div class="d-flex align-items-center mb-2">
                                                     <!--begin::Avatar-->
                                                     <div class="symbol symbol-35px symbol-circle">
@@ -327,9 +328,9 @@
                                                 <!--begin::Text-->
                                                 <div class="p-5 rounded bg-light-info text-dark fw-semibold mw-lg-400px text-start" data-kt-element="message-text">How likely are you to recommend our company to your friends and family ?</div>
                                                 <!--end::Text-->
+                                                @endforeach
 
                                             </div>
-                                            @endforeach
 
 
                                             <!--end::Wrapper-->
