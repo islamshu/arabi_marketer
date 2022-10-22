@@ -324,7 +324,7 @@
                                                 </div>
                                                 <!--end::User-->
                                                 <!--begin::Text-->
-                                                <div class="p-5 rounded bg-light-info text-dark fw-semibold mw-lg-400px text-start" data-kt-element="message-text">{{ $item->message }}</div>
+                                                <div class="p-5 rounded bg-light-info text-dark fw-semibold mw-lg-400px text-start" data-kt-element="message-text">How likely are you to recommend our company to your friends and family ?</div>
                                                 <!--end::Text-->
                                             </div>
                                             @endforeach
