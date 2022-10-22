@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Message;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
+use App\Http\Resources\MessageResource;
 
 class MessageController extends BaseController
 {
@@ -15,6 +16,7 @@ class MessageController extends BaseController
         $message->receiver_id = $request->receiver_id;
         $message->message = $request->message;
         $message->save();
-        return $this->sendResponse($message , 'send');
+        $res = new MessageResource($message);
+        return $this->sendResponse($res , 'send');
     }
 }
