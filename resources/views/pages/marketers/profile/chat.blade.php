@@ -244,8 +244,11 @@
                                                 
                                             <!--begin::Wrapper-->
                                             @foreach ($messages as $item)
-
-                                            <div class="d-flex flex-column align-items-@if($item->receiver_id != $sender ) start @else end @endif" >
+                                            @if($item->receiver_id != $sender ) 
+                                            <div class="d-flex flex-column align-items-start" >
+                                                @else
+                                                <div class="d-flex flex-column align-items-end" >
+                    @endif
                                                 <!--begin::User-->
 
                                                 <div class="d-flex align-items-center mb-2">
