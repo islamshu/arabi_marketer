@@ -78,7 +78,7 @@ class ProfileController extends Controller
     }
     public function show_message_from_user($id1,$id2)
     {
-        $messages =Message::where('sender_id',$id1)->orWhere('receiver_id',$id2)->orwhere('sender_id',$id2)->orwhere('receiver_id',$id1)->orderby('id','desc')->get();
+        $messages =Message::where('sender_id',$id1)->Where('receiver_id',$id2)->orwhere('sender_id',$id2)->where('receiver_id',$id1)->orderby('id','desc')->get();
         $conversations =Message::where('sender_id',$id2)->orWhere('receiver_id',$id2)->get();
 
         $users = $conversations->map(function($conversation) use($id2){
