@@ -46,7 +46,7 @@
                                                 fill="currentColor"></path>
                                         </svg>
                                     </span>
-                                    <!--end::Svg Icon-->الرسائل الخاصة ب {{ App\Models\User::find($user)->name }}
+                                    <!--end::Svg Icon-->رسائل   {{ App\Models\User::find($user)->name }}
                                 </a>
 
                             </li>
