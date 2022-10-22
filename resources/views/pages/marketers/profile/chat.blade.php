@@ -251,12 +251,12 @@
                                                 <div class="d-flex align-items-center mb-2">
                                                     <!--begin::Avatar-->
                                                     <div class="symbol symbol-35px symbol-circle">
-                                                        <img alt="Pic" src=" {{ asset('public/uploads/' . $item->image)  }}">
+                                                        <img alt="Pic" src=" {{ asset('public/uploads/' . $item->sender->image)  }}">
                                                     </div>
                                                     <!--end::Avatar-->
                                                     <!--begin::Details-->
                                                     <div class="ms-3">
-                                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary me-1">{{ $item->name }}</a>
+                                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary me-1">{{ $item->sender->name }}</a>
                                                         <span class="text-muted fs-7 mb-1">2 mins</span>
                                                     </div>
                                                     <!--end::Details-->
