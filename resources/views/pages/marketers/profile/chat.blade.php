@@ -179,7 +179,7 @@
                                             <div class="d-flex align-items-center">
                                                 <!--begin::Avatar-->
                                                 <div class="symbol symbol-45px symbol-circle">
-                                                    <span class="symbol-label bg-light-danger text-danger fs-6 fw-bolder">M</span>
+                                                    <img alt="Pic" src="{{ asset('public/uploads/'$item->image }}">
                                                     <div class="symbol-badge bg-success start-100 top-100 border-4 h-8px w-8px ms-n2 mt-n2"></div>
                                                 </div>
                                                 <!--end::Avatar-->
