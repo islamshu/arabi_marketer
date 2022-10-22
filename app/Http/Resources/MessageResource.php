@@ -16,8 +16,8 @@ class MessageResource extends JsonResource
     {
         return [
             'id'=>$this->id,
-            'sender'=>new UserNormalAuthResource($this->sender),
-            'receiver'=>new UserNormalAuthResource($this->receiver),
+            'sender'=>new UserNormalNotAuthResource($this->sender),
+            'receiver'=>new UserNormalNotAuthResource($this->receiver),
             'message'=>$this->message
         ];
     }
