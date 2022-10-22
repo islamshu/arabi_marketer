@@ -55,7 +55,6 @@ class ProfileController extends Controller
 
         return $conversation->sender;
         })->unique();
-        dd(count($users));
         // return view('pages.marketers.profile.chats')->with('users',$users)->with('user',$id); 
 
         return view('pages.marketers.profile.show')
