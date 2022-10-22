@@ -339,28 +339,7 @@
                                 </div>
                                 <!--end::Card body-->
                                 <!--begin::Card footer-->
-                                <div class="card-footer pt-4" id="kt_chat_messenger_footer">
-                                    <!--begin::Input-->
-                                    <textarea class="form-control form-control-flush mb-3" rows="1" data-kt-element="input" placeholder="Type a message"></textarea>
-                                    <!--end::Input-->
-                                    <!--begin:Toolbar-->
-                                    <div class="d-flex flex-stack">
-                                        <!--begin::Actions-->
-                                        <div class="d-flex align-items-center me-2">
-                                            <button class="btn btn-sm btn-icon btn-active-light-primary me-1" type="button" data-bs-toggle="tooltip" aria-label="Coming soon" data-bs-original-title="Coming soon" data-kt-initialized="1">
-                                                <i class="bi bi-paperclip fs-3"></i>
-                                            </button>
-                                            <button class="btn btn-sm btn-icon btn-active-light-primary me-1" type="button" data-bs-toggle="tooltip" aria-label="Coming soon" data-bs-original-title="Coming soon" data-kt-initialized="1">
-                                                <i class="bi bi-upload fs-3"></i>
-                                            </button>
-                                        </div>
-                                        <!--end::Actions-->
-                                        <!--begin::Send-->
-                                        <button class="btn btn-primary" type="button" data-kt-element="send">Send</button>
-                                        <!--end::Send-->
-                                    </div>
-                                    <!--end::Toolbar-->
-                                </div>
+                              
                                 <!--end::Card footer-->
                             </div>
                             <!--end::Messenger-->
