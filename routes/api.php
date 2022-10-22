@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\ConsultationController;
 use App\Http\Controllers\Api\ForgotPasswordController;
 use App\Http\Controllers\Api\GeneralController;
 use App\Http\Controllers\Api\HomeController;
+use App\Http\Controllers\Api\MessageController;
 use App\Http\Controllers\Api\PodcastController;
 use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\TicketController;
@@ -143,6 +144,7 @@ Route::group(['middleware' => 'is_login'], function () {
     Route::get('/checkout', [CartController::class, 'checkout']);
     Route::get('/tickets', [TicketController::class, 'index']);
     Route::post('/add_ticket', [TicketController::class, 'store']);
+    Route::post('/send_messsage', [MessageController::class, 'store']);
 
 
 
