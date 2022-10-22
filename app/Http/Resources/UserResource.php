@@ -27,6 +27,7 @@ class UserResource extends JsonResource
         'country'=> new CountryResource(Country::find($this->country_id)),
         'city'=>new CityResource(City::find($this->city_id)),
         'status'=>$this->status,
+        'followe_number'=>$this->follower->count(),
         'number_of_blogs'=>$this->blogs->count(),
         'number_of_services'=>$this->services->count(),
         'number_of_videos'=>$this->videos->count(),

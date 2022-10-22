@@ -5,6 +5,7 @@ namespace App\Http\Resources;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\Country;
+use App\Models\Followr;
 use Arr;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -31,6 +32,7 @@ class UserNotAuthResource extends JsonResource
             'city'=>new CityResource(City::find($this->city_id)),
             'type'=>$this->get_type($this),
             'status'=>$this->status,
+            'followe_number'=>$this->follower->count(),
             'number_of_blogs'=>$this->blogs->count(),
             'number_of_services'=>$this->services->count(),
             'number_of_videos'=>$this->videos->count(),
