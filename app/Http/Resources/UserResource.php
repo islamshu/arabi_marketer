@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use App\Models\City;
 use App\Models\Country;
+use App\Models\Followr;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class UserResource extends JsonResource
