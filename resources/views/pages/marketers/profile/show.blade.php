@@ -207,7 +207,7 @@
                             class="count">{{ $user->consutiong->count() }}</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="{{ route('show_messages',$user->id) }}">الرسائل</a>
+                    <a  href="{{ route('show_messages',$user->id) }}">الرسائل</a>
                 </li>
 
             </ul>
