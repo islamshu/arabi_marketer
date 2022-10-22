@@ -59,13 +59,13 @@ class ProfileController extends Controller
 
     }
     public function show_messages($id){
-        // $messages =Message::where('sender_id',$id)->orWhere('receiver_id',$id)->get();
+        $conversations =Message::where('sender_id',$id)->orWhere('receiver_id',$id)->get();
         // return view('pages.marketers.profile.chat')->with('messages',$messages); 
 
-        $conversations = DB::table('conversations')
-									->where('sender_id', $id)
-									->orWhere('receiver_id', $id)
-									->get();
+        // $conversations = DB::table('messages')
+		// 							->where('sender_id', $id)
+		// 							->orWhere('receiver_id', $id)
+		// 							->get();
 
     $users = $conversations->map(function($conversation,$id){
 	if($conversation->sender_id === $id) {
