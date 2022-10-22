@@ -228,17 +228,13 @@
                                                 <div class="d-flex align-items-center">
                                                     <!--begin::Avatar-->
                                                     <div class="symbol symbol-45px symbol-circle">
-                                                        <img alt="Pic"
-                                                            src="{{ asset('public/uploads/' . $item->image) }}">
-                                                        <div
-                                                            class=" start-100 top-100 border-4 h-8px w-8px ms-n2 mt-n2">
-                                                        </div>
+                                                        <img alt="Pic" src="{{ asset('public/uploads/' . $item->image) }}">
+                                                        <div class=" start-100 top-100 border-4 h-8px w-8px ms-n2 mt-n2"></div>
                                                     </div>
                                                     <!--end::Avatar-->
                                                     <!--begin::Details-->
                                                     <div class="ms-5">
-                                                        <a href="#"
-                                                            class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">{{ $item->name }}</a>
+                                                        <a href="{{ route('show_message_from_user',[$item->id,$user]) }}" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">{{ $item->name }}</a>
                                                         <div class="fw-semibold text-muted">{{ $item->email }}</div>
                                                     </div>
                                                     <!--end::Details-->
