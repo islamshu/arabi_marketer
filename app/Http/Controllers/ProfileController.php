@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Consulting;
+use App\Models\Message;
 use App\Models\Order;
 use App\Models\OrderDetiles;
 use App\Models\Service;
 use App\Models\User;
+use DB;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -55,6 +57,23 @@ class ProfileController extends Controller
         ->with('videos',$videos);
 
 
+    }
+    public function show_messages($id){
+        // $messages =Message::where('sender_id',$id)->orWhere('receiver_id',$id)->get();
+        // return view('pages.marketers.profile.chat')->with('messages',$messages); 
+
+        $conversations = DB::table('conversations')
+									->where('sender_id', $id)
+									->orWhere('receiver_id', $id)
+									->get();
+
+    $users = $conversations->map(function($conversation,$id){
+	if($conversation->sender_id === $id) {
+		return $conversation->receiver;
+	}
+	return $conversation->sender;
+})->unique();
+dd($users);
     }
     public function show_customer($id){
         $user = User::find($id);

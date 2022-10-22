@@ -85,6 +85,7 @@ Route::middleware('auth')->group(function () {
     Route::get('customers',[ProfileController::class,'users']);
     Route::get('customer/{id}',[ProfileController::class,'show_customer'])->name('customer.show');
     Route::get('order/{id}',[ProfileController::class,'show_order'])->name('order.show');
+    Route::get('show_messages/{id}',[ProfileController::class,'show_messages'])->name('show_messages');
 
     Route::get('marketer/{id}',[ProfileController::class,'show'])->name('marketer.show');
     Route::get('/status/update',[ProfileController::class,'updateStatus'])->name('users.update.status');    
