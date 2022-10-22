@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\BlogController;
 use App\Http\Controllers\Api\CartController;
 use App\Http\Controllers\Api\CommentController;
 use App\Http\Controllers\Api\ConsultationController;
+use App\Http\Controllers\Api\FollowController;
 use App\Http\Controllers\Api\ForgotPasswordController;
 use App\Http\Controllers\Api\GeneralController;
 use App\Http\Controllers\Api\HomeController;
@@ -148,6 +149,9 @@ Route::group(['middleware' => 'is_login'], function () {
     Route::post('/add_ticket', [TicketController::class, 'store']);
     Route::post('/send_messsage', [MessageController::class, 'store']);
     Route::get('/all_message', [MessageController::class, 'index']);
+    Route::get('/followe_markter/{id}', [FollowController::class, 'store']);
+    Route::get('/get_all_follower', [FollowController::class, 'index']);
+    Route::delete('/delete_follow_marketer/{id}', [FollowController::class, 'delete']);
 
 
 
