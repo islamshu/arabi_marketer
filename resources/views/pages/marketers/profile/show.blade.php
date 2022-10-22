@@ -206,6 +206,9 @@
                     <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_8">الاستشارات<span
                             class="count">{{ $user->consutiong->count() }}</span></a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="{{ route('show_messages',$user->id) }}">الرسائل</a>
+                </li>
 
             </ul>
 
