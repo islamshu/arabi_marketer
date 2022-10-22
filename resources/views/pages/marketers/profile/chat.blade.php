@@ -330,7 +330,6 @@
 
 
                                     <!--end::Wrapper-->
-                                </div>
                                 <!--end::Message(in)-->
                                 <!--begin::Message(out)-->
 
