@@ -67,7 +67,7 @@ class ProfileController extends Controller
 		// 							->orWhere('receiver_id', $id)
 		// 							->get();
 
-    $users = $conversations->map(function($conversation,$id){
+    $users = $conversations->map(function($conversation) use($id){
 	if($conversation->sender_id == $id) {
         dd('dd');
 		return $conversation->receiver;
