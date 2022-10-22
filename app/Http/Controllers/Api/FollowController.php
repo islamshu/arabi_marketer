@@ -7,6 +7,7 @@ use App\Http\Resources\FolloweResource;
 use App\Models\Followr;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
+use App\Models\User;
 
 class FollowController extends BaseController
 {
@@ -14,5 +15,26 @@ class FollowController extends BaseController
         $follower = Followr::where('user_id',auth('api')->id())->get();
         $res = FolloweResource::collection($follower);
         return $this->sendResponse($res,'all followes');
+    }
+    public function store($id){
+        $user = User::find($id);
+        if($user->type !='marketer'){
+            $this->sendError('هذا المستخدم غير مسوق !');
+        }
+        $follower = new Followr();
+        $follower->marketer_id = $id;
+        $follower->user_id = auth('api')->id();
+        $follower->save();
+        $res = new FolloweResource($follower);
+        return $this->sendResponse($res,'add followe');
+    }
+    public function delete($id){
+        $followr = Followr::find($id);
+        if(!$followr){
+            $this->sendError('هناك خطأ ما !');
+        }
+        $followr->delete();
+        return $this->sendResponse('delete','delete followr');
+
     }
 }
