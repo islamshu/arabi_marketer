@@ -16,7 +16,7 @@ class CommentResourse extends JsonResource
     {
         return [
             'id' => $this->id,
-            'body' => $this->body
+            'body' => strip_tags($this->body)
         ];
     }
 }
