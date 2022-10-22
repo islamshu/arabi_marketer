@@ -304,7 +304,7 @@
                                     @foreach ($messages as $item)
                                     <div class="d-flex justify-content-end mb-10">
                                         <!--begin::Wrapper-->
-                                        <div class="d-flex flex-column align-items-@if ($item->receiver_id != $sender->id)start @else end @endif">
+                                        <div class="d-flex flex-column @if ($item->receiver_id != $sender->id) align-items-start @else align-items-end @endif">
                                             <!--begin::User-->
                                             <div class="d-flex align-items-center mb-2">
                                                 <!--begin::Details-->
