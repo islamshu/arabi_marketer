@@ -17,7 +17,7 @@ class ConsultingResource extends JsonResource
         return [
             'id'=>$this->id,
             'title'=>$this->title,
-            'description'=>$this->description,
+            'description'=>strip_tags($this->description ),
             'color'=>$this->color,
             'hour'=>$this->hour,
             'minutes'=>$this->min,
