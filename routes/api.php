@@ -147,6 +147,7 @@ Route::group(['middleware' => 'is_login'], function () {
     Route::get('/tickets', [TicketController::class, 'index']);
     Route::post('/add_ticket', [TicketController::class, 'store']);
     Route::post('/send_messsage', [MessageController::class, 'store']);
+    Route::get('/all_message', [MessageController::class, 'index']);
 
 
 

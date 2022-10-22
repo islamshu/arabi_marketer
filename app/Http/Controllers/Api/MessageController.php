@@ -19,4 +19,10 @@ class MessageController extends BaseController
         $res = new MessageResource($message);
         return $this->sendResponse($res , 'send');
     }
+    public function index(){
+        $messages = Message::where('sender_id',auth('api')->id())->orwhere('receiver_id',auth('api')->id())->get();
+        $res = MessageResource::collection($messages);
+        return $this->sendResponse($res , 'all messages');
+
+    }
 }
