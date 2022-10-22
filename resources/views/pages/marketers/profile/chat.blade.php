@@ -180,7 +180,7 @@
                                                 <!--begin::Avatar-->
                                                 <div class="symbol symbol-45px symbol-circle">
                                                     <img alt="Pic" src="{{ asset('public/uploads/' . $item->image) }}">
-                                                    <div class="symbol-badge bg-success start-100 top-100 border-4 h-8px w-8px ms-n2 mt-n2"></div>
+                                                    <div class=" start-100 top-100 border-4 h-8px w-8px ms-n2 mt-n2"></div>
                                                 </div>
                                                 <!--end::Avatar-->
                                                 <!--begin::Details-->
