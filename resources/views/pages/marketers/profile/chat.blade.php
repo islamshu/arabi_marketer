@@ -314,7 +314,7 @@
                                             <!--begin::Details-->
                                             <div class="ms-3">
                                                 <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary me-1">{{ $sender->name }}</a>
-                                                <span class="text-muted fs-7 mb-1">2 mins</span>
+                                                <span class="text-muted fs-7 mb-1">{{ $item->created_at->diffForHumans() }}</span>
                                             </div>
                                             <!--end::Details-->
                                         </div>
@@ -331,7 +331,7 @@
                                             <div class="d-flex align-items-center mb-2">
                                                 <!--begin::Details-->
                                                 <div class="me-3">
-                                                    <span class="text-muted fs-7 mb-1">5 mins</span>
+                                                    <span class="text-muted fs-7 mb-1">{{ $item->created_at->diffForHumans() }}</span>
                                                     <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary ms-1">{{ $resever->name }}</a>
                                                 </div>
                                                 <!--end::Details-->
