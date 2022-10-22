@@ -50,8 +50,11 @@ class ProfileController extends Controller
         $conversations =Message::where('sender_id',$id)->orWhere('receiver_id',$id)->get();
         $users = $conversations->map(function($conversation) use($id){
         if($conversation->sender_id == $id) {
+            dd($conversation->receiver,'aa');
             return $conversation->receiver;
         }
+        dd($conversation->sender,'bb');
+
         return $conversation->sender;
         })->unique();
         // return view('pages.marketers.profile.chats')->with('users',$users)->with('user',$id); 
