@@ -87,7 +87,12 @@ class ProfileController extends Controller
             }
             return $conversation->sender;
             })->unique();
-                return view('pages.marketers.profile.chat')->with('users',$users)->with('user',$id2)->with('messages',$messages);
+                return view('pages.marketers.profile.chat')
+                ->with('users',$users)
+                ->with('user',$id2)
+                ->with('messages',$messages)
+                ->with('sender',User::find($id1))
+                ->with('resever',User::find($id2));
     }
     public function show_customer($id){
         $user = User::find($id);
