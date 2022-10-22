@@ -10,7 +10,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($messages as $item)
+        @foreach ($users as $item)
         <tr>
             <td><img alt="Pic" src="{{ asset('public/uploads/' . $item->image) }}" width="50" height="50" ></td>
 
