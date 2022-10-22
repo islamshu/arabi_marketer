@@ -47,6 +47,14 @@ class ProfileController extends Controller
         $videos = $user->videos;
         $podcasts = $user->podcasts;
         $consls =$user->consutiong;
+        $conversations =Message::where('sender_id',$id)->orWhere('receiver_id',$id)->get();
+        $users = $conversations->map(function($conversation) use($id){
+        if($conversation->sender_id == $id) {
+            return $conversation->receiver;
+        }
+        return $conversation->sender;
+        })->unique();
+        // return view('pages.marketers.profile.chats')->with('users',$users)->with('user',$id); 
 
         return view('pages.marketers.profile.show')
         ->with('user', $user)
@@ -54,25 +62,19 @@ class ProfileController extends Controller
         ->with('blogs',$blogs)
         ->with('podcasts',$podcasts)
         ->with('consls',$consls)
+        ->with('users',$users)
         ->with('videos',$videos);
 
 
     }
     public function show_messages($id){
         $conversations =Message::where('sender_id',$id)->orWhere('receiver_id',$id)->get();
-        // return view('pages.marketers.profile.chat')->with('messages',$messages); 
-
-        // $conversations = DB::table('messages')
-		// 							->where('sender_id', $id)
-		// 							->orWhere('receiver_id', $id)
-		// 							->get();
-
-    $users = $conversations->map(function($conversation) use($id){
-	if($conversation->sender_id == $id) {
-		return $conversation->receiver;
-	}
-	return $conversation->sender;
-    })->unique();
+        $users = $conversations->map(function($conversation) use($id){
+        if($conversation->sender_id == $id) {
+            return $conversation->receiver;
+        }
+        return $conversation->sender;
+        })->unique();
         return view('pages.marketers.profile.chats')->with('users',$users)->with('user',$id); 
 
     }

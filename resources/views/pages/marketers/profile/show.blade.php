@@ -206,8 +206,10 @@
                     <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_8">الاستشارات<span
                             class="count">{{ $user->consutiong->count() }}</span></a>
                 </li>
+                
                 <li class="nav-item">
-                    <a  href="{{ route('show_messages',$user->id) }}">الرسائل</a>
+                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_9">الرسائل<span
+                            class="count">{{ $user->consutiong->count() }}</span></a>
                 </li>
 
             </ul>
@@ -229,6 +231,9 @@
                 </div>
                 <div class="tab-pane fade" id="kt_tab_pane_8" role="tabpanel">
                     @include('pages.marketers.profile.consutiong')
+                </div>
+                <div class="tab-pane fade" id="kt_tab_pane_9" role="tabpanel">
+                    @include('pages.marketers.profile.messages')
                 </div>
 
             </div>
