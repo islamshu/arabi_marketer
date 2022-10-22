@@ -112,7 +112,7 @@
                                                 <!--end::Avatar-->
                                                 <!--begin::Details-->
                                                 <div class="ms-5">
-                                                    <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">{{ $item->name }}</a>
+                                                    <a href="{{ route('show_message_from_user',[$item->id,$user]) }}" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">{{ $item->name }}</a>
                                                     <div class="fw-semibold text-muted">{{ $item->email }}</div>
                                                 </div>
                                                 <!--end::Details-->

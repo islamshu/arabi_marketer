@@ -72,9 +72,22 @@ class ProfileController extends Controller
 		return $conversation->receiver;
 	}
 	return $conversation->sender;
-})->unique();
-        return view('pages.marketers.profile.chats')->with('users',$users); 
+    })->unique();
+        return view('pages.marketers.profile.chats')->with('users',$users)->with('user',$id); 
 
+    }
+    public function show_message_from_user($id1,$id2)
+    {
+        $messages =Message::where('sender_id',$id1)->orWhere('receiver_id',$id2)->orwhere('sender_id',$id2)->orwhere('receiver_id',$id1)->get();
+        $conversations =Message::where('sender_id',$id2)->orWhere('receiver_id',$id2)->get();
+
+        $users = $conversations->map(function($conversation) use($id2){
+            if($conversation->sender_id == $id2) {
+                return $conversation->receiver;
+            }
+            return $conversation->sender;
+            })->unique();
+                return view('pages.marketers.profile.chat')->with('users',$users)->with('user',$id2)->with('messages',$messages);
     }
     public function show_customer($id){
         $user = User::find($id);
