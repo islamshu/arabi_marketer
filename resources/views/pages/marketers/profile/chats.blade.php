@@ -46,7 +46,7 @@
                                                 fill="currentColor"></path>
                                         </svg>
                                     </span>
-                                    <!--end::Svg Icon-->الرسائل
+                                    <!--end::Svg Icon-->الرسائل الخاصة ب {{ $user }}
                                 </a>
 
                             </li>
