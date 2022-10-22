@@ -69,7 +69,6 @@ class ProfileController extends Controller
 
     $users = $conversations->map(function($conversation) use($id){
 	if($conversation->sender_id == $id) {
-        dd('dd');
 		return $conversation->receiver;
 	}
 	return $conversation->sender;
