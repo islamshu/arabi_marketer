@@ -89,9 +89,25 @@
 
 @section('scripts')
 <script>
-    ( document ).ready(function() {
-    alert('ready');
-});
+    $(document).ready(function() {
+        alert('dd');
+        $("#example").on("change", ".js-switch", function() {
+            let status = $(this).prop('checked') === true ? 1 : 0;
+            let userId = $(this).data('id');
+            $.ajax({
+                type: "GET",
+                dataType: "json",
+                url: '{{ route('blogs.update.status') }}',
+                data: {
+                    'status': status,
+                    'blog_id': userId
+                },
+                success: function(data) {
+                    console.log(data.message);
+                }
+            });
+        });
+    });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script>

@@ -42,26 +42,3 @@
         </tfoot>
     </table>
 </div>
-@section('scripts')
-    <script>
-        $(document).ready(function() {
-            $("#example").on("change", ".js-switch", function() {
-                let status = $(this).prop('checked') === true ? 1 : 0;
-                let userId = $(this).data('id');
-                $.ajax({
-                    type: "GET",
-                    dataType: "json",
-                    url: '{{ route('blogs.update.status') }}',
-                    data: {
-                        'status': status,
-                        'blog_id': userId
-                    },
-                    success: function(data) {
-                        console.log(data.message);
-                    }
-                });
-            });
-        });
-    </script>
-   
-@endsection
