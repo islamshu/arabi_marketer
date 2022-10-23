@@ -249,4 +249,13 @@ if (!function_exists('preloadCss')) {
     {
         return '<link rel="preload" href="'.$url.'" as="style" onload="this.onload=null;this.rel=\'stylesheet\'" type="text/css"><noscript><link rel="stylesheet" href="'.$url.'"></noscript>';
     }
+    function get_general_value($key)
+    {
+       $general = GeneralInfo::where('key', $key)->first();
+       if($general){
+           return $general->value;
+       }
+
+       return '';
+    }
 }
