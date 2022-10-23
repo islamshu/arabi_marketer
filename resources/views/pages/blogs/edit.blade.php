@@ -76,11 +76,11 @@
                     <div class="form-group col-md-6">
             
                         <br><label> المستخدم :</label>
-                        <select name="user_id" required class="form-control form-control-solid" id="">
+                        <select class="form-select" name="user_id"  data-control="select2" data-placeholder="Select an option">
                             <option value="" selected disabled>يرجى الاختيار</option>
                             @foreach (App\Models\User::get() as $item)
-                            <option value="{{ $item->id }}" @if($item->id == $blog->user_id) selected @endif>{{ $item->name }}</option>
- 
+                            <option value="{{ $item->id }}" >{{ $item->name }}</option>
+            
                             @endforeach
                         </select>
             

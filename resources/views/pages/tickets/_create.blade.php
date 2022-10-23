@@ -61,13 +61,12 @@
         <div class="form-group col-md-6">
 
             <br> <label>المستخدم:</label>
-            <select name="user_id" class="form-control"  required id="user_id">
-                <option value="" selected disabled>يرحى الاختيار</option>
+            <select class="form-select" name="user_id"  data-control="select2" data-placeholder="Select an option">
+                <option value="" selected disabled>يرجى الاختيار</option>
                 @foreach (App\Models\User::get() as $item)
-                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                <option value="{{ $item->id }}" >{{ $item->name }}</option>
 
                 @endforeach
-
             </select>
           
 
