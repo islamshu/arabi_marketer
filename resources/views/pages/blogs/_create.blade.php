@@ -33,7 +33,7 @@
         <div class="form-group col-md-6">
 
             <br><label> وصف مصغر  :</label>
-            <textarea name="small_description" class="editor" id="kt_docs_ckeditor_classic"></textarea>
+            <textarea name="small_description" class="editor form-control" ></textarea>
 
         </div>
         <div class="form-group col-md-6">
