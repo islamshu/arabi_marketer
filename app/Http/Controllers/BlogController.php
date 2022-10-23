@@ -170,7 +170,6 @@ class BlogController extends Controller
                 $service = Blog::find($id);
                 $service->title = ['ar' => $request->title_ar, 'en' => $request->title_en];
                 $service->description = ['ar' => $request->description_ar, 'en' => $request->description_en];
-                $service->user_id = $request->user_id;
 
                 if($request->images != null){
                     $service->image = $request->images->store('blog');
