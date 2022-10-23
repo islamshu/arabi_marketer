@@ -45,6 +45,18 @@
 
         </div>
         <div class="form-group col-md-6">
+            
+            <br><label> المستخدم :</label>
+            <select name="user_id" required class="form-control form-control-solid" id="">
+                <option value="" selected disabled>يرجى الاختيار</option>
+                @foreach (App\Models\User::get() as $item)
+                <option value="{{ $item->id }}" >{{ $item->name }}</option>
+
+                @endforeach
+            </select>
+
+        </div>
+        <div class="form-group col-md-6">
 
             <br> <label>سعر الخدمة:</label>
             <input type="text" id="price" required name="price" class="form-control form-control-solid"

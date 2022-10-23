@@ -75,6 +75,7 @@ class ServiceController extends Controller
                 $service->description = ['ar' => $request->description_ar, 'en' => $request->description_en];
                 $service->price = $request->price;
                 $service->url = $request->url;
+                $service->user_id = $request->user_id;
                 $image_array = array();
                 foreach ($request->images as $key => $image) {
 
