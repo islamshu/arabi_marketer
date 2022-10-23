@@ -201,5 +201,18 @@ class VideoController extends BaseController
         return $this->sendResponse($res, 'جميع الفيديوهات');
 
     }
+    public function related_videos($id)
+    {
+        $category_id = [];
+        $blog = Video::find($id);
+        foreach ($blog->category as $cat) {
+            array_push($category_id, $cat->id);
+        }
+        $blogs =   Video::has('category')->with(['category' => function ($query) use ($category_id) {
+            $query->whereIn('category_id', $category_id);
+        }])->where('status', 1)->where('id', '!=', $id)->orderby('id', 'desc')->take(5)->get();
+        $res = VideoResource::collection($blogs);
+        return $this->sendResponse($res, 'جميع الفيديوهات');
+    }
 }
 

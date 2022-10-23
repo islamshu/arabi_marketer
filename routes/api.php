@@ -167,6 +167,7 @@ Route::get('/video_keywords', [VideoController::class, 'video_keyword']);
 Route::get('/get_all_videos', [VideoController::class, 'get_all']);
 Route::get('/single_video/{id}', [VideoController::class, 'single'])->name('single_video');
 Route::get('/video_search', [VideoController::class, 'serach']);
+Route::get('/related_videos/{id}', [VideoController::class, 'related_videos']);
 
 
 Route::group(['middleware' => 'is_login','middleware' => 'is_able_markter'], function () {
