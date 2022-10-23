@@ -34,7 +34,7 @@
         <div class="form-group col-md-6">
             
             <br><label> المستخدم :</label>
-            <select class="form-select" name="user_id"  data-control="select2" data-placeholder="اختر المستخدم">
+            <select class="form-select" required name="user_id"  data-control="select2" data-placeholder="اختر المستخدم">
                 <option value="" selected disabled>يرجى الاختيار</option>
                 @foreach (App\Models\User::get() as $item)
                 <option value="{{ $item->id }}" >{{ $item->name }}</option>
