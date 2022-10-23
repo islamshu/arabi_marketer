@@ -18,7 +18,7 @@ class VideoResource extends JsonResource
         return [
             'id'=>$this->id,
             'title'=>$this->title,
-            'description'=>strip_tags($this->description ),
+            'description'=>($this->description ),
             'user_info'=>new UserMainInfoResource($this->user),
             'categories'=>$this->get_category($this),
             'keywords'=>$this->get_keywords($this),
