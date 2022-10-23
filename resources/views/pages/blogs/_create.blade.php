@@ -24,13 +24,18 @@
 
         </div>
 
-        <div class="form-group col-md-8">
+        <div class="form-group col-md-6">
 
             <br><label> الوصف :</label>
             <textarea name="description_ar" class="editor" id="kt_docs_ckeditor_classic"></textarea>
 
         </div>
+        <div class="form-group col-md-6">
 
+            <br><label> وصف مصغر  :</label>
+            <textarea name="small_description" class="editor" id="kt_docs_ckeditor_classic"></textarea>
+
+        </div>
         <div class="form-group col-md-6">
             
             <br><label> المستخدم :</label>
