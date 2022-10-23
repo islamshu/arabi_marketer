@@ -34,7 +34,13 @@
 
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link text-active-primary pb-5 " href="{{ route('marketer.show',$resever->id) }}">
+                            @if($resever->type =='user')
+
+                            <a class="nav-link text-active-primary pb-5 " href="{{ route('customer.show',$resever->id) }}">
+                                @else
+                                <a class="nav-link text-active-primary pb-5 " href="{{ route('marketer.show',$resever->id) }}">
+
+                                @endif
                                 <!--begin::Svg Icon | path: icons/duotune/general/gen001.svg-->
                                 <span class="svg-icon svg-icon-2 me-2">
                                     <i class="fa fa-user"></i>
