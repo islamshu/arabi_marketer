@@ -86,12 +86,13 @@
 
 @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
 
+
+@section('scripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script>
     var token = "{{ csrf_token() }}";
 </script>
 
-@section('scripts')
    <script>
      $('#send_form').on('submit', function(e) {
             e.preventDefault();
