@@ -91,7 +91,6 @@
 <script>
     $(document).ready(function() {
         $("#example").on("change", ".js-switch", function() {
-            alert('dd');
             let status = $(this).prop('checked') === true ? 1 : 0;
             let userId = $(this).data('id');
             $.ajax({
