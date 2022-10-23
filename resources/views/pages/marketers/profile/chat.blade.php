@@ -39,7 +39,7 @@
                                 <span class="svg-icon svg-icon-2 me-2">
                                     <i class="fa fa-user"></i>
                                 </span>
-                                <!--end::Svg Icon-->{{ $resever->name }} السمتخدم
+                                <!--end::Svg Icon-->{{ $resever->name }} المستخدم
                             </a>
 
                         </li>
