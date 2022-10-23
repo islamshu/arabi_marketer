@@ -79,7 +79,7 @@
                         <select class="form-select" required name="user_id"  data-control="select2" data-placeholder="اختر المستخدم">
                             <option value="" selected disabled>يرجى الاختيار</option>
                             @foreach (App\Models\User::get() as $item)
-                            <option value="{{ $item->id }}" >{{ $item->name }}</option>
+                            <option value="{{ $item->id }}" @if($item->id == $blog->user_id) selected @endif >{{ $item->name }}</option>
             
                             @endforeach
                         </select>
