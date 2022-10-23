@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\GeneralInfo;
+
 if (!function_exists('get_svg_icon')) {
     function get_svg_icon($path, $class = null, $svgClass = null)
     {
@@ -27,6 +29,15 @@ if (!function_exists('get_svg_icon')) {
         foreach ($xpath->query('//comment()') as $comment) {
             $comment->parentNode->removeChild($comment);
         }
+        function get_general($key)
+    {
+       $general = GeneralInfo::where('key', $key)->first();
+       if($general){
+           return $general->value;
+       }
+
+       return '';
+    }
 
         // add class to svg
         if (!empty($svgClass)) {

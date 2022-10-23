@@ -10,6 +10,7 @@ use App\Http\Controllers\ConsultingController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\Documentation\ReferencesController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\GeneralInfoController;
 use App\Http\Controllers\HowItWorkController;
 use App\Http\Controllers\KeyWordController;
 use App\Http\Controllers\Logs\AuditLogsController;
@@ -185,7 +186,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('blogs',BlogController::class);
     Route::get('show_comments/{id}',[BlogController::class,'show_comments'])->name('show_comments');
     Route::get('update_comment_status/',[BlogController::class,'update_comment_status'])->name('comment.update.status');
-
+    Route::resource('general_info',GeneralInfoController::class);
     
     Route::resource('podcasts',PodacstController::class);
     Route::resource('videos', VideoController::class);
