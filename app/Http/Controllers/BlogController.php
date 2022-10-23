@@ -59,7 +59,8 @@ class BlogController extends Controller
                 $service = new Blog();
                 $service->title = ['ar' => $request->title_ar, 'en' => $request->title_en];
                 $service->description = ['ar' => $request->description_ar, 'en' => $request->description_en];
-              
+                $service->small_description = $request->small_description;
+
                 $service->image = $request->images->store('blog');
                 $service->user_id = $request->user_id;
 
@@ -170,7 +171,7 @@ class BlogController extends Controller
                 $service = Blog::find($id);
                 $service->title = ['ar' => $request->title_ar, 'en' => $request->title_en];
                 $service->description = ['ar' => $request->description_ar, 'en' => $request->description_en];
-
+                $service->small_description = $request->small_description;
                 if($request->images != null){
                     $service->image = $request->images->store('blog');
                 }
