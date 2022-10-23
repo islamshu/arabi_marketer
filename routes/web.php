@@ -15,6 +15,7 @@ use App\Http\Controllers\HowItWorkController;
 use App\Http\Controllers\KeyWordController;
 use App\Http\Controllers\Logs\AuditLogsController;
 use App\Http\Controllers\Logs\SystemLogsController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PlacetypeController;
@@ -188,6 +189,7 @@ Route::middleware('auth')->group(function () {
     Route::get('update_comment_status/',[BlogController::class,'update_comment_status'])->name('comment.update.status');
     Route::resource('general_info',GeneralInfoController::class);
     Route::get('myfatoorah_config',[GeneralInfoController::class,'myfatoorah']);
+    Route::resource('orders',OrderController::class);
 
     Route::resource('podcasts',PodacstController::class);
     Route::resource('videos', VideoController::class);
