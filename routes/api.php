@@ -149,6 +149,7 @@ Route::group(['middleware' => 'is_login'], function () {
     Route::post('/add_ticket', [TicketController::class, 'store']);
     Route::post('/send_messsage', [MessageController::class, 'store']);
     Route::get('/all_message', [MessageController::class, 'index']);
+    Route::get('all_message_between_user/{id}/{id2}',[MessageController::class,'message_betwwen_2'])->name('message_two');
     Route::get('/followe_markter/{id}', [FollowController::class, 'store']);
     Route::get('/get_all_follower', [FollowController::class, 'index']);
     Route::delete('/delete_follow_marketer/{id}', [FollowController::class, 'delete']);
