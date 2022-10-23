@@ -73,18 +73,7 @@
                         <textarea name="description_ar" class="editor" id="kt_docs_ckeditor_classic">{{ $blog->getTranslation('description', 'ar') }}</textarea>
             
                     </div>
-                    <div class="form-group col-md-6">
-            
-                        <br><label> المستخدم :</label>
-                        <select class="form-select" required name="user_id"  data-control="select2" data-placeholder="اختر المستخدم">
-                            <option value="" selected disabled>يرجى الاختيار</option>
-                            @foreach (App\Models\User::get() as $item)
-                            <option value="{{ $item->id }}" @if($item->id == $blog->user_id) selected @endif >{{ $item->name }}</option>
-            
-                            @endforeach
-                        </select>
-            
-                    </div>
+                 
                     
                     
                     <div class="form-group col-md-6">
