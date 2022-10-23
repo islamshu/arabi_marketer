@@ -76,7 +76,7 @@
                     <div class="form-group col-md-6">
 
                         <br><label> وصف مصغر  :</label>
-                        <textarea name="small_description" class="editor" id="kt_docs_ckeditor_classic">{{ $blog->small_description}}</textarea>
+                        <textarea name="small_description" class="editor form-control" >{{ $blog->small_description}}</textarea>
             
                     </div>
                  
