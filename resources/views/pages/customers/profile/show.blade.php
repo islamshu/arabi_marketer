@@ -199,6 +199,10 @@
                     <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_8">الاستشارات<span
                         class="count">{{ $consl_count }}</span></a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_9">الرسائل<span
+                            class="count">{{ count($messages) }}</span></a>
+                        </li>
             </ul>
 
 
@@ -211,6 +215,9 @@
                 </div>
                 <div class="tab-pane fade" id="kt_tab_pane_8" role="tabpanel">
                     @include('pages.customers.profile.consutiong')
+                </div>
+                <div class="tab-pane fade" id="kt_tab_pane_9" role="tabpanel">
+                    @include('pages.customers.profile.messages')
                 </div>
     
             </div>

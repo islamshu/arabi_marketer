@@ -113,9 +113,19 @@ class ProfileController extends Controller
         }
         $services = OrderDetiles::whereIn('id',$service)->get(); 
         $consls = OrderDetiles::whereIn('id',$cons)->get(); 
+        $conversations =Message::where('sender_id',$id)->orWhere('receiver_id',$id)->get();
+        $messages = $conversations->map(function($conversation) use($id){
+        if($conversation->sender_id == $id) {
+            return $conversation->receiver;
+        }
+
+        return $conversation->sender;
+        })->unique();
 
         return view('pages.customers.profile.show')
         ->with('user', $user)
+        ->with('messages', $messages)
+
         ->with('orders',$orders)
         ->with('services',$services)
         ->with('consls',$consls)
