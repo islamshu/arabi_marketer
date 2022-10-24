@@ -229,6 +229,7 @@ class UserController extends BaseController
         $user = auth('api')->user();
         $orders = $user->orders;
         $service = [];
+        dd($orders);
         foreach($orders as $order){
             foreach($order->orderdetiles as $detile){
                 if($detile->type == 'service'){
