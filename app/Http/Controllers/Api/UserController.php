@@ -12,6 +12,7 @@ use App\Http\Resources\BlogResource;
 use App\Http\Resources\CategoryResource;
 use App\Http\Resources\ConsultingResource;
 use App\Http\Resources\PodcastResource;
+use App\Http\Resources\ServiceBuyResource;
 use App\Http\Resources\ServiceResource;
 use App\Http\Resources\UserNormalAuthResource;
 use App\Http\Resources\UserNormalNotAuthResource;
@@ -21,6 +22,7 @@ use App\Http\Resources\VideoResource;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\MarkterSoical;
+use App\Models\OrderDetiles;
 use App\Models\Podacst;
 use App\Models\Service;
 use App\Models\SouialUser;
@@ -222,5 +224,22 @@ class UserController extends BaseController
         $service = Podacst::where('user_id',auth('api')->id())->orderby('id','desc')->paginate(5);
         $res = PodcastResource::collection($service)->response()->getData(true);
          return $this->sendResponse($res,'جميع البدوكاست  ');
+     }
+     public function my_service_buy(){
+        $user = auth('api')->user();
+        $orders = $user->orders;
+        $service = [];
+        foreach($orders as $order){
+            foreach($order->orderdetiles as $detile){
+                if($detile->type == 'service'){
+                    array_push($service,$detile->id);
+                }
+            }
+        }
+        $services = OrderDetiles::whereIn('id',$service)->get(); 
+        $res = ServiceBuyResource::collection($service);
+        return $this->sendResponse($res,'جميع الخدمات المشتراه  ');
+
+        
      }
 }

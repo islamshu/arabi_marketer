@@ -75,6 +75,10 @@ Route::group(['middleware' => 'is_login','middleware' => 'Is_markter'], function
     Route::get('/my_podcasts', [UserController::class, 'get_podcasts']);
     Route::get('/get_videos', [UserController::class, 'get_videos']);
     Route::get('/get_consultations', [UserController::class, 'get_consultations']);
+
+    Route::get('/my_service_buy', [UserController::class, 'my_service_buy']);
+    Route::get('/my_consultations_buy', [UserController::class, 'my_consultations_buy']);
+
 });
 
 Route::get('/type_of_user', [UserController::class, 'type_of_user']);
