@@ -19,7 +19,7 @@ class OrderDetilesResource extends JsonResource
         return [
             'type'=>$this->type,
             'service'=>$this->get_service($this),
-            'consution'=>$this->get_service($this),
+            'consution'=>$this->get_consution($this),
             'price'=>$this->price,
 
 
@@ -30,7 +30,14 @@ class OrderDetilesResource extends JsonResource
         if($data->type == 'service'){
             return new ServiceResource($data->service);
         }else{
-            return new ConsultingResource($data->consultion);
+            return null;
+        }
+    }
+    function get_consution($data){
+        if($data->type = 'consultation'){
+            return new ConsultingResource($data->service);
+        }else{
+            return null;
         }
     }
    
