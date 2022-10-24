@@ -51,8 +51,8 @@ class UserNotAuthResource extends JsonResource
        }
         return[
             'bank_name'=>$datainfo->bank_name,
-            'account_name'=>$data->account_name,
-            'account_number'=>$data->account_number
+            'account_name'=>$datainfo->account_name,
+            'account_number'=>$datainfo->account_number
         ];
     }
     function get_finance($data){
