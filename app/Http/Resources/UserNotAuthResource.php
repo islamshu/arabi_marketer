@@ -46,7 +46,6 @@ class UserNotAuthResource extends JsonResource
     function bank_info($data)
     {
        $datainfo= $data->bank_info;
-       dd($datainfo);
        if($datainfo == null){
         return null;
        }
