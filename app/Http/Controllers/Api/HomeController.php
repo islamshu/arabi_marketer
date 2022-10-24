@@ -51,6 +51,11 @@ class HomeController extends BaseController
         $markter = User::where('type','marketer')->where('status',1)->take(4)->get();
         $res['markter'] = UserNotAuthResource::collection($markter);
 
+
+        $cons = ConsultingResource::collection(Consulting::orderby('id','desc')->take(3)->get()) ;
+        $res['consuliong'] = $cons;
+
+
         $videos = VideoResource::collection(Video::orderBy('id', 'desc')->take(4)->get());
         $res['video'] = $videos;
 
