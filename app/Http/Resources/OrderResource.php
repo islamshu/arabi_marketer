@@ -20,7 +20,6 @@ class OrderResource extends JsonResource
             'code'=>$this->code,
             'total'=>$this->total,
             'payment_status'=>$this->payment_status,
-            'order_number'=>$this->order->code,
             'time'=>$this->created_at,
             'orderDetiles'=>OrderDetilesResource::collection($this->orderdetiles)
            
