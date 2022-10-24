@@ -256,4 +256,8 @@ class UserController extends BaseController
         $res = CounsutionBuyResource::collection($consltuin);
         return $this->sendResponse($res,'جميع الاستشارات المشتراه  ');
      }
+     public function order(){
+        $user = auth('api')->user;
+        
+     }
 }
