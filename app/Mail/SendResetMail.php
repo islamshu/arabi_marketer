@@ -10,14 +10,20 @@ use Illuminate\Queue\SerializesModels;
 class SendResetMail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $url;
+    public $code;
    
-    public function __construct($url)
+    public function __construct($code)
     {
-        $this->url = $url;
+        $this->code = $code;
     }
     public function build()
     {
-        return $this->view('mail.rest');
+        return $this->view('mail.rest')
+        ->with([
+           'otp' => $this->code->code
+        ]);
     }
+
+          
+      
 }

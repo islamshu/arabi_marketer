@@ -5,7 +5,7 @@
     Reset Password 
     
 </p>
-    <a href="{{ $url }}">Reset Password</a>
+  <h2> the code is :<span style="color: red"> {{ $otp }} </span></h2>
     <p>
     
     
@@ -13,8 +13,6 @@
     If you did not request a password reset, no further action is required.
     Regards,
     Laravel.
-</p>
-    copy link : {{ $url }}
-</p>
+
 
 </div>
