@@ -229,7 +229,6 @@ class UserController extends BaseController
         $user = auth('api')->user();
         $orders = $user->orders;
         $service = [];
-        dd($orders);
         foreach($orders as $order){
             foreach($order->orderdetiles as $detile){
                 if($detile->type == 'service'){
@@ -238,7 +237,7 @@ class UserController extends BaseController
             }
         }
         $services = OrderDetiles::whereIn('id',$service)->get(); 
-        $res = ServiceBuyResource::collection($service);
+        $res = ServiceBuyResource::collection($services);
         return $this->sendResponse($res,'جميع الخدمات المشتراه  ');
 
         
