@@ -35,7 +35,7 @@ class OrderDetilesResource extends JsonResource
     }
     function get_consution($data){
         if($data->type = 'consultation'){
-            return new ConsultingResource($data->service);
+            return new ConsultingResource($data->consultion);
         }else{
             return null;
         }
