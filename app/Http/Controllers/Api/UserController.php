@@ -55,7 +55,7 @@ class UserController extends BaseController
         $user->image = 'users/defult_user.png';
         $user->password =  Hash::make($request->password);
         $user->save();
-        $userRes =new  UserNormalNotAuthResource($user);
+        $userRes =new  UserNormalAuthResource($user);
         return $this->sendResponse($userRes,'تم التسجيل بنجاح');
     }
     public function login(Request $request){
