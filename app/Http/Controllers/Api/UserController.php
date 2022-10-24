@@ -21,6 +21,7 @@ use App\Http\Resources\UserNormalNotAuthResource;
 use App\Http\Resources\UserNotAuthResource;
 use App\Http\Resources\UserResource;
 use App\Http\Resources\VideoResource;
+use App\Models\BankInfo;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\MarkterSoical;
@@ -57,6 +58,26 @@ class UserController extends BaseController
         $user->save();
         $userRes =new  UserNormalAuthResource($user);
         return $this->sendResponse($userRes,'تم التسجيل بنجاح');
+    }
+    public function add_bank_info(Request $request){
+        $user = auth('api')->user();
+        $bank = $user->bank_info;
+        if($bank == null){
+            $bank = new BankInfo();
+            $bank->bank_name = $request->bank_name;
+            $bank->account_name = $request->account_name;
+            $bank->account_number = $request->account_number;
+            $bank->user_id = auth('api')->id();
+            $bank->save();
+        }else{
+            $bank->bank_name = $request->bank_name;
+            $bank->account_name = $request->account_name;
+            $bank->account_number = $request->account_number;
+            $bank->save(); 
+        }
+        $res = new UserNotAuthResource($user);
+        return $this->sendResponse($res,'تم تعديل بيانات الدفع');
+
     }
     public function login(Request $request){
         $validation = Validator::make($request->all(), [

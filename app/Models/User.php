@@ -109,6 +109,15 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(SouialUser::class);
     }
+    /**
+     * Get the user associated with the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function bank_info()
+    {
+        return $this->hasOne(BankInfo::class);
+    }
 
     public function getRememberToken()
     {
