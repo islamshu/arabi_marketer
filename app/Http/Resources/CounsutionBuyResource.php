@@ -3,9 +3,10 @@
 namespace App\Http\Resources;
 
 use App\Models\Blog;
+use App\Models\Consulting;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ServiceBuyResource extends JsonResource
+class CounsutionBuyResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,7 +18,7 @@ class ServiceBuyResource extends JsonResource
     {
         return [
             'id'=>$this->id,
-            'service'=>new ServiceResource($this->service),
+            'consultion'=>new ConsultingResource($this->consultion),
             'price'=>$this->price,
             'type'=>$this->type,
             'order_number'=>$this->order->code,

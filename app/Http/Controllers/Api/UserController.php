@@ -239,7 +239,20 @@ class UserController extends BaseController
         $services = OrderDetiles::whereIn('id',$service)->get(); 
         $res = ServiceBuyResource::collection($services);
         return $this->sendResponse($res,'جميع الخدمات المشتراه  ');
-
-        
+     }
+     public function my_consultations_buy(){
+        $user = auth('api')->user();
+        $orders = $user->orders;
+        $cons = [];
+        foreach($orders as $order){
+            foreach($order->orderdetiles as $detile){
+                if($detile->type == 'consultation'){
+                    array_push($cons,$detile->id);
+                }
+            }
+        }
+        $consltuin = OrderDetiles::whereIn('id',$cons)->get(); 
+        $res = ServiceBuyResource::collection($consltuin);
+        return $this->sendResponse($res,'جميع الاستشارات المشتراه  ');
      }
 }
