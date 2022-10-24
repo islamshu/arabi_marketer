@@ -19,42 +19,45 @@ use Validator;
 
 class ForgotPasswordController extends BaseController
 {
-    public function forgot(Request $request) {
+    public function forgot(Request $request)
+    {
         $credentials = request()->validate(['email' => 'required|email']);
-        $cc = CodeMail::where('email',$request->email)->first();
-        if($cc){
+        $cc = CodeMail::where('email', $request->email)->first();
+        if ($cc) {
             $cc->delete();
         }
         $code = new CodeMail();
         $code->email = $request->email;
-        $code->code = rand(11111,99999);
+        $code->code = rand(11111, 99999);
         $code->save();
 
         Mail::to(request()->email)->send(new SendResetMail($code));
 
 
-        return $this->sendResponse('forget','Reset password link sent on your email id.');
+        return $this->sendResponse('forget', 'Reset password link sent on your email id.');
     }
 
 
-    public function reset(Request $request) {
+    public function reset(Request $request)
+    {
         $validation = Validator::make($request->all(), [
-        'code'=>'required',
-        'password'=>'required',
-        'confirm_password'=>'required|same:password'
-      ]);
-      if ($validation->fails()) {
-        return $this->sendError($validation->messages()->all());
-    }
-    $code = CodeMail::where('code',$request->code)->first();
-    if(!$code){
-        return $this->sendError('خطأ بالرمز المرسل');
-    }
-    $email =$code->email;
-    $user = User::where('email',$email)->first();
-    $user->update([
-        'password'=>Hash::make($request->password)
-    ]);
-        return $this->sendResponse('reset',"Password has been successfully changed");
+            'code' => 'required',
+            'password' => 'required',
+            'confirm_password' => 'required|same:password'
+        ]);
+        if ($validation->fails()) {
+            return $this->sendError($validation->messages()->all());
+        }
+        $code = CodeMail::where('code', $request->code)->first();
+        if (!$code) {
+            return $this->sendError('خطأ بالرمز المرسل');
+        }
+        $email = $code->email;
+        $user = User::where('email', $email)->first();
+        $user->update([
+            'password' => Hash::make($request->password)
+        ]);
+        $code->delete();
+        return $this->sendResponse('reset', "Password has been successfully changed");
     }
 }
