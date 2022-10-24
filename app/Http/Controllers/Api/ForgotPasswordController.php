@@ -21,10 +21,20 @@ class ForgotPasswordController extends BaseController
 {
     public function forgot(Request $request)
     {
-        $credentials = request()->validate(['email' => 'required|email']);
+        $validation = Validator::make($request->all(), [
+            'email' => 'required',
+        ]);
+        if ($validation->fails()) {
+            return $this->sendError($validation->messages()->all());
+        }
         $cc = CodeMail::where('email', $request->email)->first();
         if ($cc) {
             $cc->delete();
+        }
+        $user = User::where('email',$request->email)->first();
+        if(!$user){
+            return $this->sendError('هذا الايميل غير متوفر في سجلاتنا');
+
         }
         $code = new CodeMail();
         $code->email = $request->email;
