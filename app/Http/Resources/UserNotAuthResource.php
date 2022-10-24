@@ -43,7 +43,7 @@ class UserNotAuthResource extends JsonResource
             'bank_info'=>$this->bank_info($this)
         ];
     }
-    function bank_info($data){
+    function bank_info($data)
     {
        $datainfo= $data->bank_info;
         return[
