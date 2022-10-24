@@ -62,6 +62,7 @@ class UserController extends BaseController
     public function add_bank_info(Request $request){
         $user = auth('api')->user();
         $bank = $user->bank_info;
+        dd($bank);
         if($bank == null){
             $bank = new BankInfo();
             $bank->bank_name = $request->bank_name;
