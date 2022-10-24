@@ -21,7 +21,6 @@ class ForgotPasswordController extends BaseController
 {
     public function forgot(Request $request)
     {
-        dd($request->all());
         $validation = Validator::make($request->all(), [
             'email' => 'required',
         ]);
