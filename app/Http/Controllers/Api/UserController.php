@@ -12,6 +12,7 @@ use App\Http\Resources\BlogResource;
 use App\Http\Resources\CategoryResource;
 use App\Http\Resources\ConsultingResource;
 use App\Http\Resources\CounsutionBuyResource;
+use App\Http\Resources\OrderResource;
 use App\Http\Resources\PodcastResource;
 use App\Http\Resources\ServiceBuyResource;
 use App\Http\Resources\ServiceResource;
@@ -257,7 +258,10 @@ class UserController extends BaseController
         return $this->sendResponse($res,'جميع الاستشارات المشتراه  ');
      }
      public function order(){
-        $user = auth('api')->user;
-        
+        $user = auth('api')->user();
+        $orders = $user->orders;
+        $res = OrderResource::collection($orders);
+        return $this->sendResponse($res,'جميع الطلبات');
+
      }
 }
