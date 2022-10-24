@@ -57,6 +57,7 @@ Route::post('reset_my_password', [ForgotPasswordController::class, 'reset'])->na
 
 
 
+
 //start user profrle
 Route::get('/users', [SampleDataController::class, 'getUsers']);
 Route::post('/register', [UserController::class, 'register']);
@@ -68,6 +69,7 @@ Route::group(['middleware' => 'is_login'], function () {
 
 });
 Route::group(['middleware' => 'is_login','middleware' => 'Is_markter'], function () {
+    Route::post('add_bank_info', [UserController::class, 'add_bank_info']);
     Route::post('/edit_profile_step_2', [UserController::class, 'edit_profile_step_2']);
     Route::post('/edit_profile_step_3', [UserController::class, 'edit_profile_step_3']);
     Route::get('/my_blogs', [UserController::class, 'get_blog']);
