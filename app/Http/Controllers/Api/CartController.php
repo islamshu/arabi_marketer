@@ -40,7 +40,10 @@ class CartController extends BaseController
             return $this->sendError('اليوم والتاريخ لحجز الاستشارة مطلوب !');
         }
         $time = explode(',',$request->time);
-        dd($time);
+        $from = $time[0];
+        $to = $time[1];
+
+        dd($time,$from,$to);
         $cart = Cart::where('user_id',auth('api')->id())->where('service_id',$service->id)->first();
         if($cart){
             $cart->delete();
