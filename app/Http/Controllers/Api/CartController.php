@@ -55,7 +55,7 @@ class CartController extends BaseController
       $date['day']=$request->date;
       $date['form']=$from;
       $date['to']=$to;
-      dd($date);
+      dd(json_encode($date));
 
         $cart = Cart::where('user_id',auth('api')->id())->where('service_id',$service->id)->first();
         if($cart){
