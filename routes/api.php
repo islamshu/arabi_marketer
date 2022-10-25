@@ -66,6 +66,9 @@ Route::group(['middleware' => 'is_login'], function () {
     Route::post('/edit_profile', [UserController::class, 'edit_profile']);
     Route::post('/be_marketer', [UserController::class, 'be_marketer']);
     Route::get('/profile', [UserController::class, 'profile']);
+    Route::get('/my_service_buy', [UserController::class, 'my_service_buy']);
+    Route::get('/my_consultations_buy', [UserController::class, 'my_consultations_buy']);
+    Route::get('/my_orders', [UserController::class, 'order']);
 
 });
 Route::group(['middleware' => 'is_login','middleware' => 'Is_markter'], function () {
@@ -78,9 +81,7 @@ Route::group(['middleware' => 'is_login','middleware' => 'Is_markter'], function
     Route::get('/get_videos', [UserController::class, 'get_videos']);
     Route::get('/get_consultations', [UserController::class, 'get_consultations']);
 
-    Route::get('/my_orders', [UserController::class, 'order']);
-    Route::get('/my_service_buy', [UserController::class, 'my_service_buy']);
-    Route::get('/my_consultations_buy', [UserController::class, 'my_consultations_buy']);
+  
 
 });
 
