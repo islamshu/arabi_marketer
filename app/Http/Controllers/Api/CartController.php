@@ -39,6 +39,8 @@ class CartController extends BaseController
         if($request->date == null || $request->time == null){
             return $this->sendError('اليوم والتاريخ لحجز الاستشارة مطلوب !');
         }
+        $time = explode(',',$request->time);
+        dd($time);
         $cart = Cart::where('user_id',auth('api')->id())->where('service_id',$service->id)->first();
         if($cart){
             $cart->delete();
