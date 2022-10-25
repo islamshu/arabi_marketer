@@ -30,5 +30,9 @@ class Consulting extends Model
     {
         return $this->belongsTo(Category::class);
     }
+    public function date()
+    {
+        return $this->hasMany(ConsutingDate::class);
+    }
 
 }
