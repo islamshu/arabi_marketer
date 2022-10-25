@@ -276,7 +276,7 @@ class UserController extends BaseController
             }
         }
         $consltuin = OrderDetiles::whereIn('id',$cons)->get(); 
-        $res = CounsutionBuyResource::collection($consltuin);
+        $res['consulting'] = CounsutionBuyResource::collection($consltuin);
         return $this->sendResponse($res,'جميع الاستشارات المشتراه  ');
      }
      public function order(){
