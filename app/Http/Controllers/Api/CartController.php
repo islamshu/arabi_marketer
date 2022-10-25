@@ -49,6 +49,9 @@ class CartController extends BaseController
         $from = $time[0];
         $to = $time[1];
       $is_exisit=  $service->date->where('day',$request->date)->where('from',$from)->where('to',$to)->first();
+      if($is_exisit == null){
+        dd('ddd');
+      }
         dd($is_exisit);
         $cart = Cart::where('user_id',auth('api')->id())->where('service_id',$service->id)->first();
         if($cart){
