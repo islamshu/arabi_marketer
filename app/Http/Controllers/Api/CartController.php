@@ -42,7 +42,7 @@ class CartController extends BaseController
         if(strpos($request->time,",") !== false){
             list($d, $l) = explode(',', $request->time, 2);
         }else{
-            return $this->sendErro('وقت البداية والنهاية مكتوب بشكل خاطيء !');
+            return $this->sendError('وقت البداية والنهاية مكتوب بشكل خاطيء !');
 
         }
         $time = explode(',',$request->time);
@@ -50,7 +50,7 @@ class CartController extends BaseController
         $to = $time[1];
       $is_exisit=  $service->date->where('day',$request->date)->where('from',$from)->where('to',$to)->first();
       if($is_exisit == null){
-        return $this->sendErro(' لا يوجد وقت للاستشارة متاح بهذه الاوقات يرجى التأكد من الاوقات وكتابتهم بشكل صحيح');
+        return $this->sendError(' لا يوجد وقت للاستشارة متاح بهذه الاوقات يرجى التأكد من الاوقات وكتابتهم بشكل صحيح');
       }
       $date['day']=$request->date;
       $date['form']=$from;
