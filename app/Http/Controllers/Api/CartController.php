@@ -39,6 +39,11 @@ class CartController extends BaseController
         if($request->date == null || $request->time == null){
             return $this->sendError('اليوم والتاريخ لحجز الاستشارة مطلوب !');
         }
+        if(strpos($request->time,",") !== false){
+            list($d, $l) = explode('.', $request->time, 2);
+        }else{
+            dd('ffd');
+        }
         $time = explode(',',$request->time);
         $from = $time[0];
         $to = $time[1];
