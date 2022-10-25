@@ -260,7 +260,8 @@ class UserController extends BaseController
             }
         }
         $services = OrderDetiles::whereIn('id',$service)->get(); 
-        $res = ServiceBuyResource::collection($services);
+        $res['service'] = ServiceBuyResource::collection($services);
+        
         return $this->sendResponse($res,'جميع الخدمات المشتراه  ');
      }
      public function my_consultations_buy(){
