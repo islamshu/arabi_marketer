@@ -55,7 +55,7 @@ class CartController extends BaseController
       $date['day']=$request->date;
       $date['form']=$from;
       $date['to']=$to;
-      dd(json_encode($date));
+      $data_send = json_encode($date);
 
         $cart = Cart::where('user_id',auth('api')->id())->where('service_id',$service->id)->first();
         if($cart){
@@ -67,6 +67,7 @@ class CartController extends BaseController
         $cart->service_id = $service->id;
         $cart->type =$request->type;
         $cart->price = $service->price;
+        $cart->more_date = $date;
         $cart->save();
         $res = new CartResource($cart);
         return $this->sendResponse($res,'added');
