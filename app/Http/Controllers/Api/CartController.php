@@ -50,9 +50,13 @@ class CartController extends BaseController
         $to = $time[1];
       $is_exisit=  $service->date->where('day',$request->date)->where('from',$from)->where('to',$to)->first();
       if($is_exisit == null){
-        dd('ddd');
+        return $this->sendErro(' لا يوجد وقت للاستشارة متاح بهذه الاوقات يرجى التأكد من الاوقات وكتابتهم بشكل صحيح');
       }
-        dd($is_exisit);
+      $date['day']=$request->date;
+      $date['form']=$from;
+      $date['to']=$to;
+      dd($date);
+
         $cart = Cart::where('user_id',auth('api')->id())->where('service_id',$service->id)->first();
         if($cart){
             $cart->delete();
