@@ -32,7 +32,7 @@ class Consulting extends Model
     }
     public function date()
     {
-        return $this->hasMany(ConsutingDate::class);
+        return $this->hasMany(ConsutingDate::class,'consulte_id');
     }
 
 }
