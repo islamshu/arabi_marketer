@@ -42,13 +42,14 @@ class CartController extends BaseController
         if(strpos($request->time,",") !== false){
             list($d, $l) = explode(',', $request->time, 2);
         }else{
-            dd('ffd');
+            return $this->sendErro('وقت البداية والنهاية مكتوب بشكل خاطيء !');
+
         }
         $time = explode(',',$request->time);
         $from = $time[0];
         $to = $time[1];
-
-        dd($time,$from,$to);
+      $is_exisit=  $service->date->where('day',$request->date)->where('from',$from)->where('to',$to)->first();
+        dd($is_exisit);
         $cart = Cart::where('user_id',auth('api')->id())->where('service_id',$service->id)->first();
         if($cart){
             $cart->delete();
