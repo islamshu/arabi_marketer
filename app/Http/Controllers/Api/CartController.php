@@ -67,7 +67,7 @@ class CartController extends BaseController
         $cart->service_id = $service->id;
         $cart->type =$request->type;
         $cart->price = $service->price;
-        $cart->more_date = $date;
+        $cart->more_data = $date;
         $cart->save();
         $res = new CartResource($cart);
         return $this->sendResponse($res,'added');
