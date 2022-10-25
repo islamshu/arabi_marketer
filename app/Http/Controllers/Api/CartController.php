@@ -30,10 +30,14 @@ class CartController extends BaseController
             $service = Service::find($request->service_id);
         }else{
             $service = Consulting::find($request->service_id);
+            
         }
 
         if(!$service){
             return $this->sendError('الخدمة غير متوفرة');
+        }
+        if($request->date == null || $request->time == null){
+            return $this->sendError('اليوم والتاريخ لحجز الاستشارة مطلوب !');
         }
         $cart = Cart::where('user_id',auth('api')->id())->where('service_id',$service->id)->first();
         if($cart){
