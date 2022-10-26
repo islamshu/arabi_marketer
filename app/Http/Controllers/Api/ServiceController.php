@@ -62,7 +62,7 @@ class ServiceController extends BaseController
             'types'=>'required',
             'keywords'=>'required', 
             'has_file'=>'required',
-            'attach_file'=>  $request->has_file == 'yes'?'required' : '' ,
+            'attach_file'=>  $request->has_file == true ?'required' : '' ,
           
         ]);
         if ($validation->fails()) {
@@ -84,8 +84,10 @@ class ServiceController extends BaseController
                 foreach ($request->images as $key => $im) {
                     if ($key == 0) {
                         $service->image = $im->store('service');
+                        return $service->image;
                     }
                 }
+
                 $service->images = json_encode($image_array);
                 $service->save();
 
