@@ -80,9 +80,9 @@
             @forelse ( $notifications as $item)
             <div class="menu-item px-3 my-0" style="width: 200px">
                 <div class="menu-item px-3">
-                    <a href="{{ route('show.notification',$item->id) }}" class="menu-link d-flex px-5 ">
+                    <a href="{{ route('show.notification',$item->id) }}" class="menu-link ">
                         <span class="symbol symbol-20px me-4">
-                            <img class="rounded-1" src="https://dashboard.arabicreators.com/demo1/media/flags/united-states.svg" alt="metronic">
+                          <i class="fa fa-comment"></i>
                         </span>
                         <span class="menu-title">{{$item->data['title'] }}</span>
 
