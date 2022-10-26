@@ -52,12 +52,12 @@ class ServiceController extends BaseController
         return $this->sendResponse($ser,' تم ارجاع الخدمة بنجاح');
     }
     public function store(Request $request){
-        return $request->all();
+        return $request;
 
         foreach (json_decode($request->attach_file) as $key => $image) {
             array_push($image_array, $image->store('service'));
         }
-
+        
         $validation = Validator::make($request->all(), [
             'title'=>'required',
             'description' => 'required',
@@ -83,7 +83,6 @@ class ServiceController extends BaseController
                 $image_array = array();
                 // $images = explode(',',$request->images);
                 foreach ($request->attach_file as $key => $image) {
-                    return $image;
                     array_push($image_array, $image->store('service'));
                 }
 
