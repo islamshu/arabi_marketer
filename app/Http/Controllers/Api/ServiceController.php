@@ -52,6 +52,10 @@ class ServiceController extends BaseController
         return $this->sendResponse($ser,' تم ارجاع الخدمة بنجاح');
     }
     public function store(Request $request){
+        foreach ($request->attach_file as $key => $image) {
+            return $image;
+            array_push($image_array, $image->store('service'));
+        }
         $validation = Validator::make($request->all(), [
             'title'=>'required',
             'description' => 'required',
