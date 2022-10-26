@@ -9,6 +9,7 @@ use App\Models\Consulting;
 use App\Models\Order;
 use App\Models\OrderDetiles;
 use App\Models\Service;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Validator;
 
@@ -104,11 +105,15 @@ class CartController extends BaseController
             $OrderDetiles->type = $cart->type;
             $OrderDetiles->product_id = $cart->service_id;
             $OrderDetiles->save();
+            $user = User::find($OrderDetiles->owner_id);
+            $user->total = $user->total + $service->price;
+            $user->available = $user->available + $service->price;
+            $user->save();
         }
         foreach($carts as $cart){
             $cart->delete();
         }
-        return true;
+        return $this->sendResponse('checkout','Added succeffuly');
 
     }
 }
