@@ -155,6 +155,7 @@ class ServiceController extends BaseController
                 $service->price = $request->price;
                 $service->url = $request->url;
                 $image_array = array();
+                return $request->images;
                 if($request->images != null){
                     foreach ($request->images as $key => $image) {
 
