@@ -52,6 +52,7 @@ class GeneralNotification extends Notification
         return [
             'id' => $this->details['id'],
             'title' => $this->details['title'],
+            'url'=>$this->details['url'],
             'time' => $this->details['time'],
         ];
     }
