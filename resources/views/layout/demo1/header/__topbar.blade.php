@@ -77,7 +77,6 @@
             <!--begin::Menu item-->
             
             @foreach ($notifications as $item) 
-    {{ dd($item->data) }}
             <div class="menu-item px-3 my-0">
                 <a href="{{$item->data['url'] }}" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="light">
     
