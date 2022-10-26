@@ -73,7 +73,7 @@
             <!--begin::Menu item-->
             @foreach (auth()->user()->unreadNotifications as $notification) 
     
-            
+            {{ dd($notification) }}
             <div class="menu-item px-3 my-0">
                 <a href="#" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="light">
     
