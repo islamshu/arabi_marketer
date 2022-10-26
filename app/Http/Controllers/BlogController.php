@@ -11,6 +11,7 @@ use App\Models\Comment;
 use App\Models\KeyWord;
 use DB;
 use Illuminate\Http\Request;
+use Share;
 
 class BlogController extends Controller
 {
@@ -21,7 +22,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-       $ss = \Share::load('http://www.example.com', 'Link description')->services('facebook', 'gplus', 'twitter');;
+       $ss = Share::load('http://www.example.com', 'Link description')->services('facebook', 'gplus', 'twitter');;
         dd($ss);
       return view('pages.blogs.index')
         ->with('blogs',Blog::orderby('id','desc')->get())
