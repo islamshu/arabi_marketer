@@ -75,7 +75,8 @@ class ServiceController extends BaseController
                 $service->url = $request->url;
                 $service->user_id = auth('api')->id();
                 $image_array = array();
-                // $images = explode(',',$request->images);
+                $images = explode(',',$request->images);
+                return $images;
                 foreach ($request->images as $key => $image) {
 
                     array_push($image_array, $image->store('service'));
