@@ -93,17 +93,15 @@
             </div>
             @empty
             <div class="menu-item px-3 my-0" style="width: 200px">
-                <a  class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="light">
-
-                    <span class="menu-icon" data-kt-element="icon">
-													<!--begin::Svg Icon | path: icons/duotune/general/gen061.svg-->
-													<span class="svg-icon svg-icon-3">
-														<i class="fa fa-comment"></i>
-													</span>
-													<!--end::Svg Icon-->
-												</span>
-                    <span class="menu-title">لا يوجد اشعارات</span>
-                </a>
+               
+                <span class="menu-icon" data-kt-element="icon">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen061.svg-->
+                    <span class="svg-icon svg-icon-3">
+                        <i class="fa fa-comment"></i>
+                    </span>
+                    <!--end::Svg Icon-->
+                </span>
+<span class="menu-title">لا يوجد اشعارات</span>
             </div> 
             @endforelse ($notifications as $item) 
           
