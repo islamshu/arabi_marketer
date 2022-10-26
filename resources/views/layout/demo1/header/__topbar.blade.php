@@ -83,7 +83,7 @@
                     <span class="menu-icon" data-kt-element="icon">
 													<!--begin::Svg Icon | path: icons/duotune/general/gen061.svg-->
 													<span class="svg-icon svg-icon-3">
-														<i class="fa fa-comments-o"></i>
+														<i class="fa fa-comment"></i>
 													</span>
 													<!--end::Svg Icon-->
 												</span>
