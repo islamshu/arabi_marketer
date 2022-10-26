@@ -64,9 +64,15 @@ class UserNotAuthResource extends JsonResource
     }
     function get_type($data){
         $type_array = array();
-        foreach($data->type_category as $type){
-            array_push($type_array,$type->type_id);
+        if($data->types != null){
+            foreach($data->types as $type){
+                array_push($type_array,$type->type_id);
+            }
+            return CategoryResource::collection(Category::whereIn('id',$type_array)->get());
+
+        }else{
+            return null;
         }
-        return CategoryResource::collection(Category::whereIn('id',$type_array)->get());
+       
     }
 }
