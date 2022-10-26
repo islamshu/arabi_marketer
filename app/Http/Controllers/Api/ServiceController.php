@@ -77,7 +77,7 @@ class ServiceController extends BaseController
                 $image_array = array();
                 // $images = explode(',',$request->images);
                 $images = json_encode($request->images);
-                dd($images);
+                return($images);
                 foreach ($images as $key => $image) {
 
                     array_push($image_array, $image->store('service'));
