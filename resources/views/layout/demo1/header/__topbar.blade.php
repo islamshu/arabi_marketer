@@ -84,11 +84,11 @@
                         <span class="symbol symbol-20px me-4">
                             <img class="rounded-1" src="https://dashboard.arabicreators.com/demo1/media/flags/united-states.svg" alt="metronic">
                         </span>
-                        
-                    <span class="menu-title">
+                        <span class="menu-title">{{$item->data['title'] }}</span>
+
                     </a>
                 </div>
-               
+            
             </div>
             @empty
             <div class="menu-item px-3 my-0" style="width: 200px">
