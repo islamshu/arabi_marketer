@@ -30,7 +30,7 @@ class BlogController extends Controller
         ->telegram()
         ->whatsapp()        
         ->reddit();
-        dd(json_decode($shareComponent));
+        dd(json_encode($shareComponent));
         return view('pages.blogs.index')
         ->with('blogs',Blog::orderby('id','desc')->get())
         ->with('bending_blog',Blog::where('status',0)->orderby('id','desc')->get())
