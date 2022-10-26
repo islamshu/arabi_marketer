@@ -52,7 +52,7 @@ class ServiceController extends BaseController
         return $this->sendResponse($ser,' تم ارجاع الخدمة بنجاح');
     }
     public function store(Request $request){
-        return $request;
+        return $request->all();
 
         foreach (json_decode($request->attach_file) as $key => $image) {
             array_push($image_array, $image->store('service'));
