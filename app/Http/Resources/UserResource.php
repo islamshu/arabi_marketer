@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Category;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\Followr;
@@ -35,6 +36,8 @@ class UserResource extends JsonResource
         'number_of_podcasts'=>$this->podcasts->count(),
         'number_of_consutiong'=>$this->consutiong->count(),
         'finance'=>$this->get_finance($this),
+        'types'=>$this->get_type($this),
+
         'token'=>$this->createToken('Personal Access Token')->accessToken,
        ];
     }
@@ -44,5 +47,12 @@ class UserResource extends JsonResource
             'available'=>$data->available,
             'pending'=>$data->pending,
         ];
+    }
+    function get_type($data){
+        $type_array = array();
+        foreach($data->types as $type){
+            array_push($type_array,$type->type_id);
+        }
+        return CategoryResource::collection(Category::whereIn('id',$type_array)->get());
     }
 }

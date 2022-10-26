@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Category;
 use App\Models\City;
 use App\Models\Country;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -22,6 +23,8 @@ class UserMainInfoResource extends JsonResource
         'email'=>$this->email,
         'first_name'=>$this->first_name,
         'type'=>$this->type,
+        'types'=>$this->get_type($this),
+
         'last_name'=>$this->last_name,
         'number_of_blogs'=>$this->blogs->count(),
         'number_of_services'=>$this->services->count(),
@@ -30,5 +33,12 @@ class UserMainInfoResource extends JsonResource
         'number_of_consutiong'=>$this->consutiong->count(),
         'image'=>$this->image == null ? asset('public/uploads/users/defult_user.png') : asset('public/uploads/'.$this->image)
        ];
+    }
+    function get_type($data){
+        $type_array = array();
+        foreach($data->types as $type){
+            array_push($type_array,$type->type_id);
+        }
+        return CategoryResource::collection(Category::whereIn('id',$type_array)->get());
     }
 }

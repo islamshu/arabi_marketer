@@ -30,7 +30,7 @@ class UserNotAuthResource extends JsonResource
             'image'=>$this->image == null ? asset('public/uploads/users/defult_user.png') : asset('public/uploads/'.$this->image),
             'country'=> new CountryResource(Country::find($this->country_id)),
             'city'=>new CityResource(City::find($this->city_id)),
-            'type'=>$this->get_type($this),
+            'types'=>$this->get_type($this),
             'status'=>$this->status,
             'followe_number'=>Followr::where('marketer_id',$this->id)->count(),
             'number_of_blogs'=>$this->blogs->count(),
@@ -64,7 +64,7 @@ class UserNotAuthResource extends JsonResource
     }
     function get_type($data){
         $type_array = array();
-        foreach($data->types as $type){
+        foreach($data->type_category as $type){
             array_push($type_array,$type->type_id);
         }
         return CategoryResource::collection(Category::whereIn('id',$type_array)->get());

@@ -28,7 +28,7 @@ class UserNormalNotAuthResource extends JsonResource
             'image'=>$this->image == null ? asset('public/uploads/users/defult_user.png') : asset('public/uploads/'.$this->image),
             // 'country'=> new CountryResource(Country::find($this->country_id)),
             // 'city'=>new CityResource(City::find($this->city_id)),
-            // 'type'=>$this->get_type($this),
+            'types'=>$this->get_type($this),
             // 'status'=>$this->status,
             // 'number_of_blogs'=>$this->blogs->count(),
             // 'number_of_services'=>$this->services->count(),

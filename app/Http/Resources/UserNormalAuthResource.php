@@ -30,7 +30,7 @@ class UserNormalAuthResource extends JsonResource
 
             // 'country'=> new CountryResource(Country::find($this->country_id)),
             // 'city'=>new CityResource(City::find($this->city_id)),
-            // 'type'=>$this->get_type($this),
+            'types'=>$this->get_type($this),
             // 'status'=>$this->status,
             // 'number_of_blogs'=>$this->blogs->count(),
             // 'number_of_services'=>$this->services->count(),
