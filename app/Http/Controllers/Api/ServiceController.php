@@ -75,6 +75,8 @@ class ServiceController extends BaseController
                 $service->url = $request->url;
                 $service->user_id = auth('api')->id();
                 $image_array = array();
+                return $request->images;
+
                 foreach ($request->images as $key => $image) {
 
                     array_push($image_array, $image->store('service'));
@@ -155,7 +157,6 @@ class ServiceController extends BaseController
                 $service->price = $request->price;
                 $service->url = $request->url;
                 $image_array = array();
-                return $request->images;
                 if($request->images != null){
                     foreach ($request->images as $key => $image) {
 
