@@ -83,6 +83,7 @@ class ServiceController extends BaseController
 
                 foreach ($request->images as $key => $im) {
                     if ($key == 0) {
+                        return 'sss';
                         $service->image = $im->store('service');
                         return $service->image;
                     }
