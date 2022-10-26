@@ -22,7 +22,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return $shareComponent = (new \Jorenvh\Share\Share)->page(
+         $shareComponent =\Share::page(
             'https://www.test.com',
             'Your share text comes here'
             )
