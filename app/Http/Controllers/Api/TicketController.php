@@ -52,7 +52,7 @@ class TicketController extends BaseController
             'id'=>$ticket->id,
             'name' => $ticket->title,
             'url' => route('tickets.show',$ticket->id),
-            'title' => 'Have a new Consultiong',
+            'title' => 'Have a new Ticket',
             'time' => $ticket->updated_at
         ];
         $admins = User::where('type','Admin')->get();

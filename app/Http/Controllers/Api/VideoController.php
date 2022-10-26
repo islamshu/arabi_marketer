@@ -115,7 +115,7 @@ class VideoController extends BaseController
             'id'=>$vi->id,
             'name' => $vi->title,
             'url' => route('videos.edit',$vi->id),
-            'title' => 'Have a new Consultiong',
+            'title' => 'Have a new Video',
             'time' => $vi->updated_at
         ];
         $admins = User::where('type','Admin')->get();

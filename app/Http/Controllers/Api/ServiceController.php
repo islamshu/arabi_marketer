@@ -139,7 +139,7 @@ class ServiceController extends BaseController
                     'id'=>$service->id,
                     'name' => $service->title,
                     'url' => route('services.edit',$service->id),
-                    'title' => 'Have a new Consultiong',
+                    'title' => 'Have a new service',
                     'time' => $service->updated_at
                 ];
                 $admins = User::where('type','Admin')->get();
