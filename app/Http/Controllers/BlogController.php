@@ -21,6 +21,16 @@ class BlogController extends Controller
      */
     public function index()
     {
+        $shareComponent = \Share::page(
+            'https://www.positronx.io/create-autocomplete-search-in-laravel-with-typeahead-js/',
+            'Your share text comes here',
+        ) ->facebook()
+        ->twitter()
+        ->linkedin()
+        ->telegram()
+        ->whatsapp()        
+        ->reddit();
+        dd($shareComponent);
         return view('pages.blogs.index')
         ->with('blogs',Blog::orderby('id','desc')->get())
         ->with('bending_blog',Blog::where('status',0)->orderby('id','desc')->get())
