@@ -66,7 +66,7 @@
     </div>
     <!--end::Theme mode-->
 
-    @if (auth()->check())
+    {{-- @if (auth()->check())
         <!--begin::User menu-->
         <div class="d-flex align-items-center {{ $itemClass }}" id="kt_header_user_menu_toggle">
             <!--begin::Menu wrapper-->
@@ -77,7 +77,7 @@
             <!--end::Menu wrapper-->
         </div>
         <!--end::User menu-->
-    @endif
+    @endif --}}
 
     <!--begin::Header menu toggle-->
     @if(theme()->getOption('layout', 'header/left') === 'menu')
