@@ -79,7 +79,7 @@
             @foreach ($notifications as $item) 
     
             <div class="menu-item px-3 my-0">
-                <a href="#" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="light">
+                <a href="{{$item->data['url'] }}" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="light">
     
                     <span class="menu-title">{{$item->data['title'] }}</span>
                 </a>
