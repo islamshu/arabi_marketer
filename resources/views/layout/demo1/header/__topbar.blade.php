@@ -59,11 +59,11 @@
     <!--end::Quick links-->
 
     <!--begin::Theme mode-->
-    <div class="app-navbar-item ms-1 ms-lg-3">
+    <div class="d-flex align-items-center {{ $itemClass }}">
         <!--begin::Menu toggle-->
         <a href="#" class="btn btn-icon btn-custom btn-icon-muted btn-active-light btn-active-color-primary w-35px h-35px w-md-40px h-md-40px" data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
             <!--begin::Svg Icon | path: icons/duotune/general/gen060.svg-->
-            <span> <i class="fa fa-bell"></i></span>
+            <span> <i class="fa fa-bell fa-2x"></i></span>
     
             <!--end::Svg Icon-->
         </a>
