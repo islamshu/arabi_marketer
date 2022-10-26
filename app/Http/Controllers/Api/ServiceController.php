@@ -125,7 +125,7 @@ class ServiceController extends BaseController
                 }
 
 
-                if ($request->has_file == 'yes') {
+                if ($request->has_file == true) {
                     foreach ($request->attach_file as $keyy => $imagex) {  
                         $imageNamee = '/' . time() + $keyy . '_service_file.' . $imagex->getClientOriginalExtension();
                         $imagex->move('uploads/service_file', $imageNamee);
@@ -219,7 +219,7 @@ class ServiceController extends BaseController
                 }
 
 
-                if ($request->has_file == 'yes') {
+                if ($request->has_file == true) {
                     $servicefile = ServiceFiles::where('service_id',$service->id)->get();
                     foreach($servicefile as $se){
                         $se->delete();
