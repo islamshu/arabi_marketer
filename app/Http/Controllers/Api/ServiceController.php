@@ -80,7 +80,6 @@ class ServiceController extends BaseController
 
                     array_push($image_array, $image->store('service'));
                 }
-                return $image_array;
 
                 foreach ($request->images as $key => $im) {
                     if ($key == 0) {
