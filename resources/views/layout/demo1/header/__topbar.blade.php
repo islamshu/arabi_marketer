@@ -69,14 +69,19 @@
         </a>
         <!--begin::Menu toggle-->
         <!--begin::Menu-->
+        @php
+              $notifications = auth()->user()->unreadNotifications;
+          $count = auth()->user()->unreadNotifications->count();
+        @endphp
         <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-title-gray-700 menu-icon-muted menu-active-bg menu-state-color fw-semibold py-4 fs-base w-175px" data-kt-menu="true" data-kt-element="theme-mode-menu" style="">
             <!--begin::Menu item-->
-            @foreach (auth()->user()->unreadNotifications as $notification) 
+            
+            @foreach ($notifications as $item) 
     
             <div class="menu-item px-3 my-0">
                 <a href="#" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="light">
     
-                    <span class="menu-title">{{ $notification->date['title'] }}</span>
+                    <span class="menu-title">{{$item->data['title'] }}</span>
                 </a>
             </div>
             @endforeach
