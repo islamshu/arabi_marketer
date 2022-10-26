@@ -171,7 +171,7 @@ class BlogController extends BaseController
         $date = [
             'id'=>$service->id,
             'name' => $service->title,
-            'url' => route('blog.show',$service->id),
+            'url' => route('blogs.edit',$service->id),
             'title' => 'Have a new blog',
             'time' => $service->updated_at
         ];
