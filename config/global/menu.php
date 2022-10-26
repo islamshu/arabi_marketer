@@ -221,7 +221,6 @@ return array(
         ),
         array(
             'title'      => 'Category',
-            'type'=>'user',
             'icon'       => array(
                 'svg'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen009.svg", "svg-icon-2"),
                 'font' => '<i class="bi bi-layers fs-3"></i>',
