@@ -23,7 +23,6 @@ class BlogController extends Controller
      */
     public function index()
     {
-        dd(ShareFacade::page('http://jorenvanhocht.be')->facebook());
          
       return view('pages.blogs.index')
         ->with('blogs',Blog::orderby('id','desc')->get())
