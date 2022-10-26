@@ -79,17 +79,16 @@
             
             @forelse ( $notifications as $item)
             <div class="menu-item px-3 my-0" style="width: 200px">
-                <a href="{{ route('show.notification',$item->id) }}" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="light">
-
-                    <span class="menu-icon" data-kt-element="icon">
-													<!--begin::Svg Icon | path: icons/duotune/general/gen061.svg-->
-													<span class="svg-icon svg-icon-3">
-														<i class="fa fa-comment"></i>
-													</span>
-													<!--end::Svg Icon-->
-												</span>
-                    <span class="menu-title">{{$item->data['title'] }}</span>
-                </a>
+                <div class="menu-item px-3">
+                    <a href="{{ route('show.notification',$item->id) }}" class="menu-link d-flex px-5 ">
+                        <span class="symbol symbol-20px me-4">
+                            <img class="rounded-1" src="https://dashboard.arabicreators.com/demo1/media/flags/united-states.svg" alt="metronic">
+                        </span>
+                        
+                    <span class="menu-title">
+                    </a>
+                </div>
+               
             </div>
             @empty
             <div class="menu-item px-3 my-0" style="width: 200px">
