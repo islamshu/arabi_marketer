@@ -31,7 +31,7 @@ use App\Models\Service;
 use App\Models\SouialUser;
 use App\Models\UserCategory;
 use App\Models\Video;
-use App\Notifications\BeMarkterNotification;
+use App\Notifications\GeneralNotification;
 use Notification;
 use Validator;
 
@@ -120,7 +120,7 @@ class UserController extends BaseController
                 'time' => $user->updated_at
             ];
             $admins = User::where('type','Admin')->get();
-            Notification::send($admins, new BeMarkterNotification($date));
+            Notification::send($admins, new GeneralNotification($date));
             $res = new UserResource($user);
             return $this->sendResponse($res,'تم التحويل الى مسوق  بنجاح بانتظار موافقة الادارة');
         }elseif($user->type =='marketer'){

@@ -15,11 +15,14 @@ use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\BlogResource;
 use App\Http\Resources\KeywordResource;
 use App\Models\RateBlog;
+use App\Models\User;
+use App\Notifications\GeneralNotification;
 use Carbon\Carbon;
 use Carbon\CarbonImmutable;
 use DateInterval;
 use DatePeriod;
 use DateTime;
+use Notification;
 use Validator;
 
 class BlogController extends BaseController
@@ -165,6 +168,15 @@ class BlogController extends BaseController
                 $key->save();
             }
         }
+        $date = [
+            'id'=>$service->id,
+            'name' => $service->title,
+            'url' => route('blog.show',$service->id),
+            'title' => 'Have a new blog',
+            'time' => $service->updated_at
+        ];
+        $admins = User::where('type','Admin')->get();
+        Notification::send($admins, new GeneralNotification($date));
 
         $res = new BlogResource($service);
         return $this->sendResponse($res, 'تم الاضافة بنجاح');
