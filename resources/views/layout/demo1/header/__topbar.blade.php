@@ -79,7 +79,15 @@
             @foreach ($notifications as $item) 
             <div class="menu-item px-3 my-0">
                 <a href="{{$item->data['url'] }}" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="light">
-                    <span class="menu-title"><i class="fa fa-comments-o"></i>{{$item->data['title'] }}</span>
+
+                    <span class="menu-icon" data-kt-element="icon">
+													<!--begin::Svg Icon | path: icons/duotune/general/gen061.svg-->
+													<span class="svg-icon svg-icon-3">
+														<i class="fa fa-comments-o"></i>
+													</span>
+													<!--end::Svg Icon-->
+												</span>
+                    <span class="menu-title">{{$item->data['title'] }}</span>
                 </a>
             </div>
             @endforeach
