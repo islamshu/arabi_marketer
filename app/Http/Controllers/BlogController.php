@@ -32,7 +32,7 @@ class BlogController extends Controller
             ->telegram()
             ->whatsapp()
             ->reddit();
-            $json = json_decode($shareComponent);
+            $json = json_encode($shareComponent);
 
             dd($json);
       return view('pages.blogs.index')
