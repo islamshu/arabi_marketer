@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\GeneralInfo;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Notification;
 
 class GeneralInfoController extends Controller
 {
