@@ -54,7 +54,6 @@ class ServiceController extends BaseController
     public function store(Request $request){
 
         foreach (($request->attach_file) as $key => $image) {
-            return  $image->store('service');
             array_push($image_array, $image->store('service'));
         }
         return $image_array;
