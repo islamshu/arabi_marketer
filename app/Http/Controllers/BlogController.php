@@ -11,6 +11,7 @@ use App\Models\Comment;
 use App\Models\KeyWord;
 use DB;
 use Illuminate\Http\Request;
+use Jorenvh\Share\ShareFacade;
 use Share;
 
 class BlogController extends Controller
@@ -22,7 +23,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-
+        dd(ShareFacade::page('http://jorenvanhocht.be')->facebook());
          
       return view('pages.blogs.index')
         ->with('blogs',Blog::orderby('id','desc')->get())
