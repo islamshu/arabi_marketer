@@ -59,24 +59,25 @@
     <!--end::Quick links-->
 
     <!--begin::Theme mode-->
+    @php
+              $notifications = auth()->user()->unreadNotifications;
+          $count = auth()->user()->unreadNotifications->count();
+        @endphp
     <div class="d-flex align-items-center {{ $itemClass }}">
         <!--begin::Menu toggle-->
         <a class="btn btn-icon btn-custom btn-icon-muted btn-active-light btn-active-color-primary w-35px h-35px w-md-40px h-md-40px" data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
             <!--begin::Svg Icon | path: icons/duotune/general/gen060.svg-->
-            <span> <i class="fa fa-bell fa-3x"></i></span>
+            <span> <i class="fa fa-bell fa-3x"></i> {{ $count }}</span>
     
             <!--end::Svg Icon-->
         </a>
         <!--begin::Menu toggle-->
         <!--begin::Menu-->
-        @php
-              $notifications = auth()->user()->unreadNotifications;
-          $count = auth()->user()->unreadNotifications->count();
-        @endphp
+        
         <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-title-gray-700 menu-icon-muted menu-active-bg menu-state-color fw-semibold py-4 fs-base w-175px" data-kt-menu="true" data-kt-element="theme-mode-menu" style="">
             <!--begin::Menu item-->
             
-            @foreach ($notifications as $item) 
+            @forelse ( $notifications as $item)
             <div class="menu-item px-3 my-0" style="width: 200px">
                 <a href="{{ route('show.notification',$item->id) }}" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="light">
 
@@ -90,7 +91,22 @@
                     <span class="menu-title">{{$item->data['title'] }}</span>
                 </a>
             </div>
-            @endforeach
+            @empty
+            <div class="menu-item px-3 my-0" style="width: 200px">
+                <a  class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="light">
+
+                    <span class="menu-icon" data-kt-element="icon">
+													<!--begin::Svg Icon | path: icons/duotune/general/gen061.svg-->
+													<span class="svg-icon svg-icon-3">
+														<i class="fa fa-comment"></i>
+													</span>
+													<!--end::Svg Icon-->
+												</span>
+                    <span class="menu-title">لا يوجد اشعارات</span>
+                </a>
+            </div> 
+            @endforelse ($notifications as $item) 
+          
             <!--end::Menu item-->
             <!--begin::Menu item-->
           
