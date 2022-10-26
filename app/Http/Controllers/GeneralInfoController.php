@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\GeneralInfo;
+use App\Models\Notification;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
