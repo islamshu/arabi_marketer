@@ -22,8 +22,17 @@ class BlogController extends Controller
      */
     public function index()
     {
-       $ss = Share::load('http://www.example.com', 'Link description')->services('facebook', 'gplus', 'twitter');;
-        dd($ss);
+        return $shareComponent = (new \Jorenvh\Share\Share)->page(
+            'https://www.test.com',
+            'Your share text comes here'
+            )
+            ->facebook()
+            ->twitter()
+            ->linkedin()
+            ->telegram()
+            ->whatsapp()
+            ->reddit();
+            dd($shareComponent);
       return view('pages.blogs.index')
         ->with('blogs',Blog::orderby('id','desc')->get())
         ->with('bending_blog',Blog::where('status',0)->orderby('id','desc')->get())
