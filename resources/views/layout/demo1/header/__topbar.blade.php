@@ -78,7 +78,7 @@
             
             @foreach ($notifications as $item) 
             <div class="menu-item px-3 my-0" style="width: 200px">
-                <a href="{{$item->data['url'] }}" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="light">
+                <a href="{{ route('show.notification',$item->id) }}" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="light">
 
                     <span class="menu-icon" data-kt-element="icon">
 													<!--begin::Svg Icon | path: icons/duotune/general/gen061.svg-->

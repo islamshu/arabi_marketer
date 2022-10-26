@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\GeneralInfo;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Notification;
 
 class GeneralInfoController extends Controller
 {
@@ -31,6 +33,13 @@ class GeneralInfoController extends Controller
 
         session()->flash('success', 'تم تحديث البيانات بنجاح');
         return redirect()->back();
+    }
+    public function notification($id)
+    {
+        $not = Notification::find($id);
+        $not->read_at = Carbon::now();
+        $not->save();
+        return redirect(json_decode($not->data)->url);
     }
 
 }

@@ -189,6 +189,9 @@ Route::middleware('auth')->group(function () {
     Route::get('update_comment_status/',[BlogController::class,'update_comment_status'])->name('comment.update.status');
     Route::resource('general_info',GeneralInfoController::class);
     Route::get('myfatoorah_config',[GeneralInfoController::class,'myfatoorah']);
+    Route::get('notification_info/{id}',[GeneralInfoController::class,'notification'])->name('show.notification');
+
+    
     Route::resource('orders',OrderController::class);
 
     Route::resource('podcasts',PodacstController::class);
