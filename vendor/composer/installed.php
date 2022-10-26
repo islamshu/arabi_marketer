@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '000be622e0355c03fb9c2a50a418ba793b4b0820',
+        'reference' => 'f7dae3b23e91c41892302ffc3121ef31bacd8c77',
         'name' => 'keenthemes/metronic-laravel',
         'dev' => true,
     ),
@@ -517,7 +517,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '000be622e0355c03fb9c2a50a418ba793b4b0820',
+            'reference' => 'f7dae3b23e91c41892302ffc3121ef31bacd8c77',
             'dev_requirement' => false,
         ),
         'kodova/hamcrest-php' => array(
@@ -578,6 +578,15 @@
             'install_path' => __DIR__ . '/../laravel/socialite',
             'aliases' => array(),
             'reference' => 'ce8b2f967eead5a6bae74449e207be6f8046edc3',
+            'dev_requirement' => false,
+        ),
+        'laravel/telescope' => array(
+            'pretty_version' => 'v4.9.5',
+            'version' => '4.9.5.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../laravel/telescope',
+            'aliases' => array(),
+            'reference' => 'a316d6d15793b559c51ccb4b5dc59b223da500e5',
             'dev_requirement' => false,
         ),
         'laravel/tinker' => array(
