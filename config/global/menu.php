@@ -194,13 +194,14 @@ return array(
     // ),
 
     // Main menu
-    'main'          => array(
+    'main'=> array(
         //// Dashboard
         array(
             'title' => 'Dashboard',
             'path'  => '',
             'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/art/art002.svg", "svg-icon-2"),
         ),
+        
 
         //// Modules
         array(
@@ -220,6 +221,7 @@ return array(
         ),
         array(
             'title'      => 'Category',
+            'type'=>'user',
             'icon'       => array(
                 'svg'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen009.svg", "svg-icon-2"),
                 'font' => '<i class="bi bi-layers fs-3"></i>',
