@@ -87,8 +87,8 @@ class ServiceController extends BaseController
                         $service->image = $im->store('service');
                         return $service->image;
                     // }
-                }
-
+                }   
+                return json_encode($image_array);
                 $service->images = json_encode($image_array);
                 $service->save();
 
