@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'f76ba95c7378b78b8fcc4c908b4f1410ede0f659',
+        'reference' => '000be622e0355c03fb9c2a50a418ba793b4b0820',
         'name' => 'keenthemes/metronic-laravel',
         'dev' => true,
     ),
@@ -502,13 +502,22 @@
             'reference' => 'e2c20e78a30ee399f8614df64c293a1a69c799b7',
             'dev_requirement' => false,
         ),
+        'jorenvanhocht/laravel-share' => array(
+            'pretty_version' => '4.2.0',
+            'version' => '4.2.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../jorenvanhocht/laravel-share',
+            'aliases' => array(),
+            'reference' => '86af334068038a840567ed62f2082fe3ac981476',
+            'dev_requirement' => false,
+        ),
         'keenthemes/metronic-laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'f76ba95c7378b78b8fcc4c908b4f1410ede0f659',
+            'reference' => '000be622e0355c03fb9c2a50a418ba793b4b0820',
             'dev_requirement' => false,
         ),
         'kodova/hamcrest-php' => array(
@@ -1054,8 +1063,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0|3.0',
-                1 => '1.0.0 || 2.0.0 || 3.0.0',
+                0 => '1.0.0 || 2.0.0 || 3.0.0',
+                1 => '1.0|2.0|3.0',
             ),
         ),
         'psr/simple-cache' => array(

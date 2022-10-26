@@ -169,6 +169,7 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         ),
         'J' => 
         array (
+            'Jorenvh\\Share\\' => 14,
             'Jantinnerezo\\LivewireRangeSlider\\' => 33,
             'Jackiedo\\LogReader\\' => 19,
         ),
@@ -575,6 +576,10 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         'Laravel\\Breeze\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/breeze/src',
+        ),
+        'Jorenvh\\Share\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jorenvanhocht/laravel-share/src',
         ),
         'Jantinnerezo\\LivewireRangeSlider\\' => 
         array (
@@ -3549,6 +3554,9 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         'Jantinnerezo\\LivewireRangeSlider\\Exceptions\\RangeSliderException' => __DIR__ . '/..' . '/jantinnerezo/livewire-range-slider/src/Exceptions/RangeSliderException.php',
         'Jantinnerezo\\LivewireRangeSlider\\LivewireRangeSlider' => __DIR__ . '/..' . '/jantinnerezo/livewire-range-slider/src/LivewireRangeSlider.php',
         'Jantinnerezo\\LivewireRangeSlider\\LivewireRangeSliderServiceProvider' => __DIR__ . '/..' . '/jantinnerezo/livewire-range-slider/src/LivewireRangeSliderServiceProvider.php',
+        'Jorenvh\\Share\\Providers\\ShareServiceProvider' => __DIR__ . '/..' . '/jorenvanhocht/laravel-share/src/Providers/ShareServiceProvider.php',
+        'Jorenvh\\Share\\Share' => __DIR__ . '/..' . '/jorenvanhocht/laravel-share/src/Share.php',
+        'Jorenvh\\Share\\ShareFacade' => __DIR__ . '/..' . '/jorenvanhocht/laravel-share/src/ShareFacade.php',
         'Laravel\\Breeze\\BreezeServiceProvider' => __DIR__ . '/..' . '/laravel/breeze/src/BreezeServiceProvider.php',
         'Laravel\\Breeze\\Console\\InstallCommand' => __DIR__ . '/..' . '/laravel/breeze/src/Console/InstallCommand.php',
         'Laravel\\Breeze\\Console\\InstallsApiStack' => __DIR__ . '/..' . '/laravel/breeze/src/Console/InstallsApiStack.php',

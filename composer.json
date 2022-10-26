@@ -15,6 +15,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "jackiedo/log-reader": "^2.2",
         "jantinnerezo/livewire-range-slider": "^1.0",
+        "jorenvanhocht/laravel-share": "^4.2",
         "laravel/framework": "^9.0",
         "laravel/passport": "^11.2",
         "laravel/socialite": "^5.2",

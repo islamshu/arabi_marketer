@@ -89,6 +89,7 @@ return array(
     'Laravel\\Passport\\Database\\Factories\\' => array($vendorDir . '/laravel/passport/database/factories'),
     'Laravel\\Passport\\' => array($vendorDir . '/laravel/passport/src'),
     'Laravel\\Breeze\\' => array($vendorDir . '/laravel/breeze/src'),
+    'Jorenvh\\Share\\' => array($vendorDir . '/jorenvanhocht/laravel-share/src'),
     'Jantinnerezo\\LivewireRangeSlider\\' => array($vendorDir . '/jantinnerezo/livewire-range-slider/src'),
     'Jackiedo\\LogReader\\' => array($vendorDir . '/jackiedo/log-reader/src/Jackiedo/LogReader'),
     'Illuminate\\Support\\' => array($vendorDir . '/laravel/framework/src/Illuminate/Macroable', $vendorDir . '/laravel/framework/src/Illuminate/Collections', $vendorDir . '/laravel/framework/src/Illuminate/Conditionable'),

@@ -17193,111 +17193,6 @@
      
 }
 
-    namespace Dawson\Youtube\Facades { 
-            /**
-     * 
-     *
-     */ 
-        class Youtube {
-                    /**
-         * Saves the access token to the database.
-         *
-         * @param string $accessToken
-         * @static 
-         */ 
-        public static function saveAccessTokenToDB($accessToken)
-        {
-                        /** @var \Dawson\Youtube\Youtube $instance */
-                        return $instance->saveAccessTokenToDB($accessToken);
-        }
-                    /**
-         * Returns the last saved access token, if there is one, or null
-         *
-         * @return mixed 
-         * @static 
-         */ 
-        public static function getLatestAccessTokenFromDB()
-        {
-                        /** @var \Dawson\Youtube\Youtube $instance */
-                        return $instance->getLatestAccessTokenFromDB();
-        }
-                    /**
-         * Upload the video to YouTube
-         *
-         * @param string $path The path to the file you wish to upload.
-         * @param array $data An array of data.
-         * @param string $privacyStatus The status of the uploaded video, set to 'public' by default.
-         * @return self 
-         * @static 
-         */ 
-        public static function upload($path, $data, $privacyStatus = 'public')
-        {
-                        /** @var \Dawson\Youtube\Youtube $instance */
-                        return $instance->upload($path, $data, $privacyStatus);
-        }
-                    /**
-         * Set a Custom Thumbnail for the Upload
-         *
-         * @param string $imagePath
-         * @return self 
-         * @static 
-         */ 
-        public static function withThumbnail($imagePath)
-        {
-                        /** @var \Dawson\Youtube\Youtube $instance */
-                        return $instance->withThumbnail($imagePath);
-        }
-                    /**
-         * Return the Video ID
-         *
-         * @return string 
-         * @static 
-         */ 
-        public static function getVideoId()
-        {
-                        /** @var \Dawson\Youtube\Youtube $instance */
-                        return $instance->getVideoId();
-        }
-                    /**
-         * Return the URL for the Custom Thumbnail
-         *
-         * @return string 
-         * @static 
-         */ 
-        public static function getThumbnailUrl()
-        {
-                        /** @var \Dawson\Youtube\Youtube $instance */
-                        return $instance->getThumbnailUrl();
-        }
-                    /**
-         * Delete a YouTube video by it's ID.
-         *
-         * @param int $id
-         * @return bool 
-         * @static 
-         */ 
-        public static function delete($id)
-        {
-                        /** @var \Dawson\Youtube\Youtube $instance */
-                        return $instance->delete($id);
-        }
-                    /**
-         * Check if a YouTube video exists by it's ID.
-         *
-         * @param int $id
-         * @return bool 
-         * @static 
-         */ 
-        public static function exists($id)
-        {
-                        /** @var \Dawson\Youtube\Youtube $instance */
-                        return $instance->exists($id);
-        }
-         
-    }
-     
-}
-
     namespace anlutro\LaravelSettings { 
             /**
      * 
@@ -18267,6 +18162,137 @@
         {
                         /** @var \Jackiedo\LogReader\LogReader $instance */
                         return $instance->getLogFilenameList($filename);
+        }
+         
+    }
+     
+}
+
+    namespace Jorenvh\Share { 
+            /**
+     * 
+     *
+     */ 
+        class ShareFacade {
+                    /**
+         * 
+         *
+         * @param string $url
+         * @param string|null $title
+         * @param array $options
+         * @param string|null $prefix
+         * @param string|null $suffix
+         * @return \Jorenvh\Share\Share 
+         * @static 
+         */ 
+        public static function page($url, $title = null, $options = [], $prefix = null, $suffix = null)
+        {
+                        /** @var \Jorenvh\Share\Share $instance */
+                        return $instance->page($url, $title, $options, $prefix, $suffix);
+        }
+                    /**
+         * 
+         *
+         * @param string|null $title
+         * @param array $options
+         * @param string|null $prefix
+         * @param string|null $suffix
+         * @return \Jorenvh\Share\Share 
+         * @static 
+         */ 
+        public static function currentPage($title = null, $options = [], $prefix = null, $suffix = null)
+        {
+                        /** @var \Jorenvh\Share\Share $instance */
+                        return $instance->currentPage($title, $options, $prefix, $suffix);
+        }
+                    /**
+         * Facebook share link
+         *
+         * @return \Jorenvh\Share\Share 
+         * @static 
+         */ 
+        public static function facebook()
+        {
+                        /** @var \Jorenvh\Share\Share $instance */
+                        return $instance->facebook();
+        }
+                    /**
+         * Twitter share link
+         *
+         * @return \Jorenvh\Share\Share 
+         * @static 
+         */ 
+        public static function twitter()
+        {
+                        /** @var \Jorenvh\Share\Share $instance */
+                        return $instance->twitter();
+        }
+                    /**
+         * Reddit share link
+         *
+         * @return \Jorenvh\Share\Share 
+         * @static 
+         */ 
+        public static function reddit()
+        {
+                        /** @var \Jorenvh\Share\Share $instance */
+                        return $instance->reddit();
+        }
+                    /**
+         * Telegram share link
+         *
+         * @return \Jorenvh\Share\Share 
+         * @static 
+         */ 
+        public static function telegram()
+        {
+                        /** @var \Jorenvh\Share\Share $instance */
+                        return $instance->telegram();
+        }
+                    /**
+         * Whatsapp share link
+         *
+         * @return \Jorenvh\Share\Share 
+         * @static 
+         */ 
+        public static function whatsapp()
+        {
+                        /** @var \Jorenvh\Share\Share $instance */
+                        return $instance->whatsapp();
+        }
+                    /**
+         * Linked in share link
+         *
+         * @param string $summary
+         * @return \Jorenvh\Share\Share 
+         * @static 
+         */ 
+        public static function linkedin($summary = '')
+        {
+                        /** @var \Jorenvh\Share\Share $instance */
+                        return $instance->linkedin($summary);
+        }
+                    /**
+         * Pinterest share link
+         *
+         * @return \Jorenvh\Share\Share 
+         * @static 
+         */ 
+        public static function pinterest()
+        {
+                        /** @var \Jorenvh\Share\Share $instance */
+                        return $instance->pinterest();
+        }
+                    /**
+         * Get the raw generated links.
+         *
+         * @return string|array 
+         * @static 
+         */ 
+        public static function getRawLinks()
+        {
+                        /** @var \Jorenvh\Share\Share $instance */
+                        return $instance->getRawLinks();
         }
          
     }
@@ -24487,10 +24513,10 @@ namespace  {
             class Validator extends \Illuminate\Support\Facades\Validator {}
             class View extends \Illuminate\Support\Facades\View {}
             class Alert extends \RealRashid\SweetAlert\Facades\Alert {}
-            class Youtube extends \Dawson\Youtube\Facades\Youtube {}
             class Setting extends \anlutro\LaravelSettings\Facade {}
             class Debugbar extends \Barryvdh\Debugbar\Facades\Debugbar {}
             class LogReader extends \Jackiedo\LogReader\Facades\LogReader {}
+            class Share extends \Jorenvh\Share\ShareFacade {}
             class Socialite extends \Laravel\Socialite\Facades\Socialite {}
             class Form extends \Collective\Html\FormFacade {}
             class Html extends \Collective\Html\HtmlFacade {}
