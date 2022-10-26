@@ -13,6 +13,9 @@ use App\Http\Resources\PodcastResource;
 use App\Models\Podacst;
 use App\Models\PodacstKeyword;
 use App\Models\PodcastCategory;
+use App\Models\User;
+use App\Notifications\GeneralNotification;
+use Notification;
 use Validator;
 
 class PodcastController extends BaseController
@@ -93,6 +96,16 @@ class PodcastController extends BaseController
                     $key->save();
                 }
             }
+            
+            $date = [
+                'id'=>$service->id,
+                'name' => $service->title,
+                'url' => route('podcasts.edit',$service->id),
+                'title' => 'Have a new Podcast',
+                'time' => $service->updated_at
+            ];
+            $admins = User::where('type','Admin')->get();
+            Notification::send($admins, new GeneralNotification($date));
 
 
 

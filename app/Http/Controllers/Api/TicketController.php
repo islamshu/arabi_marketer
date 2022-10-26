@@ -8,6 +8,9 @@ use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\TicketResourse;
 use App\Models\Ticket;
 use App\Models\TicketFile;
+use App\Models\User;
+use App\Notifications\GeneralNotification;
+use Notification;
 use Validator;
 
 class TicketController extends BaseController
@@ -45,6 +48,15 @@ class TicketController extends BaseController
                 }
             }
         }
+        $date = [
+            'id'=>$ticket->id,
+            'name' => $ticket->title,
+            'url' => route('tickets.show',$ticket->id),
+            'title' => 'Have a new Consultiong',
+            'time' => $ticket->updated_at
+        ];
+        $admins = User::where('type','Admin')->get();
+        Notification::send($admins, new GeneralNotification($date));
 
         $res = new TicketResourse($ticket);
         return $this->sendResponse($res,'تم الاضافة بنجاح');

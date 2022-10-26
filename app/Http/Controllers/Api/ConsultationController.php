@@ -13,6 +13,9 @@ use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\ConsultingResource;
 use App\Http\Resources\PaymentResource;
 use App\Models\Consulting;
+use App\Models\User;
+use App\Notifications\GeneralNotification;
+use Notification;
 use Validator;
 
 class ConsultationController extends BaseController
@@ -82,6 +85,15 @@ class ConsultationController extends BaseController
             'payment_id'=>$request->payment_id,
             'user_id'=>auth('api')->id(),
         ]);
+        $date = [
+            'id'=>$con->id,
+            'name' => $con->title,
+            'url' => route('consloution.edit',$con->id),
+            'title' => 'Have a new Consultiong',
+            'time' => $con->updated_at
+        ];
+        $admins = User::where('type','Admin')->get();
+        Notification::send($admins, new GeneralNotification($date));
         $res = new ConsultingResource($con);
         return $this->sendResponse($res,'تم الاضافة بنجاح');
     }

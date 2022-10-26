@@ -11,8 +11,11 @@ use App\Models\KeyWord;
 use App\Models\Video;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
+use App\Models\User;
 use App\Models\VideoCateogry;
 use App\Models\VideoKeyword;
+use App\Notifications\GeneralNotification;
+use Notification;
 use Validator;
 use Youtube;
 
@@ -108,6 +111,15 @@ class VideoController extends BaseController
                 $key->save();
             }
         }
+        $date = [
+            'id'=>$vi->id,
+            'name' => $vi->title,
+            'url' => route('videos.edit',$vi->id),
+            'title' => 'Have a new Consultiong',
+            'time' => $vi->updated_at
+        ];
+        $admins = User::where('type','Admin')->get();
+        Notification::send($admins, new GeneralNotification($date));
 
         $res = new VideoResource($vi);
         return $this->sendResponse($res, 'addedd succeffuly');

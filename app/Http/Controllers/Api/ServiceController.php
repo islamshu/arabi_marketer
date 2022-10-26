@@ -18,6 +18,9 @@ use App\Models\ServiceFiles;
 use App\Models\ServiceKeyword;
 use App\Models\ServiceSpecialy;
 use App\Models\Specialty;
+use App\Models\User;
+use App\Notifications\GeneralNotification;
+use Notification;
 use Validator;
 
 class ServiceController extends BaseController
@@ -132,6 +135,15 @@ class ServiceController extends BaseController
                         $file->save();
                     }
                 }
+                $date = [
+                    'id'=>$service->id,
+                    'name' => $service->title,
+                    'url' => route('services.edit',$service->id),
+                    'title' => 'Have a new Consultiong',
+                    'time' => $service->updated_at
+                ];
+                $admins = User::where('type','Admin')->get();
+                Notification::send($admins, new GeneralNotification($date));
                 $ser = new ServiceResource($service);
                 return $this->sendResponse($ser,'Addedd Successfuly');  
     }
