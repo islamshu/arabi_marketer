@@ -53,9 +53,10 @@ class ServiceController extends BaseController
     }
     public function store(Request $request){
         foreach (json_decode($request->attach_file) as $key => $image) {
-            return $image;
             array_push($image_array, $image->store('service'));
         }
+        return $image_array;
+
         $validation = Validator::make($request->all(), [
             'title'=>'required',
             'description' => 'required',
