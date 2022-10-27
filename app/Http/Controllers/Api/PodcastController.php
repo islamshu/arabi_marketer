@@ -64,9 +64,10 @@ class PodcastController extends BaseController
             $service->image = $request->image->store('podcast');
             $service->save();
 
-           $types = explode(',', $request->types);
+            $types = json_decode($request->types);
 
             foreach ($types as $category) {
+                return $category;
                 $cat = new PodcastCategory();
                 $cat->podcast_id = $service->id;
                 $cat->category_id = $category;
