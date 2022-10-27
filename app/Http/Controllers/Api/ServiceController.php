@@ -55,7 +55,8 @@ class ServiceController extends BaseController
         $image_array =[];
         foreach (($request->attach_file) as $key => $image) {
             $imageNamee = '/' . time() + $key . '_service_file.' . $image->getClientOriginalExtension();
-            $image->move('uploads/service_file', $imageNamee);
+            // $image->move('uploads/service_file', $imageNamee);
+            array_push($image_array, $image->move('uploads/service_file', $imageNamee));
             
         }
         return $image_array;
