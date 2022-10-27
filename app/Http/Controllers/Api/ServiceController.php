@@ -52,14 +52,7 @@ class ServiceController extends BaseController
         return $this->sendResponse($ser,' تم ارجاع الخدمة بنجاح');
     }
     public function store(Request $request){
-        $image_array =[];
-        foreach (($request->attach_file) as $key => $image) {
-            $imageNamee = '/' . time() + $key . '_service_file.' . $image->getClientOriginalExtension();
-            // $image->move('uploads/service_file', $imageNamee);
-            array_push($image_array, $image->move('uploads/service_file', $imageNamee));
-            
-        }
-        return $image_array;
+        
         
         $validation = Validator::make($request->all(), [
             'title'=>'required',
@@ -85,16 +78,18 @@ class ServiceController extends BaseController
                 $service->user_id = auth('api')->id();
                 $image_array = array();
                 // $images = explode(',',$request->images);
-                foreach ($request->attach_file as $key => $image) {
-                    array_push($image_array, $image->store('service'));
-                }
+                
 
-                foreach ($request->da as $key => $im) {
-                        return 'sss';
+                foreach ($request->images as $key => $im) {
+                    if($key == 0){
                         $service->image = $im->store('service');
-                        return $service->image;
+                    }
                 }   
-                return json_encode($image_array);
+                foreach ($request->images as $key => $im) {
+                   
+                    
+                        array_push($image_array, $im->store('service'));
+                }  
                 $service->images = json_encode($image_array);
                 $service->save();
 
