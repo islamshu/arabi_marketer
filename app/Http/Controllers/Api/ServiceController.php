@@ -93,7 +93,7 @@ class ServiceController extends BaseController
                 $service->images = json_encode($image_array);
                 $service->save();
               
-                foreach ($request->specialties as $specialty) {
+                foreach (json_decode($request->specialties) as $specialty) {
                     return $specialty;
                     $spe = new ServiceSpecialy();
                     $spe->service_id = $service->id;
