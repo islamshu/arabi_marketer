@@ -95,6 +95,7 @@ class ServiceController extends BaseController
                 $specialties = explode(',',$request->specialties);
 
                 foreach ($specialties as $specialty) {
+                    return $specialty;
                     $spe = new ServiceSpecialy();
                     $spe->service_id = $service->id;
                     $spe->specialts_id = $specialty;
