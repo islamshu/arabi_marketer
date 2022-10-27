@@ -92,14 +92,17 @@ class ServiceController extends BaseController
                 }  
                 $service->images = json_encode($image_array);
                 $service->save();
+                $specialties = explode(',',$request->specialties);
 
-                foreach ($request->specialties as $specialty) {
+                foreach ($specialties as $specialty) {
                     $spe = new ServiceSpecialy();
                     $spe->service_id = $service->id;
                     $spe->specialts_id = $specialty;
                     $spe->save();
                 }
-                foreach ($request->types as $category) {
+                $types = explode(',',$request->types);
+
+                foreach ($types as $category) {
                     $cat = new ServiceCategory();
                     $cat->service_id = $service->id;
                     $cat->category_id = $category;
