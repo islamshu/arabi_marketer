@@ -197,6 +197,7 @@ return array(
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
     'App\\Providers\\TelescopeServiceProvider' => $baseDir . '/app/Providers/TelescopeServiceProvider.php',
     'App\\Rules\\MatchOldPassword' => $baseDir . '/app/Rules/MatchOldPassword.php',
+    'App\\Services\\SocialAccountsService' => $baseDir . '/app/Services/SocialAccountsService.php',
     'App\\View\\Components\\AuthLayout' => $baseDir . '/app/View/Components/AuthLayout.php',
     'App\\View\\Components\\BaseLayout' => $baseDir . '/app/View/Components/BaseLayout.php',
     'Asm89\\Stack\\Cors' => $vendorDir . '/asm89/stack-cors/src/Cors.php',
