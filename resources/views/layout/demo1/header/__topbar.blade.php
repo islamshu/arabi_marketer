@@ -174,7 +174,6 @@
             </div>
          
            
-            @endforeach
         </div>
         {{-- <div class="bell" id="bell"> <img src="https://i.imgur.com/AC7dgLA.png" alt=""> </div>            
             @foreach ( $notifications as $item)
