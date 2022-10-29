@@ -151,11 +151,5 @@
     @endif
 <!--end::Header menu toggle-->
 </div>
-<script>
-     $("#selUser").keyup(function() {
-alert('ff');
 
-
-});
-</script>
 <!--end::Toolbar wrapper-->
