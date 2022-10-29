@@ -29,17 +29,16 @@ class GoogleController extends BaseController
       
             $user = Socialite::driver('google')->stateless()->user();
             $finduser = User::where('google_id', $user->id)->first();
-            dd($user);
        
             if($finduser){
                 $userRes =new  UserNormalAuthResource($finduser);
                 return $this->sendResponse($finduser,'تم الدخول بنجاح');
             }else{
-                $validation = Validator::make($user, [
-                    'email'=>'required|unique:users,email',
-                ]);
-                if ($validation->fails()) {
-                    return $this->sendError($validation->messages()->all());
+                
+                $user_val = User::where('email',$user->email)->first();
+                if($user_val){
+                    return $this->sendError('البريد الالكتروني مسجل من قبل');
+
                 }
                 $newUser = User::create([
                     'name' => 'google_user_name',
