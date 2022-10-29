@@ -31,9 +31,9 @@ class GoogleController extends BaseController
             $finduser = User::where('google_id', $user->id)->first();
        
             if($finduser){
-                dd($finduser);
-                $userRes =new  UserNormalAuthResource($finduser);
-                return $this->sendResponse($finduser,'تم الدخول بنجاح');
+                $userr = User::find($finduser->id);
+                $userRes =new  UserNormalAuthResource($userr);
+                return $this->sendResponse($userr,'تم الدخول بنجاح');
             }else{
                 
                 $user_val = User::where('email',$user->email)->first();
