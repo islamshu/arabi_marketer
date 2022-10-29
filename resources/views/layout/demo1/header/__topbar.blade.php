@@ -159,19 +159,16 @@
         <div class="bell" id="bell"> <i class="fa fa-bell"></i> </div>
         <div class="notifications" id="box">
             <h2>الاشعارات - <span>{{ $count }}</span></h2>
-          
+            @foreach ( $notifications as $item)
+
             <div class="notifications-item"> <img src="https://i.imgur.com/uIgDDDd.jpg" alt="img">
                 <div class="text">
                     <h4>Samso aliao</h4>
                     <p>Samso Nagaro Like your home work</p>
                 </div>
             </div>
-            <div class="notifications-item"> <img src="https://img.icons8.com/flat_round/64/000000/vote-badge.png" alt="img">
-                <div class="text">
-                    <h4>John Silvester</h4>
-                    <p>+20 vista badge earned</p>
-                </div>
-            </div>
+            @endforeach
+         
          
            
         </div>
