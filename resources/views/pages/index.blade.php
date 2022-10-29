@@ -81,6 +81,7 @@
 </x-base-layout>
 <script>
 $("#selUser").keyup(function() {
+    alert('d')
 
 
 $.ajax({
