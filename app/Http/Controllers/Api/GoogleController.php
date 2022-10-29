@@ -13,8 +13,9 @@ class GoogleController extends Controller
 {
     public function redirectToGoogle()
     {
-        return Socialite::driver('google')->stateless()->redirect();
-    }
+        return Socialite::driver('google') ->setScopes(['openid', 'email'])
+
+        ->redirect();    }
         
     /**
      * Create a new controller instance.
