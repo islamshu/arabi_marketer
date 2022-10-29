@@ -540,6 +540,33 @@ integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0
                 });
         });
 </script>
+<script>
+    $("#selUser").keyup(function() {
+    
+    
+    $.ajax({
+        url: "{{ route('dashabord_search') }}",
+        post: "get",
+        data: {
+    
+            'query': $("#selUser").val(),
+            'queddry': $("#selUser").val(),
+        },
+    
+        success: function(data) {
+            $("#mydiv").css({
+                display: "block"
+            });
+    
+            $('#mylist').empty();
+    
+            $("#mylist").append(data);
+    
+    
+        }
+    });
+    });
+    </script>
 
 
 
