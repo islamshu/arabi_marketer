@@ -75,8 +75,8 @@
 
 .notifications-item img {
     display: block;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     margin-right: 9px;
     border-radius: 50%;
     margin-top: 2px
@@ -163,7 +163,7 @@
             <a href="{{ route('show.notification',$item->id) }}">
             <div class="notifications-item">
                
-                 <img src="http://cdn.onlinewebfonts.com/svg/img_489991.png" alt="img">
+                 <img src="https://cdn.pixabay.com/photo/2015/12/16/17/41/bell-1096280_1280.png" alt="img">
                 <div class="text">
                     <h4>{{$item->data['title'] }}</h4>
                 </div>
