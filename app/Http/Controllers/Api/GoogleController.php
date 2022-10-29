@@ -8,8 +8,10 @@ use Auth;
 use Exception;
 use Illuminate\Http\Request;
 use Socialite;
+use App\Http\Controllers\Api\BaseController;
+use App\Http\Resources\UserNormalAuthResource;
 
-class GoogleController extends Controller
+class GoogleController extends BaseController
 {
     public function redirectToGoogle()
     {
@@ -28,10 +30,8 @@ class GoogleController extends Controller
             $finduser = User::where('google_id', $user->id)->first();
        
             if($finduser){
-       
-                auth('api')->login($finduser,true);
-      
-                return $finduser;
+                $userRes =new  UserNormalAuthResource($finduser);
+                return $this->sendResponse($finduser,'تم الدخول بنجاح');
             }else{
                 $newUser = User::create([
                     'name' => 'google_user_name',
@@ -42,9 +42,8 @@ class GoogleController extends Controller
                     'password' => encrypt('159753')
                 ]);
       
-                auth('api')->login($newUser,true);
-      
-                return $newUser;
+                $userRes =new  UserNormalAuthResource($newUser);
+                return $this->sendResponse($userRes,'تم التسجيل بنجاح');
             }
       
     }
