@@ -540,13 +540,6 @@ integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0
                 });
         });
 </script>
-<script>
-    $("#selUser").keyup(function() {
-alert('ff');
-
-
-});
-</script>
 
 
 

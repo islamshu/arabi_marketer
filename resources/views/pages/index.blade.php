@@ -79,3 +79,11 @@
     <!--end::Row-->
 
 </x-base-layout>
+<script>
+    $("#selUser").keyup(function() {
+alert('ff');
+
+
+});
+</script>
+
