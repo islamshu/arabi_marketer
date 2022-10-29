@@ -78,7 +78,7 @@
             <!--begin::Menu item-->
             
             @forelse ( $notifications as $item)
-            <div class="menu-item px-3" style="width: 200px">
+            <div class="menu-item px-3" style="display :none;overflow:auto; position: absolute;margin-top: 22%;width: 20%;background: #fff;z-index: 5;max-height: 300px;text-align:right">
                 <div class="menu-item px-3">
                     <a href="{{ route('show.notification',$item->id) }}" class="menu-link ">
                         <span class="symbol ">
