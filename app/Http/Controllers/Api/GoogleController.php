@@ -25,15 +25,14 @@ class GoogleController extends Controller
     {
         try {
       
-            $user = Socialite::driver('google')->user();
+            $user = Socialite::driver('google')->stateless()->user();
             $finduser = User::where('google_id', $user->id)->first();
        
             if($finduser){
        
-                Auth::login($finduser);
+                auth('api')->login($finduser,true);
       
-                return redirect()->intended('dashboard');
-       
+                return $finduser;
             }else{
                 $newUser = User::create([
                     'name' => $user->name,
@@ -42,9 +41,9 @@ class GoogleController extends Controller
                     'password' => encrypt('123456dummy')
                 ]);
       
-                Auth::login($newUser);
+                auth('api')->login($newUser,true);
       
-                return redirect()->intended('dashboard');
+                return $newUser;
             }
       
         } catch (Exception $e) {
