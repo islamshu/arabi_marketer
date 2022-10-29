@@ -4,6 +4,94 @@
     $userAvatarClass = "symbol-30px symbol-md-40px";
     $btnIconClass = "svg-icon-1";
 @endphp
+<style>
+    .icon {
+    cursor: pointer;
+    margin-right: 50px;
+    line-height: 60px
+}
+
+.icon span {
+    background: #f00;
+    padding: 7px;
+    border-radius: 50%;
+    color: #fff;
+    vertical-align: top;
+    margin-left: -25px
+}
+
+.icon img {
+    display: inline-block;
+    width: 26px;
+    margin-top: 4px
+}
+
+.icon:hover {
+    opacity: .7
+}
+
+.logo {
+    flex: 1;
+    margin-left: 50px;
+    color: #eee;
+    font-size: 20px;
+    font-family: monospace
+}
+
+.notifications {
+    width: 300px;
+    height: 0px;
+    opacity: 0;
+    position: absolute;
+    top: 63px;
+    right: 62px;
+    border-radius: 5px 0px 5px 5px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+
+.notifications h2 {
+    font-size: 14px;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    color: #999
+}
+
+.notifications h2 span {
+    color: #f00
+}
+
+.notifications-item {
+    display: flex;
+    border-bottom: 1px solid #eee;
+    padding: 6px 9px;
+    margin-bottom: 0px;
+    cursor: pointer
+}
+
+.notifications-item:hover {
+    background-color: #eee
+}
+
+.notifications-item img {
+    display: block;
+    width: 50px;
+    height: 50px;
+    margin-right: 9px;
+    border-radius: 50%;
+    margin-top: 2px
+}
+
+.notifications-item .text h4 {
+    color: #777;
+    font-size: 16px;
+    margin-top: 3px
+}
+
+.notifications-item .text p {
+    color: #aaa;
+}
+</style>
 
 <!--begin::Toolbar wrapper-->
 <div class="d-flex align-items-stretch flex-shrink-0">
@@ -74,21 +162,19 @@
         <!--begin::Menu toggle-->
         <!--begin::Menu-->
         
-<div style="display :none;overflow:auto; position: absolute;margin-top: 27%;width: 20%;background: #fff;z-index: 5;max-height: 300px;text-align:left">            <!--begin::Menu item-->
-            
+        <div class="bell" id="bell"> <img src="https://i.imgur.com/AC7dgLA.png" alt=""> </div>            
             @forelse ( $notifications as $item)
-            <div class="menu-item px-3" >
-                <div class="menu-item px-3">
-                    <a href="{{ route('show.notification',$item->id) }}" class="menu-link ">
-                        <span class="symbol ">
-                          <i class="fa fa-comment"></i>
-                        </span>
-                        <span class="menu-title">{{$item->data['title'] }}</span>
-
-                    </a>
+            <div class="notifications" id="box" style="height: auto; opacity: 1;">
+                <h2>الاشعارات - <span>{{ $count }}</span></h2>
+               
+             <a href="{{ route('show.notification',$item->id) }}">   <div class="notifications-item"> <img src="https://img.icons8.com/flat_round/64/000000/vote-badge.png" alt="img">
+                    <div class="text">
+                        <h4>{{$item->data['title'] }}</h4>
+                    </div>
                 </div>
-            
+            </a>
             </div>
+         
            
             @empty
             <div class="menu-item px-3 my-0" style="width: 200px">
