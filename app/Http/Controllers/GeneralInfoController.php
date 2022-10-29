@@ -100,7 +100,6 @@ class GeneralInfoController extends Controller
                 array_push($cl ,$anc);
             }
         }
-        $offers = Offer::where('name_ar','like','%'.$input.'%')->orWhere('name_en','like','%'.$input.'%')->get();
         
       
         
