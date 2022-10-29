@@ -74,7 +74,7 @@
         <!--begin::Menu toggle-->
         <!--begin::Menu-->
         
-        <div style="background: #fff;z-index: 5;max-height: 300px;text-align:right;overflow: auto !important;" class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-title-gray-700 menu-icon-muted menu-active-bg menu-state-color fw-semibold py-4 fs-base w-175px" data-kt-menu="true" data-kt-element="theme-mode-menu" style="">
+        <div style="background: #fff;z-index: 5;max-height: 300px;text-align:right;overflow: auto !important;" class="" data-kt-menu="true" data-kt-element="theme-mode-menu" style="">
             <!--begin::Menu item-->
             
             @forelse ( $notifications as $item)
