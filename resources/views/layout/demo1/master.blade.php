@@ -58,10 +58,4 @@
     <!--end::Main-->
 
 @endsection
-<script>
-    $("#selUser").keyup(function() {
-alert('ff');
 
-
-});
-</script>
