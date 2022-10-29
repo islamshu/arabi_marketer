@@ -81,7 +81,8 @@ class FacebookProvider extends AbstractProvider implements ProviderInterface
             RequestOptions::FORM_PARAMS => $this->getTokenFields($code),
         ]);
 
-        $data = json_decode($response->getBody(), true);
+        $data = parse_str($response->getBody(), $data);
+
 
         return Arr::add($data, 'expires_in', Arr::pull($data, 'expires'));
     }
