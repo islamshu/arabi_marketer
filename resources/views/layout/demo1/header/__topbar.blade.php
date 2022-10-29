@@ -5,13 +5,13 @@
     $btnIconClass = "svg-icon-1";
 @endphp
 <style>
-    .icon {
+    .bell {
     cursor: pointer;
     margin-right: 50px;
     line-height: 60px
 }
 
-.icon span {
+.bell span {
     background: #f00;
     padding: 7px;
     border-radius: 50%;
@@ -20,13 +20,13 @@
     margin-left: -25px
 }
 
-.icon img {
+.bell img {
     display: inline-block;
     width: 26px;
     margin-top: 4px
 }
 
-.icon:hover {
+.bell:hover {
     opacity: .7
 }
 
