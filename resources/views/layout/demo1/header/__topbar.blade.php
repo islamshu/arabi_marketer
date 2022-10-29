@@ -157,7 +157,7 @@
         <!--begin::Menu toggle-->
         <!--begin::Menu-->
         <div class="bell" id="bell"> <i class="fa fa-bell"></i> </div>
-        <div class="notifications" id="box">
+        <div class="notifications" id="box" style="max-height: 300px;overflow: auto">
             <h2>الاشعارات - <span>{{ $count }}</span></h2>
             @foreach ( $notifications as $item)
 
