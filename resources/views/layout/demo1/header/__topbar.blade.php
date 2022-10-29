@@ -156,14 +156,14 @@
         
         <!--begin::Menu toggle-->
         <!--begin::Menu-->
-        <div class="bell" id="bell"> <i class="fa fa-bell"></i> </div>
+        <div class="bell" id="bell"> <i class="fa fa-bell"></i>{{ $count }} </div>
         <div class="notifications" id="box" style="max-height: 300px;overflow: auto">
             <h2>الاشعارات - <span>{{ $count }}</span></h2>
             @foreach ( $notifications as $item)
             <a href="{{ route('show.notification',$item->id) }}">
             <div class="notifications-item">
                
-                 <img src="https://img.icons8.com/flat_round/64/000000/vote-badge.png" alt="img">
+                 <img src="http://cdn.onlinewebfonts.com/svg/img_489991.png" alt="img">
                 <div class="text">
                     <h4>{{$item->data['title'] }}</h4>
                 </div>
