@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Socialite;
 use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\UserNormalAuthResource;
+use Validator;
 
 class GoogleController extends BaseController
 {
@@ -33,6 +34,12 @@ class GoogleController extends BaseController
                 $userRes =new  UserNormalAuthResource($finduser);
                 return $this->sendResponse($finduser,'تم الدخول بنجاح');
             }else{
+                $validation = Validator::make($user, [
+                    'email'=>'required|unique:users,email',
+                ]);
+                if ($validation->fails()) {
+                    return $this->sendError($validation->messages()->all());
+                }
                 $newUser = User::create([
                     'name' => 'google_user_name',
                     'email' => $user->email,
