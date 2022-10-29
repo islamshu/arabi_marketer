@@ -203,6 +203,7 @@ Route::get('/consultation_payments', [ConsultationController::class, 'payments']
 Route::get('/get_all_consultation', [ConsultationController::class, 'all_consultation']);
 Route::group(['middleware' => 'is_login','middleware' => 'is_able_markter'], function () {
     Route::post('/add_consultion', [ConsultationController::class, 'store']);
+    Route::post('/update_consultion/{id}', [ConsultationController::class, 'update']);
 });
 Route::get('consultation_search', [ConsultationController::class, 'serach']);
 

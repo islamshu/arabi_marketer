@@ -97,6 +97,42 @@ class ConsultationController extends BaseController
         $res = new ConsultingResource($con);
         return $this->sendResponse($res,'تم الاضافة بنجاح');
     }
+    public function update(Request $request,$id)
+    {
+        $validation = Validator::make($request->all(), [
+            'title' => 'required',
+            'description' => 'required',
+            'type_id' => 'required',
+            'place_id' => 'required',
+            'color' => 'required',
+            'price' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'payment_id' => 'required',
+            'hour'=>'required',
+            'mints'=>'required',
+        ]);
+        if ($validation->fails()) {
+            return $this->sendError($validation->messages()->all());
+        }
+        $con= Consulting::find($id);
+        $con ->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'color' => $request->color,
+            'place_id' => $request->place_id,
+            'type_id' => $request->type_id,
+            'hour' => $request->hour,
+            'min' => $request->mints,
+            'start_at'=>$request->start_date,
+            'end_at'=>$request->end_date,
+            'price'=>$request->price,
+            'payment_id'=>$request->payment_id,
+        ]);
+       
+        $res = new ConsultingResource($con);
+        return $this->sendResponse($res,'تم التعديل بنجاح');
+    }
     public function serach(Request $request){
         $title = $request->title;
         $query = Consulting::query();
