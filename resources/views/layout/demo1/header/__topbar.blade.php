@@ -163,7 +163,7 @@
         <!--begin::Menu-->
         
         <div class="bell" id="bell"> <img src="https://i.imgur.com/AC7dgLA.png" alt=""> </div>            
-            @forelse ( $notifications as $item)
+            @foreach ( $notifications as $item)
             <div class="notifications" id="box" style="height: auto; opacity: 1;">
                 <h2>الاشعارات - <span>{{ $count }}</span></h2>
                
@@ -176,19 +176,8 @@
             </div>
          
            
-            @empty
-            <div class="menu-item px-3 my-0" style="width: 200px">
-               
-                <span class="menu-icon" data-kt-element="icon">
-                    <!--begin::Svg Icon | path: icons/duotune/general/gen061.svg-->
-                    <span class="svg-icon svg-icon-3">
-                        <i class="fa fa-comment"></i>
-                    </span>
-                    <!--end::Svg Icon-->
-                </span>
-<span class="menu-title">لا يوجد اشعارات</span>
-            </div> 
-            @endforelse ($notifications as $item) 
+            @endforeach
+     
           
             <!--end::Menu item-->
             <!--begin::Menu item-->
