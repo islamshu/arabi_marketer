@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\ConsultationController;
 use App\Http\Controllers\Api\FollowController;
 use App\Http\Controllers\Api\ForgotPasswordController;
 use App\Http\Controllers\Api\GeneralController;
+use App\Http\Controllers\Api\GoogleController;
 use App\Http\Controllers\Api\HomeController;
 use App\Http\Controllers\Api\MessageController;
 use App\Http\Controllers\Api\PodcastController;
@@ -114,6 +115,8 @@ Route::get('/service_category', [ServiceController::class, 'service_category']);
 Route::get('/service_keyword', [ServiceController::class, 'service_keyword']);
 Route::get('/get_specialty', [ServiceController::class, 'get_specialty']);
 Route::get('/service_search', [ServiceController::class, 'serach']);
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
+Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
 Route::group(['middleware' => 'is_login','middleware' => 'is_able_markter'], function () {
 

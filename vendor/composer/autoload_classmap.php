@@ -193,6 +193,7 @@ return array(
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
+    'App\\Providers\\TelescopeServiceProvider' => $baseDir . '/app/Providers/TelescopeServiceProvider.php',
     'App\\Rules\\MatchOldPassword' => $baseDir . '/app/Rules/MatchOldPassword.php',
     'App\\View\\Components\\AuthLayout' => $baseDir . '/app/View/Components/AuthLayout.php',
     'App\\View\\Components\\BaseLayout' => $baseDir . '/app/View/Components/BaseLayout.php',

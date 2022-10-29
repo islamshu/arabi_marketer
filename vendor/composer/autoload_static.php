@@ -949,6 +949,7 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Providers\\TelescopeServiceProvider' => __DIR__ . '/../..' . '/app/Providers/TelescopeServiceProvider.php',
         'App\\Rules\\MatchOldPassword' => __DIR__ . '/../..' . '/app/Rules/MatchOldPassword.php',
         'App\\View\\Components\\AuthLayout' => __DIR__ . '/../..' . '/app/View/Components/AuthLayout.php',
         'App\\View\\Components\\BaseLayout' => __DIR__ . '/../..' . '/app/View/Components/BaseLayout.php',

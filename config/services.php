@@ -31,9 +31,9 @@ return [
     ],
 
     'google' => [
-        'client_id'     => env('GOOGLE_CLIENT_ID'),
-        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect'      => '/auth/redirect/google',
+        'client_id'     => env('GOOGLE_CLIENT_ID2'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET2'),
+        'redirect'      => 'http://arabicreators.com/api/google/callback',
     ],
 
     'facebook' => [
