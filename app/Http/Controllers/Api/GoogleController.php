@@ -37,7 +37,9 @@ class GoogleController extends Controller
                     'name' => $user->name,
                     'email' => $user->email,
                     'google_id'=> $user->id,
-                    'password' => encrypt('123456dummy')
+                    'type'=>'user',
+                    'image'=> 'users/defult_user.png',
+                    'password' => encrypt('159753')
                 ]);
       
                 auth('api')->login($newUser,true);
