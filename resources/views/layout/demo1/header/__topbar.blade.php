@@ -153,29 +153,27 @@
         @endphp
     <div class="d-flex align-items-center {{ $itemClass }}">
         <!--begin::Menu toggle-->
-        <a class="btn btn-icon btn-custom btn-icon-muted btn-active-light btn-active-color-primary w-35px h-35px w-md-40px h-md-40px" data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
-            <!--begin::Svg Icon | path: icons/duotune/general/gen060.svg-->
-            <span> <i class="fa fa-bell fa-3x"></i> {{ $count }}</span>
-    
-            <!--end::Svg Icon-->
-        </a>
+        
         <!--begin::Menu toggle-->
         <!--begin::Menu-->
         <div class="bell" id="bell"> <i class="fa fa-bell"></i> </div>
         <div class="notifications" id="box">
-            <h2>Notifications - <span>2</span></h2>
-            <div class="notifications-item"> <img src="https://i.imgur.com/uIgDDDd.jpg" alt="img">
-                <div class="text">
-                    <h4>Samso aliao</h4>
-                    <p>Samso Nagaro Like your home work</p>
+            <h2>الاشعارات - <span>{{ $count }}</span></h2>
+          
+            @foreach ( $notifications as $item)
+            <div class="notifications" id="box" style="height: auto; opacity: 1;">
+                <h2>الاشعارات - <span>{{ $count }}</span></h2>
+               
+             <a href="{{ route('show.notification',$item->id) }}">   <div class="notifications-item"> <img src="https://img.icons8.com/flat_round/64/000000/vote-badge.png" alt="img">
+                    <div class="text">
+                        <h4>{{$item->data['title'] }}</h4>
+                    </div>
                 </div>
+            </a>
             </div>
-            <div class="notifications-item"> <img src="https://img.icons8.com/flat_round/64/000000/vote-badge.png" alt="img">
-                <div class="text">
-                    <h4>John Silvester</h4>
-                    <p>+20 vista badge earned</p>
-                </div>
-            </div>
+         
+           
+            @endforeach
         </div>
         {{-- <div class="bell" id="bell"> <img src="https://i.imgur.com/AC7dgLA.png" alt=""> </div>            
             @foreach ( $notifications as $item)
