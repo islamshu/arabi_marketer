@@ -160,16 +160,17 @@
         <div class="notifications" id="box">
             <h2>الاشعارات - <span>{{ $count }}</span></h2>
           
-            @foreach ( $notifications as $item)
-            <div class="notifications" id="box" style="height: auto; opacity: 1;">
-                <h2>الاشعارات - <span>{{ $count }}</span></h2>
-               
-             <a href="{{ route('show.notification',$item->id) }}">   <div class="notifications-item"> <img src="https://img.icons8.com/flat_round/64/000000/vote-badge.png" alt="img">
-                    <div class="text">
-                        <h4>{{$item->data['title'] }}</h4>
-                    </div>
+            <div class="notifications-item"> <img src="https://i.imgur.com/uIgDDDd.jpg" alt="img">
+                <div class="text">
+                    <h4>Samso aliao</h4>
+                    <p>Samso Nagaro Like your home work</p>
                 </div>
-            </a>
+            </div>
+            <div class="notifications-item"> <img src="https://img.icons8.com/flat_round/64/000000/vote-badge.png" alt="img">
+                <div class="text">
+                    <h4>John Silvester</h4>
+                    <p>+20 vista badge earned</p>
+                </div>
             </div>
          
            
