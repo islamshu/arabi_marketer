@@ -80,10 +80,30 @@
 
 </x-base-layout>
 <script>
-    $("#selUser").keyup(function() {
-alert('ff');
+$("#selUser").keyup(function() {
 
 
+$.ajax({
+    url: "{{ route('dashboard_search',get_lang()) }}",
+    post: "get",
+    data: {
+
+        'query': $("#selUser").val(),
+        'queddry': $("#selUser").val(),
+    },
+
+    success: function(data) {
+        $("#mydiv").css({
+            display: "block"
+        });
+
+        $('#mylist').empty();
+
+        $("#mylist").append(data);
+
+
+    }
+});
 });
 </script>
 

@@ -206,7 +206,9 @@ Route::middleware('auth')->group(function () {
     Route::get('get_type_service',[ServiceController::class,'get_type_service'])->name('get_type_service');
     Route::get('get_keywords_service',[ServiceController::class,'get_keywords_service'])->name('get_keywords_service');
     Route::post('gallery',[GalleryController::class,'store'])->name('gallery.store');
- 
+    Route::post('gallery',[GalleryController::class,'store'])->name('gallery.store');
+    Route::get('dashabord_search',[GeneralInfoController::class,'dashabord_search'])->name('dashabord_search');
+
     
     
 
