@@ -161,10 +161,13 @@
             <h2>الاشعارات - <span>{{ $count }}</span></h2>
             @foreach ( $notifications as $item)
 
-            <div class="notifications-item"> <img src="https://img.icons8.com/flat_round/64/000000/vote-badge.png" alt="img">
+            <div class="notifications-item">
+                <a href="{{ route('show.notification',$item->id) }}">
+                 <img src="https://img.icons8.com/flat_round/64/000000/vote-badge.png" alt="img">
                 <div class="text">
                     <h4>{{$item->data['title'] }}</h4>
                 </div>
+            </a>
             </div>
             @endforeach
          
