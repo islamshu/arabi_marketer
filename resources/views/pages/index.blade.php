@@ -84,7 +84,7 @@ $("#selUser").keyup(function() {
 
 
 $.ajax({
-    url: "{{ route('dashboard_search',get_lang()) }}",
+    url: "{{ route('dashabord_search') }}",
     post: "get",
     data: {
 
