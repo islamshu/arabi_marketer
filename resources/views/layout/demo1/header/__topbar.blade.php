@@ -116,7 +116,7 @@
 
     <input type="text" id="selUser" class="form-control form-control-solid h-40px bg-body ps-13 fs-7" name="search" value="" placeholder="Search..." data-kt-search-element="input">
   
-    <div id="mydiv" style="display :none;overflow:auto; position: absolute;margin-top: 27%;width: 20%;background: #fff;z-index: 5;max-height: 300px;text-align:right">
+    <div id="mydiv" style="display :none;overflow:auto; position: absolute;margin-top: 27%;width: 20%;background: #fff;z-index: 5;max-height: 300px;text-align:left">
         <ul id="mylist">
        </ul>
     </div>
