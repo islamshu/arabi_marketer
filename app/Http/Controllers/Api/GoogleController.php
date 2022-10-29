@@ -29,6 +29,7 @@ class GoogleController extends BaseController
       
             $user = Socialite::driver('google')->stateless()->user();
             $finduser = User::where('google_id', $user->id)->first();
+            dd($user);
        
             if($finduser){
                 $userRes =new  UserNormalAuthResource($finduser);
