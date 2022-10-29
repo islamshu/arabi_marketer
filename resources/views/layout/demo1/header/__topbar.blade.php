@@ -112,6 +112,7 @@
         </div>
         <!--end::Menu-->
     </div>
+    <input type="text" class="form-control form-control-solid h-40px bg-body ps-13 fs-7" name="search" value="" placeholder="Search..." data-kt-search-element="input">
     
     <div class="d-flex align-items-center {{ $itemClass }}">
         {{ theme()->getView('partials/theme-mode/_main', ['params' => [
