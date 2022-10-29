@@ -116,7 +116,7 @@ Route::get('/service_keyword', [ServiceController::class, 'service_keyword']);
 Route::get('/get_specialty', [ServiceController::class, 'get_specialty']);
 Route::get('/service_search', [ServiceController::class, 'serach']);
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
-Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+Route::get('google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
 Route::group(['middleware' => 'is_login','middleware' => 'is_able_markter'], function () {
 
