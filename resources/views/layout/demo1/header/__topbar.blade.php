@@ -74,11 +74,11 @@
         <!--begin::Menu toggle-->
         <!--begin::Menu-->
         
-        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-title-gray-700 menu-icon-muted menu-active-bg menu-state-color fw-semibold py-4 fs-base w-175px" data-kt-menu="true" data-kt-element="theme-mode-menu" style="">
+        <div style="display :none;overflow:auto; position: absolute;margin-top: 22%;width: 20%;background: #fff;z-index: 5;max-height: 300px;text-align:right" class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-title-gray-700 menu-icon-muted menu-active-bg menu-state-color fw-semibold py-4 fs-base w-175px" data-kt-menu="true" data-kt-element="theme-mode-menu" style="">
             <!--begin::Menu item-->
             
             @forelse ( $notifications as $item)
-            <div class="menu-item px-3" style="display :none;overflow:auto; position: absolute;margin-top: 22%;width: 20%;background: #fff;z-index: 5;max-height: 300px;text-align:right">
+            <div class="menu-item px-3" >
                 <div class="menu-item px-3">
                     <a href="{{ route('show.notification',$item->id) }}" class="menu-link ">
                         <span class="symbol ">
