@@ -21,9 +21,8 @@ class GoogleController extends Controller
      *
      * @return void
      */
-    public function handleGoogleCallback(Request $request)
+    public function handleGoogleCallback()
     {
-        dd($request);
       
             $user = Socialite::driver('google')->stateless()->user();
             $finduser = User::where('google_id', $user->id)->first();
