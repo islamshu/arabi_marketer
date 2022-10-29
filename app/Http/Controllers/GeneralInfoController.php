@@ -44,7 +44,7 @@ class GeneralInfoController extends Controller
         $not->save();
         return redirect(json_decode($not->data)->url);
     }
-    public function dashboard_search(Request $request){
+    public function dashabord_search(Request $request){
         $input = $request['query'];
         if($input == null){
              $emp = array();
