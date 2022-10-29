@@ -58,11 +58,10 @@ class GeneralInfoController extends Controller
         $cl = array();
         if($clients){
             foreach($clients as $c){
-                $image = '<img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Profile-720.png" width="40" hight="30" >'  ;
-                $data =  $c->name ."<br>";
+                $data =  $c->title ."<br>";
                 $type = '<span style="font-size: 14px;color: red;">(Blog )</span>';
-                $dd = '/en/clinets/'.$c->id;
-               $anc=  "<li> <a href=".$dd."> $image  $data $type </a></li>";
+                $dd = '/blogs/'.$c->id.'/edit';
+               $anc=  "<li> <a href=".$dd.">   $data $type </a></li>";
               
                
                 array_push($cl ,$anc);
@@ -72,13 +71,12 @@ class GeneralInfoController extends Controller
         
         if($vendors){
             foreach($vendors as $c){
-             $image = '<img onerror="this.onerror=null;this.src="http://website.foryougo.net/uploads/general/ZPQ01r4g2pVhVjiBMuDynwf3bu8fqVpwvQAyfM0t.png";" src="http://foryougo.foryougo.net/images/brand/'.$c->image.'" width="40" hight="30" >'  ;
 
-                 $data =  $c->name_ar."<br>";
+                 $data =  $c->title."<br>";
                     $type = '<span style="font-size: 14px;color: red;">(video )</span>';
 
-                $dd = '/en/vendor/'.$c->id;
-               $anc=  "<li> <a href=".$dd."> $image $data $type  </a></li>";
+                    $dd = '/videos/'.$c->id.'/edit';
+                    $anc=  "<li> <a href=".$dd.">  $data $type  </a></li>";
               
                
                 array_push($cl ,$anc);
@@ -88,13 +86,12 @@ class GeneralInfoController extends Controller
         
         if($branches){
             foreach($branches as $c){
-                $image = '<img src="http://website.foryougo.net/uploads/general/ZPQ01r4g2pVhVjiBMuDynwf3bu8fqVpwvQAyfM0t.png" width="40" hight="30" >'  ;
 
-                 $data = $c->name_ar."<br>";
+                 $data = $c->title."<br>";
                 $type = '<span style="font-size: 14px;color: red;">(Consulting )</span>';
 
-                $dd = '/en/branch/'.$c->id.'/edit';
-               $anc=  "<li> <a href=".$dd."> $image $data $type </a></li>";
+                $dd = '/consloution/'.$c->id.'/edit';
+                $anc=  "<li> <a href=".$dd.">  $data $type </a></li>";
               
                
                 array_push($cl ,$anc);
