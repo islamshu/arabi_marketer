@@ -161,7 +161,7 @@
         </a>
         <!--begin::Menu toggle-->
         <!--begin::Menu-->
-        <div class="bell" id="bell"> <img src="https://i.imgur.com/AC7dgLA.png" alt=""> </div>
+        <div class="bell" id="bell"> <i class="fa fa-bell"></i> </div>
         <div class="notifications" id="box">
             <h2>Notifications - <span>2</span></h2>
             <div class="notifications-item"> <img src="https://i.imgur.com/uIgDDDd.jpg" alt="img">
