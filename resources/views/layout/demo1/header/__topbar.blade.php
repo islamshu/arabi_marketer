@@ -161,8 +161,23 @@
         </a>
         <!--begin::Menu toggle-->
         <!--begin::Menu-->
-        
-        <div class="bell" id="bell"> <img src="https://i.imgur.com/AC7dgLA.png" alt=""> </div>            
+        <div class="bell" id="bell"> <img src="https://i.imgur.com/AC7dgLA.png" alt=""> </div>
+        <div class="notifications" id="box">
+            <h2>Notifications - <span>2</span></h2>
+            <div class="notifications-item"> <img src="https://i.imgur.com/uIgDDDd.jpg" alt="img">
+                <div class="text">
+                    <h4>Samso aliao</h4>
+                    <p>Samso Nagaro Like your home work</p>
+                </div>
+            </div>
+            <div class="notifications-item"> <img src="https://img.icons8.com/flat_round/64/000000/vote-badge.png" alt="img">
+                <div class="text">
+                    <h4>John Silvester</h4>
+                    <p>+20 vista badge earned</p>
+                </div>
+            </div>
+        </div>
+        {{-- <div class="bell" id="bell"> <img src="https://i.imgur.com/AC7dgLA.png" alt=""> </div>            
             @foreach ( $notifications as $item)
             <div class="notifications" id="box" style="height: auto; opacity: 1;">
                 <h2>الاشعارات - <span>{{ $count }}</span></h2>
@@ -183,7 +198,7 @@
             <!--begin::Menu item-->
           
             <!--end::Menu item-->
-        </div>
+        </div> --}}
         <!--end::Menu-->
     </div>
     <div class="d-flex align-items-center {{ $itemClass }}">
