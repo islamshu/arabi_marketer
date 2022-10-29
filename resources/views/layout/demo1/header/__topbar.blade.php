@@ -161,10 +161,9 @@
             <h2>الاشعارات - <span>{{ $count }}</span></h2>
             @foreach ( $notifications as $item)
 
-            <div class="notifications-item"> <img src="https://i.imgur.com/uIgDDDd.jpg" alt="img">
+            <div class="notifications-item"> <img src="https://i.imgur.com/AC7dgLA.jpg" alt="img">
                 <div class="text">
-                    <h4>Samso aliao</h4>
-                    <p>Samso Nagaro Like your home work</p>
+                    <h4>{{$item->data['title'] }}</h4>
                 </div>
             </div>
             @endforeach
