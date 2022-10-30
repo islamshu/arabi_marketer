@@ -151,4 +151,9 @@ class ConsultationController extends BaseController
         return $this->sendResponse($res, 'جميع البودكاست');
 
     }
+    public function single($id){
+        $service = Consulting::find($id);
+        $ser = new ConsultingResource($service);
+        return $this->sendResponse($ser,' تم ارجاع الاستشارة بنجاح');
+    }
 }
