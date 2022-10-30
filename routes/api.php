@@ -94,7 +94,7 @@ Route::get('/type_of_user', [UserController::class, 'type_of_user']);
 //start blog
 Route::get('/blog_category', [BlogController::class, 'blog_category']);
 Route::get('/blog_keyword', [BlogController::class, 'blog_keyword']);
-Route::group(['middleware' => 'is_login'], function () {
+Route::group(['middleware' => 'is_login','middleware' => 'Is_markter'], function () {
 Route::post('/add_blog', [BlogController::class, 'store']);
 Route::post('/update_blog', [BlogController::class, 'update']);
 Route::delete('/delete_blog/{id}', [BlogController::class, 'delete']);
