@@ -40,7 +40,7 @@ const play_btn{{ $i }} = document.querySelector('#play-btn{{ $i }}');
 
 //audio file
 let sound{{ $i }} = new Audio("$flu->item->link");
-
+alert("{{ $flu->item->link }}")
 //play event
 play_btn{{ $i }}.addEventListener( 'click' , play );
 
