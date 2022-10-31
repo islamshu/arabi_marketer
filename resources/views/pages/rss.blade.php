@@ -10,7 +10,6 @@
             {{ $flu->description }}
         </div>
     </article>
-    @endforeach
+@endforeach
 </x-base-layout>
 
-@endforeach
