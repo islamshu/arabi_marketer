@@ -35,7 +35,7 @@ class PodcastResource extends JsonResource
         $url = $data->sound_url;
         $content = file_get_contents($url);
         $flux = new SimpleXMLElement($content);
-        return Mp3Resourse::collection($flux->channel->item)
+        return Mp3Resourse::collection($flux->channel->item);
     }
     function get_category($data){
         $category = $data->category;
