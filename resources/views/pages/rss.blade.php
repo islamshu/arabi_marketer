@@ -30,19 +30,14 @@ p {
 <x-base-layout>
 
 
-@foreach ($flux->channel->item as $flu)
-<button class="btns" id="play-btn">play</button>
-<hr>
-<p><a href="{{ $flu->item->link }}" target="_blank" rel="noopener">{{ $flu->title }}</a></p>
-  
-@endforeach
-</x-base-layout>
+@foreach ($flux->channel->item as $key=>$flu)
+<button class="btns" id="play-btn{{ $key }}">play</button>
 <script>
     //play button
-const play_btn = document.querySelector('#play-btn');
+const play_btn = document.querySelector('#play-btn{{ $key }}');
 
 //audio file
-let sound = new Audio("https://raw.githubusercontent.com/Yousuke777/sound/main/kansei.mp3");
+let sound = new Audio("{{ $flu->item->link }}");
 
 //play event
 play_btn.addEventListener( 'click' , play );
@@ -51,4 +46,10 @@ function play(){
 	sound.play();
 }
 </script>
+<hr>
+<p><a href="{{ $flu->item->link }}" target="_blank" rel="noopener">{{ $flu->title }}</a></p>
+  
+@endforeach
+</x-base-layout>
+
 
