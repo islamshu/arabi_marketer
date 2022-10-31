@@ -39,13 +39,13 @@ p {
 const play_btn{{ $i }} = document.querySelector('#play-btn{{ $i }}');
 
 //audio file
-let sound = new Audio("{{ $flu->item->link }}");
+let sound{{ $i }} = new Audio("{{ $flu->item->link }}");
 
 //play event
 play_btn{{ $i }}.addEventListener( 'click' , play );
 
 function play(){
-	sound.play();
+	sound{{ $i }}.play();
 }
 </script>
 <hr>
