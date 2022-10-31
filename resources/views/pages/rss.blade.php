@@ -42,7 +42,7 @@ const play_btn{{ $i }} = document.querySelector('#play-btn{{ $i }}');
 let sound = new Audio("{{ $flu->item->link }}");
 
 //play event
-play_btn.addEventListener( 'click' , play );
+play_btn{{ $i }}.addEventListener( 'click' , play );
 
 function play(){
 	sound.play();
