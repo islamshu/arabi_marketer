@@ -34,12 +34,10 @@ class PodcastResource extends JsonResource
     function get_item($data){
         $url = $data->sound_url;
         $content = file_get_contents($url);
-        
         $flux = new SimpleXMLElement($content);
         $aa = array();
         $i =0;
         foreach($flux->channel->item as $flu){
-            $aa[$i]['id']= $i;
             $aa[$i]['title']=$flu->title;
             $aa[$i]['link']=utf8_decode((string)$flu->enclosure['url']);
             $i++;
