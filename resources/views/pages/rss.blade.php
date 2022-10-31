@@ -43,6 +43,7 @@ const play_btn{{ $i }} = document.querySelector('#play-btn{{ $i }}');
 //audio file
 
 let linkk{{ $i }} = document.getElementById("linkk{{ $i }}").getAttribute("href"); 
+alert(linkk0)
 let sound{{ $i }} = new Audio(linkk{{ $i }});
 //play event
 play_btn{{ $i }}.addEventListener( 'click' , play );
