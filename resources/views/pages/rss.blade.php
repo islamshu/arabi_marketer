@@ -1,3 +1,7 @@
+@extends('layout.main')
+
+<x-base-layout>
+
 @foreach ($flux->channel->item as $flu)
     <article class="entry-item">
         <img src="{{utf8_decode((string)$flu->enclosure['url'])}}" alt="">
