@@ -90,8 +90,8 @@ class HomeController extends BaseController
         // dd($request->all());
 
     }
-    public function rss($url){
-        $f = FeedReader::read($url);
+    public function rss(){
+        $f = FeedReader::read('https://feeds.soundcloud.com/users/soundcloud:users:270898880/sounds.rss');
 
         // echo $f->get_title();
         // echo $f->get_items()[0]->get_title();
