@@ -89,7 +89,7 @@ Route::group(['middleware' => 'is_login','middleware' => 'Is_markter'], function
 
 Route::get('/type_of_user', [UserController::class, 'type_of_user']);
 //end profile
-Route::get('/rss', [HomeController::class, 'rss']);
+Route::get('/rss/{url}', [HomeController::class, 'rss']);
 
 
 //start blog
