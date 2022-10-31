@@ -34,12 +34,16 @@ p {
 @endphp
 @foreach ($flux->channel->item as $key=>$flu)
 <button class="btns" id="play-btn{{ $i }}">play</button>
+<p><a href="{{ $flu->item->link }}" id="linkk{{ $i }}" target="_blank" rel="noopener">{{ $flu->title }}</a></p>
+
 <script>
     //play button
 const play_btn{{ $i }} = document.querySelector('#play-btn{{ $i }}');
 
 //audio file
-let sound{{ $i }} = new Audio('$flu->item->link');
+
+let linkk{{ $i }} = document.getElementById("linkk{{ $i }}").getAttribute("href"); 
+let sound{{ $i }} = new Audio(linkk{{ $i }});
 //play event
 play_btn{{ $i }}.addEventListener( 'click' , play );
 
@@ -48,7 +52,6 @@ function play(){
 }
 </script>
 <hr>
-<p><a href="{{ $flu->item->link }}" target="_blank" rel="noopener">{{ $flu->title }}</a></p>
   @php
       $i++;
   @endphp
