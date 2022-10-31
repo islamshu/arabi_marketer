@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutPageController;
 use App\Http\Controllers\Account\SettingsController;
+use App\Http\Controllers\Api\HomeController;
 use App\Http\Controllers\Auth\SocialiteLoginController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
@@ -208,6 +209,7 @@ Route::middleware('auth')->group(function () {
     Route::post('gallery',[GalleryController::class,'store'])->name('gallery.store');
     Route::post('gallery',[GalleryController::class,'store'])->name('gallery.store');
     Route::get('dashabord_search',[GeneralInfoController::class,'dashabord_search'])->name('dashabord_search');
+    Route::get('/rss', [HomeController::class, 'rss']);
 
     
     
