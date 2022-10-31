@@ -95,6 +95,6 @@ class HomeController extends BaseController
 
         // dd($f);
         // echo $f->get_items()[0]->get_title();
-        echo $f->get_items()->get_content();
+        echo $f->get_items();
     }
 }
