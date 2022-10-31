@@ -40,6 +40,7 @@ class PodcastResource extends JsonResource
         foreach($flux->channel->item as $flu){
             $aa[$i]['title']=$flu->title;
         }
+        return $aa;
     }
     function get_category($data){
         $category = $data->category;
