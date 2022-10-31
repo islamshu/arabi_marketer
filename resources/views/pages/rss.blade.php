@@ -36,7 +36,7 @@ p {
 <button class="btns" id="play-btn{{ $i }}">play</button>
 <script>
     //play button
-const play_btn = document.querySelector('#play-btn{{ $i }}');
+const play_btn{{ $i }} = document.querySelector('#play-btn{{ $i }}');
 
 //audio file
 let sound = new Audio("{{ $flu->item->link }}");
