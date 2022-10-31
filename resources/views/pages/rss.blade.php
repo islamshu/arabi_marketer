@@ -32,7 +32,7 @@ p {
 @php
     $i =0;
 @endphp
-@foreach ($flux->channel->item as $key=>$flu)
+@foreach ($flux->channel->item as $flu)
 {{ dd($flu->item->link) }}
 <button class="btns" id="play-btn{{ $i }}">play</button>
 <p><a href="{{ $flu->item->link }}" id="linkk{{ $i }}" target="_blank" rel="noopener">{{ $flu->title }}</a></p>
