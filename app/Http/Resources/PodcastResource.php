@@ -38,6 +38,8 @@ class PodcastResource extends JsonResource
         $flux = new SimpleXMLElement($content);
         $aa = array();
         $i =0;
+        $image = $flux->channel->image->url;
+        dd($image);
         foreach($flux->channel->item as $flu){
             $aa[$i]['id']= $i;
             $aa[$i]['title']=$flu->title;
