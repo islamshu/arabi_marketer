@@ -29,13 +29,14 @@ p {
 </style>
 <x-base-layout>
 
-
+@php
+    $i +0;
+@endphp
 @foreach ($flux->channel->item as $key=>$flu)
-{{ dd($key) }}
-<button class="btns" id="play-btn{{ $key }}">play</button>
+<button class="btns" id="play-btn{{ $i }}">play</button>
 <script>
     //play button
-const play_btn = document.querySelector('#play-btn{{ $key }}');
+const play_btn = document.querySelector('#play-btn{{ $i }}');
 
 //audio file
 let sound = new Audio("{{ $flu->item->link }}");
@@ -49,7 +50,9 @@ function play(){
 </script>
 <hr>
 <p><a href="{{ $flu->item->link }}" target="_blank" rel="noopener">{{ $flu->title }}</a></p>
-  
+  @php
+      $i++;
+  @endphp
 @endforeach
 </x-base-layout>
 
