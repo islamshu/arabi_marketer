@@ -101,7 +101,7 @@ class HomeController extends BaseController
     }
     public function rss()
 {
-    $content = file_get_contents('https://www.feedforall.com/blog-feed.xml');
+    $content = file_get_contents('https://feeds.soundcloud.com/users/soundcloud:users:1118915026/sounds.rss');
     $flux = new SimpleXMLElement($content);
     
     return View::make('pages.rss', compact('flux'));
