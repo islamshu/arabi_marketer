@@ -25,6 +25,8 @@ use App\Models\Category;
 use App\Models\HowItWork;
 use App\Models\User;
 use FeedReader;
+use SimpleXMLElement;
+use View;
 
 class HomeController extends BaseController
 {
@@ -97,4 +99,11 @@ class HomeController extends BaseController
         // echo $f->get_items()[0]->get_title();
         // echo $f->get_items()->get_content();
     }
+    public function getHome()
+{
+    $content = file_get_contents('https://feeds.soundcloud.com/users/soundcloud:users:186745249/sounds.rss');
+    $flux = new SimpleXMLElement($content);
+
+    return View::make('pages.rss', compact('flux'));
+}
 }
