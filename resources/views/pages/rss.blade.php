@@ -31,6 +31,7 @@ p {
 
 
 @foreach ($flux->channel->item as $key=>$flu)
+{{ dd($key) }}
 <button class="btns" id="play-btn{{ $key }}">play</button>
 <script>
     //play button
