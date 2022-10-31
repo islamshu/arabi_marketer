@@ -1,9 +1,9 @@
-@foreach ($flux[0]->item->link as $item)
+@foreach ($flux->channel->item as $flu)
     <article class="entry-item">
-        <img src="{{utf8_decode((string)$item->enclosure['url'])}}" alt="">
+        <img src="{{utf8_decode((string)$flu->enclosure['url'])}}" alt="">
         <div class="entry-content">
-            <a href="{{ $item->link }}">{{ $item->title }}</a>
-            {{ $item->description }}
+            <a href="{{ $flu->item->link }}">{{ $flu->title }}</a>
+            {{ $flu->description }}
         </div>
     </article>
 @endforeach
