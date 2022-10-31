@@ -42,7 +42,6 @@ class PodcastResource extends JsonResource
         foreach($flux->channel->item as $flu){
             $aa[$i]['id']= $i;
             $aa[$i]['title']=$flu->title;
-            $aa[$i]['image']=$image;
             $aa[$i]['link']=utf8_decode((string)$flu->enclosure['url']);
             $i++;
         }
