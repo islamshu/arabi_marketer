@@ -1,63 +1,19 @@
 @extends('layout.main')
-<style>
-    body {
-	margin: 0;
-	padding: 0;
-}
 
-p {
-	padding: 10px;
-}
-
-.btns {
-  margin: 10px 6px;
-  height: 70px;
-  width: 70px;
-  color: #FFF;
-  font-size: 16px;
-  background-color: #696969;
-  border: none;
-  border-radius: 50%;
-  outline: none;
-  cursor: pointer;
-  transition-duration: 0.5s;
-}
-
-.btns:hover {
-  background-color: #000;
-}
-</style>
 <x-base-layout>
+    
 
-@php
-    $i =0;
-@endphp
 @foreach ($flux->channel->item as $flu)
-{{ dd($flu->item) }}
-<button class="btns" id="play-btn{{ $i }}">play</button>
-<p><a href="{{ $flu->item->link }}" id="linkk{{ $i }}" target="_blank" rel="noopener">{{ $flu->title }}</a></p>
+    <article class="entry-item">
 
-<script>
-    //play button
-const play_btn{{ $i }} = document.querySelector('#play-btn{{ $i }}');
+        {{-- <source src="https://feeds.soundcloud.com/stream/1371689950-ghandourpodcast-m3vyfsx9vxtf.mp3" type="audio/ogg">
+        <source src="" type="audio/mpeg"> --}}
 
-//audio file
-
-let linkk{{ $i }} = document.getElementById("linkk{{ $i }}").getAttribute("href"); 
-console.log("{{ $flu->item->link }}")
-let sound{{ $i }} = new Audio(linkk{{ $i }});
-//play event
-play_btn{{ $i }}.addEventListener( 'click' , play );
-
-function play(){
-	sound{{ $i }}.play();
-}
-</script>
-<hr>
-  @php
-      $i++;
-  @endphp
+        <div class="entry-content">
+            <a href="{{ $flu->item->link }}">{{ $flu->title }}</a>
+            {{ $flu->description }}
+        </div>
+    </article>
 @endforeach
 </x-base-layout>
-
 
