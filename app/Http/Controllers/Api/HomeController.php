@@ -103,6 +103,7 @@ class HomeController extends BaseController
 {
     $content = file_get_contents('https://feeds.soundcloud.com/users/soundcloud:users:186745249/sounds.rss');
     $flux = new SimpleXMLElement($content);
+    dd($flux);
 
     return View::make('pages.rss', compact('flux'));
 }
