@@ -93,8 +93,8 @@ class HomeController extends BaseController
     public function rss(){
         $f = FeedReader::read('https://news.google.com/news/rss');
 
-        echo $f->get_title();
-        echo $f->get_items()[0]->get_title();
+        // echo $f->get_title();
+        // echo $f->get_items()[0]->get_title();
         echo $f->get_items()[0]->get_content();
     }
 }
