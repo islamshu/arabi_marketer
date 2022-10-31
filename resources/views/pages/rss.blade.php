@@ -32,7 +32,7 @@ p {
 @php
     $i =0;
 @endphp
-{{ dd(($flux->channel->image->url)) }}
+{{ dd(($flux->channel->image->url[0])) }}
 @foreach ($flux->channel->item as $flu)
 <button class="btns" id="play-btn{{ $i }}">play</button>
 <p><a href="{{utf8_decode((string)$flu->enclosure['url'])}}" id="linkk{{ $i }}" target="_blank" rel="noopener">{{ $flu->title }}</a></p>
