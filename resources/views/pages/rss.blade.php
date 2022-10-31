@@ -5,7 +5,7 @@
 @foreach ($flux->channel->item as $flu)
     <article class="entry-item">
 
-        {{dd(utf8_decode((string)$flu->enclosure['url']))}}
+        <source src="https://feeds.soundcloud.com/stream/1371689950-ghandourpodcast-m3vyfsx9vxtf.mp3" type="audio/ogg">
         <source src="" type="audio/mpeg">
 
         <div class="entry-content">
