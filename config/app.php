@@ -178,7 +178,9 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\TelescopeServiceProvider::class,
         Dawson\Youtube\YoutubeServiceProvider::class,
-
+        Illuminate\Foundation\Providers\ArtisanServiceProvider::class,
+        Illuminate\Auth\AuthServiceProvider::class,
+        Vedmant\FeedReader\FeedReaderServiceProvider::class, // Add this line
     ],
 
     /*
@@ -233,6 +235,9 @@ return [
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         'Youtube' => Dawson\Youtube\Facades\Youtube::class,
         'Share' => Jorenvh\Share\ShareFacade::class,
+        'App'        => Illuminate\Support\Facades\App::class,
+        'Artisan'    => Illuminate\Support\Facades\Artisan::class,
+        'FeedReader' => Vedmant\FeedReader\Facades\FeedReader::class, // Add this line
 
     ],
 

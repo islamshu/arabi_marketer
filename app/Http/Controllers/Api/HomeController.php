@@ -24,6 +24,7 @@ use App\Models\AboutPage;
 use App\Models\Category;
 use App\Models\HowItWork;
 use App\Models\User;
+use FeedReader;
 
 class HomeController extends BaseController
 {
@@ -88,5 +89,12 @@ class HomeController extends BaseController
         // $array = [34,36];
         // dd($request->all());
 
+    }
+    public function rss(){
+        $f = FeedReader::read('https://news.google.com/news/rss');
+
+        echo $f->get_title();
+        echo $f->get_items()[0]->get_title();
+        echo $f->get_items()[0]->get_content();
     }
 }
