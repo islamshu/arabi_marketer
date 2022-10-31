@@ -101,9 +101,9 @@ class HomeController extends BaseController
     }
     public function rss()
 {
-    $content = file_get_contents('https://feeds.soundcloud.com/users/soundcloud:users:186745249/sounds.rss');
+    $content = file_get_contents('https://www.feedforall.com/blog-feed.xml');
     $flux = new SimpleXMLElement($content);
-    // dd($flux->channel);
+    dd($flux);
     foreach($flux->channel->item as $flu ){
         dd($flu);
     }
