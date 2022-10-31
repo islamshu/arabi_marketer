@@ -30,7 +30,7 @@ p {
 <x-base-layout>
 
 @php
-    $i +0;
+    $i =0;
 @endphp
 @foreach ($flux->channel->item as $key=>$flu)
 <button class="btns" id="play-btn{{ $i }}">play</button>
