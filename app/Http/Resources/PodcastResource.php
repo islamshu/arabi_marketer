@@ -41,6 +41,7 @@ class PodcastResource extends JsonResource
             dd($flu);
             $aa[$i]['title']=$flu->title;
             $aa[$i]['link']=utf8_decode((string)$flu->enclosure['url']);
+            $aa[$i]['auther']=$flu->itunes;
             $i++;
         }
         return $aa;
