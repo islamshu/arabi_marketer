@@ -18,6 +18,6 @@ class SoundController extends BaseController
         $sound->sound = $request->sound->store('sound');
         $sound->user_id = auth('api')->id();
         $sound->save();
-        return $this->sendResponse('success','success');
+        return asset('public/uploads/'.$sound->sound);
     }
 }
