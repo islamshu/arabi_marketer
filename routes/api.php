@@ -13,6 +13,7 @@ use App\Http\Controllers\Api\HomeController;
 use App\Http\Controllers\Api\MessageController;
 use App\Http\Controllers\Api\PodcastController;
 use App\Http\Controllers\Api\ServiceController;
+use App\Http\Controllers\Api\SoundController;
 use App\Http\Controllers\Api\TicketController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\VideoController;
@@ -123,6 +124,7 @@ Route::get('auth/facebook', [FacebookController::class, 'redirectToGoogle']);
 Route::get('facebook/callback', [FacebookController::class, 'handleGoogleCallback']);
 
 Route::group(['middleware' => 'is_login','middleware' => 'is_able_markter'], function () {
+    Route::post('/store_sound', [SoundController::class, 'store']);
 
     Route::post('/add_service', [ServiceController::class, 'store']);
     Route::post('/update_service', [ServiceController::class, 'update']);
