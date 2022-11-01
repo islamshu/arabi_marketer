@@ -13,6 +13,7 @@
             <item>
                 <title>{{ 'تجربة' }}</title>
                 <link>{{ asset('public/audio/'.$post->sound) }}</link>
+                <enclosure type="audio/mpeg" url="{{ asset('public/audio/'.$post->sound) }}" length=""/>
                 <description>{!! 'تجربة' !!}</description>
                 <author>{{ $user->name }}</author>
                 <guid>{{ $post->id }}</guid>
