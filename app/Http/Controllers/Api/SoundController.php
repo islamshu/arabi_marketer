@@ -17,7 +17,7 @@ class SoundController extends BaseController
             'sound' => 'mimes:mp3',
         ]);
 
-        $music_file = Input::file($request->sound);
+        $music_file = $request->sound;
         $sound = new Sound();
 
         if (isset($music_file)) {
