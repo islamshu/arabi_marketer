@@ -32,9 +32,8 @@ class SoundController extends BaseController
         }
     }
     public function rss_feed($id){
-        dd($id);
         $user = User::find($id);
-        if($user->type != 'markter'){
+        if($user->type != 'marketer'){
             $this->sendError('هناك خطأ');
         }else{
             $sound = Sound::where('user_id',$user->id)->get();
