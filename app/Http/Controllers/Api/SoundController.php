@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Validator;
 use App\Http\Controllers\Api\BaseController;
 use App\Models\Sound;
+use App\Models\User;
 use Symfony\Component\Console\Input\Input;
 
 class SoundController extends BaseController
@@ -28,6 +29,15 @@ class SoundController extends BaseController
             $sound->user_id = auth('api')->id();
             $sound->save();
             return $sound;
+        }
+    }
+    public function rss_feed($id){
+        $user = User::find($id);
+        if($user->type != 'markter'){
+            $this->sendError('هناك خطأ');
+        }else{
+            $sound = Sound::where('user_id',$user->id)->get();
+            return view('pages.rss')->with('sounds',$sound)->with('user',$user);
         }
     }
 }
