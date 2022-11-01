@@ -11,10 +11,10 @@
   
         @foreach($sounds as $post)
             <item>
-                <title><![CDATA[{{ 'تجربة' }}]]></title>
+                <title>{{ 'تجربة' }}</title>
                 <link>{{ asset('public/audio/'.$post->sound) }}</link>
-                <description><![CDATA[{!! 'تجربة' !!}]]></description>
-                <author><![CDATA[{{ $user->name }}]]></author>
+                <description>{!! 'تجربة' !!}</description>
+                <author>{{ $user->name }}</author>
                 <guid>{{ $post->id }}</guid>
                 <pubDate>{{ $post->created_at->toRssString() }}</pubDate>
             </item>
