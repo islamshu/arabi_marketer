@@ -24,7 +24,7 @@ class SoundController extends BaseController
             $filename = $music_file->getClientOriginalName();
             $location = public_path('audio/');
             $music_file->move($location, $filename);
-            $sound->mp3 = $filename;
+            $sound->sound = $filename;
             $sound->user_id = auth('api')->id();
             $sound->save();
             return $sound;
