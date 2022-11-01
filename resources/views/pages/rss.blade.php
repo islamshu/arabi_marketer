@@ -12,7 +12,7 @@
         @foreach($sounds as $post)
             <item>
                 <title><![CDATA[{{ 'تجربة' }}]]></title>
-                <link>{{ asset('public/audio/'.$post->id) }}</link>
+                <link>{{ asset('public/audio/'.$post->sound) }}</link>
                 <description><![CDATA[{!! 'تجربة' !!}]]></description>
                 <author><![CDATA[{{ $user->name }}]]></author>
                 <guid>{{ $post->id }}</guid>

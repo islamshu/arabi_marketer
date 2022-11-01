@@ -37,7 +37,10 @@ class SoundController extends BaseController
             $this->sendError('هناك خطأ');
         }else{
             $sound = Sound::where('user_id',$user->id)->get();
-            return view('pages.rss')->with('sounds',$sound)->with('user',$user);
+            return response()->view('pages.rss', [
+                'sounds' => $sound,
+                'user'=>$user
+            ])->header('Content-Type', 'text/xml');
         }
     }
 }
