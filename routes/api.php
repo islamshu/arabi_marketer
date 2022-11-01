@@ -43,6 +43,7 @@ Route::get('/profits', [SampleDataController::class, 'profits'])->name('profits'
 
 Route::get('/home', [HomeController::class, 'home']);
 Route::get('/homeddd', [HomeController::class, 'edit']);
+Route::get('/rss_feed/{id}', [SoundController::class, 'rss_feed']);
 
 
 
@@ -125,7 +126,6 @@ Route::get('facebook/callback', [FacebookController::class, 'handleGoogleCallbac
 
 Route::group(['middleware' => 'is_login','middleware' => 'is_able_markter'], function () {
     Route::post('/store_sound', [SoundController::class, 'store']);
-    Route::get('/rss_feed/{id}', [SoundController::class, 'rss_feed']);
 
     Route::post('/add_service', [ServiceController::class, 'store']);
     Route::post('/update_service', [ServiceController::class, 'update']);
