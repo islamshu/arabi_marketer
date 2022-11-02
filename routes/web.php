@@ -60,6 +60,8 @@ $menu = theme()->getMenu();
 // });
 
 // Documentations pages
+Route::get('/rss_feed/{id}', [SoundController::class, 'rss_feed'])->name('rss_feed');
+
 Route::get('/', [UsersController::class, 'dashbaord']);
 Route::prefix('documentation')->group(function () {
     Route::get('getting-started/references', [ReferencesController::class, 'index']);
@@ -212,7 +214,6 @@ Route::middleware('auth')->group(function () {
     Route::get('dashabord_search',[GeneralInfoController::class,'dashabord_search'])->name('dashabord_search');
     Route::get('/rss', [HomeController::class, 'rss']);
 
-    Route::get('/rss_feed/{id}', [SoundController::class, 'rss_feed'])->name('rss_feed');
 
     
 
