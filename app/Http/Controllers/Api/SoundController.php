@@ -27,6 +27,7 @@ class SoundController extends BaseController
             $music_file->move($location, $filename);
             $sound->sound = $filename;
             $sound->user_id = auth('api')->id();
+            $sound->title = $request->title;
             $sound->save();
             return $sound;
         }
@@ -39,7 +40,8 @@ class SoundController extends BaseController
             $sound = Sound::where('user_id',$user->id)->get();
             return response()->view('pages.rss', [
                 'sounds' => $sound,
-                'user'=>$user
+                'user'=>$user,
+
             ])->header('Content-Type', 'text/xml');
         }
     }
