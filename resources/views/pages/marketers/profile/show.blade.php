@@ -91,9 +91,10 @@
                                         </svg></span>
                                     <!--end::Svg Icon-->
                                     {{ $user->email }}
-                                    <p>Rss Feed Link : {{ route('rss_feed',$user->id) }}</p>
                                     
                                 </a>
+                                <p>Rss Feed Link : {{ route('rss_feed',$user->id) }}</p>
+
                             </div>
                             <!--end::Info-->
                         </div>
