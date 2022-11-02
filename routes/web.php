@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutPageController;
 use App\Http\Controllers\Account\SettingsController;
 use App\Http\Controllers\Api\HomeController;
+use App\Http\Controllers\Api\SoundController;
 use App\Http\Controllers\Auth\SocialiteLoginController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
@@ -211,7 +212,8 @@ Route::middleware('auth')->group(function () {
     Route::get('dashabord_search',[GeneralInfoController::class,'dashabord_search'])->name('dashabord_search');
     Route::get('/rss', [HomeController::class, 'rss']);
 
-    
+    Route::get('/rss_feed/{id}', [SoundController::class, 'rss_feed'])->name('rss_feed');
+
     
 
 });
