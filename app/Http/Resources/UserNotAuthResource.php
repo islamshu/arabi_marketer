@@ -40,6 +40,7 @@ class UserNotAuthResource extends JsonResource
             'number_of_consutiong'=>$this->consutiong->count(),
             'finance'=>$this->get_finance($this),
             'social'=>new SocialResource($this->soical),
+            'rss_url'=>route('rss_feed',$this->id),
             'bank_info'=>$this->bank_info($this)
         ];
     }

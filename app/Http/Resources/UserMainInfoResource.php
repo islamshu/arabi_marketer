@@ -24,6 +24,7 @@ class UserMainInfoResource extends JsonResource
         'first_name'=>$this->first_name,
         'type'=>$this->type,
         'types'=>$this->get_type($this),
+        'rss_url'=>route('rss_feed',$this->id),
 
         'last_name'=>$this->last_name,
         'number_of_blogs'=>$this->blogs->count(),

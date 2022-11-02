@@ -37,7 +37,7 @@ class UserResource extends JsonResource
         'number_of_consutiong'=>$this->consutiong->count(),
         'finance'=>$this->get_finance($this),
         'types'=>$this->get_type($this),
-
+        'rss_url'=>route('rss_feed',$this->id),
         'token'=>$this->createToken('Personal Access Token')->accessToken,
        ];
     }
