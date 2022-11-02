@@ -116,6 +116,7 @@ class ConsultationController extends BaseController
             return $this->sendError($validation->messages()->all());
         }
         $con= Consulting::find($id);
+        dd($con);
         $con ->update([
             'title' => $request->title,
             'description' => $request->description,
