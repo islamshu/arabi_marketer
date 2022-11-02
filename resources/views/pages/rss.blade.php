@@ -3,15 +3,15 @@
 ?>
 <rss version="2.0">
     <channel>
-        <title><![CDATA[ ItSolutionStuff.com ]]></title>
-        <link><![CDATA[ https://your-website.com/feed ]]></link>
-        <description><![CDATA[ Your website description ]]></description>
+        <title>sub.arabicreators.com</title>
+        <link>sub.arabicreators.com</link>
+        <description>arabicreators</description>
         <language>en</language>
         <pubDate>{{ now() }}</pubDate>
   
         @foreach($sounds as $post)
             <item>
-                <title>{{ 'تجربة' }}</title>
+                <title>{{ $post->title }}</title>
                 <link>{{ asset('public/audio/'.$post->sound) }}</link>
                 <enclosure type="audio/mpeg" url="{{ asset('public/audio/'.$post->sound) }}" length=""/>
                 <description>{!! 'تجربة' !!}</description>
