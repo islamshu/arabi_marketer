@@ -58,7 +58,7 @@
                             <!--end::Name-->
 
                             <!--begin::Info-->
-                            <div class="d-flex flex-wrap fw-bold fs-6 mb-4 pe-2">
+                            <div class="">
                                 <a href="#"
                                     class="d-flex align-items-center text-gray-400 text-hover-primary me-5 mb-2">
                                     <!--begin::Svg Icon | path: assets/media/icons/duotune/communication/com006.svg-->
