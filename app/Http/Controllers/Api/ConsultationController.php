@@ -99,6 +99,10 @@ class ConsultationController extends BaseController
     }
     public function update(Request $request,$id)
     {
+        $con= Consulting::find($id);
+        if(!$con){
+            return $this->sendError('لم يتم العثور على الاستشارة');
+        }
         $validation = Validator::make($request->all(), [
             'title' => 'required',
             'description' => 'required',
@@ -116,7 +120,6 @@ class ConsultationController extends BaseController
             return $this->sendError($validation->messages()->all());
         }
         $con= Consulting::find($id);
-        return ($con);
         $con ->update([
             'title' => $request->title,
             'description' => $request->description,
