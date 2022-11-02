@@ -3,7 +3,7 @@
 ?>
 <rss version="2.0">
     <channel>
-        <title>sub.arabicreators.com</title>
+        <title>{{ $user->first_name }} {{ $user->last_name }}</title>
         <link>sub.arabicreators.com</link>
         <description>arabicreators</description>
         <language>en</language>
