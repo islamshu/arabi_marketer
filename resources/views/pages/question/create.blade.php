@@ -100,7 +100,7 @@
                         </div>
                         <br>
                         <button type="button" name="add"
-                            class="btn btn-success add_row for-more">{{ __('Add more') }}</button>
+                            class="btn btn-success add_row for-more">{{ __('اضف المزيد من الخيارات') }}</button>
 
 
                        
@@ -154,7 +154,7 @@
                         </div>
                     </div>
                     <div class="col-xl-6">
-                        <button type="button" class="remove_button btn btn-danger " style="margin-top:3%" title="Remove field">Remove</button>
+                        <button type="button" class="remove_button btn btn-danger " style="margin-top:3%" title="Remove field">حذف</button>
 
                         </div>
 
