@@ -56,14 +56,14 @@
                     <div class="form-group col-md-8">
                         <label for="email"> السؤال : <span class="required"></span></label>
                         <input type="text" name="title" required class="form-control"
-                            value="{{ old('title')}}" id="title">
+                            value="{{ $question->title}}" id="title">
                     </div>
                     <div class="form-group col-md-4">
                         <label for="email"> نوع الاجبة  : <span class="required"></span></label>
                         <select name="type" class="form-control" id="">
                             <option value="" selected disabled>اختيار  </option>
-                            <option value="single">اختيار خيار واحد</option>
-                            <option value="multi">اختيار عدة خيارات </option>
+                            <option value="single" @if($question->type == 'single' selected) @endif>اختيار خيار واحد</option>
+                            <option value="multi" @if($question->type == 'single' selected) @endif>اختيار عدة خيارات </option>
                         </select>
                     </div>
                     <div id="car_parent">
