@@ -39,4 +39,8 @@ class QuastionController extends Controller
 
         return redirect()->route('quastions.index');
     }
+    public function edit($id){
+        return view('pages.question.edit')->with('question',Quastion::find($id));
+
+    }
 }
