@@ -64,7 +64,7 @@
                         <select name="type_answer" class="form-control" id="">
                             <option value="" selected disabled>اختيار  </option>
                             <option value="single" @if($question->type == 'single' ) selected @endif>اختيار خيار واحد</option>
-                            <option value="multi" @if($question->type == 'single' ) selected @endif>اختيار عدة خيارات </option>
+                            <option value="multi" @if($question->type == 'multi' ) selected @endif>اختيار عدة خيارات </option>
                         </select>
                     </div>
                     <div id="car_parent">
