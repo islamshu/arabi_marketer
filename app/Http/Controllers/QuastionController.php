@@ -53,8 +53,8 @@ class QuastionController extends Controller
         $question->type = $request->type;
         $question->save();
         if (is_array($request->addmore) || is_object($request->addmore)) {
-            if($question->addmore->count() != 0){
-                foreach($question->addmore as $ff){
+            if($question->answers->count() != 0){
+                foreach($question->answers as $ff){
                     $ff->delete();
                 }
             }
