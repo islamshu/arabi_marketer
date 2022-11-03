@@ -47,7 +47,7 @@
             </ul>
 
 
-            <form id="edit_form_new" style="direction: rtl">
+            <form id="edit_form_new" method="post" action="{{ route('quastions.store') }}" style="direction: rtl">
                 @csrf
             
                 
@@ -124,6 +124,10 @@
     </div>
 
 </x-base-layout>
+@include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+
 @section('scripts')
     
 <script type="text/javascript">
