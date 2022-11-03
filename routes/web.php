@@ -23,6 +23,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PlacetypeController;
 use App\Http\Controllers\PodacstController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QuastionController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\SpecialtyController;
@@ -197,7 +198,7 @@ Route::middleware('auth')->group(function () {
 
     
     Route::resource('orders',OrderController::class);
-
+    Route::resource('quastions',QuastionController::class);
     Route::resource('podcasts',PodacstController::class);
     Route::resource('videos', VideoController::class);
     Route::resource('consloution', ConsultingController::class);
