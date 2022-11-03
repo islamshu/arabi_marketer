@@ -66,6 +66,67 @@
                             <option value="multi">اختيار عدة خيارات </option>
                         </select>
                     </div>
+                    <div id="car_parent">
+
+
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-xl-4">
+                                    <div class="form-group">
+                                        <label>العنوان بالعربية:</label>
+                                        <input type="text"
+                                            class="form-control form-control-solid form-control-lg name_ar_offer"
+                                            id="name_ar_offer" name="addmore[0][title_ar]" required />
+
+                                    </div>
+                                </div>
+                                <!--end::Input-->
+                                <!--begin::Input-->
+                                <div class="col-xl-4">
+                                    <div class="form-group">
+                                        <label>العنوان بالانجليزية:</label>
+                                        <input type="text"
+                                            class="form-control form-control-solid form-control-lg"
+                                            id="name_en" name="addmore[0][title_en]" required />
+
+                                    </div>
+                                </div>
+                                <div class="col-xl-4">
+                                    <div class="form-group">
+                                        <label>الأيقونة</label>
+                                        <input type="text"
+                                            class="form-control form-control-solid form-control-lg"
+                                            id="name_en" name="addmore[0][icon]" required />
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+                        </div>
+
+                        <div id="extra">
+
+
+
+
+
+                        </div>
+                        <br>
+                        <button type="button" name="add"
+                            class="btn btn-success add_row for-more">{{ __('Add more') }}</button>
+
+
+                        <div class="form-actions left">
+
+                            <button type="submit" class="btn btn-primary">
+                                <i class="la la-check-square-o"></i> {{ __('حفظ') }}
+                            </button>
+                        </div>
+                    </div>
 
             
             
@@ -85,6 +146,86 @@
     </div>
 
 </x-base-layout>
+@section('scripts')
+    
+<script type="text/javascript">
+    $(document).ready(function() {
+        var i = 1;
+        $('.add_row').on('click', function() {
+            addRow();
+        });
+
+        function addRow() {
+            ++i;
+            const sum = i + 1;
+
+
+
+            let form = `
+                <span class="test">
+                <div class="card-body" >
+                    <div class="row">
+                    <div class="col-xl-4">
+                        <div class="form-group">
+                            <label>العنوان بالعربية:</label>
+                            <input type="text"
+                                class="form-control form-control-solid form-control-lg name_ar_offer"
+                                id="name_ar_offer" name="addmore[` + i + `][title_ar]" required
+                                />
+                            
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4">
+                        <div class="form-group">
+                            <label>العنوان بالانجليزية:</label>
+                            <input type="text" class="form-control form-control-solid form-control-lg"
+                                id="name_en" name="addmore[` + i + `][title_en]" required
+                                />
+                            
+                        </div>
+                    </div>
+                    <div class="col-xl-4">
+                        <div class="form-group">
+                            <label>الأيقونة</label>
+                            <input type="text" class="form-control form-control-solid form-control-lg"
+                                id="name_en" name="addmore[` + i + `][icon]" required
+                                />
+                            
+                        </div>
+                    </div>
+                </div>
+
+
+
+                </div>
+                <button type="button" class="remove_button btn btn-danger " title="Remove field">Remove</button>
+                </span>
+                `;
+            $('#extra').append(form);
+            var wrapper = $('#extra');
+            $(wrapper).on('click', '.remove_button', function(e) {
+                e.preventDefault();
+                $(this).parent('span').remove();
+
+            });
+
+            // $(wrapper1).on('click', '.remove_button_old', function (e) {
+            //     alert('d');
+            //         e.preventDefault();
+            // $(this).parent('span').remove();
+
+            // });
+        }
+        var wrapper1 = $('#partent');
+        $(wrapper1).on('click', '.remove_button_old', function(e) {
+            e.preventDefault();
+            $(this).parent('span').remove();
+        });
+    });
+</script>
+@endsection
+
 
 
 
