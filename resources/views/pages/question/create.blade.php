@@ -159,8 +159,8 @@
 
 
 
-                </div>
                 <button type="button" class="remove_button btn btn-danger " title="Remove field">Remove</button>
+                </div>
                 </span>
                 `;
             $('#extra').append(form);
