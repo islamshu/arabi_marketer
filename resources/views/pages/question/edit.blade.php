@@ -170,7 +170,7 @@
     
 <script type="text/javascript">
     $(document).ready(function() {
-        var i = 1;
+        var i = {{ $question->answers->count() }} - 1;
         $('.add_row').on('click', function() {
             addRow();
         });
