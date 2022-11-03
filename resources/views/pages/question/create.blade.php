@@ -145,7 +145,7 @@
                     <div class="row">
                     <div class="col-xl-6">
                         <div class="form-group">
-                            <label>العنوان بالعربية:</label>
+                            <label>الاجابة :</label>
                             <input type="text"
                                 class="form-control form-control-solid form-control-lg name_ar_offer"
                                 id="name_ar_offer" name="addmore[` + i + `][answer]" required
