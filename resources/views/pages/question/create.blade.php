@@ -71,35 +71,18 @@
 
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-xl-4">
+                                <div class="col-xl-6">
                                     <div class="form-group">
-                                        <label>العنوان بالعربية:</label>
+                                        <label>الاجابة  :</label>
                                         <input type="text"
                                             class="form-control form-control-solid form-control-lg name_ar_offer"
-                                            id="name_ar_offer" name="addmore[0][title_ar]" required />
+                                            id="name_ar_offer" required name="addmore[0][answer]" required />
 
                                     </div>
                                 </div>
                                 <!--end::Input-->
                                 <!--begin::Input-->
-                                <div class="col-xl-4">
-                                    <div class="form-group">
-                                        <label>العنوان بالانجليزية:</label>
-                                        <input type="text"
-                                            class="form-control form-control-solid form-control-lg"
-                                            id="name_en" name="addmore[0][title_en]" required />
-
-                                    </div>
-                                </div>
-                                <div class="col-xl-4">
-                                    <div class="form-group">
-                                        <label>الأيقونة</label>
-                                        <input type="text"
-                                            class="form-control form-control-solid form-control-lg"
-                                            id="name_en" name="addmore[0][icon]" required />
-
-                                    </div>
-                                </div>
+                               
                             </div>
 
 
@@ -170,30 +153,13 @@
                             <label>العنوان بالعربية:</label>
                             <input type="text"
                                 class="form-control form-control-solid form-control-lg name_ar_offer"
-                                id="name_ar_offer" name="addmore[` + i + `][title_ar]" required
+                                id="name_ar_offer" name="addmore[` + i + `][answer]" required
                                 />
                             
                         </div>
                     </div>
 
-                    <div class="col-xl-4">
-                        <div class="form-group">
-                            <label>العنوان بالانجليزية:</label>
-                            <input type="text" class="form-control form-control-solid form-control-lg"
-                                id="name_en" name="addmore[` + i + `][title_en]" required
-                                />
-                            
-                        </div>
-                    </div>
-                    <div class="col-xl-4">
-                        <div class="form-group">
-                            <label>الأيقونة</label>
-                            <input type="text" class="form-control form-control-solid form-control-lg"
-                                id="name_en" name="addmore[` + i + `][icon]" required
-                                />
-                            
-                        </div>
-                    </div>
+                    
                 </div>
 
 
