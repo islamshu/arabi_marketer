@@ -35,7 +35,7 @@ class QuastionController extends Controller
                 ]);
             }
         }
-        Alert::success('Success', 'Video Uploded successfully');
+        Alert::success('Success', 'تم اضافة السؤال بنجاح');
 
         return redirect()->route('quastions.index');
     }
@@ -67,7 +67,13 @@ class QuastionController extends Controller
                 ]);
             }
         }
-        Alert::success('Success', 'Video Uploded successfully');
+        Alert::success('Success', 'تم تعديل السؤال بنجاح');
+
+        return redirect()->route('quastions.index');
+    }
+    public function destroy($id){
+        Quastion::find($id)->delete();
+        Alert::success('Success', 'تم حذف السؤال بنجاح');
 
         return redirect()->route('quastions.index');
     }
