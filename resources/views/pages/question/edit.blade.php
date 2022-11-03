@@ -74,7 +74,7 @@
                                 <span>
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-xl-4">
+                                            <div class="col-xl-6">
                                                 <div class="form-group">
                                                     <label>الاجابة :</label>
                                                     <input type="text"
@@ -87,7 +87,7 @@
                                                 </div>
                                             </div>
                                             @if($key != 0)
-                                            <div class="col-xl-4">
+                                            <div class="col-xl-6">
 
                                             <button type="button" class="remove_button_old btn btn-danger "
                                         title="Remove field">Remove</button>
