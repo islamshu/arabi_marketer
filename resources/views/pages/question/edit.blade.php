@@ -86,14 +86,19 @@
 
                                                 </div>
                                             </div>
+                                            @if($key != 0)
+                                            <div class="col-xl-4">
+
+                                            <button type="button" class="remove_button_old btn btn-danger "
+                                        title="Remove field">Remove</button>
+                                            </div>
                                             <!--end::Input-->
                                             <!--begin::Input-->
                                             
                                         </div>
                                     </div>
 
-                                    <button type="button" class="remove_button_old btn btn-danger "
-                                        title="Remove field">Remove</button>
+                                    
 
                                 </span>
                             @endforeach
