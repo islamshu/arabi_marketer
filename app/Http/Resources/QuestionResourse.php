@@ -14,11 +14,10 @@ class QuestionResourse extends JsonResource
      */
     public function toArray($request)
     {
-        dd($this);
         return [
-            'title' => $this->title,
-            'type'=>$this->type,
-            'answer'=>$this->answers
+            'title' => @$this->title,
+            'type'=>@$this->type,
+            'answer'=>@$this->answers
         ];
     }
 }
