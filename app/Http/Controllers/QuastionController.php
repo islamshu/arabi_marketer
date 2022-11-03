@@ -44,11 +44,10 @@ class QuastionController extends Controller
     }
     public function update(Request $request,$id)
     {
-        dd($request->all());
 
         $request->validate([
             'title' => 'required',
-            // 'type' => 'required',
+            'type_answer' => 'required',
         ]);
         $question = Quastion::find($id);
         $question->title = $request->title;
