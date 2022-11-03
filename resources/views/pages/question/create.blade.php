@@ -171,7 +171,7 @@
             var wrapper = $('#extra');
             $(wrapper).on('click', '.remove_button', function(e) {
                 e.preventDefault();
-                $(this).parent('span').remove();
+                $(this).parent('div').remove();
 
             });
 
@@ -185,7 +185,7 @@
         var wrapper1 = $('#partent');
         $(wrapper1).on('click', '.remove_button_old', function(e) {
             e.preventDefault();
-            $(this).parent('span').remove();
+            $(this).parent('div').remove();
         });
     });
 </script>
