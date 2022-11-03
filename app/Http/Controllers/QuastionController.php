@@ -44,7 +44,7 @@ class QuastionController extends Controller
     }
     public function update(Request $request,$id)
     {
-        dd($request->addmore);
+        dd($request);
 
         $request->validate([
             'title' => 'required',
