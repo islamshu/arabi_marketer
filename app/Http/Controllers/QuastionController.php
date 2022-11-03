@@ -44,6 +44,8 @@ class QuastionController extends Controller
     }
     public function update(Request $request,$id)
     {
+        dd($request->addmore);
+
         $request->validate([
             'title' => 'required',
             'type' => 'required',
@@ -52,7 +54,6 @@ class QuastionController extends Controller
         $question->title = $request->title;
         $question->type = $request->type;
         $question->save();
-        dd($request->addmore);
         if (is_array($request->addmore) || is_object($request->addmore)) {
 
             if($question->answers->count() != 0){
