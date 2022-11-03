@@ -148,7 +148,7 @@
                 <span class="test">
                 <div class="card-body" >
                     <div class="row">
-                    <div class="col-xl-4">
+                    <div class="col-xl-6">
                         <div class="form-group">
                             <label>العنوان بالعربية:</label>
                             <input type="text"
