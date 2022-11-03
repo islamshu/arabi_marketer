@@ -185,7 +185,7 @@
         var wrapper1 = $('#partent');
         $(wrapper1).on('click', '.remove_button_old', function(e) {
             e.preventDefault();
-            $(this).parent('div').remove();
+            $(this).parent('div').parent('div').remove();
         });
     });
 </script>
