@@ -27,12 +27,9 @@ class CartController extends BaseController
         if ($validation->fails()) {
             return $this->sendError($validation->messages()->all());
         }
-        if($request->type == 'service'){
-            $service = Service::find($request->service_id);
-        }else{
-            $service = Consulting::find($request->service_id);
-            
-        }
+        $service = Service::find($request->service_id);
+
+        
 
         if(!$service){
             return $this->sendError('الخدمة غير متوفرة');
@@ -47,7 +44,7 @@ class CartController extends BaseController
         $cart->user_id = auth('api')->id();
         $cart->owner_id = $service->user_id;
         $cart->service_id = $service->id;
-        $cart->type =$request->type;
+        $cart->type ='service';
         $cart->price = $service->price;
         // $cart->more_data = $data_send;
         $cart->save();
