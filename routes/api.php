@@ -84,10 +84,12 @@ Route::group(['middleware' => 'is_login','middleware' => 'Is_markter'], function
     Route::get('/my_podcasts', [UserController::class, 'get_podcasts']);
     Route::get('/get_videos', [UserController::class, 'get_videos']);
     Route::get('/get_consultations', [UserController::class, 'get_consultations']);
-
-  
-
 });
+Route::get('/markter_blogs/{id}', [UserController::class, 'get_markter_blog']);
+Route::get('/markter_services/{id}', [UserController::class, 'get_markter_service']);
+Route::get('/markter_podcasts/{id}', [UserController::class, 'get_markter_podcasts']);
+Route::get('/markter_videos/{id}', [UserController::class, 'get_markter_videos']);
+Route::get('/markter_consultations/{id}', [UserController::class, 'get_markter_consultations']);
 
 Route::get('/type_of_user', [UserController::class, 'type_of_user']);
 //end profile

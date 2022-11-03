@@ -226,6 +226,7 @@ class UserController extends BaseController
         return $this->sendResponse($res, 'جميع المقالات');
         // return ['success'=>true,'blogs'=>BlogResource::collection($blogs)->response()->getData(true),'message'=>'جميع المقالات'];
     }
+
     public function get_consultations()
     {
         $cons = Consulting::where('user_id',auth('api')->id())->orderby('id', 'desc')->paginate(5);
@@ -286,4 +287,35 @@ class UserController extends BaseController
         return $this->sendResponse($res,'جميع الطلبات');
 
      }
+     
+     public function get_markter_blog($id)
+{
+    $blogs = Blog::where('user_id',$id)->orderBy('id', 'desc')->paginate(5);
+    $res = BlogResource::collection($blogs)->response()->getData(true);
+    return $this->sendResponse($res, 'جميع المقالات');
+    // return ['success'=>true,'blogs'=>BlogResource::collection($blogs)->response()->getData(true),'message'=>'جميع المقالات'];
+}
+
+public function get_markter_consultations($id)
+{
+    $cons = Consulting::where('user_id',$id)->orderby('id', 'desc')->paginate(5);
+    $res = ConsultingResource::collection($cons)->response()->getData(true);
+    return $this->sendResponse($res, 'جميع الاستشارات');
+}
+public function get_markter_videos($id)
+{
+    $cons = Video::where('user_id',$id)->orderby('id', 'desc')->paginate(5);
+    $res = VideoResource::collection($cons)->response()->getData(true);
+    return $this->sendResponse($res, 'جميع الاستشارات');
+}
+public function get_markter_service($id){
+    $service = Service::where('user_id',$id)->orderby('id','desc')->paginate(5);
+    $res = ServiceResource::collection($service)->response()->getData(true);
+     return $this->sendResponse($res,'جميع الخدمات  ');
+ }
+ public function get_markter_podcasts($id){
+    $service = Podacst::where('user_id',$id)->orderby('id','desc')->paginate(5);
+    $res = PodcastResource::collection($service)->response()->getData(true);
+     return $this->sendResponse($res,'جميع البدوكاست  ');
+ }
 }

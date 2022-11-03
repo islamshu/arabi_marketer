@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\Followr;
+use App\Models\Service;
 use Arr;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -41,9 +42,19 @@ class UserNotAuthResource extends JsonResource
             'finance'=>$this->get_finance($this),
             'social'=>new SocialResource($this->soical),
             'rss_url'=>route('rss_feed',$this->id),
+            'services'=>$this->get_service($this),
+            // 'blogs'=>get_blog(),
+            // 'podcasts'=>get_podcasts(),
+            // 'videos'=>get_videos(),
+
             'bank_info'=>$this->bank_info($this)
         ];
     }
+     function get_service($data){
+        $service = Service::where('user_id',$data->id)->orderby('id','desc')->paginate(5);
+        $res = ServiceResource::collection($service)->response()->getData(true);
+        return $res;
+     }
     function bank_info($data)
     {
        $datainfo= $data->bank_info;
