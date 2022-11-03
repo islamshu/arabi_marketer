@@ -47,7 +47,7 @@
             </ul>
 
 
-            <form id="edit_form_new">
+            <form id="edit_form_new" style="direction: rtl">
                 @csrf
             
                 
@@ -103,12 +103,7 @@
                             class="btn btn-success add_row for-more">{{ __('Add more') }}</button>
 
 
-                        <div class="form-actions left">
-
-                            <button type="submit" class="btn btn-primary">
-                                <i class="la la-check-square-o"></i> {{ __('حفظ') }}
-                            </button>
-                        </div>
+                       
                     </div>
 
             
