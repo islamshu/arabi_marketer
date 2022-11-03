@@ -47,8 +47,9 @@
             </ul>
 
 
-            <form id="edit_form_new" method="post" action="{{ route('quastions.store') }}" style="direction: rtl">
+            <form id="edit_form_new" method="post" action="{{ route('quastions.update') }}" style="direction: rtl">
                 @csrf
+                @method('put')
             
                 
                 <div class="row">

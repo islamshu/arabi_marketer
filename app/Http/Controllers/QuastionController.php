@@ -41,6 +41,32 @@ class QuastionController extends Controller
     }
     public function edit($id){
         return view('pages.question.edit')->with('question',Quastion::find($id));
+    }
+    public function update(Request $request,$id)
+    {
+        $request->validate([
+            'title' => 'required',
+            'type' => 'required',
+        ]);
+        $question = Quastion::find($id);
+        $question->title = $request->title;
+        $question->type = $request->type;
+        $question->save();
+        if (is_array($request->addmore) || is_object($request->addmore)) {
+            if($question->addmore->count() != 0){
+                foreach($question->addmore as $ff){
+                    $ff->delete();
+                }
+            }
+            foreach ($request->addmore as $key => $value) {
+                $blog = Answer::create([
+                    'quastion_id'    => $question->id,
+                    'title' => $value['answer'],
+                ]);
+            }
+        }
+        Alert::success('Success', 'Video Uploded successfully');
 
+        return redirect()->route('quastions.index');
     }
 }
