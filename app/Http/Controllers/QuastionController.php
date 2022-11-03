@@ -52,7 +52,9 @@ class QuastionController extends Controller
         $question->title = $request->title;
         $question->type = $request->type;
         $question->save();
+        dd($request->addmore);
         if (is_array($request->addmore) || is_object($request->addmore)) {
+
             if($question->answers->count() != 0){
                 foreach($question->answers as $ff){
                     $ff->delete();
