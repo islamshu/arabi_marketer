@@ -51,7 +51,7 @@ class QuastionController extends Controller
         ]);
         $question = Quastion::find($id);
         $question->title = $request->title;
-        $question->type = $request->type;
+        $question->type = $request->type_answer;
         $question->save();
         if (is_array($request->addmore) || is_object($request->addmore)) {
 
