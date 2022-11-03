@@ -60,8 +60,8 @@
 
                             <td>{{ $item->title }}</td>
                             <td>
-                                <a href="{{ route('marketer.show', $item->id) }}" class="btn btn-success"><i
-                                        class="fa fa-eye"></i></a>
+                                <a href="{{ route('quastions.edit', $item->id) }}" class="btn btn-success"><i
+                                        class="fa fa-edit"></i></a>
                             <td>
 
                             </td>
