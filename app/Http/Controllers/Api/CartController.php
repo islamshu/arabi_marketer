@@ -94,4 +94,31 @@ class CartController extends BaseController
         return $this->sendResponse('checkout','Added succeffuly');
 
     }
+    public function checkout_cons(Request $request){
+        $service = Consulting::find($request->consult_id);
+
+        if(!$service){
+            return $this->sendError('الاستشارة غير متوفرة');
+        }
+        if($request->date == null || $request->time == null){
+            return $this->sendError('اليوم والتاريخ لحجز الاستشارة مطلوب !');
+        }
+        if(strpos($request->time,",") !== false){
+            list($d, $l) = explode(',', $request->time, 2);
+        }else{
+            return $this->sendError('وقت البداية والنهاية مكتوب بشكل خاطيء !');
+        
+        }
+        $time = explode(',',$request->time);
+        $from = $time[0];
+        $to = $time[1];
+        $is_exisit=  $service->date->where('day',$request->date)->where('from',$from)->where('to',$to)->first();
+        if($is_exisit == null){
+        return $this->sendError(' لا يوجد وقت للاستشارة متاح بهذه الاوقات يرجى التأكد من الاوقات وكتابتهم بشكل صحيح');
+        }
+        $date['day']=$request->date;
+        $date['form']=$from;
+        $date['to']=$to;
+        $data_send = json_encode($date);
+    }
 }
