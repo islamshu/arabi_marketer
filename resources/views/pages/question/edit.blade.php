@@ -92,6 +92,8 @@
                                             <button type="button" class="remove_button_old btn btn-danger "
                                         title="Remove field">Remove</button>
                                             </div>
+                                            @endif
+                                            
                                             <!--end::Input-->
                                             <!--begin::Input-->
                                             
