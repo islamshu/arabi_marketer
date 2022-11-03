@@ -115,6 +115,7 @@ class HomeController extends BaseController
     public function questions()
     {
         $questions = Quastion::orderby('id','desc')->get();
+        dd($questions);
         $res = new QuestionResourse($questions);
         return $this->sendResponse($res, 'all question');
 
