@@ -153,13 +153,17 @@
                             
                         </div>
                     </div>
+                    <div class="col-xl-6">
+                        <button type="button" class="remove_button btn btn-danger " title="Remove field">Remove</button>
+
+                        </div>
+
 
                     
                 </div>
 
 
 
-                <button type="button" class="remove_button btn btn-danger " title="Remove field">Remove</button>
                 </div>
                 </span>
                 `;
