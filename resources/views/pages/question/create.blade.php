@@ -60,13 +60,13 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label for="email"> نوع الاجبة  : <span class="required"></span></label>
-                        <select name="type" id="">
+                        <select name="type" class="form-control" id="">
                             <option value="" selected disabled>اختيار  </option>
                             <option value="single">اختيار خيار واحد</option>
                             <option value="multi">اختيار عدة خيارات </option>
                         </select>
                     </div>
-                    
+
             
             
             
