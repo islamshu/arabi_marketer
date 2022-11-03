@@ -45,6 +45,7 @@ Route::get('/home', [HomeController::class, 'home']);
 Route::get('/homeddd', [HomeController::class, 'edit']);
 Route::get('/rss_feed/{id}', [SoundController::class, 'rss_feed']);
 
+Route::get('/questions', [HomeController::class, 'questions']);
 
 
 
