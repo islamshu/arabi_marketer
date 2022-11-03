@@ -29,9 +29,10 @@ class QuastionController extends Controller
         $question->save();
         if (is_array($request->addmore) || is_object($request->addmore)) {
             foreach ($request->addmore as $key => $value) {
+                
                 $blog = Answer::create([
                     'quastion_id'    => $question->id,
-                    'title' => $value->title,
+                    'title' => $value->answer,
                 ]);
             }
         }
