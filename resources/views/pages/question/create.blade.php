@@ -154,7 +154,7 @@
                         </div>
                     </div>
                     <div class="col-xl-6">
-                        <button type="button" class="remove_button btn btn-danger " title="Remove field">Remove</button>
+                        <button type="button" class="remove_button btn btn-danger " style="margin-top:3%" title="Remove field">Remove</button>
 
                         </div>
 
