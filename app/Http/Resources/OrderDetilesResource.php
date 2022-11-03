@@ -17,9 +17,7 @@ class OrderDetilesResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'type'=>$this->type,
             'service'=>$this->get_service($this),
-            'consution'=>$this->get_consution($this),
             'price'=>$this->price,
 
 
