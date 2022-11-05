@@ -214,6 +214,9 @@ Route::middleware('auth')->group(function () {
     Route::post('gallery',[GalleryController::class,'store'])->name('gallery.store');
     Route::get('dashabord_search',[GeneralInfoController::class,'dashabord_search'])->name('dashabord_search');
     Route::get('/rss', [HomeController::class, 'rss']);
+    Route::get('/showww',function(){
+        return view('pages.podcasts.new_index');
+    });
 
 
     
