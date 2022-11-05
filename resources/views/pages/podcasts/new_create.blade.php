@@ -47,7 +47,7 @@
             </ul>
             <ul class="nav nav-tabs nav-line-tabs nav-line-tabs-2x mb-5 fs-6">
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('new_index') }}">بودكاست</a>
+                    <a class="nav-link " href="{{ route('new_index') }}">بودكاست</a>
                 </li>
                
                 <li class="nav-item">
