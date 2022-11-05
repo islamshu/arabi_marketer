@@ -72,7 +72,7 @@
                              <th><a href="{{ route('marketer.show',$item->user->id) }}">{{ $item->user->name }}</a></th>
                              <td>{{ date('Y-m-d', strtotime($item->created_at)); }}</td>
                              <td>
-                                <a target="_blacnk" href="{{ route('media_rss',$item->url) }}" class="btn"><i class="fa fa-eye"></i></a>
+                                <a target="_blacnk" href="{{ route('media_rss',$item->id) }}" class="btn"><i class="fa fa-eye"></i></a>
                                 <form style="display: inline"
                                     action="{{ route('destort_new', $item->id) }}"
                                     method="post">

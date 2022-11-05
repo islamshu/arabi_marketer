@@ -49,8 +49,8 @@ class PodacstController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function  media_rss($url){
-        $url = $url;
+    public function  media_rss($id){
+        $url = NewPodcast::find($id)->url;
         $content = file_get_contents($url);
         $flux = new SimpleXMLElement($content);
         return View::make('pages.podcasts.rss_media', compact('flux'));
