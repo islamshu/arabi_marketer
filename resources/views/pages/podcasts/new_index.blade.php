@@ -89,7 +89,6 @@
                             <div class="modal-header">
                                 <h3 class="modal-title">Import RSS</h3>
                                 <div class="row">
-                                    <div class="row">
 
                                         <div class="form-group col-md-6">
                             
