@@ -231,6 +231,12 @@ function get_title_rss($url){
     $flux = new SimpleXMLElement($content);
     return $flux->channel->title;
 }
+ function media_rss($url){
+    $url = $url;
+    $content = file_get_contents($url);
+    $flux = new SimpleXMLElement($content);
+    return View::make('pages.podcasts.rss_media', compact('flux'));
+}
 
 if (!function_exists('isRTL')) {
     /**

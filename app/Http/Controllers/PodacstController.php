@@ -11,6 +11,8 @@ use DB;
 use Illuminate\Http\Request;
 use Alert;
 use App\Models\NewPodcast;
+use SimpleXMLElement;
+use View;
 
 class PodacstController extends Controller
 {
@@ -47,6 +49,12 @@ class PodacstController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function  media_rss($url){
+        $url = $url;
+        $content = file_get_contents($url);
+        $flux = new SimpleXMLElement($content);
+        return View::make('pages.podcasts.rss_media', compact('flux'));
+    }
     public function create()
     {
         //
