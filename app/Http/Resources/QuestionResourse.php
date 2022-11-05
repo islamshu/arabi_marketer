@@ -17,7 +17,7 @@ class QuestionResourse extends JsonResource
         return [
             'title' => @$this->title,
             'type'=>@$this->type,
-            'answer'=>@$this->answers->select('title')
+            'answer'=>@$this->answers
         ];
     }
 }

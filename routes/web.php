@@ -217,6 +217,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/create_podcast',function(){
         return view('pages.podcasts.new_index');
     });
+    Route::post('/store_podcast',[PodacstController::class,'store_podcast'])->name('store_podcast');
 
 
     
