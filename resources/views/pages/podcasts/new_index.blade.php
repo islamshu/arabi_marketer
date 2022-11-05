@@ -88,31 +88,7 @@
                         <div class="modal-content shadow-none">
                             <div class="modal-header">
                                 <h3 class="modal-title">Import RSS</h3>
-                                <div class="row">
-
-                                        <div class="form-group col-md-6">
-                            
-                            
-                                            <br><label> User  :</label>
-
-                                            <select class="form-select" required name="user_id"  data-control="select2" data-placeholder="اختر المستخدم">
-                                                <option value="" selected disabled>يرجى الاختيار</option>
-                                                @foreach (App\Models\User::get() as $item)
-                                                <option value="{{ $item->id }}" >{{ $item->name }}</option>
-                                
-                                                @endforeach
-                                            </select>
-                            
-                                        </div>
-                                        <div class="form-group col-md-6">
-                            
-                                            <br><label>  Rss link:</label>
-                            
-                                            <input type="url" id="url" name="url" required class="form-control form-control-solid"
-                                                placeholder="Rss link" />
-                            
-                                        </div>
-                                </div>
+                      
                 
                                 <!--begin::Close-->
                                 <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
@@ -122,8 +98,31 @@
                             </div>
                 
                             <div class="modal-body">
-                                <p>Modal body text goes here.</p>
-                            </div>
+                                <div class="row">
+
+                                    <div class="form-group col-md-6">
+                        
+                        
+                                        <br><label> User  :</label>
+
+                                        <select class="form-select" required name="user_id"  data-control="select2" data-placeholder="اختر المستخدم">
+                                            <option value="" selected disabled>يرجى الاختيار</option>
+                                            @foreach (App\Models\User::get() as $item)
+                                            <option value="{{ $item->id }}" >{{ $item->name }}</option>
+                            
+                                            @endforeach
+                                        </select>
+                        
+                                    </div>
+                                    <div class="form-group col-md-6">
+                        
+                                        <br><label>  Rss link:</label>
+                        
+                                        <input type="url" id="url" name="url" required class="form-control form-control-solid"
+                                            placeholder="Rss link" />
+                        
+                                    </div>
+                            </div>                            </div>
                 
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
