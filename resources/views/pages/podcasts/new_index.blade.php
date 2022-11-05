@@ -66,11 +66,13 @@
                             <!--begin::Svg Icon | path: icons/duotune/finance/fin006.svg-->
                             <span class="svg-icon svg-icon-3x text-center svg-icon-danger d-block my-2">
                                 {{-- <i class="fa fa-user fa-4x"></i> --}}
-                               <img src="https://mobikul.com/wp-content/uploads/2019/03/myfatoorah-com.png" height="80" alt="">
+                               <img src="https://www.pngitem.com/pimgs/m/97-972731_podcast-podcasting-icon-hd-png-download.png" height="80" alt="">
                             </span>
                             <!--end::Svg Icon-->
-                            <a href="" style="font-weight: bold;" class="svg-icon svg-icon-3x text-center svg-icon-danger d-block my-2">create your Own Podcast  </a>
-                        </div>
+                            <button type="button" style="font-weight: bold;margin-left: 40%" class="svg-icon svg-icon-3x text-center svg-icon-danger d-block my-2 btn"data-bs-toggle="modal" data-bs-target="#kt_modal_1">
+                                Create Podcast
+                            </button>
+                                                </div>
         
         
                         
