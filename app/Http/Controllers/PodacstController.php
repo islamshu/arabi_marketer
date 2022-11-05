@@ -35,6 +35,12 @@ class PodacstController extends Controller
             ->with('podcasts', NewPodcast::orderBy('id', 'desc')->get())
             ->with('categories', Category::ofType('podcast')->get());
     }
+    public function destort_new($id){
+        NewPodcast::find($id)->delete();
+        Alert::warning('Success', 'Deleted successfully');
+
+        return redirect()->back();
+    }
 
     /**
      * Show the form for creating a new resource.

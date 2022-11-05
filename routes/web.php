@@ -218,6 +218,9 @@ Route::middleware('auth')->group(function () {
         return view('pages.podcasts.new_create');
     });
     Route::get('/index_podcast',[PodacstController::class,'new_index'])->name('new_index');
+    Route::delete('/destort_new/{id}',[PodacstController::class,'destort_new'])->name('destort_new');
+
+    
     Route::post('/store_podcast',[PodacstController::class,'store_podcast'])->name('store_podcast');
 
 

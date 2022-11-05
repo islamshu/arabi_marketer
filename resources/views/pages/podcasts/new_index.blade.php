@@ -72,9 +72,8 @@
                              <th><a href="{{ route('marketer.show',$item->user->id) }}">{{ $item->user->name }}</a></th>
                              <td>{{ date('Y-m-d', strtotime($item->created_at)); }}</td>
                              <td>
-                                <a href="{{ route('podcasts.edit', $item->id) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
                                 <form style="display: inline"
-                                    action="{{ route('podcasts.destroy', $item->id) }}"
+                                    action="{{ route('destort_new', $item->id) }}"
                                     method="post">
                                     @method('delete') @csrf
                                     <button type="submit" class="btn btn-danger delete-confirm"><i
