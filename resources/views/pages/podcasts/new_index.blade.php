@@ -48,7 +48,7 @@
                 </li>
                
                 <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_6">اضف جديد</a>
+                    <a class="nav-link"  href="{{ route('create_podcast_new') }}">اضف جديد</a>
                 </li>
                 
             </ul>
