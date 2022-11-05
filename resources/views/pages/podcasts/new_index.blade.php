@@ -50,7 +50,7 @@
                        
              
                     
-                        <div class="col-md-3 bg-light-info px-6 py-8 rounded-2 mb-7 mr-7 ml-7">
+                        <div class="col-md-6 bg-light-info px-6 py-8 rounded-2 mb-7 mr-7 ml-7">
                             <!--begin::Svg Icon | path: icons/duotune/finance/fin006.svg-->
                             <span class="svg-icon svg-icon-3x text-center svg-icon-danger d-block my-2">
                                 {{-- <i class="fa fa-user fa-4x"></i> --}}
@@ -60,7 +60,7 @@
                             <a href="" style="font-weight: bold;" class="svg-icon svg-icon-3x text-center svg-icon-danger d-block my-2">Firebase Config  </a>
                         </div>
         
-                        <div class="col-md-3 bg-light-warning px-6 py-8 rounded-2 mb-7 mr-7 ml-7">
+                        <div class="col-md-6 bg-light-warning px-6 py-8 rounded-2 mb-7 mr-7 ml-7">
                             <!--begin::Svg Icon | path: icons/duotune/finance/fin006.svg-->
                             <span class="svg-icon svg-icon-3x text-center svg-icon-danger d-block my-2">
                                 {{-- <i class="fa fa-user fa-4x"></i> --}}
