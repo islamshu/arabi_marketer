@@ -54,10 +54,10 @@
                             <!--begin::Svg Icon | path: icons/duotune/finance/fin006.svg-->
                             <span class="svg-icon svg-icon-3x text-center svg-icon-danger d-block my-2">
                                 {{-- <i class="fa fa-user fa-4x"></i> --}}
-                               <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Firebase_Logo.png/800px-Firebase_Logo.png" height="80" alt="">
+                               <img src="https://cdn-icons-png.flaticon.com/512/124/124033.png" height="80" alt="">
                             </span>
                             <!--end::Svg Icon-->
-                            <button type="button" style="font-weight: bold;" class="svg-icon svg-icon-3x text-center svg-icon-danger d-block my-2"data-bs-toggle="modal" data-bs-target="#kt_modal_1">
+                            <button type="button" style="font-weight: bold;margin-left: 40%" class="svg-icon svg-icon-3x text-center svg-icon-danger d-block my-2 btn"data-bs-toggle="modal" data-bs-target="#kt_modal_1">
                                 Import Rss
                             </button>
                         </div>
