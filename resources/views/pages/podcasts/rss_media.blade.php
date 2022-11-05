@@ -122,8 +122,7 @@
                 </div>
             <p>
                {{ (string)$item->description }} 
-               utf8_decode((string)$flu->enclosure['url']);
-            </p><audio controls="true" preload="none" src="{{ utf8_decode((string)$flu->enclosure['url'])}}"></audio></div>
+            </p><audio controls="true" preload="none" src="{{ utf8_decode((string)$item->enclosure['url'])}}"></audio></div>
         @endforeach
         
         
