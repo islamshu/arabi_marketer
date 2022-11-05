@@ -47,15 +47,7 @@
                     <div class="mt-10">
         
                         <div class="row">
-                            <div class="col-md-3 bg-light-primary w-100 h-100 px-6 py-8 rounded-2 mb-7 mr-7 ml-7 ">
-                                <!--begin::Svg Icon | path: icons/duotune/finance/fin006.svg-->
-                                <span class="svg-icon svg-icon-3x text-center svg-icon-danger d-block my-2">
-                                    {{-- <i class=" fa-4x"></i> --}}
-                                    <img src="https://pbs.twimg.com/profile_images/1422535875901149186/J5_LSmtJ_400x400.jpg" width="80" height="80" alt="">
-                                </span>
-                                <!--end::Svg Icon-->
-                                <a href="" style="font-weight: bold;" class="svg-icon svg-icon-3x text-center svg-icon-danger d-block my-2">SMS Config</a>
-                            </div>
+                       
              
                     
                         <div class="col-md-3 bg-light-info px-6 py-8 rounded-2 mb-7 mr-7 ml-7">
