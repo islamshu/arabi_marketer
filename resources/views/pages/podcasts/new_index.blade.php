@@ -107,9 +107,9 @@
 
                                         <select class="form-select" required name="user_id"   data-placeholder="اختر المستخدم">
                                             <option value="" selected disabled>يرجى الاختيار</option>
-                                            @foreach (App\Models\User::get() as $item)
+                                            @foreach (App\Models\User::where('type','marketer')->get() as $item)
                                             <option value="{{ $item->id }}" >{{ $item->name }}</option>
-                            
+                    
                                             @endforeach
                                         </select>
                         
