@@ -10,6 +10,7 @@ use App\Models\PodcastCategory;
 use DB;
 use Illuminate\Http\Request;
 use Alert;
+use App\Models\NewPodcast;
 
 class PodacstController extends Controller
 {
@@ -21,8 +22,8 @@ class PodacstController extends Controller
     public function index()
     {
         return view('pages.podcasts.index')
-        ->with('podcasts', Podacst::orderBy('id', 'desc')->get())
-        ->with('categories', Category::ofType('podcast')->get());
+            ->with('podcasts', Podacst::orderBy('id', 'desc')->get())
+            ->with('categories', Category::ofType('podcast')->get());
     }
 
     /**
@@ -33,6 +34,21 @@ class PodacstController extends Controller
     public function create()
     {
         //
+    }
+    public function store_podcast(Request $request)
+    {
+        $request->validate([
+            'url' => 'required',
+            'user_id' => 'required'
+        ]);
+        $podcast = new NewPodcast();
+        $podcast->user_id = $request->user_id;
+        $podcast->type = 'rss';
+        $podcast->url = $request->url;
+        $podcast->save();
+        Alert::success('Success', 'Added successfully');
+
+        return redirect()->back();
     }
 
     /**
@@ -52,8 +68,8 @@ class PodacstController extends Controller
                 $service->title = $request->title;
                 $service->description = $request->description;
                 $service->url = $request->url;
-                $service->apple_url  = $request->apple_url ;
-                $service->sound_url  = $request->sound_url ;
+                $service->apple_url  = $request->apple_url;
+                $service->sound_url  = $request->sound_url;
                 $service->user_id = $request->user_id;
 
                 $service->time = $request->time;
@@ -150,14 +166,14 @@ class PodacstController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            DB::transaction(function () use ($request,$id) {
+            DB::transaction(function () use ($request, $id) {
                 $service = Podacst::find($id);
 
                 $service->title = $request->title;
                 $service->description = $request->description;
                 $service->url = $request->url;
-                $service->apple_url  = $request->apple_url ;
-                $service->sound_url  = $request->sound_url ;
+                $service->apple_url  = $request->apple_url;
+                $service->sound_url  = $request->sound_url;
                 $service->user_id = $request->user_id;
 
                 $service->time = $request->time;
@@ -197,12 +213,6 @@ class PodacstController extends Controller
                         $key->save();
                     }
                 }
-
-
-
-
-
-               
             });
             Alert::success('Success', 'Edited successfully');
 
