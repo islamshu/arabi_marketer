@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\GeneralController;
 use App\Http\Controllers\Api\GoogleController;
 use App\Http\Controllers\Api\HomeController;
 use App\Http\Controllers\Api\MessageController;
+use App\Http\Controllers\Api\NewPodcastContoller;
 use App\Http\Controllers\Api\PodcastController;
 use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\SoundController;
@@ -160,6 +161,8 @@ Route::group(['middleware' => 'is_login','middleware' => 'is_able_markter'], fun
     Route::post('/add_podcast', [PodcastController::class, 'store']);
     Route::post('/update_podcast', [PodcastController::class, 'update']);
     Route::delete('/delete_podcast/{id}', [PodcastController::class, 'delete']);
+    Route::post('add_new_podcast', [NewPodcastContoller::class, 'store']);
+
 
 });
 Route::group(['middleware' => 'is_login'], function () {
