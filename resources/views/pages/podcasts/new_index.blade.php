@@ -57,7 +57,9 @@
                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Firebase_Logo.png/800px-Firebase_Logo.png" height="80" alt="">
                             </span>
                             <!--end::Svg Icon-->
-                            <a href="" style="font-weight: bold;" class="svg-icon svg-icon-3x text-center svg-icon-danger d-block my-2">Firebase Config  </a>
+                            <button type="button" style="font-weight: bold;" class="svg-icon svg-icon-3x text-center svg-icon-danger d-block my-2"data-bs-toggle="modal" data-bs-target="#kt_modal_1">
+                                Import Rss
+                            </button>
                         </div>
         
                         <div class="col-md-6 bg-light-warning px-6 py-8 rounded-2 mb-7 mr-7 ml-7">
@@ -67,7 +69,7 @@
                                <img src="https://mobikul.com/wp-content/uploads/2019/03/myfatoorah-com.png" height="80" alt="">
                             </span>
                             <!--end::Svg Icon-->
-                            <a href="" style="font-weight: bold;" class="svg-icon svg-icon-3x text-center svg-icon-danger d-block my-2">Myfatoorah Config  </a>
+                            <a href="" style="font-weight: bold;" class="svg-icon svg-icon-3x text-center svg-icon-danger d-block my-2">create your Own Podcast  </a>
                         </div>
         
         
