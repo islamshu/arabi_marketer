@@ -342,6 +342,13 @@ return array(
             'path'  => 'podcasts',
             'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen017.svg", "svg-icon-2"),
         ),
+
+        array(
+            'title' => 'New Podcasts',
+            'path'  => 'new_index',
+            'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen017.svg", "svg-icon-2"),
+        ),
+        
         array(
             'title' => 'Consulting',
             'path'  => 'consloution',
