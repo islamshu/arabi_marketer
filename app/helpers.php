@@ -229,8 +229,7 @@ if (!function_exists('assetCustom')) {
 function get_title_rss($url){
     $content = file_get_contents($url);
     $flux = new SimpleXMLElement($content);
-    dd($flux);
-    return $flux->title;
+    return $flux->channel->title;
 }
 
 if (!function_exists('isRTL')) {
