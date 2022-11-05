@@ -57,7 +57,7 @@
                                <img src="https://cdn-icons-png.flaticon.com/512/124/124033.png" height="80" alt="">
                             </span>
                             <!--end::Svg Icon-->
-                            <button type="button" style="font-weight: bold;margin-left: 40%" class="svg-icon svg-icon-3x text-center svg-icon-danger d-block my-2 btn"data-bs-toggle="modal" data-bs-target="#kt_modal_1">
+                            <button type="button" style="font-weight: bold;margin-left: 40%" class="svg-icon svg-icon-3x text-center svg-icon-danger d-block my-2 btn"data-bs-toggle="modal" data-bs-target="#kt_modal_2">
                                 Import Rss
                             </button>
                         </div>
