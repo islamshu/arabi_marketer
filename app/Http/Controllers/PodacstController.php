@@ -21,8 +21,18 @@ class PodacstController extends Controller
      */
     public function index()
     {
+     
+
         return view('pages.podcasts.index')
             ->with('podcasts', Podacst::orderBy('id', 'desc')->get())
+            ->with('categories', Category::ofType('podcast')->get());
+    }
+    public function new_index()
+    {
+     
+
+        return view('pages.podcasts.new_index')
+            ->with('podcasts', NewPodcast::orderBy('id', 'desc')->get())
             ->with('categories', Category::ofType('podcast')->get());
     }
 

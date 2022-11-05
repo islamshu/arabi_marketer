@@ -215,8 +215,9 @@ Route::middleware('auth')->group(function () {
     Route::get('dashabord_search',[GeneralInfoController::class,'dashabord_search'])->name('dashabord_search');
     Route::get('/rss', [HomeController::class, 'rss']);
     Route::get('/create_podcast',function(){
-        return view('pages.podcasts.new_index');
+        return view('pages.podcasts.new_create');
     });
+    Route::get('/index_podcast',[PodacstController::class,'new_index'])->name('new_index');
     Route::post('/store_podcast',[PodacstController::class,'store_podcast'])->name('store_podcast');
 
 

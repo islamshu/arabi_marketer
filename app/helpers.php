@@ -226,6 +226,11 @@ if (!function_exists('assetCustom')) {
         return asset(theme()->getDemo().'/'.$path);
     }
 }
+function get_title_rss($url){
+    $content = file_get_contents($url);
+    $flux = new SimpleXMLElement($content);
+    return $flux->title;
+}
 
 if (!function_exists('isRTL')) {
     /**
