@@ -84,7 +84,7 @@
             
             <div class="tab-content" id="myTabContent">
                 <div class="modal bg-white fade" tabindex="-1" id="kt_modal_2">
-                    <div class="modal-dialog modal-fullscreen">
+                    <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h3 class="modal-title">Modal title</h3>
