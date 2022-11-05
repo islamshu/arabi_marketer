@@ -113,7 +113,8 @@
                                             <div class="row">
 
                                                 <div class="form-group col-md-6">
-                                                    <form method="post" action="">
+                                                    <form method="post" action="{{ route('store_podcast') }}">
+                                                        @csrf
 
                                                         <br><label> User :</label>
 
