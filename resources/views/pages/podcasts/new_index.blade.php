@@ -42,17 +42,48 @@
             </ul>
         
 
-            <ul class="nav nav-tabs nav-line-tabs nav-line-tabs-2x mb-5 fs-6">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_1">
-                    Launch demo modal
-                </button>
+            <div class="card card-docs mb-2">
+                <div class="card-body fs-6 py-15 px-10 py-lg-15 px-lg-15 text-gray-700">
+                    <div class="mt-10">
+        
+                        <div class="row">
+                            <div class="col-md-3 bg-light-primary w-100 h-100 px-6 py-8 rounded-2 mb-7 mr-7 ml-7 ">
+                                <!--begin::Svg Icon | path: icons/duotune/finance/fin006.svg-->
+                                <span class="svg-icon svg-icon-3x text-center svg-icon-danger d-block my-2">
+                                    {{-- <i class=" fa-4x"></i> --}}
+                                    <img src="https://pbs.twimg.com/profile_images/1422535875901149186/J5_LSmtJ_400x400.jpg" width="80" height="80" alt="">
+                                </span>
+                                <!--end::Svg Icon-->
+                                <a href="" style="font-weight: bold;" class="svg-icon svg-icon-3x text-center svg-icon-danger d-block my-2">SMS Config</a>
+                            </div>
+             
+                    
+                        <div class="col-md-3 bg-light-info px-6 py-8 rounded-2 mb-7 mr-7 ml-7">
+                            <!--begin::Svg Icon | path: icons/duotune/finance/fin006.svg-->
+                            <span class="svg-icon svg-icon-3x text-center svg-icon-danger d-block my-2">
+                                {{-- <i class="fa fa-user fa-4x"></i> --}}
+                               <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Firebase_Logo.png/800px-Firebase_Logo.png" height="80" alt="">
+                            </span>
+                            <!--end::Svg Icon-->
+                            <a href="" style="font-weight: bold;" class="svg-icon svg-icon-3x text-center svg-icon-danger d-block my-2">Firebase Config  </a>
+                        </div>
+        
+                        <div class="col-md-3 bg-light-warning px-6 py-8 rounded-2 mb-7 mr-7 ml-7">
+                            <!--begin::Svg Icon | path: icons/duotune/finance/fin006.svg-->
+                            <span class="svg-icon svg-icon-3x text-center svg-icon-danger d-block my-2">
+                                {{-- <i class="fa fa-user fa-4x"></i> --}}
+                               <img src="https://mobikul.com/wp-content/uploads/2019/03/myfatoorah-com.png" height="80" alt="">
+                            </span>
+                            <!--end::Svg Icon-->
+                            <a href="" style="font-weight: bold;" class="svg-icon svg-icon-3x text-center svg-icon-danger d-block my-2">Myfatoorah Config  </a>
+                        </div>
+        
+        
+                        
+             
                 
-               
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_6">اضف جديد</a>
-                </li>
                 
-            </ul>
+                </div>
 
             
             <div class="tab-content" id="myTabContent">
