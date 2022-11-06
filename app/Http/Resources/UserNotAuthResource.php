@@ -8,6 +8,7 @@ use App\Models\City;
 use App\Models\Consulting;
 use App\Models\Country;
 use App\Models\Followr;
+use App\Models\NewPodcast;
 use App\Models\Podacst;
 use App\Models\Service;
 use App\Models\Video;
@@ -75,7 +76,7 @@ class UserNotAuthResource extends JsonResource
     }
     function get_podcasts($data)
     {
-        $cons = Podacst::where('user_id', $data->id)->orderby('id', 'desc')->paginate(5);
+        $cons = NewPodcast::where('user_id', $data->id)->orderby('id', 'desc')->paginate(5);
         $res = PodcastResource::collection($cons)->response()->getData(true);
         return $res;
     }
