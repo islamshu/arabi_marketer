@@ -27,4 +27,8 @@ class Ticket extends Model
     {
         return $this->hasMany(TicketFile::class);
     }
+    public function replay()
+    {
+        return $this->hasMany(TicketReply::class);
+    }
 }

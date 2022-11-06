@@ -76,19 +76,25 @@
                       
                         
                          <br>
+                         @foreach ($ticket->replay as $item)
+                             
                          <div class="form-group col-md-8">
 
                          <div class="card">
                             <div class="card-header">
-                              Featured
+                              @if($item->user_id == $ticket->user_id)
+                                {{ $ticket->user->name }} (المالك)
+                                @else
+                                {{ $item->user->name }}(الدعم)
+                                @endif
                             </div>
                             <div class="card-body">
-                              <h5 class="card-title">Special title treatment</h5>
-                              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                              <a href="#" class="btn btn-primary">Go somewhere</a>
+                              <p class="card-text">{{ $item->body }}</p>
                             </div>
                           </div>
                          </div>
+                         @endforeach
+
                          <div class="form-group col-md-8">
 
                             <div class="card">
