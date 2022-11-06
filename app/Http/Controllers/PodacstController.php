@@ -75,11 +75,11 @@ class PodacstController extends Controller
         return redirect()->back();
     }
     public function maual_podcast(Request $request){
-        dd($request->all());
         $request->validate([
             'user_id' => 'required',
             'title'=>'required',
             'description'=>'required',
+            'image'=>'required'
         ]);
         $podcast = new NewPodcast();
         $podcast->user_id = $request->user_id;
