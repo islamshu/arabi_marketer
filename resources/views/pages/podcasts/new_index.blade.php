@@ -73,7 +73,7 @@
                         <tbody>
                             @foreach ($podcasts as $item)
                                 <tr>
-                                    <td>{{ get_title_rss($item->url) }}</td>
+                                    <td>@if($item->type != 'rss'){{ $item->manual->title }}@else {{ get_title_rss($item->url) }}@endif</td>
                                     <th><a
                                             href="{{ route('marketer.show', $item->user->id) }}">{{ $item->user->name }}</a>
                                     </th>
