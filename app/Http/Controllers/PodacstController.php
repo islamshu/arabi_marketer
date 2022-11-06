@@ -88,7 +88,7 @@ class PodacstController extends Controller
         $podcast->save();
         $attemp = new OwenPodcast();
         $attemp->podcast_id = $podcast->id;
-        $attemp->title = $podcast->title;
+        $attemp->title = $request->title;
         $attemp->description = $request->description;
         $attemp->image = $request->image->store('podcast_image');
         $attemp->save();
