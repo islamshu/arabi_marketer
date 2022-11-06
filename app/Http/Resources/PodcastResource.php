@@ -44,13 +44,16 @@ class PodcastResource extends JsonResource
                 // 'google_SSR'=>$this->url,
                 // 'Apple_SSR'=>$this->apple_url,
                 // 'SoundCloud_SSR'=>$this->sound_url,
-                'sound_item'=>[],
+                'sound_item'=>$this->get_all_sound($this),
                 'url_for_this_podcast'=>route('single_podcast',$this->id),
                 'count_item'=>0,
             ];
         }
         
   
+    }
+    function get_all_sound($data){
+        dd($data->manual->sounds);
     }
 
     function count_item($data){
