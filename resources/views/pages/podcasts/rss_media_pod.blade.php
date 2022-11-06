@@ -175,11 +175,11 @@
                             <div class="col-md-12">
                                 <label for=""> Title</label>
                                 <input type="text" required name="title" class="form-control"
-                                    placeholder="العنوان">
+                                    placeholder="Title">
                             </div>
                             <div class="col-md-12 mt-3">
                                 <label for=""> Description</label>
-                                <textarea name="description" required id="" class="form-control" placeholder="الوصف" cols="30"
+                                <textarea name="description" required id="" class="form-control" placeholder="Description" cols="30"
                                     rows="5"></textarea>
                             </div>
                         </div>
@@ -194,7 +194,7 @@
                         <div class="row mt-3">
                             <div class="col">
                                 <button type="submit" class="btn btn-primary mt-2" >
-                                    رفع
+                                    Upload
                                   </button>   
                             </div>
 
