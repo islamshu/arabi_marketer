@@ -28,8 +28,15 @@ class PodcastResource extends JsonResource
             // 'Apple_SSR'=>$this->apple_url,
             // 'SoundCloud_SSR'=>$this->sound_url,
             'sound_item'=>$this->get_item($this),
-            'url_for_this_podcast'=>route('single_podcast',$this->id)
+            'url_for_this_podcast'=>route('single_podcast',$this->id),
+            'count_item'=>$this->count_item($this)
         ];
+    }
+    function count_item($data){
+        $url = $data->url;
+        $content = file_get_contents($url);
+        $flux = new SimpleXMLElement($content);
+        return count($flux->channel->item);
     }
     function get_title($data){
         return (string)get_title_rss($data->url);
