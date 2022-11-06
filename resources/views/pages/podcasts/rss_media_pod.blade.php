@@ -163,27 +163,26 @@
                     <div class="row">
                       <div class="col-md-12">
                         <label for=""> العنوان</label>
-                        <input type="text" name="title" class="form-control" placeholder="العنوان">
+                        <input type="text" required name="title" class="form-control" placeholder="العنوان">
                       </div>
                       <div class="col-md-12">
                         <label for=""> الوصف</label>
-                        <textarea name="description" id=""  class="form-control"  placeholder="الوصف"  cols="30" rows="5"></textarea>
+                        <textarea name="description" required id=""  class="form-control"  placeholder="الوصف"  cols="30" rows="5"></textarea>
                       </div>
                     </div>
                     <div class="row">
                         <div class="col">
                           <label for=""> المف الصوتي</label>
-                          <input type="file" name="sound" class="form-control" placeholder="العنوان">
+                          <input type="file" required name="sound" class="form-control" placeholder="العنوان">
                         </div>
                         
                       </div>
+                      <input type="submit" class="btn btn-info" value="رفع" name="" id="">
                   </form>
             </div>
             
             <!-- Modal footer -->
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            </div>
+          
             
           </div>
         </div>
