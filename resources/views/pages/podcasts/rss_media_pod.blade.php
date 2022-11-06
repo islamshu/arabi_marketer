@@ -109,9 +109,14 @@
 
 <body>
     <div class="container">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-            Open modal
-          </button>
+        @auth
+            @if($pod->user_id == auth()->id())
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                Open modal
+              </button>
+            @endif
+        @endauth
+       
         <div class="podcast-header">
             <h1>
                 <div class="podcast-image">
