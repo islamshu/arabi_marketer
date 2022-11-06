@@ -48,12 +48,13 @@ class PodcastResource extends JsonResource
     function get_desription($data){
         $content = file_get_contents($data->url);
         $flux = new SimpleXMLElement($content);
+        
         return (string)$flux->channel->description;
     }
     function get_image($data){
         $content = file_get_contents($data->url);
         $flux = new SimpleXMLElement($content);
-        // dd($flux);
+        dd($flux);
         return (string)$flux->channel->image->url;
     }
 
