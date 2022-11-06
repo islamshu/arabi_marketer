@@ -90,7 +90,7 @@ class PodacstController extends Controller
         $attemp->podcast_id = $podcast->id;
         $attemp->title = $request->title;
         $attemp->description = $request->description;
-        $attemp->image = $request->image->store('podcast_image');
+        $attemp->image = $request->image->store('podcast');
         $attemp->save();
 
         Alert::success('Success', 'Added successfully');
