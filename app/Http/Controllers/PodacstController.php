@@ -11,6 +11,7 @@ use DB;
 use Illuminate\Http\Request;
 use Alert;
 use App\Models\NewPodcast;
+use App\Models\OwenPodcast;
 use SimpleXMLElement;
 use View;
 
@@ -71,7 +72,29 @@ class PodacstController extends Controller
         $podcast->url = $request->url;
         $podcast->save();
         Alert::success('Success', 'Added successfully');
+        return redirect()->back();
+    }
+    public function maual_podcast(Request $request){
+        dd($request->all());
+        $request->validate([
+            'user_id' => 'required',
+            'title'=>'required',
+            'description'=>'required',
+        ]);
+        $podcast = new NewPodcast();
+        $podcast->user_id = $request->user_id;
+        $podcast->type = 'manual';
+        $podcast->url = null;
+        $podcast->save();
+        $attemp = new OwenPodcast();
+        $attemp->podcast_id = $podcast->id;
+        $attemp->title = $podcast->title;
+        $attemp->image = $request->title;
+        $attemp->description = $request->description;
+        $attemp->image = $request->image->store('podcast_image');
+        $attemp->save();
 
+        Alert::success('Success', 'Added successfully');
         return redirect()->back();
     }
 
@@ -81,6 +104,9 @@ class PodacstController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function create_manula_podcast(){
+        return view('pages.podcasts._new_create');
+    }
     public function store(Request $request)
     {
         // $request->validate([

@@ -144,6 +144,8 @@ Route::middleware('auth')->group(function () {
     Route::get('get_podcast_category', [CategoryController::class, 'getPodcastData'])->name('getPodcastCategory');
     Route::get('get_consultation_category', [CategoryController::class, 'getConsultationData'])->name('getConsultationData');
 
+    
+
 
     Route::get('video_category', [CategoryController::class, 'video_index'])->name('video_index');
     Route::post('video_category', [CategoryController::class, 'store_video_category'])->name('store_video_category');
@@ -200,6 +202,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('orders',OrderController::class);
     Route::resource('quastions',QuastionController::class);
     Route::resource('podcasts',PodacstController::class);
+    Route::post('maual_podcast', [PodacstController::class, 'maual_podcast'])->name('maual_podcast.store');
+    Route::get('create_manula_podcast', [PodacstController::class, 'create_manula_podcast'])->name('create_manula_podcast');
+
     Route::resource('videos', VideoController::class);
     Route::resource('consloution', ConsultingController::class);
     Route::post('update_status_video',[VideoController::class,'update_status_video'])->name('update_status_video');

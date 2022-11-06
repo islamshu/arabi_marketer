@@ -88,11 +88,9 @@
                                         height="80" alt="">
                                 </span>
                                 <!--end::Svg Icon-->
-                                <button type="button" style="font-weight: bold;margin-left: 40%"
-                                    class="svg-icon svg-icon-3x text-center svg-icon-danger d-block my-2 btn"data-bs-toggle="modal"
-                                   >
-                                    Create Podcast
-                                </button>
+                                <a href="{{ route('create_manula_podcast') }}" style="font-weight: bold;margin-left: 40%"
+                                class="svg-icon svg-icon-3x text-center svg-icon-danger d-block my-2 btn"> Create Podcast</a>
+                                
                             </div>
 
 
