@@ -146,7 +146,7 @@
       
     </div>
     <div class="modal" id="myModal">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
           <div class="modal-content">
           
             <!-- Modal Header -->
@@ -159,14 +159,13 @@
             <div class="modal-body">
                 <form>
                     <div class="row">
-                      <div class="col">
+                      <div class="col-md-12">
                         <label for=""> العنوان</label>
                         <input type="text" name="title" class="form-control" placeholder="العنوان">
                       </div>
-                      <div class="col">
+                      <div class="col-md-12">
                         <label for=""> الوصف</label>
-
-                        <input type="text" name="description"  class="form-control" placeholder="الوصف">
+                        <textarea name="description" id=""  class="form-control"  placeholder="الوصف"  cols="30" rows="10"></textarea>
                       </div>
                     </div>
                     <div class="row">
