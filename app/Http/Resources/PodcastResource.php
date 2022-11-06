@@ -31,7 +31,7 @@ class PodcastResource extends JsonResource
             // 'sound_item'=>$this->get_item($this),
             // 'url_for_this_podcast'=>route('single_podcast',$this->id),
             // 'count_item'=>$this->count_item($this),
-            // 'aaa'=>$this->manual,
+            'aaa'=>$this->manual,
         ];
   
     }
