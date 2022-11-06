@@ -69,7 +69,7 @@ class PodacstController extends Controller
        $request->validate([
         'title'=>'required',
         'description'=>'required',
-        'sound' => 'mimes:mp3',
+        'sound' => 'required',
        ]);
 
         $music_file = $request->sound;
