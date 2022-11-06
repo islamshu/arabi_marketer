@@ -191,9 +191,15 @@
                             </div>
 
                         </div>
-                        <button type="submit" class="btn btn-primary mt-2" >
-                            رفع
-                          </button>                    </form>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <button type="submit" class="btn btn-primary mt-2" >
+                                    رفع
+                                  </button>   
+                            </div>
+
+                        </div>
+                                        </form>
                 </div>
 
                 <!-- Modal footer -->
