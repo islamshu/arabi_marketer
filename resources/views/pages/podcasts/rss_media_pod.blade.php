@@ -157,7 +157,9 @@
             
             <!-- Modal body -->
             <div class="modal-body">
-                <form>
+                <form method="post" action="{{ route('uploda_sound') }}">
+                    @csrf
+                    <input type="hidden" name="podcast_id" value="{{ $pod->manual->id }}">
                     <div class="row">
                       <div class="col-md-12">
                         <label for=""> العنوان</label>
@@ -165,7 +167,7 @@
                       </div>
                       <div class="col-md-12">
                         <label for=""> الوصف</label>
-                        <textarea name="description" id=""  class="form-control"  placeholder="الوصف"  cols="30" rows="10"></textarea>
+                        <textarea name="description" id=""  class="form-control"  placeholder="الوصف"  cols="30" rows="5"></textarea>
                       </div>
                     </div>
                     <div class="row">
@@ -186,6 +188,9 @@
           </div>
         </div>
       </div>
+      @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 </body>
 
 </html>

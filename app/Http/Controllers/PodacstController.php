@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Alert;
 use App\Models\NewPodcast;
 use App\Models\OwenPodcast;
+use App\Models\Sound;
 use SimpleXMLElement;
 use View;
 
@@ -63,6 +64,29 @@ class PodacstController extends Controller
 
         }
      
+    }
+    public function uploda_sound(Request $request){
+       $request->validate([
+        'title'=>'required',
+        'description'=>'required',
+        'sound' => 'mimes:mp3',
+       ]);
+
+        $music_file = $request->sound;
+        $sound = new Sound();
+
+        if (isset($music_file)) {
+            $filename = $music_file->getClientOriginalName();
+            $location = public_path('audio/');
+            $music_file->move($location, $filename);
+            $sound->sound = $filename;
+            $sound->podcast_id = $request->podcast_id;
+            $sound->title = $request->title;
+            $sound->description = $request->description;
+            $sound->save();
+            Alert::success('Success', 'تم رفع الملف الصوتي بنجاح');
+            return redirect()->back();
+        }
     }
     public function create()
     {

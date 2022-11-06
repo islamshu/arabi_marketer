@@ -226,7 +226,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/destort_new/{id}',[PodacstController::class,'destort_new'])->name('destort_new');
     Route::post('/store_podcast',[PodacstController::class,'store_podcast'])->name('store_podcast');
     Route::get('/show_podcust/{url}',[PodacstController::class,'media_rss'])->name('media_rss');
+    Route::post('/uploda_sound',[PodacstController::class,'uploda_sound'])->name('uploda_sound');
 
+    
 
     
 
