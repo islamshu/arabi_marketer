@@ -10,6 +10,7 @@ use App\Models\KeyWord;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\PodcastResource;
+use App\Models\NewPodcast;
 use App\Models\Podacst;
 use App\Models\PodacstKeyword;
 use App\Models\PodcastCategory;
@@ -32,7 +33,7 @@ class PodcastController extends BaseController
         return $this->sendResponse($userRes,'جميع الكلمات المفتاحية الخاصة بالخدمات');
     }
     public function get_all(){
-       $service = Podacst::orderby('id','desc')->paginate(5);
+       $service = NewPodcast::orderby('id','desc')->paginate(5);
        $res = PodcastResource::collection($service)->response()->getData(true);
         return $this->sendResponse($res,'جميع البودكاست  ');
     }

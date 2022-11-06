@@ -18,21 +18,35 @@ class PodcastResource extends JsonResource
     {
         return [
             'id'=>$this->id,
-            'title'=>$this->title,
-            'description'=>($this->description ),
+            'title'=>$this->get_title($this),
+            'description'=>$this->get_desription($this),
             'user_info'=>new UserMainInfoResource($this->user),
-            'categories'=>$this->get_category($this),
-            'keywords'=>$this->get_keywords($this),
-            'image'=>asset('public/uploads/'.$this->image),
-            'google_SSR'=>$this->url,
-            'Apple_SSR'=>$this->apple_url,
-            'SoundCloud_SSR'=>$this->sound_url,
+            // 'categories'=>$this->get_category($this),
+            // 'keywords'=>$this->get_keywords($this),
+            'image'=>$this->get_image($this),
+            // 'google_SSR'=>$this->url,
+            // 'Apple_SSR'=>$this->apple_url,
+            // 'SoundCloud_SSR'=>$this->sound_url,
             'sound_item'=>$this->get_item($this),
             'url_for_this_podcast'=>route('single_podcast',$this->id)
         ];
     }
+    function get_title($data){
+        return get_title_rss($data->url);
+    }
+    function get_desription($data){
+        $content = file_get_contents($data->url);
+        $flux = new SimpleXMLElement($content);
+        return (string)$flux->channel->description;
+    }
+    function get_image($data){
+        $content = file_get_contents($data->url);
+        $flux = new SimpleXMLElement($content);
+        return (string)$flux->channel->image->url;
+    }
+
     function get_item($data){
-        $url = $data->sound_url;
+        $url = $data->url;
         $content = file_get_contents($url);
         $flux = new SimpleXMLElement($content);
         $aa = array();
