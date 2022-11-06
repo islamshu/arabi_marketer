@@ -19,10 +19,18 @@ class TicketResourse extends JsonResource
             'code'=>$this->code,
             'title'=>$this->title,
             'body'=>$this->body,
-            'status'=>$this->status,
+            'status'=>$this->get_status($this),
             'user_info'=>new UserMainInfoResource($this->user),
             'files'=>TicketFileResourse::collection($this->files),
             'relapy'=>ReplayTicketResourse::collection($this->replay)
         ];
     }
+    function get_status($data){
+        if($data->status == 1){
+            return 'لم يتم الرد';
+        }else{
+            return 'تم الرد';
+        }
+    }
+    
 }
