@@ -32,7 +32,7 @@ class PodcastResource extends JsonResource
         ];
     }
     function get_title($data){
-        return get_title_rss($data->url);
+        return (string)get_title_rss($data->url);
     }
     function get_desription($data){
         $content = file_get_contents($data->url);
