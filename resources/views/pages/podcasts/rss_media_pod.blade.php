@@ -122,7 +122,7 @@
             @auth
             @if($pod->user_id == auth()->id())
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                Open modal
+                اضف جديد
               </button>
             @endif
         @endauth
@@ -151,13 +151,32 @@
           
             <!-- Modal Header -->
             <div class="modal-header">
-              <h4 class="modal-title">Modal Heading</h4>
+              <h4 class="modal-title"> اضف ملف صوتي جديد</h4>
               <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             
             <!-- Modal body -->
             <div class="modal-body">
-              Modal body..
+                <form>
+                    <div class="row">
+                      <div class="col">
+                        <label for=""> العنوان</label>
+                        <input type="text" name="title" class="form-control" placeholder="العنوان">
+                      </div>
+                      <div class="col">
+                        <label for=""> الوصف</label>
+
+                        <input type="text" name="description"  class="form-control" placeholder="الوصف">
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                          <label for=""> المف الصوتي</label>
+                          <input type="file" name="sound" class="form-control" placeholder="العنوان">
+                        </div>
+                        
+                      </div>
+                  </form>
             </div>
             
             <!-- Modal footer -->
