@@ -53,7 +53,15 @@ class PodcastResource extends JsonResource
   
     }
     function get_all_sound($data){
-        dd($data->manual->sounds);
+        $sounds = $data->manual->sounds;
+        $i = 0;
+        foreach($sounds->channel->item as $flu){
+            $aa[$i]['id']=(int)$i;
+            $aa[$i]['title']=(string)$flu->title;
+            $aa[$i]['link']=asset('public/audio/'.$flu->sound);
+            $i++;
+        }
+        return $aa;
     }
 
     function count_item($data){
