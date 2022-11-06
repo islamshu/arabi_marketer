@@ -23,6 +23,18 @@ class TicketController extends BaseController
     }
     public function send_replay(Request $request)
     {
+        $ticket = Ticket::find($request->ticket_id);
+
+        $validation = Validator::make($request->all(), [
+            'ticket_id'=>'required',
+            'body' => 'required',
+        ]);
+        if ($validation->fails()) {
+            return $this->sendError($validation->messages()->all());
+        }
+        if($ticket->user_id != auth('api')->id()){
+            return $this->sendError('هذه التذكرة غير خاصة بك');
+        }
         $replay = new TicketReply();
         $replay->body = $request->body;
         $replay->ticket_id = $request->ticket_id;
