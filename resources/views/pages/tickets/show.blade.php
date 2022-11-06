@@ -89,7 +89,7 @@
                             </div>
                           </div>
                          </div>
-                         <div class="form-group col-md-8">
+                         <div class="form-group col-md-6">
 
                             <div class="card">
                              
@@ -97,8 +97,11 @@
                               <form action="" method="post">
                                 @csrf
                                 <input type="hidden" class="form-control" name="ticket_id" value="{{ $ticket->id }}" >
-                                <textarea name="body" class="form-control" id="" cols="30" rows="10"></textarea>
-                                <input type="submit" value="send" class="form-control btn btn-info">
+                                <textarea name="body" class="form-control" id="" cols="30" rows="4"></textarea>
+                                <div class="col-md-3">
+                                    <input type="submit" value="send" class="form-control btn btn-info">
+
+                                </div>
                               </form>
                                </div>
                              </div>
