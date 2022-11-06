@@ -36,7 +36,7 @@ class TicketController extends Controller
     public function show($id)
     {
         $ticket =  Ticket::find($id);
-        $ticket->status = 1;
+        // $ticket->status = 1;
         $ticket->save();
         return view('pages.tickets.show')->with('ticket', $ticket);
     }
