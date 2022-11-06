@@ -38,7 +38,7 @@ class PodcastController extends BaseController
         return $this->sendResponse($res,'جميع البودكاست  ');
     }
     public function single($id){
-        $service = Podacst::find($id);
+        $service = NewPodcast::find($id);
         $ser = new PodcastResource($service);
         return $this->sendResponse($ser,' تم ارجاع البودكاست بنجاح');
     }
