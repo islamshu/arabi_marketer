@@ -83,6 +83,7 @@ class PodacstController extends Controller
             $sound->podcast_id = $request->podcast_id;
             $sound->title = $request->title;
             $sound->description = $request->description;
+            $sound->image = null;
             $sound->save();
             Alert::success('Success', 'تم رفع الملف الصوتي بنجاح');
             return redirect()->back();
