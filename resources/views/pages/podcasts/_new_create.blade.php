@@ -53,76 +53,73 @@
                     <form id="send_form">
                         @csrf
                         <div class="row">
-                    
+
                             <div class="form-group col-md-6">
-                    
+
                                 <br><label> عنوان البودكاست :</label>
-                    
-                                <input type="text" id="title_ar" name="title" required class="form-control form-control-solid"
-                                    placeholder="العنوان " />
-                    
+
+                                <input type="text" id="title_ar" name="title" required
+                                    class="form-control form-control-solid" placeholder="العنوان " />
+
                             </div>
                             <div class=" col-md-6">
                                 <div class="form-group">
-                                    <br> <label data-error="wrong" data-success="right" for="form3"> صورة البودكاست (800*470)  <span
-                                            class="required"></span></label>
+                                    <br> <label data-error="wrong" data-success="right" for="form3"> صورة البودكاست
+                                        (800*470) <span class="required"></span></label>
                                     {{-- <input type="file" multiple id="imageupload" name="images[]" class="form-control"> --}}
-                                    <input id="imagestore" class="form-control image" required type="file" name="image" ><br />
-                         
-                    
+                                    <input id="imagestore" class="form-control image" required type="file"
+                                        name="image"><br />
+
+
                                 </div>
                                 <div class="form-group">
                                     <img src="{{ asset('uploads/product_images/default.png') }}" style="width: 100px"
                                         class="img-thumbnail image-preview" alt="">
                                 </div>
-                    
+
                             </div>
-                    
+
                             <div class="form-group col-md-8">
-                    
+
                                 <br><label> الوصف :</label>
-                                <textarea name="description" class="form-control form-control-solid" ></textarea>
-                    
+                                <textarea name="description" class="form-control form-control-solid"></textarea>
+
                             </div>
-                         
-                    
-                           
+
+
+
+
+
+
+
                             <div class="form-group col-md-6">
-                    
-                                <br> <label>نوع البودكاست:</label>
-                              
-                    
-                            </div>
-                            
-                            
-                            
-                            <div class="form-group col-md-6">
-                                
+
                                 <br><label> المستخدم :</label>
-                                <select class="form-select" required name="user_id"  data-control="select2" data-placeholder="اختر المستخدم">
+                                <select class="form-select" required name="user_id" data-control="select2"
+                                    data-placeholder="اختر المستخدم">
                                     <option value="" selected disabled>يرجى الاختيار</option>
                                     @foreach (App\Models\User::get() as $item)
-                                    <option value="{{ $item->id }}" >{{ $item->name }}</option>
-                    
+                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
                                     @endforeach
                                 </select>
-                    
+
                             </div>
-                        
+
                             {{-- <div class="form-group col-md-6">
                     
                                 <br> <label>رابط البودكاست:</label>
                                 <input type="url" name="url" id="url" required class="form-control form-control-solid"
                                     placeholder="رابط البودكاست" />
                             </div> --}}
-                    
-                            
-                           
-                            
+
+
+
+
                         </div>
-                        
-                         <br>
-                        <button class="btn btn-info" id="submitform" style="" type="submit">اضف جديد </i></button>
+
+                        <br>
+                        <button class="btn btn-info" id="submitform" style="" type="submit">اضف جديد
+                            </i></button>
                     </form>
                     <!--end::Card body-->
                 </div>
@@ -136,34 +133,32 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 
 @section('scripts')
-<script>
-    ClassicEditor
-            .create( document.querySelector( '.editor' ) )
-            .then( editor => {
-                    console.log( editor );
-            } )
-            .catch( error => {
-                    console.error( error );
-            } );
-            var input1 = document.querySelector("#kt_tagify_3");
-            new Tagify(input1);
-</script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('.editor'))
+            .then(editor => {
+                console.log(editor);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+        var input1 = document.querySelector("#kt_tagify_3");
+        new Tagify(input1);
+    </script>
     <script>
         $('#send_form').on('submit', function(e) {
-            
+
             e.preventDefault();
             var frm = $('#send_form');
             var formData = new FormData(frm[0]);
             formData.append('file', $('#imagestore')[0].files[0]);
-            storefile("{{ route('maual_podcast.store') }}",'post', formData,'#kt_datatable_example_2','sendmemessage','#exampleModal','Added successfully');
-    //         $("#send_form")[0].reset();
-    //        setTimeout(function () {
-    //     location.reload(true);
-    //   }, 3000);
+            storefile("{{ route('maual_podcast.store') }}", 'post', formData, '#kt_datatable_example_2',
+                'sendmemessage', '#exampleModal', 'Added successfully');
+            $("#send_form")[0].reset();
+            setTimeout(function() {
+                location.reload(true);
+            }, 3000);
 
         });
-
     </script>
-   
 @endsection
-
