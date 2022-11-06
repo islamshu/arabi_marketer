@@ -171,6 +171,8 @@ Route::group(['middleware' => 'is_login'], function () {
     Route::delete('/delete_from_carts/{id}', [CartController::class, 'delete']);
     Route::get('/checkout', [CartController::class, 'checkout']);
     Route::get('/tickets', [TicketController::class, 'index']);
+    Route::get('/single_ticket/{id}', [TicketController::class, 'single_ticket']);
+
     Route::post('/send_replay', [TicketController::class, 'send_replay']);
 
     

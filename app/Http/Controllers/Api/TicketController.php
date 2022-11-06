@@ -21,6 +21,12 @@ class TicketController extends BaseController
         $res = TicketResourse::collection($tickets)->response()->getData(true);
         return $this->sendResponse($res,'جميع التذاكر');
     }
+    public function single_ticket($id){
+        $ticket = Ticket::find($id);
+        $res = new TicketResourse($ticket);
+        return $this->sendResponse($res,'تم ارجاع بيانات التذكرة');
+
+    }
     public function send_replay(Request $request)
     {
         $ticket = Ticket::find($request->ticket_id);
