@@ -19,18 +19,19 @@ class PodcastResource extends JsonResource
         
         return [
             'id'=>$this->id,
-            'title'=>$this->get_title($this),
-            'description'=>$this->get_desription($this),
-            'user_info'=>new UserMainInfoResource($this->user),
-            // 'categories'=>$this->get_category($this),
-            // 'keywords'=>$this->get_keywords($this),
-            'image'=>$this->get_image($this),
-            // 'google_SSR'=>$this->url,
-            // 'Apple_SSR'=>$this->apple_url,
-            // 'SoundCloud_SSR'=>$this->sound_url,
-            'sound_item'=>$this->get_item($this),
-            'url_for_this_podcast'=>route('single_podcast',$this->id),
-            'count_item'=>$this->count_item($this)
+            // 'title'=>$this->get_title($this),
+            // 'description'=>$this->get_desription($this),
+            // 'user_info'=>new UserMainInfoResource($this->user),
+            // // 'categories'=>$this->get_category($this),
+            // // 'keywords'=>$this->get_keywords($this),
+            // 'image'=>$this->get_image($this),
+            // // 'google_SSR'=>$this->url,
+            // // 'Apple_SSR'=>$this->apple_url,
+            // // 'SoundCloud_SSR'=>$this->sound_url,
+            // 'sound_item'=>$this->get_item($this),
+            // 'url_for_this_podcast'=>route('single_podcast',$this->id),
+            // 'count_item'=>$this->count_item($this),
+            // 'aaa'=>$this->manual,
         ];
   
     }
