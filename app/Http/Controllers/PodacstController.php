@@ -75,7 +75,6 @@ class PodacstController extends Controller
         $music_file = $request->sound;
         $sound = new Sound();
 
-        dd($request->all());
         if (isset($music_file)) {
             $filename = $music_file->getClientOriginalName();
             $location = public_path('audio/');

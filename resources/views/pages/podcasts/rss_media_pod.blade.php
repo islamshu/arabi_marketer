@@ -168,7 +168,7 @@
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                    <form method="post" action="{{ route('uploda_sound') }}">
+                    <form method="post" action="{{ route('uploda_sound') }}" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="podcast_id" value="{{ $pod->manual->id }}">
                         <div class="row">
