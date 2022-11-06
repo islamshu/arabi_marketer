@@ -114,7 +114,11 @@
             </p>
           
         </div>
-
+        @if($pod->manual->sounds->count() == 0)
+        <div class="item">
+            <h2><a  target="_blank>{{ 'لا تحتوي على اي ملف' }} </a></h2>
+          
+            @endif
         @foreach ($pod->manual->sounds as $item)
         <div class="item">
             <h2><a href="https://podeo.co" target="_blank">{{ (string)$item->title }} </a></h2>
