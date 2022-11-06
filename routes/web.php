@@ -225,7 +225,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/index_podcast',[PodacstController::class,'new_index'])->name('new_index');
     Route::delete('/destort_new/{id}',[PodacstController::class,'destort_new'])->name('destort_new');
     Route::post('/store_podcast',[PodacstController::class,'store_podcast'])->name('store_podcast');
-    Route::get('/show_podcust/{url}',[PodacstController::class,'media_rss'])->name('media_rss');
+    // Route::get('/show_podcust/{url}',[PodacstController::class,'media_rss'])->name('media_rss');
     Route::post('/uploda_sound',[PodacstController::class,'uploda_sound'])->name('uploda_sound');
 
     
@@ -247,5 +247,6 @@ Route::middleware('auth')->group(function () {
  * https://laravel.com/docs/8.x/socialite
  */
 Route::get('/auth/redirect/{provider}', [SocialiteLoginController::class, 'redirect']);
+Route::get('/show_podcust/{url}',[PodacstController::class,'media_rss'])->name('media_rss');
 
 require __DIR__ . '/auth.php';
