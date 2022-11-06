@@ -32,6 +32,7 @@ class TicketController extends BaseController
         $ticket->title = $request->title;
         $ticket->body = $request->body;
         $ticket->user_id = auth('api')->id();
+        $ticket->code = 'DSC-'.date('Ymd-His');
         $ticket->save();
         // $files = json_decode($request->files);
         foreach ($request->files as $key => $file) {
