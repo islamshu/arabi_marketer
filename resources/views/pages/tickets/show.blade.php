@@ -83,9 +83,9 @@
                          <div class="card">
                             <div class="card-header">
                               @if($item->user_id == $ticket->user_id)
-                                {{ $ticket->user->name }} (المالك)
+                                {{ $ticket->user->name }}  (المالك)
                                 @else
-                                {{ $item->user->name }}(الدعم)
+                                {{ $item->user->name }}  (الدعم)
                                 @endif
                             </div>
                             <div class="card-body">
