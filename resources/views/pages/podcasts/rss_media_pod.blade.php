@@ -122,7 +122,7 @@
                 </div>
             <p>
                {{ (string)$item->description }} 
-            </p><audio controls="true" preload="none" src="{{ utf8_decode($asset('public/audio/'.$item->sound))}}"></audio></div>
+            </p><audio controls="true" preload="none" src="{{ utf8_decode(asset('public/audio/'.$item->sound))}}"></audio></div>
         @endforeach
         
         
