@@ -162,7 +162,7 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title"> اضف ملف صوتي جديد</h4>
+                    <h4 class="modal-title"> Upload Sound File   </h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
@@ -173,26 +173,27 @@
                         <input type="hidden" name="podcast_id" value="{{ $pod->manual->id }}">
                         <div class="row">
                             <div class="col-md-12">
-                                <label for=""> العنوان</label>
+                                <label for=""> Title</label>
                                 <input type="text" required name="title" class="form-control"
                                     placeholder="العنوان">
                             </div>
                             <div class="col-md-12 mt-3">
-                                <label for=""> الوصف</label>
+                                <label for=""> Description</label>
                                 <textarea name="description" required id="" class="form-control" placeholder="الوصف" cols="30"
                                     rows="5"></textarea>
                             </div>
                         </div>
                         <div class="row mt-3">
                             <div class="col">
-                                <label for=""> المف الصوتي</label>
+                                <label for="">Sound File </label>
                                 <input type="file" required name="sound" class="form-control"
                                     placeholder="العنوان">
                             </div>
 
                         </div>
-                        <input type="submit" class="btn btn-info mt-2" value="رفع" name="" id="">
-                    </form>
+                        <button type="submit" class="btn btn-primary mt-2" >
+                            رفع
+                          </button>                    </form>
                 </div>
 
                 <!-- Modal footer -->
