@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Alert;
 use App\Models\Ticket;
+use App\Models\TicketReply;
 use Illuminate\Http\Request;
 
 class TicketController extends Controller
@@ -14,6 +15,14 @@ class TicketController extends Controller
     public function destroy($id){
         Ticket::find($id)->delete();
         Alert::success('Success', 'Deleted successfully');
+        return redirect()->back();
+    }
+    public function send_replay(Request $request){
+        $replay = new TicketReply() ;
+        $replay->body = $request->body;
+        $replay->ticket_id = $request->ticket_id;
+        $replay->save();
+        Alert::success('Success', 'Replay successfully');
         return redirect()->back();
     }
     public function show($id){

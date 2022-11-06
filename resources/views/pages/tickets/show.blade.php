@@ -94,13 +94,12 @@
                             <div class="card">
                              
                                <div class="card-body">
-                              <form action="" method="post">
+                              <form action="{{ route('send_replay') }}" method="post">
                                 @csrf
                                 <input type="hidden" class="form-control" name="ticket_id" value="{{ $ticket->id }}" >
-                                <textarea name="body" class="form-control" id="" cols="30" rows="4"></textarea>
+                                <textarea required name="body" class="form-control" id="" cols="30" rows="4"></textarea>
                                 <div class="col-md-3 mt-3">
                                     <input type="submit" value="send" class="form-control btn btn-info">
-
                                 </div>
                               </form>
                                </div>

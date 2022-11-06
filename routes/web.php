@@ -87,7 +87,7 @@ Route::prefix('log')->name('log.')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::resource('users', UsersController::class);
     Route::resource('tickets', TicketController::class);
-
+    Route::post('send_replay',[TicketController::class,'send_replay'])->name('send_replay');
     Route::get('marketers',[ProfileController::class,'markters']);
     Route::get('customers',[ProfileController::class,'users']);
     Route::get('customer/{id}',[ProfileController::class,'show_customer'])->name('customer.show');
