@@ -229,7 +229,12 @@ if (!function_exists('assetCustom')) {
 function get_title_rss($url){
     $content = file_get_contents($url);
     $flux = new SimpleXMLElement($content);
-    return $flux->channel->title;
+    if( @(string)$flux->channel->image->title== null){
+        return $flux->channel->title;
+    }else{
+        return @(string)$flux->channel->image->title;
+    }
+     
 }
 
 
