@@ -54,7 +54,7 @@ class PodcastResource extends JsonResource
     function get_image($data){
         $content = file_get_contents($data->url);
         $flux = new SimpleXMLElement($content);
-        dd($flux);
+        // dd($flux);
         return (string)$flux->channel->image->url;
     }
 
