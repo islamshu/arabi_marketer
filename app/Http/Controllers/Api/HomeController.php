@@ -24,6 +24,7 @@ use App\Http\Resources\UserResource;
 use App\Models\AboutPage;
 use App\Models\Category;
 use App\Models\HowItWork;
+use App\Models\NewPodcast;
 use App\Models\Quastion;
 use App\Models\User;
 use FeedReader;
@@ -65,7 +66,7 @@ class HomeController extends BaseController
         $res['video'] = $videos;
 
 
-        $podcast = PodcastResource::collection(Podacst::orderBy('id', 'desc')->take(3)->get());
+        $podcast = PodcastResource::collection(NewPodcast::orderBy('id', 'desc')->take(3)->get());
         $res['Podcast'] = $podcast;
 
         return $this->sendResponse($res, 'home page');
