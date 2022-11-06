@@ -17,4 +17,14 @@ class NewPodcast extends Model
     {
         return $this->belongsTo(User::class);
     }
+    /**
+     * Get the user associated with the NewPodcast
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function manual()
+    {
+        return $this->hasOne(OwenPodcast::class, 'podcast_id');
+    }
+
 }
