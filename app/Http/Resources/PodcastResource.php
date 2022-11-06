@@ -51,9 +51,10 @@ class PodcastResource extends JsonResource
     }
     function get_all_sound($data){
         $sounds = $data->manual->sounds;
-        dd($sounds == '[]');
+        if($sounds == '[]'){
+            return [];
+        }
         $i = 0;
-        dd($sounds->count());
         foreach($sounds as $flu){
             $aa[$i]['id']=(int)$i;
             $aa[$i]['title']=(string)$flu->title;
