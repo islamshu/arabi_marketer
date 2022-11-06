@@ -115,7 +115,7 @@
           
         </div>
 
-        @foreach ($flux->manual->sounds as $item)
+        @foreach ($pod->manual->sounds as $item)
         <div class="item">
             <h2><a href="https://podeo.co" target="_blank">{{ (string)$item->title }} </a></h2>
             <div class="episode-time"><span>{{ $item->created_at }}</span> •
