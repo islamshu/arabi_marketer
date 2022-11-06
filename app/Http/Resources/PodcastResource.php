@@ -55,7 +55,7 @@ class PodcastResource extends JsonResource
     function get_all_sound($data){
         $sounds = $data->manual->sounds;
         $i = 0;
-        foreach($sounds->channel->item as $flu){
+        foreach($sounds as $flu){
             $aa[$i]['id']=(int)$i;
             $aa[$i]['title']=(string)$flu->title;
             $aa[$i]['link']=asset('public/audio/'.$flu->sound);
