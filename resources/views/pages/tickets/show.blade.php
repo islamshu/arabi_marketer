@@ -89,6 +89,20 @@
                             </div>
                           </div>
                          </div>
+                         <div class="form-group col-md-8">
+
+                            <div class="card">
+                             
+                               <div class="card-body">
+                              <form action="" method="post">
+                                @csrf
+                                <input type="hidden" class="form-control" name="ticket_id" value="{{ $ticket->id }}" >
+                                <textarea name="body" class="form-control" id="" cols="30" rows="10"></textarea>
+                                <input type="submit" value="send" class="form-control btn btn-info">
+                              </form>
+                               </div>
+                             </div>
+                            </div>
                   
                 </div>
              

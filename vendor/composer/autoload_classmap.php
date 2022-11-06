@@ -193,6 +193,7 @@ return array(
     'App\\Models\\Specialty' => $baseDir . '/app/Models/Specialty.php',
     'App\\Models\\Ticket' => $baseDir . '/app/Models/Ticket.php',
     'App\\Models\\TicketFile' => $baseDir . '/app/Models/TicketFile.php',
+    'App\\Models\\TicketReply' => $baseDir . '/app/Models/TicketReply.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\UserCategory' => $baseDir . '/app/Models/UserCategory.php',
     'App\\Models\\UserInfo' => $baseDir . '/app/Models/UserInfo.php',

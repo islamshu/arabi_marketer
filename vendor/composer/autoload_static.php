@@ -969,6 +969,7 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         'App\\Models\\Specialty' => __DIR__ . '/../..' . '/app/Models/Specialty.php',
         'App\\Models\\Ticket' => __DIR__ . '/../..' . '/app/Models/Ticket.php',
         'App\\Models\\TicketFile' => __DIR__ . '/../..' . '/app/Models/TicketFile.php',
+        'App\\Models\\TicketReply' => __DIR__ . '/../..' . '/app/Models/TicketReply.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\UserCategory' => __DIR__ . '/../..' . '/app/Models/UserCategory.php',
         'App\\Models\\UserInfo' => __DIR__ . '/../..' . '/app/Models/UserInfo.php',

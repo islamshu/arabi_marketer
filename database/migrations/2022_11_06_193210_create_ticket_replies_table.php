@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->mediumText('body');
             $table->unsignedBigInteger('ticket_id');
-            $table->foreign('ticket_id')
+            $table->foreign('ticket_id')    
                 ->references('id')->on('tickets')
                 ->onDelete('cascade');
             $table->timestamps();
