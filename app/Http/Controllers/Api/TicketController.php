@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\TicketResourse;
 use App\Models\Ticket;
 use App\Models\TicketFile;
+use App\Models\TicketReply;
 use App\Models\User;
 use App\Notifications\GeneralNotification;
 use Notification;
@@ -19,6 +20,21 @@ class TicketController extends BaseController
         $tickets = Ticket::where('user_id',auth('api')->id())->paginate(6);
         $res = TicketResourse::collection($tickets)->response()->getData(true);
         return $this->sendResponse($res,'جميع التذاكر');
+    }
+    public function send_replay(Request $request)
+    {
+        $replay = new TicketReply();
+        $replay->body = $request->body;
+        $replay->ticket_id = $request->ticket_id;
+        $replay->user_id = auth('api')->id();
+        $replay->save();
+        $ticket = Ticket::find($request->ticket_id);
+        $ticket->status = 1;
+        $ticket->save();
+        $res = new TicketResourse($ticket);
+        return $this->sendResponse($res,'تم الرد بنجاح');
+
+        return redirect()->back();
     }
     public function store(Request $request){
         $validation = Validator::make($request->all(), [
