@@ -29,7 +29,7 @@ class TicketController extends Controller
         $ticket = Ticket::find($request->ticket_id);
         $ticket->status = 2;
         $ticket->save();
-        dd($ticket);
+        // dd($ticket);
         Alert::success('Success', 'Replay successfully');
         return redirect()->back();
     }
