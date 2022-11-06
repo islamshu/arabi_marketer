@@ -16,8 +16,7 @@ class PodcastResource extends JsonResource
      */
     public function toArray($request)
     {
-        $is_empty = $this->count_item($this);
-        // if($is_empty != 0){
+        
         return [
             'id'=>$this->id,
             'title'=>$this->get_title($this),
@@ -33,9 +32,7 @@ class PodcastResource extends JsonResource
             'url_for_this_podcast'=>route('single_podcast',$this->id),
             'count_item'=>$this->count_item($this)
         ];
-    // }else{
-        
-    // }
+  
     }
 
     function count_item($data){
