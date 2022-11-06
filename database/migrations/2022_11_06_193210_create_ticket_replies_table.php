@@ -20,6 +20,10 @@ return new class extends Migration
             $table->foreign('ticket_id')    
                 ->references('id')->on('tickets')
                 ->onDelete('cascade');
+                $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')    
+                ->references('id')->on('users')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

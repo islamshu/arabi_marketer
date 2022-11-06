@@ -21,6 +21,8 @@ class TicketController extends Controller
         $replay = new TicketReply() ;
         $replay->body = $request->body;
         $replay->ticket_id = $request->ticket_id;
+        $replay->user_id = auth()->id();
+
         $replay->save();
         Alert::success('Success', 'Replay successfully');
         return redirect()->back();
