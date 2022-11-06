@@ -109,13 +109,7 @@
 
 <body>
     <div class="container">
-        @auth
-            @if($pod->user_id == auth()->id())
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                Open modal
-              </button>
-            @endif
-        @endauth
+      
        
         <div class="podcast-header">
             <h1>
@@ -125,7 +119,13 @@
             <p>
                 {{ (string)$pod->manual->description }} 
             </p>
-          
+            @auth
+            @if($pod->user_id == auth()->id())
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                Open modal
+              </button>
+            @endif
+        @endauth
         </div>
         @if($pod->manual->sounds->count() == 0)
         <div class="item">
