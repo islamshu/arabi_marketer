@@ -116,7 +116,7 @@
         </div>
         @if($pod->manual->sounds->count() == 0)
         <div class="item">
-            <h2><a  target="_blank>{{ 'لا تحتوي على اي ملف' }} </a></h2>
+            <h2><a  >{{ 'لا تحتوي على اي ملف' }} </a></h2>
           
             @endif
         @foreach ($pod->manual->sounds as $item)
