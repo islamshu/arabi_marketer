@@ -177,13 +177,13 @@
                                 <input type="text" required name="title" class="form-control"
                                     placeholder="العنوان">
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12 mt-3">
                                 <label for=""> الوصف</label>
                                 <textarea name="description" required id="" class="form-control" placeholder="الوصف" cols="30"
                                     rows="5"></textarea>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mt-3">
                             <div class="col">
                                 <label for=""> المف الصوتي</label>
                                 <input type="file" required name="sound" class="form-control"
@@ -191,7 +191,7 @@
                             </div>
 
                         </div>
-                        <input type="submit" class="btn btn-info" value="رفع" name="" id="">
+                        <input type="submit" class="btn btn-info mt-2" value="رفع" name="" id="">
                     </form>
                 </div>
 
