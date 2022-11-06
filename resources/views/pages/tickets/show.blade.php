@@ -81,11 +81,11 @@
                          <div class="form-group col-md-8">
 
                          <div class="card">
-                            <div class="card-header">
+                            <div class="card-header" style="min-height: 35px;margin-top: 10px;">
                               @if($item->user_id == $ticket->user_id)
-                                {{ $ticket->user->name }}  (المالك)
+                              <strong>  {{ $ticket->user->name }}  (المالك)</strong>
                                 @else
-                                {{ $item->user->name }}  (الدعم)
+                                <strong>   {{ $item->user->name }}  (الدعم)</strong>
                                 @endif
                             </div>
                             <div class="card-body">
