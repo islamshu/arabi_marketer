@@ -38,12 +38,9 @@ class PodcastResource extends JsonResource
                 'title'=>$this->manual->title,
                 'description'=>$this->manual->description,
                 'user_info'=>new UserMainInfoResource($this->user),
-                // 'categories'=>$this->get_category($this),
-                // 'keywords'=>$this->get_keywords($this),
+         
                 'image'=>asset('public/uploads/'.$this->manual->image),
-                // 'google_SSR'=>$this->url,
-                // 'Apple_SSR'=>$this->apple_url,
-                // 'SoundCloud_SSR'=>$this->sound_url,
+              
                 'sound_item'=>$this->get_all_sound($this),
                 'url_for_this_podcast'=>route('single_podcast',$this->id),
                 'count_item'=>0,
@@ -55,6 +52,7 @@ class PodcastResource extends JsonResource
     function get_all_sound($data){
         $sounds = $data->manual->sounds;
         $i = 0;
+        dd($sounds->count());
         foreach($sounds as $flu){
             $aa[$i]['id']=(int)$i;
             $aa[$i]['title']=(string)$flu->title;
