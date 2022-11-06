@@ -2,9 +2,10 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Ticket;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class TicketResourse extends JsonResource
+class ReplayTicketResourse extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,14 +16,17 @@ class TicketResourse extends JsonResource
     public function toArray($request)
     {
         return[
-            'id'=>$this->id,
-            'code'=>$this->code,
-            'title'=>$this->title,
+            'user'=>$this->get_user($this),
             'body'=>$this->body,
-            'status'=>$this->status,
-            'user_info'=>new UserMainInfoResource($this->user),
-            'files'=>TicketFileResourse::collection($this->files),
-            'relapy'=>ReplayTicketResourse::collection($this->replay)
+         
         ];
+    }
+    function get_user($data){
+       $tikeet = Ticket::find($data->ticket_id);
+       if($data->user_id == $tikeet->user_id){
+        return $tikeet->user->name . '(المالك)';
+       }else{
+        return $data->user->name . '(الدعم)';
+       }
     }
 }
