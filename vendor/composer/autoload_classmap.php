@@ -131,6 +131,7 @@ return array(
     'App\\Http\\Resources\\QuestionResourse' => $baseDir . '/app/Http/Resources/QuestionResourse.php',
     'App\\Http\\Resources\\RateResourse' => $baseDir . '/app/Http/Resources/RateResourse.php',
     'App\\Http\\Resources\\RelatedBlogResource' => $baseDir . '/app/Http/Resources/RelatedBlogResource.php',
+    'App\\Http\\Resources\\ReplayTicketResourse' => $baseDir . '/app/Http/Resources/ReplayTicketResourse.php',
     'App\\Http\\Resources\\ServiceBuyResource' => $baseDir . '/app/Http/Resources/ServiceBuyResource.php',
     'App\\Http\\Resources\\ServiceResource' => $baseDir . '/app/Http/Resources/ServiceResource.php',
     'App\\Http\\Resources\\SocialResource' => $baseDir . '/app/Http/Resources/SocialResource.php',

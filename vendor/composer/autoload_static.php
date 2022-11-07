@@ -907,6 +907,7 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         'App\\Http\\Resources\\QuestionResourse' => __DIR__ . '/../..' . '/app/Http/Resources/QuestionResourse.php',
         'App\\Http\\Resources\\RateResourse' => __DIR__ . '/../..' . '/app/Http/Resources/RateResourse.php',
         'App\\Http\\Resources\\RelatedBlogResource' => __DIR__ . '/../..' . '/app/Http/Resources/RelatedBlogResource.php',
+        'App\\Http\\Resources\\ReplayTicketResourse' => __DIR__ . '/../..' . '/app/Http/Resources/ReplayTicketResourse.php',
         'App\\Http\\Resources\\ServiceBuyResource' => __DIR__ . '/../..' . '/app/Http/Resources/ServiceBuyResource.php',
         'App\\Http\\Resources\\ServiceResource' => __DIR__ . '/../..' . '/app/Http/Resources/ServiceResource.php',
         'App\\Http\\Resources\\SocialResource' => __DIR__ . '/../..' . '/app/Http/Resources/SocialResource.php',
