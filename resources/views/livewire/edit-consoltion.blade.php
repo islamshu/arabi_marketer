@@ -177,7 +177,7 @@
             <div class="mb-3 row">
                 <div class="col-md-4">
                     <label for="phone" class="form-label"> اليوم </label>
-                    <select name="day[]" id="day" wire:model="day.[{{ $key }}]"
+                    <select name="day[]" id="day" wire:model="day_select.0"
                         class="form-control {{ $errors->first('day.0') ? 'is-invalid' : '' }}">
                         <option value="" selected></option>
                         <option value="Monday">الاثنين</option>
