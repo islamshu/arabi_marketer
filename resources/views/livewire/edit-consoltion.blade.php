@@ -24,6 +24,9 @@
             <div class="mb-3 col-md-6">
                 <label for="title" class="form-label">عنوان الاستشارة</label>
                 {{ $title .' '.$days }}
+                @foreach ($days as $item)
+                    {{ $item.day }}
+                @endforeach
                 <input type="text" wire:model="title" 
                     class="form-control {{ $errors->first('day') ? 'is-invalid' : '' }}" id="title"
                     aria-describedby="title">
