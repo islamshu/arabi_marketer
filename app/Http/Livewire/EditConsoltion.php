@@ -80,7 +80,8 @@ class EditConsoltion extends Component
         return view('livewire.edit-consoltion');
     }
     public function remove($i)
-    {
+    {   
+        dd($this->days[$i]);
         unset($this->days[$i]);
     }
     public function remove_key($i)
