@@ -13,6 +13,7 @@ use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\ConsultingResource;
 use App\Http\Resources\PaymentResource;
 use App\Models\Consulting;
+use App\Models\ConsutingDate;
 use App\Models\User;
 use App\Notifications\GeneralNotification;
 use Notification;
@@ -92,6 +93,11 @@ class ConsultationController extends BaseController
             'title' => 'Have a new Consultiong',
             'time' => $con->updated_at
         ];
+           // dd($this->day,$this->from,$this->to);
+           foreach ($request->day as $key => $value) {
+            dd($request->day,$request->from,$request->to);
+            ConsutingDate::create(['consulte_id'=>$con->id,'day' => $this->day[$key], 'from' => $this->from[$key] , 'to' => $this->to[$key]]);
+        }
         $admins = User::where('type','Admin')->get();
         Notification::send($admins, new GeneralNotification($date));
         $res = new ConsultingResource($con);
