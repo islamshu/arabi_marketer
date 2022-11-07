@@ -187,6 +187,7 @@ class EditConsoltion extends Component
 
             ConsutingDate::create(['consulte_id'=>$cond->id,'day' => $this->day_select[$key], 'from' => $this->form_select[$key] , 'to' => $this->to_select[$key]]);
         }
+        dd($this->day_select_2,$this->form_select_2,$this->to_select_2);
         foreach ($this->day_select_2 as $key => $value) {
 
             ConsutingDate::create(['consulte_id'=>$cond->id,'day' => $this->day_select_2[$key], 'from' => $this->form_select_2[$key] , 'to' => $this->to_select_2[$key]]);
