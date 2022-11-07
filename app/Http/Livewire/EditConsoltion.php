@@ -89,8 +89,11 @@ class EditConsoltion extends Component
     }
     public function remove_key($i)
     {
-        dd($this->inputs[$i]);
         unset($this->inputs[$i]);
+        unset($this->day_select[$i]);
+        unset($this->form_select[$i]);
+        unset($this->to_select[$i]);
+        unset($this->i);
     }
 
     public function step1()
@@ -175,7 +178,6 @@ class EditConsoltion extends Component
             'payment_id'=>$this->payment,
             'user_id'=>$this->user,
         ]);
-        dd($this->day_select);
         ConsutingDate::where('consulte_id',$cond->id)->delete();
         foreach ($this->day_select as $key => $value) {
 
