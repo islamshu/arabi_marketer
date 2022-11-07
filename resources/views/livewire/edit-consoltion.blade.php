@@ -268,6 +268,8 @@
                     </div>
                 </div>
             @endforeach --}}
+            @foreach ($days as $item)
+                
             <div class="mb-3 row">
                 <div class="col-md-4">
                     <label for="phone" class="form-label"> اليوم </label>
@@ -313,6 +315,8 @@
                 </div>
 
             </div>
+            @endforeach
+
             <button class="btn text-white btn-info btn-sm" wire:click.prevent="add({{ $i }})">اضف
                 اوقات</button>
             @foreach ($inputs as $key => $value)
