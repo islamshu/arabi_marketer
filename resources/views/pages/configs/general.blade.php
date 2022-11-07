@@ -54,7 +54,7 @@
                        
                         <div class="form-group col-md-6">
                             <label>{{ __('نسبة الادارة من الخدمات') }}:</label>
-                            <textarea name="general[admin_service]" class="form-control" id="" cols="20" rows="5">{{ get_general_value('admin_service') }}</textarea>
+                            <input type="text" name="general[admin_service]" class="form-control" value="{{ get_general_value('admin_service') }}">
                         </div>
                        
                      
