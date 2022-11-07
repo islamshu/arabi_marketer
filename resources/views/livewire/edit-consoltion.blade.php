@@ -227,7 +227,7 @@
             @endforeach
             <button class="btn text-white btn-info btn-sm" wire:click.prevent="add({{ $i }})">اضف
                 اوقات</button>
-            @foreach ($inputs as $key+$this->days->count() => $value)
+            @foreach ($inputs as $key => $value)
             <div class="mb-3 row">
                 <div class="col-md-4">
                     <label for="phone" class="form-label"> اليوم </label>
@@ -275,7 +275,7 @@
                 </div>
                 <div class="col-md-2">
                     <button class="btn btn-danger btn-sm" style="margin-top:13%"
-                        wire:click.prevent="remove_key({{ $key }})">حذف</button>
+                        wire:click.prevent="remove_key({{ $key + $this->days }})">حذف</button>
                 </div>
             </div>
         @endforeach
