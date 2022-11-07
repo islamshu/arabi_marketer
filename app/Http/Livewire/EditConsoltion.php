@@ -73,7 +73,7 @@ class EditConsoltion extends Component
     }
     public function remove($i)
     {
-        unset($this->inputs[$i]);
+        unset($this->days[$i]);
     }
 
     public function step1()

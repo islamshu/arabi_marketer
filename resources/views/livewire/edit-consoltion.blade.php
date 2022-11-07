@@ -216,6 +216,10 @@
                         </div>
                     @enderror
                 </div>
+                <div class="col-md-2">
+                    <button class="btn btn-danger btn-sm" style="margin-top:13%"
+                        wire:click.prevent="remove({{ $key }})">حذف</button>
+                </div>
 
             </div>
             @endforeach
