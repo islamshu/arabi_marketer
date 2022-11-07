@@ -231,8 +231,8 @@
             <div class="mb-3 row">
                 <div class="col-md-4">
                     <label for="phone" class="form-label"> اليوم </label>
-                    <select name="day[]" id="day" wire:model="day_select.{{ $value }}"
-                        class="form-control {{ $errors->first('day_select.' . $value) ? 'is-invalid' : '' }}">
+                    <select name="day[]" id="day" wire:model="day_select_2.{{ $value }}"
+                        class="form-control {{ $errors->first('day_select_2.' . $value) ? 'is-invalid' : '' }}">
                         <option value="" selected></option>
                         <option value="Monday">الاثنين</option>
                         <option value="Tuesday">الثلاثا</option>
@@ -243,7 +243,7 @@
                         <option value="Sunday">الأحد</option>
 
                     </select>
-                    @error('day_select.' . $value)
+                    @error('day_select_2.' . $value)
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
@@ -252,10 +252,10 @@
                 <div class="col-md-3">
 
                     <label for="from" class="form-label"> من</label>
-                    <input type="time" wire:model="form_select.{{ $value }}"
-                        class="form-control {{ $errors->first('form_select.' . $value) ? 'is-invalid' : '' }}"
+                    <input type="time" wire:model="form_select_2.{{ $value }}"
+                        class="form-control {{ $errors->first('form_select_2.' . $value) ? 'is-invalid' : '' }}"
                         id="from">
-                    @error('form_select.' . $value)
+                    @error('form_select_2.' . $value)
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
@@ -264,10 +264,10 @@
                 <div class="col-md-3">
 
                     <label for="to" class="form-label"> الى</label>
-                    <input type="time" wire:model="to_select.{{ $value }}"
-                        class="form-control {{ $errors->first('to_select.' . $value) ? 'is-invalid' : '' }}"
+                    <input type="time" wire:model="to_select_2.{{ $value }}"
+                        class="form-control {{ $errors->first('to_select_2.' . $value) ? 'is-invalid' : '' }}"
                         id="to">
-                    @error('to_select.' . $value)
+                    @error('to_select_2.' . $value)
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
@@ -275,7 +275,7 @@
                 </div>
                 <div class="col-md-2">
                     <button class="btn btn-danger btn-sm" style="margin-top:13%"
-                        wire:click.prevent="remove_key({{ $key + $this->days }})">حذف</button>
+                        wire:click.prevent="remove_key({{ $key  }})">حذف</button>
                 </div>
             </div>
         @endforeach

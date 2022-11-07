@@ -21,6 +21,10 @@ class EditConsoltion extends Component
     public $day_select=[];
     public $form_select = [];
     public $to_select = [];
+    public $day_select_2=[];
+    public $form_select_2 = [];
+    public $to_select_2 = [];
+
 
 
     public $successMessage;
@@ -89,9 +93,9 @@ class EditConsoltion extends Component
     public function remove_key($i)
     {
         unset($this->inputs[$i]);
-        unset($this->day_select[$i]);
-        unset($this->form_select[$i]);
-        unset($this->to_select[$i]);
+        unset($this->day_select_2[$i]);
+        unset($this->form_select_2[$i]);
+        unset($this->to_select_2[$i]);
     }
 
     public function step1()
@@ -180,6 +184,10 @@ class EditConsoltion extends Component
         foreach ($this->day_select as $key => $value) {
 
             ConsutingDate::create(['consulte_id'=>$cond->id,'day' => $this->day_select[$key], 'from' => $this->form_select[$key] , 'to' => $this->to_select[$key]]);
+        }
+        foreach ($this->day_select_2 as $key => $value) {
+
+            ConsutingDate::create(['consulte_id'=>$cond->id,'day' => $this->day_select_2[$key], 'from' => $this->form_select_2[$key] , 'to' => $this->to_select_2[$key]]);
         }
 
         // foreach ($this->day as $key => $value) {
