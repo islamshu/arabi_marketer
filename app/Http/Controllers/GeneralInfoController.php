@@ -109,13 +109,11 @@ class GeneralInfoController extends Controller
         }else{
 
             return $cl;
-        }
-        
-        
-        
-        
-        
-      
+        }      
+    }
+    public function general_data()
+    {
+        return view('pages.configs.general');
     }
 
 

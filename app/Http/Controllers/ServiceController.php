@@ -267,6 +267,7 @@ class ServiceController extends Controller
                 foreach($servicespecialty as $se){
                     $se->delete();
                 }
+                
                 foreach ($request->specialty as $specialty) {
                     $spe = new ServiceSpecialy();
                     $spe->service_id = $service->id;
