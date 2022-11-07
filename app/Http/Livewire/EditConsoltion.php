@@ -81,8 +81,8 @@ class EditConsoltion extends Component
     }
     public function remove($i)
     {   
-        // dd($i);
-        unset($i);
+        dd($this->i);
+        unset($this->i);
     }
     public function remove_key($i)
     {
