@@ -268,12 +268,12 @@
                     </div>
                 </div>
             @endforeach --}}
-            @foreach ($days as $item)
+            @foreach ($days as $key =>$item)
                 
             <div class="mb-3 row">
                 <div class="col-md-4">
                     <label for="phone" class="form-label"> اليوم </label>
-                    <select name="day[]" id="day" wire:model="day.0"
+                    <select name="day[]" id="day" wire:model="day.{{ $key }}"
                         class="form-control {{ $errors->first('day.0') ? 'is-invalid' : '' }}">
                         <option value="" selected></option>
                         <option value="Monday">الاثنين</option>
@@ -285,7 +285,7 @@
                         <option value="Sunday">الأحد</option>
 
                     </select>
-                    @error('day.0')
+                    @error('day.{{ $key }}')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
@@ -294,9 +294,9 @@
                 <div class="col-md-3">
 
                     <label for="from" class="form-label"> من</label>
-                    <input type="time" wire:model="from.0"
+                    <input type="time" wire:model="from.{{ $key }}"
                         class="form-control {{ $errors->first('from.0') ? 'is-invalid' : '' }}" id="from">
-                    @error('from.0')
+                    @error('from.{{ $key }}')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
@@ -305,13 +305,17 @@
                 <div class="col-md-3">
 
                     <label for="to" class="form-label"> الى</label>
-                    <input type="time" wire:model="to.0"
+                    <input type="time" wire:model="to.{{ $key }}"
                         class="form-control {{ $errors->first('to') ? 'is-invalid' : '' }}" id="to">
-                    @error('to.0')
+                    @error('to.{{ $key }}')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
                     @enderror
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-danger btn-sm" style="margin-top:13%"
+                        wire:click.prevent="remove({{ $key }})">حذف</button>
                 </div>
 
             </div>
