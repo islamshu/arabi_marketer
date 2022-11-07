@@ -37,6 +37,5 @@ class MessageController extends BaseController
         $messages =Message::where('sender_id',$id1)->Where('receiver_id',$id2)->orwhere('sender_id',$id2)->where('receiver_id',$id1)->orderby('id','desc')->get();
         $res = MessageResource::collection($messages);
         return $this->sendResponse($res,'all message');
-
     }
 }
