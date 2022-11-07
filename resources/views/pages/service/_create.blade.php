@@ -57,11 +57,18 @@
             </select>
 
         </div>
+        
         <div class="form-group col-md-6">
 
             <br> <label>سعر الخدمة:</label>
             <input type="text" id="price" required name="price" class="form-control form-control-solid"
                 placeholder="سعر الخدمة" />
+        </div>
+        <div class="form-group col-md-6">
+
+            <br> <label>نسبة الادارة من الخدمة:</label>
+            <input type="number" id="management_ratio" required name="management_ratio" class="form-control form-control-solid"
+                placeholder="نسبة الادارة من الخدمة" />
         </div>
         <div class="form-group col-md-6">
 

@@ -74,6 +74,7 @@ class ServiceController extends Controller
                 $service->title = ['ar' => $request->title_ar, 'en' => $request->title_en];
                 $service->description = ['ar' => $request->description_ar, 'en' => $request->description_en];
                 $service->price = $request->price;
+                $service->management_ratio = $request->management_ratio;
                 $service->url = $request->url;
                 $service->user_id = $request->user_id;
                 $image_array = array();
@@ -242,6 +243,7 @@ class ServiceController extends Controller
                 $service->title = ['ar' => $request->title_ar, 'en' => $request->title_en];
                 $service->description = ['ar' => $request->description_ar, 'en' => $request->description_en];
                 $service->price = $request->price;
+                $service->management_ratio = $request->management_ratio;
                 $service->url = $request->url;
                 $image_array = array();
                 if($request->images != null){

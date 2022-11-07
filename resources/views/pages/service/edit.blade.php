@@ -95,6 +95,12 @@
                             placeholder="Price" />
                     </div>
                     <div class="form-group col-md-6">
+
+                        <br> <label>نسبة الادارة من الخدمة:</label>
+                        <input type="number" id="management_ratio"  value="{{ $service->management_ratio }}"  required name="management_ratio" class="form-control form-control-solid"
+                            placeholder="نسبة الادارة من الخدمة" />
+                    </div>
+                    <div class="form-group col-md-6">
             
                         <label>رابط الخدمة:</label>
                         <input type="url" name="url" value="{{ $service->url }}" id="url" required class="form-control form-control-solid"
