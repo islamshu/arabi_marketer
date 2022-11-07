@@ -81,6 +81,7 @@ class EditConsoltion extends Component
     }
     public function remove($i)
     {   
+        dd($i);
         unset($this->days[$i]);
     }
     public function remove_key($i)
