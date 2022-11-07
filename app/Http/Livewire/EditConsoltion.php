@@ -59,6 +59,11 @@ class EditConsoltion extends Component
     {
         return view('livewire.edit-consoltion');
     }
+    public function remove($i)
+    {
+        unset($this->inputs[$i]);
+    }
+
     public function step1()
     {
         $validatedData = $this->validate([
