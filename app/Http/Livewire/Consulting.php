@@ -106,7 +106,7 @@ class Consulting extends Component
             'payment_id'=>$this->payment,
             'user_id'=>$this->user,
         ]);
-        dd($this->day,$this->from,$this->to);
+        // dd($this->day,$this->from,$this->to);
         foreach ($this->day as $key => $value) {
 
             ConsutingDate::create(['consulte_id'=>$con->id,'day' => $this->day[$key], 'from' => $this->from[$key] , 'to' => $this->to[$key]]);
