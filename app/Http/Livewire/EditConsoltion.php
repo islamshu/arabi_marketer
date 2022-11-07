@@ -85,6 +85,7 @@ class EditConsoltion extends Component
     }
     public function remove_key($i)
     {
+        dd($this->inputs[$i]);
         unset($this->inputs[$i]);
     }
 
