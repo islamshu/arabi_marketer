@@ -92,10 +92,12 @@ class EditConsoltion extends Component
     }
     public function remove_key($i)
     {
+        dd($this->i);
         unset($this->inputs[$i]);
         unset($this->day_select_2[$i]);
         unset($this->form_select_2[$i]);
         unset($this->to_select_2[$i]);
+
     }
 
     public function step1()
