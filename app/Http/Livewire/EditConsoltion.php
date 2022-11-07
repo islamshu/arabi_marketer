@@ -17,6 +17,8 @@ class EditConsoltion extends Component
     public $i = 1;
     public $inputs = [];
     public $day_selects = [];
+    public $day_select=[];
+
 
     public $successMessage;
 
@@ -40,6 +42,9 @@ class EditConsoltion extends Component
         $this->price = $this->con->price;
         $this->url = $this->con->url;
         $this->days = $this->con->date;
+        foreach($this->days as $key=>$d){
+            $this->day_select[$key]= $d->day;
+        }
         // dd($this->con);
         $this->payment = $this->con->payment_id;
         if($this->con->hour == 0 && $this->con->min == 30){
