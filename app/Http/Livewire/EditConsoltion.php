@@ -44,6 +44,7 @@ class EditConsoltion extends Component
         $this->price = $this->con->price;
         $this->url = $this->con->url;
         $this->days = $this->con->date;
+        $this->i = $this->con->date->coun() + 1;
         foreach($this->days as $key=>$d){
             $this->day_select[$key]= $d->day;
             $this->form_select[$key]= $d->from;
