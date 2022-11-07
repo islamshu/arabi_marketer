@@ -25,7 +25,7 @@
                 <label for="title" class="form-label">عنوان الاستشارة</label>
                 {{ $title .' '.$days }}
                 @foreach ($days as $item)
-                    {{ $item.day }}
+                    {{ $item }} <br>
                 @endforeach
                 <input type="text" wire:model="title" 
                     class="form-control {{ $errors->first('day') ? 'is-invalid' : '' }}" id="title"
