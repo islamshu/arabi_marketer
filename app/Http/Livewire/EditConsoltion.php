@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Consulting;
+use App\Models\ConsutingDate;
 use Livewire\Component;
 use Request;
 
@@ -165,6 +166,11 @@ class EditConsoltion extends Component
             'payment_id'=>$this->payment,
             'user_id'=>$this->user,
         ]);
+        ConsutingDate::where('consulte_id',$con->id)->delete();
+        foreach ($this->day_select as $key => $value) {
+
+            ConsutingDate::create(['consulte_id'=>$con->id,'day' => $this->day_select[$key], 'from' => $this->form_select[$key] , 'to' => $this->to_select[$key]]);
+        }
 
         // foreach ($this->day as $key => $value) {
         //     ConsutingDate::create(['consulte_id'=>$con->id,'day' => $this->day[$key], 'from' => $this->from[$key] , 'to' => $this->to[$key]]);
