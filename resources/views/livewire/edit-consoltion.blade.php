@@ -273,6 +273,7 @@
             <div class="mb-3 row">
                 <div class="col-md-4">
                     <label for="phone" class="form-label"> اليوم </label>
+                    {{ dd($item) }}
                     <select name="day[]" id="day" wire:model="day.{{ $key }}"
                         class="form-control {{ $errors->first('day.0') ? 'is-invalid' : '' }}">
                         <option value="" selected></option>
@@ -392,7 +393,7 @@
             </div>
             <div class="mb-3 col-md-6">
                 <label for="payment" class="form-label"> طريقة الدفع   </label>
-                <select id="payment"
+                <select wire:model.defer="payment" id="payment"
                     class="form-control {{ $errors->first('payment') ? 'is-invalid' : '' }}">
                     <option value="null" disabled>{{ __('يرجى الاختيار') }}</option>
                     @foreach (App\Models\Payment::get() as $department)
