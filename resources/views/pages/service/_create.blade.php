@@ -67,7 +67,7 @@
         <div class="form-group col-md-6">
 
             <br> <label>نسبة الادارة من الخدمة:</label>
-            <input type="number" id="management_ratio" required name="management_ratio" class="form-control form-control-solid"
+            <input type="number" id="management_ratio" value="{{ get_general_value('admin_service') }}" required name="management_ratio" class="form-control form-control-solid"
                 placeholder="نسبة الادارة من الخدمة" />
         </div>
         <div class="form-group col-md-6">

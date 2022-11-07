@@ -75,6 +75,8 @@ class ServiceController extends BaseController
                 $service->description = ['ar' => $request->description, 'en' => $request->description];
                 $service->price = $request->price;
                 $service->url = $request->url;
+                $service->management_ratio = get_general_value('admin_service');
+
                 $service->user_id = auth('api')->id();
                 $image_array = array();
                 // $images = explode(',',$request->images);
