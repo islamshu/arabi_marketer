@@ -71,10 +71,7 @@ class ConsultationController extends BaseController
         if ($validation->fails()) {
             return $this->sendError($validation->messages()->all());
         }
-        foreach ($request->day as $key => $value) {
-            dd($request->day,$request->from,$request->to);
-            ConsutingDate::create(['consulte_id'=>$con->id,'day' => $this->day[$key], 'from' => $this->from[$key] , 'to' => $this->to[$key]]);
-        }
+        
         $con = Consulting::create([
             'title' => $request->title,
             'description' => $request->description,
@@ -97,6 +94,9 @@ class ConsultationController extends BaseController
             'title' => 'Have a new Consultiong',
             'time' => $con->updated_at
         ];
+        foreach ($request->day as $key => $value) {
+            ConsutingDate::create(['consulte_id'=>$con->id,'day' => $request->day[$key], 'from' => $request->from[$key] , 'to' => $request->to[$key]]);
+        }
            // dd($this->day,$this->from,$this->to);
         
         $admins = User::where('type','Admin')->get();
