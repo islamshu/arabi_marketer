@@ -82,6 +82,9 @@ class EditConsoltion extends Component
     public function remove($i)
     {   
         unset($this->days[$i]);
+        unset($this->day_select[$i]);
+        unset($this->form_select[$i]);
+        unset($this->to_select[$i]);
 
         unset($this->i);
     }
