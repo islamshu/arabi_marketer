@@ -295,8 +295,8 @@
                 <div class="col-md-3">
 
                     <label for="from" class="form-label"> من</label>
-                    <input type="time" wire:model="from.{{ $key }}"
-                        class="form-control {{ $errors->first('from.0') ? 'is-invalid' : '' }}" id="from">
+                    <input type="time"  wire:model="day"
+                    class="form-control {{ $errors->first('price') ? 'is-invalid' : '' }}" id="price">
                     @error('from.{{ $key }}')
                         <div class="invalid-feedback">
                             {{ $message }}
