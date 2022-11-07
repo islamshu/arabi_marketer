@@ -216,10 +216,12 @@
                         </div>
                     @enderror
                 </div>
+                @if($key != 0)
                 <div class="col-md-2">
                     <button class="btn btn-danger btn-sm" style="margin-top:13%"
                         wire:click.prevent="remove({{ $key }})">حذف</button>
                 </div>
+                @endif
 
             </div>
             @endforeach
