@@ -16,6 +16,8 @@ class EditConsoltion extends Component
     public $title, $description, $user, $type, $place, $color, $time_duration, $hour, $mints, $day, $from, $to, $price, $payment, $start_date, $end_date, $url;
     public $i = 1;
     public $inputs = [];
+    public $day_selects = [];
+
     public $successMessage;
 
 
