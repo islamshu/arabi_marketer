@@ -28,7 +28,7 @@ class ConsultingResource extends JsonResource
             'user_info'=> new UserMainInfoResource($this->user),
             'type'=>new KeywordResource($this->type),
             'date'=>$this->date,
-            'day'=>
+            // 'day'=>
         ];
     }
 }
