@@ -23,8 +23,9 @@
             aria-describedby="con_id">
             <div class="mb-3 col-md-6">
                 <label for="title" class="form-label">عنوان الاستشارة</label>
+                {{ $title .' '. $day }}
                 <input type="text" wire:model="title" 
-                    class="form-control {{ $errors->first('title') ? 'is-invalid' : '' }}" id="title"
+                    class="form-control {{ $errors->first('day') ? 'is-invalid' : '' }}" id="title"
                     aria-describedby="title">
                 @error('title')
                     <div class="invalid-feedback">
@@ -268,114 +269,6 @@
                     </div>
                 </div>
             @endforeach --}}
-            @foreach ($days as $key =>$item)
-                
-            <div class="mb-3 row">
-                <div class="col-md-4">
-                    <label for="phone" class="form-label"> اليوم </label>
-                    
-                    <select name="day[]" id="day" value="Monday"
-                        class="form-control {{ $errors->first('day.0') ? 'is-invalid' : '' }}">
-                        <option value="" selected></option>
-                        <option value="Monday">الاثنين</option>
-                        <option value="Tuesday">الثلاثا</option>
-                        <option value="Wednesday">الاربعا</option>
-                        <option value="Thursday">الخميس</option>
-                        <option value="Friday">الجمعة</option>
-                        <option value="Saturday">السبت</option>
-                        <option value="Sunday">الأحد</option>
-
-                    </select>
-                    @error('day.{{ $key }}')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-                <div class="col-md-3">
-
-                    <label for="from" class="form-label"> من</label>
-                    <input type="time"  wire:model="day"
-                    class="form-control {{ $errors->first('price') ? 'is-invalid' : '' }}" id="price">
-                    @error('from.{{ $key }}')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-                <div class="col-md-3">
-
-                    <label for="to" class="form-label"> الى</label>
-                    <input type="time" wire:model="to.{{ $key }}"
-                        class="form-control {{ $errors->first('to') ? 'is-invalid' : '' }}" id="to">
-                    @error('to.{{ $key }}')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-                <div class="col-md-2">
-                    <button class="btn btn-danger btn-sm" style="margin-top:13%"
-                        wire:click.prevent="remove({{ $key }})">حذف</button>
-                </div>
-
-            </div>
-            @endforeach
-
-            <button class="btn text-white btn-info btn-sm" wire:click.prevent="add({{ $i }})">اضف
-                اوقات</button>
-            @foreach ($inputs as $key => $value)
-                <div class="mb-3 row">
-                    <div class="col-md-4">
-                        <label for="phone" class="form-label"> اليوم </label>
-                        <select name="day[]" id="day" wire:model="day.{{ $value }}"
-                            class="form-control {{ $errors->first('day.' . $value) ? 'is-invalid' : '' }}">
-                            <option value="" selected></option>
-                            <option value="Monday">الاثنين</option>
-                            <option value="Tuesday">الثلاثا</option>
-                            <option value="Wednesday">الاربعا</option>
-                            <option value="Thursday">الخميس</option>
-                            <option value="Friday">الجمعة</option>
-                            <option value="Saturday">السبت</option>
-                            <option value="Sunday">الأحد</option>
-
-                        </select>
-                        @error('day.' . $value)
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="col-md-3">
-
-                        <label for="from" class="form-label"> من</label>
-                        <input type="time" wire:model="from.{{ $value }}"
-                            class="form-control {{ $errors->first('from.' . $value) ? 'is-invalid' : '' }}"
-                            id="from">
-                        @error('from.' . $value)
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="col-md-3">
-
-                        <label for="to" class="form-label"> الى</label>
-                        <input type="time" wire:model="to.{{ $value }}"
-                            class="form-control {{ $errors->first('to.' . $value) ? 'is-invalid' : '' }}"
-                            id="to">
-                        @error('to.' . $value)
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="col-md-2">
-                        <button class="btn btn-danger btn-sm" style="margin-top:13%"
-                            wire:click.prevent="remove({{ $key }})">حذف</button>
-                    </div>
-                </div>
-            @endforeach
             <div class="mb-3 row">
                 <div class="col-md-6">
                     <label for="price" class="form-label"> سعر الاستشارة   </label>
