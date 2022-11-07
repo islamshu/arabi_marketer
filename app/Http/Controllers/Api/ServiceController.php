@@ -25,226 +25,231 @@ use Validator;
 
 class ServiceController extends BaseController
 {
-    public function get_specialty(){
-        $res = SpecialtyResource::collection (Specialty::get());
-        return $this->sendResponse($res,'جميع التصنيفات');
+    public function get_specialty()
+    {
+        $res = SpecialtyResource::collection(Specialty::get());
+        return $this->sendResponse($res, 'جميع التصنيفات');
     }
-    public function service_category(){
+    public function service_category()
+    {
         $category = Category::ofType('service')->orderBy('id', 'asc')->get();
-        $userRes =KeywordResource::collection($category);
-        return $this->sendResponse($userRes,'جميع الكلمات المفتاحية الخاصة بالخدمات');
+        $userRes = KeywordResource::collection($category);
+        return $this->sendResponse($userRes, 'جميع الكلمات المفتاحية الخاصة بالخدمات');
     }
-    public function service_keyword(){
+    public function service_keyword()
+    {
         $category = KeyWord::ofType('service')->orderBy('id', 'asc')->get();
-        $userRes =CategoryResource::collection($category);
-        return $this->sendResponse($userRes,'جميع التصنيفات الخاصة بالخدمات');
+        $userRes = CategoryResource::collection($category);
+        return $this->sendResponse($userRes, 'جميع التصنيفات الخاصة بالخدمات');
     }
-    public function get_all(){
-       $service = Service::orderby('id','desc')->paginate(5);
-       $res = ServiceResource::collection($service)->response()->getData(true);
-        return $this->sendResponse($res,'جميع الخدمات  ');
+    public function get_all()
+    {
+        $service = Service::orderby('id', 'desc')->paginate(5);
+        $res = ServiceResource::collection($service)->response()->getData(true);
+        return $this->sendResponse($res, 'جميع الخدمات  ');
     }
-    public function single($id){
+    public function single($id)
+    {
         $service = Service::find($id);
-        $service->viewer+=1;
+        $service->viewer += 1;
         $service->save();
         $ser = new ServiceResource($service);
-        return $this->sendResponse($ser,' تم ارجاع الخدمة بنجاح');
+        return $this->sendResponse($ser, ' تم ارجاع الخدمة بنجاح');
     }
-    public function store(Request $request){
-        
-        
+    public function store(Request $request)
+    {
+
+
         $validation = Validator::make($request->all(), [
-            'title'=>'required',
+            'title' => 'required',
             'description' => 'required',
-            'images'=>'required',
-            'price'=>'required',
-            'url'=>'required',
-            'specialties'=>'required',
-            'types'=>'required',
-            'keywords'=>'required', 
-            'has_file'=>'required',
-            'attach_file'=>  $request->has_file == true ?'required' : '' ,
-          
+            'images' => 'required',
+            'price' => 'required',
+            'url' => 'required',
+            'specialties' => 'required',
+            'types' => 'required',
+            'keywords' => 'required',
+            'has_file' => 'required',
+            'attach_file' =>  $request->has_file == true ? 'required' : '',
+
         ]);
         if ($validation->fails()) {
             return $this->sendError($validation->messages()->all());
         }
-                $service = new Service();
-                $service->title = ['ar' => $request->title, 'en' => $request->title];
-                $service->description = ['ar' => $request->description, 'en' => $request->description];
-                $service->price = $request->price;
-                $service->url = $request->url;
-                $service->management_ratio = get_general_value('admin_service');
-
-                $service->user_id = auth('api')->id();
-                $image_array = array();
-                // $images = explode(',',$request->images);
-                
-
-                foreach ($request->images as $key => $im) {
-                    if($key == 0){
-                        $service->image = $im->store('service');
-                    }
-                }   
-                foreach ($request->images as $key => $im) {
-                   
-                    
-                        array_push($image_array, $im->store('service'));
-                }  
-                $service->images = json_encode($image_array);
-                $service->save();
-              
-                foreach (json_decode($request->specialties) as $specialty) {
-                    $spe = new ServiceSpecialy();
-                    $spe->service_id = $service->id;
-                    $spe->specialts_id = $specialty;
-                    $spe->save();
-                }
-                $types = json_decode($request->types);
-
-                foreach ($types as $category) {
-                    $cat = new ServiceCategory();
-                    $cat->service_id = $service->id;
-                    $cat->category_id = $category;
-                    $cat->save();
-                }
-
-                // dd($request->keywords);
-                $keywords = explode(',',$request->keywords);
-
-                foreach ($keywords as $s) {
-                    $keyword = KeyWord::ofType('service')->where('title', $s)->where('title', $s)->first();
-                    if ($keyword) {
-                        $key = new ServiceKeyword();
-                        $key->service_id = $service->id;
-                        $key->keyword_id = $keyword->id;
-                        $key->save();
-                    } else {
-
-                        $keyword = new KeyWord();
-                        $keyword->title = ['ar' => $s, 'en' => $s];
-                        $keyword->type = 'service';
-                        $keyword->save();
-
-                        $key = new ServiceKeyword();
-                        $key->service_id = $service->id;
-                        $key->keyword_id = $keyword->id;
-                        $key->save();
-                    }
-                }
+        $service = new Service();
+        $service->title = ['ar' => $request->title, 'en' => $request->title];
+        $service->description = ['ar' => $request->description, 'en' => $request->description];
+        $service->price = $request->price;
+        $service->url = $request->url;
+        $service->management_ratio = get_general_value('admin_service');
+        $service->user_id = auth('api')->id();
+        $image_array = array();
+        // $images = explode(',',$request->images);
 
 
-                if ($request->has_file == true) {
-                    foreach ($request->attach_file as $keyy => $imagex) {  
-                        $imageNamee = '/' . time() + $keyy . '_service_file.' . $imagex->getClientOriginalExtension();
-                        $imagex->move('uploads/service_file', $imageNamee);
-                        $file = new ServiceFiles();
-                        $file->service_id = $service->id;
-                        $file->file =  $imageNamee;
-                        $file->save();
-                    }
-                }
-                $date = [
-                    'id'=>$service->id,
-                    'name' => $service->title,
-                    'url' => route('services.edit',$service->id),
-                    'title' => 'Have a new service',
-                    'time' => $service->updated_at
-                ];
-                $admins = User::where('type','Admin')->get();
-                Notification::send($admins, new GeneralNotification($date));
-                $ser = new ServiceResource($service);
-                return $this->sendResponse($ser,'Addedd Successfuly');  
+        foreach ($request->images as $key => $im) {
+            if ($key == 0) {
+                $service->image = $im->store('service');
+            }
+        }
+        foreach ($request->images as $key => $im) {
+
+
+            array_push($image_array, $im->store('service'));
+        }
+        $service->images = json_encode($image_array);
+        $service->save();
+
+        foreach (json_decode($request->specialties) as $specialty) {
+            $spe = new ServiceSpecialy();
+            $spe->service_id = $service->id;
+            $spe->specialts_id = $specialty;
+            $spe->save();
+        }
+        $types = json_decode($request->types);
+
+        foreach ($types as $category) {
+            $cat = new ServiceCategory();
+            $cat->service_id = $service->id;
+            $cat->category_id = $category;
+            $cat->save();
+        }
+
+        // dd($request->keywords);
+        $keywords = explode(',', $request->keywords);
+
+        foreach ($keywords as $s) {
+            $keyword = KeyWord::ofType('service')->where('title', $s)->where('title', $s)->first();
+            if ($keyword) {
+                $key = new ServiceKeyword();
+                $key->service_id = $service->id;
+                $key->keyword_id = $keyword->id;
+                $key->save();
+            } else {
+
+                $keyword = new KeyWord();
+                $keyword->title = ['ar' => $s, 'en' => $s];
+                $keyword->type = 'service';
+                $keyword->save();
+
+                $key = new ServiceKeyword();
+                $key->service_id = $service->id;
+                $key->keyword_id = $keyword->id;
+                $key->save();
+            }
+        }
+
+
+        if ($request->has_file == true) {
+            foreach ($request->attach_file as $keyy => $imagex) {
+                $imageNamee = '/' . time() + $keyy . '_service_file.' . $imagex->getClientOriginalExtension();
+                $imagex->move('uploads/service_file', $imageNamee);
+                $file = new ServiceFiles();
+                $file->service_id = $service->id;
+                $file->file =  $imageNamee;
+                $file->save();
+            }
+        }
+        $date = [
+            'id' => $service->id,
+            'name' => $service->title,
+            'url' => route('services.edit', $service->id),
+            'title' => 'Have a new service',
+            'time' => $service->updated_at
+        ];
+        $admins = User::where('type', 'Admin')->get();
+        Notification::send($admins, new GeneralNotification($date));
+        $ser = new ServiceResource($service);
+        return $this->sendResponse($ser, 'Addedd Successfuly');
     }
-    public function update(Request $request){
-      
-                $service = Service::find($request->service_id);
-                $service->title = ['ar' => $request->title, 'en' => $request->title];
-                $service->description = ['ar' => $request->description, 'en' => $request->description];
-                $service->price = $request->price;
-                $service->url = $request->url;
-                $image_array = array();
-                if($request->images != null){
-                    foreach ($request->images as $key => $image) {
+    public function update(Request $request)
+    {
 
-                        array_push($image_array, $image->store('service'));
-                    }
-                    foreach ($request->images as $key => $im) {
-                        if ($key == 0) {
-                            $service->image = $im->store('service');
-                        }
-                    }
-                    $service->images = json_encode($image_array);
+        $service = Service::find($request->service_id);
+        $service->title = ['ar' => $request->title, 'en' => $request->title];
+        $service->description = ['ar' => $request->description, 'en' => $request->description];
+        $service->price = $request->price;
+        $service->url = $request->url;
+        $image_array = array();
+        if ($request->images != null) {
+            foreach ($request->images as $key => $image) {
 
+                array_push($image_array, $image->store('service'));
+            }
+            foreach ($request->images as $key => $im) {
+                if ($key == 0) {
+                    $service->image = $im->store('service');
                 }
-                
-                $service->save();
-                $servicespecialty = ServiceSpecialy::where('service_id',$service->id)->get();
-                foreach($servicespecialty as $se){
-                    $se->delete();
-                }
-                foreach ($request->specialties as $specialty) {
-                    $spe = new ServiceSpecialy();
-                    $spe->service_id = $service->id;
-                    $spe->specialts_id = $specialty;
-                    $spe->save();
-                }
-                $servicecategory = ServiceCategory::where('service_id',$service->id)->get();
-                foreach($servicecategory as $se){
-                    $se->delete();
-                }
-                foreach ($request->types as $category) {
-                    $cat = new ServiceCategory();
-                    $cat->service_id = $service->id;
-                    $cat->category_id = $category;
-                    $cat->save();
-                }
+            }
+            $service->images = json_encode($image_array);
+        }
 
-                // dd($request->keywords);
-                $keywords = explode(',',$request->keywords);
-                $servicekey = ServiceKeyword::where('service_id',$service->id)->get();
-                foreach($servicekey as $se){
-                    $se->delete();
-                }
-                foreach ($keywords as $s) {
-                    $keyword = KeyWord::ofType('service')->where('title', $s)->where('title', $s)->first();
-                    if ($keyword) {
-                        $key = new ServiceKeyword();
-                        $key->service_id = $service->id;
-                        $key->keyword_id = $keyword->id;
-                        $key->save();
-                    } else {
+        $service->save();
+        $servicespecialty = ServiceSpecialy::where('service_id', $service->id)->get();
+        foreach ($servicespecialty as $se) {
+            $se->delete();
+        }
+        foreach ($request->specialties as $specialty) {
+            $spe = new ServiceSpecialy();
+            $spe->service_id = $service->id;
+            $spe->specialts_id = $specialty;
+            $spe->save();
+        }
+        $servicecategory = ServiceCategory::where('service_id', $service->id)->get();
+        foreach ($servicecategory as $se) {
+            $se->delete();
+        }
+        foreach ($request->types as $category) {
+            $cat = new ServiceCategory();
+            $cat->service_id = $service->id;
+            $cat->category_id = $category;
+            $cat->save();
+        }
 
-                        $keyword = new KeyWord();
-                        $keyword->title = ['ar' => $s, 'en' => $s];
-                        $keyword->type = 'service';
-                        $keyword->save();
+        // dd($request->keywords);
+        $keywords = explode(',', $request->keywords);
+        $servicekey = ServiceKeyword::where('service_id', $service->id)->get();
+        foreach ($servicekey as $se) {
+            $se->delete();
+        }
+        foreach ($keywords as $s) {
+            $keyword = KeyWord::ofType('service')->where('title', $s)->where('title', $s)->first();
+            if ($keyword) {
+                $key = new ServiceKeyword();
+                $key->service_id = $service->id;
+                $key->keyword_id = $keyword->id;
+                $key->save();
+            } else {
 
-                        $key = new ServiceKeyword();
-                        $key->service_id = $service->id;
-                        $key->keyword_id = $keyword->id;
-                        $key->save();
-                    }
-                }
+                $keyword = new KeyWord();
+                $keyword->title = ['ar' => $s, 'en' => $s];
+                $keyword->type = 'service';
+                $keyword->save();
+
+                $key = new ServiceKeyword();
+                $key->service_id = $service->id;
+                $key->keyword_id = $keyword->id;
+                $key->save();
+            }
+        }
 
 
-                if ($request->has_file == true) {
-                    $servicefile = ServiceFiles::where('service_id',$service->id)->get();
-                    foreach($servicefile as $se){
-                        $se->delete();
-                    }
-                    foreach ($request->attach_file as $keyy => $imagex) {  
-                        $imageNamee = '/' . time() + $keyy . '_service_file.' . $imagex->getClientOriginalExtension();
-                        $imagex->move('uploads/service_file', $imageNamee);
-                        $file = new ServiceFiles();
-                        $file->service_id = $service->id;
-                        $file->file =  $imageNamee;
-                        $file->save();
-                    }
-                }
-                $ser = new ServiceResource($service);
-                return $this->sendResponse($ser,'updated Successfuly');  
+        if ($request->has_file == true) {
+            $servicefile = ServiceFiles::where('service_id', $service->id)->get();
+            foreach ($servicefile as $se) {
+                $se->delete();
+            }
+            foreach ($request->attach_file as $keyy => $imagex) {
+                $imageNamee = '/' . time() + $keyy . '_service_file.' . $imagex->getClientOriginalExtension();
+                $imagex->move('uploads/service_file', $imageNamee);
+                $file = new ServiceFiles();
+                $file->service_id = $service->id;
+                $file->file =  $imageNamee;
+                $file->save();
+            }
+        }
+        $ser = new ServiceResource($service);
+        return $this->sendResponse($ser, 'updated Successfuly');
     }
     public function delete($video_id)
     {
@@ -255,14 +260,15 @@ class ServiceController extends BaseController
         $video->delete();
         return $this->sendResponse('delete', 'deleted succeffuly');
     }
-    public function add_comment(Request $request){
+    public function add_comment(Request $request)
+    {
         $service = Service::find($request->service_id);
         $comment = new ServiceComment();
         $comment->service_id = $request->service_id;
         $comment->body = $request->body;
         $comment->save();
         $ser = new ServiceResource($service);
-        return $this->sendResponse($ser,'Addedd Comment Successfuly');  
+        return $this->sendResponse($ser, 'Addedd Comment Successfuly');
     }
     public function serach(Request $request)
     {
