@@ -268,7 +268,6 @@
                     </div>
                 </div>
             @endforeach --}}
-            {{ dd($days) }}
             @foreach ($days as $item)
                 
             <div class="mb-3 row">

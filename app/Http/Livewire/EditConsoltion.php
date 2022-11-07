@@ -38,6 +38,7 @@ class EditConsoltion extends Component
         $this->price = $this->con->price;
         $this->url = $this->con->url;
         $this->days = $this->con->date;
+        dd($this->day);
         $this->payment = $this->con->payment_id;
         if($this->con->hour == 0 && $this->con->min == 30){
             $this->time_duration = 30;
