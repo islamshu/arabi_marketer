@@ -288,11 +288,11 @@
             </div>
             <div class="mb-3 col-md-6">
                 <label for="payment" class="form-label"> طريقة الدفع </label>
-                <select wire:model.defer="payment" id="payment"
+                <select id="payment"
                     class="form-control {{ $errors->first('payment') ? 'is-invalid' : '' }}">
                     <option value="null" disabled>{{ __('يرجى الاختيار') }}</option>
                     @foreach (App\Models\Payment::get() as $department)
-                        <option value="{{ $department->id }}" >
+                        <option value="{{ $department->id }}" wire:key="{{ $department->id }}">
                             {{ $department->title }}</option>
                     @endforeach
                 </select>
