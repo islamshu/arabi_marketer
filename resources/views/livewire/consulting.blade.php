@@ -292,7 +292,7 @@
                     class="form-control {{ $errors->first('payment') ? 'is-invalid' : '' }}">
                     <option value="null" disabled>{{ __('يرجى الاختيار') }}</option>
                     @foreach (App\Models\Payment::get() as $department)
-                        <option value="{{ $department->id }}" wire:key="{{ $department->id }}">
+                        <option value="{{ $department->id }}" >
                             {{ $department->title }}</option>
                     @endforeach
                 </select>
