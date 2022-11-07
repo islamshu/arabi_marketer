@@ -26,6 +26,12 @@ class EditConsoltion extends Component
 
 
     public $values;
+    public function add($i)
+    {
+        $i = $i + 1;
+        $this->i = $i;
+        array_push($this->inputs ,$i);
+    }
     public function mount()
     {
         $getProductID = explode('/', url()->current());
