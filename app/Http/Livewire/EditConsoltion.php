@@ -18,6 +18,8 @@ class EditConsoltion extends Component
     public $inputs = [];
     public $day_selects = [];
     public $day_select=[];
+    public $form_select = [];
+    public $to_select = [];
 
 
     public $successMessage;
@@ -44,6 +46,9 @@ class EditConsoltion extends Component
         $this->days = $this->con->date;
         foreach($this->days as $key=>$d){
             $this->day_select[$key]= $d->day;
+            $this->form_select[$key]= $d->from;
+            $this->to_select[$key]= $d->to;
+
         }
         // dd($this->con);
         $this->payment = $this->con->payment_id;
