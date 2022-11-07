@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Alert;
 use App\Models\Blog;
 use App\Models\Consulting;
 use App\Models\GeneralInfo;
@@ -34,7 +35,7 @@ class GeneralInfoController extends Controller
             Generalinfo::setValue($name, $value);
         }
 
-        session()->flash('success', 'تم تحديث البيانات بنجاح');
+        Alert::success('Success', 'تم تحديث البيانات بنجاح');
         return redirect()->back();
     }
     public function notification($id)
