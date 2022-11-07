@@ -273,8 +273,9 @@
             <div class="mb-3 row">
                 <div class="col-md-4">
                     <label for="phone" class="form-label"> اليوم </label>
+                    
                     <select name="day[]" id="day" wire:model="day.{{ $key }}"
-                        class="form-control {{ $errors->first('day.'$key) ? 'is-invalid' : '' }}">
+                        class="form-control {{ $errors->first('day.0') ? 'is-invalid' : '' }}">
                         <option value="" selected></option>
                         <option value="Monday">الاثنين</option>
                         <option value="Tuesday">الثلاثا</option>
@@ -295,7 +296,7 @@
 
                     <label for="from" class="form-label"> من</label>
                     <input type="time" wire:model="from.{{ $key }}"
-                        class="form-control {{ $errors->first('from.'$key) ? 'is-invalid' : '' }}" id="from">
+                        class="form-control {{ $errors->first('from.0') ? 'is-invalid' : '' }}" id="from">
                     @error('from.{{ $key }}')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -306,7 +307,7 @@
 
                     <label for="to" class="form-label"> الى</label>
                     <input type="time" wire:model="to.{{ $key }}"
-                        class="form-control {{ $errors->first('to.'$key) ? 'is-invalid' : '' }}" id="to">
+                        class="form-control {{ $errors->first('to') ? 'is-invalid' : '' }}" id="to">
                     @error('to.{{ $key }}')
                         <div class="invalid-feedback">
                             {{ $message }}
