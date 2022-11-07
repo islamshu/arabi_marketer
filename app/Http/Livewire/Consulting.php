@@ -25,6 +25,7 @@ class Consulting extends Component
     }
     public function remove($i)
     {
+        dd($this->inputs[$i]);
         unset($this->inputs[$i]);
     }
     public function step1()
