@@ -196,9 +196,8 @@
                     @enderror
                 </div>
                 <div class="col-md-3">
-
                     <label for="from" class="form-label"> من</label>
-                    <input type="time" wire:model="days.0"
+                    <input type="time" wire:model="days.0.time"
                         class="form-control {{ $errors->first('from.0') ? 'is-invalid' : '' }}" id="from">
                     @error('from.0')
                         <div class="invalid-feedback">
