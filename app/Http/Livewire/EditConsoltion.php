@@ -92,6 +92,7 @@ class EditConsoltion extends Component
     }
     public function remove_e($i)
     {
+        dd($this->day_select[$i]);
         unset($this->inputs[$i]);
     }
     public function step1()
