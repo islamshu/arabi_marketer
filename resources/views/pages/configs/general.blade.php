@@ -53,13 +53,10 @@
                     <div class="row">
                        
                         <div class="form-group col-md-6">
-                            <label>{{ __('Api key') }}:</label>
-                            <textarea name="general[api_key]" class="form-control" id="" cols="20" rows="5">{{ get_general_value('api_key') }}</textarea>
+                            <label>{{ __('نسبة الادارة من الخدمات') }}:</label>
+                            <textarea name="general[admin_service]" class="form-control" id="" cols="20" rows="5">{{ get_general_value('admin_service') }}</textarea>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label>{{ __('Base Url') }}:</label>
-                            <input type="text" name="general[base_url]" class="form-control" value="{{ get_general_value('base_url') }}" id="">
-                        </div>
+                       
                      
                      
                        
