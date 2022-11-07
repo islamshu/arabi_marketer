@@ -90,15 +90,10 @@ class EditConsoltion extends Component
         unset($this->form_select[$i]);
         unset($this->to_select[$i]);
     }
-    public function remove_key($i)
+    public function remove_e($i)
     {
-        unset($this->day_select_2[$i]);
-        unset($this->form_select_2[$i]);
-        unset($this->to_select_2[$i]);
         unset($this->inputs[$i]);
-
     }
-
     public function step1()
     {
         $validatedData = $this->validate([
