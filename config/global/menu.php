@@ -328,6 +328,11 @@ return array(
             'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen016.svg", "svg-icon-2"),
         ),
         array(
+            'title' => 'Tickets',
+            'path'  => 'tickets',
+            'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen018.svg", "svg-icon-2"),
+        ),
+        array(
             'title' => 'Blogs',
             'path'  => 'blogs',
             'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen017.svg", "svg-icon-2"),
