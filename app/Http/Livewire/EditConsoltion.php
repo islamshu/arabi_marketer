@@ -166,6 +166,7 @@ class EditConsoltion extends Component
             'payment_id'=>$this->payment,
             'user_id'=>$this->user,
         ]);
+        dd($this->day_select,$this->form_select,$to_select);
         ConsutingDate::where('consulte_id',$cond->id)->delete();
         foreach ($this->day_select as $key => $value) {
 
