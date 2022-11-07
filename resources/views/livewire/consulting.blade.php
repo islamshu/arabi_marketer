@@ -288,7 +288,7 @@
             </div>
             <div class="mb-3 col-md-6">
                 <label for="payment" class="form-label"> طريقة الدفع </label>
-                <select id="payment"
+                <select wire:model.defer="payment" id="payment"
                     class="form-control {{ $errors->first('payment') ? 'is-invalid' : '' }}">
                     <option value="null" disabled>{{ __('يرجى الاختيار') }}</option>
                     @foreach (App\Models\Payment::get() as $department)
