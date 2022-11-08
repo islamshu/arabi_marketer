@@ -18,6 +18,9 @@ class PayPalPaymentController extends BaseController
     public function handlePayment()
     {
         $carts = Cart::where('user_id',auth('api')->id())->get();
+        if($carts->count() == 0){
+            return $this->sendError('السلة فارغة');
+        }
         $total = $carts->sum('price');
         $order = new Order();
         $order->user_id = auth('api')->id();
