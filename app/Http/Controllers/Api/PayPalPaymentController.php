@@ -28,10 +28,10 @@ class PayPalPaymentController extends Controller
         $product = [];
         $i=0;
         foreach($carts as $key=>$cart){
-            $product['item'][$key]['name']= $cart->service->title;
-            $product['item'][$key]['price']= $cart->service->price;
-            $product['item'][$key]['desc']= $cart->service->title;
-            $product['item'][$key]['qty']= 1;
+            $product['items'][$key]['name']= $cart->service->title;
+            $product['items'][$key]['price']= $cart->service->price;
+            $product['items'][$key]['desc']= $cart->service->title;
+            $product['items'][$key]['qty']= 1;
             $i++;
 
         }
