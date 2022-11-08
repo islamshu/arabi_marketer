@@ -928,6 +928,7 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         'App\\Models\\BlogCategory' => __DIR__ . '/../..' . '/app/Models/BlogCategory.php',
         'App\\Models\\BlogImage' => __DIR__ . '/../..' . '/app/Models/BlogImage.php',
         'App\\Models\\BlogKeyword' => __DIR__ . '/../..' . '/app/Models/BlogKeyword.php',
+        'App\\Models\\BookingConsultion' => __DIR__ . '/../..' . '/app/Models/BookingConsultion.php',
         'App\\Models\\Cart' => __DIR__ . '/../..' . '/app/Models/Cart.php',
         'App\\Models\\Category' => __DIR__ . '/../..' . '/app/Models/Category.php',
         'App\\Models\\CategoryBlog' => __DIR__ . '/../..' . '/app/Models/CategoryBlog.php',

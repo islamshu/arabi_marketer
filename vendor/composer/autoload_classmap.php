@@ -152,6 +152,7 @@ return array(
     'App\\Models\\BlogCategory' => $baseDir . '/app/Models/BlogCategory.php',
     'App\\Models\\BlogImage' => $baseDir . '/app/Models/BlogImage.php',
     'App\\Models\\BlogKeyword' => $baseDir . '/app/Models/BlogKeyword.php',
+    'App\\Models\\BookingConsultion' => $baseDir . '/app/Models/BookingConsultion.php',
     'App\\Models\\Cart' => $baseDir . '/app/Models/Cart.php',
     'App\\Models\\Category' => $baseDir . '/app/Models/Category.php',
     'App\\Models\\CategoryBlog' => $baseDir . '/app/Models/CategoryBlog.php',

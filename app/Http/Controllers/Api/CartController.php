@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\CartResource;
+use App\Models\BookingConsultion;
 use App\Models\Cart;
 use App\Models\Consulting;
 use App\Models\Order;
@@ -95,6 +96,12 @@ class CartController extends BaseController
 
     }
     public function checkout_cons(Request $request){
+        $validation = Validator::make($request->all(), [
+            'consult_id' => 'required',
+        ]);
+        if ($validation->fails()) {
+            return $this->sendError($validation->messages()->all());
+        }
         $service = Consulting::find($request->consult_id);
 
         if(!$service){
@@ -107,7 +114,6 @@ class CartController extends BaseController
             list($d, $l) = explode(',', $request->time, 2);
         }else{
             return $this->sendError('وقت البداية والنهاية مكتوب بشكل خاطيء !');
-        
         }
         $time = explode(',',$request->time);
         $from = $time[0];
@@ -120,5 +126,13 @@ class CartController extends BaseController
         $date['form']=$from;
         $date['to']=$to;
         $data_send = json_encode($date);
+        $booking = new BookingConsultion();
+        $booking->user_id = auth('api')->id();
+        $booking->consultiong_id = $request->consult_id;
+        $booking->consultiong_id = $request->consult_id;
+        $booking->info = $data_send;
+        $booking->price = $request->price;
+        $booking->save();
+        return $this->sendResponse($booking,'success');
     }
 }
