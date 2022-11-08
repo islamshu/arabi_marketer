@@ -210,7 +210,7 @@ Route::group(['middleware' => 'is_login','middleware' => 'is_able_markter'], fun
     Route::post('/update_video', [VideoController::class, 'update']);
     Route::delete('/delete_video/{id}', [VideoController::class, 'delete']);
 
-
+ب
 });
 //end Video
 

@@ -3,14 +3,55 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Livewire\Consulting;
+use App\Models\OrderDetiles;
+use App\Models\Service;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Srmklive\PayPal\Services\ExpressCheckout;
 class PayPalPaymentController extends Controller
 {
     public function handlePayment()
     {
+        // $carts = Cart::where('user_id',auth('api')->id())->get();
+        // $total = $carts->sum('price');
+        // $order = new Order();
+        // $order->user_id = auth('api')->id();
+        // $order->code = date('Ymd-His').rand(10,99);
+        // $order->payment_status = 'paid';
+        // $order->total = $total;
+
+        // $order->save();
+        // foreach($carts as $cart){
+        //     if($cart->type == 'service'){
+        //         $service = Service::find($cart->service_id);
+        //     }else{
+        //         $service = Consulting::find($cart->service_id);
+        //     }
+        //     $OrderDetiles = new OrderDetiles();
+        //     $OrderDetiles->order_id = $order->id;
+        //     $OrderDetiles->owner_id = $service->user_id;
+        //     $OrderDetiles->price = $service->price;
+        //     $OrderDetiles->type = $cart->type;
+        //     $OrderDetiles->product_id = $cart->service_id;
+        //     $OrderDetiles->save();
+        //     $user = User::find($OrderDetiles->owner_id);
+        //     $user->total = $user->total + $service->price;
+        //     $user->available = $user->available + $service->price;
+        //     $user->save();
+        // }
+        // foreach($carts as $cart){
+        //     $cart->delete();
+        // }
         $product = [];
+        
         $product['items'] = [
+            [
+                'name' => 'Nike Joyride 2',
+                'price' => 112,
+                'desc'  => 'Running shoes for Men',
+                'qty' => 2
+            ],
             [
                 'name' => 'Nike Joyride 2',
                 'price' => 112,
@@ -18,6 +59,7 @@ class PayPalPaymentController extends Controller
                 'qty' => 2
             ]
         ];
+        dd($product);
   
         $product['invoice_id'] = 1;
         $product['invoice_description'] = "Order #{$product['invoice_id']} Bill";
