@@ -22,6 +22,7 @@ class TicketResourse extends JsonResource
             'status'=>$this->get_status($this),
             'user_info'=>new UserMainInfoResource($this->user),
             'files'=>TicketFileResourse::collection($this->files),
+            'last_update'=>$this->updated_at,
             'relapy'=>ReplayTicketResourse::collection($this->replay)
         ];
     }
