@@ -129,6 +129,7 @@ class BlogController extends BaseController
             'category' => 'required',
             'keywords' => 'required',
             'tags'=>'required',
+            'meta_description'=>'required',
             'slug'=>'required|unique:blogs',
         ]);
         if ($validation->fails()) {
