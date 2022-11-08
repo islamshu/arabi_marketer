@@ -148,6 +148,7 @@ class BlogController extends BaseController
         $blog_image->image =$service->image;
         $blog_image->alt = $request->alt;
         $blog_image->blog_id = $service->id;
+        $blog_image->save();
         $category = json_decode($request->category);
         // $categorys = explode(',', $request->keywords);
         foreach ($category as $category) {
