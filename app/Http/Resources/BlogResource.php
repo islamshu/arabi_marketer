@@ -24,7 +24,7 @@ class BlogResource extends JsonResource
             'keywords'=>$this->get_keywords($this),
             'tags'=>$this->get_tags($this),
             'slug'=>$this->slug,
-            'image_info'=>$this->media,
+            'image_info'=>$this->image_info($this),
             'meta_description'=>$this->small_description,
             'image'=>asset('public/uploads/'.$this->image),
             'url'=>route('single_blog',$this->id),
@@ -33,6 +33,12 @@ class BlogResource extends JsonResource
             'rate'=>$this->get_rate($this)
             // 'related_blog' =>$this->get_related($this),
             
+        ];
+    }
+    function image_info($data){
+        return[
+            'image'=>$this->media->image,
+            'alt'=>$this->media->alt,
         ];
     }
     function get_related($data){
