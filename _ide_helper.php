@@ -17349,6 +17349,39 @@
      
 }
 
+    namespace Srmklive\PayPal\Facades { 
+            /**
+     * 
+     *
+     */ 
+        class PayPal {
+                    /**
+         * Get specific PayPal API provider object to use.
+         *
+         * @throws Exception
+         * @return \Srmklive\PayPal\Services\PayPal 
+         * @static 
+         */ 
+        public static function getProvider()
+        {
+                        return \Srmklive\PayPal\PayPalFacadeAccessor::getProvider();
+        }
+                    /**
+         * Set PayPal API Client to use.
+         *
+         * @throws \Exception
+         * @return \Srmklive\PayPal\Services\PayPal 
+         * @static 
+         */ 
+        public static function setProvider()
+        {
+                        return \Srmklive\PayPal\PayPalFacadeAccessor::setProvider();
+        }
+         
+    }
+     
+}
+
     namespace anlutro\LaravelSettings { 
             /**
      * 
@@ -20302,39 +20335,6 @@
         {
                         /** @var \Spatie\FlareClient\Flare $instance */
                         return $instance->group($groupName, $properties);
-        }
-         
-    }
-     
-}
-
-    namespace Srmklive\PayPal\Facades { 
-            /**
-     * 
-     *
-     */ 
-        class PayPal {
-                    /**
-         * Get specific PayPal API provider object to use.
-         *
-         * @throws Exception
-         * @return \Srmklive\PayPal\Services\PayPal 
-         * @static 
-         */ 
-        public static function getProvider()
-        {
-                        return \Srmklive\PayPal\PayPalFacadeAccessor::getProvider();
-        }
-                    /**
-         * Set PayPal API Client to use.
-         *
-         * @throws \Exception
-         * @return \Srmklive\PayPal\Services\PayPal 
-         * @static 
-         */ 
-        public static function setProvider()
-        {
-                        return \Srmklive\PayPal\PayPalFacadeAccessor::setProvider();
         }
          
     }
@@ -24573,6 +24573,7 @@ namespace  {
             class Alert extends \RealRashid\SweetAlert\Facades\Alert {}
             class Share extends \Jorenvh\Share\ShareFacade {}
             class FeedReader extends \Vedmant\FeedReader\Facades\FeedReader {}
+            class PayPal extends \Srmklive\PayPal\Facades\PayPal {}
             class Setting extends \anlutro\LaravelSettings\Facade {}
             class Debugbar extends \Barryvdh\Debugbar\Facades\Debugbar {}
             class LogReader extends \Jackiedo\LogReader\Facades\LogReader {}
@@ -24581,7 +24582,6 @@ namespace  {
             class Html extends \Collective\Html\HtmlFacade {}
             class Livewire extends \Livewire\Livewire {}
             class Flare extends \Spatie\LaravelIgnition\Facades\Flare {}
-            class PayPal extends \Srmklive\PayPal\Facades\PayPal {}
             class DataTables extends \Yajra\DataTables\Facades\DataTables {}
      
 }

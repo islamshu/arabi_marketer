@@ -44,6 +44,7 @@ return array(
     'App\\Http\\Controllers\\Api\\HomeController' => $baseDir . '/app/Http/Controllers/Api/HomeController.php',
     'App\\Http\\Controllers\\Api\\MessageController' => $baseDir . '/app/Http/Controllers/Api/MessageController.php',
     'App\\Http\\Controllers\\Api\\NewPodcastContoller' => $baseDir . '/app/Http/Controllers/Api/NewPodcastContoller.php',
+    'App\\Http\\Controllers\\Api\\PayPalPaymentController' => $baseDir . '/app/Http/Controllers/Api/PayPalPaymentController.php',
     'App\\Http\\Controllers\\Api\\PodcastController' => $baseDir . '/app/Http/Controllers/Api/PodcastController.php',
     'App\\Http\\Controllers\\Api\\ServiceController' => $baseDir . '/app/Http/Controllers/Api/ServiceController.php',
     'App\\Http\\Controllers\\Api\\SoundController' => $baseDir . '/app/Http/Controllers/Api/SoundController.php',

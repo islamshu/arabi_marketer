@@ -825,6 +825,7 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         'App\\Http\\Controllers\\Api\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/HomeController.php',
         'App\\Http\\Controllers\\Api\\MessageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/MessageController.php',
         'App\\Http\\Controllers\\Api\\NewPodcastContoller' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/NewPodcastContoller.php',
+        'App\\Http\\Controllers\\Api\\PayPalPaymentController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/PayPalPaymentController.php',
         'App\\Http\\Controllers\\Api\\PodcastController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/PodcastController.php',
         'App\\Http\\Controllers\\Api\\ServiceController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/ServiceController.php',
         'App\\Http\\Controllers\\Api\\SoundController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/SoundController.php',
