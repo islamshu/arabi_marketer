@@ -58,7 +58,7 @@ class PayPalPaymentController extends Controller
         if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])) {
 
             $order = Order::find($id);
-            $order->status ='paid';
+            $order->payment_status ='paid';
             $order->save();
             $user = User::find($order->user_id);
             $carts = Cart::where('user_id',$user->id)->get();
