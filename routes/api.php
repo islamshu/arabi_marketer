@@ -12,6 +12,7 @@ use App\Http\Controllers\Api\GoogleController;
 use App\Http\Controllers\Api\HomeController;
 use App\Http\Controllers\Api\MessageController;
 use App\Http\Controllers\Api\NewPodcastContoller;
+use App\Http\Controllers\Api\PayPalPaymentController;
 use App\Http\Controllers\Api\PodcastController;
 use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\SoundController;
@@ -233,3 +234,9 @@ Route::get('consultation_search', [ConsultationController::class, 'serach']);
 Route::get('/get_all_countires', [GeneralController::class, 'get_all_countires']);
 Route::get('/all_cities', [GeneralController::class, 'all_cites']);
 Route::get('/get_all_city_user_country_id/{id}', [GeneralController::class, 'get_all_city_belong_country']);
+
+Route::get('handle-payment', [PayPalPaymentController::class,'handlePayment'])->name('make.payment');
+
+Route::get('cancel-payment', [PayPalPaymentController::class,'paymentCancel'])->name('cancel.payment');
+
+Route::get('payment-success', [PayPalPaymentController::class,'paymentSuccess'])->name('success.payment');

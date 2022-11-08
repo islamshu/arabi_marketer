@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '4619e86d1898ff27b61fb58b98e720a3fdd631a5',
+        'reference' => 'd8db4f01862a0876d44850a74d07a569be1baabb',
         'name' => 'keenthemes/metronic-laravel',
         'dev' => true,
     ),
@@ -517,7 +517,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '4619e86d1898ff27b61fb58b98e720a3fdd631a5',
+            'reference' => 'd8db4f01862a0876d44850a74d07a569be1baabb',
             'dev_requirement' => false,
         ),
         'kodova/hamcrest-php' => array(
@@ -1376,6 +1376,15 @@
             'install_path' => __DIR__ . '/../spatie/laravel-translatable',
             'aliases' => array(),
             'reference' => 'c4c2bef702738f26562b6dc37b66bdac545610e1',
+            'dev_requirement' => false,
+        ),
+        'srmklive/paypal' => array(
+            'pretty_version' => '3.0.16',
+            'version' => '3.0.16.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../srmklive/paypal',
+            'aliases' => array(),
+            'reference' => '7138c3b6665d270c40e0df603b8f0c07fc583ca3',
             'dev_requirement' => false,
         ),
         'stella-maris/clock' => array(

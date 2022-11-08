@@ -163,6 +163,8 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Jorenvh\Share\Providers\ShareServiceProvider::class,
+        Srmklive\PayPal\Providers\PayPalServiceProvider::class,
+
 
         /*
          * Package Service Providers...
@@ -238,6 +240,8 @@ return [
         'App'        => Illuminate\Support\Facades\App::class,
         'Artisan'    => Illuminate\Support\Facades\Artisan::class,
         'FeedReader' => Vedmant\FeedReader\Facades\FeedReader::class, // Add this line
+        'PayPal' => Srmklive\PayPal\Facades\PayPal::class
+
 
     ],
 

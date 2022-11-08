@@ -17324,6 +17324,31 @@
      
 }
 
+    namespace Vedmant\FeedReader\Facades { 
+            /**
+     * 
+     *
+     */ 
+        class FeedReader {
+                    /**
+         * Used to parse an RSS feed.
+         *
+         * @param $url
+         * @param string $configuration
+         * @param array $options
+         * @return \SimplePie 
+         * @static 
+         */ 
+        public static function read($url, $configuration = 'default', $options = [])
+        {
+                        /** @var \Vedmant\FeedReader\FeedReader $instance */
+                        return $instance->read($url, $configuration, $options);
+        }
+         
+    }
+     
+}
+
     namespace anlutro\LaravelSettings { 
             /**
      * 
@@ -20283,25 +20308,33 @@
      
 }
 
-    namespace Vedmant\FeedReader\Facades { 
+    namespace Srmklive\PayPal\Facades { 
             /**
      * 
      *
      */ 
-        class FeedReader {
+        class PayPal {
                     /**
-         * Used to parse an RSS feed.
+         * Get specific PayPal API provider object to use.
          *
-         * @param $url
-         * @param string $configuration
-         * @param array $options
-         * @return \SimplePie 
+         * @throws Exception
+         * @return \Srmklive\PayPal\Services\PayPal 
          * @static 
          */ 
-        public static function read($url, $configuration = 'default', $options = [])
+        public static function getProvider()
         {
-                        /** @var \Vedmant\FeedReader\FeedReader $instance */
-                        return $instance->read($url, $configuration, $options);
+                        return \Srmklive\PayPal\PayPalFacadeAccessor::getProvider();
+        }
+                    /**
+         * Set PayPal API Client to use.
+         *
+         * @throws \Exception
+         * @return \Srmklive\PayPal\Services\PayPal 
+         * @static 
+         */ 
+        public static function setProvider()
+        {
+                        return \Srmklive\PayPal\PayPalFacadeAccessor::setProvider();
         }
          
     }
@@ -24539,6 +24572,7 @@ namespace  {
             class View extends \Illuminate\Support\Facades\View {}
             class Alert extends \RealRashid\SweetAlert\Facades\Alert {}
             class Share extends \Jorenvh\Share\ShareFacade {}
+            class FeedReader extends \Vedmant\FeedReader\Facades\FeedReader {}
             class Setting extends \anlutro\LaravelSettings\Facade {}
             class Debugbar extends \Barryvdh\Debugbar\Facades\Debugbar {}
             class LogReader extends \Jackiedo\LogReader\Facades\LogReader {}
@@ -24547,7 +24581,7 @@ namespace  {
             class Html extends \Collective\Html\HtmlFacade {}
             class Livewire extends \Livewire\Livewire {}
             class Flare extends \Spatie\LaravelIgnition\Facades\Flare {}
-            class FeedReader extends \Vedmant\FeedReader\Facades\FeedReader {}
+            class PayPal extends \Srmklive\PayPal\Facades\PayPal {}
             class DataTables extends \Yajra\DataTables\Facades\DataTables {}
      
 }
