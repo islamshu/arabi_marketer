@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Livewire\Consulting;
+use App\Models\Cart;
 use App\Models\OrderDetiles;
 use App\Models\Service;
 use App\Models\User;
@@ -13,7 +14,7 @@ class PayPalPaymentController extends Controller
 {
     public function handlePayment()
     {
-        // $carts = Cart::where('user_id',auth('api')->id())->get();
+        $carts = Cart::where('user_id',auth('api')->id())->get();
         // $total = $carts->sum('price');
         // $order = new Order();
         // $order->user_id = auth('api')->id();
@@ -44,21 +45,31 @@ class PayPalPaymentController extends Controller
         //     $cart->delete();
         // }
         $product = [];
+        $i=0;
+        foreach($carts as $key=>$cart){
+            $product['item'][$key]['name']= $cart->service->title;
+            $product['item'][$key]['price']= $cart->service->price;
+            $product['item'][$key]['desc']= $cart->service->title;
+            $product['item'][$key]['qty']= 1;
+            $i++;
+
+        }
+        dd($product);
         
-        $product['items'] = [
-            [
-                'name' => 'Nike Joyride 2',
-                'price' => 112,
-                'desc'  => 'Running shoes for Men',
-                'qty' => 2
-            ],
-            [
-                'name' => 'Nike Joyride 2',
-                'price' => 112,
-                'desc'  => 'Running shoes for Men',
-                'qty' => 2
-            ]
-        ];
+        // $product['items'] = [
+        //     [
+        //         'name' => 'Nike Joyride 2',
+        //         'price' => 112,
+        //         'desc'  => 'Running shoes for Men',
+        //         'qty' => 2
+        //     ],
+        //     [
+        //         'name' => 'Nike Joyride 2',
+        //         'price' => 112,
+        //         'desc'  => 'Running shoes for Men',
+        //         'qty' => 2
+        //     ]
+        // ];
         dd($product);
   
         $product['invoice_id'] = 1;
