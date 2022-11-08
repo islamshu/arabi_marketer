@@ -29,8 +29,7 @@ class PayPalPaymentController extends Controller
   
         $res = $paypalModule->setExpressCheckout($product);
         $res = $paypalModule->setExpressCheckout($product, true);
-  
-        return redirect($res['paypal_link']);
+        return $res['paypal_link'];
     }
    
     public function paymentCancel()
