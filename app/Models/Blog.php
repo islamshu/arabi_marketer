@@ -30,6 +30,14 @@ class Blog extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function media()
+    {
+        return $this->hasOne(BlogImage::class);
+    }
+    public function tags()
+    {
+        return $this->hasMany(Tag::class);
+    }
     /**
      * Get all of the comments for the Blog
      *

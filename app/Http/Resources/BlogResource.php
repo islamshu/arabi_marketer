@@ -22,7 +22,10 @@ class BlogResource extends JsonResource
             'user_info'=>new UserMainInfoResource($this->user),
             'categories'=>$this->get_category($this),
             'keywords'=>$this->get_keywords($this),
-            'small_description'=>$this->small_description,
+            'tags'=>$this->get_tags($this),
+            'slug'=>$this->slug,
+            'image_info'=>$this->media,
+            'meta_description'=>$this->small_description,
             'image'=>asset('public/uploads/'.$this->image),
             'url'=>route('single_blog',$this->id),
             'comment_number'=>$this->comments->where('status',1)->count(),
@@ -44,6 +47,12 @@ class BlogResource extends JsonResource
         $category = $data->keywords;
         return KeywordResource::collection($category);
     }
+    function get_tags($data){
+        $category = $data->tags;
+        return KeywordResource::collection($category);
+    }
+
+    
     function get_rate($data){
         return[
             'number_of_user_rate'=>$data->rate->count(),
