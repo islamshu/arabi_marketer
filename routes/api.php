@@ -12,6 +12,7 @@ use App\Http\Controllers\Api\GoogleController;
 use App\Http\Controllers\Api\HomeController;
 use App\Http\Controllers\Api\MessageController;
 use App\Http\Controllers\Api\NewPodcastContoller;
+use App\Http\Controllers\Api\PayPalPaymentController;
 use App\Http\Controllers\Api\PodcastController;
 use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\SoundController;
