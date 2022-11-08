@@ -140,8 +140,11 @@
     //         } );
     //         var input1 = document.querySelector("#kt_tagify_3");
     //         new Tagify(input1);
-            CKEDITOR.replace( 'editor' );
-
+$(function(){
+    $('.editor').each(function(e){
+        CKEDITOR.replace( this.id, { customConfig: '/jblog/ckeditor/config_Large.js' });
+    });
+});
 </script>
 
 @endsection
