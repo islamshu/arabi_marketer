@@ -39,7 +39,7 @@ class PayPalPaymentController extends BaseController
             $i++;
 
         }
-        $product['invoice_id'] = 1;
+        $product['invoice_id'] = $order->code;
         $product['invoice_description'] = "Order #{$product['invoice_id']} Bill";
         $product['return_url'] = route('success.payment',$order->id);
         $product['cancel_url'] = route('cancel.payment');
