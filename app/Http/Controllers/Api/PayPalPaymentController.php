@@ -21,10 +21,9 @@ class PayPalPaymentController extends Controller
         $order->user_id = auth('api')->id();
         $order->code = date('Ymd-His').rand(10,99);
         $order->payment_status = 'unpaid';
+        $order->method_type ='paypal';
         $order->total = $total;
-
         $order->save();
-       
         $product = [];
         $i=0;
         foreach($carts as $key=>$cart){
@@ -35,15 +34,12 @@ class PayPalPaymentController extends Controller
             $i++;
 
         }
-  
         $product['invoice_id'] = 1;
         $product['invoice_description'] = "Order #{$product['invoice_id']} Bill";
         $product['return_url'] = route('success.payment',$order->id);
         $product['cancel_url'] = route('cancel.payment');
         $product['total'] = $total;
-
         $paypalModule = new ExpressCheckout;
-  
         $res = $paypalModule->setExpressCheckout($product);
         $res = $paypalModule->setExpressCheckout($product, true);
         return $res['paypal_link'];
@@ -63,6 +59,7 @@ class PayPalPaymentController extends Controller
 
             $order = Order::find($id);
             $order->status ='paid';
+            $order->save();
             $user = User::find($order->user_id);
             $carts = Cart::where('user_id',$user->id)->get();
             foreach($carts as $cart){
