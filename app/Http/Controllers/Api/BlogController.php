@@ -14,7 +14,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\BlogResource;
 use App\Http\Resources\KeywordResource;
+use App\Models\BlogImage;
 use App\Models\RateBlog;
+use App\Models\Tag;
 use App\Models\User;
 use App\Notifications\GeneralNotification;
 use Carbon\Carbon;
@@ -123,8 +125,11 @@ class BlogController extends BaseController
             'title' => 'required',
             'description' => 'required',
             'image' => 'required',
+            'alt'=>'required',
             'category' => 'required',
             'keywords' => 'required',
+            'tags'=>'required',
+            'slug'=>'required|unique:blogs',
         ]);
         if ($validation->fails()) {
             return $this->sendError($validation->messages()->all());
@@ -136,7 +141,12 @@ class BlogController extends BaseController
         $service->image = $request->image->store('blog');
         $service->user_id = auth('api')->id();
         $service->status = 0;
+        $service->small_description = $request->meta_description;
+        $service->slug = $request->slug;
         $service->save();
+        $blog_image = new BlogImage();
+        $blog_image->image =$service->image;
+        $blog_image->alt = $request->alt;
         $category = json_decode($request->category);
         // $categorys = explode(',', $request->keywords);
         foreach ($category as $category) {
@@ -168,6 +178,14 @@ class BlogController extends BaseController
                 $key->save();
             }
         }
+        $tags = explode(',', $request->tags);
+        foreach ($tags as $s) {
+            $tag = new Tag();
+            $tag->title =  $s;
+            $tag->blog_id = $service->id;
+            $tag->save();
+        }
+
         $date = [
             'id'=>$service->id,
             'name' => $service->title,
