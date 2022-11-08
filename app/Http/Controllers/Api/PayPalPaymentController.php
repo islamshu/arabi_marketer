@@ -11,7 +11,9 @@ use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Srmklive\PayPal\Services\ExpressCheckout;
-class PayPalPaymentController extends Controller
+use App\Http\Controllers\Api\BaseController;
+
+class PayPalPaymentController extends BaseController
 {
     public function handlePayment()
     {
@@ -83,7 +85,7 @@ class PayPalPaymentController extends Controller
             foreach($carts as $cart){
                 $cart->delete();
             }
-            dd('success paid');
+        return view('success_paid');
         }
   
         dd('Error occured!');
