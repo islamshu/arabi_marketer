@@ -38,6 +38,7 @@ class PayPalPaymentController extends Controller
         }', true);
         
         $order = $provider->createOrder($data);
+        dd($order);
         
         // $paypalModule = new ExpressCheckout;
   
