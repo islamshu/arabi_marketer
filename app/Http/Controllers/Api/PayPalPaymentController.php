@@ -47,7 +47,11 @@ class PayPalPaymentController extends BaseController
         $paypalModule = new ExpressCheckout;
         $res = $paypalModule->setExpressCheckout($product);
         $res = $paypalModule->setExpressCheckout($product, true);
-        return $res['paypal_link'];
+        dd($ress);
+        $ress['link']=$res['paypal_link'];
+        $ress['payment_type']='paypal';
+
+        return $this->sendResponse($ress,'Open Link');
     }
    
     public function paymentCancel()

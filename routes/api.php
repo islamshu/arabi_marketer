@@ -171,7 +171,7 @@ Route::group(['middleware' => 'is_login'], function () {
     Route::post('/add_to_cart', [CartController::class, 'store']);
     Route::post('/checkout_cons', [CartController::class, 'checkout_cons']);
     Route::delete('/delete_from_carts/{id}', [CartController::class, 'delete']);
-    Route::get('/checkout', [CartController::class, 'checkout']);
+    Route::get('/checkout', [PayPalPaymentController::class,'handlePayment'])->name('make.payment');
     Route::get('/tickets', [TicketController::class, 'index']);
     Route::get('/single_ticket/{id}', [TicketController::class, 'single_ticket']);
 
