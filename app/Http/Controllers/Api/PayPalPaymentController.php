@@ -25,12 +25,24 @@ class PayPalPaymentController extends Controller
 
         $order->save();
        
+        $product = [];
+        $i=0;
+        foreach($carts as $key=>$cart){
+            $product['item'][$key]['name']= $cart->service->title;
+            $product['item'][$key]['price']= $cart->service->price;
+            $product['item'][$key]['desc']= $cart->service->title;
+            $product['item'][$key]['qty']= 1;
+            $i++;
+
+        }
   
         $product['invoice_id'] = 1;
         $product['invoice_description'] = "Order #{$product['invoice_id']} Bill";
         $product['return_url'] = route('success.payment',$order->id);
         $product['cancel_url'] = route('cancel.payment');
         $product['total'] = $total;
+        dd($product);
+
         $paypalModule = new ExpressCheckout;
   
         $res = $paypalModule->setExpressCheckout($product);
