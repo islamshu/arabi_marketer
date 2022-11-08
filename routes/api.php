@@ -239,4 +239,4 @@ Route::get('handle-payment', [PayPalPaymentController::class,'handlePayment'])->
 
 Route::get('cancel-payment', [PayPalPaymentController::class,'paymentCancel'])->name('cancel.payment');
 
-Route::get('payment-success', [PayPalPaymentController::class,'paymentSuccess'])->name('success.payment');
+Route::get('payment-success/{id}', [PayPalPaymentController::class,'paymentSuccess'])->name('success.payment');
