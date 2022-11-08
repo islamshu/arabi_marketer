@@ -116,7 +116,7 @@ class HomeController extends BaseController
     {
         $questions = Quastion::orderby('id','desc')->get();
         $res['sinlge'] = QuestionResourse::collection($questions->where('type','single'));
-        $res['mulit'] = QuestionResourse::collection($questions->where('type','!=','single'));
+        $res['multi'] = QuestionResourse::collection($questions->where('type','!=','single'));
 
         return $this->sendResponse($res, 'all question');
     }
