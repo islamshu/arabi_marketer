@@ -17359,7 +17359,7 @@
          * Get specific PayPal API provider object to use.
          *
          * @throws Exception
-         * @return \Srmklive\PayPal\Services\PayPal 
+         * @return ExpressCheckout|AdaptivePayments
          * @static 
          */ 
         public static function getProvider()
@@ -17367,15 +17367,16 @@
                         return \Srmklive\PayPal\PayPalFacadeAccessor::getProvider();
         }
                     /**
-         * Set PayPal API Client to use.
+         * Set specific PayPal API to use.
          *
-         * @throws \Exception
-         * @return \Srmklive\PayPal\Services\PayPal 
+         * @param string $option Defaults to express_checkout
+         * @throws Exception
+         * @return ExpressCheckout|AdaptivePayments
          * @static 
          */ 
-        public static function setProvider()
+        public static function setProvider($option = 'express_checkout')
         {
-                        return \Srmklive\PayPal\PayPalFacadeAccessor::setProvider();
+                        return \Srmklive\PayPal\PayPalFacadeAccessor::setProvider($option);
         }
          
     }

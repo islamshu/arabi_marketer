@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Srmklive\PayPal\Services\PayPal as PayPalClient;
+use Srmklive\PayPal\Services\ExpressCheckout;
 class PayPalPaymentController extends Controller
 {
     public function handlePayment()
@@ -24,28 +24,13 @@ class PayPalPaymentController extends Controller
         $product['return_url'] = route('success.payment');
         $product['cancel_url'] = route('cancel.payment');
         $product['total'] = 224;
-        $provider = new PayPalClient;
-        $data = json_decode('{
-            "intent": "CAPTURE",
-            "purchase_units": [
-              {
-                "amount": {
-                  "currency_code": "USD",
-                  "value": "100.00"
-                }
-              }
-            ]
-        }', true);
-        
-        $order = $provider->createOrder($data);
-        dd($order);
-        
-        // $paypalModule = new ExpressCheckout;
   
-        // $res = $paypalModule->setExpressCheckout($product);
-        // $res = $paypalModule->setExpressCheckout($product, true);
+        $paypalModule = new ExpressCheckout;
   
-        // return redirect($res['paypal_link']);
+        $res = $paypalModule->setExpressCheckout($product);
+        $res = $paypalModule->setExpressCheckout($product, true);
+  
+        return redirect($res['paypal_link']);
     }
    
     public function paymentCancel()
