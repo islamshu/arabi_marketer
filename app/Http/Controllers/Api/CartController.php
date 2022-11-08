@@ -131,7 +131,7 @@ class CartController extends BaseController
         $booking->consultiong_id = $request->consult_id;
         $booking->consultiong_id = $request->consult_id;
         $booking->info = $data_send;
-        $booking->price = $request->price;
+        $booking->price = $service->price;
         $booking->save();
         return $this->sendResponse($booking,'success');
     }
