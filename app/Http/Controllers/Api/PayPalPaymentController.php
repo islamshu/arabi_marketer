@@ -28,7 +28,7 @@ class PayPalPaymentController extends BaseController
         $order->payment_status = 'unpaid';
         $order->method_type ='paypal';
         $order->total = $total;
-        // $order->save();
+        $order->save();
         $product = [];
         $i=0;
         foreach($carts as $key=>$cart){
@@ -48,8 +48,8 @@ class PayPalPaymentController extends BaseController
         $res = $paypalModule->setExpressCheckout($product);
         $res = $paypalModule->setExpressCheckout($product, true);
         $order->more_info=json_encode($res);
-        $order->save();
-        $ress['link']=$res['paypal_link'];
+        $ress['link']=
+        $res['paypal_link'];
         $ress['payment_type']='paypal';
 
         return $this->sendResponse($ress,'Open Link');
