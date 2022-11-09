@@ -21,6 +21,7 @@ use App\Http\Resources\UserNormalNotAuthResource;
 use App\Http\Resources\UserNotAuthResource;
 use App\Http\Resources\UserResource;
 use App\Http\Resources\VideoResource;
+use App\Models\Answer;
 use App\Models\BankInfo;
 use App\Models\Blog;
 use App\Models\Category;
@@ -29,6 +30,7 @@ use App\Models\OrderDetiles;
 use App\Models\Podacst;
 use App\Models\Service;
 use App\Models\SouialUser;
+use App\Models\UserAnswer;
 use App\Models\UserCategory;
 use App\Models\Video;
 use App\Notifications\GeneralNotification;
@@ -208,6 +210,14 @@ class UserController extends BaseController
         // }
         $userRes =new  UserNotAuthResource($user);
         return $this->sendResponse($userRes,'تم تعديل البيانات بنجاح');
+    }
+    public function edit_profile_step_4(Request $request){
+        return $request->all();
+        foreach($request->question as $key=>$q){
+            $answer = new UserAnswer();
+
+        }
+
     }
     public function profile(){
         $user = auth('api')->user();
