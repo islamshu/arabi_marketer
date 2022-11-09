@@ -473,7 +473,10 @@
                                                 <!--end::Title-->
                                             </div>
                                         </td>
-                                        {{ $order->info }}
+                                        @php
+                                            $booking = json_decode($order->info);
+                                        @endphp
+                                        {{ $order->day }}
                                         <!--end::Product-->
                                         <!--begin::SKU-->
                                         <td class="text-end">{{ $order->type }}</td>
