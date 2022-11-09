@@ -476,7 +476,7 @@
                                         @php
                                             $booking = json_decode($order->info);
                                         @endphp
-                                        {{ $order->day }}
+                                        {{ $booking->day }}
                                         <!--end::Product-->
                                         <!--begin::SKU-->
                                         <td class="text-end">{{ $order->type }}</td>
