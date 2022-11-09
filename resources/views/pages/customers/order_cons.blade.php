@@ -468,18 +468,18 @@
                                                 <!--begin::Title-->
                                                 <div class="ms-5">
                                                   
-                                                    <a href="{{ route('consloution.edit',$item->consult->id) }}" class="fw-bold text-gray-600 text-hover-primary">{{ $item->consult->title }}</a>
+                                                    <a href="{{ route('consloution.edit',$order->consult->id) }}" class="fw-bold text-gray-600 text-hover-primary">{{ $order->consult->title }}</a>
                                                 </div>
                                                 <!--end::Title-->
                                             </div>
                                         </td>
-                                        {{ $item->info }}
+                                        {{ $order->info }}
                                         <!--end::Product-->
                                         <!--begin::SKU-->
-                                        <td class="text-end">{{ $item->type }}</td>
+                                        <td class="text-end">{{ $order->type }}</td>
                                         <!--end::SKU-->
                                         <!--begin::Quantity-->
-                                        <td class="text-end">{{ $item->price }}$</td>
+                                        <td class="text-end">{{ $order->price }}$</td>
                                         <!--end::Quantity-->
                                         <!--begin::Price-->
                                 
