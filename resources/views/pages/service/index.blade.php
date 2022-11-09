@@ -65,7 +65,7 @@
                     <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_4">الخدمات</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_5">خدمات المستخدمين</a>
+                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_5">خدمات المسوقين</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_6">اضف جديد</a>
