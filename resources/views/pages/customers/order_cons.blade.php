@@ -141,7 +141,7 @@
                                                     <!--end::Svg Icon-->Payment Method
                                                 </div>
                                             </td>
-                                            <td class="fw-bold text-end">Paypal
+                                            <td class="fw-bold text-end">{{ $order->paymet_method }}
                                         </tr>
                                         <tr>
                                             <td class="text-muted">
