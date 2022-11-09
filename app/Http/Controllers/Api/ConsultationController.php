@@ -39,6 +39,11 @@ class ConsultationController extends BaseController
         $userRes = KeywordResource::collection($category);
         return $this->sendResponse($userRes, 'جميع الاماكن لعرض الاستشارة ');
     }
+    public function single_consultion($id){
+        $cons = Consulting::find($id);
+        $res = new ConsultingResource($cons);
+        return $this->sendResponse($res, 'تم ارجاع الاستشارة بنجاح');
+    }
     public function payments()
     {
         $category = Payment::orderBy('id', 'asc')->get();
