@@ -476,10 +476,10 @@
                                         @php
                                             $booking = json_decode($order->info);
                                         @endphp
-                                        {{ $booking->day }}
+                                        
                                         <!--end::Product-->
                                         <!--begin::SKU-->
-                                        <td class="text-end">{{ $order->type }}</td>
+                                        <td class="text-end">{{ $booking->day }} ({{ $booking->from }} - {{ $booking->to }}  )</td>
                                         <!--end::SKU-->
                                         <!--begin::Quantity-->
                                         <td class="text-end">{{ $order->price }}$</td>
