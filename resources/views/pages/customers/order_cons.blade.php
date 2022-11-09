@@ -486,12 +486,11 @@
                                         <!--end::Total-->
                                     </tr>
 
-                                    @endforeach
                                    
                                   
                                     <tr>
                                         <td colspan="2" class="fs-3 text-dark text-end">Grand Total</td>
-                                        <td class="text-dark fs-3 fw-bolder text-end">{{ $order->total }}$</td>
+                                        <td class="text-dark fs-3 fw-bolder text-end">{{ $order->price }}$</td>
                                     </tr>
                                     <!--end::Grand total-->
                                 </tbody>
