@@ -126,7 +126,6 @@ class ConsultationController extends BaseController
         if ($validation->fails()) {
             return $this->sendError($validation->messages()->all());
         }
-        $con= Consulting::find($id);
         $con ->update([
             'title' => $request->title,
             'description' => $request->description,
@@ -140,6 +139,12 @@ class ConsultationController extends BaseController
             'price'=>$request->price,
             'payment_id'=>$request->payment_id,
         ]);
+        if($request->day != null){
+            ConsutingDate::where('consulte_id',$con->id)->delete();
+            foreach ($request->day as $key => $value) {
+                ConsutingDate::create(['consulte_id'=>$con->id,'day' => $request->day[$key], 'from' => $request->from[$key] , 'to' => $request->to[$key]]);
+            }
+        }
        
         $res = new ConsultingResource($con);
         return $this->sendResponse($res,'تم التعديل بنجاح');
