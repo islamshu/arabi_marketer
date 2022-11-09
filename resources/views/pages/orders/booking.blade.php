@@ -60,7 +60,7 @@
                         <tr>
                          <td>#{{ $item->consult->title }}</td>
                          <td>{{ $item->prcie }}$</td>
-                         <td> <button @if($item->paid_status == 'paid') class="btn btn-success" @else  class="btn btn-warning" @endif>{{ $item->payment_status }}</button></td>
+                         <td> <button @if($item->paid_status == 'paid') class="btn btn-success" @else  class="btn btn-warning" @endif>{{ $item->paid_status }}</button></td>
                          <td>{{ date('Y-m-d', strtotime($item->created_at)); }}</td>
                          <td>
                             <a href="{{ route('order.show', $item->id) }}" class="btn btn-info"><i class="fa fa-eye"></i></a>
