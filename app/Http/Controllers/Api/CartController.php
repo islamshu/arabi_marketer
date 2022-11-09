@@ -170,7 +170,7 @@ class CartController extends BaseController
         if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])) {
 
             $order = BookingConsultion::find($id);
-            $order->payment_status ='paid';
+            $order->paid_status ='paid';
             $order->save();
             $user = User::find($order->user_id);
           
