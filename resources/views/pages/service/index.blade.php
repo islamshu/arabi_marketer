@@ -79,7 +79,8 @@
                     @include('pages.service._index')
                 </div>
                 <div class="tab-pane fade" id="kt_tab_pane_5" role="tabpanel">
-                    ...
+                    @include('pages.service._marketer')
+
                 </div>
                 <div class="tab-pane fade" id="kt_tab_pane_6" role="tabpanel">
                     @include('pages.service._create')
