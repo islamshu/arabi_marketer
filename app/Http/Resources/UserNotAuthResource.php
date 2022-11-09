@@ -53,7 +53,8 @@ class UserNotAuthResource extends JsonResource
             'videos' => $this->get_videos($this),
             'consulting' => $this->get_consult($this),
             'bank_info' => $this->bank_info($this),
-            'answer_questione'=> new AnsweResourse($this->answer),
+            'answer_questione'=>  AnsweResourse::collection($this->answer),
+            
         ];
     }
     function get_service($data)
