@@ -59,7 +59,7 @@
                         @foreach ($orders as $item)
                         <tr>
                          <td>#{{ $item->consult->title }}</td>
-                         <td>{{ $item->prcie }}$</td>
+                         <td>{{ $item->price }}$</td>
                          <td> <button @if($item->paid_status == 'paid') class="btn btn-success" @else  class="btn btn-warning" @endif>{{ $item->paid_status }}</button></td>
                          <td>{{ date('Y-m-d', strtotime($item->created_at)); }}</td>
                          <td>
