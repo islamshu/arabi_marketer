@@ -83,6 +83,7 @@ Route::group(['middleware' => 'is_login','middleware' => 'Is_markter'], function
     Route::post('add_bank_info', [UserController::class, 'add_bank_info']);
     Route::post('/edit_profile_step_2', [UserController::class, 'edit_profile_step_2']);
     Route::post('/edit_profile_step_3', [UserController::class, 'edit_profile_step_3']);
+    Route::post('/edit_profile_step_4', [UserController::class, 'edit_profile_step_4']);
     Route::get('/my_blogs', [UserController::class, 'get_blog']);
     Route::get('/my_services', [UserController::class, 'get_service']);
     Route::get('/my_podcasts', [UserController::class, 'get_podcasts']);
