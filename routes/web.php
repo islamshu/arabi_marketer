@@ -203,7 +203,7 @@ Route::middleware('auth')->group(function () {
 
     
     Route::resource('orders',OrderController::class);
-    Route::get('order_consulting',[OrderController::class],'order_consulting')->name('order_consulting');
+    Route::get('order_consulting',[OrderController::class,'order_consulting'])->name('order_consulting');
 
     Route::resource('quastions',QuastionController::class);
     Route::resource('podcasts',PodacstController::class);
