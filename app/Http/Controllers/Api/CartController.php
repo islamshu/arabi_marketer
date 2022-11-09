@@ -133,6 +133,8 @@ class CartController extends BaseController
         $booking->info = $data_send;
         $booking->price = $service->price;
         $booking->save();
+
+        
         return $this->sendResponse($booking,'success');
     }
 }
