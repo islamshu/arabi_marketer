@@ -212,10 +212,14 @@ class UserController extends BaseController
         return $this->sendResponse($userRes,'تم تعديل البيانات بنجاح');
     }
     public function edit_profile_step_4(Request $request){
-        return $request->title[0];
-        foreach($request->question as $key=>$q){
-
+        foreach($request->title as $key=>$q){
             $answer = new UserAnswer();
+            return $request->answer[$key];
+            $answer->user_id = auth('api')->id();
+            $answer->question = $q[$key];
+
+            return $q[$key];
+
 
         }
 
