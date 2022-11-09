@@ -23,6 +23,7 @@ class CounsutionBuyResource extends JsonResource
             'type'=>$this->type,
             'order_number'=>$this->order->code,
             'payment_styatus'=>$this->order->payment_status,
+            'day'=>ConsultingDateResource::collection($this->date)
            
         ];
     }
