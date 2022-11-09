@@ -146,8 +146,8 @@ class CartController extends BaseController
          
         $product['invoice_id'] = $booking->code;
         $product['invoice_description'] = "Order #{$product['invoice_id']} Bill";
-        $product['return_url'] = route('success.payment',$booking->id);
-        $product['cancel_url'] = route('cancel.payment');
+        $product['return_url'] = route('success.payment.consultion',$booking->id);
+        $product['cancel_url'] = route('cancel.payment.consultion');
         $product['total'] = $booking->consult->price;
         $paypalModule = new ExpressCheckout;
         $res = $paypalModule->setExpressCheckout($product);
@@ -169,32 +169,11 @@ class CartController extends BaseController
   
         if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])) {
 
-            $order = Order::find($id);
+            $order = BookingConsultion::find($id);
             $order->payment_status ='paid';
             $order->save();
             $user = User::find($order->user_id);
-            $carts = Cart::where('user_id',$user->id)->get();
-            foreach($carts as $cart){
-                if($cart->type == 'service'){
-                    $service = Service::find($cart->service_id);
-                }else{
-                    $service = Consulting::find($cart->service_id);
-                }
-                $OrderDetiles = new OrderDetiles();
-                $OrderDetiles->order_id = $order->id;
-                $OrderDetiles->owner_id = $service->user_id;
-                $OrderDetiles->price = $service->price;
-                $OrderDetiles->type = $cart->type;
-                $OrderDetiles->product_id = $cart->service_id;
-                $OrderDetiles->save();
-                $user = User::find($OrderDetiles->owner_id);
-                $user->total = $user->total + $service->price;
-                $user->available = $user->available + $service->price;
-                $user->save();
-            }
-            foreach($carts as $cart){
-                $cart->delete();
-            }
+          
         return view('success_paid');
         }
   
