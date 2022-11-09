@@ -35,6 +35,10 @@ class ServiceController extends Controller
             array_push($array_category,$item->category_id);
         }
         $category_most = Category::whereIn('id',$array_category)->get();
+        $admin_service =  Service::whereHas('user', function($q){
+            $q->where('type', 'Admin');
+        })->get();
+        dd($admin_service);
         return view('pages.service.index')
             ->with('services', Service::orderby('id', 'desc')->get())
             ->with('specialty', Specialty::get())
