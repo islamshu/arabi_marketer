@@ -26,6 +26,7 @@ use App\Models\BankInfo;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\MarkterSoical;
+use App\Models\NewPodcast;
 use App\Models\OrderDetiles;
 use App\Models\Podacst;
 use App\Models\Service;
@@ -259,7 +260,7 @@ class UserController extends BaseController
          return $this->sendResponse($res,'جميع الخدمات  ');
      }
      public function get_podcasts(){
-        $service = Podacst::where('user_id',auth('api')->id())->orderby('id','desc')->paginate(5);
+        $service = NewPodcast::where('user_id',auth('api')->id())->orderby('id','desc')->paginate(5);
         $res = PodcastResource::collection($service)->response()->getData(true);
          return $this->sendResponse($res,'جميع البدوكاست  ');
      }
