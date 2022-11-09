@@ -52,8 +52,8 @@ class UserNotAuthResource extends JsonResource
             'podcasts' => $this->get_podcasts($this),
             'videos' => $this->get_videos($this),
             'consulting' => $this->get_consult($this),
-
-            'bank_info' => $this->bank_info($this)
+            'bank_info' => $this->bank_info($this),
+            'answer_questione'=> new AnsweResourse($this->answer),
         ];
     }
     function get_service($data)

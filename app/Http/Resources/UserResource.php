@@ -38,6 +38,7 @@ class UserResource extends JsonResource
         'finance'=>$this->get_finance($this),
         'types'=>$this->get_type($this),
         'rss_url'=>route('rss_feed',$this->id),
+        'answer_questione'=> new AnsweResourse($this->answer),
         'token'=>$this->createToken('Personal Access Token')->accessToken,
        ];
     }

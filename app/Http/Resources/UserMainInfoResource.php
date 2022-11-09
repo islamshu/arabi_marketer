@@ -32,6 +32,8 @@ class UserMainInfoResource extends JsonResource
         'number_of_videos'=>$this->videos->count(),
         'number_of_podcasts'=>$this->podcasts->count(),
         'number_of_consutiong'=>$this->consutiong->count(),
+        'answer_questione'=> new AnsweResourse($this->answer),
+
         'image'=>$this->image == null ? asset('public/uploads/users/defult_user.png') : asset('public/uploads/'.$this->image)
        ];
     }
