@@ -186,35 +186,34 @@
         </div>
         <div class="card-body">
             <ul class="nav nav-tabs nav-line-tabs nav-line-tabs-2x mb-5 fs-6">
-                
                 <li class="nav-item">
-                    <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_4">الخدمات <span
-                            class="count">{{ $service_count }}</span></a>
+                    <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_3">الخدمات <span
+                            class="count">{{$service_count}}</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " data-bs-toggle="tab" href="#kt_tab_pane_4">الاستشارات <span
+                            class="count">{{ $consls->count() }}</span></a>
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_8">الاستشارات<span
-                        class="count">{{ $consls->count() }}</span></a>
+                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_8">الرسائل<span
+                        class="count">{{ count($messages)  }}</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_9">الرسائل<span
-                            class="count">{{ count($messages) }}</span></a>
-                        </li>
+                
             </ul>
 
 
             <div class="tab-content" id="myTabContent">
-             
                 <div class="tab-pane fade show active" id="kt_tab_pane_3" role="tabpanel">
-                    <div class="tab-pane fade " id="kt_tab_pane_4" role="tabpanel">
                     @include('pages.customers.profile.services')
                 </div>
-                <div class="tab-pane fade" id="kt_tab_pane_8" role="tabpanel">
+                <div class="tab-pane fade" id="kt_tab_pane_4" role="tabpanel">
                     @include('pages.customers.profile.consutiong')
                 </div>
-                <div class="tab-pane fade" id="kt_tab_pane_9" role="tabpanel">
+                <div class="tab-pane fade" id="kt_tab_pane_8" role="tabpanel">
                     @include('pages.customers.profile.messages')
                 </div>
+             
     
             </div>
         </div>
