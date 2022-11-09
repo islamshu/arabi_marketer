@@ -214,11 +214,11 @@ class UserController extends BaseController
     public function edit_profile_step_4(Request $request){
         foreach($request->title as $key=>$q){
             $answer = new UserAnswer();
-            return ;
             $answer->user_id = auth('api')->id();
             $answer->question = $q[$key];
             $answer->answer = $request->answer[$key];
             $answer->save();
+            
         }
         return $this->sendResponse('success','success');
 
