@@ -217,8 +217,8 @@ class UserController extends BaseController
             $answer->user_id = auth('api')->id();
             $answer->question = $q[$key];
             $answer->answer = $request->answer[$key];
+            return $answer;
             $answer->save();
-            
         }
         return $this->sendResponse('success','success');
 
