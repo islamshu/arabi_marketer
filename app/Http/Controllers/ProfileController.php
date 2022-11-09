@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BookingConsultion;
 use App\Models\Consulting;
 use App\Models\Message;
 use App\Models\Order;
@@ -112,7 +113,7 @@ class ProfileController extends Controller
             }
         }
         $services = OrderDetiles::whereIn('id',$service)->get(); 
-        $consls = OrderDetiles::whereIn('id',$cons)->get(); 
+        $consls = BookingConsultion::where('user_id',$user->id)->get(); 
         $conversations =Message::where('sender_id',$id)->orWhere('receiver_id',$id)->get();
         $messages = $conversations->map(function($conversation) use($id){
         if($conversation->sender_id == $id) {
