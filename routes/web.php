@@ -204,6 +204,9 @@ Route::middleware('auth')->group(function () {
     
     Route::resource('orders',OrderController::class);
     Route::get('order_consulting',[OrderController::class,'order_consulting'])->name('order_consulting');
+    Route::get('order_consulting_show/{id}',[OrderController::class,'order_consulting_show'])->name('order_consulting.show');
+
+    
 
     Route::resource('quastions',QuastionController::class);
     Route::resource('podcasts',PodacstController::class);

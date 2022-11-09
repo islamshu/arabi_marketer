@@ -51,7 +51,6 @@
                             <th>الاستشارة</th>
                             <th>سعر الاسشتارة </th>
                             <th>حالة الدفع </th>
-                            <th>تاريخ </th>
                             <th>العمليات</th>
                         </tr>
                     </thead>
@@ -61,9 +60,8 @@
                          <td>#{{ $item->consult->title }}</td>
                          <td>{{ $item->price }}$</td>
                          <td> <button @if($item->paid_status == 'paid') class="btn btn-success" @else  class="btn btn-warning" @endif>{{ $item->paid_status }}</button></td>
-                         <td>{{ date('Y-m-d', strtotime($item->created_at)); }}</td>
                          <td>
-                            <a href="{{ route('order.show', $item->id) }}" class="btn btn-info"><i class="fa fa-eye"></i></a>
+                            <a href="{{ route('order_consulting.show', $item->id) }}" class="btn btn-info"><i class="fa fa-eye"></i></a>
                            
                         </td>
                         </tr>

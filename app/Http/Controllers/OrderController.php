@@ -15,6 +15,10 @@ class OrderController extends Controller
     public function order_consulting(){
         $bookings = BookingConsultion::orderby('id','desc')->get();
         return view('pages.orders.booking')->with('orders',$bookings);
-
     }
+    public function order_consulting_show($id){
+        $booking = BookingConsultion::find($id);
+        return view('pages.customers.order_cons')->with('order',$booking);
+    }
+    
 }
