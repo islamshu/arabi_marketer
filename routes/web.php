@@ -203,6 +203,8 @@ Route::middleware('auth')->group(function () {
 
     
     Route::resource('orders',OrderController::class);
+    Route::get('order_consulting',[OrderController::class],'order_consulting')->name('order_consulting');
+
     Route::resource('quastions',QuastionController::class);
     Route::resource('podcasts',PodacstController::class);
     Route::post('maual_podcast', [PodacstController::class, 'maual_podcast'])->name('maual_podcast.store');

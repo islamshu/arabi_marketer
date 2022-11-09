@@ -338,7 +338,7 @@ return array(
                     ),
                     array(
                         'title'      => 'Consulting Booking',
-                        'path'       => 'blog_keyword',
+                        'path'       => 'order_consulting',
                         'bullet'     => '<span class="bullet bullet-dot"></span>',
                        
                     ),
