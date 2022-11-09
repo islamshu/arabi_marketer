@@ -318,9 +318,34 @@ return array(
             'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen016.svg", "svg-icon-2"),
         ),
         array(
-            'title' => 'Orders',
-            'path'  => 'orders',
-            'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen016.svg", "svg-icon-2"),
+            'title'      => 'Orders',
+            'icon'       => array(
+                'svg'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen005.svg", "svg-icon-2"),
+                'font' => '<i class="bi bi-layers fs-3"></i>',
+            ),
+            'classes'    => array('item' => 'menu-accordion'),
+            'attributes' => array(
+                "data-kt-menu-trigger" => "click",
+            ),
+            'sub'        => array(
+                'class' => 'menu-sub-accordion menu-active-bg',
+                'items' => array(
+                    array(
+                        'title'      => 'Service Order',
+                        'path'       => 'orders',
+                        'bullet'     => '<span class="bullet bullet-dot"></span>',
+                       
+                    ),
+                    array(
+                        'title'      => 'Consulting Booking',
+                        'path'       => 'blog_keyword',
+                        'bullet'     => '<span class="bullet bullet-dot"></span>',
+                       
+                    ),
+              
+                ),   
+                  
+            ),
         ),
         array(
             'title' => 'Services',
