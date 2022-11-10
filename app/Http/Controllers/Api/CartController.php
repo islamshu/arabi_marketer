@@ -108,24 +108,18 @@ class CartController extends BaseController
         if(!$service){
             return $this->sendError('الاستشارة غير متوفرة');
         }
-        if($request->date == null || $request->time == null){
+        if($request->date == null || $request->start_at == null || $request->end_at == null){
             return $this->sendError('اليوم والتاريخ لحجز الاستشارة مطلوب !');
         }
-        if(strpos($request->time,",") !== false){
-            list($d, $l) = explode(',', $request->time, 2);
-        }else{
-            return $this->sendError('وقت البداية والنهاية مكتوب بشكل خاطيء !');
-        }
-        $time = explode(',',$request->time);
-        $from = $time[0];
-        $to = $time[1];
-        $is_exisit=  $service->date->where('day',$request->date)->where('from',$from)->where('to',$to)->first();
+       
+      
+        $is_exisit=  $service->date->where('day',$request->date)->where('from',$request->start_at)->where('to',$request->end_at)->first();
         if($is_exisit == null){
         return $this->sendError(' لا يوجد وقت للاستشارة متاح بهذه الاوقات يرجى التأكد من الاوقات وكتابتهم بشكل صحيح');
         }
         $date['day']=$request->date;
-        $date['form']=$from;
-        $date['to']=$to;
+        $date['form']=$request->start_at;
+        $date['to']=$request->end_at;
         $data_send = json_encode($date);
         $booking = new BookingConsultion();
         $booking->user_id = auth('api')->id();
