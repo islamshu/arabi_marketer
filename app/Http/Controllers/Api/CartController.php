@@ -130,6 +130,7 @@ class CartController extends BaseController
         $booking = new BookingConsultion();
         $booking->user_id = auth('api')->id();
         $booking->consultiong_id = $request->consult_id;
+        $booking->note = $request->note;
         $booking->consultiong_id = $request->consult_id;
         $booking->info = $data_send;
         $booking->price = $service->price;
