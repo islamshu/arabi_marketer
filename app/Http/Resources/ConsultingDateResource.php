@@ -17,7 +17,9 @@ class ConsultingDateResource extends JsonResource
         return [
             'id'=>$this->id,
             'day'=>$this->day,
-            'time'=>$this->from .','. $this->to,   
+            'time'=>$this->from .','. $this->to,  
+            'start_at'=>$this->from,
+            'end_at'=>$this->to 
             ];
     }
 }
