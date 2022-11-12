@@ -57,7 +57,7 @@ class BlogResource extends JsonResource
             array_push($arr,$cat->title);
         }
         $str_json = json_encode($arr); //array to json string conversion
-       return json_decode($str_json);
+       return json_decode(json_decode($str_json));
         return KeywordResource::collection($category);
     }
     function get_tags($data){
