@@ -16,8 +16,8 @@ class NotificationResourse extends JsonResource
     {
         return [
             'id'=>$this->question,
-            'title'=>$this->title,
-            'url'=>$this->title,
+            'title'=>$this->data['title'],
+            'url'=>$this->data['url'],
             'created_at'=>$this->created_at
             ];
     }
