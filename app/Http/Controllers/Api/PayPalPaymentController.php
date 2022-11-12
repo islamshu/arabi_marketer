@@ -101,7 +101,7 @@ class PayPalPaymentController extends BaseController
             foreach($orders as $order){
                 $owner = $order->owner_id;
                 $seller = User::find($owner);
-                Notification::send($owner, new GeneralNotification($date_markter));
+                Notification::send($seller, new GeneralNotification($date_markter));
             }
 
 
