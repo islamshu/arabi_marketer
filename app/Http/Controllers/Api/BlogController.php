@@ -130,6 +130,7 @@ class BlogController extends BaseController
             'keywords' => 'required',
             'tags'=>'required',
             'meta_description'=>'required',
+            'meta_title'=>'required',
             'slug'=>'required|unique:blogs',
         ]);
         if ($validation->fails()) {
@@ -142,6 +143,7 @@ class BlogController extends BaseController
         $service->user_id = auth('api')->id();
         $service->status = 1;
         $service->small_description = $request->meta_description;
+        $service->meta_title = $request->meta_title;
         $service->slug = $request->slug;
         $service->save();
         $blog_image = new BlogImage();
