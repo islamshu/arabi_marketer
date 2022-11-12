@@ -28,6 +28,7 @@ use App\Models\Blog;
 use App\Models\Category;
 use App\Models\MarkterSoical;
 use App\Models\NewPodcast;
+use App\Models\Notification as ModelsNotification;
 use App\Models\Order;
 use App\Models\OrderDetiles;
 use App\Models\Podacst;
@@ -37,6 +38,7 @@ use App\Models\UserAnswer;
 use App\Models\UserCategory;
 use App\Models\Video;
 use App\Notifications\GeneralNotification;
+use Carbon\Carbon;
 use Notification;
 use Validator;
 
@@ -47,6 +49,14 @@ class UserController extends BaseController
         $res = NotificationResourse::collection($notification);
         return $this->sendResponse($res,'جميع الاشعارات'); 
     }
+    public function show_notification($id){
+        $notification = ModelsNotification::find($id);
+        $notification->read_at = Carbon::now();
+        $res = new NotificationResourse($notification);
+        return $this->sendResponse($res,''); 
+    }
+
+    
     public function register(Request $request){
         $user = User::where('email',$request->email)->first();
         $validation = Validator::make($request->all(), [
