@@ -41,7 +41,7 @@ class VideoController extends BaseController
     }
     public function get_all()
     {
-        $service = Video::orderby('id', 'desc')->paginate(5);
+        $service = Video::orderby('id', 'desc')->paginate(9);
         $res = VideoResource::collection($service)->response()->getData(true);
         return $this->sendResponse($res, 'جميع الفيديوهات  ');
     }
