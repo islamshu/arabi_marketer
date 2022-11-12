@@ -28,6 +28,7 @@ class CommentController extends BaseController
         $comment  = new Comment();
         $comment->blog_id = $request->blog_id;
         $comment->body = $request->body;
+        $comment->user_id = auth('api')->id();
         $comment->save();
         $res = new CommentResourse($comment);
         return $this->sendResponse($res,'تم اضافة التعليق بنجاح');

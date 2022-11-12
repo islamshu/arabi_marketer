@@ -16,7 +16,22 @@ class CommentResourse extends JsonResource
     {
         return [
             'id' => $this->id,
-            'body' => ($this->body)
+            'body' => ($this->body),
+            'user_info'=>$this->get_user($this)
         ];
+    }
+    function get_user($data){
+        $user = @$data->user;
+        if($user != null){
+            return[
+                'name'=>$data->user->name,
+                'image'=>$data->user->image == null ? asset('public/uploads/users/defult_user.png') : asset('public/uploads/'.$data->user->image )
+            ];
+        }else{
+            return[
+                'name'=>'Guest',
+                'image'=>asset('public/uploads/users/defult_user.png')
+            ];  
+        }
     }
 }
