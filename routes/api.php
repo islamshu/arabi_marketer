@@ -80,15 +80,15 @@ Route::group(['middleware' => 'is_login'], function () {
     Route::get('/order_show/{id}', [UserController::class, 'order_show'])->name('order_show');
     Route::get('/my_notification', [UserController::class, 'my_notification'])->name('my_notification');
     Route::get('/show_notification/{id}', [UserController::class, 'show_notification'])->name('show_notification');
-
+    Route::post('/edit_profile_step_2', [UserController::class, 'edit_profile_step_2']);
+    Route::post('/edit_profile_step_3', [UserController::class, 'edit_profile_step_3']);
+    Route::post('/edit_profile_step_4', [UserController::class, 'edit_profile_step_4']);
     
 
 });
 Route::group(['middleware' => 'is_login','middleware' => 'Is_markter'], function () {
     Route::post('add_bank_info', [UserController::class, 'add_bank_info']);
-    Route::post('/edit_profile_step_2', [UserController::class, 'edit_profile_step_2']);
-    Route::post('/edit_profile_step_3', [UserController::class, 'edit_profile_step_3']);
-    Route::post('/edit_profile_step_4', [UserController::class, 'edit_profile_step_4']);
+
     Route::get('/my_blogs', [UserController::class, 'get_blog']);
     Route::get('/my_services', [UserController::class, 'get_service']);
     Route::get('/my_podcasts', [UserController::class, 'get_podcasts']);
