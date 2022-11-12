@@ -78,6 +78,8 @@ Route::group(['middleware' => 'is_login'], function () {
     Route::get('/my_consultations_buy', [UserController::class, 'my_consultations_buy']);
     Route::get('/my_orders', [UserController::class, 'order']);
     Route::get('/order_show/{id}', [UserController::class, 'order_show'])->name('order_show');
+    Route::get('/my_notification', [UserController::class, 'my_notification'])->name('my_notification');
+    Route::get('/show_notification/{id}', [UserController::class, 'show_notification'])->name('show_notification');
 
     
 

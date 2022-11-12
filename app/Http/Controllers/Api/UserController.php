@@ -12,6 +12,7 @@ use App\Http\Resources\BlogResource;
 use App\Http\Resources\CategoryResource;
 use App\Http\Resources\ConsultingResource;
 use App\Http\Resources\CounsutionBuyResource;
+use App\Http\Resources\NotificationResourse;
 use App\Http\Resources\OrderResource;
 use App\Http\Resources\PodcastResource;
 use App\Http\Resources\ServiceBuyResource;
@@ -41,6 +42,11 @@ use Validator;
 
 class UserController extends BaseController
 {
+    public function my_notification(){
+        $notification = auth('api')->user()->unreadNotifications;
+        $res = NotificationResourse::collection($notification);
+        return $this->sendResponse($res,'جميع الاشعارات'); 
+    }
     public function register(Request $request){
         $user = User::where('email',$request->email)->first();
         $validation = Validator::make($request->all(), [
