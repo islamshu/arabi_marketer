@@ -27,6 +27,7 @@ use App\Models\Blog;
 use App\Models\Category;
 use App\Models\MarkterSoical;
 use App\Models\NewPodcast;
+use App\Models\Order;
 use App\Models\OrderDetiles;
 use App\Models\Podacst;
 use App\Models\Service;
@@ -300,7 +301,12 @@ class UserController extends BaseController
         $orders = $user->orders;
         $res = OrderResource::collection($orders);
         return $this->sendResponse($res,'جميع الطلبات');
-
+     }
+     public function order_show($id){
+        
+        $order = Order::find($id);
+        $res = new OrderResource($order);
+        return $this->sendResponse($res,'الطلب');
      }
      
      public function get_markter_blog($id)

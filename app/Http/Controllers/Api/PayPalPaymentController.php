@@ -12,6 +12,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Srmklive\PayPal\Services\ExpressCheckout;
 use App\Http\Controllers\Api\BaseController;
+use App\Notifications\GeneralNotification;
+use Notification;
 
 class PayPalPaymentController extends BaseController
 {
@@ -71,6 +73,37 @@ class PayPalPaymentController extends BaseController
             $order->payment_status ='paid';
             $order->save();
             $user = User::find($order->user_id);
+            $date_admin = [
+                'id'=>$order->id,
+                'name' => 'هناك طلبية جديدة',
+                'url' => route('order.show',$order->id),
+                'title' => 'هناك طلبية جديدة',
+                'time' => $order->updated_at
+            ];
+            $date_markter = [
+                'id'=>$order->id,
+                'name' => 'هناك طلبية جديدة',
+                'url' => route('order_show',$order->id),
+                'title' => 'هناك طلبية جديدة',
+                'time' => $order->updated_at
+            ];
+            $date_user = [
+                'id'=>$order->id,
+                'name' => 'تم ارسال الطلبية',
+                'url' => route('order_show',$order->id),
+                'title' => 'تم ارسال الطبية',
+                'time' => $order->updated_at
+            ];
+            Notification::send($user, new GeneralNotification($date_user));
+            $admins = User::where('type','Admin')->get();
+            Notification::send($admins, new GeneralNotification($date_admin));
+            $orders = $order->orderdetiles;
+            foreach($orders as $order){
+                $owner = $order->owner_id;
+                Notification::send($owner, new GeneralNotification($date_markter));
+            }
+
+
             $carts = Cart::where('user_id',$user->id)->get();
             foreach($carts as $cart){
                 if($cart->type == 'service'){

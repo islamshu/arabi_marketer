@@ -77,6 +77,9 @@ Route::group(['middleware' => 'is_login'], function () {
     Route::get('/my_service_buy', [UserController::class, 'my_service_buy']);
     Route::get('/my_consultations_buy', [UserController::class, 'my_consultations_buy']);
     Route::get('/my_orders', [UserController::class, 'order']);
+    Route::get('/order_show/{id}', [UserController::class, 'order_show'])->name('order_show');
+
+    
 
 });
 Route::group(['middleware' => 'is_login','middleware' => 'Is_markter'], function () {
