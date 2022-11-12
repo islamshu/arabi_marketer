@@ -98,9 +98,9 @@ class PayPalPaymentController extends BaseController
             $admins = User::where('type','Admin')->get();
             Notification::send($admins, new GeneralNotification($date_admin));
             $orders = $order->orderdetiles;
-            dd($orders);
             foreach($orders as $order){
                 $owner = $order->owner_id;
+                $seller = User::find($owner);
                 Notification::send($owner, new GeneralNotification($date_markter));
             }
 
