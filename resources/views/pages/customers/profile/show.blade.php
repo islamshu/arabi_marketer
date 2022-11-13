@@ -171,8 +171,18 @@
                                 </div>
                                 <!--end::Stat-->
                             </div>
+
+                            
                             <!--end::Stats-->
                         </div>
+                        <div class="d-flex flex-column flex-grow-1 pe-">
+                            <form action="">
+                                <label for="" class="form-control">حالة الطلب</label>
+                                <select class="form-control" name="" id="">
+                                </select>
+                            </form>
+                        </div>
+
                         <!--end::Wrapper-->
 
                         <!--end::Progress-->
