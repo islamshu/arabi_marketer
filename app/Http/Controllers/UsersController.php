@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MarkterOrder;
 use App\Models\User;
 use Auth;
 use Illuminate\Http\Request;
@@ -17,6 +18,7 @@ class UsersController extends Controller
     {
        return response()->view('pages.users.index');
     }
+    
     public function getData(Request $request){
         $users = User::orderBy('id', 'asc');
 
@@ -31,26 +33,9 @@ class UsersController extends Controller
         }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function marketers_requests()
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+       return view('pages.users.request')->with('requests',MarkterOrder::order('id','desc')->get());
     }
     
 

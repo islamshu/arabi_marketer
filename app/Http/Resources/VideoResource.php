@@ -32,8 +32,15 @@ class VideoResource extends JsonResource
         $category = $data->category;
         return CategoryResource::collection($category);
     }
-    function get_keywords($data){
+    function get_keywords($data)
+    {
         $category = $data->keywords;
+        $arr = [];
+        foreach ($category as $cat) {
+            array_push($arr, $cat->title);
+        }
+        $str_json = json_encode($arr); //array to json string conversion
+        return json_decode($str_json);
         return KeywordResource::collection($category);
     }
 }

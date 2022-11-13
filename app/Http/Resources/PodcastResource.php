@@ -109,4 +109,5 @@ class PodcastResource extends JsonResource
         $category = $data->keywords;
         return KeywordResource::collection($category);
     }
+   
 }
