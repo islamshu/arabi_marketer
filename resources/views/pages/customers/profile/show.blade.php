@@ -183,7 +183,7 @@
                             <div class="row">
 
                             <form action="">
-                                <div class="col-md-6">
+                                <div class="col-md-3">
                                     <label for="" class="">حالة الطلب</label>
                                     <select class="form-control btn-danger" name=""  >
                                         <option value="1">تحت التدقيق</option>
@@ -191,7 +191,7 @@
                                         <option value="0">رقض</option>
                                     </select>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6 mt-10">
                                     <button class="btn btn-info">تأكيد</button>
                                 </div>
                                
