@@ -172,6 +172,7 @@ return array(
     'App\\Models\\GeneralInfo' => $baseDir . '/app/Models/GeneralInfo.php',
     'App\\Models\\HowItWork' => $baseDir . '/app/Models/HowItWork.php',
     'App\\Models\\KeyWord' => $baseDir . '/app/Models/KeyWord.php',
+    'App\\Models\\MarkterOrder' => $baseDir . '/app/Models/MarkterOrder.php',
     'App\\Models\\MarkterSoical' => $baseDir . '/app/Models/MarkterSoical.php',
     'App\\Models\\Message' => $baseDir . '/app/Models/Message.php',
     'App\\Models\\NewPodcast' => $baseDir . '/app/Models/NewPodcast.php',

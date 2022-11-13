@@ -953,6 +953,7 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         'App\\Models\\GeneralInfo' => __DIR__ . '/../..' . '/app/Models/GeneralInfo.php',
         'App\\Models\\HowItWork' => __DIR__ . '/../..' . '/app/Models/HowItWork.php',
         'App\\Models\\KeyWord' => __DIR__ . '/../..' . '/app/Models/KeyWord.php',
+        'App\\Models\\MarkterOrder' => __DIR__ . '/../..' . '/app/Models/MarkterOrder.php',
         'App\\Models\\MarkterSoical' => __DIR__ . '/../..' . '/app/Models/MarkterSoical.php',
         'App\\Models\\Message' => __DIR__ . '/../..' . '/app/Models/Message.php',
         'App\\Models\\NewPodcast' => __DIR__ . '/../..' . '/app/Models/NewPodcast.php',
