@@ -47,7 +47,7 @@
                                     <td>{{ $item->user->name }}</td>
                                     <td>{{ $item->user->email }}</td>
                                     <td>
-                                        <a href="{{ route('users.show', $item->id) }}" class="btn btn-info"><i class="fa fa-eye"></i></a>
+                                        <a href="{{ route('customer.show', $item->id) }}" class="btn btn-info"><i class="fa fa-eye"></i></a>
 
                                     </td>
 
