@@ -47,6 +47,7 @@ class UsersController extends Controller
             $user->type = 'user';
         }
         $user->save();
+        $order->delete();
         Alert::success('Success', 'Edited successfully');
             return redirect()->back();
     }
