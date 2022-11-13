@@ -191,7 +191,7 @@
                             <div class="row">
 
                             <form action="{{  route('change_status_markter',$order->id) }}" method="post" >
-                                <div class="col-md-6">
+                                <div class="col-md-8">
                                     <label for="" class="">حالة الطلب</label>
                                     <select id="select_change" class="form-control {{  $order_status }}" name="status"  >
                                         <option value="1">تحت التدقيق</option>
