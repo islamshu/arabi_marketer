@@ -179,10 +179,10 @@
                             $order = App\Models\MarkterOrder::where('user_id',$user->id)->first();
                         @endphp
                         @if($order)
-                        <div class="d-flex flex-column flex-grow-1 pe-">
+                        <div class="d-flex flex-column flex-grow-1 pe-4" >
                             <form action="">
                                 <label for="" class="form-control">حالة الطلب</label>
-                                <select class="form-control" name="" >
+                                <select class="form-control btn-danger" name=""  >
                                     <option value="1">تحت التدقيق</option>
                                     <option value="2">قبول</option>
                                     <option value="0">رقض</option>
