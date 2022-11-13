@@ -42,6 +42,7 @@
                                 </tr>
                             </thead>
                             <tbody class="text-gray-600 fw-semibold">
+                                {{ dd($requests) }}
                                 @foreach ($requests as $key=>$item)
                                     <td>{{ $key+1 }}</td>
                                     <td>{{ $item->user->name }}</td>
