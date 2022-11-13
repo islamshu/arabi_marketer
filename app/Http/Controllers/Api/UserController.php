@@ -26,6 +26,7 @@ use App\Models\Answer;
 use App\Models\BankInfo;
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\MarkterOrder;
 use App\Models\MarkterSoical;
 use App\Models\NewPodcast;
 use App\Models\Notification as ModelsNotification;
@@ -44,24 +45,27 @@ use Validator;
 
 class UserController extends BaseController
 {
-    public function my_notification(){
+    public function my_notification()
+    {
         $notification = auth('api')->user()->unreadNotifications;
         $res = NotificationResourse::collection($notification);
-        return $this->sendResponse($res,'جميع الاشعارات'); 
+        return $this->sendResponse($res, 'جميع الاشعارات');
     }
-    public function show_notification($id){
+    public function show_notification($id)
+    {
         $notification = ModelsNotification::find($id);
         $notification->read_at = Carbon::now();
         $res = new NotificationResourse($notification);
-        return $this->sendResponse($res,''); 
+        return $this->sendResponse($res, '');
     }
 
-    
-    public function register(Request $request){
-        $user = User::where('email',$request->email)->first();
+
+    public function register(Request $request)
+    {
+        $user = User::where('email', $request->email)->first();
         $validation = Validator::make($request->all(), [
             'name' => 'required',
-            'email'=>'required|unique:users,email',
+            'email' => 'required|unique:users,email',
             'password' => 'required',
             'confirm_password' => 'required|same:password',
         ]);
@@ -76,89 +80,96 @@ class UserController extends BaseController
         $user->image = 'users/defult_user.png';
         $user->password =  Hash::make($request->password);
         $user->save();
-        $userRes =new  UserNormalAuthResource($user);
-        return $this->sendResponse($userRes,'تم التسجيل بنجاح');
+        $userRes = new  UserNormalAuthResource($user);
+        return $this->sendResponse($userRes, 'تم التسجيل بنجاح');
     }
-    public function add_bank_info(Request $request){
+    public function add_bank_info(Request $request)
+    {
         $user = auth('api')->user();
         $bank = $user->bank_info;
-        if($bank == null){
+        if ($bank == null) {
             $bank = new BankInfo();
             $bank->bank_name = $request->bank_name;
             $bank->account_name = $request->account_name;
             $bank->account_number = $request->account_number;
             $bank->user_id = auth('api')->id();
             $bank->save();
-        }else{
+        } else {
             $bank->bank_name = $request->bank_name;
             $bank->account_name = $request->account_name;
             $bank->account_number = $request->account_number;
-            $bank->save(); 
+            $bank->save();
         }
         $res = new UserNotAuthResource($user);
-        return $this->sendResponse($res,'تم تعديل بيانات الدفع');
-
+        return $this->sendResponse($res, 'تم تعديل بيانات الدفع');
     }
-    public function login(Request $request){
+    public function login(Request $request)
+    {
         $validation = Validator::make($request->all(), [
-            'email'=>'required',
+            'email' => 'required',
             'password' => 'required',
         ]);
         if ($validation->fails()) {
             return $this->sendError($validation->messages()->all());
         }
-        $user = User::where('email',$request->email)->first();
+        $user = User::where('email', $request->email)->first();
         if ($user) {
             if (Hash::check($request->password, $user->password)) {
                 $token = $user->createToken('Personal Access Token')->accessToken;
-                if($user->type =='user'){
-                    $res = New UserNormalAuthResource($user);
-                }else{
-                    $res = New UserResource($user);
-
+                if ($user->type == 'user') {
+                    $res = new UserNormalAuthResource($user);
+                } else {
+                    $res = new UserResource($user);
                 }
-                return $this->sendResponse($res,'تم تسجيل الدخول بنجاح');
+                return $this->sendResponse($res, 'تم تسجيل الدخول بنجاح');
             } else {
                 return $this->sendError('كلمة المرور غير صحيحة');
             }
         } else {
             return $this->sendError('لم يتم العثور على المستخدم');
-
         }
     }
-    public function be_marketer(Request $request){
+    public function be_marketer(Request $request)
+    {
         $user = User::find($request->user_id);
 
-        if($user->type == 'user'){
-            $user->type = 'marketer';
-            $user->save();
+
+        if ($user->type == 'user') {
+
+            $order = new MarkterOrder();
+            $order->user_id = auth('api')->id();
+            $order->status = 1;
+            $order->save();
+
             $date = [
-                'id'=>$user->id,
+                'id' => $user->id,
                 'name' => $user->name,
-                'url' => route('marketer.show',$user->id),
-                'title' => 'Have a new Markter',
+                'url' => route('marketer.show', $user->id),
+                'title' => 'لديك مسوق جديد',
                 'time' => $user->updated_at
             ];
-            $admins = User::where('type','Admin')->get();
+            $admins = User::where('type', 'Admin')->get();
             Notification::send($admins, new GeneralNotification($date));
             $res = new UserResource($user);
-            return $this->sendResponse($res,'تم التحويل الى مسوق  بنجاح بانتظار موافقة الادارة');
-        }elseif($user->type =='marketer'){
+            return $this->sendResponse($res, 'تم ارسال طلبك للادارة');
+        } elseif ($user->type == 'marketer') {
             return $this->sendError('انت بالفعل مسوق لدينا ');
-        }elseif($user->type != 'user' && $user->type !='marketer'){
+        } elseif ($user->type != 'user' && $user->type != 'marketer') {
             return $this->sendError('يوجد خطا ما لدينا');
         }
     }
-    public function edit_profile(Request $request){
+
+    public function edit_profile(Request $request)
+    {
         $user = auth('api')->user();
         $validation = Validator::make($request->all(), [
-            'email'=>'required|unique:users,email,'.$user->id,
-   
+            'email' => 'required|unique:users,email,' . $user->id,
+
         ]);
         if ($validation->fails()) {
             return $this->sendError($validation->messages()->all());
-        }       
-         if($request->image != null){
+        }
+        if ($request->image != null) {
             $user->image = $request->image->store('users');
         }
         $user->first_name = $request->first_name;
@@ -168,20 +179,21 @@ class UserController extends BaseController
         $user->city_id = $request->city_id;
         $user->email = $request->email;
         $user->save();
-        $userRes =new  UserNormalAuthResource($user);
-        return $this->sendResponse($userRes,'تم تعديل البيانات بنجاح');
+        $userRes = new  UserNormalAuthResource($user);
+        return $this->sendResponse($userRes, 'تم تعديل البيانات بنجاح');
     }
-    public function edit_profile_step_2(Request $request){
+    public function edit_profile_step_2(Request $request)
+    {
         $user = auth('api')->user();
         $user->pio = $request->cv;
         $user->save();
 
-        if($request->type != null){
+        if ($request->type != null) {
             $types = json_decode($request->type, true);
 
-            foreach($types as $type){
-                $is_ext = UserCategory::where('user_id',$user->id)->where('type_id',$type)->first();
-                if($is_ext){
+            foreach ($types as $type) {
+                $is_ext = UserCategory::where('user_id', $user->id)->where('type_id', $type)->first();
+                if ($is_ext) {
                     continue;
                 }
                 $usertype = new UserCategory();
@@ -190,13 +202,14 @@ class UserController extends BaseController
                 $usertype->save();
             }
         }
-        $userRes =new  UserNotAuthResource($user);
-        return $this->sendResponse($userRes,'تم تعديل البيانات بنجاح');
+        $userRes = new  UserNotAuthResource($user);
+        return $this->sendResponse($userRes, 'تم تعديل البيانات بنجاح');
     }
-    public function edit_profile_step_3(Request $request){
+    public function edit_profile_step_3(Request $request)
+    {
         $user = auth('api')->user();
         $social = $user->soical;
-        if($social == null){
+        if ($social == null) {
             $social = new MarkterSoical();
             $social->instagram = $request->instagram;
             $social->facebook = $request->facebook;
@@ -208,7 +221,7 @@ class UserController extends BaseController
             $social->followers_number = $request->followers_number;
             $social->user_id = $user->id;
             $social->save();
-        }else{
+        } else {
             $social->instagram = $request->instagram;
             $social->facebook = $request->facebook;
             $social->twitter = $request->twitter;
@@ -217,43 +230,44 @@ class UserController extends BaseController
             $social->linkedin = $request->linkedin;
             $social->website = $request->website;
             $social->followers_number = $request->followers_number;
-            $social->save(); 
+            $social->save();
         }
-       
+
         // foreach($request->social as $social){
         //     $usersocial = new SouialUser();
         //     $usersocial->user_id = $user->id;
         //     $usersocial->url = $social;
         //     $usersocial->save();
         // }
-        $userRes =new  UserNotAuthResource($user);
-        return $this->sendResponse($userRes,'تم تعديل البيانات بنجاح');
+        $userRes = new  UserNotAuthResource($user);
+        return $this->sendResponse($userRes, 'تم تعديل البيانات بنجاح');
     }
-    public function edit_profile_step_4(Request $request){
-        foreach($request->title as $key=>$q){
+    public function edit_profile_step_4(Request $request)
+    {
+        foreach ($request->title as $key => $q) {
             $ans = new UserAnswer();
             $ans->user_id = auth('api')->id();
             $ans->question = $request->title[$key];
             $ans->answer = $request->answer[$key];
             $ans->save();
-
         }
-        return $this->sendResponse('success','success');
-
+        return $this->sendResponse('success', 'success');
     }
-    public function profile(){
+    public function profile()
+    {
         $user = auth('api')->user();
-        $userRes =new  UserNotAuthResource($user);
-        return $this->sendResponse($userRes,'الملف الشخصي');
+        $userRes = new  UserNotAuthResource($user);
+        return $this->sendResponse($userRes, 'الملف الشخصي');
     }
-    public function type_of_user(){
+    public function type_of_user()
+    {
         $category = Category::ofType('user')->orderBy('id', 'asc')->get();
-        $userRes =CategoryResource::collection($category);
-        return $this->sendResponse($userRes,'جميع المجالات الخاصة بالمستخدمين');
+        $userRes = CategoryResource::collection($category);
+        return $this->sendResponse($userRes, 'جميع المجالات الخاصة بالمستخدمين');
     }
     public function get_blog()
     {
-        $blogs = Blog::where('user_id',auth('api')->id())->orderBy('id', 'desc')->paginate(5);
+        $blogs = Blog::where('user_id', auth('api')->id())->orderBy('id', 'desc')->paginate(5);
         $res = BlogResource::collection($blogs)->response()->getData(true);
         return $this->sendResponse($res, 'جميع المقالات');
         // return ['success'=>true,'blogs'=>BlogResource::collection($blogs)->response()->getData(true),'message'=>'جميع المقالات'];
@@ -261,98 +275,106 @@ class UserController extends BaseController
 
     public function get_consultations()
     {
-        $cons = Consulting::where('user_id',auth('api')->id())->orderby('id', 'desc')->paginate(5);
+        $cons = Consulting::where('user_id', auth('api')->id())->orderby('id', 'desc')->paginate(5);
         $res = ConsultingResource::collection($cons)->response()->getData(true);
         return $this->sendResponse($res, 'جميع الاستشارات');
     }
     public function get_videos()
     {
-        $cons = Video::where('user_id',auth('api')->id())->orderby('id', 'desc')->paginate(5);
+        $cons = Video::where('user_id', auth('api')->id())->orderby('id', 'desc')->paginate(5);
         $res = VideoResource::collection($cons)->response()->getData(true);
         return $this->sendResponse($res, 'جميع الاستشارات');
     }
-    public function get_service(){
-        $service = Service::where('user_id',auth('api')->id())->orderby('id','desc')->paginate(5);
+    public function get_service()
+    {
+        $service = Service::where('user_id', auth('api')->id())->orderby('id', 'desc')->paginate(5);
         $res = ServiceResource::collection($service)->response()->getData(true);
-         return $this->sendResponse($res,'جميع الخدمات  ');
-     }
-     public function get_podcasts(){
-        $service = NewPodcast::where('user_id',auth('api')->id())->orderby('id','desc')->paginate(5);
+        return $this->sendResponse($res, 'جميع الخدمات  ');
+    }
+    public function get_podcasts()
+    {
+        $service = NewPodcast::where('user_id', auth('api')->id())->orderby('id', 'desc')->paginate(5);
         $res = PodcastResource::collection($service)->response()->getData(true);
-         return $this->sendResponse($res,'جميع البدوكاست  ');
-     }
-     public function my_service_buy(){
+        return $this->sendResponse($res, 'جميع البدوكاست  ');
+    }
+    public function my_service_buy()
+    {
         $user = auth('api')->user();
         $orders = $user->orders;
         $service = [];
-        foreach($orders as $order){
-            foreach($order->orderdetiles as $detile){
-                if($detile->type == 'service'){
-                    array_push($service,$detile->id);
+        foreach ($orders as $order) {
+            foreach ($order->orderdetiles as $detile) {
+                if ($detile->type == 'service') {
+                    array_push($service, $detile->id);
                 }
             }
         }
-        $services = OrderDetiles::whereIn('id',$service)->get(); 
+        $services = OrderDetiles::whereIn('id', $service)->get();
         $res['service'] = ServiceBuyResource::collection($services);
-        
-        return $this->sendResponse($res,'جميع الخدمات المشتراه  ');
-     }
-     public function my_consultations_buy(){
+
+        return $this->sendResponse($res, 'جميع الخدمات المشتراه  ');
+    }
+    public function my_consultations_buy()
+    {
         $user = auth('api')->user();
         $orders = $user->orders;
         $cons = [];
-        foreach($orders as $order){
-            foreach($order->orderdetiles as $detile){
-                if($detile->type == 'consultation'){
-                    array_push($cons,$detile->id);
+        foreach ($orders as $order) {
+            foreach ($order->orderdetiles as $detile) {
+                if ($detile->type == 'consultation') {
+                    array_push($cons, $detile->id);
                 }
             }
         }
-        $consltuin = OrderDetiles::whereIn('id',$cons)->get(); 
+        $consltuin = OrderDetiles::whereIn('id', $cons)->get();
         $res['consulting'] = CounsutionBuyResource::collection($consltuin);
-        return $this->sendResponse($res,'جميع الاستشارات المشتراه  ');
-     }
-     public function order(){
+        return $this->sendResponse($res, 'جميع الاستشارات المشتراه  ');
+    }
+    public function order()
+    {
         $user = auth('api')->user();
         $orders = $user->orders;
         $res = OrderResource::collection($orders);
-        return $this->sendResponse($res,'جميع الطلبات');
-     }
-     public function order_show($id){
-        
+        return $this->sendResponse($res, 'جميع الطلبات');
+    }
+    public function order_show($id)
+    {
+
         $order = Order::find($id);
         $res = new OrderResource($order);
-        return $this->sendResponse($res,'الطلب');
-     }
-     
-     public function get_markter_blog($id)
-{
-    $blogs = Blog::where('user_id',$id)->orderBy('id', 'desc')->paginate(5);
-    $res = BlogResource::collection($blogs)->response()->getData(true);
-    return $this->sendResponse($res, 'جميع المقالات');
-    // return ['success'=>true,'blogs'=>BlogResource::collection($blogs)->response()->getData(true),'message'=>'جميع المقالات'];
-}
+        return $this->sendResponse($res, 'الطلب');
+    }
 
-public function get_markter_consultations($id)
-{
-    $cons = Consulting::where('user_id',$id)->orderby('id', 'desc')->paginate(5);
-    $res = ConsultingResource::collection($cons)->response()->getData(true);
-    return $this->sendResponse($res, 'جميع الاستشارات');
-}
-public function get_markter_videos($id)
-{
-    $cons = Video::where('user_id',$id)->orderby('id', 'desc')->paginate(5);
-    $res = VideoResource::collection($cons)->response()->getData(true);
-    return $this->sendResponse($res, 'جميع الاستشارات');
-}
-public function get_markter_service($id){
-    $service = Service::where('user_id',$id)->orderby('id','desc')->paginate(5);
-    $res = ServiceResource::collection($service)->response()->getData(true);
-     return $this->sendResponse($res,'جميع الخدمات  ');
- }
- public function get_markter_podcasts($id){
-    $service = Podacst::where('user_id',$id)->orderby('id','desc')->paginate(5);
-    $res = PodcastResource::collection($service)->response()->getData(true);
-     return $this->sendResponse($res,'جميع البدوكاست  ');
- }
+    public function get_markter_blog($id)
+    {
+        $blogs = Blog::where('user_id', $id)->orderBy('id', 'desc')->paginate(5);
+        $res = BlogResource::collection($blogs)->response()->getData(true);
+        return $this->sendResponse($res, 'جميع المقالات');
+        // return ['success'=>true,'blogs'=>BlogResource::collection($blogs)->response()->getData(true),'message'=>'جميع المقالات'];
+    }
+
+    public function get_markter_consultations($id)
+    {
+        $cons = Consulting::where('user_id', $id)->orderby('id', 'desc')->paginate(5);
+        $res = ConsultingResource::collection($cons)->response()->getData(true);
+        return $this->sendResponse($res, 'جميع الاستشارات');
+    }
+    public function get_markter_videos($id)
+    {
+        $cons = Video::where('user_id', $id)->orderby('id', 'desc')->paginate(5);
+        $res = VideoResource::collection($cons)->response()->getData(true);
+        return $this->sendResponse($res, 'جميع الاستشارات');
+    }
+    public function get_markter_service($id)
+    {
+        $service = Service::where('user_id', $id)->orderby('id', 'desc')->paginate(5);
+        $res = ServiceResource::collection($service)->response()->getData(true);
+        return $this->sendResponse($res, 'جميع الخدمات  ');
+    }
+    public function get_markter_podcasts($id)
+    {
+        $service = Podacst::where('user_id', $id)->orderby('id', 'desc')->paginate(5);
+        $res = PodcastResource::collection($service)->response()->getData(true);
+        return $this->sendResponse($res, 'جميع البدوكاست  ');
+    }
 }

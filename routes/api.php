@@ -83,12 +83,9 @@ Route::group(['middleware' => 'is_login'], function () {
     Route::post('/edit_profile_step_2', [UserController::class, 'edit_profile_step_2']);
     Route::post('/edit_profile_step_3', [UserController::class, 'edit_profile_step_3']);
     Route::post('/edit_profile_step_4', [UserController::class, 'edit_profile_step_4']);
-    
-
 });
-Route::group(['middleware' => 'is_login','middleware' => 'Is_markter'], function () {
+Route::group(['middleware' => 'is_login', 'middleware' => 'Is_markter'], function () {
     Route::post('add_bank_info', [UserController::class, 'add_bank_info']);
-
     Route::get('/my_blogs', [UserController::class, 'get_blog']);
     Route::get('/my_services', [UserController::class, 'get_service']);
     Route::get('/my_podcasts', [UserController::class, 'get_podcasts']);
@@ -100,7 +97,6 @@ Route::get('/markter_services/{id}', [UserController::class, 'get_markter_servic
 Route::get('/markter_podcasts/{id}', [UserController::class, 'get_markter_podcasts']);
 Route::get('/markter_videos/{id}', [UserController::class, 'get_markter_videos']);
 Route::get('/markter_consultations/{id}', [UserController::class, 'get_markter_consultations']);
-
 Route::get('/type_of_user', [UserController::class, 'type_of_user']);
 //end profile
 Route::get('/rss', [HomeController::class, 'rss']);
@@ -109,21 +105,18 @@ Route::get('/rss', [HomeController::class, 'rss']);
 //start blog
 Route::get('/blog_category', [BlogController::class, 'blog_category']);
 Route::get('/blog_keyword', [BlogController::class, 'blog_keyword']);
-Route::group(['middleware' => 'is_login','middleware' => 'Is_markter'], function () {
-Route::post('/add_blog', [BlogController::class, 'store']);
-Route::post('/update_blog', [BlogController::class, 'update']);
-Route::delete('/delete_blog/{id}', [BlogController::class, 'delete']);
-
+Route::group(['middleware' => 'is_login', 'middleware' => 'Is_markter'], function () {
+    Route::post('/add_blog', [BlogController::class, 'store']);
+    Route::post('/update_blog', [BlogController::class, 'update']);
+    Route::delete('/delete_blog/{id}', [BlogController::class, 'delete']);
 });
 Route::post('/add_comment', [CommentController::class, 'store']);
 Route::post('/add_rate', [BlogController::class, 'add_rate']);
 Route::get('/get_comments_for_blog/{id}', [CommentController::class, 'get_comment']);
-
 Route::get('/get_all_blogs', [BlogController::class, 'get_all']);
 Route::get('/single_blog/{id}', [BlogController::class, 'single'])->name('single_blog');
 Route::get('/blog_search', [BlogController::class, 'serach']);
 Route::get('/related_blogs/{id}', [BlogController::class, 'related_blogs']);
-
 //end blog 
 
 //start service
@@ -135,19 +128,16 @@ Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('google/callback', [GoogleController::class, 'handleGoogleCallback']);
 Route::get('auth/facebook', [FacebookController::class, 'redirectToGoogle']);
 Route::get('facebook/callback', [FacebookController::class, 'handleGoogleCallback']);
-
-Route::group(['middleware' => 'is_login','middleware' => 'is_able_markter'], function () {
+Route::group(['middleware' => 'is_login', 'middleware' => 'is_able_markter'], function () {
     Route::post('/store_sound', [SoundController::class, 'store']);
 
     Route::post('/add_service', [ServiceController::class, 'store']);
     Route::post('/update_service', [ServiceController::class, 'update']);
     Route::delete('/delete_service/{id}', [ServiceController::class, 'delete']);
-
 });
 Route::group(['middleware' => 'is_login'], function () {
 
     Route::post('/add_service_comment', [ServiceController::class, 'add_comment']);
-
 });
 
 Route::get('/single_service/{id}', [ServiceController::class, 'single'])->name('single_service');
@@ -163,39 +153,33 @@ Route::get('/get_all_podcasts', [PodcastController::class, 'get_all']);
 Route::get('/single_podcast/{id}', [PodcastController::class, 'single'])->name('single_podcast');
 Route::get('/podcast_search', [PodcastController::class, 'serach']);
 
-Route::group(['middleware' => 'is_login','middleware' => 'is_able_markter'], function () {
+Route::group(['middleware' => 'is_login', 'middleware' => 'is_able_markter'], function () {
 
     Route::post('/add_podcast', [PodcastController::class, 'store']);
     Route::post('/update_podcast', [PodcastController::class, 'update']);
     Route::delete('/delete_podcast/{id}', [PodcastController::class, 'delete']);
     Route::post('add_new_podcast', [NewPodcastContoller::class, 'store']);
-
-
 });
 Route::group(['middleware' => 'is_login'], function () {
     Route::get('/carts', [CartController::class, 'index']);
     Route::post('/add_to_cart', [CartController::class, 'store']);
     Route::post('/checkout_cons', [CartController::class, 'checkout_cons']);
     Route::delete('/delete_from_carts/{id}', [CartController::class, 'delete']);
-    Route::get('/checkout', [PayPalPaymentController::class,'handlePayment'])->name('make.payment');
+    Route::get('/checkout', [PayPalPaymentController::class, 'handlePayment'])->name('make.payment');
     Route::get('/tickets', [TicketController::class, 'index']);
     Route::get('/single_ticket/{id}', [TicketController::class, 'single_ticket']);
 
     Route::post('/send_replay', [TicketController::class, 'send_replay']);
 
-    
+
 
     Route::post('/add_ticket', [TicketController::class, 'store']);
     Route::post('/send_messsage', [MessageController::class, 'store']);
     Route::get('/all_message', [MessageController::class, 'index']);
-    Route::get('all_message_between_user/{id}/{id2}',[MessageController::class,'message_betwwen_2'])->name('message_two');
+    Route::get('all_message_between_user/{id}/{id2}', [MessageController::class, 'message_betwwen_2'])->name('message_two');
     Route::get('/followe_markter/{id}', [FollowController::class, 'store']);
     Route::get('/get_all_follower', [FollowController::class, 'index']);
     Route::delete('/delete_follow_marketer/{id}', [FollowController::class, 'delete']);
-
-
-
-    
 });
 
 //end podcasts
@@ -210,13 +194,11 @@ Route::get('/video_search', [VideoController::class, 'serach']);
 Route::get('/related_videos/{id}', [VideoController::class, 'related_videos']);
 
 
-Route::group(['middleware' => 'is_login','middleware' => 'is_able_markter'], function () {
+Route::group(['middleware' => 'is_login', 'middleware' => 'is_able_markter'], function () {
 
     Route::post('/add_video', [VideoController::class, 'store']);
     Route::post('/update_video', [VideoController::class, 'update']);
     Route::delete('/delete_video/{id}', [VideoController::class, 'delete']);
-
-
 });
 //end Video
 
@@ -228,7 +210,7 @@ Route::get('/consultation_payments', [ConsultationController::class, 'payments']
 Route::get('/get_all_consultation', [ConsultationController::class, 'all_consultation']);
 Route::get('/single_consultion/{id}', [ConsultationController::class, 'single_consultion']);
 
-Route::group(['middleware' => 'is_login','middleware' => 'is_able_markter'], function () {
+Route::group(['middleware' => 'is_login', 'middleware' => 'is_able_markter'], function () {
     Route::post('/add_consultion', [ConsultationController::class, 'store']);
     Route::post('/update_consultion/{id}', [ConsultationController::class, 'update']);
 });
@@ -241,13 +223,13 @@ Route::get('/get_all_countires', [GeneralController::class, 'get_all_countires']
 Route::get('/all_cities', [GeneralController::class, 'all_cites']);
 Route::get('/get_all_city_user_country_id/{id}', [GeneralController::class, 'get_all_city_belong_country']);
 
-Route::get('handle-payment', [PayPalPaymentController::class,'handlePayment'])->name('make.payment');
+Route::get('handle-payment', [PayPalPaymentController::class, 'handlePayment'])->name('make.payment');
 
-Route::get('cancel-payment', [PayPalPaymentController::class,'paymentCancel'])->name('cancel.payment');
+Route::get('cancel-payment', [PayPalPaymentController::class, 'paymentCancel'])->name('cancel.payment');
 
-Route::get('payment-success/{id}', [PayPalPaymentController::class,'paymentSuccess'])->name('success.payment');
+Route::get('payment-success/{id}', [PayPalPaymentController::class, 'paymentSuccess'])->name('success.payment');
 
 
 
-Route::get('cancel-payment-consultion', [CartController::class,'paymentCancel'])->name('cancel.payment.consultion');
-Route::get('payment-success-consultion/{id}', [CartController::class,'paymentSuccess'])->name('success.payment.consultion');
+Route::get('cancel-payment-consultion', [CartController::class, 'paymentCancel'])->name('cancel.payment.consultion');
+Route::get('payment-success-consultion/{id}', [CartController::class, 'paymentSuccess'])->name('success.payment.consultion');
