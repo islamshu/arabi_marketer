@@ -193,13 +193,13 @@
                             <form action="{{  route('change_status_markter',$order->id) }}" method="post" >
                                 <div class="col-md-6">
                                     <label for="" class="">حالة الطلب</label>
-                                    <select class="form-control {{  $order_status }}" name="status"  >
+                                    <select id="select_change" class="form-control {{  $order_status }}" name="status"  >
                                         <option value="1">تحت التدقيق</option>
                                         <option value="2">قبول</option>
                                         <option value="0">رقض</option>
                                     </select>
                                 </div>
-                                <div class="col-md-6 mt-10">
+                                <div class="col-md-6 mt-10" style="display: none" id="btn_submit">
                                     <button class="btn btn-info">تأكيد</button>
                                 </div>
                                
@@ -263,6 +263,10 @@
 
 @section('scripts')
 <script>
+    $( "#select_change" ).change(function() {
+        $("#btn_submit").css("display", "block");
+});
+
     function myFunction(id) {
         // alert('worker_status_'+id);
         // alert($('#worker_status_'+id).val());
