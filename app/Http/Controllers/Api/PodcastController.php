@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\PodcastResource;
 use App\Models\NewPodcast;
+use App\Models\OwenPodcast;
 use App\Models\Podacst;
 use App\Models\PodacstKeyword;
 use App\Models\PodcastCategory;
@@ -46,34 +47,29 @@ class PodcastController extends BaseController
         // dd($request->image);
         $validation = Validator::make($request->all(), [
             'title'=>'required',
-            'description' => 'required',
-            'image'=>'required',
-            'types'=>'required',
-            'keywords'=>'required', 
+            'description'=>'required',
+            'image'=>'required'
         ]);
         if ($validation->fails()) {
             return $this->sendError($validation->messages()->all());
         }
-            $service = new Podacst();
-            $service->title = $request->title;
-            $service->description = $request->description;
-            $service->url = $request->google_SSR;
-            $service->apple_url  = $request->apple_SSR ;
-            $service->sound_url  = $request->soundCloud_SSR ;
-            $service->user_id = auth('api')->id();
-            $service->time = $request->time;
-            $service->image = $request->image->store('podcast');
-            $service->save();
 
-            $types = json_decode($request->types);
 
-            foreach ($types as $category) {
-                return $category;
-                $cat = new PodcastCategory();
-                $cat->podcast_id = $service->id;
-                $cat->category_id = $category;
-                $cat->save();
-            }
+        
+        $service = new NewPodcast();
+        $service->user_id = auth('api')->id();
+        $service->type = 'manual';
+        $service->url = null;
+        $service->save();
+        $attemp = new OwenPodcast();
+        $attemp->podcast_id = $service->id;
+        $attemp->title = $request->title;
+        $attemp->description = $request->description;
+        $attemp->image = $request->image->store('podcast');
+        $attemp->save();
+
+
+
 
             // dd($request->keywords);
             $keywords = explode(',', $request->keywords);
