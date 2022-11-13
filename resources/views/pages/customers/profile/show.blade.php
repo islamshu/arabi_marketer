@@ -180,13 +180,28 @@
                         @endphp
                         @if($order)
                         <div class="d-flex flex-column flex-grow-1 pe-4" >
+                            <div class="row">
+
                             <form action="">
-                                <label for="" class="form-control">حالة الطلب</label>
-                                <select class="form-control btn-danger" name=""  >
-                                    <option value="1">تحت التدقيق</option>
-                                    <option value="2">قبول</option>
-                                    <option value="0">رقض</option>
-                                </select>
+                                <div class="col-md-6">
+                                    <label for="" class="form-control">حالة الطلب</label>
+                                    <select class="form-control btn-danger" name=""  >
+                                        <option value="1">تحت التدقيق</option>
+                                        <option value="2">قبول</option>
+                                        <option value="0">رقض</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="" class="form-control">حالة الطلب</label>
+                                    <select class="form-control btn-danger" name=""  >
+                                        <option value="1">تحت التدقيق</option>
+                                        <option value="2">قبول</option>
+                                        <option value="0">رقض</option>
+                                    </select>
+                                </div>
+                               
+
+                            </div>
                             </form>
                         </div>
                         @endif
