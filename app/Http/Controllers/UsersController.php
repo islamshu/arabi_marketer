@@ -41,7 +41,7 @@ class UsersController extends Controller
     public function change_status_markter(Request $request, $id){
         $order = MarkterOrder::find($id);
         $user = $order->user;
-        if($request->status == 1){
+        if($request->status == 2){
             $user->type = 'marketer';
         }else{
             $user->type = 'user';
