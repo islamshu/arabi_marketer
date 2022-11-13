@@ -177,15 +177,23 @@
                         </div>
                         @php
                             $order = App\Models\MarkterOrder::where('user_id',$user->id)->first();
+                            if($order->status == 1){
+                                $order_status =  'btn-warning';
+                            }elseif($order->status == 2){
+                                $order_status =  'btn-success';
+                            }
+                            elseif($order->status == 0){
+                                $order_status =  'btn-danger';
+                            }
                         @endphp
                         @if($order)
                         <div class="d-flex flex-column flex-grow-1 pe-8" >
                             <div class="row">
 
                             <form action="{{  route('change_status_markter',$order->id) }}" method="post" >
-                                <div class="col-md-3">
+                                <div class="col-md-6">
                                     <label for="" class="">حالة الطلب</label>
-                                    <select class="form-control btn-danger" name="status"  >
+                                    <select class="form-control {{  $order_status }}" name="status"  >
                                         <option value="1">تحت التدقيق</option>
                                         <option value="2">قبول</option>
                                         <option value="0">رقض</option>
