@@ -35,7 +35,7 @@ class UsersController extends Controller
 
     public function marketers_requests()
     {
-       return view('pages.users.request')->with('requests',MarkterOrder::order('id','desc')->get());
+       return view('pages.users.request')->with('requests',MarkterOrder::orderby('id','desc')->get());
     }
     
 
