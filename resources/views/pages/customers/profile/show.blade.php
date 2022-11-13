@@ -177,6 +177,9 @@
                         </div>
                         @php
                             $order = App\Models\MarkterOrder::where('user_id',$user->id)->first();
+                            if($order){
+
+                            
                             if($order->status == 1){
                                 $order_status =  'btn-warning';
                             }elseif($order->status == 2){
@@ -185,6 +188,7 @@
                             elseif($order->status == 0){
                                 $order_status =  'btn-danger';
                             }
+                        }
                         @endphp
                         @if($order)
                         <div class="d-flex flex-column flex-grow-1 pe-8" >
