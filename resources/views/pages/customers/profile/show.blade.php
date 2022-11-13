@@ -182,10 +182,10 @@
                         <div class="d-flex flex-column flex-grow-1 pe-8" >
                             <div class="row">
 
-                            <form action="">
+                            <form action="{{  route('change_status_markter',$order->id) }}" method="post" >
                                 <div class="col-md-3">
                                     <label for="" class="">حالة الطلب</label>
-                                    <select class="form-control btn-danger" name=""  >
+                                    <select class="form-control btn-danger" name="status"  >
                                         <option value="1">تحت التدقيق</option>
                                         <option value="2">قبول</option>
                                         <option value="0">رقض</option>
@@ -251,6 +251,8 @@
     </div>
 
 </x-base-layout>
+@include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
+
 @section('scripts')
 <script>
     function myFunction(id) {

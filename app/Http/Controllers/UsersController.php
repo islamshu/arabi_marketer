@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Alert;
 use App\Models\MarkterOrder;
 use App\Models\User;
 use Auth;
@@ -36,6 +37,18 @@ class UsersController extends Controller
     public function marketers_requests()
     {
        return view('pages.users.request')->with('requests',MarkterOrder::orderby('id','desc')->get());
+    }
+    public function change_status_markter(Request $request, $id){
+        $order = MarkterOrder::find($id);
+        $user = $order->user;
+        if($request->status == 1){
+            $user->type = 'marketer';
+        }else{
+            $user->type = 'user';
+        }
+        $user->save();
+        Alert::success('Success', 'Edited successfully');
+            return redirect()->back();
     }
     
 
