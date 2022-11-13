@@ -17,6 +17,10 @@ class NewPodcast extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function keywords()
+    {
+        return $this->belongsToMany(KeyWord::class, 'podacst_keywords','podcast_id', 'keyword_id');
+    }
     /**
      * Get the user associated with the NewPodcast
      *
