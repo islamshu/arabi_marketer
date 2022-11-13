@@ -175,13 +175,21 @@
                             
                             <!--end::Stats-->
                         </div>
+                        @php
+                            $order = App\Models\MarkterOrder::where('user_id',$user->id)->first();
+                        @endphp
+                        @if($order)
                         <div class="d-flex flex-column flex-grow-1 pe-">
                             <form action="">
                                 <label for="" class="form-control">حالة الطلب</label>
-                                <select class="form-control" name="" id="">
+                                <select class="form-control" name="" >
+                                    <option value="1">تحت التدقيق</option>
+                                    <option value="2">قبول</option>
+                                    <option value="0">رقض</option>
                                 </select>
                             </form>
                         </div>
+                        @endif
 
                         <!--end::Wrapper-->
 
