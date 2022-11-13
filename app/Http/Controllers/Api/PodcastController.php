@@ -78,7 +78,7 @@ class PodcastController extends BaseController
                 $keyword = KeyWord::ofType('podcast')->where('title',$s)->where('title',$s)->first();
                 if ($keyword) {
                     $key = new PodacstKeyword();
-                    $key->podcast_id = $service->id;
+                    $key->podcast_id = $attemp->id;
                     $key->keyword_id = $keyword->id;
                     $key->save();
                 } else {
@@ -89,7 +89,7 @@ class PodcastController extends BaseController
                     $keyword->save();
 
                     $key = new PodacstKeyword();
-                    $key->podcast_id = $service->id;
+                    $key->podcast_id = $attemp->id;
                     $key->keyword_id = $keyword->id;
                     $key->save();
                 }
@@ -97,7 +97,7 @@ class PodcastController extends BaseController
             
             $date = [
                 'id'=>$service->id,
-                'name' => $service->title,
+                'name' => $attemp->title,
                 'url' => route('podcasts.edit',$service->id),
                 'title' => 'Have a new Podcast',
                 'time' => $service->updated_at
