@@ -38,7 +38,7 @@ class PodcastResource extends JsonResource
                 'title'=>$this->manual->title,
                 'description'=>$this->manual->description,
                 'user_info'=>new UserMainInfoResource($this->user),
-         
+                'keywords'=>$this->get_keywords($this),
                 'image'=>asset('public/uploads/'.$this->manual->image),
               
                 'sound_item'=>$this->get_all_sound($this),
@@ -107,6 +107,12 @@ class PodcastResource extends JsonResource
     }
     function get_keywords($data){
         $category = $data->keywords;
+        $arr = [];
+        foreach ($category as $cat) {
+            array_push($arr, $cat->title);
+        }
+        $str_json = json_encode($arr); //array to json string conversion
+        return json_decode($str_json);
         return KeywordResource::collection($category);
     }
    
