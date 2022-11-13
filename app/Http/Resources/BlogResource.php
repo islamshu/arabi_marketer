@@ -62,6 +62,13 @@ class BlogResource extends JsonResource
     }
     function get_tags($data){
         $category = $data->tags;
+        // $category = $data->keywords;
+        $arr =[];
+        foreach($category as $cat){
+            array_push($arr,$cat->title);
+        }
+        $str_json = json_encode($arr); //array to json string conversion
+       return json_decode($str_json);
         return KeywordResource::collection($category);
     }
 
