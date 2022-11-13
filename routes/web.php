@@ -94,7 +94,7 @@ Route::middleware('auth')->group(function () {
     
     Route::get('customers',[ProfileController::class,'users']);
     Route::get('customer/{id}',[ProfileController::class,'show_customer'])->name('customer.show');
-    Route::get('change_status_markter/{id}',[UsersController::class,'change_status_markter'])->name('change_status_markter');
+    Route::post('change_status_markter/{id}',[UsersController::class,'change_status_markter'])->name('change_status_markter');
 
     
     Route::get('order/{id}',[ProfileController::class,'show_order'])->name('order.show');
