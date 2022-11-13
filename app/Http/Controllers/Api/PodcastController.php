@@ -78,7 +78,7 @@ class PodcastController extends BaseController
                 $keyword = KeyWord::ofType('podcast')->where('title',$s)->where('title',$s)->first();
                 if ($keyword) {
                     $key = new PodacstKeyword();
-                    $key->podcast_id = $attemp->id;
+                    $key->podcast_id = $service->id;
                     $key->keyword_id = $keyword->id;
                     $key->save();
                 } else {
