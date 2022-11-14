@@ -20342,6 +20342,77 @@
      
 }
 
+    namespace Spatie\LaravelImageOptimizer\Facades { 
+            /**
+     * 
+     *
+     */ 
+        class ImageOptimizer {
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function getOptimizers()
+        {
+                        /** @var \Spatie\ImageOptimizer\OptimizerChain $instance */
+                        return $instance->getOptimizers();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function addOptimizer($optimizer)
+        {
+                        /** @var \Spatie\ImageOptimizer\OptimizerChain $instance */
+                        return $instance->addOptimizer($optimizer);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function setOptimizers($optimizers)
+        {
+                        /** @var \Spatie\ImageOptimizer\OptimizerChain $instance */
+                        return $instance->setOptimizers($optimizers);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function setTimeout($timeoutInSeconds)
+        {
+                        /** @var \Spatie\ImageOptimizer\OptimizerChain $instance */
+                        return $instance->setTimeout($timeoutInSeconds);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function useLogger($log)
+        {
+                        /** @var \Spatie\ImageOptimizer\OptimizerChain $instance */
+                        return $instance->useLogger($log);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function optimize($pathToImage, $pathToOutput = null)
+        {
+                        /** @var \Spatie\ImageOptimizer\OptimizerChain $instance */
+                        return $instance->optimize($pathToImage, $pathToOutput);
+        }
+         
+    }
+     
+}
+
     namespace Yajra\DataTables\Facades { 
             /**
      * 
@@ -24583,6 +24654,7 @@ namespace  {
             class Html extends \Collective\Html\HtmlFacade {}
             class Livewire extends \Livewire\Livewire {}
             class Flare extends \Spatie\LaravelIgnition\Facades\Flare {}
+            class ImageOptimizer extends \Spatie\LaravelImageOptimizer\Facades\ImageOptimizer {}
             class DataTables extends \Yajra\DataTables\Facades\DataTables {}
      
 }

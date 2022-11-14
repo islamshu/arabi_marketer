@@ -7,6 +7,10 @@ use App\Models\BlogImage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\ImageResource;
+use ImageOptimizer;
+
+// the image will be replaced with an optimized version which should be smaller
+
 
 class GalleryController extends BaseController
 {
@@ -15,7 +19,9 @@ class GalleryController extends BaseController
         foreach ($request->image as $image) {
             $name = preg_replace('/\..+$/', '', $image->getClientOriginalName());
             $pic = new BlogImage();
-            $pic->image = $image->store('blog');
+            $pic->image    = $image->store('blog');
+           $imagee =  ImageOptimizer::optimize($pic->image);
+            dd($imagee);
             $pic->title = $name;
             $pic->user_id = auth('api')->id();
             $pic->save();

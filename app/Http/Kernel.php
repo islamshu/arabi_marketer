@@ -40,6 +40,8 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+           \Spatie\LaravelImageOptimizer\Middlewares\OptimizeImages::class,
+
         ],
 
         'api' => [
@@ -68,6 +70,7 @@ class Kernel extends HttpKernel
         'is_login' =>Is_login::class,
         'Is_markter'=>Is_markter::class,
         'is_able_markter'=>Is_able_markter::class,
+        
 
 
     ];
