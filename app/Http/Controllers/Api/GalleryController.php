@@ -9,7 +9,7 @@ class GalleryController extends Controller
 {
     public function upload(Request $request){
         foreach($request->image as $image){
-            $name = $image->getClientOriginalName();
+            $name = preg_replace('/\..+$/', '', $image->getClientOriginalName());
             dd($name);
         }
     }
