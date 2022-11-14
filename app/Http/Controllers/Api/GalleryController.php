@@ -21,8 +21,8 @@ class GalleryController extends BaseController
             $name = preg_replace('/\..+$/', '', $image->getClientOriginalName());
             $pic = new BlogImage();
             $pic->image    = $image->store('blog');
-           $imagee =  FacadesImageOptimizer::optimize($pic->image);
-            dd($imagee);
+        //    $imagee =  FacadesImageOptimizer::optimize($pic->image);
+        //     dd($imagee);
             $pic->title = $name;
             $pic->user_id = auth('api')->id();
             $pic->save();
