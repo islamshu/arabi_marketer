@@ -29,7 +29,7 @@ class GalleryController extends BaseController
     
                 
                 
-                 $imagee= 'uploads/all/'.$input['imagename'];
+                 $imagee= 'uploads/blog/'.$input['imagename'];
             
             dd($imagee);
 
