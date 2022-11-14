@@ -19,18 +19,16 @@ class GalleryController extends BaseController
     public function upload(Request $request)
     {
         foreach ($request->image as $image) {
-            $name = preg_replace('/\..+$/', '', $image->getClientOriginalName());
-
+            $imagee = $image->getClientOriginalName();
             $destinationPath = public_path('/thumbnail');
             $imgFile = Image::make($image->getRealPath());
             $imgFile->resize(150, 150, function ($constraint) {
                 $constraint->aspectRatio();
-            })->save($destinationPath.'/'.$image);
-            $destinationPath = public_path('/uploads/blog');
-        $d=    $image->move($destinationPath,$image);
-        dd($d);
-
-
+            })->save($destinationPath.'/'.$imagee);
+            $destinationPath = public_path('/uploads');
+        $d=   $image->move($destinationPath, $imagee);
+            
+            dd($d);
 
 
 
