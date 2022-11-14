@@ -13,6 +13,7 @@
         "doctrine/dbal": "^3.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "intervention/image": "^2.7",
         "jackiedo/log-reader": "^2.2",
         "jantinnerezo/livewire-range-slider": "^1.0",
         "jorenvanhocht/laravel-share": "^4.2",

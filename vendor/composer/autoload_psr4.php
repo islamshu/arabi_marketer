@@ -99,6 +99,7 @@ return array(
     'Jorenvh\\Share\\' => array($vendorDir . '/jorenvanhocht/laravel-share/src'),
     'Jantinnerezo\\LivewireRangeSlider\\' => array($vendorDir . '/jantinnerezo/livewire-range-slider/src'),
     'Jackiedo\\LogReader\\' => array($vendorDir . '/jackiedo/log-reader/src/Jackiedo/LogReader'),
+    'Intervention\\Image\\' => array($vendorDir . '/intervention/image/src/Intervention/Image'),
     'Illuminate\\Support\\' => array($vendorDir . '/laravel/framework/src/Illuminate/Macroable', $vendorDir . '/laravel/framework/src/Illuminate/Collections', $vendorDir . '/laravel/framework/src/Illuminate/Conditionable'),
     'Illuminate\\' => array($vendorDir . '/laravel/framework/src/Illuminate'),
     'Http\\Message\\' => array($vendorDir . '/php-http/message-factory/src'),

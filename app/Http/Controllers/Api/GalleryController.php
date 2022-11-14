@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\ImageResource;
 use ImageOptimizer;
+use Intervention\Image\Facades\Image;
 use Spatie\LaravelImageOptimizer\Facades\ImageOptimizer as FacadesImageOptimizer;
 
 // the image will be replaced with an optimized version which should be smaller
@@ -18,6 +19,22 @@ class GalleryController extends BaseController
     public function upload(Request $request)
     {
         foreach ($request->image as $image) {
+            $name = preg_replace('/\..+$/', '', $image->getClientOriginalName());
+
+            $destinationPath = public_path('/thumbnail');
+            $imgFile = Image::make($image->getRealPath());
+            $imgFile->resize(150, 150, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath.'/'.$image);
+            $destinationPath = public_path('/uploads/blog');
+        $d=    $image->move($destinationPath,$image);
+        dd($d);
+
+
+
+
+
+
             $name = preg_replace('/\..+$/', '', $image->getClientOriginalName());
             $pic = new BlogImage();
             $pic->image    = $image->store('blog');

@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'c775e45cd0cf225349885aede8d7d433f32530da',
+        'reference' => '27d0852c2e62aa7bd31a598f693a96deddf3e84b',
         'name' => 'keenthemes/metronic-laravel',
         'dev' => true,
     ),
@@ -484,6 +484,15 @@
                 0 => 'v9.34.0',
             ),
         ),
+        'intervention/image' => array(
+            'pretty_version' => '2.7.2',
+            'version' => '2.7.2.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../intervention/image',
+            'aliases' => array(),
+            'reference' => '04be355f8d6734c826045d02a1079ad658322dad',
+            'dev_requirement' => false,
+        ),
         'jackiedo/log-reader' => array(
             'pretty_version' => '2.2.1',
             'version' => '2.2.1.0',
@@ -517,7 +526,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'c775e45cd0cf225349885aede8d7d433f32530da',
+            'reference' => '27d0852c2e62aa7bd31a598f693a96deddf3e84b',
             'dev_requirement' => false,
         ),
         'kodova/hamcrest-php' => array(

@@ -173,6 +173,7 @@ return [
         /*
          * Application Service Providers...
          */
+        'Intervention\Image\ImageServiceProvider',
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
@@ -241,7 +242,9 @@ return [
         'Artisan'    => Illuminate\Support\Facades\Artisan::class,
         'FeedReader' => Vedmant\FeedReader\Facades\FeedReader::class, // Add this line
         'PayPal' => Srmklive\PayPal\Facades\PayPal::class,
-        'ExpressCheckout'=>Srmklive\PayPal\Services::class
+        'ExpressCheckout'=>Srmklive\PayPal\Services::class,
+        'Image' => 'Intervention\Image\Facades\Image'
+
 
     ],
 
