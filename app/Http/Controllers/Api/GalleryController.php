@@ -46,7 +46,7 @@ class GalleryController extends BaseController
     }
     public function index()
     {
-        $images = BlogImage::where('user_id', auth('api')->id())->get();
+        $images = BlogImage::where('user_id', auth('api')->id())->orderby('id','desc')->get();
         $res = ImageResource::collection($images);
         return $this->sendResponse($res, 'تم رجاع جميع الصور بنجاح');
     }
