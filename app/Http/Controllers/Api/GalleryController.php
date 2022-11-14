@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\ImageResource;
 use ImageOptimizer;
+use Spatie\LaravelImageOptimizer\Facades\ImageOptimizer as FacadesImageOptimizer;
 
 // the image will be replaced with an optimized version which should be smaller
 
@@ -20,7 +21,7 @@ class GalleryController extends BaseController
             $name = preg_replace('/\..+$/', '', $image->getClientOriginalName());
             $pic = new BlogImage();
             $pic->image    = $image->store('blog');
-           $imagee =  ImageOptimizer::optimize($pic->image);
+           $imagee =  FacadesImageOptimizer::optimize($pic->image);
             dd($imagee);
             $pic->title = $name;
             $pic->user_id = auth('api')->id();
