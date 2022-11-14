@@ -28,7 +28,7 @@ class GalleryController extends BaseController
         $res = ImageResource::collection($images);
         return $this->sendResponse($res, 'تم رجاع جميع الصور بنجاح');
     }
-    public function singe($id)
+    public function single($id)
     {
         $images = BlogImage::find($id);
         $res = new ImageResource($images);
