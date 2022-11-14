@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\ConsultationController;
 use App\Http\Controllers\Api\FacebookController;
 use App\Http\Controllers\Api\FollowController;
 use App\Http\Controllers\Api\ForgotPasswordController;
+use App\Http\Controllers\Api\GalleryController;
 use App\Http\Controllers\Api\GeneralController;
 use App\Http\Controllers\Api\GoogleController;
 use App\Http\Controllers\Api\HomeController;
@@ -49,6 +50,7 @@ Route::get('/rss_feed/{id}', [SoundController::class, 'rss_feed']);
 
 Route::get('/questions', [HomeController::class, 'questions']);
 Route::get('/get_markter/{id}', [HomeController::class, 'get_markter']);
+Route::post('upload_images',[GalleryController::class,'upload']);
 
 
 
