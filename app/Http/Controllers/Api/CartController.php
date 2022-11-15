@@ -51,7 +51,8 @@ class CartController extends BaseController
         $cart->price = $service->price;
         // $cart->more_data = $data_send;
         $cart->save();
-        $res = new CartResource($cart);
+        $res['item'] = new CartResource($cart);
+        $res['count'] = Cart::where('user_id',auth('api')->id())->count();
         return $this->sendResponse($res,'added');
     }
     public function delete($id){
