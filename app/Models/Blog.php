@@ -28,7 +28,7 @@ class Blog extends Model
      */
     public function image_blog()
     {
-        return $this->hasOne(BlogImage::class, 'image_id');
+        return $this->hasOne(BlogImage::class);
     }
     /**
      * Get the user that owns the Blog
