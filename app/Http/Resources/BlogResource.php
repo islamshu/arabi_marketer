@@ -27,7 +27,7 @@ class BlogResource extends JsonResource
             'image_info' => $this->image_info($this),
             'meta_description' => $this->small_description,
             'meta_title' => $this->meta_title,
-            // 'image' => asset('public/uploads/' . $this->image),
+            'image' => asset('public/uploads/'.$this->image_blog->image),
             'url' => route('single_blog', $this->id),
             'comment_number' => $this->comments->where('status', 1)->count(),
             'comments' => CommentResourse::collection($this->comments->where('status', 1)),
@@ -39,7 +39,7 @@ class BlogResource extends JsonResource
     function image_info($data)
     {
         return [
-            'image' => $this->image_blog->image,
+            'image' => asset('public/uploads/'.$this->image_blog->image),
             'alt' => $this->image_blog->alt,
             'title' => $this->image_blog->title,
             'description' => $this->image_blog->description,
