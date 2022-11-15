@@ -125,7 +125,6 @@ class BlogController extends BaseController
             'title' => 'required',
             'description' => 'required',
             'image' => 'required',
-            'alt'=>'required',
             'category' => 'required',
             'keywords' => 'required',
             'tags'=>'required',
