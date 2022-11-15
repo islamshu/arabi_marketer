@@ -140,7 +140,7 @@ class BlogController extends BaseController
         $service = new Blog();
         $service->title = ['ar' => $request->title, 'en' => $request->title];
         $service->description = ['ar' => $request->description, 'en' => $request->description];
-        $service->image = $request->image->store('blog');
+        $service->image_id = $request->image;
         $service->user_id = auth('api')->id();
         $service->status = 1;
         $service->small_description = $request->meta_description;

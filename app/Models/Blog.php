@@ -22,6 +22,15 @@ class Blog extends Model
         return $this->belongsToMany(KeyWord::class, 'blog_keywords','blog_id', 'keyword_id');
     }
     /**
+     * Get the user associated with the Blog
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function image_blog()
+    {
+        return $this->hasOne(BlogImage::class, 'image_id');
+    }
+    /**
      * Get the user that owns the Blog
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
