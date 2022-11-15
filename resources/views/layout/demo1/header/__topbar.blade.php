@@ -112,14 +112,14 @@
     <!--end::Activities-->
 
     <!--begin::Notifications-->
-    {{-- <div class="d-flex align-items-center {{ $itemClass }}">
+    <div class="d-flex align-items-center {{ $itemClass }}">
         <!--begin::Menu- wrapper-->
         <div class="{{ $btnClass }}" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
             {!! theme()->getSvgIcon("icons/duotune/general/gen022.svg", $btnIconClass) !!}
         </div>
     {{ theme()->getView('partials/topbar/_notifications-menu') }}
     <!--end::Menu wrapper-->
-    </div> --}}
+    </div>
     <!--end::Notifications-->
 
     <!--begin::Chat-->
