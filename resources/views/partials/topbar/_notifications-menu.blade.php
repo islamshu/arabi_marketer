@@ -96,7 +96,7 @@ $logs = [
     <!--begin::Tab content-->
     <div class="tab-content">
         <!--begin::Tab panel-->
-        <div class="tab-pane fade" id="kt_topbar_notifications_1" role="tabpanel">
+        <div class="tab-pane fade show active" id="kt_topbar_notifications_1" role="tabpanel">
             <!--begin::Items-->
             <div class="scroll-y mh-325px my-5 px-8">
                 <div class="scroll-y mh-325px my-5 px-8">
@@ -270,81 +270,7 @@ $logs = [
             </div>
             <!--end::View more-->
         </div>
-        <!--end::Tab panel-->
-
-        <!--begin::Tab panel-->
-        <div class="tab-pane fade show active" id="kt_topbar_notifications_2" role="tabpanel">
-            <!--begin::Wrapper-->
-            <div class="d-flex flex-column px-9">
-                <!--begin::Section-->
-                <div class="pt-10 pb-0">
-                    <!--begin::Title-->
-                    <h3 class="text-dark text-center fw-bolder">
-                        Get Pro Access
-                    </h3>
-                    <!--end::Title-->
-
-                    <!--begin::Text-->
-                    <div class="text-center text-gray-600 fw-bold pt-1">
-                        Outlines keep you honest. They stoping you from amazing poorly about drive
-                    </div>
-                    <!--end::Text-->
-
-                    <!--begin::Action-->
-                    <div class="text-center mt-5 mb-9">
-                        <a href="#" class="btn btn-sm btn-primary px-6" data-bs-toggle="modal"
-                            data-bs-target="#kt_modal_upgrade_plan">Upgrade</a>
-                    </div>
-                    <!--end::Action-->
-                </div>
-                <!--end::Section-->
-
-                <!--begin::Illustration-->
-                <img class="mh-200px" alt="metronic" src="{{ asset(theme()->getIllustrationUrl('1.png')) }}" />
-                <!--end::Illustration-->
-            </div>
-            <!--end::Wrapper-->
-        </div>
-        <!--end::Tab panel-->
-
-        <!--begin::Tab panel-->
-        <div class="tab-pane fade" id="kt_topbar_notifications_3" role="tabpanel">
-            <!--begin::Items-->
-            <div class="scroll-y mh-325px my-5 px-8">
-                <?php foreach($logs as $log):?>
-                <!--begin::Item-->
-                <div class="d-flex flex-stack py-4">
-                    <!--begin::Section-->
-                    <div class="d-flex align-items-center me-2">
-                        <!--begin::Code-->
-                        <span class="w-70px badge badge-light-{{ $log['state'] }} me-4">{{ $log['code'] }}</span>
-                        <!--end::Code-->
-
-                        <!--begin::Title-->
-                        <a href="#" class="text-gray-800 text-hover-primary fw-bold">{{ $log['message'] }}</a>
-                        <!--end::Title-->
-                    </div>
-                    <!--end::Section-->
-
-                    <!--begin::Label-->
-                    <span class="badge badge-light fs-8">{{ $log['time'] }}</span>
-                    <!--end::Label-->
-                </div>
-                <!--end::Item-->
-                <?php endforeach?>
-            </div>
-            <!--end::Items-->
-
-            <!--begin::View more-->
-            <div class="py-3 text-center border-top">
-                <a href="{{ theme()->getPageUrl('pages/profile/activity') }}"
-                    class="btn btn-color-gray-600 btn-active-color-primary">
-                    View All
-                    {!! theme()->getSvgIcon('icons/duotune/arrows/arr064.svg', 'svg-icon-5') !!}
-                </a>
-            </div>
-            <!--end::View more-->
-        </div>
+     
         <!--end::Tab panel-->
     </div>
     <!--end::Tab content-->
