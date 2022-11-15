@@ -136,6 +136,7 @@ class BlogController extends BaseController
         if ($validation->fails()) {
             return $this->sendError($validation->messages()->all());
         }
+        return auth('api')->id();
         $service = new Blog();
         $service->title = ['ar' => $request->title, 'en' => $request->title];
         $service->description = ['ar' => $request->description, 'en' => $request->description];
