@@ -146,11 +146,11 @@ class BlogController extends BaseController
         $service->meta_title = $request->meta_title;
         $service->slug = $request->slug;
         $service->save();
-        $blog_image = new BlogImage();
-        $blog_image->image =$service->image;
-        $blog_image->alt = $request->alt;
-        $blog_image->blog_id = $service->id;
-        $blog_image->save();
+        // $blog_image = new BlogImage();
+        // $blog_image->image =$service->image;
+        // $blog_image->alt = $request->alt;
+        // $blog_image->blog_id = $service->id;
+        // $blog_image->save();
         $category = json_decode($request->category);
         // $categorys = explode(',', $request->keywords);
         foreach ($category as $category) {
@@ -209,9 +209,11 @@ class BlogController extends BaseController
         $service = Blog::find($request->blog_id);
         $service->title = ['ar' => $request->title, 'en' => $request->title];
         $service->description = ['ar' => $request->description, 'en' => $request->description];
-        $service->small_description = $request->small_description;
-        if ($request->image != null) {
-            $service->image = $request->image->store('blog');
+        $service->image_id = $request->image;
+        $service->small_description = $request->meta_description;
+        $service->meta_title = $request->meta_title;
+        if($request->image != null){
+            $service->image_id = $request->image;
         }
         $service->save();
         $category = json_decode($request->category);
