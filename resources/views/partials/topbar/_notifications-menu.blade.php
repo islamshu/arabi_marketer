@@ -87,7 +87,7 @@ $logs = [
                     href="#kt_topbar_notifications_1">Alerts</a>
             </li>
 
-          
+
         </ul>
         <!--end::Tabs-->
     </div>
@@ -96,11 +96,19 @@ $logs = [
     <!--begin::Tab content-->
     <div class="tab-content">
         <!--begin::Tab panel-->
+        @php
+        $notifications = auth()->user()->unreadNotifications;
+        $count = auth()
+            ->user()
+            ->unreadNotifications->count();
+    @endphp
         <div class="tab-pane fade show active" id="kt_topbar_notifications_1" role="tabpanel">
             <!--begin::Items-->
             <div class="scroll-y mh-325px my-5 px-8">
                 <div class="scroll-y mh-325px my-5 px-8">
                     <!--begin::Item-->
+                    @foreach ($notifications as $item)
+                        
                     <div class="d-flex flex-stack py-4">
                         <!--begin::Section-->
                         <div class="d-flex align-items-center">
@@ -125,136 +133,21 @@ $logs = [
 
                             <!--begin::Title-->
                             <div class="mb-0 me-2">
-                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bolder">رسالة
-                                    جديدة</a>
-                                <div class="text-gray-400 fs-7">يوجد لديك رسالة جديدة من مستخدم</div>
+                                <a href="{{ route('show.notification', $item->id) }}" class="fs-6 text-gray-800 text-hover-primary fw-bolder">{{ $item->data['title'] }}
+                                    </a>
+                                {{-- <div class="text-gray-400 fs-7">يوجد لديك رسالة جديدة من </div> --}}
                             </div>
                             <!--end::Title-->
                         </div>
                         <!--end::Section-->
 
                         <!--begin::Label-->
-                        <span class="badge badge-light fs-8">2022-11-13 11:29:32</span>
+                        <span class="badge badge-light fs-8">{{ $item->created_at }}</span>
                         <!--end::Label-->
                     </div>
-                    <!--end::Item-->
-                    <!--begin::Item-->
-                    <div class="d-flex flex-stack py-4">
-                        <!--begin::Section-->
-                        <div class="d-flex align-items-center">
-                            <!--begin::Symbol-->
-                            <div class="symbol symbol-35px me-4">
-                                <span class="symbol-label bg-light-Direct">
-                                    <!--begin::Svg Icon | path: assets/media/icons/duotune/general/gen044.svg-->
-                                    <span class="svg-icon svg-icon-2 svg-icon-Direct"><svg
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none">
-                                            <rect opacity="0.3" x="2" y="2" width="20"
-                                                height="20" rx="10" fill="currentColor"></rect>
-                                            <rect x="11" y="14" width="7" height="2"
-                                                rx="1" transform="rotate(-90 11 14)" fill="currentColor"></rect>
-                                            <rect x="11" y="17" width="2" height="2"
-                                                rx="1" transform="rotate(-90 11 17)" fill="currentColor"></rect>
-                                        </svg></span>
-                                    <!--end::Svg Icon-->
-                                </span>
-                            </div>
-                            <!--end::Symbol-->
+                    @endforeach
 
-                            <!--begin::Title-->
-                            <div class="mb-0 me-2">
-                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bolder">رسالة
-                                    جديدة</a>
-                                <div class="text-gray-400 fs-7">يوجد لديك رسالة جديدة من مستخدم</div>
-                            </div>
-                            <!--end::Title-->
-                        </div>
-                        <!--end::Section-->
-
-                        <!--begin::Label-->
-                        <span class="badge badge-light fs-8">2022-11-13 09:44:05</span>
-                        <!--end::Label-->
-                    </div>
-                    <!--end::Item-->
-                    <!--begin::Item-->
-                    <div class="d-flex flex-stack py-4">
-                        <!--begin::Section-->
-                        <div class="d-flex align-items-center">
-                            <!--begin::Symbol-->
-                            <div class="symbol symbol-35px me-4">
-                                <span class="symbol-label bg-light-Direct">
-                                    <!--begin::Svg Icon | path: assets/media/icons/duotune/general/gen044.svg-->
-                                    <span class="svg-icon svg-icon-2 svg-icon-Direct"><svg
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none">
-                                            <rect opacity="0.3" x="2" y="2" width="20"
-                                                height="20" rx="10" fill="currentColor"></rect>
-                                            <rect x="11" y="14" width="7" height="2"
-                                                rx="1" transform="rotate(-90 11 14)" fill="currentColor">
-                                            </rect>
-                                            <rect x="11" y="17" width="2" height="2"
-                                                rx="1" transform="rotate(-90 11 17)" fill="currentColor">
-                                            </rect>
-                                        </svg></span>
-                                    <!--end::Svg Icon-->
-                                </span>
-                            </div>
-                            <!--end::Symbol-->
-
-                            <!--begin::Title-->
-                            <div class="mb-0 me-2">
-                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bolder">رسالة
-                                    جديدة</a>
-                                <div class="text-gray-400 fs-7">يوجد لديك رسالة جديدة من مستخدم</div>
-                            </div>
-                            <!--end::Title-->
-                        </div>
-                        <!--end::Section-->
-
-                        <!--begin::Label-->
-                        <span class="badge badge-light fs-8">2022-11-07 10:39:40</span>
-                        <!--end::Label-->
-                    </div>
-                    <!--end::Item-->
-                    <!--begin::Item-->
-                    <div class="d-flex flex-stack py-4">
-                        <!--begin::Section-->
-                        <div class="d-flex align-items-center">
-                            <!--begin::Symbol-->
-                            <div class="symbol symbol-35px me-4">
-                                <span class="symbol-label bg-light-General">
-                                    <!--begin::Svg Icon | path: assets/media/icons/duotune/general/gen044.svg-->
-                                    <span class="svg-icon svg-icon-2 svg-icon-General"><svg
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none">
-                                            <rect opacity="0.3" x="2" y="2" width="20"
-                                                height="20" rx="10" fill="currentColor"></rect>
-                                            <rect x="11" y="14" width="7" height="2"
-                                                rx="1" transform="rotate(-90 11 14)" fill="currentColor">
-                                            </rect>
-                                            <rect x="11" y="17" width="2" height="2"
-                                                rx="1" transform="rotate(-90 11 17)" fill="currentColor">
-                                            </rect>
-                                        </svg></span>
-                                    <!--end::Svg Icon-->
-                                </span>
-                            </div>
-                            <!--end::Symbol-->
-
-                            <!--begin::Title-->
-                            <div class="mb-0 me-2">
-                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bolder">رسالة
-                                    جديدة</a>
-                                <div class="text-gray-400 fs-7">يوجد لديك رسالة جديدة من مستخدم</div>
-                            </div>
-                            <!--end::Title-->
-                        </div>
-                        <!--end::Section-->
-
-                        <!--begin::Label-->
-                        <span class="badge badge-light fs-8">2022-11-07 10:11:27</span>
-                        <!--end::Label-->
-                    </div>
+                  
                     <!--end::Item-->
                 </div>
             </div>
@@ -270,7 +163,7 @@ $logs = [
             </div>
             <!--end::View more-->
         </div>
-     
+
         <!--end::Tab panel-->
     </div>
     <!--end::Tab content-->
