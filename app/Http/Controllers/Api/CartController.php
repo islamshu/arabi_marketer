@@ -19,7 +19,8 @@ class CartController extends BaseController
 {
     public function index(){
         $carts = Cart::where('user_id',auth('api')->id())->orderby('id','desc')->get();
-        $res =  CartResource::collection($carts);
+        $res['item'] =  CartResource::collection($carts);
+        $res['count'] = $carts->count();
         return $this->sendResponse($res,'all carts');
     }
     public function store(Request $request){
