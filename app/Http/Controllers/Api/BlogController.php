@@ -121,6 +121,7 @@ class BlogController extends BaseController
 
     public function store(Request $request)
     {
+        return $request->all();
         $validation = Validator::make($request->all(), [
             'title' => 'required',
             'description' => 'required',
