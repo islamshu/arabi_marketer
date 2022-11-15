@@ -68,7 +68,12 @@ $logs = [
     ['code' => '500 ERR', 'state' => 'danger', 'message' => 'Mail tasks', 'time' => 'Dec 10'],
 ];
 ?>
-
+ @php
+ $notifications = auth()->user()->unreadNotifications;
+ $count = auth()
+     ->user()
+     ->unreadNotifications->count();
+@endphp
 <!--begin::Menu-->
 <div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px" data-kt-menu="true">
     <!--begin::Heading-->
@@ -76,7 +81,7 @@ $logs = [
         style="background-image:url('{{ asset(theme()->getMediaUrlPath() . 'misc/pattern-1.jpg') }}')">
         <!--begin::Title-->
         <h3 class="text-white fw-bold px-9 mt-10 mb-6">
-            Notifications <span class="fs-8 opacity-75 ps-3">24 reports</span>
+            Notifications <span class="fs-8 opacity-75 ps-3">{{ $count }}</span>
         </h3>
         <!--end::Title-->
 
@@ -96,12 +101,7 @@ $logs = [
     <!--begin::Tab content-->
     <div class="tab-content">
         <!--begin::Tab panel-->
-        @php
-        $notifications = auth()->user()->unreadNotifications;
-        $count = auth()
-            ->user()
-            ->unreadNotifications->count();
-    @endphp
+       
         <div class="tab-pane fade show active" id="kt_topbar_notifications_1" role="tabpanel">
             <!--begin::Items-->
             <div class="scroll-y mh-325px my-5 px-8">
