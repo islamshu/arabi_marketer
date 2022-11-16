@@ -122,11 +122,7 @@
             formData.append('_token', token);
             
             storefile("{{ route('blogs.store') }}",'post', formData,'#kt_datatable_example_2','send_form','#exampleModal','Added successfully');
-           $("#send_form")[0].reset();
-        //    location.reload(true);
-        setTimeout(function() {
-         window.location.reload();
-      }, 3000);
+        
         });
    </script>
    <script>
