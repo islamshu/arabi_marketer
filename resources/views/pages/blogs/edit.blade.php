@@ -100,8 +100,15 @@
             
                     <div class="form-group col-md-6">
                         <label>الكلمات المفتاحية:</label>
-                        <input class="form-control form-control-sm form-control-solid keywords" required value="{{ json_encode($keywords_array) }}" name="keywords" placeholder="Enter tags"
+                        <input class="form-control form-control-sm form-control-solid keywords" required value="{{ json_encode($keywords_array) }}" name="keywords" placeholder="Enter keywords"
                             id="kt_tagify_3" />
+            
+            
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>tags :</label>
+                        <input class="form-control form-control-sm form-control-solid keywords" required value="{{ json_encode($tags) }}" name="tags" placeholder="Enter tags"
+                            id="kt_tagify_77" />
             
             
                     </div>
@@ -133,6 +140,10 @@
             } );
             var input1 = document.querySelector("#kt_tagify_3");
             new Tagify(input1);
+            var input111 = document.querySelector("#kt_tagify_77");
+            new Tagify(input111);
+
+            
 </script>
 @endsection
 

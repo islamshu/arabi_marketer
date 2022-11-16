@@ -162,8 +162,11 @@ class BlogController extends Controller
        
         $selectedtype = $blog->category;
         $selectedkeywords = $blog->keywords;
+        $selectedtags = $blog->tags;
+
         $selectedkeywords_array = array();
         $selectecategory_array = array();
+        $selectetages_array = array();
 
         foreach ($selectedkeywords as $selc) {
             array_push($selectedkeywords_array, $selc->title);
@@ -171,9 +174,13 @@ class BlogController extends Controller
         foreach ($selectedtype as $selc) {
             array_push($selectecategory_array, $selc->id);
         }
+        foreach ($selectedtags as $selc) {
+            array_push($selectetages_array, $selc->id);
+        }
         return view('pages.blogs.edit')->with('blog', $blog)
             ->with('type_array', $selectecategory_array)
             ->with('keywords_array', $selectedkeywords_array)
+            ->with('tags', $selectetages_array)
 
             ->with('categories', Category::ofType('blog')->get())
             ->with('keywords', KeyWord::ofType('blog')->get());
