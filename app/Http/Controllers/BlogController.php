@@ -89,7 +89,7 @@ class BlogController extends Controller
                     $cat->save();
                 }
 
-                dd($request->tags);
+                dd(json_decode($request->tags));
                 
 
                 foreach (json_decode($request->tags) as $s) {
