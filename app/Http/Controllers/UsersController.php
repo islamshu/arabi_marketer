@@ -51,6 +51,26 @@ class UsersController extends Controller
         $user->save();
         $order->delete();
         Alert::success('Success', 'Edited successfully');
+        if($request->status == 2 && $request->message == null){
+            $datas = [
+                'id' => $user->id,
+                'name' => $user->name,
+                'url' => "",
+                'title' => 'تم قبولك كمسوق',
+                'time' => $user->updated_at
+            ];
+            Notification::send($user, new GeneralNotification($datas));
+        }
+        if($request->status == 0 && $request->message == null){
+            $datas = [
+                'id' => $user->id,
+                'name' => $user->name,
+                'url' => "",
+                'title' => 'تم رفضك كمسوق',
+                'time' => $user->updated_at
+            ];
+            Notification::send($user, new GeneralNotification($datas));
+        }
         if($request->message != null){
             $data = [
                 'id' => $user->id,
