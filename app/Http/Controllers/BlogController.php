@@ -208,7 +208,7 @@ class BlogController extends Controller
                     $pic = new BlogImage();
                     $pic->image    = $request->images->store('blog');
                     $pic->title = $name;
-                    $pic->user_id = $request->user_id;
+                    $pic->user_id = $service->user_id;
                     $pic->save();
                     $service->image_id = $pic->id;
                 }
