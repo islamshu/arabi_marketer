@@ -198,11 +198,17 @@
                                 @csrf
                                 <div class="col-md-8">
                                     <label for="" class="">حالة الطلب</label>
-                                    <select id="select_change" class="form-control {{  $order_status }}" name="status"  >
+                                    <select required id="select_change" class="form-control {{  $order_status }}" name="status"  >
                                         <option value="1">تحت التدقيق</option>
                                         <option value="2">قبول</option>
                                         <option value="0">رقض</option>
                                     </select>
+                                </div>
+                                <div class="col-md-8" >
+                                    <label  class="">الرسالة (غير ضرورية) </label>
+                                   <textarea name="message" class="form-control" id="" cols="30" rows="3">
+
+                                   </textarea>
                                 </div>
                                 <div class="col-md-6 mt-10" style="display: none" id="btn_submit">
                                     <button class="btn btn-info">تأكيد</button>

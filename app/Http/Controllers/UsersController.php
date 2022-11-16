@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Alert;
 use App\Models\MarkterOrder;
 use App\Models\User;
+use App\Notifications\GeneralNotification;
 use Auth;
 use Illuminate\Http\Request;
+use Notification;
 
 class UsersController extends Controller
 {
@@ -49,6 +51,17 @@ class UsersController extends Controller
         $user->save();
         $order->delete();
         Alert::success('Success', 'Edited successfully');
+        if($request->message != null){
+            $data = [
+                'id' => $user->id,
+                'name' => $user->name,
+                'url' => "",
+                'title' => 'لديك مسوق جديد',
+                'time' => $user->updated_at
+            ];
+            Notification::send($user, new GeneralNotification($data));
+        }
+
         return redirect()->route('customer.show',$user->id);
     }
     
