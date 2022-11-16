@@ -56,7 +56,7 @@ class UsersController extends Controller
                 'id' => $user->id,
                 'name' => $user->name,
                 'url' => "",
-                'title' => 'لديك مسوق جديد',
+                'title' => $request->message,
                 'time' => $user->updated_at
             ];
             Notification::send($user, new GeneralNotification($data));
