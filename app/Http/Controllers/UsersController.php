@@ -48,6 +48,7 @@ class UsersController extends Controller
         }
         $user->save();
         $order->delete();
+        dd($order);
         Alert::success('Success', 'Edited successfully');
             return redirect()->back();
     }
