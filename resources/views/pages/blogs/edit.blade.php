@@ -61,7 +61,7 @@
             
                         </div>
                         <div class="form-group">
-                            <img src="{{ asset('public/uploads/'.$blog->image) }}" style="width: 100px"
+                            <img src="{{ asset('public/uploads/'.$blog->image_blog->image) }}" style="width: 100px"
                                 class="img-thumbnail image-preview" alt="">
                         </div>
             

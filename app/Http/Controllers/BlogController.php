@@ -25,12 +25,12 @@ class BlogController extends Controller
      */
     public function index()
     {
-         
-      return view('pages.blogs.index')
-        ->with('blogs',Blog::orderby('id','desc')->get())
-        ->with('bending_blog',Blog::where('status',0)->orderby('id','desc')->get())
-        ->with('categories', Category::ofType('blog')->get())
-        ->with('keywords', KeyWord::ofType('blog')->get());
+
+        return view('pages.blogs.index')
+            ->with('blogs', Blog::orderby('id', 'desc')->get())
+            ->with('bending_blog', Blog::where('status', 0)->orderby('id', 'desc')->get())
+            ->with('categories', Category::ofType('blog')->get())
+            ->with('keywords', KeyWord::ofType('blog')->get());
     }
 
     /**
@@ -75,13 +75,13 @@ class BlogController extends Controller
                 $pic->save();
                 $service->user_id = $request->user_id;
                 $service->image_id =  $pic->id;
-                $service->slug = str_replace(' ','_',$request->title_ar.'_'.Blog::count()+1) ;
+                $service->slug = str_replace(' ', '_', $request->title_ar . '_' . Blog::count() + 1);
 
 
                 $service->save();
 
 
-                
+
                 foreach ($request->type as $category) {
                     $cat = new BlogCategory();
                     $cat->blog_id = $service->id;
@@ -89,7 +89,7 @@ class BlogController extends Controller
                     $cat->save();
                 }
 
-                
+
 
                 foreach (json_decode($request->tags) as $s) {
                     $tag = new Tag();
@@ -120,7 +120,7 @@ class BlogController extends Controller
                 }
 
 
-           
+
                 return $service;
             });
         } catch (\Throwable $e) {
@@ -145,12 +145,14 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show_comments($id){
+    public function show_comments($id)
+    {
         $blog = Blog::find($id);
-        $comments= $blog->comments;
-        return view('pages.blogs.comments')->with('blog',$blog)->with('comments',$comments);
+        $comments = $blog->comments;
+        return view('pages.blogs.comments')->with('blog', $blog)->with('comments', $comments);
     }
-    public function update_comment_status(Request $request){
+    public function update_comment_status(Request $request)
+    {
         $comment  = Comment::find($request->comment_id);
         $comment->status = $request->status;
         $comment->save();
@@ -159,7 +161,7 @@ class BlogController extends Controller
     public function edit($id)
     {
         $blog = Blog::find($id);
-       
+
         $selectedtype = $blog->category;
         $selectedkeywords = $blog->keywords;
         $selectedtags = $blog->tags;
@@ -196,19 +198,25 @@ class BlogController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            DB::transaction(function () use ($request,$id) {
+            DB::transaction(function () use ($request, $id) {
                 $service = Blog::find($id);
                 $service->title = ['ar' => $request->title_ar, 'en' => $request->title_en];
                 $service->description = ['ar' => $request->description_ar, 'en' => $request->description_en];
                 $service->small_description = $request->small_description;
-                if($request->images != null){
-                    $service->image = $request->images->store('blog');
+                if ($request->images != null) {
+                    $name = preg_replace('/\..+$/', '', $request->images->getClientOriginalName());
+                    $pic = new BlogImage();
+                    $pic->image    = $request->images->store('blog');
+                    $pic->title = $name;
+                    $pic->user_id = $request->user_id;
+                    $pic->save();
+                    $service->image_id = $pic->id;
                 }
 
                 $service->save();
 
-                $blog_category_array = BlogCategory::where('blog_id',$service->id)->get();
-                foreach($blog_category_array as $se){
+                $blog_category_array = BlogCategory::where('blog_id', $service->id)->get();
+                foreach ($blog_category_array as $se) {
                     $se->delete();
                 }
                 foreach ($request->type as $category) {
@@ -219,9 +227,9 @@ class BlogController extends Controller
                 }
 
                 // dd($request->keywords);
-                $blog_keyword_array = BlogKeyword::where('blog_id',$service->id)->get();
+                $blog_keyword_array = BlogKeyword::where('blog_id', $service->id)->get();
 
-                foreach($blog_keyword_array as $se){
+                foreach ($blog_keyword_array as $se) {
                     $se->delete();
                 }
                 foreach (json_decode($request->keywords) as $s) {
@@ -245,14 +253,9 @@ class BlogController extends Controller
                         $key->save();
                     }
                 }
-
-
-           
-               
             });
             Alert::success('Success', 'Edited successfully');
             return redirect()->back();
-            
         } catch (\Throwable $e) {
             return $e;
         }
@@ -266,7 +269,7 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        
+
         Blog::find($id)->delete();
         Alert::success('Success', 'Deleted successfully');
         return redirect()->back();
