@@ -75,10 +75,10 @@ class BlogController extends Controller
                 $pic->save();
                 $service->user_id = $request->user_id;
                 $service->image_id =  $pic->id;
+                $service->slug = str_replace(' ','_',$request->title_ar.'_'.Blog::count()+1) ;
 
 
                 $service->save();
-                $service->slug = str_replace(' ','_',$request->title_ar.'_'.Blog::count()+1) ;
 
 
                 
