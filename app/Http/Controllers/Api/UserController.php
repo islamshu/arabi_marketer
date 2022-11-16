@@ -162,13 +162,11 @@ class UserController extends BaseController
     public function edit_profile(Request $request)
     {
         $user = auth('api')->user();
-        $validation = Validator::make($request->all(), [
-            'email' => 'required|unique:users,email,' . $user->id,
+        if($request->email != $user->email ){
+            return $this->sendError('البريد الاكتروني خاطيء');
 
-        ]);
-        if ($validation->fails()) {
-            return $this->sendError($validation->messages()->all());
         }
+        
         if ($request->image != null) {
             $user->image = $request->image->store('users');
         }
