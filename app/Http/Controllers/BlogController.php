@@ -91,8 +91,7 @@ class BlogController extends Controller
 
                 // dd($request->keywords);
 
-                foreach (($request->tags) as $s) {
-                    dd($s);
+                foreach (json_decode($request->tags) as $s) {
                     $tag = new Tag();
                     $tag->title =  $s;
                     $tag->blog_id = $service->id;
