@@ -162,10 +162,10 @@ class UserController extends BaseController
     public function edit_profile(Request $request)
     {
         $user = auth('api')->user();
-        if($request->email != $user->email ){
-            return $this->sendError('البريد الاكتروني خاطيء');
+        // if($request->email != $user->email ){
+        //     return $this->sendError('البريد الاكتروني خاطيء');
 
-        }
+        // }
         
         if ($request->image != null) {
             $user->image = $request->image->store('users');
@@ -175,7 +175,7 @@ class UserController extends BaseController
         $user->lang = $request->lang;
         $user->country_id = $request->country_id;
         $user->city_id = $request->city_id;
-        $user->email = $request->email;
+        // $user->email = $request->email;
         $user->save();
         $userRes = new  UserNormalAuthResource($user);
         return $this->sendResponse($userRes, 'تم تعديل البيانات بنجاح');
