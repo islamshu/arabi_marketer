@@ -73,7 +73,7 @@ class BlogController extends Controller
                 $pic->user_id = $request->user_id;
                 $pic->save();
                 $service->user_id = $request->user_id;
-                $service->image =  $pic->id;
+                $service->image_id =  $pic->id;
 
 
                 $service->save();
