@@ -97,6 +97,7 @@ class PodcastResource extends JsonResource
             $aa[$i]['id']=(int)$i;
             $aa[$i]['title']=(string)$flu->title;
             $aa[$i]['link']=utf8_decode((string)$flu->enclosure['url']);
+            $aa[$i]['image']=$flu->children('itunes', true)->image->attributes()->href;
             $i++;
         }
         return $aa;
