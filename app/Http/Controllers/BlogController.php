@@ -64,8 +64,6 @@ class BlogController extends Controller
                 $service = new Blog();
                 $service->title = ['ar' => $request->title_ar, 'en' => $request->title_en];
                 $service->meta_title = $request->title_ar;
-
-                meta_title
                 $service->description = ['ar' => $request->description_ar, 'en' => $request->description_en];
                 $service->small_description = $request->small_description;
 
