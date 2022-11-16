@@ -143,7 +143,7 @@ class BlogController extends BaseController
         $service->status = 1;
         $service->small_description = $request->meta_description;
         $service->meta_title = $request->title;
-        $service->slug = str_replace(' ','_',$request->title.'_'.Blog::count()) ;
+        $service->slug = str_replace(' ','_',$request->title.'_'.Blog::count()+1) ;
         $service->save();
         // $blog_image = new BlogImage();
         // $blog_image->image =$service->image;
@@ -210,8 +210,9 @@ class BlogController extends BaseController
         $service->description = ['ar' => $request->description, 'en' => $request->description];
         $service->image_id = $request->image;
         $service->small_description = $request->meta_description;
-        $service->meta_title = $request->meta_title;
-        if($request->image != null){
+        $service->meta_title = $request->title;
+        // $service->slug = str_replace(' ','_',$request->title.'_'.Blog::count()+1) ; 
+               if($request->image != null){
             $service->image_id = $request->image;
         }
         $service->save();
