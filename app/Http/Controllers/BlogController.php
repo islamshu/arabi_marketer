@@ -63,6 +63,9 @@ class BlogController extends Controller
             DB::transaction(function () use ($request) {
                 $service = new Blog();
                 $service->title = ['ar' => $request->title_ar, 'en' => $request->title_en];
+                $service->meta_title = $request->title_ar;
+
+                meta_title
                 $service->description = ['ar' => $request->description_ar, 'en' => $request->description_en];
                 $service->small_description = $request->small_description;
 
@@ -77,7 +80,7 @@ class BlogController extends Controller
 
 
                 $service->save();
-                $service->slug = str_replace(' ','_',$request->title.'_'.Blog::count()+1) ;
+                $service->slug = str_replace(' ','_',$request->title_ar.'_'.Blog::count()+1) ;
 
 
                 
