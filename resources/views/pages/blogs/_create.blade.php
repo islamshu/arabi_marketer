@@ -71,6 +71,15 @@
 
         </div>
         
+        <div class="form-group col-md-6">
+
+            <br> <label>tags :</label>
+            <input class="form-control form-control-sm form-control-solid keywords" required name="tags"
+                placeholder="اضف tags " id="kt_tagify_44" />
+
+
+        </div>
+        
         
     </div>
     
