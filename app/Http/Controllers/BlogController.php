@@ -89,7 +89,8 @@ class BlogController extends Controller
                     $cat->save();
                 }
 
-                // dd($request->keywords);
+                dd($request->tags);
+                
 
                 foreach (json_decode($request->tags) as $s) {
                     $tag = new Tag();
