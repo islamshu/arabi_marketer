@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Alert;
 use App\Models\Blog;
 use App\Models\BlogCategory;
+use App\Models\BlogImage;
 use App\Models\BlogKeyword;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\KeyWord;
+use App\Models\Tag;
 use DB;
 use Illuminate\Http\Request;
 use Jorenvh\Share\ShareFacade;
@@ -64,10 +66,19 @@ class BlogController extends Controller
                 $service->description = ['ar' => $request->description_ar, 'en' => $request->description_en];
                 $service->small_description = $request->small_description;
 
-                $service->image = $request->images->store('blog');
+                $name = preg_replace('/\..+$/', '', $request->image->getClientOriginalName());
+                $pic = new BlogImage();
+                $pic->image    = $request->image->store('blog');
+                $pic->title = $name;
+                $pic->user_id = $request->user_id;
+                $pic->save();
                 $service->user_id = $request->user_id;
+                $service->image =  $pic->id;
+
 
                 $service->save();
+                $service->slug = str_replace(' ','_',$request->title.'_'.Blog::count()+1) ;
+
 
                 
                 foreach ($request->type as $category) {
@@ -78,6 +89,13 @@ class BlogController extends Controller
                 }
 
                 // dd($request->keywords);
+
+                foreach (json_decode($request->tags) as $s) {
+                    $tag = new Tag();
+                    $tag->title =  $s;
+                    $tag->blog_id = $service->id;
+                    $tag->save();
+                }
 
                 foreach (json_decode($request->keywords) as $s) {
                     $keyword = KeyWord::ofType('blog')->where('title', $s->value)->where('title', $s->value)->first();
