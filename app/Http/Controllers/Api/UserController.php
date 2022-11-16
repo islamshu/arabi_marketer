@@ -144,7 +144,7 @@ class UserController extends BaseController
             $date = [
                 'id' => $user->id,
                 'name' => $user->name,
-                'url' => route('marketer.show', $user->id),
+                'url' => route('customer.show', $user->id),
                 'title' => 'لديك مسوق جديد',
                 'time' => $user->updated_at
             ];
