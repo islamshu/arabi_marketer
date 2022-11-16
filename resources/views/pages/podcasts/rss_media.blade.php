@@ -116,6 +116,7 @@
         </div>
 
         @foreach ($flux->channel->item as $item)
+        {{dd($item)}}
         <div class="item">
             <h2><a href="https://podeo.co" target="_blank">{{ (string)$item->title }} </a></h2>
             <div class="episode-time"><span>{{ $item->pubDate }}</span> •
