@@ -89,10 +89,10 @@ class BlogController extends Controller
                     $cat->save();
                 }
 
-                dd(json_decode($request->tags));
                 
 
                 foreach (json_decode($request->tags) as $s) {
+                    dd($s->value);
                     $tag = new Tag();
                     $tag->title =  $s;
                     $tag->blog_id = $service->id;
