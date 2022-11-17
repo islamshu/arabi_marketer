@@ -22,13 +22,13 @@
             <div class="form-group">
                 <br> <label data-error="wrong" data-success="right" for="form3"> صورة عن المقال <span
                         class="required"></span></label>
+                        <div class="form-group">
+                            <img src="" id="src_image" style="width: 100px"
+                                class="img-thumbnail image-preview" alt="">
+                        </div>
                         <input type="hidden" value="" id="image_idd">
-                        <img src="" id="src_image" alt="">
             </div>
-            <div class="form-group">
-                <img src="" style="width: 100px"
-                    class="img-thumbnail image-preview" alt="">
-            </div>
+          
 
         </div>
 
