@@ -192,7 +192,7 @@
                               :key="image.id"
                               :class="{ active: isActive }"
                             >
-                             @include('blog.all_image')
+                             @include('pages.blogs.all_image')
                             </div>
                           </div>
                         </div>
