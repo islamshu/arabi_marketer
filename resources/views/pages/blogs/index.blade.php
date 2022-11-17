@@ -259,7 +259,7 @@
         function myImage(id) {
            var imagee = '.item'+id;
             $(".img-info").css("display", "block");
-            $(".imges  item").removeClass("activeimage");
+            $(".imges").removeClass("activeimage");
 
             $( imagee ).addClass( "activeimage" );
 
