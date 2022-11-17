@@ -119,8 +119,8 @@ class GeneralInfoController extends Controller
     }
     public function upload(Request $request)
     {
-        dd($request->image);
         foreach ($request->image as $image) {
+            dd($request->image);
             $name = preg_replace('/\..+$/', '', $image->getClientOriginalName());
             $pic = new BlogImage();
             $pic->image    = $image->store('blog');
