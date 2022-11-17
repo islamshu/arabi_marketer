@@ -258,9 +258,43 @@
             formData.append('image', $('#imageuploadmodal')[0].files[0]);
             formData.append('_token', token);
 
-    storefile("{{ route('upload_image') }}", 'post', formData, '#kt_datatable_example_2', '',
+    storefile(, 'post', formData, '#kt_datatable_example_2', '',
     '', 'Added successfully');
-          alert("You selected some text!");
-        }
+    function storefile(url, method, data, replace_id, fromname, model_name, message) {
+    $.ajax({
+        url: "{{ route('upload_image') }}",
+        type: 'post',
+        data: formData,
+        processData: false,
+        contentType: false,
+
+        success: function(data) {
+            alert(data);
+            $( ".blogsimage" ).append( "<p>Test</p>" );
+
+            // var table = $('#stores').DataTable();
+          
+
+
+            // document.getElementById(fromname).reset();
+            $(model_name).modal('hide');
+            swal(
+                '',
+                'Added successfully',
+                'success'
+            )
+
+
+        },
+        error: function(data) {
+          alert('error');
+        },
+    });
+}
+
+    
+
+
+}
         </script>
 @endsection

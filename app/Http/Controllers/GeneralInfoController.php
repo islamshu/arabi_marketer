@@ -127,7 +127,7 @@ class GeneralInfoController extends Controller
         $pic->user_id = auth()->id();
         $pic->save();
      
-        return true;
+        return $pic;
     }
 
 
