@@ -266,7 +266,7 @@
                 contentType: false,
 
                 success: function(data) {
-                    alert(data);
+                    alert(data.id);
                     $(".blogsimage").append("<p>Test</p>");
 
                     // var table = $('#stores').DataTable();
