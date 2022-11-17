@@ -270,8 +270,3 @@
                 </div>
               </div>
             </div>
-  <script>
-    function myFunction() {
-      alert("You selected some text!");
-    }
-    </script>
