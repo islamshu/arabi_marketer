@@ -255,6 +255,9 @@
         function myImage(id) {
            
             $(".img-info").css("display", "block");
+            $(this).css("border", "5px solid red");
+
+
 
             var url = '{{ route("get_image", ":id") }}';
             get_url = url.replace(':id', id);
