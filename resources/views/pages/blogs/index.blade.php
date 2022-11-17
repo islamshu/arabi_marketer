@@ -266,11 +266,13 @@
                 contentType: false,
 
                 success: function(data) {
-                    var text = ` <div class="col-md-3 " ><div class="item`+data.id+` item ">
-            <div class="img-box">
-                <img src="https://dashboard.arabicreators.com/public/uploads/`+data.image+`" width="150" height="150" alt="" />
-            </div>
-        </div></div>`;
+                    var text = `<div class="col-md-3 blogsimage" >
+    <div class="item` + data.id + ` item ">
+        <div class="img-box">
+            <img src="https://dashboard.arabicreators.com/public/uploads/` + data.image + `" width="150" height="150" alt="" />
+        </div>
+    </div>
+</div>`;
                     $(".blogsimage").append(text);
 
                     // var table = $('#stores').DataTable();
