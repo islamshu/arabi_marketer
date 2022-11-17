@@ -27,6 +27,7 @@ class BlogController extends Controller
     {
 
         return view('pages.blogs.index')
+            ->with('images',BlogImage::orderby('id', 'desc')->get())
             ->with('blogs', Blog::orderby('id', 'desc')->get())
             ->with('bending_blog', Blog::where('status', 0)->orderby('id', 'desc')->get())
             ->with('categories', Category::ofType('blog')->get())

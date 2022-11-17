@@ -192,14 +192,7 @@
                               :key="image.id"
                               :class="{ active: isActive }"
                             >
-                              <div
-                                :class="'item ' + 'img' + image.id"
-                                @click="clickFun(image.id)"
-                              >
-                                <div class="img-box">
-                                  <img :src="image.image" alt="" />
-                                </div>
-                              </div>
+                             @include('blog.all_image')
                             </div>
                           </div>
                         </div>
