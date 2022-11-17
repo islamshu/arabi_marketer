@@ -22,8 +22,8 @@
             <div class="form-group">
                 <br> <label data-error="wrong" data-success="right" for="form3"> صورة عن المقال <span
                         class="required"></span></label>
-                <input type="file"  id="imageupload" name="images" class="form-control image">
-
+                        <input type="hidden" value="" id="image_idd">
+                        <img src="" id="src_image" alt="">
             </div>
             <div class="form-group">
                 <img src="" style="width: 100px"
@@ -171,8 +171,7 @@
                             alt=""
                           />
                         </form>
-                        <input type="hidden" value="" id="image_idd">
-                        <img src="" id="src_image" alt="">
+                       
                       </div>
                       <div
                         class="tab-pane fade"
