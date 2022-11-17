@@ -185,7 +185,7 @@
                         style="display: flex"
                       >
                         <div class="main-content">
-                          <div class="row blogsimage" >
+                          <div class="row " >
                             
                              @include('pages.blogs.all_image')
                           </div>
