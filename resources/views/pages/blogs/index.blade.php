@@ -252,6 +252,10 @@
         new Tagify(input2);
     </script>
     <script>
+        function myImage(id){
+            alert(id)
+        }
+        
         function myFunction() {
             var frm = $('#uploadimage_modal');
             var formData = new FormData(frm[0]);
@@ -269,7 +273,7 @@
                     var text = `<div class="col-md-3 blogsimage" >
     <div class="item` + data.id + ` item ">
         <div class="img-box">
-            <img src="https://dashboard.arabicreators.com/public/uploads/` + data.image + `" width="150" height="150" alt="" />
+            <img src="https://dashboard.arabicreators.com/public/uploads/` + data.image + `" onclick="myImage(`+data.id+`)" width="150" height="150" alt="" />
         </div>
     </div>
 </div>`;
