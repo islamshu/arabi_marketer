@@ -14,7 +14,7 @@
                 type="button"
                 class="fileInput1"
                 data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
+                data-bs-target="#exampleModaldd"
               >
                 اضغط هنا لتحميل الصورة الرئيسية للتدوينة
               </button>
@@ -96,9 +96,10 @@
 </form>
 
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+<div class="modal fade" id="exampleModaldd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
     style="direction: rtl">
-              <div class="modal-dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
                 <div class="modal-content">
                   <div class="modal-header">
                     <button
