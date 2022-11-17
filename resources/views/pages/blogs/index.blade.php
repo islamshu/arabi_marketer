@@ -266,8 +266,12 @@
                 contentType: false,
 
                 success: function(data) {
-                    alert(data.id);
-                    $(".blogsimage").append("<p>Test</p>");
+                    var text = `<div class="item`+data.id+` item ">
+            <div class="img-box">
+                <img src="{{ asset('public/uploads/' . `+data.image+`) }}" width="150" height="150" alt="" />
+            </div>
+        </div>`;
+                    $(".blogsimage").append(text);
 
                     // var table = $('#stores').DataTable();
 
