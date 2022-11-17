@@ -323,7 +323,7 @@
                 url: get_url,
                 type: 'get',
                 success: function(data) {
-                    $('image_id').val(data.id)
+                    $('#image_idd').val(data.id)
                     var src1 =`https://dashboard.arabicreators.com/public/uploads/` + data.image ;
                     $('#src_image').attr("src", src1);
                     $( "#closeeee" ).click();
