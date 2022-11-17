@@ -276,7 +276,27 @@
             var title_image =  $('#title_image').val();
             var description_image =  $('#description_image').val();
             var alt_image =  $('#alt_image').val();
-            alert(image_id,title_image,description_image,alt_image);
+            $.ajax({
+                url: "{{ route('update_data_image') }}",
+                type: 'get',
+                data:{image_id:image_id, title_image:title_image, description_image:description_image,alt_image:alt_image},
+                processData: false,
+                contentType: false,
+
+                success: function(data) {
+      
+                    swal(
+                        '',
+                        'Updated successfully',
+                        'success'
+                    )
+
+
+                },
+                error: function(data) {
+                    alert('error');
+                },
+            });
 
         }
 

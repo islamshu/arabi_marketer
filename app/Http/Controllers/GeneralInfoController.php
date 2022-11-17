@@ -135,6 +135,9 @@ class GeneralInfoController extends Controller
      
         return $pic;
     }
+    public function update_data_image(Request $request){
+        dd($request);
+    }
 
 
 }

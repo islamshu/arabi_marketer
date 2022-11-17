@@ -200,7 +200,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('blogs',BlogController::class);
     Route::post('upload_image',[GeneralInfoController::class,'upload'])->name("upload_image");
     Route::get('get_image/{id}',[GeneralInfoController::class,'get_image'])->name("get_image");
+    Route::get('update_data_image',[GeneralInfoController::class,'update_data_image'])->name("update_data_image");
 
+    
     
     Route::get('show_comments/{id}',[BlogController::class,'show_comments'])->name('show_comments');
     Route::get('update_comment_status/',[BlogController::class,'update_comment_status'])->name('comment.update.status');
