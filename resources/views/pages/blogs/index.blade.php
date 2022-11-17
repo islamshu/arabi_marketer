@@ -228,10 +228,10 @@
         $('#send_form').on('submit', function(e) {
             e.preventDefault();
             var frm = $('#send_form');
-            var formData = new FormData(frm[0]);
+            var data = $(this).serialize();
        
 
-            store("{{ route('blogs.store') }}", 'post', formData, '#kt_datatable_example_2', 'send_form',
+            store("{{ route('blogs.store') }}", 'post', data, '#kt_datatable_example_4', 'sendmemessage',
                 '#exampleModal', 'Added successfully');
             //    location.reload(true);
             setTimeout(function() {
