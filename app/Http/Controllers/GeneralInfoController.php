@@ -136,7 +136,12 @@ class GeneralInfoController extends Controller
         return $pic;
     }
     public function update_data_image(Request $request){
-        dd($request);
+        $pic = BlogImage::find($request->image_id);
+        $pic->title = $request->title_image;
+        $pic->alt = $request->alt_image;
+        $pic->description = $request->description_image;
+        $pic->save();
+        return true;
     }
 
 
