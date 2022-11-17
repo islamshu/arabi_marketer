@@ -325,7 +325,7 @@
                 success: function(data) {
                     $('image_id').val(data.id)
                     var src1 =`https://dashboard.arabicreators.com/public/uploads/` + data.image ;
-                    alert(src1);
+                    $('#exampleModal').modal('hide')
                     $('src_image').attr("src", src1);
 
                 }
