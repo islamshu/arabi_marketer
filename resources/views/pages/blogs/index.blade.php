@@ -259,8 +259,15 @@
         function myImage(id) {
            var imagee = '.item'+id;
             $(".img-info").css("display", "block");
-            $(".imges").removeClass("activeimage");
+            const boxes = document.querySelectorAll('.imges');
 
+                boxes.forEach(box => {
+                // ✅ Remove class from each element
+                box.classList.remove('activeimage');
+
+                // ✅ Add class to each element
+                // box.classList.add('small');
+                });
             $( imagee ).addClass( "activeimage" );
 
 
