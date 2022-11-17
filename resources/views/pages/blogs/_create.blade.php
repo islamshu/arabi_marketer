@@ -205,8 +205,8 @@
                               type="text"
                               name=""
                               class="form-control mb-3"
-                              v-model="image.Alt"
-                              id=""
+                              
+                              id="alt_image"
                             />
                             <label for="" class="mb-2">Title</label>
                             <input
@@ -214,12 +214,12 @@
                               name=""
                               class="form-control mb-3"
                               v-model="image.imgTitle"
-                              id=""
+                              id="title_image"
                             />
                             <label for="" class="mb-2">Description</label>
                             <textarea
                               name=""
-                              id=""
+                              id="description_image"
                               cols="30"
                               class="form-control mb-3"
                               rows="10"

@@ -129,6 +129,12 @@ class GeneralInfoController extends Controller
      
         return $pic;
     }
+    public function get_image($id)
+    {
+       $pic= BlogImage::find($id);
+     
+        return $pic;
+    }
 
 
 }
