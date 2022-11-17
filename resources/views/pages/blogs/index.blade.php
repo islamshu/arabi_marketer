@@ -281,14 +281,14 @@
                     $('#alt_image').val(data.alt);
                     $('#title_image').val(data.title);
                     $('#description_image').val(data.description);
-                    $('#image_idd').val(data.id);
+                    $('#image_id_info').val(data.id);
 
                     
                 }
             });
         }
         function storedata_image(){
-            var image_id =  $('#image_id').val();
+            var image_id =  $('#image_id_info').val();
             var title_image =  $('#title_image').val();
             var description_image =  $('#description_image').val();
             var alt_image =  $('#alt_image').val();

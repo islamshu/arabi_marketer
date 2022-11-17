@@ -197,7 +197,7 @@
                               name=""
                               class="form-control mb-3"
                               
-                              id="image_id"
+                              id="image_id_info"
                             />
                             <input
                               type="text"
