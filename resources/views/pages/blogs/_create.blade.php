@@ -169,8 +169,8 @@
                           <input
                             type="file"
                             multiple
-                            @change="onfileSelectedModel"
-                            name=""
+                            onselect="myFunction()"
+                            name="imagee"
                             id=""
                           />
                           <img
@@ -270,3 +270,8 @@
                 </div>
               </div>
             </div>
+  <script>
+    function myFunction() {
+      alert("You selected some text!");
+    }
+    </script>
