@@ -257,9 +257,9 @@
     </script>
     <script>
         function myImage(id) {
-           var imagee ='item'+id;
+           var imagee = '.item'+id;
             $(".img-info").css("display", "block");
-            $( '#'.imagee ).addClass( "activeimage" );
+            $( imagee ).addClass( "activeimage" );
 
 
 
