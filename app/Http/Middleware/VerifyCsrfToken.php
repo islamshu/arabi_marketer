@@ -12,7 +12,7 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        '/gallery'
+        '/gallery','update_data_image'
     ];
     public static function serialized()
     {
