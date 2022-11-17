@@ -271,6 +271,14 @@
                 }
             });
         }
+        function storedata_image(){
+            var image_id =  $('#image_id').val();
+            var title_image =  $('#title_image').val();
+            var description_image =  $('#description_image').val();
+            var alt_image =  $('#alt_image').val();
+            alert(image_id,title_image,description_image,alt_image);
+
+        }
 
         function myFunction() {
             var frm = $('#uploadimage_modal');

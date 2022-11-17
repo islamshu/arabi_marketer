@@ -234,8 +234,8 @@
                             ></textarea>
 
                             <button
-                              class="btn btn-primary"
-                              @click.prevent="storeData"
+                              class="btn btn-primary" onclick="storedata_image()"
+                             
                             >
                               حفظ
                             </button>
