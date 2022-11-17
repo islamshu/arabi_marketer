@@ -50,7 +50,7 @@ Route::get('/rss_feed/{id}', [SoundController::class, 'rss_feed']);
 
 Route::get('/questions', [HomeController::class, 'questions']);
 Route::get('/get_markter/{id}', [HomeController::class, 'get_markter']);
-Route::post('upload_images',[GalleryController::class,'upload']);
+Route::post('upload_images',[GalleryController::class,'upload'])->name('upload_image');
 Route::get('get_all_media',[GalleryController::class,'index']);
 Route::get('singe_media/{id}',[GalleryController::class,'single']);
 Route::post('update_media/{id}',[GalleryController::class,'edit']);

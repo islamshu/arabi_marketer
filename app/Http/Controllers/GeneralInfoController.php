@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Alert;
 use App\Models\Blog;
+use App\Models\BlogImage;
 use App\Models\Consulting;
 use App\Models\GeneralInfo;
 use App\Models\Notification;
@@ -115,6 +116,19 @@ class GeneralInfoController extends Controller
     public function general_data()
     {
         return view('pages.configs.general');
+    }
+    public function upload(Request $request)
+    {
+        dd($request->image);
+        foreach ($request->image as $image) {
+            $name = preg_replace('/\..+$/', '', $image->getClientOriginalName());
+            $pic = new BlogImage();
+            $pic->image    = $image->store('blog');
+            $pic->title = $name;
+            $pic->user_id = auth()->id();
+            $pic->save();
+        }
+        return true;
     }
 
 

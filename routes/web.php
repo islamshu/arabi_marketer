@@ -198,6 +198,9 @@ Route::middleware('auth')->group(function () {
     Route::get('get_form_country',[CountryController::class, 'get_form_country'])->name('get_form_country');
     Route::resource('services',ServiceController::class);
     Route::resource('blogs',BlogController::class);
+    Route::post('upload_image',[GeneralInfoController::class,'upload'])->name("upload_image");
+
+    
     Route::get('show_comments/{id}',[BlogController::class,'show_comments'])->name('show_comments');
     Route::get('update_comment_status/',[BlogController::class,'update_comment_status'])->name('comment.update.status');
     Route::resource('general_info',GeneralInfoController::class);

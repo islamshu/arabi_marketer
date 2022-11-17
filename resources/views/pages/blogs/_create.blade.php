@@ -162,11 +162,12 @@
                       >
                         <form
                           action=""
-                          class="mt-4 mb-4"
+                          class="mt-4 mb-4" 
+                          id="uploadimage_modal"
                           style="text-align: center"
                         >
                           <p>رفع ملفات</p>
-                          <input type="text"  value="Hello world!" onchange="myFunction()">
+                          <input type="file"   id="imageuploadmodal" onchange="myFunction()">
                           <img
                             class="img-preview"
                             v-if="url"
@@ -211,7 +212,7 @@
                         >
                           <h5>image info</h5>
                           <p>  </p>
-                          <form action="">
+                          <form action="" id="">
                             <label for="" class="mb-2">Alt iamge</label>
                             <input
                               type="text"
