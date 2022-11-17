@@ -350,7 +350,8 @@
                     var text = `<div class="col-md-3 blogsimage" >
                                     <div class="item` + data.id + ` item ">
                                         <div class="img-box">
-                                            <img src="https://dashboard.arabicreators.com/public/uploads/` + data.image + `" onclick="myImage(` + data
+                                            <img src="https://dashboard.arabicreators.com/public/uploads/` + data.image + `" ondblclick="saveimage(` + data
+                                                        .id + `)"  onclick="myImage(` + data
                                                         .id + `)" width="150" height="150" alt="" />
                                         </div>
                                     </div>
