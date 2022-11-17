@@ -261,6 +261,10 @@
                
 
                 success: function(data) {
+                    $('#alt_image').val(data.alt);
+                    $('#title_image').val(data.title);
+                    $('#description_image').val(data.description);
+
                     alert(data.title)
                 }
             });
