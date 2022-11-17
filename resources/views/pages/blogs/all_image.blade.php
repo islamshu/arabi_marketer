@@ -1,4 +1,3 @@
-<span class="blogsimage"></span>
 @foreach ($images as $item)
     <div class="col-md-3  " >
         <div class="item{{ $item->id }} item  imges">
