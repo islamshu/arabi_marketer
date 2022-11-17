@@ -166,7 +166,7 @@
                           style="text-align: center"
                         >
                           <p>رفع ملفات</p>
-                          <input type="text"  value="Hello world!" onselect="myFunction()">
+                          <input type="text"  value="Hello world!" onchange="myFunction()">
                           <img
                             class="img-preview"
                             v-if="url"
