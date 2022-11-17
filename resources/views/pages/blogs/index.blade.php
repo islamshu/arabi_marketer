@@ -265,6 +265,9 @@
                     $('#alt_image').val(data.alt);
                     $('#title_image').val(data.title);
                     $('#description_image').val(data.description);
+                    $('#image_id').val(data.id);
+
+                    
                 }
             });
         }
@@ -284,13 +287,13 @@
 
                 success: function(data) {
                     var text = `<div class="col-md-3 blogsimage" >
-    <div class="item` + data.id + ` item ">
-        <div class="img-box">
-            <img src="https://dashboard.arabicreators.com/public/uploads/` + data.image + `" onclick="myImage(` + data
-                        .id + `)" width="150" height="150" alt="" />
-        </div>
-    </div>
-</div>`;
+                                    <div class="item` + data.id + ` item ">
+                                        <div class="img-box">
+                                            <img src="https://dashboard.arabicreators.com/public/uploads/` + data.image + `" onclick="myImage(` + data
+                                                        .id + `)" width="150" height="150" alt="" />
+                                        </div>
+                                    </div>
+                                </div>`;
                     $(".blogsimage").append(text);
 
                     // var table = $('#stores').DataTable();

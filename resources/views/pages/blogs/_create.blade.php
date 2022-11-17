@@ -199,8 +199,15 @@
                         >
                           <h5>image info</h5>
                           <p>  </p>
-                          <form action="" id="">
+                          <form action="" id="uplodimageinfo">
                             <label for="" class="mb-2">Alt iamge</label>
+                            <input
+                              type="hidden"
+                              name=""
+                              class="form-control mb-3"
+                              
+                              id="image_id"
+                            />
                             <input
                               type="text"
                               name=""
