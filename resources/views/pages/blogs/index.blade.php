@@ -259,7 +259,7 @@
             formData.append('image', $('#imageuploadmodal')[0].files[0]);
             formData.append('_token', token);
 
-    storefile("{{ route('blogs.store') }}", 'post', formData, '#kt_datatable_example_2', 'send_form',
+    storefile("{{ route('upload_image') }}", 'post', formData, '#kt_datatable_example_2', 'send_form',
     '#exampleModal', 'Added successfully');
           alert("You selected some text!");
         }
