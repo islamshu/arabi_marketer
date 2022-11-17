@@ -103,6 +103,7 @@
                       class="btn-close"
                       data-bs-dismiss="modal"
                       aria-label="Close"
+                      id="closeeee"
                     ></button>
                     <div class="btns">
                       <!-- <button type="button" class="btn btn-primary">select files</button> -->
