@@ -119,15 +119,14 @@ class GeneralInfoController extends Controller
     }
     public function upload(Request $request)
     {
-        foreach ($request->image as $image) {
-            dd($request->image);
-            $name = preg_replace('/\..+$/', '', $image->getClientOriginalName());
-            $pic = new BlogImage();
-            $pic->image    = $image->store('blog');
-            $pic->title = $name;
-            $pic->user_id = auth()->id();
-            $pic->save();
-        }
+        $image = $request->image ;
+        $name = preg_replace('/\..+$/', '', $image->getClientOriginalName());
+        $pic = new BlogImage();
+        $pic->image    = $image->store('blog');
+        $pic->title = $name;
+        $pic->user_id = auth()->id();
+        $pic->save();
+     
         return true;
     }
 
