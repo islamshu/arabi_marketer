@@ -251,50 +251,47 @@
         var input2 = document.querySelector("#kt_tagify_44");
         new Tagify(input2);
     </script>
-      <script>
+    <script>
         function myFunction() {
             var frm = $('#uploadimage_modal');
             var formData = new FormData(frm[0]);
             formData.append('image', $('#imageuploadmodal')[0].files[0]);
             formData.append('_token', token);
 
-    storefile(, 'post', formData, '#kt_datatable_example_2', '',
-    '', 'Added successfully');
-    function storefile(url, method, data, replace_id, fromname, model_name, message) {
-    $.ajax({
-        url: "{{ route('upload_image') }}",
-        type: 'post',
-        data: formData,
-        processData: false,
-        contentType: false,
+            $.ajax({
+                url: "{{ route('upload_image') }}",
+                type: 'post',
+                data: formData,
+                processData: false,
+                contentType: false,
 
-        success: function(data) {
-            alert(data);
-            $( ".blogsimage" ).append( "<p>Test</p>" );
+                success: function(data) {
+                    alert(data);
+                    $(".blogsimage").append("<p>Test</p>");
 
-            // var table = $('#stores').DataTable();
-          
+                    // var table = $('#stores').DataTable();
 
 
-            // document.getElementById(fromname).reset();
-            $(model_name).modal('hide');
-            swal(
-                '',
-                'Added successfully',
-                'success'
-            )
+
+                    // document.getElementById(fromname).reset();
+                    $(model_name).modal('hide');
+                    swal(
+                        '',
+                        'Added successfully',
+                        'success'
+                    )
 
 
-        },
-        error: function(data) {
-          alert('error');
-        },
-    });
-}
-
-    
+                },
+                error: function(data) {
+                    alert('error');
+                },
+            });
 
 
-}
-        </script>
+
+
+
+        }
+    </script>
 @endsection
