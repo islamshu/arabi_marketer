@@ -253,9 +253,10 @@
     </script>
     <script>
         function myImage(id) {
-
+            var url = '{{ route("get_image", ":id") }}';
+            get_url = url.replace(':id', id);
             $.ajax({
-                url: "{{ route('get_image',id) }}",
+                url: get_url,
                 type: 'get',
                
 
