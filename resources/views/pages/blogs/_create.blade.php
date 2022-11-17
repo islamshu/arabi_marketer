@@ -160,13 +160,10 @@
                           style="text-align: center"
                         >
                           <p>رفع ملفات</p>
-                          <input type="file"   id="imageuploadmodal" onchange="myFunction()">
-                          <img
-                            class="img-preview"
-                            v-if="url"
-                            :src="url"
-                            alt=""
-                          />
+                          <input type="file" class="image"   id="imageuploadmodal" onchange="myFunction()">
+                          <div class="form-group">
+                            <img src="" style="width: 100px" class="img-thumbnail image-preview" alt="">
+                        </div>
                         </form>
                        
                       </div>
