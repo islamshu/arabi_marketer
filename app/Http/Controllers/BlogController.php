@@ -68,14 +68,15 @@ class BlogController extends Controller
                 $service->description = ['ar' => $request->description_ar, 'en' => $request->description_en];
                 $service->small_description = $request->small_description;
 
-                $name = preg_replace('/\..+$/', '', $request->file->getClientOriginalName());
-                $pic = new BlogImage();
-                $pic->image    = $request->file->store('blog');
-                $pic->title = $name;
-                $pic->user_id = $request->user_id;
-                $pic->save();
+                // $name = preg_replace('/\..+$/', '', $request->file->getClientOriginalName());
+                // $pic = new BlogImage();
+                // $pic->image    = $request->file->store('blog');
+                // $pic->title = $name;
+                // $pic->user_id = $request->user_id;
+                // $pic->save();
+
                 $service->user_id = $request->user_id;
-                $service->image_id =  $pic->id;
+                $service->image_id =  $request->image_id;
                 $service->slug = str_replace(' ', '_', $request->title_ar . '_' . Blog::count() + 1);
 
 

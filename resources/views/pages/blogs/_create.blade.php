@@ -15,7 +15,7 @@
     <img src="" id="src_image" style="width: 100px"
         class="img-thumbnail image-preview" alt="">
 </div>
-<input type="hidden" value="" id="image_idd">
+<input type="hidden" value="" name="image_id" id="image_idd">
 
         </div>
         <div class="form-group col-md-6">
@@ -239,17 +239,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                      @click="showData"
-                    >
-                      حفظ
-                    </button>
-                  </div>
+                 
                 </div>
               </div>
             </div>
