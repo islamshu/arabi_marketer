@@ -10,6 +10,14 @@
                 placeholder="العنوان بالعربية" />
 
         </div>
+        <button
+                type="button"
+                class="fileInput1"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                اضغط هنا لتحميل الصورة الرئيسية للتدوينة
+              </button>
         <div class=" col-md-6">
             <div class="form-group">
                 <br> <label data-error="wrong" data-success="right" for="form3"> صورة عن المقال <span
@@ -86,3 +94,179 @@
      <br>
     <button class="btn btn-info" id="submitform" style="" type="submit">اضف جديد </i></button>
 </form>
+
+
+<div
+              class="modal fade"
+              id="exampleModal"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                    <div class="btns">
+                      <!-- <button type="button" class="btn btn-primary">select files</button> -->
+                    </div>
+                  </div>
+                  <div class="modal-body">
+
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                      <li class="nav-item" role="presentation">
+                        <button
+                          class="nav-link active"
+                          id="home-tab"
+                          data-bs-toggle="tab"
+                          data-bs-target="#home-tab-pane"
+                          type="button"
+                          role="tab"
+                          aria-controls="home-tab-pane"
+                          aria-selected="true"
+                        >
+                          رفع صورة
+                        </button>
+                      </li>
+                      <li
+                        class="nav-item"
+                        @click.prevent="imagehandel"
+                        role="presentation"
+                      >
+                        <button
+                          class="nav-link"
+                          id="profile-tab"
+                          data-bs-toggle="tab"
+                          data-bs-target="#profile-tab-pane"
+                          type="button"
+                          role="tab"
+                          aria-controls="profile-tab-pane"
+                          aria-selected="false"
+                        >
+                          عرض الصور
+                        </button>
+                      </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                      <div
+                        class="tab-pane fade show active"
+                        id="home-tab-pane"
+                        role="tabpanel"
+                        aria-labelledby="home-tab"
+                        tabindex="0"
+                      >
+                        <form
+                          action=""
+                          class="mt-4 mb-4"
+                          style="text-align: center"
+                        >
+                          <p>رفع ملفات</p>
+                          <input
+                            type="file"
+                            multiple
+                            @change="onfileSelectedModel"
+                            name=""
+                            id=""
+                          />
+                          <img
+                            class="img-preview"
+                            v-if="url"
+                            :src="url"
+                            alt=""
+                          />
+                        </form>
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="profile-tab-pane"
+                        role="tabpanel"
+                        aria-labelledby="profile-tab"
+                        tabindex="0"
+                        style="display: flex"
+                      >
+                        <div class="main-content">
+                          <div class="row">
+                            <div
+                              class="col-lg-3"
+                              v-for="image in imagesModel"
+                              :key="image.id"
+                              :class="{ active: isActive }"
+                            >
+                              <div
+                                :class="'item ' + 'img' + image.id"
+                                @click="clickFun(image.id)"
+                              >
+                                <div class="img-box">
+                                  <img :src="image.image" alt="" />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div
+                          class="img-info"
+                          style="width: 20%"
+                          :style="{ opacity: displayStyle }"
+                          :class="{ active: isActive }"
+                        >
+                          <h5>image info</h5>
+                          <p>  {{image.imgTitle }} </p>
+                          <form action="">
+                            <label for="" class="mb-2">Alt iamge</label>
+                            <input
+                              type="text"
+                              name=""
+                              class="form-control mb-3"
+                              v-model="image.Alt"
+                              id=""
+                            />
+                            <label for="" class="mb-2">Title</label>
+                            <input
+                              type="text"
+                              name=""
+                              class="form-control mb-3"
+                              v-model="image.imgTitle"
+                              id=""
+                            />
+                            <label for="" class="mb-2">Description</label>
+                            <textarea
+                              name=""
+                              id=""
+                              cols="30"
+                              class="form-control mb-3"
+                              rows="10"
+                              v-model="image.imgDescription"
+                            ></textarea>
+
+                            <button
+                              class="btn btn-primary"
+                              @click.prevent="storeData"
+                            >
+                              حفظ
+                            </button>
+
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                      @click="showData"
+                    >
+                      حفظ
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>

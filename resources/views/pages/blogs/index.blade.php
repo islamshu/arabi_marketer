@@ -1,5 +1,107 @@
 @extends('layout.main')
+@section('style')
+    <style>
+        .fileInput1 {
+            border: var(--darkColor) 2px solid;
+            padding: 6px;
+            background-color: transparent;
+            color: var(--darkColor);
+            margin-left: 10px;
+            font-weight: 600;
+            margin-top: 5px;
+        }
 
+        .modal-dialog {
+            max-width: 1200px;
+        }
+
+        .modal {}
+
+        .modal .head {}
+
+        .modal .head form {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .modal form .selects {
+            display: flex;
+        }
+
+        .modal .main-content {
+            height: 540px;
+            width: 75%;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            margin: 10px;
+        }
+
+        .modal .img-info {
+            width: 25% !important;
+            padding: 10px;
+            margin: 10px;
+            padding-top: 20px;
+            background-color: #f6f6f6;
+        }
+
+        .modal .main-content .item {
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+            /* padding: 10px; */
+            border-radius: 5px;
+            margin: 10px;
+            text-align: right;
+            overflow: hidden;
+            width: 100%;
+            height: 208px;
+            cursor: pointer;
+        }
+
+        .modal .main-content .item .img-box {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .modal .main-content .item .img-box img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .modal .main-content .item p {
+            margin-bottom: 5px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .modal .main-content .item span {
+            font-size: 12px;
+        }
+
+        .modal-footer {
+            justify-content: space-between;
+        }
+
+        .modal-header .btn-close {
+            margin: 0;
+        }
+
+        .btn-close:focus {
+            box-shadow: none;
+        }
+
+        .form-control:focus {
+            box-shadow: none;
+        }
+
+        .img-preview {
+            width: 150px;
+            height: 150px;
+            display: block;
+            margin: auto;
+            margin-top: 30px;
+        }
+    </style>
+@endsection
 <x-base-layout>
 
     <div class="card card-flush">
