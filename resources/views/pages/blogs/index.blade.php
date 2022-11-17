@@ -251,4 +251,9 @@
         var input2 = document.querySelector("#kt_tagify_44");
         new Tagify(input2);
     </script>
+      <script>
+        function myFunction() {
+          alert("You selected some text!");
+        }
+        </script>
 @endsection
