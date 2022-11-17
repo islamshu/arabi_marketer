@@ -281,9 +281,8 @@
             $.ajax({
                 url: "{{ route('update_data_image') }}",
                 type: 'post',
-                data:{"_token": token,"image_id":image_id, "title_image":title_image, "description_image":description_image,"alt_image":alt_image},
-                processData: false,
-                contentType: false,
+                data:{"image_id":image_id, "title_image":title_image, "description_image":description_image,"alt_image":alt_image},
+            
 
                 success: function(data) {
       
