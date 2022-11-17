@@ -268,7 +268,7 @@
                 success: function(data) {
                     var text = `<div class="item`+data.id+` item ">
             <div class="img-box">
-                <img src="https://dashboard.arabicreators.com/public/uploads/`+data.image+`)" width="150" height="150" alt="" />
+                <img src="https://dashboard.arabicreators.com/public/uploads/`+data.image+`" width="150" height="150" alt="" />
             </div>
         </div>`;
                     $(".blogsimage").append(text);
