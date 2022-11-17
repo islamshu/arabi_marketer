@@ -1,6 +1,10 @@
 @extends('layout.main')
 @section('style')
     <style>
+        .active{
+            border: 5px solid red !important;
+
+        }
         .fileInput1 {
             border: var(--darkColor) 2px solid;
             padding: 6px;
@@ -254,9 +258,8 @@
     <script>
         function myImage(id) {
            var imagee = '#item'+id;
-           alert(imagee);
             $(".img-info").css("display", "block");
-            $(imagee).css("display", "none");
+            $( imagee ).addClass( "active" );
 
 
 
