@@ -256,7 +256,7 @@
            var imagee = '#item'+id;
            alert(imagee);
             $(".img-info").css("display", "block");
-            $(imagee).css("border", "red");
+            $(imagee).css("display", "none");
 
 
 
