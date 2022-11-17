@@ -216,7 +216,7 @@
                           :class="{ active: isActive }"
                         >
                           <h5>image info</h5>
-                          <p>  {{image.imgTitle }} </p>
+                          <p>  </p>
                           <form action="">
                             <label for="" class="mb-2">Alt iamge</label>
                             <input
