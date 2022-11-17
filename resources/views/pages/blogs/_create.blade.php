@@ -186,14 +186,8 @@
                       >
                         <div class="main-content">
                           <div class="row">
-                            <div
-                              class="col-lg-3"
-                              v-for="image in imagesModel"
-                              :key="image.id"
-                              :class="{ active: isActive }"
-                            >
+                            
                              @include('pages.blogs.all_image')
-                            </div>
                           </div>
                         </div>
 
