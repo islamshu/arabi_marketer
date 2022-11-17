@@ -254,8 +254,9 @@
     <script>
         function myImage(id) {
            var imagee = '#item'+id;
+           alert(imagee);
             $(".img-info").css("display", "block");
-            $(imagee).css("border", "5px solid red");
+            $(imagee).css("border", "red");
 
 
 
