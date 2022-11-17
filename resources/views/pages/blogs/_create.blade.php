@@ -175,6 +175,8 @@
                             alt=""
                           />
                         </form>
+                        <input type="hidden" value="" id="image_idd">
+                        <img src="" id="src_image" alt="">
                       </div>
                       <div
                         class="tab-pane fade"

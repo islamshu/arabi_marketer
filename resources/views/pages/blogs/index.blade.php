@@ -281,7 +281,7 @@
                     $('#alt_image').val(data.alt);
                     $('#title_image').val(data.title);
                     $('#description_image').val(data.description);
-                    $('#image_id').val(data.id);
+                    $('#image_idd').val(data.id);
 
                     
                 }
@@ -315,6 +315,20 @@
                 },
             });
 
+        }
+        function saveimage(id){
+            var url = '{{ route("get_image", ":id") }}';
+            get_url = url.replace(':id', id);
+            $.ajax({
+                url: get_url,
+                type: 'get',
+                success: function(data) {
+                    $('image_id').val(data.id)
+                    var src1 =`https://dashboard.arabicreators.com/public/uploads/` + data.image ;
+                    $('src_image').attr("src", src1);
+
+                }
+            });
         }
 
         function myFunction() {
