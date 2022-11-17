@@ -2,8 +2,8 @@
 @section('style')
     <style>
         .activeimage{
-            border: 5px solid red !important;
-
+            border-radius: 3% !important;
+            border: 5px solid #d2cece !important;
         }
         .fileInput1 {
             border: var(--darkColor) 2px solid;
