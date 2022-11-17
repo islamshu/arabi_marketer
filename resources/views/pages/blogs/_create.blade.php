@@ -193,9 +193,9 @@
 
                         <div
                           class="img-info"
-                          style="width: 20%"
-                          :style="{ opacity: displayStyle }"
-                          :class="{ active: isActive }"
+                          style="width: 20%;display: none"
+                          
+                         
                         >
                           <h5>image info</h5>
                           <p>  </p>

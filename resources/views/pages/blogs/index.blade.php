@@ -253,19 +253,18 @@
     </script>
     <script>
         function myImage(id) {
+           
+            $(". img-info").css("display", "block");
+
             var url = '{{ route("get_image", ":id") }}';
             get_url = url.replace(':id', id);
             $.ajax({
                 url: get_url,
                 type: 'get',
-               
-
                 success: function(data) {
                     $('#alt_image').val(data.alt);
                     $('#title_image').val(data.title);
                     $('#description_image').val(data.description);
-
-                    alert(data.title)
                 }
             });
         }
