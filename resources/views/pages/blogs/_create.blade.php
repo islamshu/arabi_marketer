@@ -234,7 +234,7 @@
                             ></textarea>
 
                             <button
-                              class="btn btn-primary" onclick="storedata_image()"
+                              class="btn btn-primary" onclick="storedata_image()" type="button"
                              
                             >
                               حفظ
