@@ -166,13 +166,7 @@
                           style="text-align: center"
                         >
                           <p>رفع ملفات</p>
-                          <input
-                            type="file"
-                            multiple
-                            onselect="myFunction()"
-                            name="imagee"
-                            id=""
-                          />
+                          <input type="text"  value="Hello world!" onselect="myFunction()">
                           <img
                             class="img-preview"
                             v-if="url"
