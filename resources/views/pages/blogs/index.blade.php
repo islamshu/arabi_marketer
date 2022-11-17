@@ -1,7 +1,7 @@
 @extends('layout.main')
 @section('style')
     <style>
-        .active{
+        .activeimage{
             border: 5px solid red !important;
 
         }
@@ -257,9 +257,9 @@
     </script>
     <script>
         function myImage(id) {
-           var imagee = '#item'+id;
+           var imagee = `'#item`+id+'`;
             $(".img-info").css("display", "block");
-            $( imagee ).addClass( "active" );
+            $( imagee ).addClass( "activeimage" );
 
 
 
