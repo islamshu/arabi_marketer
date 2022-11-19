@@ -81,6 +81,7 @@ class HomeController extends BaseController
     {
         // $name = str_replace('@','',$id);
         $user = User::where('mention',$id)->first();
+        return $user;
         if ($user) {
             if ($user->type != 'marketer') {
                 return $this->sendError('هذا ليس حساب مسوق !');
