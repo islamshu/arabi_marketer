@@ -20,7 +20,7 @@ class UserNormalNotAuthResource extends JsonResource
     {
         return[
             'id'=>$this->id,
-            'name'=>$this->name,
+            'name'=>'@'.$this->name,
             'email'=>$this->email,
             'type'=>$this->type,
             // 'first_name'=>$this->first_name,

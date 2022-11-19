@@ -19,7 +19,7 @@ class UserMainInfoResource extends JsonResource
     {
        return[
         'id'=>$this->id,
-        'name'=>$this->name,
+        'name'=>'@'.$this->name,
         'email'=>$this->email,
         'first_name'=>$this->first_name,
         'type'=>$this->type,

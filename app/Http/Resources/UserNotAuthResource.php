@@ -27,7 +27,7 @@ class UserNotAuthResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
+            'name'=>'@'.$this->name,
             'email' => $this->email,
             'pio' => $this->pio,
             'type' => $this->type,
