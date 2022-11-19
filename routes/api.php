@@ -126,7 +126,7 @@ Route::post('/add_comment', [CommentController::class, 'store']);
 Route::post('/add_rate', [BlogController::class, 'add_rate']);
 Route::get('/get_comments_for_blog/{id}', [CommentController::class, 'get_comment']);
 Route::get('/get_all_blogs', [BlogController::class, 'get_all']);
-Route::get('/single_blog/{id}', [BlogController::class, 'single'])->name('single_blog');
+Route::get('/single_blog/{mention}/{id}', [BlogController::class, 'single'])->name('single_blog');
 Route::get('/blog_search', [BlogController::class, 'serach']);
 Route::get('/related_blogs/{id}', [BlogController::class, 'related_blogs']);
 //end blog 

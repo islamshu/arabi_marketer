@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\GeneralInfo;
+use App\Models\User;
 
 if (!function_exists('get_svg_icon')) {
     function get_svg_icon($path, $class = null, $svgClass = null)
@@ -107,6 +108,14 @@ if (!function_exists('get_svg_icon')) {
         $output .= "\n<!--end::Svg Icon-->";
 
         return $output;
+    }
+}
+function get_user_id($mention){
+    $user = User::where('mention',$mention)->first();
+    if($user){
+        return $user->id;
+    }else{
+        return null;
     }
 }
 
