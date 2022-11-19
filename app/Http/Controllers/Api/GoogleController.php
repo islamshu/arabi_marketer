@@ -41,7 +41,7 @@ class GoogleController extends BaseController
 
                 }
                 $newUser = User::create([
-                    'name' => 'google_user_name',
+                    'name' => 'google_user_name_',
                     'email' => $user->email,
                     'google_id'=> $user->id,
                     'type'=>'user',

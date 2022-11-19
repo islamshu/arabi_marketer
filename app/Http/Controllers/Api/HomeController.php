@@ -71,6 +71,11 @@ class HomeController extends BaseController
 
         return $this->sendResponse($res, 'home page');
     }
+    public function testapi(Request $request){
+        $mystring = 'islamshu12@gmail.com';
+        $first = strtok($mystring, '@');
+        dd($first);
+    }
     public function get_markter($id)
     {
         $user = User::find($id);

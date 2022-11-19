@@ -43,6 +43,9 @@ use Illuminate\Support\Facades\Route;
 
 // Sample API route
 Route::get('/profits', [SampleDataController::class, 'profits'])->name('profits');
+Route::get('/testapi', [HomeController::class, 'profits'])->name('testapi');
+
+
 
 Route::get('/home', [HomeController::class, 'home']);
 Route::get('/homeddd', [HomeController::class, 'edit']);
