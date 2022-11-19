@@ -340,6 +340,9 @@
             
 </script>
 <script>
+    var token = "{{ csrf_token() }}";
+</script>
+<script>
     function myImage(id) {
        var imagee = '.item'+id;
         $(".img-info").css("display", "block");
