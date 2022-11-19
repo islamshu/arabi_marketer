@@ -38,8 +38,10 @@ class GoogleController extends BaseController
                 $user_val = User::where('email',$user->email)->first();
                 if($user_val){
                     return $this->sendError('البريد الالكتروني مسجل من قبل');
-
                 }
+                $mystring = $user->email;
+                $first = strtok($mystring, '@');
+                $name = $first.'_'.now();
                 $newUser = User::create([
                     'name' => 'google_user_name_',
                     'email' => $user->email,
