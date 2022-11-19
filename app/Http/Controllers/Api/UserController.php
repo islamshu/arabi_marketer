@@ -58,6 +58,14 @@ class UserController extends BaseController
         $res = new NotificationResourse($notification);
         return $this->sendResponse($res, '');
     }
+    public function check_name(Request $request){
+        $user = User::where('name',$request->name)->first();
+        if($user){
+            return $this->sendError('الاسم مستخدم');
+        }else{
+            return $this->sendResponse('success','الاسم متاح');
+        }
+    }
 
 
     public function register(Request $request)

@@ -75,6 +75,8 @@ Route::post('reset_my_password', [ForgotPasswordController::class, 'reset'])->na
 Route::get('/users', [SampleDataController::class, 'getUsers']);
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
+Route::post('/check_name', [UserController::class, 'check_name']);
+
 Route::group(['middleware' => 'is_login'], function () {
     Route::post('/edit_profile', [UserController::class, 'edit_profile']);
     Route::post('/be_marketer', [UserController::class, 'be_marketer']);
