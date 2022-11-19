@@ -45,7 +45,7 @@ class GoogleController extends BaseController
                 $name = $first.'_'.Carbon::now()->timestamp;
                 $newUser = User::create([
                     'name' => $name,
-                    'mention'=> '@'.$name,
+                    'mention'=> '@'. str_replace(' ','_',$name) ,
                     'email' => $user->email,
                     'google_id'=> $user->id,
                     'type'=>'user',

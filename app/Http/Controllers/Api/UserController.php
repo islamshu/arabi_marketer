@@ -70,7 +70,7 @@ class UserController extends BaseController
     public function change_mention(){
         $user = User::get();
         foreach($user as $us){
-            $us->mention = '@'.$us->name;
+            $us->mention = '@'. str_replace(' ','_',$us->name) ;
             $us->save();
         }
         return true;
@@ -91,7 +91,7 @@ class UserController extends BaseController
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->mention = '@'.$request->name;
+        $user->mention =  '@'. str_replace(' ','_',$request->name) ;
         $user->type = 'user';
         $user->image = 'users/defult_user.png';
         $user->password =  Hash::make($request->password);
