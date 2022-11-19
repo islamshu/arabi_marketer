@@ -27,6 +27,7 @@ use App\Models\HowItWork;
 use App\Models\NewPodcast;
 use App\Models\Quastion;
 use App\Models\User;
+use Carbon\Carbon;
 use FeedReader;
 use SimpleXMLElement;
 use View;
@@ -74,7 +75,7 @@ class HomeController extends BaseController
     public function testapi(Request $request){
         $mystring = 'islamshu12@gmail.com';
         $first = strtok($mystring, '@');
-        dd($first.'_'.now());
+        dd($first.'_'.Carbon::now()->toDateTimeString());
     }
     public function get_markter($id)
     {
