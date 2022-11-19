@@ -27,7 +27,8 @@ class UserNotAuthResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name'=>'@'.$this->name,
+            'name' => $this->name,
+            'mention' => $this->mention,
             'email' => $this->email,
             'pio' => $this->pio,
             'type' => $this->type,
@@ -53,8 +54,8 @@ class UserNotAuthResource extends JsonResource
             'videos' => $this->get_videos($this),
             'consulting' => $this->get_consult($this),
             'bank_info' => $this->bank_info($this),
-            'answer_questione'=>  AnsweResourse::collection($this->answer),
-            
+            'answer_questione' =>  AnsweResourse::collection($this->answer),
+
         ];
     }
     function get_service($data)

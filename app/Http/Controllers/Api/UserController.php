@@ -67,7 +67,14 @@ class UserController extends BaseController
         }
     }
 
-
+    public function change_mention(){
+        $user = User::get();
+        foreach($user as $us){
+            $us->mention = '@'.$us->name;
+            $us->save();
+        }
+        return true;
+    }
     public function register(Request $request)
     {
         $user = User::where('email', $request->email)->first();
@@ -84,6 +91,7 @@ class UserController extends BaseController
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->mention = '@'.$request->name;
         $user->type = 'user';
         $user->image = 'users/defult_user.png';
         $user->password =  Hash::make($request->password);

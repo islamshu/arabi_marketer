@@ -18,19 +18,20 @@ class UserNormalAuthResource extends JsonResource
      */
     public function toArray($request)
     {
-        return[
-            'id'=>$this->id,
-            'name'=>'@'.$this->name,
-            'email'=>$this->email,
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'mention' => $this->mention,
+            'email' => $this->email,
             // 'first_name'=>$this->first_name,
             // 'last_name'=>$this->last_name,
-            'type'=>$this->type,
-            'image'=>$this->image == null ? asset('public/uploads/users/defult_user.png') : asset('public/uploads/'.$this->image),
-            'token'=>$this->createToken('Personal Access Token')->accessToken,
+            'type' => $this->type,
+            'image' => $this->image == null ? asset('public/uploads/users/defult_user.png') : asset('public/uploads/' . $this->image),
+            'token' => $this->createToken('Personal Access Token')->accessToken,
 
             // 'country'=> new CountryResource(Country::find($this->country_id)),
             // 'city'=>new CityResource(City::find($this->city_id)),
-            'types'=>$this->get_type($this),
+            'types' => $this->get_type($this),
             // 'status'=>$this->status,
             // 'number_of_blogs'=>$this->blogs->count(),
             // 'number_of_services'=>$this->services->count(),
@@ -41,24 +42,24 @@ class UserNormalAuthResource extends JsonResource
             // 'Social'=>SocialResource::collection($this->socials)
         ];
     }
-    function get_finance($data){
+    function get_finance($data)
+    {
         return [
-            'total'=>$data->total,
-            'available'=>$data->available,
-            'pending'=>$data->pending,
+            'total' => $data->total,
+            'available' => $data->available,
+            'pending' => $data->pending,
         ];
     }
-    function get_type($data){
+    function get_type($data)
+    {
         $type_array = array();
-        if($data->types != null){
-            foreach($data->types as $type){
-                array_push($type_array,$type->type_id);
+        if ($data->types != null) {
+            foreach ($data->types as $type) {
+                array_push($type_array, $type->type_id);
             }
-            return CategoryResource::collection(Category::whereIn('id',$type_array)->get());
-
-        }else{
+            return CategoryResource::collection(Category::whereIn('id', $type_array)->get());
+        } else {
             return null;
         }
-       
     }
 }
