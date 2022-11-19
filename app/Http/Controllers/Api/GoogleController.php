@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Socialite;
 use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\UserNormalAuthResource;
+use Carbon\Carbon;
 use Validator;
 
 class GoogleController extends BaseController
@@ -41,9 +42,9 @@ class GoogleController extends BaseController
                 }
                 $mystring = $user->email;
                 $first = strtok($mystring, '@');
-                $name = $first.'_'.now();
+                $name = $first.'_'.Carbon::now()->timestamp;
                 $newUser = User::create([
-                    'name' => 'google_user_name_',
+                    'name' => $name,
                     'email' => $user->email,
                     'google_id'=> $user->id,
                     'type'=>'user',
