@@ -235,6 +235,89 @@
         </div>
 
 </x-base-layout>
+<div class="modal fade" id="exampleModaldd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    style="direction: rtl">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        id="closeeee"></button>
+                    <div class="btns">
+                        <!-- <button type="button" class="btn btn-primary">select files</button> -->
+                    </div>
+                </div>
+                <div class="modal-body">
+
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
+                                data-bs-target="#home-tab-pane" type="button" role="tab"
+                                aria-controls="home-tab-pane" aria-selected="true">
+                                رفع صورة
+                            </button>
+                        </li>
+                        <li class="nav-item" @click.prevent="imagehandel" role="presentation">
+                            <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                                data-bs-target="#profile-tab-pane" type="button" role="tab"
+                                aria-controls="profile-tab-pane" aria-selected="false">
+                                عرض الصور
+                            </button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel"
+                            aria-labelledby="home-tab" tabindex="0">
+                            <form action="" class="mt-4 mb-4" id="uploadimage_modal"
+                                style="text-align: center">
+                                <p>رفع ملفات</p>
+                                <input type="file" class="image" id="imageuploadmodal" onchange="myFunction()">
+                                <div class="form-group">
+                                    <img src="" style="width: 100px" class="img-thumbnail image-preview"
+                                        alt="">
+                                </div>
+                            </form>
+
+                        </div>
+                        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel"
+                            aria-labelledby="profile-tab" tabindex="0" style="display: flex">
+                            <div class="main-content">
+                                <div class="row  blogsimage">
+
+                                    @include('pages.blogs.all_image')
+                                </div>
+                            </div>
+
+                            <div class="img-info" style="width: 20%;display: none">
+                                <h5>image info</h5>
+                                <p> </p>
+                                <form action="" id="uplodimageinfo">
+                                    <label for="" class="mb-2">Alt iamge</label>
+                                    <input type="hidden" name="" class="form-control mb-3"
+                                        id="image_id_info" />
+                                    <input type="text" name="" class="form-control mb-3" id="alt_image" />
+                                    <label for="" class="mb-2">Title</label>
+                                    <input type="text" name="" class="form-control mb-3"
+                                        v-model="image.imgTitle" id="title_image" />
+                                    <label for="" class="mb-2">Description</label>
+                                    <textarea name="" id="description_image" cols="30" class="form-control mb-3" rows="10"
+                                        v-model="image.imgDescription"></textarea>
+
+                                    <button class="btn btn-primary" onclick="storedata_image()" type="button">
+                                        حفظ
+                                    </button>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+    </div>
+</div>
 @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
@@ -255,6 +338,133 @@
             new Tagify(input111);
 
             
+</script>
+<script>
+    function myImage(id) {
+       var imagee = '.item'+id;
+        $(".img-info").css("display", "block");
+        const boxes = document.querySelectorAll('.imges');
+
+            boxes.forEach(box => {
+            // ✅ Remove class from each element
+            box.classList.remove('activeimage');
+
+            // ✅ Add class to each element
+            // box.classList.add('small');
+            });
+        $( imagee ).addClass( "activeimage" );
+
+
+
+        var url = '{{ route("get_image", ":id") }}';
+        get_url = url.replace(':id', id);
+        $.ajax({
+            url: get_url,
+            type: 'get',
+            success: function(data) {
+                $('#alt_image').val(data.alt);
+                $('#title_image').val(data.title);
+                $('#description_image').val(data.description);
+                $('#image_id_info').val(data.id);
+
+                
+            }
+        });
+    }
+    function storedata_image(){
+        var image_id =  $('#image_id_info').val();
+        var title_image =  $('#title_image').val();
+        var description_image =  $('#description_image').val();
+        var alt_image =  $('#alt_image').val();
+        
+
+        $.ajax({
+            url: "{{ route('update_data_image') }}",
+            type: 'post',
+            data:{"image_id":image_id, "title_image":title_image, "description_image":description_image,"alt_image":alt_image},
+        
+
+            success: function(data) {
+  
+                swal(
+                    '',
+                    'Updated successfully',
+                    'success'
+                )
+
+
+            },
+            error: function(data) {
+                alert('error');
+            },
+        });
+
+    }
+    function saveimage(id){
+        var url = '{{ route("get_image", ":id") }}';
+        get_url = url.replace(':id', id);
+        $.ajax({
+            url: get_url,
+            type: 'get',
+            success: function(data) {
+                $('#image_idd').val(data.id)
+                var src1 =`https://dashboard.arabicreators.com/public/uploads/` + data.image ;
+                $('#src_image').attr("src", src1);
+                $( "#closeeee" ).click();
+
+                
+            }
+        });
+    }
+
+    function myFunction() {
+        var frm = $('#uploadimage_modal');
+        var formData = new FormData(frm[0]);
+        formData.append('image', $('#imageuploadmodal')[0].files[0]);
+        formData.append('_token', token);
+
+        $.ajax({
+            url: "{{ route('upload_image') }}",
+            type: 'post',
+            data: formData,
+            processData: false,
+            contentType: false,
+
+            success: function(data) {
+                var text = `<div class="col-md-3 blogsimage" >
+                                <div class="item` + data.id + ` item ">
+                                    <div class="img-box">
+                                        <img src="https://dashboard.arabicreators.com/public/uploads/` + data.image + `" ondblclick="saveimage(` + data
+                                                    .id + `)"  onclick="myImage(` + data
+                                                    .id + `)" width="150" height="150" alt="" />
+                                    </div>
+                                </div>
+                            </div>`;
+                $(".blogsimage").prepend(text);
+
+                // var table = $('#stores').DataTable();
+
+
+
+                // document.getElementById(fromname).reset();
+                swal(
+                    '',
+                    'Added successfully',
+                    'success'
+                )
+
+
+            },
+            error: function(data) {
+                alert('error');
+            },
+        });
+
+
+
+
+
+    }
 </script>
 @endsection
 
