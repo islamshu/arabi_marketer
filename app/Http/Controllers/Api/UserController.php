@@ -70,7 +70,7 @@ class UserController extends BaseController
     public function change_mention(){
         $user = User::get();
         foreach($user as $us){
-            $us->mention = '@'. str_replace(' ','_',$us->name) ;
+            $us->mention = '@'. str_replace(' ','_',$us->name).'_'.$us->id ;
             $us->save();
         }
         return true;
