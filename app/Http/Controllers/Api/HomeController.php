@@ -101,6 +101,7 @@ class HomeController extends BaseController
         ->orWhereHas('services')
         ->get();
         $res = UserNotAuthResource::collection($users)->response()->getData(true);
+        return true;
         return $this->sendResponse($res, 'all markters');
     }
 
