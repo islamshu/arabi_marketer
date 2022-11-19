@@ -46,6 +46,22 @@
                 <div class="row">
             
                     <div class="form-group col-md-6">
+                        <button
+                        type="button"
+                        class="fileInput1"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModaldd"
+                      >
+                        اضغط هنا لتحميل الصورة الرئيسية للتدوينة
+                      </button>
+               <div class="form-group">
+                <img src="{{ asset('public/uploads/'. $blog->image_blog->image ) }}" id="src_image" style="width: 100px"
+                    class="img-thumbnail image-preview" alt="">
+            </div>
+            <input type="hidden" value="{{ $blog->image_blog->id }}" name="image_id" id="image_idd">
+            
+                    </div>
+                    <div class="form-group col-md-6">
             
                         <br><label> عنوان المقال :</label>
             
@@ -53,19 +69,7 @@
                             placeholder="العنوان بالعربية" />
             
                     </div>
-                    <div class=" col-md-6">
-                        <div class="form-group">
-                            <br> <label data-error="wrong" data-success="right" for="form3"> صورة عن المقال <span
-                                    class="required"></span></label>
-                            <input type="file"  id="imageupload" name="images" class="form-control image">
-            
-                        </div>
-                        <div class="form-group">
-                            <img src="{{ asset('public/uploads/'.$blog->image_blog->image) }}" style="width: 100px"
-                                class="img-thumbnail image-preview" alt="">
-                        </div>
-            
-                    </div>
+                   
                     
                     <div class="form-group col-md-6">
             
