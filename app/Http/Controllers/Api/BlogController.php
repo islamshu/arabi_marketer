@@ -111,6 +111,12 @@ class BlogController extends BaseController
         $res = BlogResource::collection($blogs);
         return $this->sendResponse($res, 'جميع المقالات');
     }
+    public function all_blog_user($mention){
+        $user = User::where('mention',$mention)->first();
+       
+        $res = BlogResource::collection( $user->blogs->where('status',1))->response()->getData(true);
+        return $this->sendResponse($res, 'جميع المقالات');
+    }
     public function single($mention,$id)
     {
         $user_id = get_user_id($mention);
