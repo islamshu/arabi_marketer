@@ -185,7 +185,7 @@ class BlogController extends Controller
             ->with('type_array', $selectecategory_array)
             ->with('keywords_array', $selectedkeywords_array)
             ->with('tags', $selectetages_array)
-
+            ->with('images',BlogImage::orderby('id', 'desc')->get())
             ->with('categories', Category::ofType('blog')->get())
             ->with('keywords', KeyWord::ofType('blog')->get());
     }
