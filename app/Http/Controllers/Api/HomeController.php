@@ -81,9 +81,8 @@ class HomeController extends BaseController
     {
         // $name = str_replace('@','',$id);
         $user = User::where('mention',$id)->first();
-        return $user;
         if ($user) {
-            if ($user->type != 'marketer') {
+            if ($user->type != 'marketer' || $user->type != 'admin') {
                 return $this->sendError('هذا ليس حساب مسوق !');
             }
             $userRes = new  UserNotAuthResource($user);
