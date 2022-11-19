@@ -75,7 +75,7 @@ class HomeController extends BaseController
     public function testapi(Request $request){
         $mystring = 'islamshu12@gmail.com';
         $first = strtok($mystring, '@');
-        dd($first.'_'.Carbon::now()->toDateTimeString());
+        dd($first.'_'.Carbon::now()->timestamp);
     }
     public function get_markter($id)
     {
