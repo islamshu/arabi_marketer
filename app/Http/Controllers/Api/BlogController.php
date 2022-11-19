@@ -113,7 +113,10 @@ class BlogController extends BaseController
     }
     public function single($id)
     {
-        $blog = Blog::find($id);
+        $blog = Blog::where('slug',$id)->first();
+        if(!$blog){
+            return $this->sendError('not found blog');
+        }
         $res = new BlogResource($blog);
         return $this->sendResponse($res, 'تم أرجاع المقال بنجاح');
     }
