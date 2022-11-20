@@ -23,7 +23,7 @@ class UsersController extends Controller
     }
     
     public function getData(Request $request){
-        $users = User::orderBy('id', 'asc');
+        $users = User::orderBy('id', 'asc')->where('type','!=','user')->where('type','!=','marketer');
 
 
         return datatable_paginate($users);
