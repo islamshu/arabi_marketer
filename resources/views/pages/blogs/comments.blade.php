@@ -70,11 +70,11 @@
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $item->blog->title }}</td>
                             <td>{!! $item->body !!}</td>
+                            <td>
+
                             @can('status-comment-blog')
-                                <td>
                                     <input type="checkbox" data-id="{{ $item->id }}" name="status" class="js-switch"
                                         {{ $item->status == 1 ? 'checked' : '' }}>
-                                </td>
                             @endcan
 
 
@@ -87,6 +87,8 @@
                                             class="fa fa-trash"></i></button>
                                 </form>
                             @endcan
+                        </td>
+
                         </tr>
                         @endforeach
 
