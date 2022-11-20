@@ -57,25 +57,25 @@
                     <div class="col-xs-12 col-sm-12 col-md-6 mt-5">
                     <div class="form-group">
                     <strong>الاسم:</strong>
-                    {!! Form::text('name', null, array('placeholder' => 'الاسم','class' => 'form-control')) !!}
+                    <input type="text" name="name" required class="form-control"  id="">
                     </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 mt-5">
                     <div class="form-group">
                     <strong>البريد الاكتروني:</strong>
-                    {!! Form::text('email', null, array('placeholder' => 'البريد الاكتروني','class' => 'form-control')) !!}
+                    <input type="email" name="email" required class="form-control"  id="">
                     </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 mt-5">
                     <div class="form-group">
                     <strong>كلمة المرور:</strong>
-                    {!! Form::password('password', array('placeholder' => 'كلمة المرور','class' => 'form-control')) !!}
+                    <input type="password" name="password" required class="form-control"  id="">
                     </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 mt-5">
                     <div class="form-group">
                     <strong> تأكيد كلمة المرور:</strong>
-                    {!! Form::password('confirm-password', array('placeholder' => ' تأكيد كلمة المرور','class' => 'form-control')) !!}
+                    <input type="password" name="confirm-password" required class="form-control"  id="">
                     </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 mt-5">
