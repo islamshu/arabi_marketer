@@ -134,7 +134,7 @@ class BootstrapDemo1 extends BootstrapBase {
     }
 
     private static function initAsideMenu() {
-        self::$asideMenu = new Menu( Theme::getOption('menu', 'main'), Theme::getPagePath() );
+        self::$asideMenu = new Menu( Theme::getOption('subb', 'main'), Theme::getPagePath() );
 
         if (Theme::getOption('layout', 'aside/menu-icons-display') === false) {
             self::$asideMenu->displayIcons(false);
