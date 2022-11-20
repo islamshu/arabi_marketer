@@ -85,7 +85,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-6 mt-5">
                                 <div class="form-group">
                                     <strong> تأكيد كلمة المرور:</strong>
-                                    <input type="password" name="confirm-password"  required class="form-control"
+                                    <input type="password" name="confirm_password"  required class="form-control"
                                         id="">
                                 </div>
                             </div>
