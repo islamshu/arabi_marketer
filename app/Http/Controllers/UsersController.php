@@ -165,6 +165,8 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id)->delete();
+        Alert::success('Success', 'تم الحذف بنجاح');
+
     }
 }
