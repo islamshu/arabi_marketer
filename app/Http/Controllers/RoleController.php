@@ -107,11 +107,7 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $permissions = Permission::get();
-        $users = User::where('type','Admin');
-        foreach($permissions as $permission){
-            dd($permission);
-        }
+        
         $this->validate($request, [
             'name' => 'required',
             'permission' => 'required',
@@ -120,9 +116,12 @@ class RoleController extends Controller
         $role->name = $request->input('name');
         $role->save();
         $role->syncPermissions($request->input('permission'));
-        $users = User::where('type','Admin');
-        foreach($users as $user){
-            $user->assignRole($role->name);
+        $users = User::where('type','Admin')->get();
+        $permissions = Permission::get();
+        foreach($permissions as $permission){
+            foreach($users  as $user ){
+                $user->givePermissionTo($permission->name);
+            }
         }
         return redirect()->route('roles.index')
             ->with('success', 'Role updated successfully');
