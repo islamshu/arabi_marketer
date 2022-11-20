@@ -81,7 +81,12 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                     <strong>الدور:</strong>
-                    {!! Form::select('roles[]', $roles,[], array('class' => 'form-control','multiple')) !!}                    </div>
+                    <select name="roles[]" class="form-control" id="">
+                        @foreach ($roles as $item)
+                        <option value="{{ $item }}">{{ $item }}</option>
+
+                        @endforeach
+                    </select>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                     <button type="submit" class="btn btn-primary">حفظ</button>
