@@ -370,6 +370,8 @@ return array(
         array(
             'title' => 'Blogs',
             'path'  => 'blogs',
+            'role' => 'مسؤول المقالات',
+
             'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen017.svg", "svg-icon-2"),
         ),
         array(
