@@ -10,7 +10,7 @@
                 role="tablist">
                 <!--begin:::Tab item-->
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link text-active-primary pb-5 " href="/" >
+                    <a class="nav-link text-active-primary pb-5 " href="/">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen001.svg-->
                         <span class="svg-icon svg-icon-2 me-2">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -25,58 +25,80 @@
 
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link text-active-primary pb-5 active" >
+                    <a class="nav-link text-active-primary pb-5 active">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen001.svg-->
                         <span class="svg-icon svg-icon-2 me-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path opacity="0.3" d="M21 22H14C13.4 22 13 21.6 13 21V3C13 2.4 13.4 2 14 2H21C21.6 2 22 2.4 22 3V21C22 21.6 21.6 22 21 22Z" fill="currentColor"></path>
-                                <path d="M10 22H3C2.4 22 2 21.6 2 21V3C2 2.4 2.4 2 3 2H10C10.6 2 11 2.4 11 3V21C11 21.6 10.6 22 10 22Z" fill="currentColor"></path>
-                                </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none">
+                                <path opacity="0.3"
+                                    d="M21 22H14C13.4 22 13 21.6 13 21V3C13 2.4 13.4 2 14 2H21C21.6 2 22 2.4 22 3V21C22 21.6 21.6 22 21 22Z"
+                                    fill="currentColor"></path>
+                                <path
+                                    d="M10 22H3C2.4 22 2 21.6 2 21V3C2 2.4 2.4 2 3 2H10C10.6 2 11 2.4 11 3V21C11 21.6 10.6 22 10 22Z"
+                                    fill="currentColor"></path>
+                            </svg>
                         </span>
-                        <!--end::Svg Icon-->الادوار
+                        <!--end::Svg Icon-->الأدوار 
                     </a>
 
                 </li>
 
 
             </ul>
-            <ul class="nav nav-tabs nav-line-tabs nav-line-tabs-2x mb-5 fs-6">
-                <li class="nav-item">
-                    <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_4">الادوار</a>
-                </li>
-              
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_6">اضف جديد</a>
-                </li>
-                
-            </ul>
-           
-
-            
-            <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="kt_tab_pane_4" role="tabpanel">
-                    @include('roles._index')
-                </div>
-                
-                <div class="tab-pane fade" id="kt_tab_pane_6" role="tabpanel">
-                    @include('roles._create')
-                </div>
-              
-            </div>
             <!--end:::Tabs-->
             <!--begin:::Tab content-->
-            
+            <div class="tab-content" id="myTabContent">
+                <!--begin:::Tab pane-->
+                <button id="slide-toggle-button" class="btn btn-primary">
+                    اضف جديد
+                </button>
+                
+                <div class="tab-pane fade active show" id="kt_ecommerce_settings_general" role="tabpanel">
+
+                    <div>
+                        <table id="example" class="display" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th># </th>
+                                    <th>اسم الدور </th>
+                                    <th>الاجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($rles as $key=>$role)
+                                    <tr>
+                                        <td>{{ $key+1 }}</td>
+                                        <td>{{ $role->name }}</td>
+                                        <td>
+                                            <a class="btn btn-info" href="{{ route('roles.show',$role->id) }}">Show</a>
+                                            <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}">Edit</a>
+                                        
+                                            {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline']) !!}
+                                            {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                            {!! Form::close() !!}
+                                            </td>
+
+                                    </tr>
+                                @endforeach
+                                </tfoot>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
             <!--end:::Tab content-->
         </div>
         <!--end::Card body-->
     </div>
+
 </x-base-layout>
 
+@include('sweetalert::alert', ['cdn' => 'https://cdn.jsdelivr.net/npm/sweetalert2@9'])
 
-
-@include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 @section('scripts')
-@endsection
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 
+
+ 
+@endsection
