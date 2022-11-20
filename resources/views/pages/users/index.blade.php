@@ -77,30 +77,7 @@
     </div>
 
 </x-base-layout>
-<div class="modal fase " id="myModal4" data-backdrop="static" data-keyboard="false" tabindex="-1"
-aria-labelledby="staticBackdropLabel" aria-hidden="true">
-<div class="modal-dialog modal-lg">
-    <div class="modal-content">
-        <div class="modal-header">
 
-            <h5 class="modal-title" id="staticBackdropLabel">
-                تعديل بيانات المجال</h5>
-
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div id="company_edit">
-            <div class="c-preloader text-center p-3">
-                <i class="las la-spinner la-spin la-3x"></i>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-light" data-dismiss="modal">اغلاق</button>
-        </div>
-    </div>
-</div>
-</div>
 @section('scripts')
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
@@ -112,118 +89,8 @@ aria-labelledby="staticBackdropLabel" aria-hidden="true">
 {{-- <script src="{{ asset('crudjs/crud.js') }}"></script> --}}
 <link href="{{ asset('demo1/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css" />
 <script src="{{ asset('demo1/plugins/custom/datatables/datatables.bundle.js') }}"></script>
-<script>
-    $(document).ready(function() {
-        "use strict";
-
-        // Class definition
-        var KTDatatablesServerSide = function() {
-            // Shared variables
-            var table;
-            var dt;
-            var filterPayment;
-            // Private functions
-            var initDatatable = function() {
-                if ($.fn.DataTable.isDataTable('#kt_datatable_example_1')) {
-                    $('#kt_datatable_example_1').DataTable().ajax.reload();
-                    return;
-                }
-                dt = $("#kt_datatable_example_1").DataTable({
-                    searchDelay: 500,
-                    processing: true,
-                    serverSide: true,
-                    stateSave: true,
 
 
-                    select: {
-                        style: 'multi',
-                        selector: 'td:first-child input[type="checkbox"]',
-                        className: 'row-selected'
-                    },
-                    ajax: {
-                        url: "{{ route('users.getDat') }}",
-                    },
-                    columns: [{
-                            data: 'id'
-                        },
-                        {
-
-                            data: 'mention'
-                        },
-
-                        {
-                            data: 'email'
-                        },
-                        {
-                            data: 'type'
-                        },
-                        {
-                            data: null
-                        }
-                    ],
-                    columnDefs: [
-
-
-                        {
-                            targets: -1,
-                            data: null,
-                            orderable: false,
-                            className: 'text-end',
-                            render: function(data, type, row) {
-                                    var url = '/cms/admin/city/:id/edit';
-                               var urll =  data.id;
-                                return '\
-                                                   <a  onclick = SelectedPeopleRecord("' +
-                                                   urll +
-                                    '") class="btn btn-sm btn-clean btn-icon" title="Edit details">\
-                                                         <i class="la la-edit"></i>\
-                                                           </a>\
-                                                        <a href="javascript:;" class="btn btn-sm btn-clean btn-icon" title="Delete">\
-                                                     		<i class="la la-trash"></i>\
-                                                                   </a>\
-                                                                ';
-                            },
-                        },
-
-
-                    ],
-
-                });
-
-                table = dt.$;
-                // Re-init functions on every table re-draw -- more info: https://datatables.net/reference/event/draw
-                dt.on('draw', function() {
-                    KTMenu.createInstances();
-                });
-            }
-            return {
-                init: function() {
-                    initDatatable();
-                }
-            }
-        }();
-        // On document ready
-        KTUtil.onDOMContentLoaded(function() {
-            KTDatatablesServerSide.init();
-        });
-      
-        
-
-
-
-
-    });
-    
-
-</script>
-<script type="text/javascript">
-    var SelectedPeopleRecord = function(url) {
-
-
-        $("#myModal4").show();
-
-    }
-</script>
 @endsection
 
 
