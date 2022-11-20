@@ -9,6 +9,9 @@ use App\Core\Adapters\Theme;
 class BootstrapDemo1 extends BootstrapBase {
     // Private Properties
     private static $asideMenu;
+    private static $asideSubMenu;
+
+    
 
     private static $horizontalMenu;
 
@@ -142,6 +145,17 @@ class BootstrapDemo1 extends BootstrapBase {
 
         self::$asideMenu->setIconType(Theme::getOption('layout', 'aside/menu-icon'));
     }
+    private static function initSubAsideMenu() {
+        self::$asideSubMenu = new Menu( Theme::getOption('subb', 'main'), Theme::getPagePath() );
+
+        if (Theme::getOption('layout', 'aside/menu-icons-display') === false) {
+            self::$asideSubMenu->displayIcons(false);
+        }
+
+        self::$asideSubMenu->setIconType(Theme::getOption('layout', 'aside/menu-icon'));
+    }
+
+    
 
     private static function initHorizontalMenu() {
         self::$horizontalMenu = new Menu( Theme::getOption('menu', 'horizontal'), Theme::getPagePath() );
@@ -166,11 +180,16 @@ class BootstrapDemo1 extends BootstrapBase {
         self::initAside();
         self::initFooter();
         self::initAsideMenu();
+        self::initSubAsideMenu();
+
         self::initHorizontalMenu();
     }
 
     public static function getAsideMenu() {
         return self::$asideMenu;
+    }
+    public static function getAsideSubMenu() {
+        return self::$asideSubMenu;
     }
 
     public static function getHorizontalMenu() {

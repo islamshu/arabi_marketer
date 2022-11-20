@@ -1,6 +1,6 @@
 {{--begin::Aside Menu--}}
 @php
-    $menu = bootstrap()->getAsideMenu();
+    $menu = bootstrap()->getAsideSubMenu();
     // $menu = config('global.menu')
     \App\Core\Adapters\Menu::filterMenuPermissions($menu->items);
 @endphp
