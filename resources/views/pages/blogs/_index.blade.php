@@ -5,7 +5,11 @@
                 <th>صورة المقال</th>
                 <th>عنوان</th>
                 <th>اضيف بواسطة</th>
+                @can('red-comment-blog')
+                    
                 <th>عدد التعليقات</th>
+                @endcan
+
                 @can('status-blog')
                     
                 <th>الحالة</th>
@@ -22,7 +26,10 @@
              <td><img src="{{ asset('public/uploads/'.$item->image_blog->image) }}" width="50" height="50" alt=""></td>
              <td>{{ $item->title }}</td>
              <th><a href="{{ route('marketer.show',$item->user->id) }}">{{ $item->user->name }}</a></th>
+             @can('red-comment-blog')
+
              <th><a href="{{ route('show_comments',$item->id) }}">{{ $item->comments->count() }}</a> </th>
+             @endcan
              @can('status-blog')
 
              <td>
