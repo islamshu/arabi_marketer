@@ -52,10 +52,13 @@
 
 
                 <div class="tab-pane fade active show" id="kt_ecommerce_settings_general" role="tabpanel">
-                    @if (count($errors) > 0)
+
+                    @if (count($errors) > 0 || Session::get('error') != null)
                         <div class="alert alert-danger">
                             <strong>Whoops!</strong> There were some problems with your input.<br><br>
                             <ul>
+                                {{Session::get('error')}}
+
                                 @foreach ($errors->all() as $error)
                                     <li>{{ $error }}</li>
                                 @endforeach
