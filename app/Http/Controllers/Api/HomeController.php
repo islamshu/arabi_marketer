@@ -142,7 +142,7 @@ class HomeController extends BaseController
     public function get_markter($id)
     {
         // $name = str_replace('@','',$id);
-        $user = User::where('mention',$id)->first();
+        $user = User::where('mention',$id)->where('type','marketer')->first();
         if ($user) {
             // if ($user->type != 'marketer' || $user->type != 'Admin') {
             //     return $this->sendError('هذا ليس حساب مسوق !');

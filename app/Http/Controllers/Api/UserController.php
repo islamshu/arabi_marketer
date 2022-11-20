@@ -128,7 +128,7 @@ class UserController extends BaseController
         if ($validation->fails()) {
             return $this->sendError($validation->messages()->all());
         }
-        $user = User::where('email', $request->email)->first();
+        $user = User::where('email', $request->email)->where('type','!=','staff')->first();
         if ($user) {
             if (Hash::check($request->password, $user->password)) {
                 $token = $user->createToken('Personal Access Token')->accessToken;
