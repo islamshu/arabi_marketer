@@ -34,6 +34,68 @@ use View;
 
 class HomeController extends BaseController
 {
+
+
+    public function about(){
+        $about_section = AboutPage::select('title', 'body')->first();
+        $res['about'] = $about_section;
+        $howItWork = HowItWork::orderby('order', 'asc')->get();
+        $hows = HowItWorksResourse::collection($howItWork);
+        $res['howItWorks'] = $hows;
+        return $this->sendResponse($res, 'home page');
+
+    }
+    public function all_scope(){
+        $res['all_scope'] = CategoryResource::collection(Category::ofType('user')->get());
+        return $this->sendResponse($res, 'home page');
+    }
+    public function get_service(){
+
+        $services = ServiceResource::collection(Service::orderby('id', 'desc')->take(6)->get());
+
+        $res['service']['home'] = $services;
+        $res['service']['new'] = $services;
+        $res['service']['best'] = $services;
+        return $this->sendResponse($res, 'home page');
+
+    }
+    public function get_blog(){
+        $blogs = BlogResource::collection(Blog::orderBy('id', 'desc')->take(6)->get());
+        $res['blog']['category'] = CategoryBlogResource::collection(Category::ofType('blog')->get());
+
+        $res['blog']['new'] = $blogs;
+        $res['blog']['best'] = $blogs;
+        return $this->sendResponse($res, 'home page');
+
+    }
+    public function get_markter_home(){
+
+        $markter = User::where('type', 'marketer')->where('status', 1)->take(8)->get();
+
+        $res['markter'] = UserNotAuthResource::collection($markter);
+        return $this->sendResponse($res, 'home page');
+
+    }
+    public function get_consulting(){
+        $cons = ConsultingResource::collection(Consulting::orderby('id', 'desc')->take(3)->get());
+        $res['consuliong'] = $cons;
+        return $this->sendResponse($res, 'home page');
+
+    }
+    public function get_video(){
+        
+        $videos = VideoResource::collection(Video::orderBy('id', 'desc')->take(4)->get());
+        $res['video'] = $videos;
+        return $this->sendResponse($res, 'home page');
+
+    }
+    public function get_podcast()
+    {
+        $podcast = PodcastResource::collection(NewPodcast::orderBy('id', 'desc')->take(3)->get());
+        $res['Podcast'] = $podcast;
+
+        return $this->sendResponse($res, 'home page');
+    }
     public function home()
     {
         $about_section = AboutPage::select('title', 'body')->first();
