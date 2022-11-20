@@ -495,7 +495,6 @@
 <script src="{{ asset('demo1/plugins/custom/datatables/datatables.bundle.js') }}"></script>
 <script src="{{ asset('new_js/crud.js') }}"></script>
 <script src="{{ asset('new_js/upload_file.js') }}"></script>
-@yield('content')
 
 <script>
     $(".image").change(function() {
