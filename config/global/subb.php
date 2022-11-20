@@ -1,5 +1,5 @@
 <?php
-return     return array(
+     return array(
     // Documentation menu
     // 'documentation' => array(
     //     // Getting Started
