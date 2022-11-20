@@ -62,7 +62,7 @@
                     <tr>
                      <td>{{ $key +1 }}</td>
                      <td>{{ $item->blog->title }}</td>
-                     <td>{{ $item->body }}</td>
+                     <td>{!! $item->body !!}</td>
                      @can('status-comment-blog')
 
                      <td>
