@@ -76,6 +76,8 @@
                                     <input type="checkbox" data-id="{{ $item->id }}" name="status" class="js-switch"
                                         {{ $item->status == 1 ? 'checked' : '' }}>
                             @endcan
+                            </td>
+                            <td>
 
 
 
