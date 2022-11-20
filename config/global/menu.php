@@ -1,4 +1,5 @@
 <?php
+use Auth;
 if(Auth::user()->type =='Admin'){
 
 
