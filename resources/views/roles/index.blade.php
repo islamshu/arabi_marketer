@@ -49,9 +49,8 @@
             <!--begin:::Tab content-->
             <div class="tab-content" id="myTabContent">
                 <!--begin:::Tab pane-->
-                <button id="slide-toggle-button" class="btn btn-primary">
-                    اضف جديد
-                </button>
+              
+                <a href="{{ route('roles.create') }}" class="btn btn-primary" >اضف جديد</a>
                 
                 <div class="tab-pane fade active show" id="kt_ecommerce_settings_general" role="tabpanel">
 
