@@ -53,7 +53,7 @@
 
                 <div class="tab-pane fade active show" id="kt_ecommerce_settings_general" role="tabpanel">
 
-                    <div>
+                    <div class="col-md-6">
                         {!! Form::text('name', null, ['placeholder' => 'اسم الدور', 'class' => 'form-control']) !!}
                     </div>
                 </div>
