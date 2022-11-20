@@ -41,7 +41,11 @@
             <td>{{ $item->created_at->format('Y-m-d') }}</td>
 
              <td>
+                @can('edit-blog')
                 <a href="{{ route('blogs.edit', $item->id) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
+                @endcan
+                @can('delete-blog')
+
                 <form style="display: inline"
                     action="{{ route('blogs.destroy', $item->id) }}"
                     method="post">
@@ -49,6 +53,7 @@
                     <button type="submit" class="btn btn-danger delete-confirm"><i
                             class="fa fa-trash"></i></button>
                 </form>
+                @endcan
             </td>
             </tr>
                 
