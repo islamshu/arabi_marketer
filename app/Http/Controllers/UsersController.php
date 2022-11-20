@@ -7,6 +7,7 @@ use App\Models\MarkterOrder;
 use App\Models\User;
 use App\Notifications\GeneralNotification;
 use Auth;
+use Hash;
 use Illuminate\Http\Request;
 use Notification;
 use Spatie\Permission\Models\Role;
@@ -28,7 +29,23 @@ class UsersController extends Controller
        return view('pages.users.create')->with('roles',$roles);
     }
     public function store(Request $request){
-        dd($request->all());
+       $request->validate([
+        'name' => 'required|unique:users,name',
+        'email' => 'required|unique:users,email',
+        'password' => 'required',
+        'confirm_password' => 'required|same:password',
+       ]);
+
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->mention =  '@'. str_replace(' ','_',$request->name) ;
+        $user->type = 'staff';
+        $user->image = 'users/defult_user.png';
+        $user->password =  Hash::make($request->password);
+        $user->save();
+        $user->assignRole($request->input('roles'));
+       return redirect()->route('user_index')->with(['success'=>'تم الاضافة بنجاح']);
     }
     
     public function getData(Request $request){
