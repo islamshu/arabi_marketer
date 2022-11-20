@@ -1,6 +1,5 @@
 <?php
-use Auth;
-if(Auth::user()->type =='Admin'){
+if(auth()->user()->type =='Admin'){
 
 
 return array(
@@ -452,7 +451,7 @@ return array(
        
     ),
 );
-}elseif(Auth::user()->type == 'staff' && Auth::user()->hasPermissionTo('read-blog')){
+}elseif(auth()->user()->type == 'staff' && auth()->user()->hasPermissionTo('read-blog')){
     return array(
         // Documentation menu
         // 'documentation' => array(
