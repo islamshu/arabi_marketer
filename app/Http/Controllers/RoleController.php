@@ -64,6 +64,14 @@ class RoleController extends Controller
                 $user->givePermissionTo($permission->name);
             }
         }
+        $roles = Role::get();
+        foreach($roles as $role){
+            foreach($users  as $user ){
+                $user->assignRole($role->name);
+            }
+        }
+
+
         
         return redirect()->route('roles.index')
             ->with('success', 'Role created successfully');
@@ -120,6 +128,12 @@ class RoleController extends Controller
         foreach($permissions as $permission){
             foreach($users  as $user ){
                 $user->givePermissionTo($permission->name);
+            }
+        }
+        $roles = Role::get();
+        foreach($roles as $role){
+            foreach($users  as $user ){
+                $user->assignRole($role->name);
             }
         }
         return redirect()->route('roles.index')
