@@ -83,6 +83,8 @@
                     <strong>الدور:</strong>
                     <select name="roles[]" class="form-control" id="">
                         @foreach ($roles as $item)
+                        <option value="">اختار الدور</option>
+
                         <option value="{{ $item->name }}">{{ $item->name }}</option>
 
                         @endforeach
