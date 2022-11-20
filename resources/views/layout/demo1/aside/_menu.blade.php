@@ -2,7 +2,7 @@
 @php
     $menu = bootstrap()->getAsideMenu();
     \App\Core\Adapters\Menu::filterMenuPermissions($menu->items);
-
+    dd(config('global.menu'));
 @endphp
 
 <div
