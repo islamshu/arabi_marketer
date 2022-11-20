@@ -78,19 +78,6 @@
 
 </x-base-layout>
 
-@section('scripts')
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
 @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
 
-{{-- <script src="{{ asset('crudjs/crud.js') }}"></script> --}}
-<link href="{{ asset('demo1/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css" />
-<script src="{{ asset('demo1/plugins/custom/datatables/datatables.bundle.js') }}"></script>
-
-
-@endsection
-
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
