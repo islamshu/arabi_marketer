@@ -81,7 +81,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-6 mt-5">
                     <div class="form-group">
                     <strong>الدور:</strong>
-                    <select name="roles[]" class="form-control" id="">
+                    <select name="roles[]" class="form-control" required id="">
                         @foreach ($roles as $item)
                         <option value="">اختار الدور</option>
 
