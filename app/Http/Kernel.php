@@ -70,6 +70,8 @@ class Kernel extends HttpKernel
         'is_login' =>Is_login::class,
         'Is_markter'=>Is_markter::class,
         'is_able_markter'=>Is_able_markter::class,
+        'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
+        'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
         
 
 

@@ -24,6 +24,7 @@ use App\Http\Controllers\PlacetypeController;
 use App\Http\Controllers\PodacstController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuastionController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\SpecialtyController;
@@ -201,6 +202,7 @@ Route::middleware('auth')->group(function () {
     Route::post('upload_image',[GeneralInfoController::class,'upload'])->name("upload_image");
     Route::get('get_image/{id}',[GeneralInfoController::class,'get_image'])->name("get_image");
     Route::post('update_data_image',[GeneralInfoController::class,'update_data_image'])->name("update_data_image");
+    Route::resource('roles',RoleController::class);
 
     
     
