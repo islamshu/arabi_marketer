@@ -47,6 +47,7 @@
                             </thead>
                             <tbody class="text-gray-600 fw-semibold">
                                 @foreach ($users as $key=> $user)
+                                <tr>
                                     <td>{{ $key }}</td>
                                     <td>{{ $user->mention }}</td>
                                     <td>{{ $user->email }}</td>
@@ -60,8 +61,8 @@
                                                     class="fa fa-trash"></i></button>
                                         </form>
                                     </td>
+                                </tr>
                                 @endforeach
-                                <tr></tr>
                             </tbody>
                         </table>
                         <!--end: Datatable-->
