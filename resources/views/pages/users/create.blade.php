@@ -54,31 +54,31 @@
                 <div class="tab-pane fade active show" id="kt_ecommerce_settings_general" role="tabpanel">
                     {!! Form::open(array('route' => 'users.store','method'=>'POST')) !!}
                     <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="col-xs-12 col-sm-12 rolescol-md-6">
                     <div class="form-group">
                     <strong>الاسم:</strong>
                     {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
                     </div>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="col-xs-12 col-sm-12 rolescol-md-6">
                     <div class="form-group">
                     <strong>البريد الاكتروني:</strong>
                     {!! Form::text('email', null, array('placeholder' => 'Email','class' => 'form-control')) !!}
                     </div>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="col-xs-12 col-sm-12 rolescol-md-6">
                     <div class="form-group">
                     <strong>كلمة المرور:</strong>
                     {!! Form::password('password', array('placeholder' => 'Password','class' => 'form-control')) !!}
                     </div>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="col-xs-12 col-sm-12 rolescol-md-6">
                     <div class="form-group">
                     <strong> تأكيد كلمة المرور:</strong>
                     {!! Form::password('confirm-password', array('placeholder' => 'Confirm Password','class' => 'form-control')) !!}
                     </div>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="col-xs-12 col-sm-12 rolescol-md-6">
                     <div class="form-group">
                     <strong>الدور:</strong>
                     <select name="roles[]" class="form-control" id="">
@@ -88,7 +88,7 @@
                         @endforeach
                     </select>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                    <div class="col-xs-12 col-sm-12 rolescol-md-6 text-center">
                     <button type="submit" class="btn btn-primary">حفظ</button>
                     </div>
                     </div>
