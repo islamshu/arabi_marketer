@@ -291,6 +291,11 @@ return array(
             'path'  => 'users',
             'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen017.svg", "svg-icon-2"),
         ),
+        array(
+            'title' => 'Roles',
+            'path'  => 'roles',
+            'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen017.svg", "svg-icon-2"),
+        ),
         
         array(
             'title' => 'Countries',
