@@ -51,7 +51,10 @@
                         <th># </th>
                         <th>عنوان التدوينة </th>
                         <th>التعليق  </th>
+                        @can('status-comment-blog')
                         <th>الحالة</th>
+                        @endcan
+
                     </tr>
                 </thead>
                 <tbody>
@@ -60,10 +63,13 @@
                      <td>{{ $key +1 }}</td>
                      <td>{{ $item->blog->title }}</td>
                      <td>{{ $item->body }}</td>
+                     @can('status-comment-blog')
+
                      <td>
                         <input type="checkbox" data-id="{{ $item->id }}" name="status" class="js-switch"
                             {{ $item->status == 1 ? 'checked' : '' }}>
-                    </td>        
+                    </td>     
+                    @endcan   
                     
                     </tr>
                         
