@@ -115,7 +115,7 @@ aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         },
                         {
 
-                            data: 'first_name'
+                            data: 'mention'
                         },
 
                         {
