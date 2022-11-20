@@ -52,8 +52,9 @@
 
 
                 <div class="tab-pane fade active show" id="kt_ecommerce_settings_general" role="tabpanel">
-                    {!! Form::open(array('route' => 'users.store','method'=>'POST')) !!}
-                    <div class="row">
+                <form method="post" action="{{ route('users.store') }}" >
+                    @csrf
+                <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-6 mt-5">
                     <div class="form-group">
                     <strong>الاسم:</strong>
@@ -94,8 +95,8 @@
                     <button type="submit" class="btn btn-primary">حفظ</button>
                     </div>
                     </div>
-                    {!! Form::close() !!}
-                    </div>
+                </form>
+                </div>
 
                 </div>
 

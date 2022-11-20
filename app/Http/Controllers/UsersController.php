@@ -27,6 +27,9 @@ class UsersController extends Controller
         $roles = Role::get();
        return view('pages.users.create')->with('roles',$roles);
     }
+    public function store(Request $request){
+        dd($request->all());
+    }
     
     public function getData(Request $request){
         $users = User::orderBy('id', 'asc')->where('type','!=','user')->where('type','!=','marketer');
