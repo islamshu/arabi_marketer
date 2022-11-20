@@ -74,7 +74,7 @@ aria-labelledby="staticBackdropLabel" aria-hidden="true">
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+@include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
 
 {{-- <script src="{{ asset('crudjs/crud.js') }}"></script> --}}
 <link href="{{ asset('demo1/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css" />
