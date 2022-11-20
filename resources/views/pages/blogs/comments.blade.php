@@ -54,6 +54,8 @@
                         @can('status-comment-blog')
                         <th>الحالة</th>
                         @endcan
+                        <th>الاجراءات  </th>
+
 
                     </tr>
                 </thead>
@@ -71,22 +73,20 @@
                     </td>   
                       
                     @endcan 
-                    @can('status-comment-blog')
 
                     
-                <form style="display: inline"
-                action="{{ route('comments.destroy', $item->id) }}"
-                method="post">
-                @method('delete') @csrf
-                <button type="submit" class="btn btn-danger delete-confirm"><i
-                        class="fa fa-trash"></i></button>
-            </form>  
+                
                     @can('delete-comment-blog')
-                        
+                    <form style="display: inline"
+                    action="{{ route('comments.destroy', $item->id) }}"
+                    method="post">
+                    @method('delete') @csrf
+                    <button type="submit" class="btn btn-danger delete-confirm"><i
+                            class="fa fa-trash"></i></button>
+                </form> 
                     @endcan
                     </tr>
                         
-                    @endforeach
                 </tfoot>
             </table>
             <!--end:::Tabs-->
