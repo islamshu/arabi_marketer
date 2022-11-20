@@ -1,9 +1,9 @@
 {{--begin::Aside Menu--}}
 @php
     // $menu = bootstrap()->getAsideMenu();
-    $menu = config('global.menu');
-    // \App\Core\Adapters\Menu::filterMenuPermissions($menu->items);
-    // dd();
+    // $menu = config('global.menu')
+    \App\Core\Adapters\Menu::filterMenuPermissions($menu->items);
+    dd();
 @endphp
 
 <div
