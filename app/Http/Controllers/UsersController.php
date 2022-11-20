@@ -9,7 +9,7 @@ use App\Notifications\GeneralNotification;
 use Auth;
 use Illuminate\Http\Request;
 use Notification;
-use Spatie\Permission\Contracts\Role;
+use Spatie\Permission\Models\Role;
 
 class UsersController extends Controller
 {
