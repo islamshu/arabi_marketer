@@ -50,17 +50,16 @@
             <div class="tab-content" id="myTabContent">
                 <!--begin:::Tab pane-->
 
-                <a href="{{ route('roles.create') }}" class="btn btn-primary">اضف جديد</a>
 
                 <div class="tab-pane fade active show" id="kt_ecommerce_settings_general" role="tabpanel">
 
                     <div>
-                        {!! Form::text('name', null, ['placeholder' => 'Name', 'class' => 'form-control']) !!}
+                        {!! Form::text('name', null, ['placeholder' => 'اسم الدور', 'class' => 'form-control']) !!}
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Permission:</strong>
+                        <strong>الاذونات:</strong>
                         <br />
                         @foreach ($permission as $value)
                             <label>{{ Form::checkbox('permission[]', $value->id, false, ['class' => 'name']) }}
