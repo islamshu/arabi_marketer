@@ -3,8 +3,9 @@
         <thead>
             <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
                 <th>#</th>
-                <th>Name</th>
-                <th>Eamil</th>
+                <th>الاسم</th>
+                <th>البريد الاكتروني</th>
+                <th>نوع المستخدم </th>
 
                 <th class="text-end min-w-50px">الاجراءات</th>
             </tr>

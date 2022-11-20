@@ -122,6 +122,9 @@ aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             data: 'email'
                         },
                         {
+                            data: 'type'
+                        },
+                        {
                             data: null
                         }
                     ],
