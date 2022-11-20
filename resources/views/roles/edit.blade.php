@@ -52,39 +52,38 @@
 
 
                 <div class="tab-pane fade active show" id="kt_ecommerce_settings_general" role="tabpanel">
-                    {!! Form::open(['route' => 'roles.store', 'method' => 'POST']) !!}
+                    {!! Form::model($role, ['method' => 'PATCH', 'route' => ['roles.update', $role->id]]) !!}
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>اسم الدور:</strong>
-                                <div>
-                                    {!! Form::text('name', null, ['placeholder' => 'اسم الدور', 'class' => 'form-control']) !!}
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>الاذونات:</strong>
-                                    <br />
-                                    @foreach ($permission as $value)
-                                        <label>{{ Form::checkbox('permission[]', $value->id, false, ['class' => 'name']) }}
-                                            {{ $value->name }}</label>
-                                        <br />
-                                    @endforeach
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary">حفظ</button>
+                                {!! Form::text('name', null, ['placeholder' => 'Name', 'class' => 'form-control']) !!}
                             </div>
                         </div>
-                        {!! Form::close() !!}
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>الاذونات:</strong>
+                                <br />
+                                @foreach ($permission as $value)
+                                    <label>{{ Form::checkbox('permission[]', $value->id, in_array($value->id, $rolePermissions) ? true : false, ['class' => 'name']) }}
+                                        {{ $value->name }}</label>
+                                    <br />
+                                @endforeach
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                            <button type="submit" class="btn btn-primary">حفظ</button>
+                        </div>
                     </div>
-
+                    {!! Form::close() !!}
                 </div>
 
             </div>
-            <!--end:::Tab content-->
+
         </div>
-        <!--end::Card body-->
+        <!--end:::Tab content-->
+    </div>
+    <!--end::Card body-->
     </div>
 
 </x-base-layout>
