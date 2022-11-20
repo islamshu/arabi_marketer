@@ -10,7 +10,7 @@
                 role="tablist">
                 <!--begin:::Tab item-->
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link text-active-primary pb-5 " href="/" >
+                    <a class="nav-link text-active-primary pb-5 " href="/">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen001.svg-->
                         <span class="svg-icon svg-icon-2 me-2">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -25,13 +25,18 @@
 
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link text-active-primary pb-5 active" >
+                    <a class="nav-link text-active-primary pb-5 active">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen001.svg-->
                         <span class="svg-icon svg-icon-2 me-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path opacity="0.3" d="M21 22H14C13.4 22 13 21.6 13 21V3C13 2.4 13.4 2 14 2H21C21.6 2 22 2.4 22 3V21C22 21.6 21.6 22 21 22Z" fill="currentColor"></path>
-                                <path d="M10 22H3C2.4 22 2 21.6 2 21V3C2 2.4 2.4 2 3 2H10C10.6 2 11 2.4 11 3V21C11 21.6 10.6 22 10 22Z" fill="currentColor"></path>
-                                </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none">
+                                <path opacity="0.3"
+                                    d="M21 22H14C13.4 22 13 21.6 13 21V3C13 2.4 13.4 2 14 2H21C21.6 2 22 2.4 22 3V21C22 21.6 21.6 22 21 22Z"
+                                    fill="currentColor"></path>
+                                <path
+                                    d="M10 22H3C2.4 22 2 21.6 2 21V3C2 2.4 2.4 2 3 2H10C10.6 2 11 2.4 11 3V21C11 21.6 10.6 22 10 22Z"
+                                    fill="currentColor"></path>
+                            </svg>
                         </span>
                         <!--end::Svg Icon-->التعليقات الخاصة بمقال {{ $blog->title }}
                     </a>
@@ -40,58 +45,56 @@
 
 
             </ul>
-        
 
-            
 
-            
+
+
+
             <table id="example" class="display" style="width:100%">
                 <thead>
                     <tr>
                         <th># </th>
                         <th>عنوان التدوينة </th>
-                        <th>التعليق  </th>
+                        <th>التعليق </th>
                         @can('status-comment-blog')
-                        <th>الحالة</th>
+                            <th>الحالة</th>
                         @endcan
-                        <th>الاجراءات  </th>
+                        <th>الاجراءات </th>
 
 
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($comments as $key=> $item)
-                    <tr>
-                     <td>{{ $key +1 }}</td>
-                     <td>{{ $item->blog->title }}</td>
-                     <td>{!! $item->body !!}</td>
-                     @can('status-comment-blog')
+                    @foreach ($comments as $key => $item)
+                        <tr>
+                            <td>{{ $key + 1 }}</td>
+                            <td>{{ $item->blog->title }}</td>
+                            <td>{!! $item->body !!}</td>
+                            @can('status-comment-blog')
+                                <td>
+                                    <input type="checkbox" data-id="{{ $item->id }}" name="status" class="js-switch"
+                                        {{ $item->status == 1 ? 'checked' : '' }}>
+                                </td>
+                            @endcan
 
-                     <td>
-                        <input type="checkbox" data-id="{{ $item->id }}" name="status" class="js-switch"
-                            {{ $item->status == 1 ? 'checked' : '' }}>
-                    </td>   
-                      
-                    @endcan 
 
-                    
-                
-                    @can('delete-comment-blog')
-                    <form style="display: inline"
-                    action="{{ route('comments.destroy', $item->id) }}"
-                    method="post">
-                    @method('delete') @csrf
-                    <button type="submit" class="btn btn-danger delete-confirm"><i
-                            class="fa fa-trash"></i></button>
-                </form> 
-                    @endcan
-                    </tr>
-                        
-                </tfoot>
+
+                            @can('delete-comment-blog')
+                                <form style="display: inline" action="{{ route('comments.destroy', $item->id) }}"
+                                    method="post">
+                                    @method('delete') @csrf
+                                    <button type="submit" class="btn btn-danger delete-confirm"><i
+                                            class="fa fa-trash"></i></button>
+                                </form>
+                            @endcan
+                        </tr>
+                        @endforeach
+
+                        </tfoot>
             </table>
             <!--end:::Tabs-->
             <!--begin:::Tab content-->
-            
+
             <!--end:::Tab content-->
         </div>
         <!--end::Card body-->
