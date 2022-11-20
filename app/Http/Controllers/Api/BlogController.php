@@ -224,7 +224,7 @@ class BlogController extends BaseController
         $service->image_id = $request->image;
         $service->small_description = $request->meta_description;
         $service->meta_title = $request->title;
-        // $service->slug = str_replace(' ','_',$request->title.'_'.Blog::count()+1) ; 
+        $service->slug = str_replace(' ','_',$request->title.'_'.$service->id) ; 
                if($request->image != null){
             $service->image_id = $request->image;
         }
