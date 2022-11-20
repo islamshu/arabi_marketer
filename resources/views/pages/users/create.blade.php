@@ -92,7 +92,7 @@
                     </select>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 mt-5 text-center">
-                    <button type="submit" class="btn btn-primary">حفظ</button>
+                    <input type="submit" class="btn btn-primary" value="حفظ">
                     </div>
                     </div>
                 </form>
