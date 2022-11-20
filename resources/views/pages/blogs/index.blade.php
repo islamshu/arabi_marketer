@@ -161,10 +161,13 @@
                     <a class="nav-link " data-bs-toggle="tab" href="#kt_tab_pane_3"> المقالات المعلقة</a>
                 </li>
 
-
+                @can('create-blog')
+                    
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_2">اضف جديد</a>
                 </li>
+                @endcan
+
 
             </ul>
 
@@ -178,10 +181,13 @@
                 </div>
 
 
+                @can('create-blog')
 
                 <div class="tab-pane fade" id="kt_tab_pane_2" role="tabpanel">
                     @include('pages.blogs._create')
                 </div>
+                @endcan
+
 
             </div>
             <!--end:::Tabs-->
