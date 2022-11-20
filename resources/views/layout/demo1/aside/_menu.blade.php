@@ -1,6 +1,11 @@
 {{--begin::Aside Menu--}}
 @php
-    $menu = bootstrap()->getAsideSubMenu();
+    if(auth()->user()->type == 'Admin'){
+        $menu = bootstrap()->getAsideMenu();
+    }elseif(auth()->user()->type == 'staff' && auth()->user()->hasPermissionTo('read-blog')){
+        $menu = bootstrap()->getSubAsideMenu();
+
+    }
     // $menu = config('global.menu')
     \App\Core\Adapters\Menu::filterMenuPermissions($menu->items);
 @endphp
