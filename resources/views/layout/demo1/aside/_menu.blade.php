@@ -3,7 +3,7 @@
     if(auth()->user()->type == 'Admin'){
         $menu = bootstrap()->getAsideMenu();
     }elseif(auth()->user()->type == 'staff' && auth()->user()->hasPermissionTo('read-blog')){
-        $menu = bootstrap()->getSubAsideMenu();
+        $menu = bootstrap()->getAsideSubMenu();
 
     }
     // $menu = config('global.menu')
