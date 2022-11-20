@@ -207,6 +207,8 @@ Route::middleware('auth')->group(function () {
     
     
     Route::get('show_comments/{id}',[BlogController::class,'show_comments'])->name('show_comments');
+    Route::delete('comments',[BlogController::class,'delete_comment'])->name('comments.destroy');
+
     Route::get('update_comment_status/',[BlogController::class,'update_comment_status'])->name('comment.update.status');
     Route::resource('general_info',GeneralInfoController::class);
     Route::get('general_data',[GeneralInfoController::class,'general_data'])->name('general_data');

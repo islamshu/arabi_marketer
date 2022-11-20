@@ -160,6 +160,14 @@ class BlogController extends Controller
         $comment->save();
         return true;
     }
+    public function delete_comment($id)
+    {
+        $comment  = Comment::find($id);
+        $comment->delete();
+        Alert::success('Success', 'Deleted successfully');
+
+
+    }
     public function edit($id)
     {
         $blog = Blog::find($id);

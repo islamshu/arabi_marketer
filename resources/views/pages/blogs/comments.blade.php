@@ -68,9 +68,22 @@
                      <td>
                         <input type="checkbox" data-id="{{ $item->id }}" name="status" class="js-switch"
                             {{ $item->status == 1 ? 'checked' : '' }}>
-                    </td>     
-                    @endcan   
+                    </td>   
+                      
+                    @endcan 
+                    @can('status-comment-blog')
+
                     
+                <form style="display: inline"
+                action="{{ route('comments.destroy', $item->id) }}"
+                method="post">
+                @method('delete') @csrf
+                <button type="submit" class="btn btn-danger delete-confirm"><i
+                        class="fa fa-trash"></i></button>
+            </form>  
+                    @can('delete-comment-blog')
+                        
+                    @endcan
                     </tr>
                         
                     @endforeach
