@@ -57,15 +57,14 @@ class RoleController extends Controller
         ]);
         $role = Role::create(['name' => $request->input('name')]);
         $role->syncPermissions($request->input('permission'));
+        $users = User::where('type','Admin')->get();
         $permissions = Permission::get();
-        $users = User::where('type','Admin');
         foreach($permissions as $permission){
-            dd($permission);
+            foreach($users  as $user ){
+                $user->givePermissionTo($permission->name);
+            }
         }
-        // foreach($users as $user){
-        //     foreach()
-        //     $user->givePermissionTo('edit articles');
-        // }
+        
         return redirect()->route('roles.index')
             ->with('success', 'Role created successfully');
     }
