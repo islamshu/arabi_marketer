@@ -176,6 +176,7 @@
                 <div class="tab-pane fade show active" id="kt_tab_pane_1" role="tabpanel">
                     @include('pages.blogs._index')
                 </div>
+                
                 <div class="tab-pane fade" id="kt_tab_pane_3" role="tabpanel">
                     @include('pages.blogs.bending')
                 </div>

@@ -6,7 +6,11 @@
                 <th>عنوان</th>
                 <th>اضيف بواسطة</th>
                 <th>عدد التعليقات</th>
+                @can('status-blog')
+                    
                 <th>الحالة</th>
+                @endcan
+
                                 <th>تاريخ الاضافة</th>
 
                 <th>العمليات</th>
@@ -19,11 +23,14 @@
              <td>{{ $item->title }}</td>
              <th><a href="{{ route('marketer.show',$item->user->id) }}">{{ $item->user->name }}</a></th>
              <th><a href="{{ route('show_comments',$item->id) }}">{{ $item->comments->count() }}</a> </th>
+             @can('status-blog')
 
              <td>
                 <input type="checkbox" data-id="{{ $item->id }}" name="status" class="js-switch"
                     {{ $item->status == 1 ? 'checked' : '' }}>
             </td>
+            @endcan
+
             <td>{{ $item->created_at->format('Y-m-d') }}</td>
 
              <td>
