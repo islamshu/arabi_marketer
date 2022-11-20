@@ -21,13 +21,15 @@
                                     fill="currentColor"></path>
                             </svg>
                         </span>
-                        <!--end::Svg Icon-->General
+                        <!--end::Svg Icon-->المستخدمين
                     </a>
                 </li>
 
             </ul>
             <!--end:::Tabs-->
             <!--begin:::Tab content-->
+            <a href="{{ route('users.create') }}" class="btn btn-primary" >اضف جديد</a>
+
             <div class="tab-content" id="myTabContent">
                 <!--begin:::Tab pane-->
                 <div class="tab-pane fade active show" id="kt_ecommerce_settings_general" role="tabpanel">
