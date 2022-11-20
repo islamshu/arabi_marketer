@@ -40,7 +40,7 @@ class RoleController extends Controller
     public function create()
     {
         $permission = Permission::get();
-        return view('roles.create', compact('permission'));
+        return view('roles._create', compact('permission'));
     }
     /**
      * Store a newly created resource in storage.
