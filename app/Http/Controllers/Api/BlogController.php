@@ -269,6 +269,14 @@ class BlogController extends BaseController
                 $key->save();
             }
         }
+        $tags = Tag::where('blog_id',$service->id)->delete();
+        $tags = explode(',', $request->tags);
+        foreach ($tags as $s) {
+            $tag = new Tag();
+            $tag->title =  $s;
+            $tag->blog_id = $service->id;
+            $tag->save();
+        }
 
         $res = new BlogResource($service);
         return $this->sendResponse($res, 'تم التعديل بنجاح');

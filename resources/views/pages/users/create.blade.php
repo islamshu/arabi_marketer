@@ -52,51 +52,61 @@
 
 
                 <div class="tab-pane fade active show" id="kt_ecommerce_settings_general" role="tabpanel">
-                <form method="post" action="{{ route('users.store') }}" >
-                    @csrf
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-6 mt-5">
-                    <div class="form-group">
-                    <strong>الاسم:</strong>
-                    <input type="text" name="name" required class="form-control"  id="">
-                    </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-6 mt-5">
-                    <div class="form-group">
-                    <strong>البريد الاكتروني:</strong>
-                    <input type="email" name="email" required class="form-control"  id="">
-                    </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-6 mt-5">
-                    <div class="form-group">
-                    <strong>كلمة المرور:</strong>
-                    <input type="password" name="password" required class="form-control"  id="">
-                    </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-6 mt-5">
-                    <div class="form-group">
-                    <strong> تأكيد كلمة المرور:</strong>
-                    <input type="password" name="confirm-password" required class="form-control"  id="">
-                    </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-6 mt-5">
-                    <div class="form-group">
-                    <strong>الدور:</strong>
-                    <select name="roles[]" class="form-control" required id="">
-                        @foreach ($roles as $item)
-                        <option value="">اختار الدور</option>
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                                <form method="post" action="{{ route('users.store') }}">
+                                    @csrf
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-6 mt-5">
+                                            <div class="form-group">
+                                                <strong>الاسم:</strong>
+                                                <input type="text" name="name" old required class="form-control"
+                                                    id="">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-6 mt-5">
+                                            <div class="form-group">
+                                                <strong>البريد الاكتروني:</strong>
+                                                <input type="email" name="email" required class="form-control"
+                                                    id="">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-6 mt-5">
+                                            <div class="form-group">
+                                                <strong>كلمة المرور:</strong>
+                                                <input type="password" name="password" required class="form-control"
+                                                    id="">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-6 mt-5">
+                                            <div class="form-group">
+                                                <strong> تأكيد كلمة المرور:</strong>
+                                                <input type="password" name="confirm-password" required
+                                                    class="form-control" id="">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-6 mt-5">
+                                            <div class="form-group">
+                                                <strong>الدور:</strong>
+                                                <select name="roles[]" class="form-control" required id="">
+                                                    @foreach ($roles as $item)
+                                                        <option value="">اختار الدور</option>
 
-                        <option value="{{ $item->name }}">{{ $item->name }}</option>
-
-                        @endforeach
-                    </select>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-6 mt-5 text-center">
-                    <input type="submit" class="btn btn-primary" value="حفظ">
-                    </div>
-                    </div>
-                </form>
-                </div>
+                                                        <option value="{{ $item->name }}">{{ $item->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-6 mt-5 text-center">
+                                                <input type="submit" class="btn btn-primary" value="حفظ">
+                                            </div>
+                                        </div>
+                                </form>
+                        </div>
 
                 </div>
 
