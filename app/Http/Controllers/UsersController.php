@@ -32,7 +32,7 @@ class UsersController extends Controller
     public function store(Request $request){
         $check = User::where('email',$request->email)->where('type','staff')->first();
         if($check){
-            return redirect()->back()->with(['error','البريد الاكتروني مستخدم من قبل']);
+            return redirect()->back()->with(['error'=>'البريد الاكتروني مستخدم من قبل']);
         }
        $request->validate([
         'name' => 'required',
