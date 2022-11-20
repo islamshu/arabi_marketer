@@ -96,7 +96,7 @@
                                         @foreach ($roles as $item)
                                             <option value="">اختار الدور</option>
 
-                                            <option value="{{ $item->name }}" @if(in_array(old('roles'),$roles)) @endif>{{ $item->name }}</option>
+                                            <option value="{{ $item->name }}" >{{ $item->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
