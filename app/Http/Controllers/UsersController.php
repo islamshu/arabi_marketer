@@ -9,6 +9,7 @@ use App\Notifications\GeneralNotification;
 use Auth;
 use Illuminate\Http\Request;
 use Notification;
+use Spatie\Permission\Contracts\Role;
 
 class UsersController extends Controller
 {
@@ -20,6 +21,11 @@ class UsersController extends Controller
     public function index()
     {
        return response()->view('pages.users.index');
+    }
+    public function create()
+    {
+        $roles = Role::pluck('name','name')->all();
+       return view('pages.users.create')->with('roles');
     }
     
     public function getData(Request $request){
