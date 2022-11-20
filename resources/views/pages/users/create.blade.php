@@ -66,14 +66,14 @@
                             <div class="col-xs-12 col-sm-12 col-md-6 mt-5">
                                 <div class="form-group">
                                     <strong>الاسم:</strong>
-                                    <input type="text" name="name" old required class="form-control"
+                                    <input type="text" name="name" value="{{ old('name') }}" required class="form-control"
                                         id="">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 mt-5">
                                 <div class="form-group">
                                     <strong>البريد الاكتروني:</strong>
-                                    <input type="email" name="email" required class="form-control" id="">
+                                    <input type="email" name="email" value="{{ old('email') }}" required class="form-control" id="">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 mt-5">
@@ -85,7 +85,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-6 mt-5">
                                 <div class="form-group">
                                     <strong> تأكيد كلمة المرور:</strong>
-                                    <input type="password" name="confirm-password" required class="form-control"
+                                    <input type="password" name="confirm-password"  required class="form-control"
                                         id="">
                                 </div>
                             </div>
