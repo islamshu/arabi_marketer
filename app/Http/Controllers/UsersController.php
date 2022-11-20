@@ -24,7 +24,7 @@ class UsersController extends Controller
     }
     public function create()
     {
-        $roles = Role::pluck('name','name')->all();
+        $roles = Role::get();
        return view('pages.users.create')->with('roles');
     }
     
