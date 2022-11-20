@@ -45,7 +45,9 @@ class UsersController extends Controller
         $user->password =  Hash::make($request->password);
         $user->save();
         $user->assignRole($request->input('roles'));
-       return redirect()->route('user_index')->with(['success'=>'تم الاضافة بنجاح']);
+        Alert::success('Success', 'تم الاضافة بنجاح');
+
+       return redirect()->route('users.index');
     }
     
     public function getData(Request $request){
