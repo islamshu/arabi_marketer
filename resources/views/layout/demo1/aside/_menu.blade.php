@@ -1,13 +1,8 @@
 {{--begin::Aside Menu--}}
 @php
     $menu = bootstrap()->getAsideMenu();
-    if(auth()->user()->type =='Admin'){
-        \App\Core\Adapters\Menu::filterMenuPermissions($menu->items);
+    \App\Core\Adapters\Menu::filterMenuPermissions($menu->items);
 
-    }else{
-        \App\Core\Adapters\Subb::filterMenuPermissions($menu->items);
- 
-    }
 @endphp
 
 <div
