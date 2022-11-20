@@ -21,7 +21,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-       return response()->view('pages.users.index');
+        $users =User::orderBy('id', 'asc')->where('type','!=','user')->where('type','!=','marketer')->get();
+       return view('pages.users.index')->with('users',$users);
     }
     public function create()
     {

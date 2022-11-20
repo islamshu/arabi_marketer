@@ -33,7 +33,39 @@
                 <div class="tab-pane fade active show" id="kt_ecommerce_settings_general" role="tabpanel">
 
                     <!--begin::Form-->
-                    @include('pages.users._index')
+                    <div class="card-body">
+                        <table id="kt_datatable_example_1" class="table align-middle table-row-dashed fs-6 gy-5">
+                            <thead>
+                                <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+                                    <th>#</th>
+                                    <th>الاسم</th>
+                                    <th>البريد الاكتروني</th>
+                                    <th>نوع المستخدم </th>
+                    
+                                    <th class="text-end min-w-50px">الاجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-600 fw-semibold">
+                                @foreach ($users as $key=> $user)
+                                    <td>{{ $key }}</td>
+                                    <td>{{ $user->mention }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ $user->type }}</td>
+                                    <td>
+                                        <form style="display: inline"
+                                            action="{{ route('users.destroy', $user->id) }}"
+                                            method="post">
+                                            @method('delete') @csrf
+                                            <button type="submit" class="btn btn-danger delete-confirm"><i
+                                                    class="fa fa-trash"></i></button>
+                                        </form>
+                                    </td>
+                                @endforeach
+                                <tr></tr>
+                            </tbody>
+                        </table>
+                        <!--end: Datatable-->
+                    </div>
                     <!--end::Form-->
                 </div>
 
