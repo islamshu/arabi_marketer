@@ -65,7 +65,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($rles as $key=>$role)
+                                @foreach ($roles as $key=>$role)
                                     <tr>
                                         <td>{{ $key+1 }}</td>
                                         <td>{{ $role->name }}</td>
