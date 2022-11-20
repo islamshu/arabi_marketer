@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
@@ -56,6 +57,10 @@ class RoleController extends Controller
         ]);
         $role = Role::create(['name' => $request->input('name')]);
         $role->syncPermissions($request->input('permission'));
+        $users = User::where('type','Admin');
+        foreach($users as $user){
+            $user->assignRole($role->name);
+        }
         return redirect()->route('roles.index')
             ->with('success', 'Role created successfully');
     }
@@ -105,6 +110,10 @@ class RoleController extends Controller
         $role->name = $request->input('name');
         $role->save();
         $role->syncPermissions($request->input('permission'));
+        $users = User::where('type','Admin');
+        foreach($users as $user){
+            $user->assignRole($role->name);
+        }
         return redirect()->route('roles.index')
             ->with('success', 'Role updated successfully');
     }
