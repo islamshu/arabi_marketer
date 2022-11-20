@@ -55,7 +55,7 @@ class HomeController extends BaseController
 
         $res['blog']['new'] = $blogs;
         $res['blog']['best'] = $blogs;
-        $markter = User::where('type', 'marketer')->where('status', 1)->take(4)->get();
+        $markter = User::where('type', 'marketer')->where('status', 1)->take(8)->get();
         $res['markter'] = UserNotAuthResource::collection($markter);
 
 
