@@ -25,7 +25,7 @@ class UsersController extends Controller
     public function create()
     {
         $roles = Role::get();
-       return view('pages.users.create')->with('roles');
+       return view('pages.users.create')->with('roles',$roles);
     }
     
     public function getData(Request $request){
