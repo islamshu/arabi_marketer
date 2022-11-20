@@ -70,8 +70,8 @@
         </div>
         <!--end::Card body-->
     </div>
-
 </x-base-layout>
+
 
 
 @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
