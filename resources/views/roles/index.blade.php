@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layout.demo1')
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">
