@@ -197,7 +197,8 @@
     <script>
         $(document).ready(function() {
             "use strict";
-            var read_blog = "{{ auth()->user()->can('read-specialty') }}";
+            var read_specialty = "{{ auth()->user()->can('read-specialty') }}";
+            var delete_specialty = "{{ auth()->user()->can('read-specialty') }}";
 
             // Class definition
             var KTDatatablesServerSide = function() {
@@ -264,7 +265,7 @@
                                 render: function(data, type, row) {
                                     var url = data.id;
                                     var url_delete = "specialtys/" + url;
-                                    if(read_blog == true){
+                                    if(read_specialty == true){
                                         var edit =
                                         '\<a  onclick = SelectedPeopleRecord("' + url +
                                         '") class="btn btn-sm btn-clean btn-icon btn-info" title="Edit details">\
@@ -272,7 +273,9 @@
                                     }else{
                                         var edit = '';
                                     }
-                                    
+
+                                    if(read_specialty == true){
+
                                     var delete_d = '<a href="javascript:;" data-id="' +
                                         url +
                                         '" onclick = delete_record("' + url + '","' +
@@ -281,6 +284,9 @@
                                      <i class="la la-trash"></i>\
                                                </a>\
                                             ';
+                                    }else{
+                                        var delete ='';
+                                    }
                                     return edit + delete_d;
                                 },
                             },
