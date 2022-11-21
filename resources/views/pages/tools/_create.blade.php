@@ -6,7 +6,7 @@
 
             <br><label> عنوان الادة :</label>
 
-            <input type="text" id="title_ar" name="title_ar" required class="form-control form-control-solid"
+            <input type="text" id="title" name="title" required class="form-control form-control-solid"
                 placeholder="العنوان الاداة" />
 
         </div>
