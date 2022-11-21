@@ -40,8 +40,17 @@ class RoleController extends Controller
      */
     public function create()
     {
-        $permission = Permission::get();
-        return view('roles._create', compact('permission'));
+        $permissions = Permission::get();
+        $uiPermission = [];
+        foreach($permissions as $index => $permission)
+        {
+            $key = str_replace(['create', 'read', 'update', 'delete'], [], strtolower($permission->name));
+            $key = str_replace(['-', '_'], ' ', $key);
+            $key = ucwords(trim($key));
+
+            $uiPermission[$key][] = $permission;
+        }
+        return view('roles._create')->with('permission',$uiPermission);
     }
     /**
      * Store a newly created resource in storage.
