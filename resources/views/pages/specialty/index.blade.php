@@ -197,7 +197,7 @@
     <script>
         $(document).ready(function() {
             "use strict";
-            var user = "{{ auth()->user() }}";
+            var user = "{{ auth()->user()->can('read-blog') }}";
             alert(user);
 
             // Class definition
