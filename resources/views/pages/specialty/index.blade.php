@@ -197,7 +197,8 @@
     <script>
         $(document).ready(function() {
             "use strict";
-            $user = auth()->user();
+            var user = "{{ auth()->user() }}";
+            alert(user);
 
             // Class definition
             var KTDatatablesServerSide = function() {
