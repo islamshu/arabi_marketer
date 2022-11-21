@@ -32,6 +32,7 @@ use App\Http\Controllers\TicketController;
 use App\Http\Controllers\VideoController;
 use App\Http\Livewire\Edit_consl;
 use App\Http\Livewire\EditConsoltion;
+use App\Models\Tools;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -203,6 +204,7 @@ Route::middleware('auth')->group(function () {
     Route::get('get_image/{id}',[GeneralInfoController::class,'get_image'])->name("get_image");
     Route::post('update_data_image',[GeneralInfoController::class,'update_data_image'])->name("update_data_image");
     Route::resource('roles',RoleController::class);
+    Route::resource('tools',Tools::class);
 
     
     
