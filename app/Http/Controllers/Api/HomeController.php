@@ -113,9 +113,9 @@ class HomeController extends BaseController
     public function get_podcast_admin()
     {
         $podd = NewPodcast::orderBy('id', 'desc')
-        ->has(['user' => function ($query) {
-            $query->where('type', 'Admin');
-        }])->take(3)->get();
+        ->whereHas('user', function ($query) {
+            return $query->where('type', 'Admin');
+        })->take(3)->get();
         $podcast = PodcastResource::collection($podd);
         $res['Podcast'] = $podcast;
 
