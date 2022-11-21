@@ -270,7 +270,7 @@
                                         '") class="btn btn-sm btn-clean btn-icon btn-info" title="Edit details">\
                                      <i class="la la-edit"></i>\</a>';  
                                     }else{
-                                        return ' ';
+                                        var edit = '';
                                     }
                                     
                                     var delete_d = '<a href="javascript:;" data-id="' +
