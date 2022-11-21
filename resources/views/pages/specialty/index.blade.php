@@ -47,10 +47,13 @@
             <!--begin:::Tab content-->
             <div class="tab-content" id="myTabContent">
                 <!--begin:::Tab pane-->
-
+                @can('create-specialty')
+                    
                 <button id="slide-toggle-button" class="btn btn-primary">
                     اضف جديد
                 </button>
+                @endcan
+
                 <div class="col-md-8" id="form_toshow" style="display: none;margin-top:5px">
                     <form id="sendmemessage">
                         @csrf
