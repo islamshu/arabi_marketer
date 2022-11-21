@@ -14,7 +14,7 @@
         <div class="form-group col-md-8">
 
             <br><label> الوصف :</label>
-            <textarea name="description_ar" required class="editor" id="kt_docs_ckeditor_classic"></textarea>
+            <textarea name="description" required class="editor" id="form-control"></textarea>
 
         </div>
 
