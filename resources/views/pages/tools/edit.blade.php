@@ -62,7 +62,7 @@
                     <div class="form-group col-md-8">
 
                         <br><label> الوصف :</label>
-                        <textarea name="description" required class="form-control" id="">{{ $tooll->description }}</textarea>
+                        <textarea name="description" required class="form-control" id="">{{ $tool->description }}</textarea>
 
                     </div>
 
