@@ -28,7 +28,10 @@
             </ul>
             <!--end:::Tabs-->
             <!--begin:::Tab content-->
+            @can('create-user')
             <a href="{{ route('users.create') }}" class="btn btn-primary" >اضف جديد</a>
+
+            @endcan
 
             <div class="tab-content" id="myTabContent">
                 <!--begin:::Tab pane-->
@@ -55,6 +58,8 @@
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->type }}</td>
                                     <td>
+                                        @can('delete-user')
+
                                         <form style="display: inline"
                                             action="{{ route('users.destroy', $user->id) }}"
                                             method="post">
@@ -62,6 +67,7 @@
                                             <button type="submit" class="btn btn-danger delete-confirm"><i
                                                     class="fa fa-trash"></i></button>
                                         </form>
+                                        @endcan
                                     </td>
                                 </tr>
                                 @endforeach
