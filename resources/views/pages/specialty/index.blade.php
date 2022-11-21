@@ -210,6 +210,8 @@
                         $('#kt_datatable_example_2').DataTable().ajax.reload();
                         return;
                     }
+                    $user = auth()->user();
+
                     dt = $("#kt_datatable_example_2").DataTable({
                         searchDelay: 500,
                         processing: true,
@@ -262,19 +264,18 @@
                                 render: function(data, type, row) {
                                     var url = data.id;
                                     var url_delete = "specialtys/" + url;
-                                    return '\
-                                                                   <a  onclick = SelectedPeopleRecord("' +
-                                        url +
+                                    var res['edit'] =  '\<a  onclick = SelectedPeopleRecord("' +url +
                                         '") class="btn btn-sm btn-clean btn-icon btn-info" title="Edit details">\
                                                                          <i class="la la-edit"></i>\
-                                                                           </a>\
-                                                                        <a href="javascript:;" data-id="' + url +
+                                                                           </a>\';
+                                    var res['delete'] ='<a href="javascript:;" data-id="' + url +
                                         '" onclick = delete_record("' + url + '","' +
                                         url_delete +
                                         '") data-route="route("specialtys.destroy",' + url + ')" class="btn btn-sm btn-clean btn-icon btn-danger deleteRecord" title="Delete">\
                                                                      		<i class="la la-trash"></i>\
                                                                                    </a>\
                                                                                 ';
+                                    return res;                                       
                                 },
                             },
 
