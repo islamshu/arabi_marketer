@@ -40,7 +40,7 @@ class ToolsController extends Controller
         try {
             DB::transaction(function () use ($request) {
                 $vi = new Tools();
-                $image = $request->image->store('tools');
+                $image = $request->image->store('new_tool');
                 $vi->link = $request->link;
             
                 $vi->title = $request->title;
