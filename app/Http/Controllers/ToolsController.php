@@ -57,6 +57,7 @@ class ToolsController extends Controller
         }
         return redirect()->back();
     }
+   
 
     /**
      * Display the specified resource.
@@ -75,9 +76,10 @@ class ToolsController extends Controller
      * @param  \App\Models\Tools  $tools
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tools $tools)
+    public function edit($id)
     {
-        //
+        return view('pages.tools.edit')->with('tool',Tools::find($id));
+
     }
 
     /**
@@ -87,9 +89,29 @@ class ToolsController extends Controller
      * @param  \App\Models\Tools  $tools
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tools $tools)
+    public function update(Request $request, $id)
     {
-        //
+        try {
+            DB::transaction(function () use ($request,$id) {
+                $vi = Tools::find($id);
+                $vi->link = $request->link;
+            
+                $vi->title = $request->title;
+                $vi->description = $request->description;
+                if($request->image != null){
+                    $image = $request->image->store('new_tool');
+                    $vi->image = $image;
+                }
+                $vi->save();
+             
+            });
+            Alert::success('Success', 'Tools Updated successfully');
+
+            return redirect()->back();
+        } catch (\Throwable $e) {
+            return $e;
+        }
+        return redirect()->back();
     }
 
     /**
@@ -98,8 +120,12 @@ class ToolsController extends Controller
      * @param  \App\Models\Tools  $tools
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tools $tools)
+    public function destroy($id)
     {
-        //
+        $tool = Tools::find($id);
+        $tool->delete();
+        Alert::success('Success', 'Tools Deleted successfully');
+
+        return redirect()->back();
     }
 }
