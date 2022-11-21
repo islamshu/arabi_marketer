@@ -19,6 +19,7 @@ use App\Http\Resources\CategoryBlogResource;
 use App\Http\Resources\CategoryResource;
 use App\Http\Resources\HowItWorksResourse;
 use App\Http\Resources\QuestionResourse;
+use App\Http\Resources\ToolsResoures;
 use App\Http\Resources\UserNotAuthResource;
 use App\Http\Resources\UserResource;
 use App\Models\AboutPage;
