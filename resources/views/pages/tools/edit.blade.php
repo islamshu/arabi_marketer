@@ -104,67 +104,9 @@
 @include('sweetalert::alert', ['cdn' => 'https://cdn.jsdelivr.net/npm/sweetalert2@9'])
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
-@php
-    $array_key = [];
-    $array = [];
-    
-    $url = '/uploads/';
-    foreach (json_decode($service->images) as $key => $image) {
-        array_push($array, $url . $image);
-        $item = "{caption: '$image',  width: '120px', url: '$url.$image',key: '$key' },";
-        array_push($array_key, $item);
-    }
-@endphp
+
 @section('scripts')
-    <script>
-        //    $('#send_form_edit').on('submit', function(e) {
-        //     e.preventDefault();
-        //     var frm = $('#send_form_edit');
-        //     var formData = new FormData(frm[0]);
-        //     let TotalFiles = $('#imageupload')[0].files.length; //Total files
-        //     let files = $('#imageupload')[0];
-        //     for (let i = 0; i < TotalFiles; i++) {
-        //     formData.append('images' + i, files.files[i]);
-        //     }
-        //     formData.append('TotalFiles', TotalFiles);
-        //     formData.append('file', $('.fileservice')[0].files[1]);
-        //     if($('.fileservice')[0].files[1] == undefined && TotalFiles == 0){
-        //         var data = $(this).serialize();
 
-        //         update("{{ route('services_update', $service->id) }}",'get', data,'Edited successfully');
-
-        //     }else{
-
-        //         updatefile("{{ route('services_update', $service->id) }}",'get', formData,'Edited successfully');
-
-        //     }
-        // });
-
-        $(".files").click(function() {
-            var html = $(".clone").html();
-            $(".increment").after(html);
-        });
-        $("body").on("click", ".btn-danger", function() {
-            $(this).parents(".control-group").remove();
-        });
-
-
-        $('#has_file').change(function() {
-            if ($(this).val() == 'نعم') {
-                $('.show_file').css({
-                    display: "block"
-                });
-                // $('.addrequired').attr('required', true);   
-
-            } else {
-                $('.show_file').css({
-                    display: "none"
-                });
-                // $('.addrequired').attr('required', false);   
-
-            }
-        });
-    </script>
     <script>
         ClassicEditor
             .create(document.querySelector('.editor'))
@@ -177,20 +119,5 @@
         var input1 = document.querySelector("#kt_tagify_3");
         new Tagify(input1);
     </script>
-    <script>
-        $(document).ready(function() {
-
-
-
-            $("#file-upload-demo").fileinput({
-                'theme': 'explorer',
-                'uploadUrl': '#',
-                overwriteInitial: false,
-                initialPreviewAsData: true,
-                initialPreview: @json($array),
-                initialPreviewConfig: @json($array_key)
-            });
-
-        });
-    </script>
+ 
 @endsection
