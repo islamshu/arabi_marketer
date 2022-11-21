@@ -101,7 +101,11 @@ class HomeController extends BaseController
     }
     public function get_podcast()
     {
-        $podcast = PodcastResource::collection(NewPodcast::orderBy('id', 'desc')->take(3)->get());
+        $podd = NewPodcast::orderBy('id', 'desc')
+        ->with(['user' => function ($query) {
+            $query->select('type', 'marketer');
+        }])->take(3)->get();
+        $podcast = PodcastResource::collection($podd);
         $res['Podcast'] = $podcast;
 
         return $this->sendResponse($res, 'home page');
