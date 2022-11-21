@@ -55,6 +55,9 @@ Route::get('/get_all_scope_home', [HomeController::class, 'all_scope']);
 Route::get('home_service', [HomeController::class, 'get_service']);
 Route::get('home_blog', [HomeController::class, 'get_blog']);
 Route::get('home_podcasts', [HomeController::class, 'get_podcast']);
+Route::get('get_podcast_admin', [HomeController::class, 'get_podcast_admin']);
+
+
 Route::get('home_video', [HomeController::class, 'get_video']);
 Route::get('home_consulting', [HomeController::class, 'get_consulting']);
 Route::get('home_markter', [HomeController::class, 'get_markter_home']);

@@ -110,6 +110,17 @@ class HomeController extends BaseController
 
         return $this->sendResponse($res, 'home page');
     }
+    public function get_podcast_admin()
+    {
+        $podd = NewPodcast::orderBy('id', 'desc')
+        ->with(['user' => function ($query) {
+            $query->where('type', 'Admin');
+        }])->take(3)->get();
+        $podcast = PodcastResource::collection($podd);
+        $res['Podcast'] = $podcast;
+
+        return $this->sendResponse($res, 'home page');
+    }
     public function home()
     {
         $about_section = AboutPage::select('title', 'body')->first();
