@@ -111,7 +111,7 @@ class ToolsController extends Controller
         } catch (\Throwable $e) {
             return $e;
         }
-        return redirect()->back();
+        return redirect()->route('tools.index');
     }
 
     /**
