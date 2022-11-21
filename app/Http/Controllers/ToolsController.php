@@ -16,7 +16,7 @@ class ToolsController extends Controller
      */
     public function index()
     {
-        return view('pages.tools._index')->with('tools',Tools::orderby('id','desc')->get());
+        return view('pages.tools.index')->with('tools',Tools::orderby('id','desc')->get());
     }
 
     /**
