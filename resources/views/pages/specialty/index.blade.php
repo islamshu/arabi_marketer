@@ -197,6 +197,7 @@
     <script>
         $(document).ready(function() {
             "use strict";
+            $user = auth()->user();
 
             // Class definition
             var KTDatatablesServerSide = function() {
@@ -263,6 +264,7 @@
                                 render: function(data, type, row) {
                                     var url = data.id;
                                     var url_delete = "specialtys/" + url;
+
                                     var edit =
                                         '\<a  onclick = SelectedPeopleRecord("' + url +
                                         '") class="btn btn-sm btn-clean btn-icon btn-info" title="Edit details">\
