@@ -48,7 +48,11 @@ class HomeController extends BaseController
 
     }
     public function get_home_tools(){
-        $res['all_scope'] = ToolsResoures::collection(Tools::orderby('id','desc')->take(8)->get());
+        $res['all_tools'] = ToolsResoures::collection(Tools::orderby('id','desc')->take(8)->get());
+        return $this->sendResponse($res, 'home page');
+    }
+    public function single_tool($id){
+        $res = new ToolsResoures(Tools::find($id));
         return $this->sendResponse($res, 'home page');
     }
     public function all_scope(){
