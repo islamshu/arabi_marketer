@@ -197,7 +197,7 @@
     <script>
         $(document).ready(function() {
             "use strict";
-            var read_blog = "{{ auth()->user()->can('read-blog') }}";
+            var read_blog = "{{ auth()->user()->can('read-specialty') }}";
 
             // Class definition
             var KTDatatablesServerSide = function() {
