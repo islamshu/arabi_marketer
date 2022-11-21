@@ -287,7 +287,7 @@
                                     }else{
                                         var delete_d ='';
                                     }
-                                    return edit + delete_d;
+                                    return edit + ' ' + delete_d;
                                 },
                             },
 
