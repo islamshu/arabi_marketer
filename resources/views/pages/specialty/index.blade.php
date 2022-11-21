@@ -285,7 +285,7 @@
                                                </a>\
                                             ';
                                     }else{
-                                        var delete ='';
+                                        var delete_d ='';
                                     }
                                     return edit + delete_d;
                                 },
