@@ -49,7 +49,9 @@ class RoleController extends Controller
             $key = ucwords(trim($key));
 
             $uiPermission[$key][] = $permission;
+            
         }
+        dd($uiPermission);
         return view('roles._create')->with('permission',$uiPermission);
     }
     /**
