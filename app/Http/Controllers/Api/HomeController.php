@@ -103,7 +103,7 @@ class HomeController extends BaseController
     {
         $podd = NewPodcast::orderBy('id', 'desc')
         ->with(['user' => function ($query) {
-            $query->select('type', 'marketer');
+            $query->where('type', 'marketer');
         }])->take(3)->get();
         $podcast = PodcastResource::collection($podd);
         $res['Podcast'] = $podcast;
