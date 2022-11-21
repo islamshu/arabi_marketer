@@ -10,7 +10,7 @@
                 role="tablist">
                 <!--begin:::Tab item-->
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link text-active-primary pb-5 " href="/" >
+                    <a class="nav-link text-active-primary pb-5 " href="/">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen001.svg-->
                         <span class="svg-icon svg-icon-2 me-2">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -25,7 +25,7 @@
 
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link text-active-primary pb-5 active" >
+                    <a class="nav-link text-active-primary pb-5 active">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen001.svg-->
                         <span class="svg-icon svg-icon-2 me-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -47,14 +47,14 @@
             <!--begin:::Tab content-->
             <div class="tab-content" id="myTabContent">
                 <!--begin:::Tab pane-->
-                
+
                 <button id="slide-toggle-button" class="btn btn-primary">
                     اضف جديد
                 </button>
                 <div class="col-md-8" id="form_toshow" style="display: none;margin-top:5px">
                     <form id="sendmemessage">
                         @csrf
-    
+
                         <div class="form-group">
                             <label data-error="wrong" data-success="right" for="form3">الصورة <span
                                     class="required"></span></label>
@@ -75,16 +75,16 @@
                                 <input type="text" name="title_en" required class="form-control"
                                     value="{{ old('title_en') }}" id="title_en">
                             </div>
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
                         </div>
                         <br>
-    
-    
+
+
                         <button class="btn btn-info" type="submit">اضافة</i></button>
                     </form>
                 </div>
@@ -174,7 +174,7 @@
             <div class="modal-header">
 
                 <h5 class="modal-title" id="staticBackdropLabel">
-                  تعديل التخصيص</h5>
+                    تعديل التخصيص</h5>
 
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -210,7 +210,7 @@
                         $('#kt_datatable_example_2').DataTable().ajax.reload();
                         return;
                     }
-                    $user = auth()->user();
+                    $user = auth() - > user();
 
                     dt = $("#kt_datatable_example_2").DataTable({
                         searchDelay: 500,
@@ -264,18 +264,19 @@
                                 render: function(data, type, row) {
                                     var url = data.id;
                                     var url_delete = "specialtys/" + url;
-                                    var res['edit'] =  '\<a  onclick = SelectedPeopleRecord("' +url +
+                                    var res['edit'] =
+                                        '\<a  onclick = SelectedPeopleRecord("' + url +
                                         '") class="btn btn-sm btn-clean btn-icon btn-info" title="Edit details">\
-                                                                         <i class="la la-edit"></i>\
-                                                                           </a>\';
-                                    var res['delete'] ='<a href="javascript:;" data-id="' + url +
+                                     <i class="la la-edit"></i>\</a>';
+                                    var res['delete'] = '<a href="javascript:;" data-id="' +
+                                        url +
                                         '" onclick = delete_record("' + url + '","' +
                                         url_delete +
                                         '") data-route="route("specialtys.destroy",' + url + ')" class="btn btn-sm btn-clean btn-icon btn-danger deleteRecord" title="Delete">\
-                                                                     		<i class="la la-trash"></i>\
-                                                                                   </a>\
-                                                                                ';
-                                    return res;                                       
+                                     <i class="la la-trash"></i>\
+                                               </a>\
+                                            ';
+                                            return res;
                                 },
                             },
 
@@ -360,7 +361,8 @@
             var frm = $('#sendmemessage');
             var formData = new FormData(frm[0]);
             formData.append('file', $('#imagestore')[0].files[0]);
-            storefile("{{ route('specialtys.store') }}",'post', formData,'#kt_datatable_example_2','sendmemessage','#exampleModal','Added successfully');
+            storefile("{{ route('specialtys.store') }}", 'post', formData, '#kt_datatable_example_2',
+                'sendmemessage', '#exampleModal', 'Added successfully');
             $("#sendmemessage")[0].reset();
 
 
