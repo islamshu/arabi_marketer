@@ -26,6 +26,7 @@ use App\Models\Category;
 use App\Models\HowItWork;
 use App\Models\NewPodcast;
 use App\Models\Quastion;
+use App\Models\Tools;
 use App\Models\User;
 use Carbon\Carbon;
 use FeedReader;
@@ -44,6 +45,10 @@ class HomeController extends BaseController
         $res['howItWorks'] = $hows;
         return $this->sendResponse($res, 'home page');
 
+    }
+    public function get_home_tools(){
+        $res['all_scope'] = ToolsResoures::collection(Tools::orderby('id','desc')->take(8)->get());
+        return $this->sendResponse($res, 'home page');
     }
     public function all_scope(){
         $res['all_scope'] = CategoryResource::collection(Category::ofType('user')->get());
