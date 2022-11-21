@@ -71,11 +71,9 @@
                                         <td>{{ $role->name }}</td>
                                         <td>
                                             @can('edit-role')
-
                                             <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}"><i class="fa fa-edit"></i></a>
                                             @endcan
-                                            @can('delete-role')
-                                                
+                                            @can('delete-role')                                         
                                             {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline']) !!}
                                             {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                                             {!! Form::close() !!}
