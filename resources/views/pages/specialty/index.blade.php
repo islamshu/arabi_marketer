@@ -264,7 +264,7 @@
                                 render: function(data, type, row) {
                                     var url = data.id;
                                     var url_delete = "specialtys/" + url;
-                                    if(read_blog == treu){
+                                    if(read_blog == true){
                                         var edit =
                                         '\<a  onclick = SelectedPeopleRecord("' + url +
                                         '") class="btn btn-sm btn-clean btn-icon btn-info" title="Edit details">\
