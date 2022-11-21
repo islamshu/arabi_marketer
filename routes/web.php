@@ -29,6 +29,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\SpecialtyController;
 use App\Http\Controllers\TicketController;
+use App\Http\Controllers\ToolsController;
 use App\Http\Controllers\VideoController;
 use App\Http\Livewire\Edit_consl;
 use App\Http\Livewire\EditConsoltion;
@@ -204,7 +205,7 @@ Route::middleware('auth')->group(function () {
     Route::get('get_image/{id}',[GeneralInfoController::class,'get_image'])->name("get_image");
     Route::post('update_data_image',[GeneralInfoController::class,'update_data_image'])->name("update_data_image");
     Route::resource('roles',RoleController::class);
-    Route::resource('tools',Tools::class);
+    Route::resource('tools',ToolsController::class);
 
     
     
