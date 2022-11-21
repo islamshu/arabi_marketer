@@ -210,7 +210,6 @@
                         $('#kt_datatable_example_2').DataTable().ajax.reload();
                         return;
                     }
-                    $user = auth() - > user();
 
                     dt = $("#kt_datatable_example_2").DataTable({
                         searchDelay: 500,
