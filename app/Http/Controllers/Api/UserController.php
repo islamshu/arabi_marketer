@@ -40,6 +40,7 @@ use App\Models\UserCategory;
 use App\Models\Video;
 use App\Notifications\GeneralNotification;
 use Carbon\Carbon;
+use DB;
 use Notification;
 use Validator;
 
@@ -56,6 +57,8 @@ class UserController extends BaseController
         $notification = ModelsNotification::find($id);
         $notification->read_at = Carbon::now();
         $notification->save();
+        $not = DB::table('notifications')->where('id',$id)->first();
+        return $not->data['title'];
         return (string)json_encode($notification->data['title']);
         // $no = json_decode($notification);
         $res = new NotificationResourse($notification);
