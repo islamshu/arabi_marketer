@@ -44,7 +44,7 @@ class RoleController extends Controller
         $uiPermission = [];
         foreach($permissions as $index => $permission)
         {
-            $key = str_replace(['create', 'read', 'update', 'delete'], [], strtolower($permission->name));
+            $key = str_replace(['create', 'read', 'edit', 'delete'], [], strtolower($permission->name));
             $key = str_replace(['-', '_'], ' ', $key);
             $key = ucwords(trim($key));
 
