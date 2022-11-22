@@ -47,7 +47,7 @@
             </ul>
             <!--end:::Tabs-->
             <!--begin:::Tab content-->
-            <div class="tab-content" id="myTabContent" style="direction: rtl">
+            <div class="tab-content" id="myTabContent" >
                 <!--begin:::Tab pane-->
 
 
@@ -64,6 +64,7 @@
                             <div class="form-group">
                                 <strong>الاذونات:</strong>
                                 <br />
+                                <br><br>
                                 <div class="body">
                                     <div class="card-columns">
                                         <div class="row">
