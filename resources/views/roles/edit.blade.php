@@ -1,6 +1,6 @@
 @extends('layout.main')
 
-<x-base-layout>
+<x-base-layout style="direction: rtl">
 
     <div class="card card-flush">
         <!--begin::Card body-->
