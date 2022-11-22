@@ -51,8 +51,8 @@ class RoleController extends Controller
             $uiPermission[$key][] = $permission;
             
         }
-        dd($uiPermission);
-        return view('roles._create')->with('permission',$permissions);
+        // dd($uiPermission);
+        return view('roles._create')->with('permission',$uiPermission);
     }
     /**
      * Store a newly created resource in storage.
