@@ -56,8 +56,8 @@ class UserController extends BaseController
         $notification = ModelsNotification::find($id);
         $notification->read_at = Carbon::now();
         $notification->save();
-        $notification = json_decode($notification);
-        dd($notification->data->title);
+        $no = json_decode($notification);
+        dd($no);
         return [
             'id'=>$notification->id,
             'title'=>$notification->data['title'],
