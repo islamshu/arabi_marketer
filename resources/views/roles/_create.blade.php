@@ -65,11 +65,32 @@
                                 <div class="form-group">
                                     <strong>الاذونات:</strong>
                                     <br />
-                                    @foreach ($permission as $value)
-                                        <label>{{ Form::checkbox('permission[]', $value->id, false, ['class' => 'name']) }}
-                                            {{ $value->name }}</label>
-                                        <br />
-                                    @endforeach
+                                    <div class="body">
+                                        <div class="card-columns">
+                                            @foreach ($permission as $key => $permissionGroup)
+                                            <div class="card  bg-primary mb-3">
+                                                <div class=" card-header">{{ $key }}</div>
+                                                <ul class="list-group list-group-flush">
+                                                    @foreach ($permissionGroup as $permission)
+                                                    <li class="list-group-item">
+                                                        <div class="fancy-checkbox">
+                                                            <label>
+                                                        <input type="checkbox" name="permission_ids[]"
+                                                            value="{{ $permission->id }}">
+                                                    <span>{{ $permission->name }}</span>
+
+                                                </label>
+                                                        </div>
+                                                    </li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                            <!-- ./card -->
+                                            @endforeach @php @endphp
+        
+                                        </div>
+                                    </div>
+                                  
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
