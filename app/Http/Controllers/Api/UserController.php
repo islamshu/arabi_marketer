@@ -57,15 +57,8 @@ class UserController extends BaseController
         $notification->read_at = Carbon::now();
         $notification->save();
         // $no = json_decode($notification);
-        dd(@$notification->data['title'],@$notification->data->title);
-        return [
-            'id'=>$no->id,
-            'title'=>$no->data['title'],
-            'url'=>$no->data['url'],
-            'created_at'=>$no->created_at
-        ];
-        // $res = new NotificationResourse($notification);
-        // return $this->sendResponse($res, '');
+        $res = new NotificationResourse($notification);
+        return $this->sendResponse($res, 'جميع الاشعارات');
     }
     public function check_name(Request $request){
         $user = User::where('name',$request->name)->first();
