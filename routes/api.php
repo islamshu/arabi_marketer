@@ -101,6 +101,7 @@ Route::get('/users', [SampleDataController::class, 'getUsers']);
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
 Route::post('/check_name', [UserController::class, 'check_name']);
+Route::get('/show_notification/{id}', [UserController::class, 'show_notification'])->name('show_notification');
 
 Route::group(['middleware' => 'is_login'], function () {
     Route::post('/edit_profile', [UserController::class, 'edit_profile']);
@@ -111,7 +112,6 @@ Route::group(['middleware' => 'is_login'], function () {
     Route::get('/my_orders', [UserController::class, 'order']);
     Route::get('/order_show/{id}', [UserController::class, 'order_show'])->name('order_show');
     Route::get('/my_notification', [UserController::class, 'my_notification'])->name('my_notification');
-    Route::get('/show_notification/{id}', [UserController::class, 'show_notification'])->name('show_notification');
     Route::post('/edit_profile_step_2', [UserController::class, 'edit_profile_step_2']);
     Route::post('/edit_profile_step_3', [UserController::class, 'edit_profile_step_3']);
     Route::post('/edit_profile_step_4', [UserController::class, 'edit_profile_step_4']);
