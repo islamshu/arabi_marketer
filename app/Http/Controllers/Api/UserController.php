@@ -54,8 +54,8 @@ class UserController extends BaseController
     public function show_notification($id)
     {
         $notification = ModelsNotification::find($id);
-        $notification->read_at = Carbon::now();
-        $notification->save();
+        // $notification->read_at = Carbon::now();
+        // $notification->save();
         $res = new NotificationResourse($notification);
         return $this->sendResponse($res, '');
     }
