@@ -78,7 +78,7 @@
                                                                     <div class="fancy-checkbox">
                                                                         <label>
                                                                             <input type="checkbox"
-                                                                                name="permission_ids[]"
+                                                                                name="permission[]"
                                                                                 value="{{ $permission->id }}">
                                                                             <span>{{ $permission->name }}</span>
 
