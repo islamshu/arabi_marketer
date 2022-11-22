@@ -69,16 +69,16 @@
                                         <div class="card-columns">
                                             <div class="row">
                                                 @foreach ($permission as $key => $permissionGroup)
-                                                    <div class="card  bg-info ml-3 col-md-3"
+                                                    <div class="card  bg-warning ml-3 col-md-3"
                                                         style="margin-right: 15px;margin-bottom: 15px;">
-                                                        <div class="" style="margin-top: 5px">{{ $key }}</div>
+                                                        <div class="" style="margin: 5px">{{ $key }}
+                                                        </div>
                                                         <ul class="list-group list-group-flush">
                                                             @foreach ($permissionGroup as $permission)
                                                                 <li class="list-group-item">
                                                                     <div class="fancy-checkbox">
                                                                         <label>
-                                                                            <input type="checkbox"
-                                                                                name="permission[]"
+                                                                            <input type="checkbox" name="permission[]"
                                                                                 value="{{ $permission->id }}">
                                                                             <span>{{ $permission->name }}</span>
 
