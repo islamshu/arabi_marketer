@@ -67,9 +67,8 @@ class UserController extends BaseController
         $res =[
             'id'=>$not->id,
             'title'=>json_decode($not->data)->title,
-            'url'=>json_decode($not->data)->title,
-            'is_read'=>$not->read_at == null ? 1 : 0,
-
+            'url'=>json_decode($not->data)->url,
+            'is_read'=>$not->read_at != null ? 1 : 0,
             'created_at'=>$not->created_at,
 
         ];
