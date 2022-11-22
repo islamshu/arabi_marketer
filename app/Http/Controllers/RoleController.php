@@ -127,6 +127,7 @@ class RoleController extends Controller
                 
             }    
         return view('roles.edit')->with('role',$role)->with('permission',$permission)->with('rolePermissions',$rolePermissions);
+    }
     /**
      * Update the specified resource in storage.
      *
