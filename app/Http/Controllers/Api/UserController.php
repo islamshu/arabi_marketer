@@ -48,8 +48,10 @@ class UserController extends BaseController
 {
     public function my_notification()
     {
-        $notification = auth('api')->user()->unreadNotifications;
-        $res = NotificationResourse::collection($notification);
+        // $notification = auth('api')->user()->unreadNotifications;
+        $not = DB::table('notifications')->where('notifiable_id',auth('api')->id())->get();
+
+        $res = NotificationResourse::collection($not);
         return $this->sendResponse($res, 'جميع الاشعارات');
     }
     public function show_notification($id)
@@ -66,6 +68,8 @@ class UserController extends BaseController
             'id'=>$not->id,
             'title'=>json_decode($not->data)->title,
             'url'=>json_decode($not->data)->title,
+            'is_read'=>$not->read_at == null ? 1 : 0,
+
             'created_at'=>$not->created_at,
 
         ];
