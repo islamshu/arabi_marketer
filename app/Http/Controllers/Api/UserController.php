@@ -65,6 +65,8 @@ class UserController extends BaseController
         $res =[
             'id'=>$not->id,
             'title'=>json_decode($not->data)->title,
+            'url'=>json_decode($not->data)->title,
+            'created_at'=>$not->created_at,
 
         ];
         return $this->sendResponse($res, 'جميع الاشعارات');
