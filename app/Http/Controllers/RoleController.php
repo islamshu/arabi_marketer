@@ -114,8 +114,19 @@ class RoleController extends Controller
         $rolePermissions = DB::table("role_has_permissions")->where("role_has_permissions.role_id", $id)
             ->pluck('role_has_permissions.permission_id', 'role_has_permissions.permission_id')
             ->all();
-        return view('roles.edit', compact('role', 'permission', 'rolePermissions'));
-    }
+
+            $permissions = Permission::get();
+            $uiPermission = [];
+            foreach($permissions as $index => $permission)
+            {
+                $key = str_replace(['create', 'read', 'edit', 'delete'], [], strtolower($permission->name));
+                $key = str_replace(['-', '_'], ' ', $key);
+                $key = ucwords(trim($key));
+    
+                $uiPermission[$key][] = $permission;
+                
+            }    
+        return view('roles.edit')->with('role',$role)->with('permission',$permission)->with('rolePermissions',$rolePermissions);
     /**
      * Update the specified resource in storage.
      *

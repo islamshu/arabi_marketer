@@ -64,11 +64,40 @@
                             <div class="form-group">
                                 <strong>الاذونات:</strong>
                                 <br />
-                                @foreach ($permission as $value)
-                                    <label>{{ Form::checkbox('permission[]', $value->id, in_array($value->id, $rolePermissions) ? true : false, ['class' => 'name']) }}
-                                        {{ $value->name }}</label>
-                                    <br />
-                                @endforeach
+                                <div class="body">
+                                    <div class="card-columns">
+                                        <div class="row">
+                                            @foreach ($permission as $key => $permissionGroup)
+                                                <div class="card  bg-info ml-3 col-md-3"
+                                                    style="margin-right: 15px;margin-bottom: 15px;">
+                                                    <div class="" style="margin-top: 5px">{{ $key }}</div>
+                                                    <ul class="list-group list-group-flush">
+                                                        @foreach ($permissionGroup as $permission)
+                                                            <li class="list-group-item">
+                                                                <div class="fancy-checkbox">
+                                                                    <label>
+                                                                        <input type="checkbox"
+                                                                            name="permission[]"
+                                                                            value="{{ $permission->id }}"
+                                                                            @foreach($role->permissions as $role_permession)
+                                                                            @if($role_permession->id == $permission->id)
+                                                                                checked="checked"
+                                                                            @endif
+                                                                            @endforeach>
+                                                                        <span>{{ $permission->name }}</span>
+
+                                                                    </label>
+                                                                </div>
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                                <!-- ./card -->
+                                            @endforeach
+                                        </div>
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
