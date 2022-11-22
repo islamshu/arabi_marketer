@@ -57,7 +57,7 @@ class UserController extends BaseController
         $notification->read_at = Carbon::now();
         $notification->save();
         $no = json_decode($notification);
-        // dd($no);
+        dd($no->data);
         return [
             'id'=>$no->id,
             'title'=>$no->data['title'],
