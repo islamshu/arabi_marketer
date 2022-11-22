@@ -68,7 +68,7 @@
                                     <div class="card-columns">
                                         <div class="row">
                                             @foreach ($permission as $key => $permissionGroup)
-                                                <div class="card  bg-warning ml-3 col-md-3"
+                                                <div class="card  bg-warning ml-3 col-md-4"
                                                     style="margin-right: 15px;margin-bottom: 15px;">
                                                     <div class="" style="margin: 5px">{{ $key }}</div>
                                                     <ul class="list-group list-group-flush">
