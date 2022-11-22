@@ -169,7 +169,7 @@ class PodcastController extends BaseController
     }
     public function delete($video_id)
     {
-        $video = Podacst::find($video_id);
+        $video = NewPodcast::find($video_id);
         if ($video->user_id != auth('api')->id()) {
             return $this->sendError('فقط صاحب البودكاست من يمكنه التعديل');
         }
