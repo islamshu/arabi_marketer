@@ -1,6 +1,6 @@
 @extends('layout.main')
 
-<x-base-layout style="direction: rtl">
+<x-base-layout >
 
     <div class="card card-flush">
         <!--begin::Card body-->
@@ -47,7 +47,7 @@
             </ul>
             <!--end:::Tabs-->
             <!--begin:::Tab content-->
-            <div class="tab-content" id="myTabContent">
+            <div class="tab-content" id="myTabContent" style="direction: rtl">
                 <!--begin:::Tab pane-->
 
 
