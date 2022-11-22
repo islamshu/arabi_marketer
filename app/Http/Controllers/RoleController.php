@@ -126,7 +126,7 @@ class RoleController extends Controller
                 $uiPermission[$key][] = $permission;
                 
             }    
-        return view('roles.edit')->with('role',$role)->with('permission',$permission)->with('rolePermissions',$rolePermissions);
+        return view('roles.edit')->with('role',$role)->with('permission',$uiPermission)->with('rolePermissions',$rolePermissions);
     }
     /**
      * Update the specified resource in storage.
