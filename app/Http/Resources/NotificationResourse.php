@@ -14,11 +14,11 @@ class NotificationResourse extends JsonResource
      */
     public function toArray($request)
     {
-        return json_decode($this->data);
+        $data= json_decode($this->data);
         return [
             'id'=>$this->id,
-            'title'=>$this->data['title'],
-            'url'=>$this->data['url'],
+            'title'=>$data->title,
+            'url'=>$data->url,
             'created_at'=>$this->created_at
             ];
     }
