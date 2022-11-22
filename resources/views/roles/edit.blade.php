@@ -62,9 +62,11 @@
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
+                                <br><br>
+
                                 <strong>الاذونات:</strong>
                                 <br />
-                                <br><br>
+                                <br>
                                 <div class="body">
                                     <div class="card-columns">
                                         <div class="row">
