@@ -60,9 +60,9 @@ class UserController extends BaseController
         // dd($no);
         return [
             'id'=>$no->id,
-            'title'=>$notification->data['title'],
-            'url'=>$notification->data['url'],
-            'created_at'=>$notification->created_at
+            'title'=>$no->data['title'],
+            'url'=>$no->data['url'],
+            'created_at'=>$no->created_at
         ];
         // $res = new NotificationResourse($notification);
         // return $this->sendResponse($res, '');
