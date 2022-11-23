@@ -99,6 +99,8 @@ Route::post('reset_my_password', [ForgotPasswordController::class, 'reset'])->na
 
 
 //start user profrle
+Route::get('/send_email', [UserController::class, 'send_email']);
+
 Route::get('/users', [SampleDataController::class, 'getUsers']);
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);

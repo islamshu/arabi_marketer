@@ -21,7 +21,7 @@ class UserMainInfoResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'mention' => $this->mention,
-
+            'email_verified'=>$this->email_verified_at == null ? 0 : 1,
             'email' => $this->email,
             'first_name' => $this->first_name,
             'type' => $this->type,

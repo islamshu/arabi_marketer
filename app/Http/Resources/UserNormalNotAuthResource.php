@@ -24,6 +24,8 @@ class UserNormalNotAuthResource extends JsonResource
             'mention' => $this->mention,
             'email' => $this->email,
             'type' => $this->type,
+            'email_verified'=>$this->email_verified_at == null ? 0 : 1,
+
             // 'first_name'=>$this->first_name,
             // 'last_name'=>$this->last_name,
             'image' => $this->image == null ? asset('public/uploads/users/defult_user.png') : asset('public/uploads/' . $this->image),

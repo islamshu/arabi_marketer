@@ -22,6 +22,7 @@ use App\Http\Resources\UserNormalNotAuthResource;
 use App\Http\Resources\UserNotAuthResource;
 use App\Http\Resources\UserResource;
 use App\Http\Resources\VideoResource;
+use App\Mail\VerifyEmail;
 use App\Models\Answer;
 use App\Models\BankInfo;
 use App\Models\Blog;
@@ -41,6 +42,7 @@ use App\Models\Video;
 use App\Notifications\GeneralNotification;
 use Carbon\Carbon;
 use DB;
+use Mail;
 use Notification;
 use Validator;
 
@@ -121,8 +123,15 @@ class UserController extends BaseController
         $user->last_name = $request->last_name;
         $user->country_id = $request->country_id;
         $user->save();
+        Mail::to($request->email)->send(new VerifyEmail($request->name));
+        return 'Email sent Successfully';
         $userRes = new  UserNormalAuthResource($user);
         return $this->sendResponse($userRes, 'تم التسجيل بنجاح');
+    }
+    public function send_email(){
+        $url = 'd';
+        Mail::to('islamshu12@gmail.com')->send(new VerifyEmail($url));
+        return 'Email sent Successfully';
     }
     public function add_bank_info(Request $request)
     {

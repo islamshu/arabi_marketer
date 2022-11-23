@@ -33,6 +33,7 @@ class UserNotAuthResource extends JsonResource
             'pio' => $this->pio,
             'type' => $this->type,
             'first_name' => $this->first_name,
+            'email_verified'=>$this->email_verified_at == null ? 0 : 1,
             'last_name' => $this->last_name,
             'image' => $this->image == null ? asset('public/uploads/users/defult_user.png') : asset('public/uploads/' . $this->image),
             'country' => new CountryResource(Country::find($this->country_id)),
