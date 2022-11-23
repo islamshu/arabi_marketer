@@ -97,13 +97,13 @@ class HomeController extends BaseController
     }
     public function first_section(){
         $res['auth']=[
-            'title'=>'this body for section when auth',
-            'body'=>'this body for section when auth',
+            'title'=>'أكبر سوق عربي لبيع وشراء الخدمات المصغرة',
+            'body'=>'أنجز أعمالك بسهولة وأمان',
             'image'=>asset('public/uploads/home_image_page.jpg'),
         ];
         $res['not_auth']=[
-            'title'=>'this body for section when not auth',
-            'body'=>'this body for section when not auth',
+            'title'=>'صناعة المحتوى',
+            'body'=>'يضم جميع المسوقين العرب ويقدم جميع الخدمات في مجال التسويق',
             'image'=>asset('public/uploads/home_image_page.jpg'),
 
         ];
