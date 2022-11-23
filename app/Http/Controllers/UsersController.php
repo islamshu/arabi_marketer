@@ -12,6 +12,7 @@ use Hash;
 use Illuminate\Http\Request;
 use Notification;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Redirect;
 
 class UsersController extends Controller
 {
@@ -26,7 +27,11 @@ class UsersController extends Controller
        return view('pages.users.index')->with('users',$users);
     }
     public function verfty_email($id){
-       return Crypt::decrypt($id);
+       $encid = Crypt::decrypt($id);
+       $user = User::find($encid);
+       $user->email_verified_at = now();
+       $user->save();
+       return Redirect::to('https://sub.arabicreators.com/');
     }
     public function create()
     {
