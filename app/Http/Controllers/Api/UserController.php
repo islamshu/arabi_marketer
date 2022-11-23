@@ -177,10 +177,15 @@ class UserController extends BaseController
                 }
                 return $this->sendResponse($res, 'تم تسجيل الدخول بنجاح');
             } else {
+                $arrr = [];
+            array_push($arrr,'كلمة المرور غير صحيحة');
                 return $this->sendError('كلمة المرور غير صحيحة');
             }
         } else {
-            return $this->sendError('لم يتم العثور على المستخدم');
+            $arr = [];
+            array_push($arr,'لم يتم العثور على المستخدم');
+            
+            return $this->sendError($arr);
         }
     }
     public function be_marketer(Request $request)
