@@ -7,6 +7,7 @@ use App\Models\MarkterOrder;
 use App\Models\User;
 use App\Notifications\GeneralNotification;
 use Auth;
+use Crypt;
 use Hash;
 use Illuminate\Http\Request;
 use Notification;
@@ -25,7 +26,7 @@ class UsersController extends Controller
        return view('pages.users.index')->with('users',$users);
     }
     public function verfty_email($id){
-        dd($id);
+       return Crypt::decrypt($id);
     }
     public function create()
     {
