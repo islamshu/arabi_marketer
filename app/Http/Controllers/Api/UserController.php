@@ -99,6 +99,12 @@ class UserController extends BaseController
             'email' => 'required|unique:users,email',
             'password' => 'required',
             'confirm_password' => 'required|same:password',
+            'first_name'=>'required',
+            'last_name'=>'required',
+            'country_id'=>'required',
+            'mention'=>'required|unique:users,mention'
+
+            
         ]);
         if ($validation->fails()) {
             return $this->sendError($validation->messages()->all());
