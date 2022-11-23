@@ -132,8 +132,7 @@ class UserController extends BaseController
     public function send_email(){
         // $url = 'd';
         $enc= encrypt(20);
-        dd($enc);
-
+        $url = route('send_email.verfy',$enc);
         Mail::to('islamshu12@gmail.com')->send(new VerifyEmail($url));
         return 'Email sent Successfully';
     }

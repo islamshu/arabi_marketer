@@ -86,6 +86,7 @@ Route::prefix('log')->name('log.')->group(function () {
     Route::resource('system', SystemLogsController::class)->only(['index', 'destroy']);
     Route::resource('audit', AuditLogsController::class)->only(['index', 'destroy']);
 });
+Route::get('verify_email/{}',[UsersController::class,'verfty_email'])->name('send_email.verfy');
 
 Route::middleware('auth')->group(function () {
     Route::resource('users', UsersController::class);
