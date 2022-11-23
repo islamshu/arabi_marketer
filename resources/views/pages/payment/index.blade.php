@@ -38,7 +38,7 @@
                                     fill="currentColor"></path>
                             </svg>
                         </span>
-                        <!--end::Svg Icon-->طرق الدفع الخاصة بالنظام 
+                        <!--end::Svg Icon-->طرق الدفع الخاصة بالنظام
                     </a>
 
                 </li>
@@ -49,9 +49,11 @@
             <!--begin:::Tab content-->
             <div class="tab-content" id="myTabContent">
                 <!--begin:::Tab pane-->
-                <button id="slide-toggle-button" class="btn btn-primary">
-                    اضف جديد
-                </button>
+                @can('create-payments')
+                    <button id="slide-toggle-button" class="btn btn-primary">
+                        اضف جديد
+                    </button>
+                @endcan
                 <div class="col-md-8" id="form_toshow" style="display: none;margin-top:5px">
                     <form id="sendmemessage">
                         @csrf
@@ -66,7 +68,7 @@
                                 class="img-thumbnail image-preview" alt="">
                         </div>
                         <div class="row">
-                            
+
                             <div class="form-group col-md-6">
                                 <label for="email"> العنوان بالعربية: <span class="required"></span></label>
                                 <input type="text" name="title_ar" required class="form-control"
@@ -103,27 +105,29 @@
                         </thead>
                         <tbody>
                             @foreach ($payments as $item)
-                            <tr>
-                             <td><img src="{{ asset('public/uploads/'.$item->logo) }}" width="50" height="50" alt=""></td>
-                             <td>{{ $item->title }}</td>
-                            
-                             <td>
-                                <button class="btn btn-info" data-toggle="modal"
-                                data-target="#myModal4"
-                                onclick="SelectedPeopleRecord('{{ $item->id }}')"><i
-                                    class="fa fa-edit"></i></button>
-                                <form style="display: inline"
-                                    action="{{ route('payments.destroy', $item->id) }}"
-                                    method="post">
-                                    @method('delete') @csrf
-                                    <button type="submit" class="btn btn-danger delete-confirm"><i
-                                            class="fa fa-trash"></i></button>
-                                </form>
-                            </td>
-                            </tr>
-                                
+                                <tr>
+                                    <td><img src="{{ asset('public/uploads/' . $item->logo) }}" width="50"
+                                            height="50" alt=""></td>
+                                    <td>{{ $item->title }}</td>
+
+                                    <td>
+                                        @can('edit-payments')
+                                            <button class="btn btn-info" data-toggle="modal" data-target="#myModal4"
+                                                onclick="SelectedPeopleRecord('{{ $item->id }}')"><i
+                                                    class="fa fa-edit"></i></button>
+                                        @endcan
+                                        @can('delete-payments')
+                                            <form style="display: inline"
+                                                action="{{ route('payments.destroy', $item->id) }}" method="post">
+                                                @method('delete') @csrf
+                                                <button type="submit" class="btn btn-danger delete-confirm"><i
+                                                        class="fa fa-trash"></i></button>
+                                            </form>
+                                        @endcan
+                                    </td>
+                                </tr>
                             @endforeach
-                        </tfoot>
+                            </tfoot>
                     </table>
                     <!--end::Form-->
                 </div>
@@ -160,44 +164,45 @@
         </div>
     </div>
 </div>
-@include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
+@include('sweetalert::alert', ['cdn' => 'https://cdn.jsdelivr.net/npm/sweetalert2@9'])
 
 @section('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 
-   
+
     <script type="text/javascript">
-                 var SelectedPeopleRecord = function(id) {
+        var SelectedPeopleRecord = function(id) {
 
-                $("#exampleModaledit").modal('show');
-                $.ajax({
-                    type: 'post',
-                    url: "{{ route('get_form_payment') }}",
-                    data: {
-                        "_token": "{{ csrf_token() }}",
-                        'id': id
-                    },
-                    beforeSend: function() {},
-                    success: function(data) {
-                        $('#edit_form').html(data);
-
-
-                    }
-                });
+            $("#exampleModaledit").modal('show');
+            $.ajax({
+                type: 'post',
+                url: "{{ route('get_form_payment') }}",
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    'id': id
+                },
+                beforeSend: function() {},
+                success: function(data) {
+                    $('#edit_form').html(data);
 
 
                 }
-          $('#sendmemessage').on('submit', function(e) {
+            });
+
+
+        }
+        $('#sendmemessage').on('submit', function(e) {
             e.preventDefault();
             var frm = $('#sendmemessage');
             var formData = new FormData(frm[0]);
             formData.append('file', $('#imagestore')[0].files[0]);
-            storefile("{{ route('payments.store') }}",'post', formData,'#kt_datatable_example_2','sendmemessage','#exampleModal','Added successfully');
+            storefile("{{ route('payments.store') }}", 'post', formData, '#kt_datatable_example_2', 'sendmemessage',
+                '#exampleModal', 'Added successfully');
             $("#sendmemessage")[0].reset();
-            setTimeout(function(){
+            setTimeout(function() {
                 location.reload();
-            }, 2000)        
-          });
+            }, 2000)
+        });
         $("#slide-toggle-button").click(function() {
             $("#form_toshow").slideToggle("slow");
         });
