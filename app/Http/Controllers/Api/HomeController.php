@@ -80,9 +80,11 @@ class HomeController extends BaseController
     }
     public function get_markter_home(){
 
-        $markter = User::where('type', 'marketer')->where('status', 1)->take(8)->get();
+        $markter = User::where('type', 'marketer')->where('status', 1)->take(10)->get();
+        $markter2 = User::where('type', 'marketer')->where('status', 1)->skip(10)->take(10)->get();
 
         $res['markter'] = UserNotAuthResource::collection($markter);
+        $res['markter2'] = UserNotAuthResource::collection($markter2);
         return $this->sendResponse($res, 'home page');
 
     }
