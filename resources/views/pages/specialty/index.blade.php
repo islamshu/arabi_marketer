@@ -200,8 +200,8 @@
     <script>
         $(document).ready(function() {
             "use strict";
-            var read_specialty = "{{ auth()->user()->can('read-specialty') }}";
-            var delete_specialty = "{{ auth()->user()->can('read-specialty') }}";
+            var read_specialty = "{{ auth()->user()->can('edit-specialty') }}";
+            var delete_specialty = "{{ auth()->user()->can('delete-specialty') }}";
 
             // Class definition
             var KTDatatablesServerSide = function() {

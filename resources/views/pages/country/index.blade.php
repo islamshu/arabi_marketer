@@ -47,10 +47,13 @@
             <!--begin:::Tab content-->
             <div class="tab-content" id="myTabContent">
                 <!--begin:::Tab pane-->
-                
+                @can('read-countires')
+                    
                 <button id="slide-toggle-button" class="btn btn-primary">
                     اضف جديد
                 </button>
+                @endcan
+
                 <div class="col-md-8" id="form_toshow" style="display: none;margin-top:5px">
                     <form id="sendmemessage">
                         <div class="form-body">
@@ -189,6 +192,8 @@
     <script>
         $(document).ready(function() {
             "use strict";
+            var read_specialty = "{{ auth()->user()->can('edit-countires') }}";
+            var delete_specialty = "{{ auth()->user()->can('delete-countires') }}";
 
             // Class definition
             var KTDatatablesServerSide = function() {
@@ -254,20 +259,31 @@
                                 render: function(data, type, row) {
                                     var url = data.id;
                                     var url_delete = "specialtys/" + url;
-                                    return '\
-                                                                       <a  onclick = SelectedPeopleRecord("' +
+                                    if(read_specialty == true){
+                                        var edit = '<a  onclick = SelectedPeopleRecord("' +
                                         url +
                                         '") class="btn btn-sm btn-clean btn-icon btn-info" title="Edit details">\
                                                                              <i class="la la-edit"></i>\
-                                                                               </a>\
-                                                                            <a href="javascript:;" data-id="' + url +
+                                                                               </a>';
+                                    }else{
+                                        return ' ';
+                                    }
+                                    if(delete_specialty == true){
+                                        var deletee = ' <a href="javascript:;" data-id="' + url +
                                         '" onclick = delete_record("' + url + '","' +
                                         url_delete +
                                         '") data-route="route("specialtys.destroy",' + url + ')" class="btn btn-sm btn-clean btn-icon btn-danger deleteRecord" title="Delete">\
                                                                          		<i class="la la-trash"></i>\
                                                                                        </a>\
                                                                                     ';
+                                    }else{
+                                        return ' ';
+                                    }
+                                    
+                                      return edit + ' ' + deletee;
+                                       
                                 },
+                                
                             },
 
 
