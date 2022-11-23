@@ -125,7 +125,7 @@ class UserController extends BaseController
         $user->save();
 
         Mail::to($request->email)->send(new VerifyEmail($request->name));
-        return 'Email sent Successfully';
+        // return 'Email sent Successfully';
         $userRes = new  UserNormalAuthResource($user);
         return $this->sendResponse($userRes, 'تم التسجيل بنجاح');
     }
