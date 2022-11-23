@@ -49,9 +49,12 @@
             <!--begin:::Tab content-->
             <div class="tab-content" id="myTabContent">
                 <!--begin:::Tab pane-->
+                @can('read-city')
                 <button id="slide-toggle-button" class="btn btn-primary">
                     اضف جديد
                 </button>
+                @endcan
+              
                 <div class="col-md-8" id="form_toshow" style="display: none;margin-top:5px">
                     <form id="sendmemessage">
                         @csrf
@@ -109,14 +112,20 @@
                                 <td>{{ $item->title }}</td>
                                  <td>{{ @$item->country->title }}</td>
                                  <td>
+                                    @can('edit-city')
                                     <a onclick="SelectedPeopleRecord({{ $item->id }})" class="btn btn-info"><i class="fa fa-edit"></i></a>
+ 
+                                    @endcan
+                                    @can('delete-city')
                                     <form style="display: inline"
-                                        action="{{ route('city.destroy', $item->id) }}"
-                                        method="post">
-                                        @method('delete') @csrf
-                                        <button type="submit" class="btn btn-danger delete-confirm"><i
-                                                class="fa fa-trash"></i></button>
-                                    </form>
+                                    action="{{ route('city.destroy', $item->id) }}"
+                                    method="post">
+                                    @method('delete') @csrf
+                                    <button type="submit" class="btn btn-danger delete-confirm"><i
+                                            class="fa fa-trash"></i></button>
+                                </form>
+                                    @endcan
+                                   
                                 </td>
                                 </tr>
                                     
