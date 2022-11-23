@@ -85,7 +85,10 @@
 
                         <th>اسم المسوق </th>
                         <th>البريد الالكتروني </th>
+                        @can('edit-status-marketers')
                         <th>الحالة</th>
+
+                        @endcan
                         <th>تاريخ الاضافة</th>
                         <th>العمليات</th>
                     </tr>
@@ -97,14 +100,20 @@
                                     alt=""></td>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->email }}</td>
+                            @can('edit-status-marketers')
+
                             <td>
                                 <input type="checkbox" data-id="{{ $item->id }}" name="status" class="js-switch"
                                     {{ $item->status == 1 ? 'checked' : '' }}>
                             </td>
+                            @endcan
                             <td>{{ date('Y-m-d', strtotime($item->created_at)) }}</td>
                             <td>
+                                @can('show-marketers')
+
                                 <a href="{{ route('marketer.show', $item->id) }}" class="btn btn-success"><i
                                         class="fa fa-eye"></i></a>
+                                @endcan
                                 {{-- <a href="{{ route('services.edit', $item->id) }}" class="btn btn-info"><i
                                         class="fa fa-edit"></i></a>
 
