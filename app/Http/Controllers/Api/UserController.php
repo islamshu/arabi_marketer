@@ -217,7 +217,54 @@ class UserController extends BaseController
         $user->country_id = $request->country_id;
         $user->city_id = $request->city_id;
         // $user->email = $request->email;
+        $user->pio = $request->cv;
         $user->save();
+
+        if ($request->type != null) {
+            $types = json_decode($request->type, true);
+
+            foreach ($types as $type) {
+                $is_ext = UserCategory::where('user_id', $user->id)->where('type_id', $type)->first();
+                if ($is_ext) {
+                    continue;
+                }
+                $usertype = new UserCategory();
+                $usertype->user_id = $user->id;
+                $usertype->type_id = $type;
+                $usertype->save();
+            }
+        }
+        $social = $user->soical;
+        if ($social == null) {
+            $social = new MarkterSoical();
+            $social->instagram = $request->instagram;
+            $social->facebook = $request->facebook;
+            $social->twitter = $request->twitter;
+            $social->pinterest = $request->pinterest;
+            $social->snapchat = $request->snapchat;
+            $social->linkedin = $request->linkedin;
+            $social->website = $request->website;
+            $social->followers_number = $request->followers_number;
+            $social->user_id = $user->id;
+            $social->save();
+        } else {
+            $social->instagram = $request->instagram;
+            $social->facebook = $request->facebook;
+            $social->twitter = $request->twitter;
+            $social->pinterest = $request->pinterest;
+            $social->snapchat = $request->snapchat;
+            $social->linkedin = $request->linkedin;
+            $social->website = $request->website;
+            $social->followers_number = $request->followers_number;
+            $social->save();
+        }
+        foreach ($request->title as $key => $q) {
+            $ans = new UserAnswer();
+            $ans->user_id = auth('api')->id();
+            $ans->question = $request->title[$key];
+            $ans->answer = $request->answer[$key];
+            $ans->save();
+        }
         $userRes = new  UserNormalAuthResource($user);
         return $this->sendResponse($userRes, 'تم تعديل البيانات بنجاح');
     }
