@@ -88,6 +88,16 @@ class HomeController extends BaseController
         return $this->sendResponse($res, 'home page');
 
     }
+    public function main_image(){
+        $images = [
+            'markert_image_page'=>asset('public/uploads/markter_image.jpg'),
+            'home_image_page'=>asset('public/uploads/home_image_page.jpg'),
+        ];
+        return $this->sendResponse($images, 'all image page');
+
+
+        
+    }
     public function get_consulting(){
         $cons = ConsultingResource::collection(Consulting::orderby('id', 'desc')->take(3)->get());
         $res['consuliong'] = $cons;
