@@ -113,7 +113,7 @@ class UserController extends BaseController
         }
 
         $user = new User();
-        $user->name = $request->name;
+        $user->name = $request->first_name;
         $user->email = $request->email;
         $user->mention =  $request->mention ;
         $user->type = 'user';
