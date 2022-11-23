@@ -75,7 +75,7 @@ class UserController extends BaseController
         return $this->sendResponse($res, 'جميع الاشعارات');
     }
     public function check_name(Request $request){
-        $user = User::where('name',$request->name)->first();
+        $user = User::where('mention',$request->mention)->first();
         if($user){
             return $this->sendError('الاسم مستخدم');
         }else{
@@ -107,10 +107,13 @@ class UserController extends BaseController
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->mention =  '@'. str_replace(' ','_',$request->name) ;
+        $user->mention =  $request->mention ;
         $user->type = 'user';
         $user->image = 'users/defult_user.png';
         $user->password =  Hash::make($request->password);
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
+        $user->country_id = $request->country_id;
         $user->save();
         $userRes = new  UserNormalAuthResource($user);
         return $this->sendResponse($userRes, 'تم التسجيل بنجاح');
