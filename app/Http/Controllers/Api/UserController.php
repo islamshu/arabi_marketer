@@ -123,7 +123,7 @@ class UserController extends BaseController
         $user->last_name = $request->last_name;
         $user->country_id = $request->country_id;
         $user->save();
-        $enc= encrypt(20);
+        $enc= encrypt($user->id);
         $url = route('send_email.verfy',$enc);
 
         Mail::to($request->email)->send(new VerifyEmail($url));
