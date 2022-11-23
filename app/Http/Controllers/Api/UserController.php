@@ -123,13 +123,17 @@ class UserController extends BaseController
         $user->last_name = $request->last_name;
         $user->country_id = $request->country_id;
         $user->save();
+
         Mail::to($request->email)->send(new VerifyEmail($request->name));
         return 'Email sent Successfully';
         $userRes = new  UserNormalAuthResource($user);
         return $this->sendResponse($userRes, 'تم التسجيل بنجاح');
     }
     public function send_email(){
-        $url = 'd';
+        // $url = 'd';
+        $enc= encrypt(20);
+        dd($enc);
+
         Mail::to('islamshu12@gmail.com')->send(new VerifyEmail($url));
         return 'Email sent Successfully';
     }
