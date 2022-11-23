@@ -18,6 +18,7 @@ class VerifyEmail extends Mailable
     }
     public function build()
     {
+        dd($this->url);
         return $this->view('mail.verfy')
         ->with([
            'url' => $this->url->url
