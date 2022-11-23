@@ -97,8 +97,8 @@ class HomeController extends BaseController
     }
     public function first_section(){
         $res['auth']=[
-            'title'=>'أكبر سوق عربي لبيع وشراء الخدمات المصغرة',
-            'body'=>'أنجز أعمالك بسهولة وأمان',
+            'title'=>'اكبر ملتقى صناع محتوى العرب',
+            'body'=>'لتقديم خدماتهم والتواصل معهم',
             'image'=>asset('public/uploads/home_image_page.jpg'),
         ];
         $res['not_auth']=[
