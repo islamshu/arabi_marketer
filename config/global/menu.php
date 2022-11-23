@@ -214,6 +214,7 @@ return array(
             'title'   => 'Specialties',
             'path'    => 'specialtys',
             'classes' => array('item' => 'me-lg-1'),
+            'permission' => ['read-specialty'],
             'icon'       => array(
                 'svg'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen017.svg", "svg-icon-2"),
                 'font' => '<i class="bi bi-layers fa fa-user fs-3"></i>',
@@ -221,6 +222,8 @@ return array(
         ),
         array(
             'title'      => 'Category',
+            'permission' => ['read-category'],
+
             'icon'       => array(
                 'svg'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen009.svg", "svg-icon-2"),
                 'font' => '<i class="bi bi-layers fs-3"></i>',
@@ -264,6 +267,7 @@ return array(
         ),
         array(
             'title'      => 'Configs',
+
             'icon'       => array(
                 'svg'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen005.svg", "svg-icon-2"),
                 'font' => '<i class="bi bi-layers fs-3"></i>',
@@ -289,46 +293,64 @@ return array(
         array(
             'title' => 'Users',
             'path'  => 'users',
+            'permission' => ['read-user'],
+
             'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen017.svg", "svg-icon-2"),
         ),
         array(
             'title' => 'Roles',
             'path'  => 'roles',
+            'permission' => ['read-role'],
+
             'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen017.svg", "svg-icon-2"),
         ),
         
         array(
             'title' => 'Countries',
             'path'  => 'countires',
+            'permission' => ['read-countires'],
+
             'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen018.svg", "svg-icon-2"),
         ),
         array(
             'title' => 'Cities',
             'path'  => 'city',
+            'permission' => ['read-city'],
+
             'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen018.svg", "svg-icon-2"),
         ),
         array(
             'title' => 'Payments',
             'path'  => 'payments',
+            'permission' => ['read-payments'],
             'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen018.svg", "svg-icon-2"),
         ),
         array(
             'title' => 'Place of consoltion',
             'path'  => 'places',
+            'permission' => ['read-places'],
+
             'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen018.svg", "svg-icon-2"),
         ),
         array(
             'title' => 'Marketers',
             'path'  => 'marketers',
+            'permission' => ['read-marketers'],
+
             'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen016.svg", "svg-icon-2"),
         ),
         array(
             'title' => 'Customers',
             'path'  => 'customers',
+            'permission' => ['read-marketers'],
+
             'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen016.svg", "svg-icon-2"),
         ),
         array(
             'title'      => 'Orders',
+            'permission' => ['read-service-orders','read-consulting-orders'],
+
+            
             'icon'       => array(
                 'svg'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen005.svg", "svg-icon-2"),
                 'font' => '<i class="bi bi-layers fs-3"></i>',
@@ -343,12 +365,15 @@ return array(
                     array(
                         'title'      => 'Service Order',
                         'path'       => 'orders',
+                        'permission' => ['read-service-orders'],
                         'bullet'     => '<span class="bullet bullet-dot"></span>',
                        
                     ),
                     array(
                         'title'      => 'Consulting Booking',
                         'path'       => 'order_consulting',
+                        'permission' => ['read-consulting-orders'],
+
                         'bullet'     => '<span class="bullet bullet-dot"></span>',
                        
                     ),
@@ -360,11 +385,15 @@ return array(
         array(
             'title' => 'Services',
             'path'  => 'services',
+            'permission' => ['read-service'],
+
             'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen016.svg", "svg-icon-2"),
         ),
         array(
             'title' => 'Tickets',
             'path'  => 'tickets',
+            'permission' => ['read-tickets'],
+
             'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen018.svg", "svg-icon-2"),
         ),
         array(
@@ -378,29 +407,39 @@ return array(
         array(
             'title' => 'Videos',
             'path'  => 'videos',
+            'permission' => ['read-videos'],
+
             'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen017.svg", "svg-icon-2"),
         ),
         array(
             'title' => 'Podcasts',
             'path'  => 'podcasts',
+            'permission' => ['read-podcasts'],
+
             'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen017.svg", "svg-icon-2"),
         ),
 
         array(
             'title' => 'New Podcasts',
             'path'  => 'new_index',
+            'permission' => ['read-podcasts'],
+
             'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen017.svg", "svg-icon-2"),
         ),
         
         array(
             'title' => 'Consulting',
             'path'  => 'consloution',
+            'permission' => ['read-consloution'],
+
             'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen017.svg", "svg-icon-2"),
         ),
         
 
         array(
             'title'      => 'Keywords',
+            'permission' => ['read-keywords'],
+
             'icon'       => array(
                 'svg'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen005.svg", "svg-icon-2"),
                 'font' => '<i class="bi bi-layers fs-3"></i>',
