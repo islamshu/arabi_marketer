@@ -20,7 +20,7 @@ class VerifyEmail extends Mailable
     {
         return $this->view('mail.verfy')
         ->with([
-           'url' => $this->url->url
+           'url' => $this->url
         ]);
     }
 
