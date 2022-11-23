@@ -93,11 +93,25 @@ class HomeController extends BaseController
             'markert_image_page'=>asset('public/uploads/markter_image.jpg'),
             'home_image_page'=>asset('public/uploads/home_image_page.jpg'),
         ];
-        return $this->sendResponse($images, 'all image page');
-
-
-        
+        return $this->sendResponse($images, 'all image page');  
     }
+    public function first_section(){
+        $res['auth']=[
+            'title'=>'this body for section when auth',
+            'body'=>'this body for section when auth',
+            'image'=>asset('public/uploads/home_image_page.jpg'),
+        ];
+        $res['not_auth']=[
+            'title'=>'this body for section when not auth',
+            'body'=>'this body for section when not auth',
+            'image'=>asset('public/uploads/home_image_page.jpg'),
+
+        ];
+    
+        return $this->sendResponse($res, 'all image page');  
+    }
+
+    
     public function get_consulting(){
         $cons = ConsultingResource::collection(Consulting::orderby('id', 'desc')->take(3)->get());
         $res['consuliong'] = $cons;

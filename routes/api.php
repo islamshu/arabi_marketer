@@ -57,6 +57,7 @@ Route::get('home_blog', [HomeController::class, 'get_blog']);
 Route::get('home_podcasts', [HomeController::class, 'get_podcast']);
 Route::get('get_podcast_admin', [HomeController::class, 'get_podcast_admin']);
 Route::get('main_images',[HomeController::class,'main_image']);
+Route::get('first_section',[HomeController::class,'first_section']);
 
 
 Route::get('home_video', [HomeController::class, 'get_video']);
