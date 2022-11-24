@@ -109,6 +109,9 @@ Route::get('/show_notification/{id}', [UserController::class, 'show_notification
 
 Route::group(['middleware' => 'is_login'], function () {
     Route::post('/edit_profile', [UserController::class, 'edit_profile']);
+    Route::post('/upload_profile_image', [UserController::class, 'upload_image']);
+
+    
     Route::post('/be_marketer', [UserController::class, 'be_marketer']);
     Route::get('/profile', [UserController::class, 'profile']);
     Route::get('/my_service_buy', [UserController::class, 'my_service_buy']);

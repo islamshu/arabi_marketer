@@ -220,6 +220,15 @@ class UserController extends BaseController
             return $this->sendError('يوجد خطا ما لدينا');
         }
     }
+    public function upload_image(Request $request){
+        $user = auth('api')->user();
+        $user->image = $request->image->store('users');
+        $user->save();
+        $userRes = new  UserNormalAuthResource($user);
+        return $this->sendResponse($userRes, 'تم تعديل البيانات بنجاح');
+
+
+    }
 
     public function edit_profile(Request $request)
     {
@@ -228,10 +237,10 @@ class UserController extends BaseController
         
         $user = auth('api')->user();
     
-        if ($request->image != null) {
-            $user->image = $request->image->store('users');
-            dd($user->image);
-        }
+        // if ($request->image != null) {
+        //     $user->image = $request->image->store('users');
+        //     dd($user->image);
+        // }
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
         $user->lang = $request->lang;
