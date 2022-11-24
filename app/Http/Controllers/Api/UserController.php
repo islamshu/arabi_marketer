@@ -223,6 +223,11 @@ class UserController extends BaseController
 
     public function edit_profile(Request $request)
     {
+        $types = json_decode($request->type, true);
+
+        foreach ($types as $type) {
+            dd($type);
+        }
         $user = auth('api')->user();
         // if($request->email != $user->email ){
         //     return $this->sendError('البريد الاكتروني خاطيء');
