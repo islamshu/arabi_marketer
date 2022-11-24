@@ -230,7 +230,6 @@ class UserController extends BaseController
         // return $request->all();
         if ($request->image != null) {
             $user->image = $request->image->store('users');
-            dd($user->image);
         }
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
