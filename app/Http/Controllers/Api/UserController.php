@@ -61,34 +61,36 @@ class UserController extends BaseController
         $notification = ModelsNotification::find($id);
         $notification->read_at = Carbon::now();
         $notification->save();
-        $not = DB::table('notifications')->where('id',$id)->first();
+        $not = DB::table('notifications')->where('id', $id)->first();
         // return json_decode($not->data)->title;
         // return (string)json_encode($notification->data['title']);
         // $no = json_decode($notification);
         // $res = new NotificationResourse($notification);
-        $res =[
-            'id'=>$not->id,
-            'title'=>json_decode($not->data)->title,
-            'url'=>json_decode($not->data)->url,
-            'is_read'=>$not->read_at != null ? 1 : 0,
-            'created_at'=>$not->created_at,
+        $res = [
+            'id' => $not->id,
+            'title' => json_decode($not->data)->title,
+            'url' => json_decode($not->data)->url,
+            'is_read' => $not->read_at != null ? 1 : 0,
+            'created_at' => $not->created_at,
 
         ];
         return $this->sendResponse($res, 'جميع الاشعارات');
     }
-    public function check_name(Request $request){
-        $user = User::where('mention',$request->mention)->first();
-        if($user){
+    public function check_name(Request $request)
+    {
+        $user = User::where('mention', $request->mention)->first();
+        if ($user) {
             return $this->sendError('الاسم مستخدم');
-        }else{
-            return $this->sendResponse('success','الاسم متاح');
+        } else {
+            return $this->sendResponse('success', 'الاسم متاح');
         }
     }
 
-    public function change_mention(){
+    public function change_mention()
+    {
         $user = User::get();
-        foreach($user as $us){
-            $us->mention = '@'. str_replace(' ','_',$us->name).'_'.$us->id ;
+        foreach ($user as $us) {
+            $us->mention = '@' . str_replace(' ', '_', $us->name) . '_' . $us->id;
             $us->save();
         }
         return true;
@@ -100,12 +102,12 @@ class UserController extends BaseController
             'email' => 'required|unique:users,email',
             'password' => 'required',
             'confirm_password' => 'required|same:password',
-            'first_name'=>'required',
-            'last_name'=>'required',
-            'country_id'=>'required',
-            'mention'=>'required|unique:users,mention'
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'country_id' => 'required',
+            'mention' => 'required|unique:users,mention'
 
-            
+
         ]);
         if ($validation->fails()) {
             return $this->sendError($validation->messages()->all());
@@ -114,7 +116,7 @@ class UserController extends BaseController
         $user = new User();
         $user->name = $request->first_name;
         $user->email = $request->email;
-        $user->mention =  $request->mention ;
+        $user->mention =  $request->mention;
         $user->type = 'user';
         $user->image = 'users/defult_user.png';
         $user->password =  Hash::make($request->password);
@@ -122,18 +124,19 @@ class UserController extends BaseController
         $user->last_name = $request->last_name;
         $user->country_id = $request->country_id;
         $user->save();
-        $enc= encrypt($user->id);
-        $url = route('send_email.verfy',$enc);
+        $enc = encrypt($user->id);
+        $url = route('send_email.verfy', $enc);
 
         Mail::to($request->email)->send(new VerifyEmail($url));
         // return 'Email sent Successfully';
         $userRes = new  UserNormalAuthResource($user);
         return $this->sendResponse($userRes, 'تم التسجيل بنجاح');
     }
-    public function send_email(){
+    public function send_email()
+    {
         // $url = 'd';
-        $enc= encrypt(20);
-        $url = route('send_email.verfy',$enc);
+        $enc = encrypt(20);
+        $url = route('send_email.verfy', $enc);
         Mail::to('islamshu12@gmail.com')->send(new VerifyEmail($url));
         return 'Email sent Successfully';
     }
@@ -166,7 +169,7 @@ class UserController extends BaseController
         if ($validation->fails()) {
             return $this->sendError($validation->messages()->all());
         }
-        $user = User::where('email', $request->email)->where('type','!=','staff')->first();
+        $user = User::where('email', $request->email)->where('type', '!=', 'staff')->first();
         if ($user) {
             if (Hash::check($request->password, $user->password)) {
                 $token = $user->createToken('Personal Access Token')->accessToken;
@@ -178,13 +181,13 @@ class UserController extends BaseController
                 return $this->sendResponse($res, 'تم تسجيل الدخول بنجاح');
             } else {
                 $arrr = [];
-            array_push($arrr,'كلمة المرور غير صحيحة');
+                array_push($arrr, 'كلمة المرور غير صحيحة');
                 return $this->sendError('كلمة المرور غير صحيحة');
             }
         } else {
             $arr = [];
-            array_push($arr,'لم يتم العثور على المستخدم');
-            
+            array_push($arr, 'لم يتم العثور على المستخدم');
+
             return $this->sendError($arr);
         }
     }
@@ -225,7 +228,7 @@ class UserController extends BaseController
         //     return $this->sendError('البريد الاكتروني خاطيء');
 
         // }
-        
+            return $request->all();
         if ($request->image != null) {
             $user->image = $request->image->store('users');
         }
@@ -481,4 +484,5 @@ class UserController extends BaseController
         $res = PodcastResource::collection($service)->response()->getData(true);
         return $this->sendResponse($res, 'جميع البدوكاست  ');
     }
+    
 }
