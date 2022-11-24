@@ -22,7 +22,9 @@ class SocialResource extends JsonResource
             'snapchat'=> $this->snapchat,
             'linkedin'=> $this->linkedin,
             'website'=> $this->website,
-            'followers_number'=> (int)$this->followers_number,
+            'podcast'=> $this->podcast,
+            'ecommerce'=> $this->ecommerce,
+            'followers_number'=> $this->followers_number,
         ];
     }
 }
