@@ -38,7 +38,7 @@
                                     fill="currentColor"></path>
                             </svg>
                         </span>
-                        <!--end::Svg Icon-->الواجهة الرئيسة    
+                        <!--end::Svg Icon-->الواجهة الرئيسة
                     </a>
 
                 </li>
@@ -47,32 +47,47 @@
             </ul>
             <!--end:::Tabs-->
             <!--begin:::Tab content-->
-            <form class="form" method="POST" action="{{ route('general_info.store') }}" enctype="multipart/form-data">
+            <form class="form" method="POST" action="{{ route('general_info.store') }}"
+                enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                     <div class="row">
-                       
+
                         <div class="form-group col-md-6">
-                            <label>{{ __('Api key') }}:</label>
-                            <textarea name="general[api_key]" class="form-control" id="" cols="20" rows="5">{{ get_general_value('api_key') }}</textarea>
+                            <label>{{ __(' الصورة') }}:</label>
+                            <textarea name="general_file[image_section_home]" class="form-control" id="" cols="20" rows="5">{{ get_general_value('image_section_home') }}</textarea>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label>{{ __('Base Url') }}:</label>
-                            <input type="text" name="general[base_url]" class="form-control" value="{{ get_general_value('base_url') }}" id="">
-                        </div>
-                     
-                     
-                       
-                     
                     </div>
-                </div>
-        
-        
-        
-                <div class="card-footer">
-                    <button type="submit" onclick="performStore()" class="btn btn-primary mr-2">{{ __('Submit') }}</button>
-        
-        
+                    <div class="row">
+
+                        <div class="form-group col-md-6">
+                            <label>{{ __('العنوان في حالة التسجيل') }}:</label>
+                            <textarea name="general[auth_title]" class="form-control" id="" cols="20" rows="5">{{ get_general_value('auth_title') }}</textarea>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>{{ __('الموضوع في حالة التسجيل') }}:</label>
+                            <textarea name="general[auth_body]" class="form-control" id="" cols="20" rows="5">{{ get_general_value('auth_body') }}</textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="form-group col-md-6">
+                            <label>{{ __('العنوان في حالة عدم التسجيل') }}:</label>
+                            <textarea name="general[not_auth_title]" class="form-control" id="" cols="20" rows="5">{{ get_general_value('not_auth_title') }}</textarea>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>{{ __('الموضوع في حالة عدم التسجيل') }}:</label>
+                            <textarea name="general[not_auth_body]" class="form-control" id="" cols="20" rows="5">{{ get_general_value('not_auth_body') }}</textarea>
+                        </div>
+                    </div>
+
+
+
+                    <div class="card-footer">
+                        <button type="submit" onclick="performStore()"
+                            class="btn btn-primary mr-2">{{ __('Submit') }}</button>
+
+
             </form>
             <!--end:::Tab content-->
         </div>
@@ -106,7 +121,7 @@
         </div>
     </div>
 </div>
-@include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
+@include('sweetalert::alert', ['cdn' => 'https://cdn.jsdelivr.net/npm/sweetalert2@9'])
 
 @section('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
@@ -164,18 +179,18 @@
                                     var url = data.id;
                                     var url_delete = "service_category_delete/" + url;
                                     return '\
-                                                               <a  onclick = SelectedPeopleRecord("' +
+                                                                   <a  onclick = SelectedPeopleRecord("' +
                                         url +
                                         '") class="btn btn-sm btn-clean btn-icon btn-info" title="Edit details">\
-                                                                     <i class="la la-edit"></i>\
-                                                                       </a>\
-                                                                    <a href="javascript:;" data-id="' + url +
+                                                                         <i class="la la-edit"></i>\
+                                                                           </a>\
+                                                                        <a href="javascript:;" data-id="' + url +
                                         '" onclick = delete_record("' + url + '","' +
                                         url_delete +
                                         '") data-route="route("specialtys.destroy",' + url + ')" class="btn btn-sm btn-clean btn-icon btn-danger deleteRecord" title="Delete">\
-                                                                 		<i class="la la-trash"></i>\
-                                                                               </a>\
-                                                                            ';
+                                                                     		<i class="la la-trash"></i>\
+                                                                                   </a>\
+                                                                                ';
                                 },
                             },
 
