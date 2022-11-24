@@ -58,7 +58,7 @@
                             <input type="file" class="form-control image" name="general_file[home_image_section]" id="">
                         </div>
                         <div class="form-group">
-                            <img src="{{ asset('uploads/product_images/default.png') }}" style="width: 100px"
+                            <img src="{{ asset('public/uploads/'.get_general_value('home_image_section')) }}" style="width: 100px"
                                 class="img-thumbnail image-preview" alt="">
                         </div>
                     </div>
