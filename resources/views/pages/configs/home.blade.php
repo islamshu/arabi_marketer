@@ -55,7 +55,7 @@
 
                         <div class="form-group col-md-6">
                             <label>{{ __(' الصورة') }}:</label>
-                            <textarea name="general_file[image_section_home]" class="form-control" id="" cols="20" rows="5">{{ get_general_value('image_section_home') }}</textarea>
+                            <input type="file" class="form-control" name="general_file['home_image_section']" id="">
                         </div>
                     </div>
                     <div class="row">
