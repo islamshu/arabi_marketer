@@ -18,6 +18,9 @@ class GeneralInfoController extends Controller
     {
         return view('pages.configs.myfatoorah');
     }
+    public function first_section(){
+        return view('pages.configs.home');
+    }
     public function store(Request $request)
     {
         if ($request->hasFile('general_file')) {

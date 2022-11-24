@@ -216,6 +216,7 @@ Route::middleware('auth')->group(function () {
     Route::get('update_comment_status/',[BlogController::class,'update_comment_status'])->name('comment.update.status');
     Route::resource('general_info',GeneralInfoController::class);
     Route::get('general_data',[GeneralInfoController::class,'general_data'])->name('general_data');
+    Route::get('first_section',[GeneralInfoController::class,'first_section'])->name('first_section');
 
     
     Route::get('myfatoorah_config',[GeneralInfoController::class,'myfatoorah']);
