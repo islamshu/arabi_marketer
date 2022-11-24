@@ -97,14 +97,14 @@ class HomeController extends BaseController
     }
     public function first_section(){
         $res['auth']=[
-            'title'=>'اكبر ملتقى صناع محتوى العرب',
-            'body'=>'لتقديم خدماتهم والتواصل معهم',
-            'image'=>asset('public/uploads/home_image_page.jpg'),
+            'title'=>get_general_value('auth_title') ,
+            'body'=>get_general_value('auth_body') ,
+            'image'=>asset('public/uploads/'.get_general_value('home_image_section')),
         ];
         $res['not_auth']=[
-            'title'=>'صناعة المحتوى',
-            'body'=>'يضم جميع المسوقين العرب ويقدم جميع الخدمات في مجال التسويق',
-            'image'=>asset('public/uploads/home_image_page.jpg'),
+            'title'=>get_general_value('not_auth_title') ,
+            'body'=>get_general_value('not_auth_body') ,
+            'image'=>asset('public/uploads/'.get_general_value('home_image_section')),
 
         ];
     
