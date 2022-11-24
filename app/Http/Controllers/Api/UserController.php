@@ -265,6 +265,8 @@ class UserController extends BaseController
             $social->snapchat = $request->snapchat;
             $social->linkedin = $request->linkedin;
             $social->website = $request->website;
+            $social->podcast = $request->podcast;
+            $social->ecommerce = $request->ecommerce;
             $social->followers_number = $request->followers_number;
             $social->user_id = $user->id;
             $social->save();
