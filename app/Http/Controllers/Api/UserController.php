@@ -225,16 +225,12 @@ class UserController extends BaseController
     {
         $types = json_decode($request->type, true);
 
-        foreach ($types as $type) {
-            return($type);
-        }
+        
         $user = auth('api')->user();
-        // if($request->email != $user->email ){
-        //     return $this->sendError('البريد الاكتروني خاطيء');
-        // }
-        // return $request->all();
+    
         if ($request->image != null) {
             $user->image = $request->image->store('users');
+            dd($user->image);
         }
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
