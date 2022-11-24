@@ -55,7 +55,11 @@
 
                         <div class="form-group col-md-6">
                             <label>{{ __(' الصورة') }}:</label>
-                            <input type="file" class="form-control" name="general_file['home_image_section']" id="">
+                            <input type="file" class="form-control image" name="general_file[home_image_section]" id="">
+                        </div>
+                        <div class="form-group">
+                            <img src="{{ asset('uploads/product_images/default.png') }}" style="width: 100px"
+                                class="img-thumbnail image-preview" alt="">
                         </div>
                     </div>
                     <div class="row">
