@@ -290,13 +290,13 @@ class UserController extends BaseController
             $social->followers_number = $request->followers_number;
             $social->save();
         }
-        foreach ($request->title as $key => $q) {
-            $ans = new UserAnswer();
-            $ans->user_id = auth('api')->id();
-            $ans->question = $request->title[$key];
-            $ans->answer = $request->answer[$key];
-            $ans->save();
-        }
+        // foreach ($request->title as $key => $q) {
+        //     $ans = new UserAnswer();
+        //     $ans->user_id = auth('api')->id();
+        //     $ans->question = $request->title[$key];
+        //     $ans->answer = $request->answer[$key];
+        //     $ans->save();
+        // }
         $userRes = new  UserNormalAuthResource($user);
         return $this->sendResponse($userRes, 'تم تعديل البيانات بنجاح');
     }
