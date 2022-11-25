@@ -19,7 +19,7 @@ class VideoResource extends JsonResource
             'id'=>$this->id,
             'title'=>$this->title,
             'description'=>($this->description ),
-            'user_info'=>new UserMainInfoResource($this->user),
+            'user_info'=>new UserInOtherResourse($this->user),
             'categories'=>$this->get_category($this),
             'keywords'=>$this->get_keywords($this),
             'thum_image'=>asset('public/uploads/'.$this->image),

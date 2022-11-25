@@ -22,7 +22,7 @@ class ServiceResource extends JsonResource
             'url'=>$this->url,
             'images'=>$this->get_image($this),
             'thumb_image'=>asset('public/uploads/'.$this->image),
-            'user_info'=>new UserMainInfoResource($this->user),
+            'user_info'=>new UserInOtherResourse($this->user),
             'categories'=>$this->get_category($this),
             'keywords'=>$this->get_keywords($this),
             'specialties'=>$this->get_specialties($this),

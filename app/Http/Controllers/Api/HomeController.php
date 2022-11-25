@@ -20,6 +20,7 @@ use App\Http\Resources\CategoryResource;
 use App\Http\Resources\HowItWorksResourse;
 use App\Http\Resources\QuestionResourse;
 use App\Http\Resources\ToolsResoures;
+use App\Http\Resources\UserInOtherResourse;
 use App\Http\Resources\UserNotAuthResource;
 use App\Http\Resources\UserResource;
 use App\Models\AboutPage;
@@ -83,8 +84,8 @@ class HomeController extends BaseController
         $markter = User::where('type', 'marketer')->where('status', 1)->take(5)->get();
         $markter2 = User::where('type', 'marketer')->where('status', 1)->skip(5)->take(5)->get();
 
-        $res['markter'] = UserNotAuthResource::collection($markter);
-        $res['markter2'] = UserNotAuthResource::collection($markter2);
+        $res['markter'] = UserInOtherResourse::collection($markter);
+        $res['markter2'] = UserInOtherResourse::collection($markter2);
         return $this->sendResponse($res, 'home page');
 
     }

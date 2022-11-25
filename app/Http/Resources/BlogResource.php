@@ -19,7 +19,7 @@ class BlogResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'description' => ($this->description),
-            'user_info' => new UserMainInfoResource($this->user),
+            'user_info' => new UserInOtherResourse($this->user),
             'user_mention'=>$this->user->mention,
             'categories' => $this->get_category($this),
             'keywords' => $this->get_keywords($this),
