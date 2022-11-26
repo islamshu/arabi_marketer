@@ -108,7 +108,7 @@
                 </tr>
                 <tr>
                     <td>First Name:</td>
-                    <td><strong>{{$fist_name}}</strong></td>
+                    <td><strong>{{$first_name}}</strong></td>
                 </tr>
                 <tr>
                     <td>Last Name:</td>
