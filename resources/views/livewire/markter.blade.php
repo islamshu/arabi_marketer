@@ -61,7 +61,7 @@
             <h3> Step 2</h3>
             <div class="form-group">
                 <label for="description"> مجالات المسوق</label><br />
-                <select class="form-control" id="select2" wire:model="selection">
+                <select class="form-control" id="select2" wire:model="selection" multiple>
 
                          
                     @foreach($categoires as $perm)
