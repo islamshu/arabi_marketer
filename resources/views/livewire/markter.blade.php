@@ -88,6 +88,11 @@
                 
                 @error('selection') <span class="error">{{ $message }}</span> @enderror
             </div>
+            <div class="form-group">
+                <label for="description">Pio:</label>
+                <textarea  dwire:model="pio" class="form-control"></textarea>
+                @error('pio') <span class="error">{{ $message }}</span> @enderror
+            </div>
             <button class="btn btn-primary nextBtn btn-lg pull-right" type="button"
                 wire:click="secondStepSubmit">Next</button>
             <button class="btn btn-danger nextBtn btn-lg pull-right" type="button" wire:click="back(1)">Back</button>
