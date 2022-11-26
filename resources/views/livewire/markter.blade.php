@@ -125,7 +125,7 @@
                 <tr>
                     <td>domains:</td>
                     @foreach ($selection as $item)
-                    <td><strong>{{ App\Category::find($item)->title }}</strong></td>
+                    <td><strong>{{ App\Models\Category::find($item)->title }}</strong></td>
 
                     @endforeach
                 </tr>
