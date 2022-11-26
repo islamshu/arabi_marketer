@@ -6,9 +6,11 @@ use App\Models\Category;
 use App\Models\Country;
 use App\Models\User;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Markter extends Component
 {
+    use WithFileUploads;
     public $currentStep = 1;
     public $selection=[];
     public $mention,$first_name,$last_name,$email,$password, $price, $detail,$country, $status = 1;
