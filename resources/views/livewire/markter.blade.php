@@ -90,7 +90,7 @@
             </div>
             <div class="form-group">
                 <label for="description">Pio:</label>
-                <textarea  dwire:model="pio" class="form-control"></textarea>
+                <textarea  wire:model="pio" class="form-control"></textarea>
                 @error('pio') <span class="error">{{ $message }}</span> @enderror
             </div>
             <button class="btn btn-primary nextBtn btn-lg pull-right mt-3" type="button"
