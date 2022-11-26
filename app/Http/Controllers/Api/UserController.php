@@ -78,6 +78,10 @@ class UserController extends BaseController
     }
     public function check_name(Request $request)
     {
+        if($request->mention == null){
+            return $this->sendError('يرجى ادخال اسم');
+
+        }
         $user = User::where('mention', $request->mention)->first();
         if ($user) {
             return $this->sendError('الاسم مستخدم');
