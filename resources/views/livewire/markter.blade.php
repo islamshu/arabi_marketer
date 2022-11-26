@@ -93,7 +93,7 @@
                 <textarea  dwire:model="pio" class="form-control"></textarea>
                 @error('pio') <span class="error">{{ $message }}</span> @enderror
             </div>
-            <button class="btn btn-primary nextBtn btn-lg pull-right" type="button"
+            <button class="btn btn-primary nextBtn btn-lg pull-right mt-5" type="button"
                 wire:click="secondStepSubmit">Next</button>
             <button class="btn btn-danger nextBtn btn-lg pull-right" type="button" wire:click="back(1)">Back</button>
         </div>
