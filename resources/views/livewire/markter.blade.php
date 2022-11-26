@@ -103,6 +103,11 @@
             <h3> Step 3</h3>
             <table class="table">
                 <tr>
+                    <td>Image:</td>
+                    {{ dd($image) }}
+                    <td><strong>{{$mention}}</strong></td>
+                </tr>
+                <tr>
                     <td>Mrntion:</td>
                     <td><strong>{{$mention}}</strong></td>
                 </tr>
@@ -127,7 +132,6 @@
                     <td>
                     @foreach ($selection as $item)
                     <strong>{{ App\Models\Category::find($item)->title }}</strong> ,
-
                     @endforeach
                     <td>
                 </tr>
