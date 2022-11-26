@@ -61,11 +61,13 @@
             <h3> Step 2</h3>
             <div class="form-group">
                 <label for="description">Team Status</label><br />
-                <label class="radio-inline"><input type="radio" wire:model="status" value="1"
-                        {{{ $status == '1' ? "checked" : "" }}}> Active</label>
-                <label class="radio-inline"><input type="radio" wire:model="status" value="0"
-                        {{{ $status == '0' ? "checked" : "" }}}> DeActive</label>
-                @error('status') <span class="error">{{ $message }}</span> @enderror
+                <select wire:model="selection" name="p" id="p" class="p" multiple>
+                    @foreach($categoires as $perm)
+                        <option value={{$perm->id}}>{{ $perm->title }}</option>
+                    @endforeach
+                </select>
+                
+                @error('selection') <span class="error">{{ $message }}</span> @enderror
             </div>
             <button class="btn btn-primary nextBtn btn-lg pull-right" type="button"
                 wire:click="secondStepSubmit">Next</button>

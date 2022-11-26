@@ -2,12 +2,14 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Category;
 use App\Models\User;
 use Livewire\Component;
 
 class Markter extends Component
 {
     public $currentStep = 1;
+    public $selection=[];
     public $mention,$first_name,$last_name,$email,$password, $price, $detail, $status = 1;
     public $successMsg = '';
   
@@ -16,7 +18,9 @@ class Markter extends Component
      */
     public function render()
     {
-        return view('livewire.markter');
+        return view('livewire.markter', [
+            'categoires' => Category::ofType('user')->orderBy('id', 'asc')->get(),
+       ]);
     }
   
     /**
@@ -41,7 +45,7 @@ class Markter extends Component
     public function secondStepSubmit()
     {
         $validatedData = $this->validate([
-            'status' => 'required',
+            'selection' => 'required',
         ]);
   
         $this->currentStep = 3;
