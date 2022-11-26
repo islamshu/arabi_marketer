@@ -91,7 +91,7 @@ class HomeController extends BaseController
     }
     public function main_image(){
         $images = [
-            'markert_image_page'=>asset('public/uploads/markter_image.jpg'),
+            'markert_image_page'=>asset('public/uploads/markters_image.png'),
             'home_image_page'=>asset('public/uploads/home_image_page2.jpg'),
         ];
         return $this->sendResponse($images, 'all image page');  
