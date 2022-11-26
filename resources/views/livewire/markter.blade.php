@@ -61,7 +61,7 @@
             <h3> Step 2</h3>
             <div class="form-group">
                 <label for="description">Team Status</label><br />
-                <select wire:model="selection" name="p" id="p" class="p" multiple>
+                <select  wire:model="selection" name="p" id="p" class="form-control" multiple>
                     @foreach($categoires as $perm)
                         <option value={{$perm->id}}>{{ $perm->title }}</option>
                     @endforeach
