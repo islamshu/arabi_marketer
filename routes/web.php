@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutPageController;
 use App\Http\Controllers\Account\SettingsController;
 use App\Http\Controllers\Api\HomeController;
 use App\Http\Controllers\Api\SoundController;
+use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Auth\SocialiteLoginController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
@@ -236,6 +237,9 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('videos', VideoController::class);
     Route::resource('consloution', ConsultingController::class);
+    Route::get('create_marketer', [UserController::class,'create_markter'])->name('create_markter');
+
+    
     Route::post('update_status_video',[VideoController::class,'update_status_video'])->name('update_status_video');
 
     Route::get('services_update/{id}',[ServiceController::class, 'update'])->name('services_update');

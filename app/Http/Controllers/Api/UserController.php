@@ -48,6 +48,9 @@ use Validator;
 
 class UserController extends BaseController
 {
+    public function create_markter(){
+        return view('pages.marketers.create');
+    }
     public function my_notification()
     {
         $notification = auth('api')->user()->notifications;
