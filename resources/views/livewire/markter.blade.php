@@ -69,7 +69,7 @@
                 <input type="password" wire:model="password" class="form-control" id="teamPrice" />
                 @error('password') <span class="error">{{ $message }}</span> @enderror
             </div>
-            <button class="btn btn-primary nextBtn btn-lg pull-right t-3" wire:click="firstStepSubmit"
+            <button class="btn btn-primary nextBtn btn-lg pull-right mt-3" wire:click="firstStepSubmit"
                 type="button">Next</button>
         </div>
     </div>
@@ -95,7 +95,7 @@
             </div>
             <button class="btn btn-primary nextBtn btn-lg pull-right mt-3" type="button"
                 wire:click="secondStepSubmit">Next</button>
-            <button class="btn btn-danger nextBtn btn-lg pull-right t-3" type="button" wire:click="back(1)">Back</button>
+            <button class="btn btn-danger nextBtn btn-lg pull-right mt-3" type="button" wire:click="back(1)">Back</button>
         </div>
     </div>
     <div class="row setup-content {{ $currentStep != 3 ? 'display-none' : '' }}" id="step-3">
