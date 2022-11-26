@@ -28,20 +28,29 @@
         <div class="col-md-12">
             <h3> Step 1</h3>
             <div class="form-group">
-                <label for="title">Team Name:</label>
-                <input type="text" wire:model="name" class="form-control" id="taskTitle">
-                @error('name') <span class="error">{{ $message }}</span> @enderror
+                <label for="title"> Mention:</label>
+                <input type="text" wire:model="mention" class="form-control" id="taskTitle">
+                @error('mention') <span class="error">{{ $message }}</span> @enderror
             </div>
             <div class="form-group">
-                <label for="description">Team Price:</label>
-                <input type="text" wire:model="price" class="form-control" id="teamPrice" />
+                <label for="description">First name:</label>
+                <input type="text" wire:model="first_name" class="form-control" id="teamPrice" />
+                @error('first_name') <span class="error">{{ $message }}</span> @enderror
+            </div>
+            <div class="form-group">
+                <label for="description">Last name:</label>
+                <input type="text" wire:model="last_name" class="form-control" id="teamPrice" />
                 @error('price') <span class="error">{{ $message }}</span> @enderror
             </div>
             <div class="form-group">
-                <label for="detail">Team Details:</label>
-                <textarea type="text" wire:model="detail" class="form-control"
-                    id="taskDetail">{{{ $detail ?? '' }}}</textarea>
-                @error('detail') <span class="error">{{ $message }}</span> @enderror
+                <label for="description">Email:</label>
+                <input type="email" wire:model="email" class="form-control" id="teamPrice" />
+                @error('email') <span class="error">{{ $message }}</span> @enderror
+            </div>
+            <div class="form-group">
+                <label for="description">Password:</label>
+                <input type="password" wire:model="password" class="form-control" id="teamPrice" />
+                @error('password') <span class="error">{{ $message }}</span> @enderror
             </div>
             <button class="btn btn-primary nextBtn btn-lg pull-right" wire:click="firstStepSubmit"
                 type="button">Next</button>

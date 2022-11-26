@@ -8,7 +8,7 @@ use Livewire\Component;
 class Markter extends Component
 {
     public $currentStep = 1;
-    public $name, $price, $detail, $status = 1;
+    public $mention,$fist_name,$last_name,$email,$passowrd, $price, $detail, $status = 1;
     public $successMsg = '';
   
     /**
@@ -25,9 +25,10 @@ class Markter extends Component
     public function firstStepSubmit()
     {
         $validatedData = $this->validate([
-            'name' => 'required',
-            'price' => 'required|numeric',
-            'detail' => 'required',
+            'mention' => 'required|unique:users,mention',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'passowrd'=>'required'
         ]);
  
         $this->currentStep = 2;
