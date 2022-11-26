@@ -103,20 +103,31 @@
             <h3> Step 3</h3>
             <table class="table">
                 <tr>
-                    <td>Team Name:</td>
+                    <td>Mrntion:</td>
                     <td><strong>{{$mention}}</strong></td>
                 </tr>
                 <tr>
-                    <td>Team Price:</td>
-                    <td><strong>{{$price}}</strong></td>
+                    <td>First Name:</td>
+                    <td><strong>{{$fist_name}}</strong></td>
                 </tr>
                 <tr>
-                    <td>Team status:</td>
-                    <td><strong>{{$status ? 'Active' : 'DeActive'}}</strong></td>
+                    <td>Last Name:</td>
+                    <td><strong>{{$last_name}}</strong></td>
                 </tr>
                 <tr>
-                    <td>Team Detail:</td>
-                    <td><strong>{{$detail}}</strong></td>
+                    <td>Email:</td>
+                    <td><strong>{{$email}}</strong></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><strong>{{$password}}</strong></td>
+                </tr>
+                <tr>
+                    <td>domains:</td>
+                    @foreach ($selection as $item)
+                    <td><strong>{{ App\Category::find($item)->title }}</strong></td>
+
+                    @endforeach
                 </tr>
             </table>
             <button class="btn btn-success btn-lg pull-right" wire:click="submitForm" type="button">Finish!</button>
