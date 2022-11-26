@@ -12,6 +12,7 @@ class Markter extends Component
     public $currentStep = 1;
     public $selection=[];
     public $mention,$first_name,$last_name,$email,$password, $price, $detail,$country, $status = 1;
+    public $image,
     public $successMsg = '';
   
     /**
@@ -36,7 +37,8 @@ class Markter extends Component
             'first_name' => 'required',
             'last_name' => 'required',
             'country'=>'required',
-            'password'=>'required'
+            'password'=>'required',
+            'image'=>'required'
         ]);
  
         $this->currentStep = 2;
@@ -49,6 +51,7 @@ class Markter extends Component
     {
         $validatedData = $this->validate([
             'selection' => 'required',
+            'pio'=>'required',
         ]);
         dd($this->selection);
   

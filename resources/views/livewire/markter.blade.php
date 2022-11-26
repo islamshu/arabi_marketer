@@ -28,6 +28,11 @@
         <div class="col-md-12">
             <h3> Step 1</h3>
             <div class="form-group">
+                <label for="title"> Image:</label>
+                <input type="file" wire:model="image" class="form-control" id="taskTitle">
+                @error('image') <span class="error">{{ $message }}</span> @enderror
+            </div>
+            <div class="form-group">
                 <label for="title"> Mention:</label>
                 <input type="text" wire:model="mention" class="form-control" id="taskTitle">
                 @error('mention') <span class="error">{{ $message }}</span> @enderror
