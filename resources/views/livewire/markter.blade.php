@@ -78,7 +78,7 @@
             <table class="table">
                 <tr>
                     <td>Team Name:</td>
-                    <td><strong>{{$name}}</strong></td>
+                    <td><strong>{{$mention}}</strong></td>
                 </tr>
                 <tr>
                     <td>Team Price:</td>
