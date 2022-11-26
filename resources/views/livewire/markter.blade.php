@@ -124,10 +124,12 @@
                 </tr>
                 <tr>
                     <td>domains:</td>
+                    <td>
                     @foreach ($selection as $item)
-                    <td><strong>{{ App\Models\Category::find($item)->title }}</strong></td> <br>
+                    <strong>{{ App\Models\Category::find($item)->title }}</strong> ,
 
                     @endforeach
+                    <td>
                 </tr>
             </table>
             <button class="btn btn-success btn-lg pull-right" wire:click="submitForm" type="button">Finish!</button>
