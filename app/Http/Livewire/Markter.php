@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Category;
+use App\Models\Country;
 use App\Models\User;
 use Livewire\Component;
 
@@ -10,7 +11,7 @@ class Markter extends Component
 {
     public $currentStep = 1;
     public $selection=[];
-    public $mention,$first_name,$last_name,$email,$password, $price, $detail, $status = 1;
+    public $mention,$first_name,$last_name,$email,$password, $price, $detail,$country, $status = 1;
     public $successMsg = '';
   
     /**
@@ -20,6 +21,7 @@ class Markter extends Component
     {
         return view('livewire.markter', [
             'categoires' => Category::ofType('user')->orderBy('id', 'asc')->get(),
+            'countries'=>Country::get(),
        ]);
     }
   

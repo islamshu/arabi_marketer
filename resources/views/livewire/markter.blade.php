@@ -48,6 +48,18 @@
                 @error('email') <span class="error">{{ $message }}</span> @enderror
             </div>
             <div class="form-group">
+                <label for="description"> الدولة </label><br />
+                <select class="form-control" id="select2" wire:model="country" >
+
+                         
+                    @foreach($countries as $perm)
+                        <option value={{$perm->id}}>{{ $perm->title }}</option>
+                    @endforeach
+                </select>
+                
+                @error('country') <span class="error">{{ $message }}</span> @enderror
+            </div>
+            <div class="form-group">
                 <label for="description">Password:</label>
                 <input type="password" wire:model="password" class="form-control" id="teamPrice" />
                 @error('password') <span class="error">{{ $message }}</span> @enderror
