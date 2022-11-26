@@ -8,7 +8,7 @@ use Livewire\Component;
 class Markter extends Component
 {
     public $currentStep = 1;
-    public $mention,$fist_name,$last_name,$email,$passowrd, $price, $detail, $status = 1;
+    public $mention,$first_name,$last_name,$email,$passowrd, $price, $detail, $status = 1;
     public $successMsg = '';
   
     /**
