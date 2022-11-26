@@ -112,19 +112,16 @@
 </x-base-layout>
 @section('scripts')
 <script>
-    $( document ).ready(function() {
-  // Handler for .ready() called.
-
-    $( "#time_duration" ).change(function() {
-        if($(this).val() == 0){
-            
-            $("#hour_and_mins").show();
-
-        }else{
-            $("#hour_and_mins").hide();
-        }
-});
-});
+    ClassicEditor
+            .create( document.querySelector( '.editor' ) )
+            .then( editor => {
+                    console.log( editor );
+            } )
+            .catch( error => {
+                    console.error( error );
+            } );
+            var input1 = document.querySelector("#kt_tagify_3");
+            new Tagify(input1);
 </script>
 
 @endsection
