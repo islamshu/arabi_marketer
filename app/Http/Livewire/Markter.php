@@ -55,6 +55,7 @@ class Markter extends Component
             'selection' => 'required',
             'pio'=>'required',
         ]);
+        dd($this->image);
   
         $this->currentStep = 3;
     }
