@@ -194,7 +194,7 @@ class HomeController extends BaseController
     public function get_markter($id)
     {
         // $name = str_replace('@','',$id);
-        $user = User::where('mention',$id)->where('type','marketer')->first();
+        $user = User::where('mention',$id)->first();
         if ($user) {
             // if ($user->type != 'marketer' || $user->type != 'Admin') {
             //     return $this->sendError('هذا ليس حساب مسوق !');
@@ -202,6 +202,8 @@ class HomeController extends BaseController
             $userRes = new  UserNotAuthResource($user);
             return $this->sendResponse($userRes, 'الملف الشخصي');
         } else {
+
+
             return $this->sendError('لا يوجد حساب !');
         }
     }
