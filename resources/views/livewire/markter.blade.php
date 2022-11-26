@@ -104,8 +104,7 @@
             <table class="table">
                 <tr>
                     <td>Image:</td>
-                    {{ dd($image) }}
-                    <td><strong>{{$mention}}</strong></td>
+                    <td><strong><img src="{{ $image }}" width="30" height="30" alt=""></strong></td>
                 </tr>
                 <tr>
                     <td>Mrntion:</td>
