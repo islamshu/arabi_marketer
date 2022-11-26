@@ -226,6 +226,9 @@ class UserController extends BaseController
     }
     public function upload_image(Request $request){
         $user = auth('api')->user();
+        if($request->image == null){
+            return $this->sendError('يرجى اضافة صورة ');
+        }
         $user->image = $request->image->store('users');
         $user->save();
         $userRes = new  UserNormalAuthResource($user);
