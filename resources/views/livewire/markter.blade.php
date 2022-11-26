@@ -102,10 +102,10 @@
         <div class="col-md-12">
             <h3> Step 3</h3>
             <table class="table">
-                <tr>
+                {{-- <tr>
                     <td>Image:</td>
                     <td><strong><img src="{{ $image }}" width="30" height="30" alt=""></strong></td>
-                </tr>
+                </tr> --}}
                 <tr>
                     <td>Mrntion:</td>
                     <td><strong>{{$mention}}</strong></td>

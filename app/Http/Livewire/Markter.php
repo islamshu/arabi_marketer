@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Category;
 use App\Models\Country;
 use App\Models\User;
+use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -55,7 +56,6 @@ class Markter extends Component
             'selection' => 'required',
             'pio'=>'required',
         ]);
-        dd($this->image);
   
         $this->currentStep = 3;
     }
@@ -65,6 +65,16 @@ class Markter extends Component
      */
     public function submitForm()
     {
+        $user = new User();
+        $user->first_name = $this->first_name;
+        $user->last_name = $this->last_name;
+        $user->name = str_replace('@','',$this->mention);
+        $user->mention = $this->mention;
+        $user->type = 'marketer';
+        $user->status = 1;
+        $user->email_verified_at = Carbon::now();
+        $user->save();
+
         User::create([
             'name' => $this->name,
             'price' => $this->price,

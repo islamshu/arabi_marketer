@@ -253,7 +253,7 @@ class UserController extends BaseController
         // }
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
-        $user->lang = $request->lang;
+        $user->lang = 'ar';
         $user->country_id = $request->country_id;
         $user->city_id = $request->city_id;
         // $user->email = $request->email;
