@@ -26,6 +26,7 @@ class Markter extends Component
     {
         $validatedData = $this->validate([
             'mention' => 'required|unique:users,mention',
+            'email' => 'email|required|unique:users,email',
             'first_name' => 'required',
             'last_name' => 'required',
             'password'=>'required'
