@@ -13,7 +13,7 @@ class Markter extends Component
     use WithFileUploads;
     public $currentStep = 1;
     public $selection=[];
-    public $mention,$first_name,$last_name,$email,$password, $price, $detail,$country, $status = 1;
+    public $mention,$first_name,$last_name,$email,$password, $price, $detail,$country,$pio, $status = 1;
     public $image;
     public $successMsg = '';
   
