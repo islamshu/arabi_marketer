@@ -47,6 +47,7 @@ class Markter extends Component
         $validatedData = $this->validate([
             'selection' => 'required',
         ]);
+        dd($this->selection);
   
         $this->currentStep = 3;
     }
