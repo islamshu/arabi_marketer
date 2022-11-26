@@ -61,9 +61,9 @@
             <h3> Step 2</h3>
             <div class="form-group">
                 <label for="description"> مجالات المسوق</label><br />
-                <select class="form-select form-control form-select-solid " wire:model="selection" multiple
-                required data-control="select2" data-close-on-select="false" data-placeholder="اختر"
-                data-allow-clear="true">                    
+                <select class="form-control" id="select2" wire:model="selection">
+
+                         
                     @foreach($categoires as $perm)
                         <option value={{$perm->id}}>{{ $perm->title }}</option>
                     @endforeach
