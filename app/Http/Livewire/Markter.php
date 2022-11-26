@@ -8,7 +8,7 @@ use Livewire\Component;
 class Markter extends Component
 {
     public $currentStep = 1;
-    public $mention,$first_name,$last_name,$email,$passowrd, $price, $detail, $status = 1;
+    public $mention,$first_name,$last_name,$email,$password, $price, $detail, $status = 1;
     public $successMsg = '';
   
     /**
@@ -28,7 +28,7 @@ class Markter extends Component
             'mention' => 'required|unique:users,mention',
             'first_name' => 'required',
             'last_name' => 'required',
-            'passowrd'=>'required'
+            'password'=>'required'
         ]);
  
         $this->currentStep = 2;
