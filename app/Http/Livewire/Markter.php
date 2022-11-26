@@ -53,7 +53,7 @@ class Markter extends Component
     {
         $validatedData = $this->validate([
             'selection' => 'required',
-            'pio'=>'required',
+            // 'pio'=>'required',
         ]);
         dd($this->image);
   
