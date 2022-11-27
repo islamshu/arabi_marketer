@@ -56,8 +56,8 @@ Route::get('home_service', [HomeController::class, 'get_service']);
 Route::get('home_blog', [HomeController::class, 'get_blog']);
 Route::get('home_podcasts', [HomeController::class, 'get_podcast']);
 Route::get('get_podcast_admin', [HomeController::class, 'get_podcast_admin']);
-Route::get('main_images',[HomeController::class,'main_image']);
-Route::get('first_section',[HomeController::class,'first_section']);
+Route::get('main_images', [HomeController::class, 'main_image']);
+Route::get('first_section', [HomeController::class, 'first_section']);
 
 
 Route::get('home_video', [HomeController::class, 'get_video']);
@@ -77,10 +77,10 @@ Route::get('/rss_feed/{id}', [SoundController::class, 'rss_feed']);
 
 Route::get('/questions', [HomeController::class, 'questions']);
 Route::get('/get_markter/{id}', [HomeController::class, 'get_markter']);
-Route::post('upload_images',[GalleryController::class,'upload'])->name('upload_image');
-Route::get('get_all_media',[GalleryController::class,'index']);
-Route::get('singe_media/{id}',[GalleryController::class,'single']);
-Route::post('update_media/{id}',[GalleryController::class,'edit']);
+Route::post('upload_images', [GalleryController::class, 'upload'])->name('upload_image');
+Route::get('get_all_media', [GalleryController::class, 'index']);
+Route::get('singe_media/{id}', [GalleryController::class, 'single']);
+Route::post('update_media/{id}', [GalleryController::class, 'edit']);
 
 
 
@@ -106,10 +106,7 @@ Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
 Route::post('/check_name', [UserController::class, 'check_name']);
 Route::post('/check_email', [UserController::class, 'check_email']);
-Route::post('/edit_pio', [UserController::class, 'edit_pio']);
-Route::post('/edit_soical', [UserController::class, 'edit_soical']);
-Route::post('/edit_profile_user', [UserController::class, 'edit_profile_user']);
-Route::post('/edit_password', [UserController::class, 'edit_password']);
+
 
 
 
@@ -119,7 +116,11 @@ Route::group(['middleware' => 'is_login'], function () {
     Route::post('/edit_profile', [UserController::class, 'edit_profile']);
     Route::post('/upload_profile_image', [UserController::class, 'upload_image']);
 
-    
+    Route::post('/edit_pio', [UserController::class, 'edit_pio']);
+    Route::post('/edit_soical', [UserController::class, 'edit_soical']);
+    Route::post('/edit_profile_user', [UserController::class, 'edit_profile_user']);
+    Route::post('/edit_password', [UserController::class, 'edit_password']);
+    Route::post('/check_mention_name', [UserController::class, 'check_mention_name']);
     Route::post('/be_marketer', [UserController::class, 'be_marketer']);
     Route::get('/profile', [UserController::class, 'profile']);
     Route::get('/my_service_buy', [UserController::class, 'my_service_buy']);

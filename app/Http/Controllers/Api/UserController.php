@@ -145,6 +145,19 @@ class UserController extends BaseController
         return $this->sendResponse('success', 'تم تعديل  البروفايل');
 
     }
+    public function check_mention_name(Request $request){
+        if($request->mention == null){
+            return $this->sendError('يجب ادخال الاسم');
+        }
+        $user = auth('api')->user();
+        $userr = User::where('mention',$request->mention)->where('id','!=',$user->id)->first(); 
+        if($userr){
+            return $this->sendError('الاسم مستخدم');
+        }else{
+            return $this->sendResponse('success', 'يمكنك استخدام الاسم');
+  
+        }
+    }
 
     
     public function edit_soical(Request $request)
