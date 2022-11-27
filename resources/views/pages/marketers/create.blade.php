@@ -94,7 +94,7 @@
                                 <path d="M15 8H20L14 2V7C14 7.6 14.4 8 15 8Z" fill="currentColor"></path>
                             </svg>
                         </span>
-                        <!--end::Svg Icon-->انشاء استشارة  
+                        <!--end::Svg Icon-->انشاء مسوق  
                     </a>
 
                 </li>

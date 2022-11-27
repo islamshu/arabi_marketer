@@ -77,6 +77,9 @@
                 </li>
                 
             </ul> --}}
+            <button id="slide-toggle-button" class="btn btn-primary">
+                اضف جديد
+            </button>
 
             <table id="example" class="display" style="width:100%">
                 <thead>
