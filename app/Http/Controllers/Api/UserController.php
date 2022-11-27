@@ -107,6 +107,16 @@ class UserController extends BaseController
     }
     public function edit_profile_user(Request $request){
         $user = auth('api')->user();
+        $validation = Validator::make($request->all(), [
+        
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'country_id' => 'required',
+
+        ]);
+        if ($validation->fails()) {
+            return $this->sendError($validation->messages()->first());
+        }
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
         $user->country_id = $request->country_id;
