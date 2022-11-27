@@ -124,6 +124,29 @@ class UserController extends BaseController
         return $this->sendResponse('success', 'تم تعديل  البروفايل');
 
     }
+    public function edit_password(Request $request){
+        $user = auth('api')->user();
+        $validation = Validator::make($request->all(), [
+        
+            'old_password' => 'required',
+            'new_password' => 'required|different:old_password',
+            'confirm_password' => 'required|same:new_password',
+
+        ]);
+        if ($validation->fails()) {
+            return $this->sendError($validation->messages()->first());
+        }
+        if (Hash::check($request->password, $user->old_password)) {
+               $user->password= Hash::make($request->new_password);
+               $user->save();
+         }
+
+
+        return $this->sendResponse('success', 'تم تعديل  البروفايل');
+
+    }
+
+    
     public function edit_soical(Request $request)
     {
         $user = auth('api')->user();
