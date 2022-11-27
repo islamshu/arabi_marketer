@@ -121,7 +121,7 @@ class Markter extends Component
         $this->mention = '';
         $this->email = '';
         $this->country = '';
-        $this->selection = '';
+        $this->selection = [];
         $this->pio = '';
         $this->password = '';
     }
