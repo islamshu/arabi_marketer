@@ -154,6 +154,8 @@ class UserController extends BaseController
         if($userr){
             return $this->sendError('الاسم مستخدم');
         }else{
+            $user->mention = $request->mention;
+            $user->save();
             return $this->sendResponse('success', 'يمكنك استخدام الاسم');
   
         }
