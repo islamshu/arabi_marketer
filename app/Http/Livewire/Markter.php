@@ -24,7 +24,6 @@ class Markter extends Component
      */
     public function render()
     {
-        $this->image = '';
 
         return view('livewire.markter', [
             'categoires' => Category::ofType('user')->orderBy('id', 'asc')->get(),
