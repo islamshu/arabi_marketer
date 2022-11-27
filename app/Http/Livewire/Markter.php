@@ -73,6 +73,8 @@ class Markter extends Component
         $user->mention = $this->mention;
         $user->type = 'marketer';
         $user->status = 1;
+        $user->email = $this->email;
+
         $user->email_verified_at = Carbon::now();
         $user->lang = 'ar';
         $user->country_id = $this->country;
