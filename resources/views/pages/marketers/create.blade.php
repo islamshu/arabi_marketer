@@ -46,6 +46,9 @@
         position: relative;
         display: table-cell;
     }
+    .error{
+        color: red
+    }
 </style>
 @endsection
 
