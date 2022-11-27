@@ -105,6 +105,15 @@ class UserController extends BaseController
         return $this->sendResponse('success', 'تم تعديل الpio ');
 
     }
+    public function edit_profile_user(Request $request){
+        $user = auth('api')->user();
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
+        $user->country_id = $request->country_id;
+        $user->save();
+        return $this->sendResponse('success', 'تم تعديل  البروفايل');
+
+    }
     public function edit_soical(Request $request)
     {
         $user = auth('api')->user();
