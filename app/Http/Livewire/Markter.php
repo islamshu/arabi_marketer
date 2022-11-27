@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Category;
 use App\Models\Country;
 use App\Models\User;
+use App\Models\UserCategory;
 use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -73,16 +74,25 @@ class Markter extends Component
         $user->type = 'marketer';
         $user->status = 1;
         $user->email_verified_at = Carbon::now();
-        $user->save();
+        $user->lang = 'ar';
+        $user->country_id = $this->country;
 
-        User::create([
-            'name' => $this->name,
-            'price' => $this->price,
-            'detail' => $this->detail,
-            'status' => $this->status,
-        ]);
+        $user->save();
+   
+     
+
+            foreach ($this->selection as $type) {
+              
+                $usertype = new UserCategory();
+                $usertype->user_id = $user->id;
+                $usertype->type_id = $type;
+                $usertype->save();
+            }
+        
+
+     
   
-        $this->successMsg = 'Team successfully created.';
+        $this->successMsg = 'Markter successfully created.';
   
         $this->clearForm();
   
@@ -102,9 +112,13 @@ class Markter extends Component
      */
     public function clearForm()
     {
-        $this->name = '';
-        $this->price = '';
-        $this->detail = '';
-        $this->status = 1;
+        $this->first_name = '';
+        $this->last_name = '';
+        $this->mention = '';
+        $this->email = '';
+        $this->country = '';
+        $this->selection = '';
+        $this->pio = '';
+        $this->password = '';
     }
 }
