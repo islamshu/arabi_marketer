@@ -24,6 +24,8 @@ class Markter extends Component
      */
     public function render()
     {
+        $this->image = '';
+
         return view('livewire.markter', [
             'categoires' => Category::ofType('user')->orderBy('id', 'asc')->get(),
             'countries'=>Country::get(),
@@ -44,6 +46,7 @@ class Markter extends Component
             'password'=>'required',
             'image'=>'required'
         ]);
+
  
         $this->currentStep = 2;
     }
