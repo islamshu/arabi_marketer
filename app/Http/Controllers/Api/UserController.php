@@ -166,7 +166,6 @@ class UserController extends BaseController
             $social->user_id = $user->id;
             $social->save();
         } else {
-            return 'ddd';
             $social->instagram = $request->instagram;
             $social->facebook = $request->facebook;
             $social->twitter = $request->twitter;
