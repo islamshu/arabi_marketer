@@ -106,6 +106,8 @@ Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
 Route::post('/check_name', [UserController::class, 'check_name']);
 Route::post('/check_email', [UserController::class, 'check_email']);
+Route::post('/edit_pio', [UserController::class, 'edit_pio']);
+
 
 
 Route::get('/show_notification/{id}', [UserController::class, 'show_notification'])->name('show_notification');

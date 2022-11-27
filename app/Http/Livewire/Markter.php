@@ -7,6 +7,7 @@ use App\Models\Country;
 use App\Models\User;
 use App\Models\UserCategory;
 use Carbon\Carbon;
+use Hash;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -76,6 +77,7 @@ class Markter extends Component
         $user->type = 'marketer';
         $user->status = 1;
         $user->email = $this->email;
+        $user->password =  Hash::make($this->password);
         
 
         $user->email_verified_at = Carbon::now();

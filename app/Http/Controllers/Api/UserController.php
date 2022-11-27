@@ -92,6 +92,19 @@ class UserController extends BaseController
             return $this->sendResponse('success', 'الاسم متاح');
         }
     }
+    public function edit_pio(Request $request)
+    {
+        $user = auth('api')->user();
+        if($request->pio == null){
+            return $this->sendError('يرجى ال pio الخاص بك ');
+
+        }
+        $user->pio = $request->pio;
+        $user->save();
+
+        return $this->sendResponse('success', 'تم تعديل الpio ');
+
+    }
     public function check_email(Request $request)
     {
         if($request->email == null){
