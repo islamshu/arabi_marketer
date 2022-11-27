@@ -92,6 +92,19 @@ class UserController extends BaseController
             return $this->sendResponse('success', 'الاسم متاح');
         }
     }
+    public function check_email(Request $request)
+    {
+        if($request->email == null){
+            return $this->sendError('يرجى ادخال البريد الاكتروني');
+
+        }
+        $user = User::where('email', $request->email)->first();
+        if ($user) {
+            return $this->sendError('البريد الاكتروني مستخدم');
+        } else {
+            return $this->sendResponse('success', 'البريد متاح ');
+        }
+    }
 
     public function change_mention()
     {

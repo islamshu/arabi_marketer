@@ -105,6 +105,9 @@ Route::get('/users', [SampleDataController::class, 'getUsers']);
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
 Route::post('/check_name', [UserController::class, 'check_name']);
+Route::post('/check_email', [UserController::class, 'check_email']);
+
+
 Route::get('/show_notification/{id}', [UserController::class, 'show_notification'])->name('show_notification');
 
 Route::group(['middleware' => 'is_login'], function () {
