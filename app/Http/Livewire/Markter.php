@@ -123,6 +123,8 @@ class Markter extends Component
         $this->country = '';
         $this->selection = [];
         $this->pio = '';
+        $this->image = '';
+
         $this->password = '';
     }
 }
