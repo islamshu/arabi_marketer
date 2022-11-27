@@ -77,9 +77,7 @@
                 </li>
                 
             </ul> --}}
-            <button id="slide-toggle-button" class="btn btn-primary">
-                اضف جديد
-            </button>
+           <a href="{{ route('create_markter') }}" class="btn btn-primary"> اضف جديد</a>
 
             <table id="example" class="display" style="width:100%">
                 <thead>
