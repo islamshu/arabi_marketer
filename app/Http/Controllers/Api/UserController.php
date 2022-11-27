@@ -105,6 +105,41 @@ class UserController extends BaseController
         return $this->sendResponse('success', 'تم تعديل الpio ');
 
     }
+    public function edit_soical(Request $request)
+    {
+        $user = auth('api')->user();
+        $social = $user->soical;
+        if ($social == null) {
+            $social = new MarkterSoical();
+            $social->instagram = $request->instagram;
+            $social->facebook = $request->facebook;
+            $social->twitter = $request->twitter;
+            $social->pinterest = $request->pinterest;
+            $social->snapchat = $request->snapchat;
+            $social->linkedin = $request->linkedin;
+            $social->website = $request->website;
+            $social->podcast = $request->podcast;
+            $social->ecommerce = $request->ecommerce;
+            $social->followers_number = $request->followers_number;
+            $social->user_id = $user->id;
+            $social->save();
+        } else {
+            $social->instagram = $request->instagram;
+            $social->facebook = $request->facebook;
+            $social->twitter = $request->twitter;
+            $social->pinterest = $request->pinterest;
+            $social->snapchat = $request->snapchat;
+            $social->linkedin = $request->linkedin;
+            $social->website = $request->website;
+            $social->followers_number = $request->followers_number;
+            $social->save();
+        }
+        return $this->sendResponse('success', 'تم تعديل السوشل ميديا');
+
+
+            
+    }
+    
     public function check_email(Request $request)
     {
         if($request->email == null){
