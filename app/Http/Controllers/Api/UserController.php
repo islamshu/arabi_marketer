@@ -136,7 +136,7 @@ class UserController extends BaseController
         if ($validation->fails()) {
             return $this->sendError($validation->messages()->first());
         }
-        if (Hash::check($request->password, $user->old_password)) {
+        if (Hash::check($request->old_password, $user->password)) {
                $user->password= Hash::make($request->new_password);
                $user->save();
          }
