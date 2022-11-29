@@ -322,7 +322,7 @@ class UserController extends BaseController
     public function be_marketer(Request $request)
     {
         $user = User::find($request->user_id);
-
+   
 
         if ($user->type == 'user') {
 
@@ -330,7 +330,8 @@ class UserController extends BaseController
             $order->user_id = auth('api')->id();
             $order->status = 1;
             $order->save();
-
+            $user->message = null;
+            $user->save();
             $date = [
                 'id' => $user->id,
                 'name' => $user->name,
