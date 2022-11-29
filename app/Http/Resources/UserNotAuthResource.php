@@ -56,6 +56,8 @@ class UserNotAuthResource extends JsonResource
             'consulting' => $this->get_consult($this),
             'bank_info' => $this->bank_info($this),
             'answer_questione' =>  AnsweResourse::collection($this->answer),
+            'message'=>$this->message,
+
 
         ];
     }

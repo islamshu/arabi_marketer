@@ -27,6 +27,8 @@ class UserNormalAuthResource extends JsonResource
 
             // 'first_name'=>$this->first_name,
             // 'last_name'=>$this->last_name,
+            'message'=>$this->message,
+
             'type' => $this->type,
             'image' => $this->image == null ? asset('public/uploads/users/defult_user.png') : asset('public/uploads/' . $this->image),
             'token' => $this->createToken('Personal Access Token')->accessToken,

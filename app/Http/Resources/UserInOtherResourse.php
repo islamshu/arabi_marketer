@@ -35,6 +35,7 @@ class UserInOtherResourse extends JsonResource
             'first_name' => $this->first_name,
             'email_verified' => $this->email_verified_at == null ? 0 : 1,
             'last_name' => $this->last_name,
+            'message'=>$this->message,
             'image' => $this->image == null ? asset('public/uploads/users/defult_user.png') : asset('public/uploads/' . $this->image),
         ];
     }

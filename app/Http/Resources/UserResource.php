@@ -41,6 +41,8 @@ class UserResource extends JsonResource
             'types' => $this->get_type($this),
             'rss_url' => route('rss_feed', $this->id),
             'answer_questione' =>  AnsweResourse::collection($this->answer),
+            'message'=>$this->message,
+
             'token' => $this->createToken('Personal Access Token')->accessToken,
         ];
     }
