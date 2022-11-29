@@ -167,6 +167,8 @@ Route::get('/all_blog_user/{mention}', [BlogController::class, 'all_blog_user'])
 
 Route::get('/blog_search', [BlogController::class, 'serach']);
 Route::get('/related_blogs/{id}', [BlogController::class, 'related_blogs']);
+Route::post('/add_service', [ServiceController::class, 'store']);
+
 //end blog 
 
 //start service
