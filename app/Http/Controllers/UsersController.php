@@ -123,6 +123,8 @@ class UsersController extends Controller
                 'title' => $request->message,
                 'time' => $user->updated_at
             ];
+            $user->message = $request->message;
+            $user->save();
             Notification::send($user, new GeneralNotification($data));
         }
 
