@@ -16,6 +16,20 @@ use Spatie\LaravelImageOptimizer\Facades\ImageOptimizer as FacadesImageOptimizer
 
 class GalleryController extends BaseController
 {
+    public function upp(Request $request){
+            $input['imagename'] = time().'.'.$request->image->extension();
+         
+            $destinationPath = public_path('uploads/blog');
+            $img = Image::make($request->image->path());
+            $img->resize(850, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath.'/'.$input['imagename']);
+    
+                
+                
+           $imagee= 'uploads/blog/'.$input['imagename'];
+           dd($imagee);
+    }
     public function upload(Request $request)
     {
         foreach ($request->image as $image) {
