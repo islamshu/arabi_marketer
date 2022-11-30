@@ -17,6 +17,7 @@ class CommentResourse extends JsonResource
         return [
             'id' => $this->id,
             'body' => ($this->body),
+            'is_show'=>1,
             'user_info'=>$this->get_user($this)
         ];
     }
