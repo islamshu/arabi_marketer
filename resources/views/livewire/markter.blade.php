@@ -27,32 +27,32 @@
     <div class="row setup-content {{ $currentStep != 1 ? 'display-none' : '' }}" id="step-1">
         <div class="col-md-12">
             <h3>الخطوة الاولى</h3>
-            <div class="form-group">
+            <div class="form-group col-md-6 mt-6">
                 <label for="title"> الصورة الشخصية:</label>
                 <input type="file" wire:model="image" class="form-control" id="taskTitle">
                 @error('image') <span class="error">{{ $message }}</span> @enderror
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-6 mt-6">
                 <label for="title"> المنشن:</label>
                 <input type="text" wire:model="mention" class="form-control" id="taskTitle">
                 @error('mention') <span class="error">{{ $message }}</span> @enderror
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-6 mt-6">
                 <label for="description"> الاسم الاول:</label>
                 <input type="text" wire:model="first_name" class="form-control" id="teamPrice" />
                 @error('first_name') <span class="error">{{ $message }}</span> @enderror
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-6 mt-6">
                 <label for="description"> الاسم الثاني:</label>
                 <input type="text" wire:model="last_name" class="form-control" id="teamPrice" />
                 @error('price') <span class="error">{{ $message }}</span> @enderror
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-6 mt-6">
                 <label for="description">البريد الاكتروني:</label>
                 <input type="email" wire:model="email" class="form-control" id="teamPrice" />
                 @error('email') <span class="error">{{ $message }}</span> @enderror
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-6 mt-6">
                 <label for="description"> الدولة </label><br />
                 <select class="form-control" id="select2" wire:model="country" >
 
@@ -64,7 +64,7 @@
                 
                 @error('country') <span class="error">{{ $message }}</span> @enderror
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-6 mt-6">
                 <label for="description">كلمة المرور:</label>
                 <input type="password" wire:model="password" class="form-control" id="teamPrice" />
                 @error('password') <span class="error">{{ $message }}</span> @enderror
@@ -76,7 +76,7 @@
     <div class="row setup-content {{ $currentStep != 2 ? 'display-none' : '' }}" id="step-2">
         <div class="col-md-12">
             <h3>  الخطوة الثانية</h3>
-            <div class="form-group">
+            <div class="form-group col-md-6 mt-6">
                 <label for="description"> مجالات المسوق</label><br />
                 <select class="form-control" id="select2" wire:model="selection" multiple>
 
@@ -88,7 +88,7 @@
                 
                 @error('selection') <span class="error">{{ $message }}</span> @enderror
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-6 mt-6">
                 <label for="description">نبذة تعريفية:</label>
                 <textarea  wire:model="pio" class="form-control"></textarea>
                 @error('pio') <span class="error">{{ $message }}</span> @enderror
