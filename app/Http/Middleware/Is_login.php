@@ -22,7 +22,7 @@ class Is_login
         $response = ['success' => false, 'message' => 'you need to login','code'=>400];
         if (!empty($errorMessages))
             $response['data'] = $errorMessages;
-        return response()->json($response , 400);
+        return response()->json($response , 200);
       }
     
         
