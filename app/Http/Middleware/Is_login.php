@@ -19,7 +19,7 @@ class Is_login
         if (auth('api')->check()) {
             return $next($request);
         }
-        $response = ['success' => false, 'message' => 'you need to login','code'=>200];
+        $response = ['success' => false, 'message' => 'you need to login','code'=>400];
         if (!empty($errorMessages))
             $response['data'] = $errorMessages;
         return response()->json($response , 200);
