@@ -28,11 +28,11 @@ class GalleryController extends BaseController
             $img->resize(850, 600, function ($constraint) {
                 $constraint->aspectRatio();
             })->save($dess.'/'.$rand); 
-            dd($destinationPath);
    
            $imagee= 'blog/'.$rand;
            $blog->image = $imagee;
            $blog->save();
+           dd($blog);
         }
 
            dd('true');
