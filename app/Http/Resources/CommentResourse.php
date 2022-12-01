@@ -22,6 +22,17 @@ class CommentResourse extends JsonResource
         ];
     }
     function get_show($data){
+        if($data->status == 1){
+            return 1;
+        }elseif(auth('api')->check()){
+            if(auth('api')->id() == $data->user_id){
+                return 1;
+            }else{
+                return 0;
+            }
+        }else{
+            return 0;
+        }
         if(auth('api')->check()){
             return 1;
         }else{
