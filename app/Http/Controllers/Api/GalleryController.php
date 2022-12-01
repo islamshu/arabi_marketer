@@ -27,7 +27,8 @@ class GalleryController extends BaseController
             $img = Image::make($destinationPath);
             $img->resize(850, 600, function ($constraint) {
                 $constraint->aspectRatio();
-            })->save($dess.'/'.$rand);               
+            })->save($dess.'/'.$rand);    
+            dd($img);           
            $imagee= 'blog/'.$rand;
            $blog->image = $imagee;
            $blog->save();
