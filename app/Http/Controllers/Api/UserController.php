@@ -75,6 +75,7 @@ class UserController extends BaseController
             'url' => json_decode($not->data)->url,
             'is_read' => $not->read_at != null ? 1 : 0,
             'created_at' => $not->created_at,
+            'time'=>$not->created_at->diffForHumans()
 
         ];
         return $this->sendResponse($res, 'جميع الاشعارات');

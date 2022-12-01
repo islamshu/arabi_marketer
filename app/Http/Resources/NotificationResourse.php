@@ -20,7 +20,9 @@ class NotificationResourse extends JsonResource
             'title'=>$this->data['title'],
             'url'=>$this->data['url'],
             'is_read'=>$this->read_at == null ? 0 : 1,
-            'created_at'=>$this->created_at
+            'created_at'=>$this->created_at,
+            'time'=>$this->created_at->diffForHumans()
+
             ];
     }
 }
