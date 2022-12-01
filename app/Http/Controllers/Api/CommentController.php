@@ -14,7 +14,7 @@ class CommentController extends BaseController
 {
     public function get_comment($blog_id){
         $blog  = Blog::find($blog_id);
-        $res =  CommentResourse::collection($blog->comments->where('status',1));
+        $res =  CommentResourse::collection($blog->comments);
         return $this->sendResponse($res,'جميع التعتليقات');
     }
     public function store(Request $request){
