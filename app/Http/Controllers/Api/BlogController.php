@@ -87,7 +87,7 @@ class BlogController extends BaseController
             return $q->where('title', 'like', '%' . $title . '%');
         });
         $query->when($request->category_id != null, function ($q) use ($request) {
-            return $q->has('category')->with(['category' => function ($query) use ($request) {
+            return $q->whereHas('category')->with(['category' => function ($query) use ($request) {
                 $query->where('category_id', $request->category_id);
             }]);
         });
