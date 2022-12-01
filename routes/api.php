@@ -132,6 +132,8 @@ Route::group(['middleware' => 'is_login'], function () {
     Route::post('/edit_profile_step_2', [UserController::class, 'edit_profile_step_2']);
     Route::post('/edit_profile_step_3', [UserController::class, 'edit_profile_step_3']);
     Route::post('/edit_profile_step_4', [UserController::class, 'edit_profile_step_4']);
+    Route::post('/remmeber_markter', [UserController::class, 'remmeber_markter']);
+
 });
 Route::group(['middleware' => 'is_login', 'middleware' => 'Is_markter'], function () {
     Route::post('add_bank_info', [UserController::class, 'add_bank_info']);

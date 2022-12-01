@@ -505,6 +505,24 @@ class UserController extends BaseController
         }
         return $this->sendResponse('success', 'success');
     }
+    public function remmeber_markter(){
+        $user = auth('api')->user();
+        if($user->status == 2){
+            $date = [
+                'id' => $user->id,
+                'name' => $user->name,
+                'url' => route('customer.show', $user->id),
+                'title' => 'تذكير لمراجعة حالة المسوق',
+                'time' => $user->updated_at
+            ];
+            $admins = User::where('type', 'Admin')->get();
+            Notification::send($admins, new GeneralNotification($date));
+            return $this->sendResponse('success', 'تم ارسال تذكير بنجاح');
+
+        }else{
+            return $this->sendError('لم يتم ارسال التذكير');
+        }
+    }
     public function profile()
     {
         $user = auth('api')->user();
