@@ -11,6 +11,7 @@ use App\Models\Notification;
 use App\Models\Video;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class GeneralInfoController extends Controller
 {
@@ -123,9 +124,22 @@ class GeneralInfoController extends Controller
     public function upload(Request $request)
     {
         $image = $request->image ;
+
+        $input['imagename'] = time().'.'.$image->extension();
+         
+        $destinationPath = public_path('uploads/blog');
+        $img = Image::make($image->path());
+        $img->resize(1300, 1300, function ($constraint) {
+            $constraint->aspectRatio();
+        })->save($destinationPath.'/'.$input['imagename']);
+
+            
+            
+        $imagee= 'blog/'.$input['imagename'];
+
         $name = preg_replace('/\..+$/', '', $image->getClientOriginalName());
         $pic = new BlogImage();
-        $pic->image    = $image->store('blog');
+        $pic->image    = $imagee;
         $pic->title = $name;
         $pic->user_id = auth()->id();
         $pic->save();
