@@ -40,17 +40,17 @@ class GalleryController extends BaseController
     public function upload(Request $request)
     {
         foreach ($request->image as $image) {
-        //     $input['imagename'] = time().'.'.$image->extension();
+            $input['imagename'] = time().'.'.$image->extension();
          
-        //     $destinationPath = public_path('uploads/blog');
-        //     $img = Image::make($image->path());
-        //     $img->resize(1300, 1300, function ($constraint) {
-        //         $constraint->aspectRatio();
-        //     })->save($destinationPath.'/'.$input['imagename']);
+            $destinationPath = public_path('uploads/blog');
+            $img = Image::make($image->path());
+            $img->resize(1300, 1300, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath.'/'.$input['imagename']);
     
                 
                 
-        //    $imagee= 'uploads/blog/'.$input['imagename'];
+            $imagee= 'blog/'.$input['imagename'];
             
 
 
@@ -58,7 +58,7 @@ class GalleryController extends BaseController
 
             $name = preg_replace('/\..+$/', '', $image->getClientOriginalName());
             $pic = new BlogImage();
-            $pic->image    = $image->store('blog');
+            $pic->image    = $imagee;
             $pic->title = $name;
             $pic->user_id = auth('api')->id();
             $pic->save();
