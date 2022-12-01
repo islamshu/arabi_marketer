@@ -19,16 +19,16 @@ class GalleryController extends BaseController
     public function upp(Request $request){
         foreach(BlogImage::get() as $blog){
 
-            $input['imagename'] = str_replace('blog/','',$blog->image).rand(111111111,999999999);
-         
+            $input['imagename'] = str_replace('blog/','',$blog->image);
+            $rand = $input['imagename'].rand(111111111,999999999);
             $destinationPath = public_path('uploads/blog').$input['imagename'];
             $dess = public_path('uploads/blog');
             // dd($destinationPath);
             $img = Image::make($destinationPath);
             $img->resize(850, 600, function ($constraint) {
                 $constraint->aspectRatio();
-            })->save($dess.'/'.$input['imagename']);               
-           $imagee= 'blog/'.$input['imagename'];
+            })->save($dess.'/'.$rand);               
+           $imagee= 'blog/'.$rand;
            $blog->image = $imagee;
            $blog->save();
         }
