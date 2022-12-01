@@ -17,20 +17,23 @@ use Spatie\LaravelImageOptimizer\Facades\ImageOptimizer as FacadesImageOptimizer
 class GalleryController extends BaseController
 {
     public function upp(Request $request){
-            $input['imagename'] = 'islammmm.jpg';
+        foreach(BlogImage::get() as $blog){
+
+            $input['imagename'] = str_replace('blog/','',$blog->image);
          
-            $destinationPath = public_path('uploads/blog').'/1669794761.gif';
+            $destinationPath = public_path('uploads/blog').$input['imagename'];
             $dess = public_path('uploads/blog');
             // dd($destinationPath);
             $img = Image::make($destinationPath);
             $img->resize(850, 600, function ($constraint) {
                 $constraint->aspectRatio();
-            })->save($dess.'/'.$input['imagename']);
-    
-                
-                
-           $imagee= 'uploads/blog/'.$input['imagename'];
-           dd($imagee);
+            })->save($dess.'/'.$input['imagename']);               
+           $imagee= 'blog/'.$input['imagename'];
+           $blog->image = $imagee;
+           $blog->save();
+        }
+
+           dd('true');
     }
     public function upload(Request $request)
     {
