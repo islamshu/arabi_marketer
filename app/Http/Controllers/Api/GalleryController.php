@@ -32,7 +32,7 @@ class GalleryController extends BaseController
            $imagee= 'blog/'.$rand;
            $blog->image = $imagee;
            $blog->save();
-           dd($blog);
+        //    dd($blog);
         }
 
            dd('true');
