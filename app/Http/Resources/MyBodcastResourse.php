@@ -37,7 +37,7 @@ class MyBodcastResourse extends JsonResource
                 'id'=>$this->id,
                 'title'=>$this->manual->title,
                 'description'=>$this->manual->description,
-                'user_info'=>new UserInOtherResourse($this->user),
+                // 'user_info'=>new UserInOtherResourse($this->user),
                 'keywords'=>$this->get_keywords($this),
                 'image'=>asset('public/uploads/'.$this->manual->image),
               
