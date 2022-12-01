@@ -20,7 +20,7 @@ class GalleryController extends BaseController
         foreach(BlogImage::get() as $blog){
 
             $input['imagename'] = str_replace('blog/','',$blog->image);
-            $rand = $input['imagename'].rand(111111111,999999999);
+            $rand = rand(111111111,999999999).$input['imagename'];
             $destinationPath = public_path('uploads/blog/').$input['imagename'];
             $dess = public_path('uploads/blog');
             // dd($destinationPath);
