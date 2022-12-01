@@ -331,6 +331,7 @@ class UserController extends BaseController
             $order->status = 1;
             $order->save();
             $user->message = null;
+            $user->status=2;
             $user->save();
             $date = [
                 'id' => $user->id,

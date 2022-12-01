@@ -90,6 +90,7 @@ class UsersController extends Controller
         if($request->status == 2){
             $user->type = 'marketer';
         }else{
+            $user->status = 0;
             $user->type = 'user';
         }
         $user->save();
