@@ -25,7 +25,7 @@ class CommentResourse extends JsonResource
         if(auth('api')->check()){
             return 1;
         }else{
-            2;
+            return 2;
         }
     }
     function get_user($data){
