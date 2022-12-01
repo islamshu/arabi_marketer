@@ -21,7 +21,7 @@ class GalleryController extends BaseController
 
             $input['imagename'] = str_replace('blog/','',$blog->image);
             $rand = $input['imagename'].rand(111111111,999999999);
-            $destinationPath = public_path('uploads/blog').$input['imagename'];
+            $destinationPath = public_path('uploads/blog/').$input['imagename'];
             dd($destinationPath);
             $dess = public_path('uploads/blog');
             // dd($destinationPath);
