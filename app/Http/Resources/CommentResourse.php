@@ -17,9 +17,16 @@ class CommentResourse extends JsonResource
         return [
             'id' => $this->id,
             'body' => ($this->body),
-            'is_show'=>1,
+            'is_show'=>$this->get_show(),
             'user_info'=>$this->get_user($this)
         ];
+    }
+    function get_show($data){
+        if(auth('api')->check()){
+            return 1;
+        }else{
+            2;
+        }
     }
     function get_user($data){
         $user = @$data->user;
