@@ -12,6 +12,7 @@ use App\Http\Resources\BlogResource;
 use App\Http\Resources\CategoryResource;
 use App\Http\Resources\ConsultingResource;
 use App\Http\Resources\CounsutionBuyResource;
+use App\Http\Resources\myPorofileResoures;
 use App\Http\Resources\NotificationResourse;
 use App\Http\Resources\OrderResource;
 use App\Http\Resources\PodcastResource;
@@ -526,7 +527,7 @@ class UserController extends BaseController
     public function profile()
     {
         $user = auth('api')->user();
-        $userRes = new  UserNotAuthResource($user);
+        $userRes = new  myPorofileResoures($user);
         return $this->sendResponse($userRes, 'الملف الشخصي');
     }
     public function type_of_user()
