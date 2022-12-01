@@ -20,11 +20,12 @@ class GalleryController extends BaseController
             $input['imagename'] = 'islammmm.jpg';
          
             $destinationPath = public_path('uploads/blog').'/1669794761.gif';
-            dd($destinationPath);
-            $img = Image::make($request->image->path());
+            $dess = public_path('uploads/blog');
+            // dd($destinationPath);
+            $img = Image::make($destinationPath);
             $img->resize(850, 600, function ($constraint) {
                 $constraint->aspectRatio();
-            })->save($destinationPath.'/'.$input['imagename']);
+            })->save($dess.'/'.$input['imagename']);
     
                 
                 
