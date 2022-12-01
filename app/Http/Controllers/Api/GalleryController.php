@@ -22,13 +22,14 @@ class GalleryController extends BaseController
             $input['imagename'] = str_replace('blog/','',$blog->image);
             $rand = $input['imagename'].rand(111111111,999999999);
             $destinationPath = public_path('uploads/blog/').$input['imagename'];
-            dd($destinationPath);
             $dess = public_path('uploads/blog');
             // dd($destinationPath);
             $img = Image::make($destinationPath);
             $img->resize(850, 600, function ($constraint) {
                 $constraint->aspectRatio();
-            })->save($dess.'/'.$rand);    
+            })->save($dess.'/'.$rand); 
+            dd($destinationPath);
+   
            $imagee= 'blog/'.$rand;
            $blog->image = $imagee;
            $blog->save();
