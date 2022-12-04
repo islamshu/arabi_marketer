@@ -30,6 +30,8 @@ class UserNormalNotAuthResource extends JsonResource
 
             // 'first_name'=>$this->first_name,
             // 'last_name'=>$this->last_name,
+            'cover' => $this->cover == null ? asset('public/uploads/cover_profile.jpg') : asset('public/uploads/' . $this->cover),
+
             'image' => $this->image == null ? asset('public/uploads/users/defult_user.png') : asset('public/uploads/' . $this->image),
             // 'country'=> new CountryResource(Country::find($this->country_id)),
             // 'city'=>new CityResource(City::find($this->city_id)),

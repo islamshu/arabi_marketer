@@ -248,6 +248,7 @@ class UserController extends BaseController
         $user->email = $request->email;
         $user->mention =  $request->mention;
         $user->type = 'user';
+        $user->cover = 'cover_profile.jpg';
         $user->image = 'users/defult_user.png';
         $user->password =  Hash::make($request->password);
         $user->first_name = $request->first_name;

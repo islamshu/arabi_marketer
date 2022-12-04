@@ -78,8 +78,7 @@ class Markter extends Component
         $user->status = 1;
         $user->email = $this->email;
         $user->password =  Hash::make($this->password);
-        
-
+        $user->cover = 'cover_profile.jpg';
         $user->email_verified_at = Carbon::now();
         $user->lang = 'ar';
         $user->image = $this->image->store('users');

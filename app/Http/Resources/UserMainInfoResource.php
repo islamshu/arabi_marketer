@@ -37,6 +37,7 @@ class UserMainInfoResource extends JsonResource
             'number_of_podcasts' => $this->podcasts->count(),
             'number_of_consutiong' => $this->consutiong->count(),
             'answer_questione' =>  AnsweResourse::collection($this->answer),
+            'cover' => $this->cover == null ? asset('public/uploads/cover_profile.jpg') : asset('public/uploads/' . $this->cover),
 
             'image' => $this->image == null ? asset('public/uploads/users/defult_user.png') : asset('public/uploads/' . $this->image)
         ];

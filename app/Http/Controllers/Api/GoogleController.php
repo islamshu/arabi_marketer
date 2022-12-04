@@ -49,6 +49,7 @@ class GoogleController extends BaseController
                     'email' => $user->email,
                     'google_id'=> $user->id,
                     'type'=>'user',
+                    'cover'=>'cover_profile.jpg',
                     'image'=> 'users/defult_user.png',
                     'password' => encrypt('159753')
                 ]);
