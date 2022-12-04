@@ -353,7 +353,7 @@ class UserController extends BaseController
             return $this->sendError('يوجد خطا ما لدينا');
         }
     }
-    public function upload_cover(Request $request){
+    public function upload_image(Request $request){
         $user = auth('api')->user();
         if($request->image == null){
             return $this->sendError('يرجى اضافة صورة ');
@@ -365,7 +365,7 @@ class UserController extends BaseController
 
 
     }
-    public function upload_image(Request $request){
+    public function upload_cover(Request $request){
         $user = auth('api')->user();
         if($request->cover == null){
             return $this->sendError('يرجى اضافة صورة ');
