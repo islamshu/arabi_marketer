@@ -71,7 +71,7 @@ class HomeController extends BaseController
 
     }
     public function get_blog(){
-        $blogs = BlogResource::collection(Blog::orderBy('id', 'desc')->take(3)->get());
+        $blogs = BlogResource::collection(Blog::where('publish_time','<=',now())->orderBy('id', 'desc')->take(3)->get());
         // $res['blog']['category'] = CategoryBlogResource::collection(Category::ofType('blog')->get());
 
         $res['blog']['new'] = $blogs;
