@@ -124,11 +124,11 @@ class BlogController extends BaseController
             return $this->sendError('not found blog');
         }
         $blog = Blog::where('slug',$id)->where('user_id',$user_id)->first();
-        if($blog->publish_time <= now()){
-            dd('dd');
-        }else{
-            dd('dfd');
-        }
+        // if($blog->publish_time = now()){
+        //     dd('dd');
+        // }else{
+        //     dd('dfd');
+        // }
         if(!$blog){
             return $this->sendError('not found blog');
         }
