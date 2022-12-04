@@ -43,7 +43,7 @@ class BlogController extends BaseController
     }
     public function get_all()
     {
-        $blogs = Blog::where('status', 1)->orderBy('id', 'desc')->paginate(9);
+        $blogs = Blog::where('status', 1)->where('publish_time','<=',now())->orderBy('id', 'desc')->paginate(9);
         $res = BlogResource::collection($blogs)->response()->getData(true);
         return $this->sendResponse($res, 'جميع المقالات');
         // return ['success'=>true,'blogs'=>BlogResource::collection($blogs)->response()->getData(true),'message'=>'جميع المقالات'];
@@ -93,7 +93,7 @@ class BlogController extends BaseController
         });
 
 
-        $blogs = $query->orderby('id', 'desc')->paginate(6);
+        $blogs = $query->where('publish_time','<=',now())->orderby('id', 'desc')->paginate(6);
 
         $res = BlogResource::collection($blogs)->response()->getData(true);
         return $this->sendResponse($res, 'جميع المقالات');
@@ -107,14 +107,14 @@ class BlogController extends BaseController
         }
         $blogs =   Blog::has('category')->with(['category' => function ($query) use ($category_id) {
             $query->whereIn('category_id', $category_id);
-        }])->where('status', 1)->where('id', '!=', $id)->orderby('id', 'desc')->take(5)->get();
+        }])->where('status', 1)->where('id', '!=', $id)->where('publish_time','<=',now())->orderby('id', 'desc')->take(5)->get();
         $res = BlogResource::collection($blogs);
         return $this->sendResponse($res, 'جميع المقالات');
     }
     public function all_blog_user($mention){
         $user = User::where('mention',$mention)->first();
        
-        $res = BlogResource::collection( $user->blogs->where('status',1))->response()->getData(true);
+        $res = BlogResource::collection( $user->blogs->where('status',1)->where('publish_time','<=',now()))->response()->getData(true);
         return $this->sendResponse($res, 'جميع المقالات');
     }
     public function single($mention,$id)
