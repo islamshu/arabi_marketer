@@ -125,9 +125,9 @@ class BlogController extends BaseController
         }
         $blog = Blog::where('slug',$id)->where('user_id',$user_id)->first();
         if($blog->publish_tile >= now()){
-            return true;
+            dd('dd');
         }else{
-            return false;
+            dd('dfd');
         }
         if(!$blog){
             return $this->sendError('not found blog');
