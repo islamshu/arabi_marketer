@@ -52,7 +52,10 @@ class ServiceResource extends JsonResource
         $category = $data->keywords;
         $arr = [];
         foreach ($category as $cat) {
-            array_push($arr, $cat->title);
+            $string = str_replace(' ', '-',$cat->title); // Replaces all spaces with hyphens.
+
+            $title= preg_replace('/[^A-Za-z0-9\-]/', '', $string); 
+            array_push($arr, $title);
         }
         $str_json = json_encode($arr); //array to json string conversion
         return json_decode($str_json);
