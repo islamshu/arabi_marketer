@@ -238,6 +238,11 @@ class BlogController extends BaseController
                if($request->image != null){
             $service->image_id = $request->image;
         }
+        if($request->publish_time != null){
+            $service->publish_time = $request->$request->publish_time;
+        }else{
+            $service->publish_tim = now(); 
+        }
         $service->save();
         $category = json_decode($request->category);
         $blog_category_array = BlogCategory::where('blog_id', $service->id)->get();

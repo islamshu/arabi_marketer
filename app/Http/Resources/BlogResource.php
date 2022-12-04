@@ -28,6 +28,7 @@ class BlogResource extends JsonResource
             'image_info' => $this->image_info($this),
             'meta_description' => $this->small_description,
             'meta_title' => $this->meta_title,
+            'publish_time'=>$this->publish_time,
             'image' => asset('public/uploads/'.$this->image_blog->image),
             // 'url' => route('single_blog', $this->id),
             'comment_number' => $this->comments->where('status', 1)->count(),

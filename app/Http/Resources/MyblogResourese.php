@@ -30,6 +30,7 @@ class MyblogResourese extends JsonResource
             'meta_title' => $this->meta_title,
             'image' => asset('public/uploads/'.$this->image_blog->image),
             // 'url' => route('single_blog', $this->id),
+            'publish_time'=>$this->publish_time,
             'comment_number' => $this->comments->where('status', 1)->count(),
             'comments' => CommentResourse::collection($this->comments),
             'rate' => $this->get_rate($this)
