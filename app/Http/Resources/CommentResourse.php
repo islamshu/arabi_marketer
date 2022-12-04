@@ -31,7 +31,7 @@ class CommentResourse extends JsonResource
                 return 0;
             }
         }else{
-            return 888;
+            return 0;
         }
         // if(auth('api')->check()){
         //     return 1;
