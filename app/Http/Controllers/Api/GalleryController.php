@@ -7,6 +7,7 @@ use App\Models\BlogImage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\ImageResource;
+use App\Models\Blog;
 use ImageOptimizer;
 use Intervention\Image\Facades\Image;
 use Spatie\LaravelImageOptimizer\Facades\ImageOptimizer as FacadesImageOptimizer;
@@ -17,6 +18,12 @@ use Spatie\LaravelImageOptimizer\Facades\ImageOptimizer as FacadesImageOptimizer
 class GalleryController extends BaseController
 {
     public function upp(Request $request){
+        foreach(Blog::get() as $blog){
+            $blog->publish_time = now();
+            $blog->save();
+        }
+        dd('dd');
+
         foreach(BlogImage::get() as $blog){
 
             $input['imagename'] = str_replace('blog/','',$blog->image);
