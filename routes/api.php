@@ -116,6 +116,7 @@ Route::get('/show_notification/{id}', [UserController::class, 'show_notification
 Route::group(['middleware' => 'is_login'], function () {
     Route::post('/edit_profile', [UserController::class, 'edit_profile']);
     Route::post('/upload_profile_image', [UserController::class, 'upload_image']);
+    Route::post('/upload_profile_cover', [UserController::class, 'upload_cover']);
 
     Route::post('/edit_pio', [UserController::class, 'edit_pio']);
     Route::post('/edit_soical', [UserController::class, 'edit_soical']);
