@@ -78,7 +78,11 @@ class BlogController extends Controller
                 $service->user_id = $request->user_id;
                 $service->image_id =  $request->image_id;
                 $service->slug = str_replace(' ', '_', $request->title_ar . '_' . Blog::count() + 1);
-
+                if($request->publish_time != null){
+                    $service->publish_time = $request->$request->publish_time;
+                }else{
+                    $service->publish_tim = now(); 
+                }
 
                 $service->save();
 
