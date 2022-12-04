@@ -65,7 +65,7 @@ class ServiceController extends BaseController
             'description' => 'required',
             'images' => 'required',
             'price' => 'required',
-            'url' => 'required',
+            // 'url' => 'required',
             'specialties' => 'required',
             'types' => 'required',
             'keywords' => 'required',
