@@ -25,20 +25,19 @@ class CommentResourse extends JsonResource
         if($data->status == 1){
             return 1;
         }elseif(auth('api')->check()){
-            return 555;
             if(auth('api')->id() == $data->user_id){
                 return 1;
             }else{
                 return 0;
             }
         }else{
-            return 0;
+            return 888;
         }
-        if(auth('api')->check()){
-            return 1;
-        }else{
-            return 2;
-        }
+        // if(auth('api')->check()){
+        //     return 1;
+        // }else{
+        //     return 2;
+        // }
     }
     function get_user($data){
         $user = @$data->user;
