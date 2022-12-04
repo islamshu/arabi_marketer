@@ -18,7 +18,8 @@ class CommentResourse extends JsonResource
             'id' => $this->id,
             'body' => ($this->body),
             'is_show'=>$this->get_show($this),
-            'user_info'=>$this->get_user($this)
+            'user_info'=>$this->get_user($this),
+            'time'=>$this->created_at->diffForHumans()
         ];
     }
     function get_show($data){
