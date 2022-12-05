@@ -81,12 +81,13 @@ class BlogController extends BaseController
     public function serach(Request $request)
     {
         $title = $request->title;
-        dd($title);
         $query = Blog::query();
         $query->where('status', 1);
         $query->when($request->title != null, function ($q) use ($title) {
             return $q->where('title', 'like', '%' . $title . '%');
         });
+        dd($query->get());
+
         $query->when($request->category_id != null, function ($q) use ($request) {
             return $q->whereHas('category',function ($query) use ($request) {
                 $query->where('category_id', $request->category_id);
