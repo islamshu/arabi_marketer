@@ -85,7 +85,10 @@ class VideoController extends BaseController
         $vi->source = 'test';
         $vi->save();
         $data =[
-            'phate_name'=>$request->video->getPathName()
+            'video'=>$vi->id,
+            'video_name'=>$request->video->getPathName(),
+            'image_name'=>$request->thum_image->getPathName()
+
         ];
         if($request->type == true){
             dispatch(new UploadVideo($data));

@@ -2,12 +2,14 @@
 
 namespace App\Jobs;
 
+use App\Models\Video;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Youtube;
 
 class UploadVideo implements ShouldQueue
 {
@@ -31,8 +33,13 @@ class UploadVideo implements ShouldQueue
      */
     public function handle()
     {
-        $video = $this->data;
-        dd($video);
+        $video = Video::find($this->data['id']);
+                  $vido = Youtube::upload($this->data['video_name'], [
+                'title'       => $video->title,
+                'description' => $video->description,
+            ])->withThumbnail($this->data['image_name']);
+            $video->url = "https://www.youtube.com/watch?v=" . $vido->getVideoId();
+            $video->save();
     
     }
 }
