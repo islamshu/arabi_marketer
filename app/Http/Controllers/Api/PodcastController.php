@@ -196,5 +196,23 @@ class PodcastController extends BaseController
         return $this->sendResponse($res, 'جميع البودكاست');
 
     }
+    public function podcast_profile_search($id,Request $request){
+        $title = $request->title;
+        $query = NewPodcast::query()->where('user_id',$id);
+        // $query->where('status',1);
+        $query->when($request->title != null, function ($q) use ($title) {
+            return $q->where('title','like','%'.$title.'%');
+        });
+     
+
+       
+        $blogs = $query->orderby('id','desc')->paginate(6);
+
+        $res = PodcastResource::collection($blogs)->response()->getData(true);
+        return $this->sendResponse($res, 'جميع البودكاست');
+
+    }
+
+    
     
 }

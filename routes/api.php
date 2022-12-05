@@ -212,6 +212,7 @@ Route::get('/podcast_keywords', [PodcastController::class, 'podcast_keyword']);
 Route::get('/get_all_podcasts', [PodcastController::class, 'get_all']);
 Route::get('/single_podcast/{id}', [PodcastController::class, 'single'])->name('single_podcast');
 Route::get('/podcast_search', [PodcastController::class, 'serach']);
+Route::get('/podcast_profile_search/{id}', [PodcastController::class, 'podcast_profile_search']);
 
 Route::group(['middleware' => 'is_login', 'middleware' => 'is_able_markter'], function () {
 
