@@ -82,7 +82,7 @@ class BlogController extends BaseController
     {
         $title = $request->title;
         $query = Blog::query();
-        // $query->where('status', 1);
+        $query->where('status', 1);
         $query->when($request->title != null, function ($q) use ($title) {
              $q->where('meta_title','like','%'.$title.'%' );
 
@@ -93,6 +93,24 @@ class BlogController extends BaseController
                 $query->where('category_id', $request->category_id);
             });
         });
+
+
+        // $blogs = $query->where('publish_time','<=',now())->orderby('id', 'desc')->paginate(6);
+        $blogs = $query->paginate(6);
+
+        $res = BlogResource::collection($blogs)->response()->getData(true);
+        return $this->sendResponse($res, 'جميع المقالات');
+    }
+    public function serach_profile($id,Request $request){
+        $title = $request->title;
+        $query = Blog::query()->where('user_id',$id);
+        $query->where('status', 1);
+        $query->when($request->title != null, function ($q) use ($title) {
+             $q->where('meta_title','like','%'.$title.'%' );
+
+
+        });
+        
 
 
         // $blogs = $query->where('publish_time','<=',now())->orderby('id', 'desc')->paginate(6);
