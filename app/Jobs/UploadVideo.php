@@ -33,6 +33,7 @@ class UploadVideo implements ShouldQueue
      */
     public function handle()
     {
+        dd($this->data);
         $video = Video::find($this->data['id']);
                   $vido = Youtube::upload($this->data['video_name'], [
                 'title'       => $video->title,
