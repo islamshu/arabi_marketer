@@ -63,16 +63,16 @@ class VideoController extends BaseController
         }
         $vi = new Video();
         $image = $request->thum_image->store('video');
-        if ($request->type == true) {
-            // return $request->all();
-            $video = Youtube::upload($request->video->getPathName(), [
-                'title'       => $request->title,
-                'description' => $request->description,
-            ])->withThumbnail($request->thum_image->getPathName());
-            $vi->url = "https://www.youtube.com/watch?v=" . $video->getVideoId();
-        } else {
-            $vi->url = $request->url;
-        }
+        // if ($request->type == true) {
+        //     // return $request->all();
+        //     $video = Youtube::upload($request->video->getPathName(), [
+        //         'title'       => $request->title,
+        //         'description' => $request->description,
+        //     ])->withThumbnail($request->thum_image->getPathName());
+        //     $vi->url = "https://www.youtube.com/watch?v=" . $video->getVideoId();
+        // } else {
+        //     $vi->url = $request->url;
+        // }
         if($request->type != true){
             $vi->url = $request->url;
         }
