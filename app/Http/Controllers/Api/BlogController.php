@@ -85,7 +85,8 @@ class BlogController extends BaseController
         $query->where('status', 1);
         $query->when($request->title != null, function ($q) use ($title) {
             // return $q->where('title', 'like', '%' . $title . '%');
-            return $q->where('title','like','%'.$title.'%' );
+            return $q->whereJsonContains('title','like','%'.$title.'%' );
+            // return $q->where('title','like','%'.$title.'%' );
 
 
         });
