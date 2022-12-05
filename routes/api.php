@@ -182,6 +182,8 @@ Route::get('/service_category', [ServiceController::class, 'service_category']);
 Route::get('/service_keyword', [ServiceController::class, 'service_keyword']);
 Route::get('/get_specialty', [ServiceController::class, 'get_specialty']);
 Route::get('/service_search', [ServiceController::class, 'serach']);
+Route::get('/service_profile_search/{id}', [ServiceController::class, 'service_profile_search']);
+
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('google/callback', [GoogleController::class, 'handleGoogleCallback']);
 Route::get('auth/facebook', [FacebookController::class, 'redirectToGoogle']);
@@ -249,6 +251,8 @@ Route::get('/video_keywords', [VideoController::class, 'video_keyword']);
 Route::get('/get_all_videos', [VideoController::class, 'get_all']);
 Route::get('/single_video/{id}', [VideoController::class, 'single'])->name('single_video');
 Route::get('/video_search', [VideoController::class, 'serach']);
+Route::get('/video_profile_search/{id}', [VideoController::class, 'video_profile_search']);
+
 Route::get('/related_videos/{id}', [VideoController::class, 'related_videos']);
 
 
