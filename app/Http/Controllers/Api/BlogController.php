@@ -84,11 +84,8 @@ class BlogController extends BaseController
         $query = Blog::query();
         // $query->where('status', 1);
         $query->when($request->title != null, function ($q) use ($title) {
-            // return $q->where('title', 'like', '%' . $title . '%');
-            // return $q->where('title','like','%'.$title.'%' );
-            return $q->whereIn('title','%'. $title .'%');
-
-            // return $q->where('title','like','%'.$title.'%' );
+             $q->where('title','like','%'.$title.'%' );
+            dd($q->get());
 
 
         });
