@@ -11,6 +11,7 @@ use App\Models\KeyWord;
 use App\Models\Video;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
+use App\Jobs\UploadVideo;
 use App\Models\User;
 use App\Models\VideoCateogry;
 use App\Models\VideoKeyword;
@@ -72,6 +73,9 @@ class VideoController extends BaseController
         } else {
             $vi->url = $request->url;
         }
+        if($request->type != true){
+            $vi->url = $request->url;
+        }
         $vi->title = $request->title;
         $vi->description = $request->description;
         $vi->user_id = auth('api')->id();
@@ -80,6 +84,13 @@ class VideoController extends BaseController
 
         $vi->source = 'test';
         $vi->save();
+        $data =[
+            'video'=>$vi,
+            'request_video'=>$request->video
+        ];
+        if($request->type == true){
+            dispatch(new UploadVideo($data));
+        }
         $types = json_decode($request->types, true);
 
         foreach ($types as $category) {

@@ -18,9 +18,10 @@ class UploadVideo implements ShouldQueue
      *
      * @return void
      */
-    public function __construct()
+    public $data;
+    public function __construct($data)
     {
-        //
+        $this->data = $data;
     }
 
     /**
@@ -30,6 +31,12 @@ class UploadVideo implements ShouldQueue
      */
     public function handle()
     {
-        //
+        $video = $this->data;
+        dd($video);
+        // $video = Youtube::upload($request->video->getPathName(), [
+        //     'title'       => $request->title,
+        //     'description' => $request->description,
+        // ])->withThumbnail($request->thum_image->getPathName());
+        // $vi->url = "https://www.youtube.com/watch?v=" . $video->getVideoId();
     }
 }
