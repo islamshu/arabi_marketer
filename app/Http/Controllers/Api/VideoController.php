@@ -86,7 +86,7 @@ class VideoController extends BaseController
         $vi->save();
         $data =[
             'video'=>$vi->id,
-            'video_name'=>$request->video->getPathName(),
+            'video_name'=>$request->video,
             'image_name'=>$request->thum_image->getPathName()
 
         ];
