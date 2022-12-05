@@ -63,20 +63,20 @@ class VideoController extends BaseController
         }
         $vi = new Video();
         $image = $request->thum_image->store('video');
-        dd($request->video->getPathName());
-        // if ($request->type == true) {
-        //     // return $request->all();
-        //     $video = Youtube::upload($request->video->getPathName(), [
-        //         'title'       => $request->title,
-        //         'description' => $request->description,
-        //     ])->withThumbnail($request->thum_image->getPathName());
-        //     $vi->url = "https://www.youtube.com/watch?v=" . $video->getVideoId();
-        // } else {
+        // dd($request->video->getPathName());
+        if ($request->type == true) {
+            // return $request->all();
+            $video = Youtube::upload($request->video->getPathName(), [
+                'title'       => $request->title,
+                'description' => $request->description,
+            ])->withThumbnail($request->thum_image->getPathName());
+            $vi->url = "https://www.youtube.com/watch?v=" . $video->getVideoId();
+        } else {
+            $vi->url = $request->url;
+        // }
+        // if($request->type != true){
         //     $vi->url = $request->url;
         // }
-        if($request->type != true){
-            $vi->url = $request->url;
-        }
         $vi->title = $request->title;
         $vi->description = $request->description;
         $vi->user_id = auth('api')->id();
@@ -92,9 +92,9 @@ class VideoController extends BaseController
             'image_name'=>$request->thum_image->getPathName()
 
         ];
-        if($request->type == true){
-            dispatch(new UploadVideo($data));
-        }
+        // if($request->type == true){
+        //     dispatch(new UploadVideo($data));
+        // }
         $types = json_decode($request->types, true);
 
         foreach ($types as $category) {
