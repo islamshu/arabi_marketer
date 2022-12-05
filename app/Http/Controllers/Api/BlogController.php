@@ -81,7 +81,7 @@ class BlogController extends BaseController
     public function serach(Request $request)
     {
         $title = $request->title;
-        dd($title);
+        dd($request->category_id);
         $query = Blog::query();
         $query->where('status', 1);
         $query->when($request->title != null, function ($q) use ($title) {
