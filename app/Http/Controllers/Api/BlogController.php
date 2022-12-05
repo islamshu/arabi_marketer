@@ -81,24 +81,26 @@ class BlogController extends BaseController
     public function serach(Request $request)
     {
         $title = $request->title;
-        $blogs = Blog::where('title','like','%'. $title .'%' )->paginate(6);
+        $query = Blog::query();
         // $query->where('status', 1);
-        // $query->when($request->title != null, function ($q) use ($title) {
-        //     // return $q->where('title', 'like', '%' . $title . '%');
-        //     return $q->where('title','like','%'.$title.'%' );
-        //     // return $q->where('title','like','%'.$title.'%' );
+        $query->when($request->title != null, function ($q) use ($title) {
+            // return $q->where('title', 'like', '%' . $title . '%');
+            // return $q->where('title','like','%'.$title.'%' );
+            return $q->whereJsonContains('title->ar','like','%'. $title .'%');
+
+            // return $q->where('title','like','%'.$title.'%' );
 
 
-        // });
-        // $query->when($request->category_id != null && $request->category_id != 'undefined', function ($q) use ($request) {
-        //     return $q->whereHas('category',function ($query) use ($request) {
-        //         $query->where('category_id', $request->category_id);
-        //     });
-        // });
+        });
+        $query->when($request->category_id != null && $request->category_id != 'undefined', function ($q) use ($request) {
+            return $q->whereHas('category',function ($query) use ($request) {
+                $query->where('category_id', $request->category_id);
+            });
+        });
 
 
         // $blogs = $query->where('publish_time','<=',now())->orderby('id', 'desc')->paginate(6);
-        // $blogs = $query->paginate(6);
+        $blogs = $query->paginate(6);
 
         $res = BlogResource::collection($blogs)->response()->getData(true);
         return $this->sendResponse($res, 'جميع المقالات');
