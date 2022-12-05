@@ -274,7 +274,7 @@ class ServiceController extends BaseController
     {
         $title = $request->title;
         $query = Service::query();
-        $query->where('status', 1);
+        // $query->where('status', 1);
         $query->when($request->title != null, function ($q) use ($title) {
             return $q->where('title', 'like', '%' . $title . '%');
         });
@@ -294,7 +294,7 @@ class ServiceController extends BaseController
     {
         $title = $request->title;
         $query = Service::query()->where('user_id',$id);
-        $query->where('status', 1);
+        // $query->where('status', 1);
         $query->when($request->title != null, function ($q) use ($title) {
             return $q->where('title', 'like', '%' . $title . '%');
         });
