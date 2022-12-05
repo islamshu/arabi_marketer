@@ -85,7 +85,9 @@ class BlogController extends BaseController
         $query->where('status', 1);
         $query->when($request->title != null, function ($q) use ($title) {
             // return $q->where('title', 'like', '%' . $title . '%');
-            return $q->whereJsonContains('title', [['title' => ['ar' => $title]]]);
+            return $q->whereJsonContains('title','like','%'.$title.'%' );
+
+
         });
         $query->when($request->category_id != null && $request->category_id != 'undefined', function ($q) use ($request) {
             return $q->whereHas('category',function ($query) use ($request) {
