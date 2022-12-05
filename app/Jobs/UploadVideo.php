@@ -33,10 +33,6 @@ class UploadVideo implements ShouldQueue
     {
         $video = $this->data;
         dd($video);
-        // $video = Youtube::upload($request->video->getPathName(), [
-        //     'title'       => $request->title,
-        //     'description' => $request->description,
-        // ])->withThumbnail($request->thum_image->getPathName());
-        // $vi->url = "https://www.youtube.com/watch?v=" . $video->getVideoId();
+    
     }
 }
