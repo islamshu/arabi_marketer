@@ -63,6 +63,7 @@ class VideoController extends BaseController
         }
         $vi = new Video();
         $image = $request->thum_image->store('video');
+        dd($request->video->getPathName());
         // if ($request->type == true) {
         //     // return $request->all();
         //     $video = Youtube::upload($request->video->getPathName(), [
@@ -84,6 +85,7 @@ class VideoController extends BaseController
 
         $vi->source = 'test';
         $vi->save();
+        
         $data =[
             'video'=>$vi->id,
             'video_name'=>$request->video,
