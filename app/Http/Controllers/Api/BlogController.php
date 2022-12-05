@@ -84,8 +84,7 @@ class BlogController extends BaseController
         $query = Blog::query();
         // $query->where('status', 1);
         $query->when($request->title != null, function ($q) use ($title) {
-             $q->where('title','like','%'.$title.'%' );
-            dd($q->get());
+             $q->where('meta_title','like','%'.$title.'%' );
 
 
         });
