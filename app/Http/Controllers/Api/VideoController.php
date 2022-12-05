@@ -73,7 +73,7 @@ class VideoController extends BaseController
             $vi->url = "https://www.youtube.com/watch?v=" . $video->getVideoId();
         } else {
             $vi->url = $request->url;
-        // }
+        }
         // if($request->type != true){
         //     $vi->url = $request->url;
         // }
