@@ -186,9 +186,9 @@ class BlogController extends BaseController
         $service->small_description = $request->meta_description;
         $service->meta_title = $request->title;
         if($request->publish_time != null){
-            $service->publish_time = $request->$request->publish_time;
+            $service->publish_time = $request->publish_time;
         }else{
-            $service->publish_tim = now(); 
+            $service->publish_time = now(); 
         }
         $service->slug = str_replace(' ','_',$request->title.'_'.Blog::count()+1) ;
         $service->save();
