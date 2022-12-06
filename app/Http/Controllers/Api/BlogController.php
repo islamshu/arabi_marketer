@@ -89,12 +89,11 @@ class BlogController extends BaseController
              $q->where('meta_title','like','%'.$title.'%' );
         });
         $cats = explode(',',$request->category_id);
-        return $cats;
 
 
-        $query->when($request->category_id != null && $request->category_id != 'undefined', function ($q) use ($request) {
-            return $q->whereHas('category',function ($query) use ($request) {
-                $query->where('category_id', $request->category_id);
+        $query->when($request->category_id != null && $request->category_id != 'undefined', function ($q) use ($cats) {
+            return $q->whereHas('category',function ($query) use ($cats) {
+                $query->whereIn('category_id', $cats);
             });
         });
 
