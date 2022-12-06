@@ -88,7 +88,9 @@ class BlogController extends BaseController
 
 
         });
-        return $request->category_id;
+        if($request->category_id == null){
+            return 11;
+        }
         $query->when($request->category_id != null && $request->category_id != 'undefined', function ($q) use ($request) {
             return $q->whereHas('category',function ($query) use ($request) {
                 $query->where('category_id', $request->category_id);
