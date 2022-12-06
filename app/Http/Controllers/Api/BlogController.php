@@ -43,7 +43,7 @@ class BlogController extends BaseController
     }
     public function get_all()
     {
-        dd(now());
+        // dd(now());
         $blogs = Blog::where('status', 1)->where('publish_time','<=',now())->orderBy('id', 'desc')->paginate(9);
         $res = BlogResource::collection($blogs)->response()->getData(true);
         return $this->sendResponse($res, 'جميع المقالات');
