@@ -82,10 +82,16 @@ class BlogController extends BaseController
     {
         $title = $request->title;
         $query = Blog::query();
+        $category = array();
+      
         $query->where('status', 1);
         $query->when($request->title != null, function ($q) use ($title) {
              $q->where('meta_title','like','%'.$title.'%' );
         });
+        $cats = explode(',',$request->category_id);
+        return $cats;
+
+
         $query->when($request->category_id != null && $request->category_id != 'undefined', function ($q) use ($request) {
             return $q->whereHas('category',function ($query) use ($request) {
                 $query->where('category_id', $request->category_id);
