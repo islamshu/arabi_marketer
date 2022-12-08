@@ -43,7 +43,7 @@ class PodcastResource extends JsonResource
               
                 'sound_item'=>$this->get_all_sound($this),
                 'url_for_this_podcast'=>route('single_podcast',$this->id),
-                // 'count_item'=>@$this->manual->sounds->count(),
+                'count_item'=>@$this->manual->sounds->count(),
             ];
         }
         
