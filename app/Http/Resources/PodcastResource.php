@@ -35,15 +35,15 @@ class PodcastResource extends JsonResource
         }else{
             return [
                 'id'=>$this->id,
-                'title'=>$this->manual->title,
-                'description'=>$this->manual->description,
+                'title'=>@$this->manual->title,
+                'description'=>@$this->manual->description,
                 'user_info'=>new UserInOtherResourse($this->user),
                 'keywords'=>$this->get_keywords($this),
-                'image'=>asset('public/uploads/'.$this->manual->image),
+                'image'=>asset('public/uploads/'.@$this->manual->image),
               
                 'sound_item'=>$this->get_all_sound($this),
                 'url_for_this_podcast'=>route('single_podcast',$this->id),
-                'count_item'=>$this->manual->sounds->count(),
+                'count_item'=>@$this->manual->sounds->count(),
             ];
         }
         
