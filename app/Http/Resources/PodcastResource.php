@@ -50,7 +50,7 @@ class PodcastResource extends JsonResource
   
     }
     function get_all_sound($data){
-        $sounds = $data->manual->sounds;
+        $sounds = @$data->manual->sounds;
         if($sounds == '[]'){
             return [];
         }
