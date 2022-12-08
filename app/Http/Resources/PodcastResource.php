@@ -55,6 +55,7 @@ class PodcastResource extends JsonResource
             return [];
         }
         $i = 0;
+        return 'true';
         foreach($sounds as $flu){
             $aa[$i]['id']=(int)$i;
             $aa[$i]['title']=(string)$flu->title;
