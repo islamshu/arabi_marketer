@@ -34,7 +34,8 @@ class PodcastController extends BaseController
         return $this->sendResponse($userRes,'جميع الكلمات المفتاحية الخاصة بالخدمات');
     }
     public function get_all(){
-       $service = NewPodcast::orderby('id','desc')->paginate(9);
+       $service = NewPodcast::orderby('id','desc')->paginate(5);
+       
        $res = PodcastResource::collection($service)->response()->getData(true);
         return $this->sendResponse($res,'جميع البودكاست  ');
     }
