@@ -21,6 +21,9 @@ class GeneralInfoController extends Controller
     public function return_exchange_policy(){
         return view('pages.return_exchange_policy');
     }
+    public function usage_policy(){
+        return view('pages.usage_policy');
+    }
 
     public function myfatoorah()
     {

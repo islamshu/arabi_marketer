@@ -53,7 +53,13 @@ class HomeController extends BaseController
         $res =[
             'body' => get_general_value('return_exchange_policy')
         ];
-        return $this->sendResponse($res, 'about page');
+        return $this->sendResponse($res, 'return exchange policy page');
+    }
+    public function usage_policy(){
+        $res =[
+            'body' => get_general_value('usage_policy')
+        ];
+        return $this->sendResponse($res, 'usage policy page');
     }
     public function about_forntend(){
         $res =[
