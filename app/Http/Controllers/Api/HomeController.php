@@ -77,7 +77,7 @@ class HomeController extends BaseController
         return $this->sendResponse($res, 'pay policy page');
     }
     public function faqs(){
-        $faqs = Faqs::orderby('sort','des')->get();
+        $faqs = Faqs::orderby('sort','asc')->get();
         $res = FaqsResource::collection($faqs);
         return $this->sendResponse($res, ' faqs page');
 
