@@ -96,37 +96,23 @@
             @csrf
             <div class="card-body">
                 <div class="row">
-                    {{-- <div class="form-group col-md-12">
-                        <select class="form-control select2 vendor" id="kt_select2_1" name="param">
-                            <option value='null'>{{ __('chose Vendor') }}</option>
-                            @foreach ($vendor as $item)
-                            <option value={{$item->id}}>{{$item->name_en}}</option>
-                            @endforeach
-                        </select>
-                    </div> --}}
-                    <div class="form-group col-md-6">
-                        <label> {{ __('question ar') }} :</label>
-                        <input type="text" name="qus_ar" id="qus_ar" class="form-control form-control-solid"
-                            placeholder="Enter question" required />
+                   
+                    <div class="form-group col-md-12">
+                        <label> {{ __('السؤال') }} :</label>
+                        <input type="text" name="qus" id="qus" class="form-control form-control-solid"
+                            placeholder="اضف سؤال" required />
                     </div>
-                    <div class="form-group col-md-6">
-                        <label>{{ __('question en') }} :</label>
-                        <input type="text" name="qus_en" id="qus_en" class="form-control form-control-solid"
-                            placeholder="Enter question" required />
+               
+                    <div class="form-group col-md-12">
+                        <label>{{ __('الاجابة') }} :</label>
+                        <textarea name="answer" class="form-control" required id="" cols="30" rows="5"></textarea>
                     </div>
-                    <div class="form-group col-md-6">
-                        <label>{{ __('Answer ar') }} :</label>
-                        <textarea name="answer_ar" class="form-control" required id="" cols="30" rows="5"></textarea>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label>{{ __('Answer en') }} :</label>
-                        <textarea name="answer_en" class="form-control" required id="" cols="30" rows="5"></textarea>
-                    </div>
+                 
                    
     
     
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary mr-2">{{ __('Submit') }}</button>
+                    <button type="submit" class="btn btn-primary mr-2">{{ __('حفظ') }}</button>
                 </div>
         </form>
 
