@@ -57,7 +57,6 @@
                     <td>{!! $item->answer_en !!}</td>
                     @endif
                     <td>
-                        @if (auth()->user()->isAbleTo(['delete-page']))
         
                         <form method="post" style="display: inline">
                             <button type="button" onclick="performdelete({{ $item->id }})"
@@ -81,7 +80,6 @@
                                 </span>
                             </button>
                         </form>
-                        @endif
                        </td>
                    
                
