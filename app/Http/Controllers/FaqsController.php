@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Alert;
 use App\Models\Faqs;
 use Illuminate\Http\Request;
 
@@ -42,6 +43,8 @@ class FaqsController extends Controller
         $page->qus = $request->qus;
         $page->sort =  Faqs::count() +1;
         $page->save();
+        Alert::success('Success', 'تم الاضافة بنجاح');
+
         return redirect()->back()->with(['succss'=>trans('add succeefully')]);
     }
     public function update_sort_faqs(Request $request)
@@ -101,6 +104,8 @@ class FaqsController extends Controller
     {
        $about= Faqs::find($id);
        $about->delete();
+       Alert::success('Success', 'تم الحذف بنجاح');
+
        return redirect()->back()->with(['success'=>'faqs deleted successfully']);
        return response()->json(['icon' => 'success', 'title' => 'faqs deleted successfully'], 200);
 
