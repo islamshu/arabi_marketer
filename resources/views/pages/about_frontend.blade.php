@@ -90,7 +90,7 @@
         <div class="form-group col-md-8">
 
             <br><label> من نحن :</label>
-            <textarea name="general[about_frontend]" required class="editor" >{{ get_general_value('about_frontend') }}</textarea>
+            <textarea name="general[about_frontend]"  class="editor" >{{ get_general_value('about_frontend') }}</textarea>
 
         </div>
 
