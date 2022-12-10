@@ -239,6 +239,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('videos', VideoController::class);
     Route::resource('consloution', ConsultingController::class);
     Route::resource('faqs', FaqsController::class);
+    Route::post('update_sort_faqs',[FaqsController::class,'update_sort_faqs'])->name('update_sort_faqs'); 
+
     Route::get('create_marketer', [UserController::class,'create_markter'])->name('create_markter');
     Route::get('about_frontend', [GeneralInfoController::class,'about_frontend'])->name('about_frontend');
     Route::get('return_exchange_policy', [GeneralInfoController::class,'return_exchange_policy'])->name('return_exchange_policy');

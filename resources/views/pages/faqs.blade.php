@@ -148,7 +148,7 @@
                 }
             });
             $.ajax({
-                url: '{{ route('update_sort_faqs', app()->getLocale()) }}',
+                url: '{{ route('update_sort_faqs') }}',
                 method: 'POST',
                 data: {
                     ids: idString
