@@ -89,7 +89,7 @@
    
         <div class="form-group col-md-8">
 
-            <br><label> من نحن :</label>
+            <br><label> سياسة الاسترجاع والاستبدال  :</label>
             <textarea name="general[return_exchange_policy]"  class="editor" >{{ get_general_value('return_exchange_policy') }}</textarea>
 
         </div>
