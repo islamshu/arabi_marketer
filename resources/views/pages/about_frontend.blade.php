@@ -81,7 +81,7 @@
             <!--end:::Tabs-->
             <!--begin:::Tab content-->
             <div id="form-errors"></div>
-<form method="post" action="{{ route('videos.store') }}" enctype="multipart/form-data">
+<form method="post" action="{{ route('general_info.store') }}" enctype="multipart/form-data">
     @csrf
     <div class="row">
 
@@ -90,7 +90,7 @@
         <div class="form-group col-md-8">
 
             <br><label> من نحن :</label>
-            <textarea name="body" required class="editor" ></textarea>
+            <textarea name="general[about_frontend]" required class="editor" >{{ get_general_value('about_frontend') }}</textarea>
 
         </div>
 
