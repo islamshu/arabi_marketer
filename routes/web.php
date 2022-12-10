@@ -12,6 +12,7 @@ use App\Http\Controllers\CityController;
 use App\Http\Controllers\ConsultingController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\Documentation\ReferencesController;
+use App\Http\Controllers\FaqsController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\GeneralInfoController;
 use App\Http\Controllers\HowItWorkController;
@@ -237,6 +238,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('videos', VideoController::class);
     Route::resource('consloution', ConsultingController::class);
+    Route::resource('faqs', FaqsController::class);
     Route::get('create_marketer', [UserController::class,'create_markter'])->name('create_markter');
     Route::get('about_frontend', [GeneralInfoController::class,'about_frontend'])->name('about_frontend');
     Route::get('return_exchange_policy', [GeneralInfoController::class,'return_exchange_policy'])->name('return_exchange_policy');
