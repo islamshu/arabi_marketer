@@ -49,6 +49,9 @@ use Validator;
 
 class UserController extends BaseController
 {
+    public function about_frontend(){
+        return view('pages.about_frontend');
+    }
     public function create_markter(){
         return view('pages.marketers.create');
     }

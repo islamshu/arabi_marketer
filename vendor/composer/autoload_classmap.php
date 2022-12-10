@@ -165,6 +165,7 @@ return array(
     'App\\Jobs\\UploadVideo' => $baseDir . '/app/Jobs/UploadVideo.php',
     'App\\Mail\\SendResetMail' => $baseDir . '/app/Mail/SendResetMail.php',
     'App\\Mail\\VerifyEmail' => $baseDir . '/app/Mail/VerifyEmail.php',
+    'App\\Models\\About' => $baseDir . '/app/Models/About.php',
     'App\\Models\\AboutPage' => $baseDir . '/app/Models/AboutPage.php',
     'App\\Models\\Answer' => $baseDir . '/app/Models/Answer.php',
     'App\\Models\\BankInfo' => $baseDir . '/app/Models/BankInfo.php',

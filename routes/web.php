@@ -238,6 +238,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('videos', VideoController::class);
     Route::resource('consloution', ConsultingController::class);
     Route::get('create_marketer', [UserController::class,'create_markter'])->name('create_markter');
+    Route::get('about_frontend', [HomeController::class,'about_frontend'])->name('about_frontend');
 
     
     Route::post('update_status_video',[VideoController::class,'update_status_video'])->name('update_status_video');

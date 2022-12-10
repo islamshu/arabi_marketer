@@ -961,6 +961,7 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         'App\\Jobs\\UploadVideo' => __DIR__ . '/../..' . '/app/Jobs/UploadVideo.php',
         'App\\Mail\\SendResetMail' => __DIR__ . '/../..' . '/app/Mail/SendResetMail.php',
         'App\\Mail\\VerifyEmail' => __DIR__ . '/../..' . '/app/Mail/VerifyEmail.php',
+        'App\\Models\\About' => __DIR__ . '/../..' . '/app/Models/About.php',
         'App\\Models\\AboutPage' => __DIR__ . '/../..' . '/app/Models/AboutPage.php',
         'App\\Models\\Answer' => __DIR__ . '/../..' . '/app/Models/Answer.php',
         'App\\Models\\BankInfo' => __DIR__ . '/../..' . '/app/Models/BankInfo.php',
