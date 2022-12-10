@@ -18,6 +18,10 @@ class GeneralInfoController extends Controller
     public function about_frontend(){
         return view('pages.about_frontend');
     }
+    public function return_exchange_policy(){
+        return view('pages.return_exchange_policy');
+    }
+
     public function myfatoorah()
     {
         return view('pages.configs.myfatoorah');
