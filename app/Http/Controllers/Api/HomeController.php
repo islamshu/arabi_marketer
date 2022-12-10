@@ -17,6 +17,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\CategoryBlogResource;
 use App\Http\Resources\CategoryResource;
+use App\Http\Resources\FaqsResource;
 use App\Http\Resources\HowItWorksResourse;
 use App\Http\Resources\QuestionResourse;
 use App\Http\Resources\ToolsResoures;
@@ -25,6 +26,7 @@ use App\Http\Resources\UserNotAuthResource;
 use App\Http\Resources\UserResource;
 use App\Models\AboutPage;
 use App\Models\Category;
+use App\Models\Faqs;
 use App\Models\HowItWork;
 use App\Models\NewPodcast;
 use App\Models\Quastion;
@@ -73,6 +75,12 @@ class HomeController extends BaseController
             'body' => get_general_value('pay_policy')
         ];
         return $this->sendResponse($res, 'pay policy page');
+    }
+    public function faqs(){
+        $faqs = Faqs::orderby('sort','des')->get();
+        $res = FaqsResource::collection($faqs);
+        return $this->sendResponse($res, ' faqs page');
+
     }
 
     
