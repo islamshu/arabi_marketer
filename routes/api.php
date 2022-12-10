@@ -214,6 +214,8 @@ Route::get('/about', [HomeController::class, 'about_forntend']);
 Route::get('/return_exchange_policy', [HomeController::class, 'return_exchange_policy']);
 Route::get('/usage_policy', [HomeController::class, 'usage_policy']);
 Route::get('/privacy_policy', [HomeController::class, 'privacy_policy']);
+Route::get('/pay_policy', [HomeController::class, 'pay_policy']);
+
 
 
 

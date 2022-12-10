@@ -61,12 +61,21 @@ class HomeController extends BaseController
         ];
         return $this->sendResponse($res, 'usage policy page');
     }
+
     public function privacy_policy(){
         $res =[
             'body' => get_general_value('privacy_policy')
         ];
         return $this->sendResponse($res, 'privacy policy page');
     }
+    public function pay_policy(){
+        $res =[
+            'body' => get_general_value('pay_policy')
+        ];
+        return $this->sendResponse($res, 'pay policy page');
+    }
+
+    
 
     
     public function about_forntend(){
