@@ -48,14 +48,8 @@
                         {{-- {{ dd($item) }} --}}
         
                         <td> <i class="fa fa-bars handle" aria-hidden="true"></i></td>
-                    @if(app()->getLocale() == 'ar')
-        
-                    <td>{{$item->qus_ar}}</td>
-                    <td>{!! $item->answer_ar !!}</td>
-                    @else 
-                    <td>{{$item->qus_en}}</td>
-                    <td>{!! $item->answer_en !!}</td>
-                    @endif
+                        <td>{{$item->qus}}</td>
+                        <td>{!! $item->answer !!}</td>
                     <td>
         
                         <form method="post" style="display: inline">
