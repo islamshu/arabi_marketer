@@ -24,7 +24,7 @@
                                     fill="currentColor"></path>
                             </svg>
                         </span>
-                        <!--end::Svg Icon-->سياسة الدفع 
+                        <!--end::Svg Icon-->الاسئلة الشائعة  
                     </a>
                 </li>
             </ul>
