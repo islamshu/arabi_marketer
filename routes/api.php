@@ -211,6 +211,7 @@ Route::get('/podcast_category', [PodcastController::class, 'podcast_category']);
 Route::get('/podcast_keywords', [PodcastController::class, 'podcast_keyword']);
 Route::get('/get_all_podcasts', [PodcastController::class, 'get_all']);
 Route::get('/about', [HomeController::class, 'about_forntend']);
+Route::get('/about', [HomeController::class, 'return_exchange_policy']);
 
 Route::get('/single_podcast/{id}', [PodcastController::class, 'single'])->name('single_podcast');
 Route::get('/podcast_search', [PodcastController::class, 'serach']);
