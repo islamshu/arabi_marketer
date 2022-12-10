@@ -241,6 +241,7 @@ Route::middleware('auth')->group(function () {
     Route::get('about_frontend', [GeneralInfoController::class,'about_frontend'])->name('about_frontend');
     Route::get('return_exchange_policy', [GeneralInfoController::class,'return_exchange_policy'])->name('return_exchange_policy');
     Route::get('usage_policy', [GeneralInfoController::class,'usage_policy'])->name('usage_policy');
+    Route::get('privacy_policy', [GeneralInfoController::class,'privacy_policy'])->name('privacy_policy');
     Route::post('update_status_video',[VideoController::class,'update_status_video'])->name('update_status_video');
 
     Route::get('services_update/{id}',[ServiceController::class, 'update'])->name('services_update');

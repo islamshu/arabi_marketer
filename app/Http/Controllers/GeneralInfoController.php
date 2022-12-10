@@ -24,6 +24,11 @@ class GeneralInfoController extends Controller
     public function usage_policy(){
         return view('pages.usage_policy');
     }
+    public function privacy_policy(){
+        return view('pages.privacy_policy');
+    }
+
+    
 
     public function myfatoorah()
     {
