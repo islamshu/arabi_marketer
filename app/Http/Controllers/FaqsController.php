@@ -15,7 +15,7 @@ class FaqsController extends Controller
      */
     public function index()
     {
-        return view('dashboard.pages.faqs')->with('faqs',Faqs::orderBy('sort','asc')->get());
+        return view('pages.faqs')->with('faqs',Faqs::orderBy('sort','asc')->get());
 
     }
 
