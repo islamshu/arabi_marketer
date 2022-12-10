@@ -127,3 +127,49 @@
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+@section('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+    integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="{{ asset('crudjs/crud.js') }}"></script>
+
+    <script>
+       
+        function performdelete(id) {
+            var url = '{{ route('faqs.destroy', [':id', 'locale' => app()->getLocale()]) }}';
+            url = url.replace(':id', id);
+            confirmDestroy(url)
+        }
+        function updateToDatabase(idString) {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                }
+            });
+            $.ajax({
+                url: '{{ route('update_sort_faqs', app()->getLocale()) }}',
+                method: 'POST',
+                data: {
+                    ids: idString
+                },
+                success: function() {
+                    alert('Successfully updated')
+                    //do whatever after success
+                }
+            })
+        }
+        var target = $('.sort_menu');
+        target.sortable({
+            handle: '.handle',
+            placeholder: 'highlight',
+            axis: "y",
+            update: function(e, ui) {
+                var sortData = target.sortable('toArray', {
+                    attribute: 'data-id'
+                })
+                updateToDatabase(sortData.join(','))
+            }
+        });
+    </script>
+@endsection
