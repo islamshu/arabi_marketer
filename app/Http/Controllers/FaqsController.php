@@ -101,6 +101,7 @@ class FaqsController extends Controller
     {
        $about= Faqs::find($id);
        $about->delete();
+       return redirect()->back()->with(['success'=>'faqs deleted successfully']);
        return response()->json(['icon' => 'success', 'title' => 'faqs deleted successfully'], 200);
 
     }
