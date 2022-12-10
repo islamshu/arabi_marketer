@@ -97,7 +97,7 @@ class FaqsController extends Controller
      * @param  \App\Models\Faqs  $faqs
      * @return \Illuminate\Http\Response
      */
-    public function destroy($locale,$id)
+    public function destroy($id)
     {
        $about= Faqs::find($id);
        $about->delete();
