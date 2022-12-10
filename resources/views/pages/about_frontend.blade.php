@@ -90,7 +90,7 @@
         <div class="form-group col-md-8">
 
             <br><label> من نحن :</label>
-            <textarea name="body" required class="form-control form-control-solid editor" ></textarea>
+            <textarea name="body" required class=" editor" ></textarea>
 
         </div>
 
