@@ -15,6 +15,9 @@ use Intervention\Image\Facades\Image;
 
 class GeneralInfoController extends Controller
 {
+    public function about_frontend(){
+        return view('pages.about_frontend');
+    }
     public function myfatoorah()
     {
         return view('pages.configs.myfatoorah');
