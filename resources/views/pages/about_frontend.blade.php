@@ -90,7 +90,7 @@
         <div class="form-group col-md-8">
 
             <br><label> من نحن :</label>
-            <textarea name="body" required class=" editor" ></textarea>
+            <textarea name="body" required class="editor" ></textarea>
 
         </div>
 
@@ -124,15 +124,3 @@
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
-
-<script>
-    ClassicEditor
-        .create(document.querySelector('.editor'))
-        .then(editor => {
-            console.log(editor);
-        })
-        .catch(error => {
-            console.error(error);
-        });
- 
-</script>
