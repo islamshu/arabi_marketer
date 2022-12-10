@@ -297,6 +297,56 @@ return array(
             ),
         ),
         array(
+            'title'      => 'Front Page',
+
+            'icon'       => array(
+                'svg'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen005.svg", "svg-icon-2"),
+                'font' => '<i class="bi bi-layers fs-3"></i>',
+            ),
+            'classes'    => array('item' => 'menu-accordion'),
+            'attributes' => array(
+                "data-kt-menu-trigger" => "click",
+            ),
+            'sub'        => array(
+                'class' => 'menu-sub-accordion menu-active-bg',
+                'items' => array(
+                    array(
+                        'title'      => 'About',
+                        'path'       => 'about_frontend',
+                        'bullet'     => '<span class="bullet bullet-dot"></span>',
+                       
+                    ),
+                    array(
+                        'title'      => 'Return exchange policy',
+                        'path'       => 'return_exchange_policy',
+                        'bullet'     => '<span class="bullet bullet-dot"></span>',                      
+                    ),
+                    array(
+                        'title'      => 'Usage policy',
+                        'path'       => 'usage_policy',
+                        'bullet'     => '<span class="bullet bullet-dot"></span>',                      
+                    ),
+                    array(
+                        'title'      => 'Pay policy',
+                        'path'       => 'pay_policy',
+                        'bullet'     => '<span class="bullet bullet-dot"></span>',                      
+                    ),
+                    array(
+                        'title'      => 'Privacy policy',
+                        'path'       => 'privacy_policy',
+                        'bullet'     => '<span class="bullet bullet-dot"></span>',                      
+                    ),
+                    array(
+                        'title'      => 'FAQS',
+                        'path'       => 'faqs',
+                        'bullet'     => '<span class="bullet bullet-dot"></span>',                      
+                    ),
+               
+                ),   
+                  
+            ),
+        ),
+        array(
             'title' => 'Users',
             'path'  => 'users',
             'permission' => ['read-user'],
