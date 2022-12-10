@@ -980,6 +980,7 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         'App\\Models\\Consulting' => __DIR__ . '/../..' . '/app/Models/Consulting.php',
         'App\\Models\\ConsutingDate' => __DIR__ . '/../..' . '/app/Models/ConsutingDate.php',
         'App\\Models\\Country' => __DIR__ . '/../..' . '/app/Models/Country.php',
+        'App\\Models\\Faqs' => __DIR__ . '/../..' . '/app/Models/Faqs.php',
         'App\\Models\\Followr' => __DIR__ . '/../..' . '/app/Models/Followr.php',
         'App\\Models\\Gallery' => __DIR__ . '/../..' . '/app/Models/Gallery.php',
         'App\\Models\\GeneralInfo' => __DIR__ . '/../..' . '/app/Models/GeneralInfo.php',

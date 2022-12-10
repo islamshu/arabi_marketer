@@ -184,6 +184,7 @@ return array(
     'App\\Models\\Consulting' => $baseDir . '/app/Models/Consulting.php',
     'App\\Models\\ConsutingDate' => $baseDir . '/app/Models/ConsutingDate.php',
     'App\\Models\\Country' => $baseDir . '/app/Models/Country.php',
+    'App\\Models\\Faqs' => $baseDir . '/app/Models/Faqs.php',
     'App\\Models\\Followr' => $baseDir . '/app/Models/Followr.php',
     'App\\Models\\Gallery' => $baseDir . '/app/Models/Gallery.php',
     'App\\Models\\GeneralInfo' => $baseDir . '/app/Models/GeneralInfo.php',
