@@ -44,7 +44,7 @@ class FaqsController extends Controller
         $page->save();
         return redirect()->back()->with(['succss'=>trans('add succeefully')]);
     }
-    public function update_sort(Request $request)
+    public function update_sort_faqs(Request $request)
     {
         if($request->has('ids')){
             $arr = explode(',',$request->input('ids'));
