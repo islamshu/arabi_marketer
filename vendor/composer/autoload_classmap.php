@@ -69,6 +69,7 @@ return array(
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\CountryController' => $baseDir . '/app/Http/Controllers/CountryController.php',
     'App\\Http\\Controllers\\Documentation\\ReferencesController' => $baseDir . '/app/Http/Controllers/Documentation/ReferencesController.php',
+    'App\\Http\\Controllers\\FaqsController' => $baseDir . '/app/Http/Controllers/FaqsController.php',
     'App\\Http\\Controllers\\GalleryController' => $baseDir . '/app/Http/Controllers/GalleryController.php',
     'App\\Http\\Controllers\\GeneralInfoController' => $baseDir . '/app/Http/Controllers/GeneralInfoController.php',
     'App\\Http\\Controllers\\HowItWorkController' => $baseDir . '/app/Http/Controllers/HowItWorkController.php',

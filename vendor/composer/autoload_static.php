@@ -865,6 +865,7 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\CountryController' => __DIR__ . '/../..' . '/app/Http/Controllers/CountryController.php',
         'App\\Http\\Controllers\\Documentation\\ReferencesController' => __DIR__ . '/../..' . '/app/Http/Controllers/Documentation/ReferencesController.php',
+        'App\\Http\\Controllers\\FaqsController' => __DIR__ . '/../..' . '/app/Http/Controllers/FaqsController.php',
         'App\\Http\\Controllers\\GalleryController' => __DIR__ . '/../..' . '/app/Http/Controllers/GalleryController.php',
         'App\\Http\\Controllers\\GeneralInfoController' => __DIR__ . '/../..' . '/app/Http/Controllers/GeneralInfoController.php',
         'App\\Http\\Controllers\\HowItWorkController' => __DIR__ . '/../..' . '/app/Http/Controllers/HowItWorkController.php',
