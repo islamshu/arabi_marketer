@@ -233,7 +233,7 @@ class HomeController extends BaseController
     public function testapi(Request $request){
         if(is_array($request->addmore) || is_object($request->addmore)){
             foreach ($request->addmore as $key => $value) {
-                dd($value->title);
+                dd($value['title']);
                 $extra = ExtraService::create( $value);
                 $extra->service_id =$service->id ;
                 $extra->title =$service->id ;
