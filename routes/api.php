@@ -43,7 +43,7 @@ use Illuminate\Support\Facades\Route;
 
 // Sample API route
 Route::get('/profits', [SampleDataController::class, 'profits'])->name('profits');
-Route::get('/testapi', [HomeController::class, 'testapi'])->name('testapi');
+Route::post('/testapi', [HomeController::class, 'testapi'])->name('testapi');
 Route::get('/change_mention', [UserController::class, 'change_mention'])->name('change_mention');
 Route::post('upp',[GalleryController::class,'upp']);
 

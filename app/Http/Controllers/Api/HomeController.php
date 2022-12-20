@@ -231,9 +231,15 @@ class HomeController extends BaseController
         return $this->sendResponse($res, 'home page');
     }
     public function testapi(Request $request){
-        $mystring = 'islamshu12@gmail.com';
-        $first = strtok($mystring, '@');
-        dd($first);
+        if(is_array($request->addmore) || is_object($request->addmore)){
+            foreach ($request->addmore as $key => $value) {
+                dd($value);
+                $extra = ExtraService::create( $value);
+                $extra->service_id =$service->id ;
+                $extra->title =$service->id ;
+                $extra->save();
+            }
+        }
     }
     public function get_markter($id)
     {

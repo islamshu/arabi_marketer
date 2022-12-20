@@ -10,6 +10,7 @@ use App\Http\Resources\KeywordResource;
 use App\Http\Resources\ServiceResource;
 use App\Http\Resources\SpecialtyResource;
 use App\Models\Category;
+use App\Models\ExtraService;
 use App\Models\KeyWord;
 use App\Models\Service;
 use App\Models\ServiceCategory;
@@ -99,6 +100,14 @@ class ServiceController extends BaseController
         }
         $service->images = json_encode($image_array);
         $service->save();
+        if(is_array($request->addmore) || is_object($request->addmore)){
+            foreach ($request->addmore as $key => $value) {
+                $extra = ExtraService::create( $value);
+                $extra->service_id =$service->id ;
+                $extra->title =$service->id ;
+                $extra->save();
+            }
+        }
 
         foreach (json_decode($request->specialties) as $specialty) {
             $spe = new ServiceSpecialy();
