@@ -102,9 +102,11 @@ class ServiceController extends BaseController
         $service->save();
         if(is_array($request->addmore) || is_object($request->addmore)){
             foreach ($request->addmore as $key => $value) {
-                $extra = ExtraService::create( $value);
+                // $extra = ExtraService::create( $value);
+                $extra = new ExtraService();
                 $extra->service_id =$service->id ;
-                $extra->title =$service->id ;
+                $extra->title =$value['title'];
+                $extra->title =$value['price'];
                 $extra->save();
             }
         }
