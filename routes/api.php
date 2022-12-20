@@ -215,6 +215,7 @@ Route::get('/return_exchange_policy', [HomeController::class, 'return_exchange_p
 Route::get('/usage_policy', [HomeController::class, 'usage_policy']);
 Route::get('/privacy_policy', [HomeController::class, 'privacy_policy']);
 Route::get('/pay_policy', [HomeController::class, 'pay_policy']);
+Route::get('/faqs', [HomeController::class, 'faqs']);
 
 
 
@@ -251,6 +252,8 @@ Route::group(['middleware' => 'is_login'], function () {
     Route::get('/get_all_follower', [FollowController::class, 'index']);
     Route::delete('/delete_follow_marketer/{id}', [FollowController::class, 'delete']);
 });
+Route::get('all_message_between_user/{id}/{id2}', [MessageController::class, 'message_betwwen_2'])->name('message_two');
+
 
 //end podcasts
 

@@ -44,7 +44,6 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         '72b1e3f4a2af9b30b3f137b3ec2057fc' => __DIR__ . '/..' . '/spatie/laravel-activitylog/src/helpers.php',
         '320163ac6b93aebe3dc25b60a0533d56' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/helpers.php',
         '377b22b161c09ed6e5152de788ca020a' => __DIR__ . '/..' . '/spatie/laravel-permission/src/helpers.php',
-        '4dfce7b1a1b9bf499e5cb17937cc0c9f' => __DIR__ . '/../..' . '/app/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -922,6 +921,7 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         'App\\Http\\Resources\\ConsultingResource' => __DIR__ . '/../..' . '/app/Http/Resources/ConsultingResource.php',
         'App\\Http\\Resources\\CounsutionBuyResource' => __DIR__ . '/../..' . '/app/Http/Resources/CounsutionBuyResource.php',
         'App\\Http\\Resources\\CountryResource' => __DIR__ . '/../..' . '/app/Http/Resources/CountryResource.php',
+        'App\\Http\\Resources\\FaqsResource' => __DIR__ . '/../..' . '/app/Http/Resources/FaqsResource.php',
         'App\\Http\\Resources\\FilesServiceResourse' => __DIR__ . '/../..' . '/app/Http/Resources/FilesServiceResourse.php',
         'App\\Http\\Resources\\FolloweResource' => __DIR__ . '/../..' . '/app/Http/Resources/FolloweResource.php',
         'App\\Http\\Resources\\HowItWorksResourse' => __DIR__ . '/../..' . '/app/Http/Resources/HowItWorksResourse.php',
@@ -981,6 +981,7 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         'App\\Models\\Consulting' => __DIR__ . '/../..' . '/app/Models/Consulting.php',
         'App\\Models\\ConsutingDate' => __DIR__ . '/../..' . '/app/Models/ConsutingDate.php',
         'App\\Models\\Country' => __DIR__ . '/../..' . '/app/Models/Country.php',
+        'App\\Models\\ExtraService' => __DIR__ . '/../..' . '/app/Models/ExtraService.php',
         'App\\Models\\Faqs' => __DIR__ . '/../..' . '/app/Models/Faqs.php',
         'App\\Models\\Followr' => __DIR__ . '/../..' . '/app/Models/Followr.php',
         'App\\Models\\Gallery' => __DIR__ . '/../..' . '/app/Models/Gallery.php',
