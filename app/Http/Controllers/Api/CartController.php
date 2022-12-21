@@ -7,6 +7,7 @@ use App\Http\Resources\CartResource;
 use App\Models\BookingConsultion;
 use App\Models\Cart;
 use App\Models\Consulting;
+use App\Models\ExtraService;
 use App\Models\Order;
 use App\Models\OrderDetiles;
 use App\Models\Service;
@@ -48,8 +49,16 @@ class CartController extends BaseController
         $cart->owner_id = $service->user_id;
         $cart->service_id = $service->id;
         $cart->type ='service';
-        $cart->price = $service->price;
-        // $cart->more_data = $data_send;
+        $extra_ids = explode(',',$request->extra_ids);
+        $data_send=[]; 
+        $price_extra = 0;
+        foreach($extra_ids as $extra){
+            $exx = ExtraService::find($extra);
+            array_push($data_send,$exx->title);
+            $price_extra += $exx->price;
+        }
+        $cart->price = $service->price + $price_extra;
+        $cart->more_data = json_encode($data_send);
         $cart->save();
         $res['item'] = new CartResource($cart);
         $res['count'] = Cart::where('user_id',auth('api')->id())->count();
