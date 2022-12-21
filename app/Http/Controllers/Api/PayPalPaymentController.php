@@ -35,12 +35,11 @@ class PayPalPaymentController extends BaseController
         $i=0;
         foreach($carts as $key=>$cart){
             $product['items'][$key]['name']= $cart->service->title;
-            $product['items'][$key]['price']= $cart->service->price;
+            $product['items'][$key]['price']= $cart->price;
             $product['items'][$key]['desc']= $cart->service->title;
             $product['items'][$key]['qty']= 1;
             $i++;
         }
-        dd($product);
         $product['invoice_id'] = $order->code;
         $product['invoice_description'] = "Order #{$product['invoice_id']} Bill";
         $product['return_url'] = route('success.payment',$order->id);
