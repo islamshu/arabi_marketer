@@ -55,7 +55,7 @@ class CartController extends BaseController
             $data_send=[]; 
             foreach($extra_ids as $extra){
                 $exx = ExtraService::find($extra);
-                array_push($data_send,$exx->title);
+                array_push($data_send,$exx->id);
                 $price_extra += $exx->price;
             }
             $cart->more_data = json_encode($data_send);
