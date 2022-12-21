@@ -39,8 +39,8 @@ class PayPalPaymentController extends BaseController
             $product['items'][$key]['desc']= $cart->service->title;
             $product['items'][$key]['qty']= 1;
             $i++;
-
         }
+        dd($product);
         $product['invoice_id'] = $order->code;
         $product['invoice_description'] = "Order #{$product['invoice_id']} Bill";
         $product['return_url'] = route('success.payment',$order->id);
@@ -51,7 +51,7 @@ class PayPalPaymentController extends BaseController
         $res = $paypalModule->setExpressCheckout($product, true);
         $order->more_info=json_encode($res);
         $order->save();
-        dd($res);
+        // dd($res);
         $ress['link']=$res['paypal_link'];
         $ress['payment_type']='paypal';
 
