@@ -49,15 +49,18 @@ class CartController extends BaseController
         $cart->owner_id = $service->user_id;
         $cart->service_id = $service->id;
         $cart->type ='service';
-        $extra_ids = explode(',',$request->extra_ids);
-        $data_send=[]; 
         $price_extra = 0;
-        foreach($extra_ids as $extra){
-            $exx = ExtraService::find($extra);
-            array_push($data_send,$exx->title);
-            $price_extra += $exx->price;
+        if($request->extra_ids != null){
+            $extra_ids = explode(',',$request->extra_ids);
+            $data_send=[]; 
+            foreach($extra_ids as $extra){
+                $exx = ExtraService::find($extra);
+                array_push($data_send,$exx->title);
+                $price_extra += $exx->price;
+            }
+            $cart->price = $service->price + $price_extra;
         }
-        $cart->price = $service->price + $price_extra;
+        
         $cart->more_data = json_encode($data_send);
         $cart->save();
         $res['item'] = new CartResource($cart);
