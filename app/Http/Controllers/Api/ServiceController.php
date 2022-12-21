@@ -106,7 +106,7 @@ class ServiceController extends BaseController
                 $extra = new ExtraService();
                 $extra->service_id =$service->id ;
                 $extra->title =$value['title'];
-                $extra->title =$value['price'];
+                $extra->price =$value['price'];
                 $extra->save();
             }
         }
