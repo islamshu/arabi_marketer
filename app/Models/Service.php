@@ -34,6 +34,10 @@ class Service extends Model
     {
         return $this->hasMany(ServiceFiles::class, 'service_id');
     }
+    public function extra()
+    {
+        return $this->hasMany(ExtraService::class, 'service_id');
+    }
     /**
      * Get the user that owns the Service
      *
