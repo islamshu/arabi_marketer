@@ -84,7 +84,6 @@ class CartController extends BaseController
         $order->code = date('Ymd-His').rand(10,99);
         $order->payment_status = 'paid';
         $order->total = $total;
-
         $order->save();
         foreach($carts as $cart){
             if($cart->type == 'service'){
@@ -98,6 +97,8 @@ class CartController extends BaseController
             $OrderDetiles->price = $service->price;
             $OrderDetiles->type = $cart->type;
             $OrderDetiles->product_id = $cart->service_id;
+            // $extra = ExtraService::whereIn($cart->more_data);
+            $OrderDetiles->extra_data = $cart->more_data;
             $OrderDetiles->save();
             $user = User::find($OrderDetiles->owner_id);
             $user->total = $user->total + $service->price;
