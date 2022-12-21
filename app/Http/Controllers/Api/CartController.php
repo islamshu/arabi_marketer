@@ -58,10 +58,10 @@ class CartController extends BaseController
                 array_push($data_send,$exx->title);
                 $price_extra += $exx->price;
             }
-            $cart->price = $service->price + $price_extra;
+            $cart->more_data = json_encode($data_send);
+
         }
-        
-        $cart->more_data = json_encode($data_send);
+        $cart->price = $service->price + $price_extra;
         $cart->save();
         $res['item'] = new CartResource($cart);
         $res['count'] = Cart::where('user_id',auth('api')->id())->count();
