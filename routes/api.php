@@ -191,7 +191,7 @@ Route::get('facebook/callback', [FacebookController::class, 'handleGoogleCallbac
 Route::group(['middleware' => 'is_login', 'middleware' => 'is_able_markter'], function () {
     Route::post('/store_sound', [SoundController::class, 'store']);
 
-    Route::post('/add_service', [ServiceController::class, 'store']);
+    // Route::post('/add_service', [ServiceController::class, 'store']);
     Route::post('/update_service', [ServiceController::class, 'update']);
     Route::delete('/delete_service/{id}', [ServiceController::class, 'delete']);
 });
