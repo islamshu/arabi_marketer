@@ -40,7 +40,7 @@
 
 
             </ul>
-            <form action="{{ route('services.update',$service->id) }}" method="post" enctype="multipart/form-data">
+            <form >
                 @csrf 
                 @method('put')
                 <div class="row">
@@ -186,7 +186,6 @@
                 </div>
             </div>
                 <br>
-                <button class="btn btn-info" id="submitform" style="" type="submit">تعديل </i></button>
             </form>
         </div>
 
