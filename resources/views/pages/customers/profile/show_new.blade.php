@@ -281,7 +281,7 @@
                         @php
                            $type_array = array();
                         if ($user->types != null) {
-                            foreach ($data->types as $type) {
+                            foreach ($user->types as $type) {
                                 array_push($type_array, $type->type_id);
                             }
                             $categores =   CategoryResource::collection(Category::whereIn('id', $type_array)->get());
