@@ -54,6 +54,15 @@
                        
                         <div class="row">
                             <div class="form-group col-md-6">
+                                <label for="email"> تصنيف الخدمة : <span class="required"></span></label>
+                               <select name="specialt_id" class="form-control" id="">
+                                <option value="" selected disabled></option>
+                                @foreach (App\Models\Specialty::get() as $item)
+                                    <option value="{{ $item->id }}">{{ $item->title }}</option>
+                                @endforeach
+                               </select>
+                            </div>
+                            <div class="form-group col-md-6">
                                 <label for="email"> العنوان بالعربية: <span class="required"></span></label>
                                 <input type="text" name="title_ar" required class="form-control"
                                     value="{{ old('title_ar') }}" id="title_ar">

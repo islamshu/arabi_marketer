@@ -148,6 +148,7 @@ class CategoryController extends Controller
         $category = new Category();
         $category->title = ['ar' => $request->title_ar, 'en' => $request->title_en];
         $category->type = 'service';
+        $category->specialt_id = $request->specialt_id;
         $category->save();
         $category->category()->associate($category);
         return $category;
