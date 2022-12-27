@@ -136,7 +136,7 @@
                             <br> <label data-error="wrong" data-success="right" for="form3"> صور عن الخدمة <span
                                     class="required"></span></label>
                             {{-- <input type="file" multiple id="imageupload" name="images[]" class="form-control"> --}}
-                            <input id="file-upload-demo" required type="file" name="images[]" multiple><br />
+                            <input id="file-upload-demo"  type="file" name="images[]" multiple><br />
                  
             
                         </div>
