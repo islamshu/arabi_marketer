@@ -23,7 +23,8 @@ class ProfileController extends Controller
         }
     }
     public function show_customer_markter($id){
-
+        $user = User::find($id);
+        return view('pages.customers.profile.show_new')->with('user', $user);
     }
     public function markters()
     {
