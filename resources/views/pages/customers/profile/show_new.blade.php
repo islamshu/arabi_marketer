@@ -284,7 +284,7 @@
                             foreach ($user->types as $type) {
                                 array_push($type_array, $type->type_id);
                             }
-                            $categores =   CategoryResource::collection(Category::whereIn('id', $type_array)->get());
+                            $categores =   App\Models\Category::whereIn('id', $type_array)->get();
                         } else {
                             return null;
                         }
