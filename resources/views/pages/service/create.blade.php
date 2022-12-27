@@ -134,7 +134,7 @@
                 <br><label>Upload Files </label>
 
                 <div class="input-group control-group increment">
-                    <input type="file" name="files[]" required class="form-control fileservice">
+                    <input type="file" name="files[]"  class="form-control fileservice">
                     <div class="input-group-btn">
 
                         <button style="margin-right: 20px;" class="btn btn-success files" type="button"><i
