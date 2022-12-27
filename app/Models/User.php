@@ -137,6 +137,10 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         $this->remember_token = $value;
     }
+    public function markter_order()
+    {
+        return $this->hasOnee(MarkterOrder::class);
+    }
 
     /**
      * Get a fullname combination of first_name and last_name

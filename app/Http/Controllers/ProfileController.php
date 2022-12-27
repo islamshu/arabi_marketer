@@ -32,6 +32,10 @@ class ProfileController extends Controller
         $users = User::where('type', 'user')->get();
         return view('pages.customers.index')->with('users', $users);
     }
+    public function markter_order(){
+        $users = User::where('type', 'user')->has('markter_order')->get();
+        dd($users);
+    }
 
     public function updateStatus(Request $request)
     {
