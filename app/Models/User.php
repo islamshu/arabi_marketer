@@ -63,6 +63,15 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Service::class);
     }
+    /**
+     * Get the user that owns the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function Country()
+    {
+        return $this->belongsTo(Country::class);
+    }
     public function answer()
     {
         return $this->hasMany(UserAnswer::class);
