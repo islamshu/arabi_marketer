@@ -322,6 +322,44 @@
 
                 </div>
             </div>
+            <div class="row mb-6">
+                <label class="col-lg-4 col-form-label required fw-bold fs-6"> Soical</label>
+                <div class="col-lg-8">
+                    <!--begin::Row-->
+                    <div class="row">
+              
+                        {{-- $social->pinterest = $request->pinterest;
+                        $social->snapchat = $request->snapchat;
+                        $social->linkedin = $request->linkedin;
+                        $social->website = $request->website;
+                        $social->podcast = $request->podcast;
+                        $social->ecommerce = $request->ecommerce;
+                        $social->followers_number = $request->followers_number; --}}
+                        <!--begin::Col-->
+                        facebook:
+                        <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                            <input type="text" value="{{ $user->soical->facebook }}" readonly
+                            class="form-control form-control-lg form-control-solid mb-3 mb-lg-0">                       
+                            <div class="fv-plugins-message-container invalid-feedback"></div>
+                        </div>
+                        instagram:
+                        <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                            <input type="text" value="{{ $user->soical->instagram }}" readonly
+                            class="form-control form-control-lg form-control-solid mb-3 mb-lg-0">                       
+                            <div class="fv-plugins-message-container invalid-feedback"></div>
+                        </div>
+                        twitter:
+                        <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                            <input type="text" value="{{ $user->soical->twitter }}" readonly
+                            class="form-control form-control-lg form-control-solid mb-3 mb-lg-0">                       
+                            <div class="fv-plugins-message-container invalid-feedback"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
 
         </div>
 
