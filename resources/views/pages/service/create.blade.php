@@ -108,7 +108,7 @@
             <div class="form-group col-md-6">
 
                 <label>Url:</label>
-                <input type="url" name="url" id="url" required class="form-control form-control-solid"
+                <input type="url" name="url" id="url"  class="form-control form-control-solid"
                     placeholder="Url" />
             </div>
 

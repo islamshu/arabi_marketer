@@ -103,7 +103,7 @@
                     <div class="form-group col-md-6">
             
                         <label>رابط الخدمة:</label>
-                        <input type="url" name="url" value="{{ $service->url }}" id="url" required class="form-control form-control-solid"
+                        <input type="url" name="url" value="{{ $service->url }}" id="url"  class="form-control form-control-solid"
                             placeholder="Url" />
                     </div>
             
