@@ -278,11 +278,21 @@
                     <!--begin::Row-->
                     <div class="row">
                         <!--begin::Col-->
-                        {{ dd($user->types) }}
-                        <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                            <input type="text" value="{{ $user->types }}" readonly class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" >
-                        <div class="fv-plugins-message-container invalid-feedback"></div></div>
-              
+                        @php
+                           $type_array = array();
+                        if ($user->types != null) {
+                            foreach ($data->types as $type) {
+                                array_push($type_array, $type->type_id);
+                            }
+                            $categores =   CategoryResource::collection(Category::whereIn('id', $type_array)->get());
+                        } else {
+                            return null;
+                        }
+                        @endphp
+                        {{ dd($categores) }}
+                       
+
+
                     </div>
                 
                 </div>
