@@ -117,6 +117,7 @@ Route::group(['middleware' => 'is_login'], function () {
     Route::post('/edit_profile', [UserController::class, 'edit_profile']);
     Route::post('/upload_profile_image', [UserController::class, 'upload_image']);
     Route::post('/upload_profile_cover', [UserController::class, 'upload_cover']);
+    Route::get('/my_services', [UserController::class, 'get_service']);
 
     Route::post('/edit_pio', [UserController::class, 'edit_pio']);
     Route::post('/edit_soical', [UserController::class, 'edit_soical']);
@@ -139,7 +140,6 @@ Route::group(['middleware' => 'is_login'], function () {
 Route::group(['middleware' => 'is_login', 'middleware' => 'Is_markter'], function () {
     Route::post('add_bank_info', [UserController::class, 'add_bank_info']);
     Route::get('/my_blogs', [UserController::class, 'get_blog']);
-    Route::get('/my_services', [UserController::class, 'get_service']);
     Route::get('/my_podcasts', [UserController::class, 'get_podcasts']);
     Route::get('/get_videos', [UserController::class, 'get_videos']);
     Route::get('/get_consultations', [UserController::class, 'get_consultations']);
