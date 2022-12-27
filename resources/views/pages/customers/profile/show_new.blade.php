@@ -231,6 +231,22 @@
         </div>
         <div class="card-body">
             <div class="row mb-6">
+                <label class="col-lg-4 col-form-label required fw-bold fs-6">  Cover Profile</label>
+                <div class="col-lg-8">
+                    <!--begin::Row-->
+                    <div class="row">
+                        <!--begin::Col-->
+                        <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                            <img src="{{ asset('public/uploads/'.$user->cover) }}" alt="">                    
+                            <div class="fv-plugins-message-container invalid-feedback"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row mb-6">
                 <!--begin::Label-->
                 <label class="col-lg-4 col-form-label required fw-bold fs-6">Full Name</label>
                 <!--end::Label-->
