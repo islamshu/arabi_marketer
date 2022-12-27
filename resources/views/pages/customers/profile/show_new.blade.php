@@ -37,12 +37,15 @@
                             <div class="d-flex align-items-center mb-2">
                                 <a href="#"
                                     class="text-gray-800 text-hover-primary fs-2 fw-bolder me-1">{{ $user->name }}</a>
-                                    @if($user ->email_verified_at  != null)
+                                    <a lass="d-flex align-items-center mb-2">
+                                        @if($user ->email_verified_at  != null)
                                     <button style="width: 24%;" class=" btn-success">Verified</button>
                                     @else
                                     <button style="width: 34%;" class=" btn-danger">Not verified</button>
 
                                     @endif
+                                    </a>
+                                    
                                 <a href="#">
                                     <!--begin::Svg Icon | path: assets/media/icons/duotune/general/gen026.svg-->
                                     @if ($user->status == 1)
