@@ -172,52 +172,50 @@
                                 <!--end::Stat-->
                             </div>
 
-                            
+
                             <!--end::Stats-->
                         </div>
                         @php
-                            $order = App\Models\MarkterOrder::where('user_id',$user->id)->first();
-                            if($order){
-
-                            
-                            if($order->status == 1){
-                                $order_status =  'btn-warning';
-                            }elseif($order->status == 2){
-                                $order_status =  'btn-success';
+                            $order = App\Models\MarkterOrder::where('user_id', $user->id)->first();
+                            if ($order) {
+                                if ($order->status == 1) {
+                                    $order_status = 'btn-warning';
+                                } elseif ($order->status == 2) {
+                                    $order_status = 'btn-success';
+                                } elseif ($order->status == 0) {
+                                    $order_status = 'btn-danger';
+                                }
                             }
-                            elseif($order->status == 0){
-                                $order_status =  'btn-danger';
-                            }
-                        }
                         @endphp
-                        @if($order)
-                        <div class="d-flex flex-column flex-grow-1 pe-8" >
-                            <div class="row">
+                        @if ($order)
+                            <div class="d-flex flex-column flex-grow-1 pe-8">
+                                <div class="row">
 
-                            <form action="{{  route('change_status_markter',$order->id) }}" method="post" >
-                                @csrf
-                                <div class="col-md-8">
-                                    <label for="" class="">حالة الطلب</label>
-                                    <select required id="select_change" class="form-control {{  $order_status }}" name="status"  >
-                                        <option value="1">تحت التدقيق</option>
-                                        <option value="2">قبول</option>
-                                        <option value="0">رقض</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-8" >
-                                    <label  class="">الرسالة (غير ضرورية) </label>
-                                   <textarea name="message" class="form-control" id="" cols="30" rows="3">
+                                    <form action="{{ route('change_status_markter', $order->id) }}" method="post">
+                                        @csrf
+                                        <div class="col-md-8">
+                                            <label for="" class="">حالة الطلب</label>
+                                            <select required id="select_change" class="form-control {{ $order_status }}"
+                                                name="status">
+                                                <option value="1">تحت التدقيق</option>
+                                                <option value="2">قبول</option>
+                                                <option value="0">رقض</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <label class="">الرسالة (غير ضرورية) </label>
+                                            <textarea name="message" class="form-control" id="" cols="30" rows="3">
 
                                    </textarea>
-                                </div>
-                                <div class="col-md-6 mt-10" style="display: none" id="btn_submit">
-                                    <button class="btn btn-info">تأكيد</button>
-                                </div>
-                               
+                                        </div>
+                                        <div class="col-md-6 mt-10" style="display: none" id="btn_submit">
+                                            <button class="btn btn-info">تأكيد</button>
+                                        </div>
 
+
+                                </div>
+                                </form>
                             </div>
-                            </form>
-                        </div>
                         @endif
 
                         <!--end::Wrapper-->
@@ -243,17 +241,21 @@
                     <div class="row">
                         <!--begin::Col-->
                         <div class="col-lg-6 fv-row fv-plugins-icon-container">
-                            <input type="text" value="{{ $user->first_name }}" readonly class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" >
-                        <div class="fv-plugins-message-container invalid-feedback"></div></div>
+                            <input type="text" value="{{ $user->first_name }}" readonly
+                                class="form-control form-control-lg form-control-solid mb-3 mb-lg-0">
+                            <div class="fv-plugins-message-container invalid-feedback"></div>
+                        </div>
                         <!--end::Col-->
 
                         <!--begin::Col-->
                         <div class="col-lg-6 fv-row fv-plugins-icon-container">
-                            <input type="text" readonly value="{{ $user->last_name }}" class="form-control form-control-lg form-control-solid" placeholder="Last name" >
-                        <div class="fv-plugins-message-container invalid-feedback"></div></div>
+                            <input type="text" readonly value="{{ $user->last_name }}"
+                                class="form-control form-control-lg form-control-solid" placeholder="Last name">
+                            <div class="fv-plugins-message-container invalid-feedback"></div>
+                        </div>
                         <!--end::Col-->
                     </div>
-                
+
                 </div>
                 <!--end::Col-->
             </div>
@@ -265,96 +267,96 @@
                     <div class="row">
                         <!--begin::Col-->
                         <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                            <input type="text" value="{{ $user->country->title }}" readonly class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" >
-                        <div class="fv-plugins-message-container invalid-feedback"></div></div>
-              
+                            <input type="text" value="{{ $user->country->title }}" readonly
+                                class="form-control form-control-lg form-control-solid mb-3 mb-lg-0">
+                            <div class="fv-plugins-message-container invalid-feedback"></div>
+                        </div>
+
                     </div>
-                
+
                 </div>
             </div>
-            <div class="row mb-6">
-                <label class="col-lg-4 col-form-label required fw-bold fs-6"> User domains</label>
-                <div class="col-lg-8">
-                    <!--begin::Row-->
-                    <div class="row">
-                        <!--begin::Col-->
-                        @php
-                           $type_array = array();
-                        if ($user->types != null) {
-                            foreach ($user->types as $type) {
-                                array_push($type_array, $type->type_id);
-                            }
-                            $categores =   App\Models\Category::whereIn('id', $type_array)->get();
-                        } else {
-                            return null;
-                        }
-                        @endphp
-                        @if($categores != '[]' && $categores != null)
+            @php
+                $type_array = [];
+                if ($user->types != null) {
+                    foreach ($user->types as $type) {
+                        array_push($type_array, $type->type_id);
+                    }
+                    $categores = App\Models\Category::whereIn('id', $type_array)->get();
+                } else {
+                    return null;
+                }
+            @endphp
+            @if ($categores != '[]' && $categores != null)
+
+                <div class="row mb-6">
+                    <label class="col-lg-4 col-form-label required fw-bold fs-6"> User domains</label>
+                    <div class="col-lg-8">
+                        <!--begin::Row-->
+                        <div class="row">
+                            <!--begin::Col-->
+
                             @foreach ($categores as $item)
-                            <input style="width: 20%;" type="text" value="{{ $item->title }}" readonly class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" >
-
+                                <input style="width: 20%;" type="text" value="{{ $item->title }}" readonly
+                                    class="form-control form-control-lg form-control-solid mb-3 mb-lg-0">
                             @endforeach
-                        
-                        @endif
-                       
-                       
-
+                        </div>
 
                     </div>
-                
                 </div>
-            </div>
+            @endif
+
         </div>
-       
+
 
         <!--end::Card body-->
     </div>
 
 </x-base-layout>
-@include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
+@include('sweetalert::alert', ['cdn' => 'https://cdn.jsdelivr.net/npm/sweetalert2@9'])
 
 @section('scripts')
-<script>
-    $( "#select_change" ).change(function() {
-        $("#btn_submit").css("display", "block");
-});
-
-    function myFunction(id) {
-        // alert('worker_status_'+id);
-        // alert($('#worker_status_'+id).val());
-
-        let status = $('#worker_status_' + id).val();
-
-        let booked_id = id;
-        $.ajax({
-            type: 'post',
-            url: "{{ route('update_status_video') }}",
-            data: {
-                "_token": "{{ csrf_token() }}",
-                'status': status,
-                'booked_id': booked_id,
-            },
-            beforeSend: function() {},
-            success: function(data) {
-                if (data['status'] == true) {
-                    if (status == 1) {
-                        $('#worker_status_' + id).css("backgroundColor", "#5fc69e")
-                    } else if (status == 0) {
-                        $('#worker_status_' + id).css("backgroundColor", "#a1a5b7")
-                    } else if (status == 2) {
-                        $('#worker_status_' + id).css("backgroundColor", "#f1416c")
-                    }
-                    toastr.options.closeButton = true;
-                    toastr.options.closeMethod = 'fadeOut';
-                    toastr.options.closeDuration = 100;
-                    toastr.success('{{ __('Updated successfully') }}');
-
-                } else {
-                    alert('Whoops Something went wrong!!');
-                }
-
-            }
+    <script>
+        $("#select_change").change(function() {
+            $("#btn_submit").css("display", "block");
         });
-    }
-</script>
+
+        function myFunction(id) {
+            // alert('worker_status_'+id);
+            // alert($('#worker_status_'+id).val());
+
+            let status = $('#worker_status_' + id).val();
+
+            let booked_id = id;
+            $.ajax({
+                type: 'post',
+                url: "{{ route('update_status_video') }}",
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    'status': status,
+                    'booked_id': booked_id,
+                },
+                beforeSend: function() {},
+                success: function(data) {
+                    if (data['status'] == true) {
+                        if (status == 1) {
+                            $('#worker_status_' + id).css("backgroundColor", "#5fc69e")
+                        } else if (status == 0) {
+                            $('#worker_status_' + id).css("backgroundColor", "#a1a5b7")
+                        } else if (status == 2) {
+                            $('#worker_status_' + id).css("backgroundColor", "#f1416c")
+                        }
+                        toastr.options.closeButton = true;
+                        toastr.options.closeMethod = 'fadeOut';
+                        toastr.options.closeDuration = 100;
+                        toastr.success('{{ __('Updated successfully') }}');
+
+                    } else {
+                        alert('Whoops Something went wrong!!');
+                    }
+
+                }
+            });
+        }
+    </script>
 @endsection
