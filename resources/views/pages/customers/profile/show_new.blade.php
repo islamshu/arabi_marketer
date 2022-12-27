@@ -313,7 +313,7 @@
                     <div class="row">
                         <!--begin::Col-->
                         <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                            <textarea name="" readonly  class="form-control form-control-lg form-control-solid mb-3 mb-lg-0">{{ $user->cv }}</textarea>
+                            <textarea name="" readonly  class="form-control form-control-lg form-control-solid mb-3 mb-lg-0">{{ $user->pio }}</textarea>
                        
                             <div class="fv-plugins-message-container invalid-feedback"></div>
                         </div>
