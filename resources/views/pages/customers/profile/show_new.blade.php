@@ -336,20 +336,22 @@
                         $social->ecommerce = $request->ecommerce;
                         $social->followers_number = $request->followers_number; --}}
                         <!--begin::Col-->
-                        facebook:
                         <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                            <label for="">facebbok</label>
                             <input type="text" value="{{ $user->soical->facebook }}" readonly
                             class="form-control form-control-lg form-control-solid mb-3 mb-lg-0">                       
                             <div class="fv-plugins-message-container invalid-feedback"></div>
                         </div>
-                        instagram:
                         <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                            <label for="">instagram</label>
+
                             <input type="text" value="{{ $user->soical->instagram }}" readonly
                             class="form-control form-control-lg form-control-solid mb-3 mb-lg-0">                       
                             <div class="fv-plugins-message-container invalid-feedback"></div>
                         </div>
-                        twitter:
                         <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                            <label for="">twitter</label>
+
                             <input type="text" value="{{ $user->soical->twitter }}" readonly
                             class="form-control form-control-lg form-control-solid mb-3 mb-lg-0">                       
                             <div class="fv-plugins-message-container invalid-feedback"></div>
