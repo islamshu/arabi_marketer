@@ -35,9 +35,7 @@ class ServiceController extends Controller
             array_push($array_category,$item->category_id);
         }
         $category_most = Category::whereIn('id',$array_category)->get();
-        $services =  Service::whereHas('user', function($q){
-            $q->where('type', 'Admin');
-        })->get();
+        $services =  Service::get();
         $market_services =  Service::whereHas('user', function($q){
             $q->where('type', 'marketer');
         })->get();
