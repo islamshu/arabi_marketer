@@ -261,6 +261,11 @@ return array(
                         'path'       => 'consultation_category',
                         'bullet'     => '<span class="bullet bullet-dot"></span>',
                     ),
+                    array(
+                        'title'      => 'User Cateory',
+                        'path'       => 'user_index',
+                        'bullet'     => '<span class="bullet bullet-dot"></span>',
+                    ),
                 ),   
                   
             ),
