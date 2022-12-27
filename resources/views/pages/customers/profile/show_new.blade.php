@@ -373,16 +373,28 @@
                             class="form-control form-control-lg form-control-solid mb-3 mb-lg-0">                       
                             <div class="fv-plugins-message-container invalid-feedback"></div>
                         </div>
-                        <div class="col-lg-6 fv-row fv-plugins-icon-container">
-                            <label for="">followers number</label>
+                       
+
+                        
+
+                        
+
+                    </div>
+
+                </div>
+            </div>
+                
+            <div class="row mb-6">
+                <label class="col-lg-4 col-form-label required fw-bold fs-6"> Follower Number</label>
+                <div class="col-lg-8">
+                    <!--begin::Row-->
+                    <div class="row">
+                        <!--begin::Col-->
+                        <div class="col-lg-8 fv-row fv-plugins-icon-container">
                             <input type="text" value="{{ $user->soical->followers_number }}" readonly
                             class="form-control form-control-lg form-control-solid mb-3 mb-lg-0">                       
                             <div class="fv-plugins-message-container invalid-feedback"></div>
                         </div>
-
-                        
-
-                        
 
                     </div>
 
