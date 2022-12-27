@@ -394,14 +394,14 @@ return array(
             'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen018.svg", "svg-icon-2"),
         ),
         array(
-            'title' => 'Marketers',
+            'title' => 'Creator',
             'path'  => 'marketers',
             'permission' => ['read-marketers'],
 
             'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen016.svg", "svg-icon-2"),
         ),
         array(
-            'title' => 'Order to be Markter',
+            'title' => 'Order to be Creator',
             'path'  => 'markter_order',
             'permission' => ['read-marketers'],
 
