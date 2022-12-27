@@ -289,7 +289,13 @@
                             return null;
                         }
                         @endphp
-                        {{ dd($categores) }}
+                        @if($categores != '[]' && $categores != null){
+                            @foreach ($categores as $item)
+                            <input type="text" value="{{ $item->title }}" readonly class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" >
+
+                            @endforeach
+                        }
+                       
                        
 
 
