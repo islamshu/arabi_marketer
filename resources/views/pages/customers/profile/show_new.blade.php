@@ -328,34 +328,61 @@
                     <!--begin::Row-->
                     <div class="row">
               
-                        {{-- $social->pinterest = $request->pinterest;
-                        $social->snapchat = $request->snapchat;
-                        $social->linkedin = $request->linkedin;
-                        $social->website = $request->website;
-                        $social->podcast = $request->podcast;
-                        $social->ecommerce = $request->ecommerce;
-                        $social->followers_number = $request->followers_number; --}}
+           
                         <!--begin::Col-->
-                        <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                        <div class="col-lg-6 fv-row fv-plugins-icon-container">
                             <label for="">facebbok</label>
                             <input type="text" value="{{ $user->soical->facebook }}" readonly
                             class="form-control form-control-lg form-control-solid mb-3 mb-lg-0">                       
                             <div class="fv-plugins-message-container invalid-feedback"></div>
                         </div>
-                        <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                        <div class="col-lg-6 fv-row fv-plugins-icon-container">
                             <label for="">instagram</label>
 
                             <input type="text" value="{{ $user->soical->instagram }}" readonly
                             class="form-control form-control-lg form-control-solid mb-3 mb-lg-0">                       
                             <div class="fv-plugins-message-container invalid-feedback"></div>
                         </div>
-                        <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                        <div class="col-lg-6 fv-row fv-plugins-icon-container">
                             <label for="">twitter</label>
-
                             <input type="text" value="{{ $user->soical->twitter }}" readonly
                             class="form-control form-control-lg form-control-solid mb-3 mb-lg-0">                       
                             <div class="fv-plugins-message-container invalid-feedback"></div>
                         </div>
+                        <div class="col-lg-6 fv-row fv-plugins-icon-container">
+                            <label for="">pinterest</label>
+                            <input type="text" value="{{ $user->soical->pinterest }}" readonly
+                            class="form-control form-control-lg form-control-solid mb-3 mb-lg-0">                       
+                            <div class="fv-plugins-message-container invalid-feedback"></div>
+                        </div>
+                        <div class="col-lg-6 fv-row fv-plugins-icon-container">
+                            <label for="">snapchat</label>
+                            <input type="text" value="{{ $user->soical->snapchat }}" readonly
+                            class="form-control form-control-lg form-control-solid mb-3 mb-lg-0">                       
+                            <div class="fv-plugins-message-container invalid-feedback"></div>
+                        </div>
+                        <div class="col-lg-6 fv-row fv-plugins-icon-container">
+                            <label for="">linkedin</label>
+                            <input type="text" value="{{ $user->soical->linkedin }}" readonly
+                            class="form-control form-control-lg form-control-solid mb-3 mb-lg-0">                       
+                            <div class="fv-plugins-message-container invalid-feedback"></div>
+                        </div>
+                        <div class="col-lg-6 fv-row fv-plugins-icon-container">
+                            <label for="">website</label>
+                            <input type="text" value="{{ $user->soical->website }}" readonly
+                            class="form-control form-control-lg form-control-solid mb-3 mb-lg-0">                       
+                            <div class="fv-plugins-message-container invalid-feedback"></div>
+                        </div>
+                        <div class="col-lg-6 fv-row fv-plugins-icon-container">
+                            <label for="">followers number</label>
+                            <input type="text" value="{{ $user->soical->followers_number }}" readonly
+                            class="form-control form-control-lg form-control-solid mb-3 mb-lg-0">                       
+                            <div class="fv-plugins-message-container invalid-feedback"></div>
+                        </div>
+
+                        
+
+                        
 
                     </div>
 
