@@ -289,12 +289,12 @@
                             return null;
                         }
                         @endphp
-                        @if($categores != '[]' && $categores != null){
+                        @if($categores != '[]' && $categores != null)
                             @foreach ($categores as $item)
-                            <input type="text" value="{{ $item->title }}" readonly class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" >
+                            <input style="width: 20%;" type="text" value="{{ $item->title }}" readonly class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" >
 
                             @endforeach
-                        }
+                        
                         @endif
                        
                        
