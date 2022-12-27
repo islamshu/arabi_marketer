@@ -139,7 +139,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
     public function markter_order()
     {
-        return $this->hasOnee(MarkterOrder::class);
+        return $this->hasOne(MarkterOrder::class);
     }
 
     /**
