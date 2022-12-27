@@ -396,6 +396,13 @@ return array(
             'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen016.svg", "svg-icon-2"),
         ),
         array(
+            'title' => 'Order to be Markter',
+            'path'  => 'markter_order',
+            'permission' => ['read-marketers'],
+
+            'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen016.svg", "svg-icon-2"),
+        ),
+        array(
             'title' => 'Customers',
             'path'  => 'customers',
             'permission' => ['read-marketers'],
