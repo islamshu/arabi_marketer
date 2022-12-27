@@ -49,7 +49,7 @@
             
                         <br><label> عنوان الخدمة :</label>
             
-                        <input type="text" id="title_ar" readonly name="title_ar" value="{{ $service->getTranslation('title', 'ar') }}" required class="form-control form-control-solid"
+                        <input type="text" id="title_ar" disabled name="title_ar" value="{{ $service->getTranslation('title', 'ar') }}" required class="form-control form-control-solid"
                             placeholder="العنوان بالعربية" />
             
                     </div>
@@ -57,14 +57,14 @@
                     <div class="form-group col-md-8">
             
                         <br><label> الوصف :</label>
-                        <textarea readonly name="description_ar" class="editor" id="kt_docs_ckeditor_classic">{{ $service->getTranslation('description', 'ar') }}</textarea>
+                        <textarea disabled  name="description_ar" id="kt_docs_ckeditor_classic">{{ $service->getTranslation('description', 'ar') }}</textarea>
             
                     </div>
                     
                     <div class="form-group col-md-6">
             
                         <label>التصنيف:</label>
-                        <select class="form-select form-control form-select-solid " id="specialty" readonly name="specialty[]" multiple required
+                        <select class="form-select form-control form-select-solid " id="specialty" disabled name="specialty[]" multiple required
                             data-control="select2" data-close-on-select="false" data-placeholder="Select an option"
                             data-allow-clear="true">
                             <option value=""></option>
@@ -78,7 +78,7 @@
                     <div class="form-group col-md-6">
             
                         <label>نوع الخدمة:</label>
-                        <select class="form-select form-control form-select-solid " id="type" readonly name="type[]" multiple required
+                        <select class="form-select form-control form-select-solid " id="type" disabled name="type[]" multiple required
                             data-control="select2" data-close-on-select="false" data-placeholder="Select an option"
                             data-allow-clear="true">
                             <option value=""></option>
@@ -91,25 +91,25 @@
                     <div class="form-group col-md-6">
             
                         <label>سعر الخدمة:</label>
-                        <input type="text" id="price" value="{{ $service->price }}" required readonly name="price" class="form-control form-control-solid"
+                        <input type="text" id="price" value="{{ $service->price }}" required disabled name="price" class="form-control form-control-solid"
                             placeholder="Price" />
                     </div>
                     <div class="form-group col-md-6">
 
                         <br> <label>نسبة الادارة من الخدمة:</label>
-                        <input type="number" id="management_ratio"  value="{{ $service->management_ratio }}"  required readonly name="management_ratio" class="form-control form-control-solid"
+                        <input type="number" id="management_ratio"  value="{{ $service->management_ratio }}"  required disabled name="management_ratio" class="form-control form-control-solid"
                             placeholder="نسبة الادارة من الخدمة" />
                     </div>
                     <div class="form-group col-md-6">
             
                         <label>رابط الخدمة:</label>
-                        <input type="url" readonly name="url" value="{{ $service->url }}" id="url" required class="form-control form-control-solid"
+                        <input type="url" disabled name="url" value="{{ $service->url }}" id="url" required class="form-control form-control-solid"
                             placeholder="Url" />
                     </div>
             
                     <div class="form-group col-md-6">
                         <label>الكلمات المفتاحية:</label>
-                        <input class="form-control form-control-sm form-control-solid keywords" required value="{{ json_encode($keywords_array) }}" readonly name="keywords" placeholder="Enter tags"
+                        <input class="form-control form-control-sm form-control-solid keywords" required value="{{ json_encode($keywords_array) }}" disabled name="keywords" placeholder="Enter tags"
                             id="kt_tagify_3" />
             
             
@@ -118,7 +118,7 @@
                         <div class="form-group">
                             <label data-error="wrong" data-success="right" for="form3"> صور عن الخدمة <span
                                     class="required"></span></label>
-                                    <input type="file" multiple id="imageupload" readonly name="images[]" class="form-control">
+                                    <input type="file" multiple id="imageupload" disabled name="images[]" class="form-control">
                             
                         </div>
                         @foreach (json_decode($service->images) as $item)
@@ -135,8 +135,8 @@
                         <div class="form-group">
                             <br> <label data-error="wrong" data-success="right" for="form3"> صور عن الخدمة <span
                                     class="required"></span></label>
-                            {{-- <input type="file" multiple id="imageupload" readonly name="images[]" class="form-control"> --}}
-                            <input id="file-upload-demo" required type="file" readonly name="images[]" multiple><br />
+                            {{-- <input type="file" multiple id="imageupload" disabled name="images[]" class="form-control"> --}}
+                            <input id="file-upload-demo" required type="file" disabled name="images[]" multiple><br />
                  
             
                         </div>
@@ -154,7 +154,7 @@
  
                     }
                     @endphp
-                <select class="form-select form-control form-select-solid " readonly name="has_file" id="has_file" required >
+                <select class="form-select form-control form-select-solid " disabled name="has_file" id="has_file" required >
                     <option value="" >يرجى الاختيار</option>
                     <option value="نعم" @if($has_file == 1) selected @endif>نعم</option>
                     <option value="لا" @if($has_file == 0) selected @endif>لا</option>
@@ -167,7 +167,7 @@
                     <br><label>Upload Files </label>
         
                     <div class="input-group control-group increment">
-                        <input type="file" readonly name="files[]"  class="form-control fileservice addrequired">
+                        <input type="file" disabled name="files[]"  class="form-control fileservice addrequired">
                         <div class="input-group-btn">
         
                             <button style="margin-right: 20px;" class="btn btn-success files" type="button"><i
@@ -177,7 +177,7 @@
                 </div>
                 <div class="clone hide" style="display: none">
                     <div class="control-group input-group" style="margin-top:10px">
-                        <input type="file" readonly name="files[]" class="form-control addrequired">
+                        <input type="file" disabled name="files[]" class="form-control addrequired">
                         <div class="input-group-btn">
                             <button style="margin-right: 20px;" class="btn btn-danger" type="button"><i
                                     class="glyphicon glyphicon-remove"></i> Delete</button>
