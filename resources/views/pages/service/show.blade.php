@@ -57,7 +57,7 @@
                     <div class="form-group col-md-8">
             
                         <br><label> الوصف :</label>
-                        <textarea disabled  name="description_ar" id="kt_docs_ckeditor_classic">{{ $service->getTranslation('description', 'ar') }}</textarea>
+                        <textarea disabled  name="description_ar" class="editor" id="kt_docs_ckeditor_classic">{{ $service->getTranslation('description', 'ar') }}</textarea>
             
                     </div>
                     
