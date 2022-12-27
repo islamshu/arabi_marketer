@@ -81,9 +81,9 @@
             <table id="example" class="display" style="width:100%">
                 <thead>
                     <tr>
-                        <th>صورة المسوق </th>
+                        <th>صورة المستخدم </th>
 
-                        <th>اسم المسوق </th>
+                        <th>اسم المستخدم </th>
                         <th>البريد الالكتروني </th>
                         {{-- <th>الحالة</th> --}}
                         <th>تاريخ الاضافة</th>
