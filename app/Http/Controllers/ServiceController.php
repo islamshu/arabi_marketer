@@ -14,6 +14,7 @@ use DB;
 use Illuminate\Http\Request;
 use Redirect;
 Use Alert;
+use App\Models\Order;
 
 class ServiceController extends Controller
 {
@@ -39,10 +40,12 @@ class ServiceController extends Controller
         $market_services =  Service::whereHas('user', function($q){
             $q->where('type', 'marketer');
         })->get();
+        $orders = Order::count();
         return view('pages.service.index')
             ->with('services', $services)
             ->with('service_marketer', $market_services)
             ->with('specialty', Specialty::get())
+            ->with('orders_count',$orders)
             ->with('category_most',$category_most)
             ->with('categories', Category::ofType('service')->get())
             ->with('keywords', KeyWord::ofType('service')->get());

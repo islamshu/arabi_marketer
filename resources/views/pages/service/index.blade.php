@@ -226,7 +226,7 @@
             datasets: [
                 {
                     label: 'Dataset 1',
-                    data: [totalservice,20],
+                    data: [totalservice,{{ $orders_count }}],
                     backgroundColor: [primaryColor, dangerColor]
                 },
             ]
