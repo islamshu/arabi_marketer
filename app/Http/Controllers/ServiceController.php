@@ -168,7 +168,29 @@ class ServiceController extends Controller
      */
     public function show(Service $service)
     {
-        //
+        $selectedspecialty = $service->specialty;
+        $selectedspecialty_array = array();
+        foreach ($selectedspecialty as $selc) {
+            array_push($selectedspecialty_array, $selc->id);
+        }
+        $selectedtype = $service->category;
+        $selectedkeywords = $service->keywords;
+        $selectedkeywords_array = array();
+        foreach ($selectedtype as $selc) {
+            array_push($selectedkeywords_array, $selc->title);
+        }
+        $selectedtype_array = array();
+        foreach ($selectedtype as $selc) {
+            array_push($selectedtype_array, $selc->id);
+        }
+        return view('pages.service.show')->with('service', $service)
+            ->with('specialty_array', $selectedspecialty_array)
+            ->with('type_array', $selectedtype_array)
+            ->with('keywords_array', $selectedkeywords_array)
+
+            ->with('specialty', Specialty::get())
+            ->with('categories', Category::ofType('service')->get())
+            ->with('keywords', KeyWord::ofType('service')->get());
     }
 
     /**
