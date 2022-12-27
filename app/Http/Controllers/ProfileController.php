@@ -22,6 +22,9 @@ class ProfileController extends Controller
             $user->save();
         }
     }
+    public function show_customer_markter($id){
+
+    }
     public function markters()
     {
         $users = User::where('type', 'marketer')->get();
@@ -34,7 +37,7 @@ class ProfileController extends Controller
     }
     public function markter_order(){
         $users = User::where('type', 'user')->has('markter_order')->get();
-        dd($users);
+        return view('pages.customers.index')->with('users', $users);
     }
 
     public function updateStatus(Request $request)

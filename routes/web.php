@@ -100,6 +100,7 @@ Route::middleware('auth')->group(function () {
     
     Route::get('customers',[ProfileController::class,'users']);
     Route::get('markter_order',[ProfileController::class,'markter_order']);
+    Route::get('show_customer_markter/{id}',[ProfileController::class,'show_customer_markter']);
 
     
     Route::get('customer/{id}',[ProfileController::class,'show_customer'])->name('customer.show');
