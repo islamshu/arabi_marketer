@@ -38,9 +38,9 @@
                                 <a href="#"
                                     class="text-gray-800 text-hover-primary fs-2 fw-bolder me-1">{{ $user->name }}</a>
                                     @if($user ->email_verified_at  != null)
-                                    <span style="background: greenyellow">verified</span>
+                                    <button class="btn btn-success">Verified</button>
                                     @else
-                                    <span style="background: red">not verified</span>
+                                    <button class="btn btn-danger">Not verified</button>
 
                                     @endif
                                 <a href="#">
