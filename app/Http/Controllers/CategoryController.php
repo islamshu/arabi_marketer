@@ -158,8 +158,16 @@ class CategoryController extends Controller
         $category->title = ['ar' => $request->title_ar, 'en' => $request->title_en];
         $category->save();
         return $category;
-
     }
+    public function update_category_service(Request $request,$id){
+        $category = Category::find($id);
+        $category->title = ['ar' => $request->title_ar, 'en' => $request->title_en];
+        $category->specialt_id = $request->specialt_id;
+        $category->save();
+        return $category;
+    }
+
+    
     public function delete_service_category($category){
         Category::find($category)->delete();
         return true;
@@ -168,4 +176,10 @@ class CategoryController extends Controller
         $category=Category::find($request->id);
         return view('pages.category_service.edit')->with('category',$category);
     }
+    public function get_form_category_service(Request $request){
+        $category=Category::find($request->id);
+        return view('pages.category_service.edit')->with('category',$category);
+    }
+
+    
 }

@@ -5,7 +5,19 @@
     <form id="edit_form_new" enctype="multipart/form-data">
         @csrf
 
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="email"> تصنيف الخدمة : <span class="required"></span></label>
+               <select name="specialt_id" class="form-control" id="">
+                <option value="" selected disabled>اختر التصنيف</option>
+                @foreach (App\Models\Specialty::get() as $item)
+                    <option value="{{ $item->id }}" @if($category->specialt_id == $item->id) selected @endif>{{ $item->title }}</option>
+                @endforeach
+               </select>
+            </div>
+           </div>
          <div class="row">
+            
             <div class="form-group col-md-6">
                 <label for="email"> العنوان بالعربية <span class="required"></span></label>
                 <input type="text" name="title_ar" required class="form-control"
@@ -51,7 +63,7 @@
       
 
         var data = $(this).serialize();
-        update("{{ route('update_category', $category->id) }}", 'post', data, 'Edit successfully') ;
+        update("{{ route('update_category_service', $category->id) }}", 'post', data, 'Edit successfully') ;
 
 
 

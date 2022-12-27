@@ -155,7 +155,13 @@ Route::middleware('auth')->group(function () {
     Route::get('get_service_category', [CategoryController::class, 'getServiceData'])->name('getServiceData');
     Route::delete('service_category_delete/{id}', [CategoryController::class, 'delete_service_category'])->name('delete_service_category');
     Route::post('update_category/{id}', [CategoryController::class, 'update_category'])->name('update_category');
+    Route::post('update_category_service/{id}', [CategoryController::class, 'update_category_service'])->name('update_category_service');
+
+    
     Route::post('get_form_category', [CategoryController::class, 'get_form_category'])->name('get_form_category');
+    Route::post('get_form_category_service', [CategoryController::class, 'get_form_category_service'])->name('get_form_category_service');
+
+    
     Route::get('get_blog_category', [CategoryController::class, 'getBlogData'])->name('getBlogData');
     Route::get('get_podcast_category', [CategoryController::class, 'getPodcastData'])->name('getPodcastCategory');
     Route::get('get_consultation_category', [CategoryController::class, 'getConsultationData'])->name('getConsultationData');
