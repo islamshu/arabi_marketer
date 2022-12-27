@@ -71,7 +71,7 @@ class ServiceController extends BaseController
             'types' => 'required',
             'keywords' => 'required',
             'has_file' => 'required',
-            'attach_file' =>  $request->has_file == true ? 'required' : '',
+            // 'attach_file' =>  $request->has_file == true ? 'required' : '',
 
         ]);
         if ($validation->fails()) {
@@ -151,7 +151,7 @@ class ServiceController extends BaseController
         }
 
 
-        if ($request->has_file == true) {
+        if ($request->attach_file != null) {
             foreach ($request->attach_file as $keyy => $imagex) {
                 $imageNamee = '/' . time() + $keyy . '_service_file.' . $imagex->getClientOriginalExtension();
                 $imagex->move('uploads/service_file', $imageNamee);
