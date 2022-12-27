@@ -318,7 +318,6 @@
             e.preventDefault();
             var frm = $('#sendmemessage');
             var data = $(this).serialize();
-            alert(data);
             store("{{ route('store_service_category') }}",'post', data,'#kt_datatable_example_2','sendmemessage','#exampleModal','Added successfully');
             $("#sendmemessage")[0].reset();
         });
