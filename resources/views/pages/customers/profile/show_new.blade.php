@@ -305,6 +305,23 @@
                     </div>
                 </div>
             @endif
+            
+            <div class="row mb-6">
+                <label class="col-lg-4 col-form-label required fw-bold fs-6"> Pio</label>
+                <div class="col-lg-8">
+                    <!--begin::Row-->
+                    <div class="row">
+                        <!--begin::Col-->
+                        <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                            <textarea name="" readonly  class="form-control form-control-lg form-control-solid mb-3 mb-lg-0">{{ $user->cv }}</textarea>
+                       
+                            <div class="fv-plugins-message-container invalid-feedback"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
 
         </div>
 
