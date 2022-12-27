@@ -179,6 +179,8 @@ Route::post('/add_service', [ServiceController::class, 'store']);
 
 //start service
 Route::get('/service_category', [ServiceController::class, 'service_category']);
+Route::get('/service_category_by_specialty_id/{id}', [ServiceController::class, 'service_category_by_specialty_id']);
+
 Route::get('/service_keyword', [ServiceController::class, 'service_keyword']);
 Route::get('/get_specialty', [ServiceController::class, 'get_specialty']);
 Route::get('/service_search', [ServiceController::class, 'serach']);

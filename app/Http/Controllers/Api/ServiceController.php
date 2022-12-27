@@ -37,6 +37,14 @@ class ServiceController extends BaseController
         $userRes = KeywordResource::collection($category);
         return $this->sendResponse($userRes, 'جميع الكلمات المفتاحية الخاصة بالخدمات');
     }
+    public function service_category_by_specialty_id($id)
+    {
+        $category = Category::ofType('service')->where('specialt_id',$id)->orderBy('id', 'asc')->get();
+        $userRes = KeywordResource::collection($category);
+        return $this->sendResponse($userRes, 'جميع الكلمات المفتاحية الخاصة بالخدمات');
+    }
+
+    
     public function service_keyword()
     {
         $category = KeyWord::ofType('service')->orderBy('id', 'asc')->get();
