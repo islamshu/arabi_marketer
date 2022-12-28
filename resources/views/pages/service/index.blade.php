@@ -404,7 +404,10 @@
                                 <label>سعر الاضافة :</label>
                                 <select class="form-control" name="addmore[` + i + `][title_en]" required>
                                     <option value="">يرجى اختيار سعر الاضافة</option>
-                                     
+                                    @foreach (App\Models\PriceService::get() as $item)
+                                    <option value="{{ $item->price }}">{{ $item->price }}$</option>
+                                        
+                                    @endforeach
 
                                 </select>
                                 
