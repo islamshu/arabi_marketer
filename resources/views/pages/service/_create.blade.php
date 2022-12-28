@@ -186,7 +186,7 @@
 
                     </div>
                     <fieldset>
-                    <button type="button" name="add"  class="btn btn-success add_row for-more">{{__('body.Add more')}}</button>
+                    <button style="margin-top: %" type="button" name="add"  class="btn btn-success add_row for-more">{{__('اضف اضافات للخدمة')}}</button>
      <br>
     <button class="btn btn-info" id="submitform" style="" type="submit">اضف جديد </i></button>
 </form>
