@@ -107,7 +107,7 @@
         <div class="form-group col-md-8">
 
             <br><label> تعليمات المشتري :</label>
-            <textarea name="buyer_instructions" class="editor" required id="kt_docs_ckeditor_classic"></textarea>
+            <textarea name="buyer_instructions" class="editorr" required id="kt_docs_ckeditor_classic"></textarea>
 
         </div>
 
