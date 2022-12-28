@@ -7,11 +7,15 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\CategoryResource;
 use App\Http\Resources\KeywordResource;
+use App\Http\Resources\PriceExtraResourse;
+use App\Http\Resources\PriceResourse;
 use App\Http\Resources\ServiceResource;
 use App\Http\Resources\SpecialtyResource;
 use App\Models\Category;
 use App\Models\ExtraService;
 use App\Models\KeyWord;
+use App\Models\PriceExtraService;
+use App\Models\PriceService;
 use App\Models\Service;
 use App\Models\ServiceCategory;
 use App\Models\ServiceComment;
@@ -42,6 +46,14 @@ class ServiceController extends BaseController
         $category = Category::ofType('service')->where('specialt_id',$id)->orderBy('id', 'asc')->get();
         $userRes = KeywordResource::collection($category);
         return $this->sendResponse($userRes, 'جميع الكلمات المفتاحية الخاصة بالخدمات');
+    }
+    public function price_for_servcie(){
+        $userRes = PriceResourse::collection(PriceService::get());
+        return $this->sendResponse($userRes, 'جميع الاسعار الخاصة بالخدمات');  
+    }
+    public function price_for_extrs_servcie(){
+        $userRes = PriceExtraResourse::collection(PriceExtraService::get());
+        return $this->sendResponse($userRes, 'جميع الاسعار الخاصة  بالخدمات الاضافية');   
     }
 
     
