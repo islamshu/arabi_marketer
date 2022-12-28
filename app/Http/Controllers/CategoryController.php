@@ -36,7 +36,9 @@ class CategoryController extends Controller
     }
     public function video_index()
     {
-        return response()->view('pages.category_video.index');
+        $categories = Category::ofType('video')->orderBy('id', 'asc')->get();
+
+        return view('pages.category_video.index')->with('categories',$categories);
     }
     public function getVideoData(Request $request)
     {
