@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Alert;
 use App\Models\Specialty;
 use Illuminate\Http\Request;
 
@@ -14,8 +15,8 @@ class SpecialtyController extends Controller
      */
     public function index()
     {
-        $specialties = Specialty::orderBy('id', 'asc')->first();
-        return response()->view('pages.specialty.index');
+        $specialties = Specialty::orderBy('id', 'asc')->get();
+        return view('pages.specialty.index')->with('specialties',$specialties);
     }
 
     public function getData(Request $request){
@@ -69,7 +70,9 @@ class SpecialtyController extends Controller
             $specialty->image = $request->icon->store('soical');
         }
         $specialty->save(); 
-        return $specialty;
+        Alert::success('Success', 'Updated successfully');
+        return redirect()->back();
+        // return $specialty;
     }
 
     /**
@@ -115,6 +118,7 @@ class SpecialtyController extends Controller
     public function destroy(Specialty $specialty)
     {
         $specialty->delete();
-        return true;
+        Alert::success('Success', 'Deleted successfully');
+        return redirect()->back();
     }
 }

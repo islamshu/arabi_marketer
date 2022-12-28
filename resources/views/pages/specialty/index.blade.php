@@ -94,7 +94,44 @@
                 <div class="tab-pane fade active show" id="kt_ecommerce_settings_general" role="tabpanel">
 
                     <!--begin::Form-->
-                    @include('pages.specialty._index')
+
+
+                    <div>
+                        <table id="example" class="display" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th># </th>
+                    
+                                    <th>العنوان </th>
+                                  >
+                                    <th>العمليات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($specialties as $item)
+                                <tr>
+                    
+                                 <td>{{ $item->title }}</td>
+                    
+                               
+                                 <td>
+                                    <a   onclick="SelectedPeopleRecord({{ $item->id }})" class="btn btn-info"><i class="fa fa-edit"></i></a>
+                                    <form style="display: inline"
+                                        action="{{ route('specialtys.destroy', $item->id) }}"
+                                        method="post">
+                                        @method('delete') @csrf
+                                        <button type="submit" class="btn btn-danger delete-confirm"><i
+                                                class="fa fa-trash"></i></button>
+                                    </form>
+                                </td>
+                                </tr>
+                                    
+                                @endforeach
+                            </tfoot>
+                        </table>
+                    </div>
+                    
+                    {{-- @include('pages.specialty._index') --}}
                     <!--end::Form-->
                 </div>
 
