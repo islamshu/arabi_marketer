@@ -85,6 +85,8 @@ class ServiceController extends Controller
                 $service->management_ratio = $request->management_ratio;
                 $service->url = $request->url;
                 $service->user_id = $request->user_id;
+                $service->type = $request->type;
+                $service->time = $request->time;
                 $image_array = array();
                 foreach ($request->images as $key => $image) {
 

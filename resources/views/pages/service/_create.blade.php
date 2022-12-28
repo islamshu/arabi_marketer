@@ -6,7 +6,7 @@
 
             <br><label> نوع الخدمة :</label>
 
-           <select name="type" id="" required class="form-control">
+           <select name="type" id="type_service" required class="form-control">
             <option value="">يرجى اختيار نوع الخدمة</option>
             <option value="digital">رقمي</option>
             <option value="service">خدمة</option>
@@ -141,7 +141,7 @@
             <br><label>Upload Files </label>
 
             <div class="input-group control-group increment">
-                <input type="file" name="files[]" class="form-control fileservice addrequired">
+                <input type="file" name="files[]"  id="addrequired" class="form-control fileservice addrequired">
                 <div class="input-group-btn">
 
                     <button style="margin-right: 20px;" class="btn btn-success files" type="button"><i

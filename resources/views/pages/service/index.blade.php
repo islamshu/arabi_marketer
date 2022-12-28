@@ -118,16 +118,20 @@
 @section('scripts')
 
     <script>
-        $(".btnnlock").click(function(){ 
-         $('#management_ratio').prop('disabled', false);
-         $(".btnnlock").css("display", "none");
-         $(".btnlock").css("display", "block");
-     });
-     $(".btnlock").click(function(){ 
-         $('#management_ratio').prop('disabled', true);
-         $(".btnnlock").css("display", "block");
-         $(".btnlock").css("display", "none");
-     });
+            $(".btnnlock").click(function(){ 
+                $('#management_ratio').prop('disabled', false);
+                $(".btnnlock").css("display", "none");
+                $(".btnlock").css("display", "block");
+            });
+            $(".btnlock").click(function(){ 
+                $('#management_ratio').prop('disabled', true);
+                $(".btnnlock").css("display", "block");
+                $(".btnlock").css("display", "none");
+            });
+            $("#type_service").change(function(){
+                alert(this.val())
+                $("#addrequired").prop('required',true);
+            });
            $('#send_form').on('submit', function(e) {
             e.preventDefault();
             var frm = $('#send_form');
