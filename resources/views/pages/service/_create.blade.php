@@ -6,7 +6,7 @@
 
             <br><label> نوع الخدمة :</label>
 
-           <select name="type" id="type_service" required class="form-control">
+           <select name="type_service" id="type_service" required class="form-control">
             <option value="">يرجى اختيار نوع الخدمة</option>
             <option value="digital">رقمي</option>
             <option value="service">خدمة</option>
@@ -74,7 +74,7 @@
         <div class="form-group col-md-6">
 
             <br> <label>سعر الخدمة:</label>
-            <select name="prcie" required class="form-control form-control-solid" id="">
+            <select name="price" required class="form-control form-control-solid" id="">
                 <option value="">يرجى اختيار سعر الخدمة</option>
                 @foreach (App\Models\PriceService::get() as $item)
                 <option value="{{ $item->price }}">{{ $item->price }}$</option>
@@ -86,7 +86,7 @@
         <div class="form-group col-md-6">
 
             <br> <label>مدة الخدمة:</label>
-            <select name="prcie" required class="form-control form-control-solid" id="">
+            <select name="time" required class="form-control form-control-solid" id="">
                 <option value="">يرجى اختيار مدة الخدمة</option>
                 @foreach (App\Models\TimeService::get() as $item)
                 <option value="{{ $item->day }}">{{ $item->title }}</option>
