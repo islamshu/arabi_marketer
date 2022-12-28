@@ -59,6 +59,10 @@ class ServiceController extends BaseController
         return $this->sendResponse($userRes, 'جميع الاسعار الخاصة  بالخدمات الاضافية');   
     }
     public function time_for_servcie(){
+        $userRes = ServiceDayResourse::collection(TimeService::get());
+        return $this->sendResponse($userRes, 'جميع الاوقات الخاصة بالخدمات    '); 
+    }
+    public function time_for_exta_servcie(){
         $userRes = ServiceDayResourse::collection(TimeExtaService::get());
         return $this->sendResponse($userRes, 'جميع الاوقات الخاصة بالاضافات    '); 
     }
