@@ -143,6 +143,8 @@
     </div>
 
 </x-base-layout>
+<textarea name="description_ar" class="editor" style="display: none" id="kt_docs_ckeditor_classic"></textarea>
+
 <div class="modal fade" id="exampleModaledit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
     style="direction: rtl">
 
