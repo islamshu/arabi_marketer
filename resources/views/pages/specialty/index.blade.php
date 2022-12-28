@@ -49,7 +49,7 @@
             @endcan
 
             <div class="col-md-8" id="form_toshow" style="display: none;margin-top:5px">
-                <form id="sendmemessage">
+                <form method="post" action="{{ route('specialtys.store') }}" enctype="multipart/form-data">
                     @csrf
 
                     <div class="form-group">
