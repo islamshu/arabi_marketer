@@ -258,9 +258,18 @@ class UserController extends BaseController
         $user->save();
         $enc = encrypt($user->id);
         $url = route('send_email.verfy', $enc);
+        $date = [
+            'id' => $user->id,
+            'name' => $user->name,
+            'url' => route('client.show', $user->id),
+            'title' => 'لديك مستقل جديد',
+            'time' => $user->updated_at
+        ];
+        $admins = User::where('type', 'Admin')->get();
+        Notification::send($admins, new GeneralNotification($date));
 
         Mail::to($request->email)->send(new VerifyEmail($url));
-        // return 'Email sent Successfully';
+      
         $userRes = new  UserNormalAuthResource($user);
         return $this->sendResponse($userRes, 'تم التسجيل بنجاح');
     }
@@ -341,7 +350,7 @@ class UserController extends BaseController
                 'id' => $user->id,
                 'name' => $user->name,
                 'url' => route('show_customer_markter', $user->id),
-                'title' => 'لديك مسوق جديد',
+                'title' => 'لديك صانع محتوى جديد',
                 'time' => $user->updated_at
             ];
             $admins = User::where('type', 'Admin')->get();
