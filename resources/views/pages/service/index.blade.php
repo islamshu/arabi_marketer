@@ -129,8 +129,12 @@
                 $(".btnlock").css("display", "none");
             });
             $("#type_service").change(function(){
-                alert($( this ).val())
-                $("#addrequired").prop('required',true);
+                val selecttt = $( this ).val();
+                if(selecttt == 'digital'){
+                    $("#addrequired").prop('required',true);
+                }else{
+                    $("#addrequired").prop('required',false);
+                }
             });
            $('#send_form').on('submit', function(e) {
             e.preventDefault();
