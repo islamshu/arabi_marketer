@@ -93,7 +93,7 @@ class ServiceController extends BaseController
 
 
         $validation = Validator::make($request->all(), [
-            'type'=>'required',
+            'type_service'=>'required',
             'title' => 'required',
             'description' => 'required',
             'images' => 'required',
@@ -117,7 +117,7 @@ class ServiceController extends BaseController
         $service->price = $request->price;
         $service->url = $request->url;
         $service->buyer_instructions = $request->buyer_instructions;
-        $service->type = $request->type;
+        $service->type = $request->type_service;
         $service->time = $request->time;
         $service->management_ratio = get_general_value('admin_service');
         $service->user_id = auth('api')->id();
