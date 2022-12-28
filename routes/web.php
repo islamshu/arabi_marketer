@@ -181,7 +181,7 @@ Route::middleware('auth')->group(function () {
     Route::post('store_podcast_category', [CategoryController::class, 'store_podcast_category'])->name('store_podcast_category');
 
     Route::get('blog_category', [CategoryController::class, 'blog_index'])->name('blog_index');
-    Route::get('podcast_index', [CategoryController::class, 'podcast_index'])->name('podcast_index');
+    Route::get('podcast_category', [CategoryController::class, 'podcast_index'])->name('podcast_index');
     Route::get('podcast_keyword_index', [KeyWordController::class, 'podcast_index'])->name('podcast_index');
     Route::get('video_keyword_index', [KeyWordController::class, 'video_index'])->name('video_index');
     Route::post('video_keyword', [KeyWordController::class, 'store_video_keyword'])->name('store_video_keyword');
