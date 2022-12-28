@@ -120,6 +120,13 @@
     <script>
         $(".btnnlock").click(function(){ 
          $('#management_ratio').prop('disabled', false);
+         $(".btnnlock").css("display", "none");
+         $(".btnlock").css("display", "block");
+     });
+     $(".btnlock").click(function(){ 
+         $('#management_ratio').prop('disabled', true);
+         $(".btnnlock").css("display", "block");
+         $(".btnlock").css("display", "none");
      });
            $('#send_form').on('submit', function(e) {
             e.preventDefault();
