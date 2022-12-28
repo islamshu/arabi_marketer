@@ -48,7 +48,7 @@
                     اضف جديد
                 </button>
                 <div class="col-md-8" id="form_toshow" style="display: none;margin-top:5px">
-                    <form id="sendmemessage">
+                    <form method="post" action="{{ route('store_user_category') }}">
                         @csrf
     
                        
@@ -79,8 +79,42 @@
                 <div class="tab-pane fade active show" id="kt_ecommerce_settings_general" role="tabpanel">
 
                     <!--begin::Form-->
-                    @include('pages.category_service._index')
-                    <!--end::Form-->
+                    <table id="example" class="display" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th># </th>
+                                {{-- <th>الصورة</th> --}}
+                                <th>العنوان </th>
+                                {{-- <th>التصنيف </th> --}}
+
+                              
+                                <th>العمليات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($categories as $key=>$item)
+                            <tr>
+                                <td>{{ $key +1 }}</td>
+                                {{-- <td><img src="{{ asset('uploads/'.$item->image) }}" width="70" height="70" alt=""></td> --}}
+                             <td>{{ $item->title }}</td>
+                             {{-- <td>{{ $item->spatical->title }}</td> --}}
+                
+                           
+                             <td>
+                                <a   onclick="SelectedPeopleRecord({{ $item->id }})" class="btn btn-info"><i class="fa fa-edit"></i></a>
+                                <form style="display: inline"
+                                    action="{{ route('delete_service_category', $item->id) }}"
+                                    method="post">
+                                    @method('delete') @csrf
+                                    <button type="submit" class="btn btn-danger delete-confirm"><i
+                                            class="fa fa-trash"></i></button>
+                                </form>
+                            </td>
+                            </tr>
+                                
+                            @endforeach
+                        </tfoot>
+                    </table>                    <!--end::Form-->
                 </div>
 
             </div>
@@ -170,104 +204,12 @@
         </div>
     </div>
 </div>
+@include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
+
 @section('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 
-    <script>
-        $(document).ready(function() {
-            "use strict";
-
-            // Class definition
-            var KTDatatablesServerSide = function() {
-                // Shared variables
-                var table;
-                var dt;
-                var filterPayment;
-                // Private functions
-                var initDatatable = function() {
-                    if ($.fn.DataTable.isDataTable('#kt_datatable_example_2')) {
-                        $('#kt_datatable_example_2').DataTable().ajax.reload();
-                        return;
-                    }
-                    dt = $("#kt_datatable_example_2").DataTable({
-                        searchDelay: 500,
-                        processing: true,
-                        serverSide: true,
-                        stateSave: true,
-
-
-                        select: {
-                            style: 'multi',
-                            selector: 'td:first-child input[type="checkbox"]',
-                            className: 'row-selected'
-                        },
-                        ajax: {
-                            url: "{{ route('getUsereData') }}",
-                        },
-                        columns: [{
-                                data: 'id'
-                            },
-                            {
-
-                                data: 'title.en'
-                            },
-
-
-                            {
-                                data: null
-                            }
-                        ],
-                        columnDefs: [
-                            {
-                                targets: -1,
-                                data: null,
-                                orderable: false,
-                                className: 'text-end',
-                                render: function(data, type, row) {
-                                    var url = data.id;
-                                    var url_delete = "service_category_delete/"+url;
-                                    return '\
-                                                           <a  onclick = SelectedPeopleRecord("' +
-                                        url +
-                                        '") class="btn btn-sm btn-clean btn-icon btn-info" title="Edit details">\
-                                                                 <i class="la la-edit"></i>\
-                                                                   </a>\
-                                                                <a href="javascript:;" data-id="'+url+'" onclick = delete_record("'+url +'","'+url_delete+'") data-route="route("specialtys.destroy",'+url+')" class="btn btn-sm btn-clean btn-icon btn-danger deleteRecord" title="Delete">\
-                                                             		<i class="la la-trash"></i>\
-                                                                           </a>\
-                                                                        ';
-                                },
-                            },
-
-
-                        ],
-
-                    });
-
-                    table = dt.$;
-                    // Re-init functions on every table re-draw -- more info: https://datatables.net/reference/event/draw
-                    dt.on('draw', function() {
-                        KTMenu.createInstances();
-                    });
-                }
-                return {
-                    init: function() {
-                        initDatatable();
-                    }
-                }
-            }();
-            // On document ready
-            KTUtil.onDOMContentLoaded(function() {
-                KTDatatablesServerSide.init();
-            });
-
-
-
-
-
-
-        });
-    </script>
+ 
     <script type="text/javascript">
         var SelectedPeopleRecord = function(id) {
 

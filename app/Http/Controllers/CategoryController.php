@@ -18,7 +18,9 @@ class CategoryController extends Controller
     }
     public function user_index()
     {
-        return response()->view('pages.category_user.index');
+        $categories = Category::ofType('service')->orderBy('id', 'asc')->get();
+
+        return view('pages.category_user.index')->with('categories',$categories);
     }
     public function blog_index()
     {
