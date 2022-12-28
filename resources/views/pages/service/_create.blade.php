@@ -123,11 +123,11 @@
             </div>
 
         </div>
-        <div class=" col-md-6">
+        <div class=" col-md-6" id="has_file_class">
 
             <label>هل يوجد ملفات تابعة للخدمة :</label>
 
-            <select class="form-select form-control form-select-solid " name="has_file" id="has_file" required>
+            <select class="form-select form-control form-select-solid " name="has_file" id="has_file" >
                 <option value="" selected disabled>يرجى الاختيار</option>
                 <option value="نعم">نعم</option>
                 <option value="لا">لا</option>
