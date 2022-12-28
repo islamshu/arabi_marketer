@@ -37,54 +37,54 @@
                     </a>
 
                 </li>
-                @can('create-specialty')
-                    
-                <button id="slide-toggle-button" class="btn btn-primary">
-                    اضف جديد
-                </button>
-                @endcan
-
-                <div class="col-md-8" id="form_toshow" style="display: none;margin-top:5px">
-                    <form id="sendmemessage">
-                        @csrf
-
-                        <div class="form-group">
-                            <label data-error="wrong" data-success="right" for="form3">الصورة <span
-                                    class="required"></span></label>
-                            <input type="file" id="imagestore" required name="icon" class="form-control image">
-                        </div>
-                        <div class="form-group">
-                            <img src="{{ asset('uploads/product_images/default.png') }}" style="width: 100px"
-                                class="img-thumbnail image-preview" alt="">
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <label for="email"> الاسم بالعربية: <span class="required"></span></label>
-                                <input type="text" name="title_ar" required class="form-control"
-                                    value="{{ old('title_ar') }}" id="title_ar">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="email"> الاسم بالانجليزية : <span class="required"></span></label>
-                                <input type="text" name="title_en" required class="form-control"
-                                    value="{{ old('title_en') }}" id="title_en">
-                            </div>
-
-
-
-
-
-
-                        </div>
-                        <br>
-
-
-                        <button class="btn btn-info" type="submit">اضافة</i></button>
-                    </form>
-                </div>
+              
 
 
             </ul>
-      
+            @can('create-specialty')
+                    
+            <button id="slide-toggle-button" class="btn btn-primary">
+                اضف جديد
+            </button>
+            @endcan
+
+            <div class="col-md-8" id="form_toshow" style="display: none;margin-top:5px">
+                <form id="sendmemessage">
+                    @csrf
+
+                    <div class="form-group">
+                        <label data-error="wrong" data-success="right" for="form3">الصورة <span
+                                class="required"></span></label>
+                        <input type="file" id="imagestore" required name="icon" class="form-control image">
+                    </div>
+                    <div class="form-group">
+                        <img src="{{ asset('uploads/product_images/default.png') }}" style="width: 100px"
+                            class="img-thumbnail image-preview" alt="">
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="email"> الاسم بالعربية: <span class="required"></span></label>
+                            <input type="text" name="title_ar" required class="form-control"
+                                value="{{ old('title_ar') }}" id="title_ar">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="email"> الاسم بالانجليزية : <span class="required"></span></label>
+                            <input type="text" name="title_en" required class="form-control"
+                                value="{{ old('title_en') }}" id="title_en">
+                        </div>
+
+
+
+
+
+
+                    </div>
+                    <br>
+
+
+                    <button class="btn btn-info" type="submit">اضافة</i></button>
+                </form>
+            </div>
 
             <ul class="nav nav-tabs nav-line-tabs nav-line-tabs-2x mb-5 fs-6">
                 <li class="nav-item">
