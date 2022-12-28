@@ -99,8 +99,9 @@ class CategoryController extends Controller
         $category->title = ['ar' => $request->title_ar, 'en' => $request->title_en];
         $category->type = 'podcast';
         $category->save();
-        // $category->category()->associate($category);
-        return $category;
+        Alert::success('Success', 'Added  successfully');
+
+        return redirect()->back();
     }
     public function store_user_category(Request $request)
     {
@@ -108,8 +109,9 @@ class CategoryController extends Controller
         $category->title = ['ar' => $request->title_ar, 'en' => $request->title_en];
         $category->type = 'user';
         $category->save();
-        // $category->category()->associate($category);
-        return $category;
+        Alert::success('Success', 'Added  successfully');
+
+        return redirect()->back();
     }
     
     public function store_consultation_category(Request $request)
@@ -118,8 +120,9 @@ class CategoryController extends Controller
         $category->title = ['ar' => $request->title_ar, 'en' => $request->title_en];
         $category->type = 'consultation';
         $category->save();
-        // $category->category()->associate($category);
-        return $category;
+        Alert::success('Success', 'Added  successfully');
+
+        return redirect()->back();
     }
 
     public function store_video_category(Request $request)
@@ -128,8 +131,9 @@ class CategoryController extends Controller
         $category->title = ['ar' => $request->title_ar, 'en' => $request->title_en];
         $category->type = 'video';
         $category->save();
-        // $category->category()->associate($category);
-        return $category;
+        Alert::success('Success', 'Added  successfully');
+
+        return redirect()->back();
     }
     public function getBlogData(Request $request)
     {
