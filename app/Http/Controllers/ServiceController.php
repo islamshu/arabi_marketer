@@ -87,7 +87,7 @@ class ServiceController extends Controller
                 $service->url = $request->url;
                 $service->user_id = $request->user_id;
                 $service->buyer_instructions = $request->buyer_instructions;
-                $service->type = $request->type;
+                $service->type = $request->type_service;
                 $service->time = $request->time;
                 $service->status = 1;
                 $image_array = array();
@@ -102,7 +102,7 @@ class ServiceController extends Controller
                 }
                 // dd(json_encode($image_array));
                 $service->images = json_encode($image_array);
-                dd($request->all());
+                // dd($request->all());
                 $service->save();
 
                 foreach ($request->specialty as $specialty) {
