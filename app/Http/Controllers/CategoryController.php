@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Alert;
 use App\Models\Category;
 use App\Models\CategoryService;
 use Illuminate\Http\Request;
@@ -154,7 +155,9 @@ class CategoryController extends Controller
         $category->specialt_id = $request->specialt_id;
         $category->save();
         $category->category()->associate($category);
-        return $category;
+        Alert::success('Success', 'Added  successfully');
+
+        return redirect()->back();
     }
     public function update_category(Request $request,$id){
         $category = Category::find($id);
