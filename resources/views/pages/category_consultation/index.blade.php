@@ -53,7 +53,7 @@
                     اضف جديد
                 </button>
                 <div class="col-md-8" id="form_toshow" style="display: none;margin-top:5px">
-                    <form id="sendmemessage">
+                    <form method="post" action="{{ route('store_consultation_category') }}" >
                         @csrf
 
 
@@ -84,7 +84,42 @@
                 <div class="tab-pane fade active show" id="kt_ecommerce_settings_general" role="tabpanel">
 
                     <!--begin::Form-->
-                    @include('pages.category_blog._index')
+                    <table id="example" class="display" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th># </th>
+                                {{-- <th>الصورة</th> --}}
+                                <th>العنوان </th>
+                                {{-- <th>التصنيف </th> --}}
+
+                              
+                                <th>العمليات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($categories as $key=>$item)
+                            <tr>
+                                <td>{{ $key +1 }}</td>
+                                {{-- <td><img src="{{ asset('uploads/'.$item->image) }}" width="70" height="70" alt=""></td> --}}
+                             <td>{{ $item->title }}</td>
+                             {{-- <td>{{ $item->spatical->title }}</td> --}}
+                
+                           
+                             <td>
+                                <a   onclick="SelectedPeopleRecord({{ $item->id }})" class="btn btn-info"><i class="fa fa-edit"></i></a>
+                                <form style="display: inline"
+                                    action="{{ route('delete_service_category', $item->id) }}"
+                                    method="post">
+                                    @method('delete') @csrf
+                                    <button type="submit" class="btn btn-danger delete-confirm"><i
+                                            class="fa fa-trash"></i></button>
+                                </form>
+                            </td>
+                            </tr>
+                                
+                            @endforeach
+                        </tfoot>
+                    </table>
                     <!--end::Form-->
                 </div>
 
@@ -178,6 +213,8 @@
         </div>
     </div>
 </div>
+@include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
+
 @section('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 
