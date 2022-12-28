@@ -390,10 +390,10 @@
                         <div class="row">
                         <div class="col-xl-4">
                             <div class="form-group">
-                                <label>العنوان بالعربية:</label>
+                                <label> اسم الاضافة:</label>
                                 <input type="text"
                                     class="form-control form-control-solid form-control-lg name_ar_offer"
-                                    id="name_ar_offer" name="addmore[` + i + `][title_ar]" required
+                                    id="name_ar_offer" name="addmore[` + i + `][title]" required
                                     />
                                 
                             </div>
@@ -401,10 +401,12 @@
 
                         <div class="col-xl-4">
                             <div class="form-group">
-                                <label>العنوان بالانجليزية:</label>
-                                <input type="text" class="form-control form-control-solid form-control-lg"
-                                    id="name_en" name="addmore[` + i + `][title_en]" required
-                                    />
+                                <label>سعر الاضافة :</label>
+                                <select class="form-control" name="addmore[` + i + `][title_en]" required>
+                                    <option value="">يرجى اختيار سعر الاضافة</option>
+                                     
+
+                                </select>
                                 
                             </div>
                         </div>
