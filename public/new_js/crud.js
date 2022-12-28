@@ -14,10 +14,6 @@ function store(url, method, data, replace_id, fromname, model_name, message) {
                     $(this).val('')
                 });
 
-            } else {
-                var t = $(replace_id).DataTable();
-                const tr = $(data);
-                t.row.add(tr).draw(false);
             }
 
 
@@ -61,12 +57,7 @@ function storefile(url, method, data, replace_id, fromname, model_name, message)
                     $(this).val('')
                 });
 
-            } else {
-                var t = $(replace_id).DataTable();
-                const tr = $(data);
-                t.row.add(tr).draw(false);
             }
-
 
             // document.getElementById(fromname).reset();
             $(model_name).modal('hide');
