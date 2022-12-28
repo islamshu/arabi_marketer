@@ -1,4 +1,4 @@
-{{-- @extends('layout.main') --}}
+@extends('layout.main')
 <div class="modal-body ">
     <div id="form-errors" class="text-center"></div>
     <div id="success" class="text-center"></div>
