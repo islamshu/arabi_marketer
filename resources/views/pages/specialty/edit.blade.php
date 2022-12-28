@@ -1,4 +1,4 @@
-@extends('layout.main')
+{{-- @extends('layout.main') --}}
 <div class="modal-body ">
     <div id="form-errors" class="text-center"></div>
     <div id="success" class="text-center"></div>
@@ -35,10 +35,7 @@
         <button class="btn btn-info" type="submit">تعديل</i></button>
     </form>
 
-    
 </div>
-@section('scripts')
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 
 <script>
@@ -58,4 +55,3 @@
 
     });
 </script>
-@endsection
