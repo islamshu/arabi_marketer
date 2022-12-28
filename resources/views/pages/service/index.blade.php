@@ -116,7 +116,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 
 @section('scripts')
+
     <script>
+        $(".btnnlock").click(function(){ 
+         $('#management_ratio').prop('disabled', false);
+     });
            $('#send_form').on('submit', function(e) {
             e.preventDefault();
             var frm = $('#send_form');

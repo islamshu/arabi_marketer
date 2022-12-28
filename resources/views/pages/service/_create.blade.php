@@ -91,7 +91,7 @@
         </div>
         <div class="form-group col-md-2">
 
-           <button class="btn btn-info"><i class="fa fa-unlock-alt"></i> </button>
+           <button style="margin-top: 22%;" class="btn btn-info btnnlock"><i class="fa fa-unlock-alt"></i> </button>
         </div>
 
 
