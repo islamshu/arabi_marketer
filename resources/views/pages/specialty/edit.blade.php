@@ -43,7 +43,8 @@
 
 <script>
    
-    $('#edit_form_new').on('click', function(e) {
+    $('#edit_form_new').click(function(e) {
+        
         alert('ff');
         e.preventDefault();
         var frm = $('#edit_form_new');
