@@ -129,7 +129,7 @@
                 $(".btnlock").css("display", "none");
             });
             $("#type_service").change(function(){
-                alert(this.val())
+                alert($( this ).val())
                 $("#addrequired").prop('required',true);
             });
            $('#send_form').on('submit', function(e) {
