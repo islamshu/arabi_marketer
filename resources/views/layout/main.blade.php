@@ -609,21 +609,12 @@
     
 </script>
 <script>
-    ClassicEditor
-        .create(document.querySelector('.editor'))
-        .then(editor => {
-            console.log(editor);
-        })
-        .catch(error => {
-            console.error(error);
-        });
-        .create(document.querySelector('.editorr'))
-        .then(editor => {
-            console.log(editor);
-        })
-        .catch(error => {
-            console.error(error);
-        });
+var allEditors = document.querySelectorAll('.editor');
+for (var i = 0; i < allEditors.length; ++i) {
+    ClassicEditor.create(allEditors[i]);
+}
+    
+        
 
         
     var input1 = document.querySelector("#kt_tagify_3");
