@@ -146,8 +146,9 @@ class CategoryController extends Controller
         $category->title = ['ar' => $request->title_ar, 'en' => $request->title_en];
         $category->type = 'blog';
         $category->save();
-        // $category->category()->associate($category);
-        return $category;
+        Alert::success('Success', 'Added  successfully');
+
+        return redirect()->back();
     }
     public function store_service_category(Request $request)
     {

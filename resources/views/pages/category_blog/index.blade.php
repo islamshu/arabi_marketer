@@ -53,7 +53,7 @@
                     اضف جديد
                 </button>
                 <div class="col-md-8" id="form_toshow" style="display: none;margin-top:5px">
-                    <form id="sendmemessage">
+                    <form action="{{ route('store_blog_category') }}" method="post">
                         @csrf
 
 
