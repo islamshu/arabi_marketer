@@ -38,23 +38,7 @@
 </div>
 {{-- @section('scripts') --}}
 
-{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script> --}}
-
-<script>
-   
-    $('#edit_form_new').on('submit', function(e) {
-        e.preventDefault();
-        var frm = $('#edit_form_new');
-        var formData = new FormData(frm[0]);
-        formData.append('file', $('#imageedit')[0].files[0]);
-
-        var data = $(this).serialize();
-
-        update("{{ route('update_specialty', $specialty->id) }}", 'post', formData, 'Edit successfully') ;
-
-     
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 
 
-    });
-</script>
 {{-- @endsection --}}
