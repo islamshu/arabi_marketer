@@ -28,11 +28,15 @@ class CategoryController extends Controller
     }
     public function consultation_index()
     {
-        return response()->view('pages.category_consultation.index');
+        $categories = Category::ofType('consultation')->orderBy('id', 'asc')->get();
+
+        return view('pages.category_consultation.index')->with('categories',$categories);
     }
     public function podcast_index()
     {
-        return response()->view('pages.category_podcast.index');
+        $categories = Category::ofType('podcast')->orderBy('id', 'asc')->get();
+
+        return view('pages.category_podcast.index')->with('categories',$categories);
     }
     public function video_index()
     {
