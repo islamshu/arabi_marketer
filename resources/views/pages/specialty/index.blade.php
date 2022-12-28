@@ -101,16 +101,16 @@
                             <thead>
                                 <tr>
                                     <th># </th>
-                    
+                                    <th>الصورة</th>
                                     <th>العنوان </th>
-                                  >
+                                  
                                     <th>العمليات</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($specialties as $item)
                                 <tr>
-                    
+                                    <td><img src="{{ asset('uploads/'.$item->image) }}" width="100" height="70" alt=""></td>
                                  <td>{{ $item->title }}</td>
                     
                                
