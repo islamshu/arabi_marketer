@@ -114,7 +114,7 @@
                              <td>
                                 <a   onclick="SelectedPeopleRecord({{ $item->id }})" class="btn btn-info"><i class="fa fa-edit"></i></a>
                                 <form style="display: inline"
-                                    action="{{ route('specialtys.destroy', $item->id) }}"
+                                    action="{{ route('catego.destroy', $item->id) }}"
                                     method="post">
                                     @method('delete') @csrf
                                     <button type="submit" class="btn btn-danger delete-confirm"><i

@@ -176,7 +176,9 @@ class CategoryController extends Controller
     
     public function delete_service_category($category){
         Category::find($category)->delete();
-        return true;
+        Alert::success('Success', 'Deleted  successfully');
+
+        return redirect()->back();
     }
     public function get_form_category(Request $request){
         $category=Category::find($request->id);
