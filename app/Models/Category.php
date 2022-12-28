@@ -20,4 +20,13 @@ class Category extends Model
     {
         return $query->where('type', $type);
     }
+    /**
+     * Get the user that owns the Category
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function spatical()
+    {
+        return $this->belongsTo(Specialty::class, 'specialt_id');
+    }
 }

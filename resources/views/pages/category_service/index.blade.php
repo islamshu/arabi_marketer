@@ -96,6 +96,8 @@
                                 <th># </th>
                                 {{-- <th>الصورة</th> --}}
                                 <th>العنوان </th>
+                                <th>التصنيف </th>
+
                               
                                 <th>العمليات</th>
                             </tr>
@@ -106,6 +108,7 @@
                                 <td>{{ $key +1 }}</td>
                                 {{-- <td><img src="{{ asset('uploads/'.$item->image) }}" width="70" height="70" alt=""></td> --}}
                              <td>{{ $item->title }}</td>
+                             <td>{{ $item->spatical->title }}</td>
                 
                            
                              <td>
