@@ -91,7 +91,7 @@ class ServiceController extends BaseController
     public function store(Request $request)
     {
 
-
+        return $request->all();
         $validation = Validator::make($request->all(), [
             'type_service'=>'required',
             'title' => 'required',
