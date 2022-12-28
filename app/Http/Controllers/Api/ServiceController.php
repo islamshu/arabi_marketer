@@ -306,6 +306,7 @@ class ServiceController extends BaseController
             });
         });
        
+        
 
 
         $blogs = $query->orderby('id', 'desc')->paginate(6);
