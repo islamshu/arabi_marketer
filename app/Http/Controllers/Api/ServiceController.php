@@ -9,6 +9,7 @@ use App\Http\Resources\CategoryResource;
 use App\Http\Resources\KeywordResource;
 use App\Http\Resources\PriceExtraResourse;
 use App\Http\Resources\PriceResourse;
+use App\Http\Resources\ServiceDayResourse;
 use App\Http\Resources\ServiceResource;
 use App\Http\Resources\SpecialtyResource;
 use App\Models\Category;
@@ -23,6 +24,7 @@ use App\Models\ServiceFiles;
 use App\Models\ServiceKeyword;
 use App\Models\ServiceSpecialy;
 use App\Models\Specialty;
+use App\Models\TimeService;
 use App\Models\User;
 use App\Notifications\GeneralNotification;
 use Notification;
@@ -54,6 +56,10 @@ class ServiceController extends BaseController
     public function price_for_extrs_servcie(){
         $userRes = PriceExtraResourse::collection(PriceExtraService::get());
         return $this->sendResponse($userRes, 'جميع الاسعار الخاصة  بالخدمات الاضافية');   
+    }
+    public function time_for_servcie(){
+        $userRes = ServiceDayResourse::collection(TimeService::get());
+        return $this->sendResponse($userRes, 'جميع الاوقات الخاصة بالخدمات    '); 
     }
 
     
