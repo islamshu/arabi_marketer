@@ -213,7 +213,6 @@
           $(this).parents(".control-group").remove();
       });
         $('#has_file').change(function(){
-            alert('dd');
             if($(this).val() == 'نعم'){
                 $('.show_file').css({display: "block"});
                 $('.addrequired').attr('required', true);   
