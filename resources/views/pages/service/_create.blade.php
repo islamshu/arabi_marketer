@@ -4,6 +4,17 @@
 
         <div class="form-group col-md-6">
 
+            <br><label> نوع الخدمة :</label>
+
+           <select name="type" id="" required class="form-control">
+            <option value="">يرجى اختيار نوع الخدمة</option>
+            <option value="digital">رقمي</option>
+            <option value="service">خدمة</option>
+           </select>
+
+        </div>
+        <div class="form-group col-md-6">
+
             <br><label> عنوان الخدمة :</label>
 
             <input type="text" id="title_ar" name="title_ar" required class="form-control form-control-solid"
@@ -61,8 +72,14 @@
         <div class="form-group col-md-6">
 
             <br> <label>سعر الخدمة:</label>
-            <input type="text" id="price" required name="price" class="form-control form-control-solid"
-                placeholder="سعر الخدمة" />
+            <select name="prcie" required class="form-control form-control-solid" id="">
+                <option value="">يرجى اختيار سعر الخدمة</option>
+                @foreach (App\Models\PriceService::get() as $item)
+                <option value="{{ $item->price }}">{{ $item->price }}$</option>
+                    
+                @endforeach
+            </select>
+         
         </div>
         <div class="form-group col-md-6">
 
