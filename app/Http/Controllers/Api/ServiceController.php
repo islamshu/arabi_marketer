@@ -144,7 +144,12 @@ class ServiceController extends BaseController
                 $extra->service_id =$service->id ;
                 $extra->title =$value['title'];
                 $extra->price =$value['price'];
-                $extra->time= $value['time'];
+                if($value['has_time'] == 0){
+                    $extra->time=0;
+                }else{
+                    $extra->time= $value['time'];
+                }
+
                 $extra->save();
             }
         }
