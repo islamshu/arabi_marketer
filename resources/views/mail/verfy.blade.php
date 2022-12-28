@@ -9,7 +9,7 @@
         <p>
         
         
-         <a href="{{ $url }}" target="_blank">{{ $url }}</a>
+         <a href="{{ $url }}" target="_blank"><button class="btn btn-info">OPEN</button></a>
     
     
     </div>
