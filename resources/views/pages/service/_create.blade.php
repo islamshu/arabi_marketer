@@ -25,7 +25,7 @@
         <div class="form-group col-md-8">
 
             <br><label> الوصف :</label>
-            <textarea name="description_ar" class="editor" id="kt_docs_ckeditor_classic"></textarea>
+            <textarea name="description_ar" required class="editor" id="kt_docs_ckeditor_classic"></textarea>
 
         </div>
 
@@ -90,21 +90,24 @@
                 <option value="">يرجى اختيار مدة الخدمة</option>
                 @foreach (App\Models\TimeService::get() as $item)
                 <option value="{{ $item->day }}">{{ $item->title }}</option>
-                    
                 @endforeach
             </select>
          
         </div>
         <div class="form-group col-md-4">
-
             <br> <label>نسبة الادارة من الخدمة:</label>
             <input type="number" id="management_ratio" disabled value="{{ get_general_value('admin_service') }}" required name="management_ratio" class="form-control form-control-solid"
                 placeholder="نسبة الادارة من الخدمة" />
         </div>
+        
         <div class="form-group col-md-2">
-
            <button type="button" style="margin-top: 22%;" class="btn btn-info btnnlock"><i class="fa fa-unlock-alt"></i> </button>
            <button type="button" style="margin-top: 22%;display: none" class="btn btn-info btnlock"><i class="fa fa-lock"></i> </button>
+        </div>
+        <div class="form-group col-md-8">
+
+            <br><label> تعليمات المشتري :</label>
+            <textarea name="buyer_instructions" class="editor" required id="kt_docs_ckeditor_classic"></textarea>
 
         </div>
 
@@ -112,7 +115,7 @@
         <div class="form-group col-md-6">
 
             <br> <label>رابط الخدمة:</label>
-            <input type="url" name="url" id="url" required class="form-control form-control-solid"
+            <input type="url" name="url" id="url"  class="form-control form-control-solid"
                 placeholder="رابط الخدمة" />
         </div>
 
