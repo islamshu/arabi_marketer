@@ -90,6 +90,7 @@ class ServiceController extends Controller
                 $service->type = $request->type;
                 $service->time = $request->time;
                 $service->status = 1;
+                dd($request->all());
                 $image_array = array();
                 foreach ($request->images as $key => $image) {
 
