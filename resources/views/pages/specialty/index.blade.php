@@ -108,9 +108,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($specialties as $item)
+                                @foreach ($specialties as $key=>$item)
                                 <tr>
-                                    <td><img src="{{ asset('uploads/'.$item->image) }}" width="100" height="70" alt=""></td>
+                                    <td>{{ $key +1 }}</td>
+                                    <td><img src="{{ asset('uploads/'.$item->image) }}" width="70" height="70" alt=""></td>
                                  <td>{{ $item->title }}</td>
                     
                                
