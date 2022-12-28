@@ -384,20 +384,47 @@
         ++i;
         
         
-        
-            let form = '<fieldset>'+'<ul>'+'<li class="lix remove_button">'+'<button type="button" class="remove_button" title="Remove field">'+'close'+'</button>'+'</li>'+'</ul>'+' <div class="container">'+'
-        <div class="row">'+'
-          <div class="col-md-4">'
-            '<label for="time" class="rl-label required ">  اسم الاضافة </label>'+'<input type="text" id="time" name="addmore['+i+'][title_extra]" class="form-control" placeholder="Enter them item time here...">'+'
-          </div>'+'
-          <div class="col-sm">'
-            '<label for="time" class="rl-label  required">السعر المضاف   </label>'+'<input  type="text" id="priceff" class="form-control" name="addmore['+i+'][price_extra]" placeholder="Enter them item time here...">'+'
-          </div>'+'
-          <div class="col-sm">'+'
-            <label for="more_time" half class="rl-label required"> الوقت المضاف </label>'+'<input type="text" id="time" name="addmore['+i+'][more_time]" class="form-control" placeholder="Enter them item time here...">'+'
-                  </div>'+'
-        </div>'+'
-      </div>';
+        let form = `
+                    <span class="test">
+                    <div class="card-body" >
+                        <div class="row">
+                        <div class="col-xl-4">
+                            <div class="form-group">
+                                <label>العنوان بالعربية:</label>
+                                <input type="text"
+                                    class="form-control form-control-solid form-control-lg name_ar_offer"
+                                    id="name_ar_offer" name="addmore[` + i + `][title_ar]" required
+                                    />
+                                
+                            </div>
+                        </div>
+
+                        <div class="col-xl-4">
+                            <div class="form-group">
+                                <label>العنوان بالانجليزية:</label>
+                                <input type="text" class="form-control form-control-solid form-control-lg"
+                                    id="name_en" name="addmore[` + i + `][title_en]" required
+                                    />
+                                
+                            </div>
+                        </div>
+                        <div class="col-xl-4">
+                            <div class="form-group">
+                                <label>الأيقونة</label>
+                                <input type="text" class="form-control form-control-solid form-control-lg"
+                                    id="name_en" name="addmore[` + i + `][icon]" required
+                                    />
+                                
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    </div>
+                    <button type="button" class="remove_button btn btn-danger " title="Remove field">Remove</button>
+                    </span>
+                    `;
         $('#extra').append(form);
            var wrapper = $('#extra');
         $(wrapper).on('click', '.remove_button', function (e) {
