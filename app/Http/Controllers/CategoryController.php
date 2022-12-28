@@ -10,7 +10,10 @@ class CategoryController extends Controller
 {
     public function service_index()
     {
-        return response()->view('pages.category_service.index');
+        $categories = Category::ofType('service')->orderBy('id', 'asc')->get();
+
+        return view('pages.category_service.index')->with('categories',$categories);
+
     }
     public function user_index()
     {
