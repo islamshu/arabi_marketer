@@ -373,4 +373,29 @@
  */
 
     </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var i = 0;
+        $('.add_row').on('click',function(){
+            addRow();
+        });
+        
+        function addRow(){
+        ++i;
+        
+        
+        
+        let form = '<fieldset>'+'<ul>'+'<li class="lix remove_button">'+'<button type="button" class="remove_button" title="Remove field">'+'close'+'</button>'+'</li>'+'</ul>'+'<div class="input-container">'+'<label for="time" class="rl-label required">Titel for extra </label>'+'<input type="text" id="time" name="addmore['+i+'][title_extra]" placeholder="Enter them item time here...">'+'</div>'+
+        '<div class="input-container half">'+'<label for="time" class="rl-label  required">Price for extra </label>'+'<input type="text" id="priceff" name="addmore['+i+'][price_extra]" placeholder="Enter them item time here...">'+'</div>'+'<div class="input-container half">'+'<label for="more_time" half class="rl-label required">More time </label>'+'<input type="text" id="time" name="addmore['+i+'][more_time]" placeholder="Enter them item time here...">'+'</div>'+'</fieldset>';
+        
+           $('#extra').append(form);
+           var wrapper = $('#extra');
+        $(wrapper).on('click', '.remove_button', function (e) {
+                e.preventDefault();
+        $(this).parent('ul').parent('fieldset').remove();
+        
+                     });
+        }
+        });
+        </script>
 @endsection
