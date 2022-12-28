@@ -387,10 +387,10 @@
         
             let form = '<fieldset>'+'<ul>'+'<li class="lix remove_button">'+'<button type="button" class="remove_button" title="Remove field">'+'close'+'</button>'+'</li>'+'</ul>'+' <div class="container">'+'
         <div class="row">'+'
-          <div class="col-md-4">
+          <div class="col-md-4">'
             '<label for="time" class="rl-label required ">  اسم الاضافة </label>'+'<input type="text" id="time" name="addmore['+i+'][title_extra]" class="form-control" placeholder="Enter them item time here...">'+'
           </div>'+'
-          <div class="col-sm">
+          <div class="col-sm">'
             '<label for="time" class="rl-label  required">السعر المضاف   </label>'+'<input  type="text" id="priceff" class="form-control" name="addmore['+i+'][price_extra]" placeholder="Enter them item time here...">'+'
           </div>'+'
           <div class="col-sm">'+'
