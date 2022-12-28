@@ -91,7 +91,7 @@ class ServiceController extends BaseController
     public function store(Request $request)
     {
 
-        return $request->all();
+        // return $request->all();
         $validation = Validator::make($request->all(), [
             'type_service'=>'required',
             'title' => 'required',
@@ -105,7 +105,7 @@ class ServiceController extends BaseController
             'has_file' => 'required',
             'time'=>'required',
             'buyer_instructions'=>'required',
-            'attach_file' =>  $request->has_file == true ? 'required' : '',
+            'attach_file' =>  $request->has_file == 1 ? 'required' : '',
 
         ]);
         if ($validation->fails()) {
@@ -189,7 +189,7 @@ class ServiceController extends BaseController
         }
 
 
-        if ($request->attach_file == true) {
+        if ($request->attach_file == 1) {
             foreach ($request->attach_file as $keyy => $imagex) {
                 $imageNamee = '/' . time() + $keyy . '_service_file.' . $imagex->getClientOriginalExtension();
                 $imagex->move('uploads/service_file', $imageNamee);
