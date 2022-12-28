@@ -89,6 +89,7 @@ class ServiceController extends Controller
                 $service->buyer_instructions = $request->buyer_instructions;
                 $service->type = $request->type;
                 $service->time = $request->time;
+                $service->status = 1;
                 $image_array = array();
                 foreach ($request->images as $key => $image) {
 
