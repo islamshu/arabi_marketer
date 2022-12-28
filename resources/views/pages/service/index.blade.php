@@ -384,11 +384,9 @@
         ++i;
         
         
-
-
-let form = '<fieldset>'+'<ul>'+'<li class="lix remove_button">'+'<button type="button" class="remove_button" title="Remove field">'+'close'+'</button>'+'</li>'+'</ul>'+'<div class="input-container">'+'<label for="time" class="rl-label required ">  اسم الاضافة </label>'+'<input type="text" id="time" name="addmore['+i+'][title_extra]" class="form-control" placeholder="Enter them item time here...">'+'</div>'+
-    '<div class="input-container half">'+'<label for="time" class="rl-label  required">السعر المضاف   </label>'+'<input  type="text" id="priceff" class="form-control" name="addmore['+i+'][price_extra]" placeholder="Enter them item time here...">'+'</div>'+'<div class="input-container form-control half">'+'<label for="more_time" half class="rl-label required"> الوقت المضاف </label>'+'<input type="text" id="time" name="addmore['+i+'][more_time]" class="form-control" placeholder="Enter them item time here...">'+'</div>'+'</fieldset>';
-    
+        
+        let form = '<fieldset>'+'<ul>'+'<li class="lix remove_button">'+'<button type="button" class="remove_button" title="Remove field">'+'close'+'</button>'+'</li>'+'</ul>'+'<div class="input-container">'+'<div class="row"> <label for="time" class="rl-label required ">  اسم الاضافة </label>'+'<input type="text" id="time" name="addmore['+i+'][title_extra]" class="form-control" placeholder="Enter them item time here...">'+'</div>'+
+    '<div class="input-container half">'+'<label for="time" class="rl-label  required">السعر المضاف   </label>'+'<input  type="text" id="priceff" class="form-control" name="addmore['+i+'][price_extra]" placeholder="Enter them item time here...">'+'</div>'+'<div class="input-container form-control half">'+'<label for="more_time" half class="rl-label required"> الوقت المضاف </label>'+'<input type="text" id="time" name="addmore['+i+'][more_time]" class="form-control" placeholder="Enter them item time here...">'+'</div></div>'+'</fieldset>';
            $('#extra').append(form);
            var wrapper = $('#extra');
         $(wrapper).on('click', '.remove_button', function (e) {
