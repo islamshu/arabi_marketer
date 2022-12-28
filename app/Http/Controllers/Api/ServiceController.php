@@ -93,6 +93,7 @@ class ServiceController extends BaseController
 
 
         $validation = Validator::make($request->all(), [
+            'type'=>'required',
             'title' => 'required',
             'description' => 'required',
             'images' => 'required',
@@ -102,6 +103,8 @@ class ServiceController extends BaseController
             'types' => 'required',
             'keywords' => 'required',
             'has_file' => 'required',
+            'time'=>'required',
+            'buyer_instructions'=>'required'
             // 'attach_file' =>  $request->has_file == true ? 'required' : '',
 
         ]);
@@ -113,6 +116,9 @@ class ServiceController extends BaseController
         $service->description = ['ar' => $request->description, 'en' => $request->description];
         $service->price = $request->price;
         $service->url = $request->url;
+        $service->buyer_instructions = $request->buyer_instructions;
+        $service->type = $request->type;
+        $service->time = $request->time;
         $service->management_ratio = get_general_value('admin_service');
         $service->user_id = auth('api')->id();
         $image_array = array();
@@ -138,6 +144,7 @@ class ServiceController extends BaseController
                 $extra->service_id =$service->id ;
                 $extra->title =$value['title'];
                 $extra->price =$value['price'];
+                $extra->time= $value['time'];
                 $extra->save();
             }
         }

@@ -30,6 +30,9 @@ class MyserviceResoures extends JsonResource
             'number_of_view'=>$this->viewer,
             'comment_number'=>$this->comments->where('status',1)->count(),
             'comments'=>CommentResourse::collection($this->comments->where('status',1)),
+            'buyer_instructions'=>$this->buyer_instructions,
+            'time'=>$this->time,
+            'type'=>$this->type,
             'url_to_this_service'=>route('single_service',$this->id),
 
         ];
