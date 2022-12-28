@@ -504,52 +504,52 @@ return array(
         ),
         
 
-        array(
-            'title'      => 'Keywords',
-            'permission' => ['read-keywords'],
+        // array(
+        //     'title'      => 'Keywords',
+        //     'permission' => ['read-keywords'],
 
-            'icon'       => array(
-                'svg'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen005.svg", "svg-icon-2"),
-                'font' => '<i class="bi bi-layers fs-3"></i>',
-            ),
-            'classes'    => array('item' => 'menu-accordion'),
-            'attributes' => array(
-                "data-kt-menu-trigger" => "click",
-            ),
-            'sub'        => array(
-                'class' => 'menu-sub-accordion menu-active-bg',
-                'items' => array(
-                    array(
-                        'title'      => 'Service Keyword',
-                        'path'       => 'service_keyword',
-                        'bullet'     => '<span class="bullet bullet-dot"></span>',
+        //     'icon'       => array(
+        //         'svg'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen005.svg", "svg-icon-2"),
+        //         'font' => '<i class="bi bi-layers fs-3"></i>',
+        //     ),
+        //     'classes'    => array('item' => 'menu-accordion'),
+        //     'attributes' => array(
+        //         "data-kt-menu-trigger" => "click",
+        //     ),
+        //     'sub'        => array(
+        //         'class' => 'menu-sub-accordion menu-active-bg',
+        //         'items' => array(
+        //             array(
+        //                 'title'      => 'Service Keyword',
+        //                 'path'       => 'service_keyword',
+        //                 'bullet'     => '<span class="bullet bullet-dot"></span>',
                        
-                    ),
-                    array(
-                        'title'      => 'Blog Keyword',
-                        'path'       => 'blog_keyword',
-                        'bullet'     => '<span class="bullet bullet-dot"></span>',
+        //             ),
+        //             array(
+        //                 'title'      => 'Blog Keyword',
+        //                 'path'       => 'blog_keyword',
+        //                 'bullet'     => '<span class="bullet bullet-dot"></span>',
                        
-                    ),
-                    array(
-                        'title'      => 'Vedio Keyword',
-                        'path'       => 'video_index',
-                        'bullet'     => '<span class="bullet bullet-dot"></span>',
-                    ),
-                    array(
-                        'title'      => 'Podcast Keyword',
-                        'path'       => 'podcast_keyword_index',
-                        'bullet'     => '<span class="bullet bullet-dot"></span>',
-                    ),
-                    array(
-                        'title'      => 'Consoltion Keyword',
-                        'path'       => 'consoltion_keyword',
-                        'bullet'     => '<span class="bullet bullet-dot"></span>',
-                    ),
-                ),   
+        //             ),
+        //             array(
+        //                 'title'      => 'Vedio Keyword',
+        //                 'path'       => 'video_index',
+        //                 'bullet'     => '<span class="bullet bullet-dot"></span>',
+        //             ),
+        //             array(
+        //                 'title'      => 'Podcast Keyword',
+        //                 'path'       => 'podcast_keyword_index',
+        //                 'bullet'     => '<span class="bullet bullet-dot"></span>',
+        //             ),
+        //             array(
+        //                 'title'      => 'Consoltion Keyword',
+        //                 'path'       => 'consoltion_keyword',
+        //                 'bullet'     => '<span class="bullet bullet-dot"></span>',
+        //             ),
+        //         ),   
                   
-            ),
-        ),
+        //     ),
+        // ),
     ),
 
     // Horizontal menu
