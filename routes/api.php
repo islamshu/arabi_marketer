@@ -222,6 +222,7 @@ Route::get('/usage_policy', [HomeController::class, 'usage_policy']);
 Route::get('/privacy_policy', [HomeController::class, 'privacy_policy']);
 Route::get('/pay_policy', [HomeController::class, 'pay_policy']);
 Route::get('/faqs', [HomeController::class, 'faqs']);
+Route::get('/rights_guarantee', [HomeController::class, 'rights_guarantee']);
 
 
 
