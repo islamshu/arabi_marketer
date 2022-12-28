@@ -22,7 +22,9 @@ class CategoryController extends Controller
     }
     public function blog_index()
     {
-        return response()->view('pages.category_blog.index');
+        $categories = Category::ofType('blog')->orderBy('id', 'asc')->get();
+
+        return response()->view('pages.category_blog.index')->with('categories',$categories);
     }
     public function consultation_index()
     {
