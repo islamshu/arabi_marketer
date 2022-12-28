@@ -89,7 +89,7 @@
             <select name="prcie" required class="form-control form-control-solid" id="">
                 <option value="">يرجى اختيار مدة الخدمة</option>
                 @foreach (App\Models\TimeService::get() as $item)
-                <option value="{{ $item->day }}">{{ $item->title }}$</option>
+                <option value="{{ $item->day }}">{{ $item->title }}</option>
                     
                 @endforeach
             </select>
