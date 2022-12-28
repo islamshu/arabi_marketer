@@ -609,14 +609,7 @@
     
 </script>
 <script>
-    ClassicEditor
-        .create(document.querySelector('.editor'))
-        .then(editor => {
-            console.log(editor);
-        })
-        .catch(error => {
-            console.error(error);
-        });
+   
     var input1 = document.querySelector("#kt_tagify_3");
     new Tagify(input1);
     var input2 = document.querySelector("#kt_tagify_44");
