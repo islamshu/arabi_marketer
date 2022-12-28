@@ -67,6 +67,7 @@ Route::get('home_markter', [HomeController::class, 'get_markter_home']);
 Route::get('home_tools', [HomeController::class, 'get_home_tools']);
 Route::get('single_tool/{id}', [HomeController::class, 'single_tool']);
 Route::get('price_for_servcie', [ServiceController::class, 'price_for_servcie']);
+Route::get('price_for_exta_servcie', [ServiceController::class, 'price_for_extrs_servcie']);
 
 
 
