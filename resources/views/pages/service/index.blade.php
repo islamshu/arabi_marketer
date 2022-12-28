@@ -129,7 +129,7 @@
                 $(".btnlock").css("display", "none");
             });
             $("#type_service").change(function(){
-                val selecttt = $( this ).val();
+                var selecttt = $( this ).val();
                 if(selecttt == 'digital'){
                     $("#addrequired").prop('required',true);
                 }else{
