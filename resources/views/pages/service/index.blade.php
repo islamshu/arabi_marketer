@@ -133,13 +133,12 @@
                 if(selecttt == 'digital'){
                     $("#addrequired").prop('required',true);
                     $("#has_file").prop('required',false);
-
-                    $('.has_file_class').css("display", "none");
+                    $('#has_file_class').css("display", "none");
                     $('.show_file').css("display", "block");
 
                 }else{
                     $("#addrequired").prop('required',false);
-                    $('.has_file_class').css("display", "block");
+                    $('#has_file_class').css("display", "block");
                     $("#has_file").prop('required',true);
 
                     
