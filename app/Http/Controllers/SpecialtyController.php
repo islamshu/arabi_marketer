@@ -53,8 +53,8 @@ class SpecialtyController extends Controller
         $specialty->image = $request->icon->store('specialty');
         $specialty->title=['ar'=>$request->title_ar,'en'=>$request->title_en];
         $specialty->save();
-        return $specialty;
-    }
+        Alert::success('Success', 'created successfully');
+        return redirect()->back();    }
     public function get_form_specialty(Request $request){
         return view('pages.specialty.edit')->with('specialty',Specialty::find($request->id));
     }

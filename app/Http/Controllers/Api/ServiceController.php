@@ -297,11 +297,16 @@ class ServiceController extends BaseController
         $query->when($request->title != null, function ($q) use ($title) {
             return $q->where('title', 'like', '%' . $title . '%');
         });
-        $query->when($request->category_id != null, function ($q) use ($request) {
-            return $q->has('category')->with(['category' => function ($query) use ($request) {
-                $query->where('category_id', $request->category_id);
-            }]);
+        $cats = explode(',',$request->category_id);
+
+
+        $query->when($request->category_id != null && $request->category_id != 'undefined', function ($q) use ($cats) {
+            return $q->whereHas('category',function ($query) use ($cats) {
+                $query->whereIn('category_id', $cats);
+            });
         });
+       
+        
 
 
         $blogs = $query->orderby('id', 'desc')->paginate(6);
