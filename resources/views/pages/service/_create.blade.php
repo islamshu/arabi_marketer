@@ -1,4 +1,4 @@
-<form id="send_form">
+<form action="{{ route('services.store') }}" method="post" >
     @csrf
     <div class="row">
 
