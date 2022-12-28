@@ -119,12 +119,12 @@
 
     <script>
             $(".btnnlock").click(function(){ 
-                $('#management_ratio').prop('disabled', false);
+                $('#management_ratio').prop('readonly', false);
                 $(".btnnlock").css("display", "none");
                 $(".btnlock").css("display", "block");
             });
             $(".btnlock").click(function(){ 
-                $('#management_ratio').prop('disabled', true);
+                $('#management_ratio').prop('readonly', true);
                 $(".btnnlock").css("display", "block");
                 $(".btnlock").css("display", "none");
             });
