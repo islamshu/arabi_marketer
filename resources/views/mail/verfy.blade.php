@@ -197,7 +197,7 @@
 
           <tr>
             <td align="center" bgcolor="#e9ecef" style="padding: 12px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; color: #666;">
-              <p style="margin: 0;">You received this email because we received a request for [type_of_action] for your account. If you didn't request [type_of_action] you can safely delete this email.</p>
+              <p style="margin: 0;">You received this email because we received a request for register for your account. If you didn't request register you can safely delete this email.</p>
             </td>
           </tr>
          
