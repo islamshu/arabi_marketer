@@ -185,7 +185,7 @@ class CategoryController extends Controller
     }
     public function get_form_category(Request $request){
         $category=Category::find($request->id);
-        return view('pages.category_service.edit')->with('category',$category);
+        return view('pages.category_blog.edit')->with('category',$category);
     }
     public function get_form_category_service(Request $request){
         $category=Category::find($request->id);
