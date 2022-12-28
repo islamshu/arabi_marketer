@@ -419,7 +419,7 @@
                                 <select class="form-control" name="addmore[` + i + `][time]" required>
                                     <option value="">يرجى اختيار مدة اضافية على الخدمة</option>
                                     @foreach (App\Models\TimeExtaService::get() as $item)
-                                    <option value="{{ $item->day }}">{{ $item->title }}$</option>
+                                    <option value="{{ $item->day }}">{{ $item->title }}</option>
                                         
                                     @endforeach
 
