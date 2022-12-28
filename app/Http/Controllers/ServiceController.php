@@ -102,7 +102,7 @@ class ServiceController extends Controller
                 }
                 // dd(json_encode($image_array));
                 $service->images = json_encode($image_array);
-                dd($request->all() . $service);
+                dd($request->all());
                 $service->save();
 
                 foreach ($request->specialty as $specialty) {
