@@ -36,8 +36,8 @@
     </form>
 
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
-
+<script src="{{ asset('new_js/crud.js') }}"></script>
+<script src="{{ asset('new_js/upload_file.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 
 <script>
