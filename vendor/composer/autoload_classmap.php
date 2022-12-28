@@ -126,6 +126,7 @@ return array(
     'App\\Http\\Resources\\ConsultingResource' => $baseDir . '/app/Http/Resources/ConsultingResource.php',
     'App\\Http\\Resources\\CounsutionBuyResource' => $baseDir . '/app/Http/Resources/CounsutionBuyResource.php',
     'App\\Http\\Resources\\CountryResource' => $baseDir . '/app/Http/Resources/CountryResource.php',
+    'App\\Http\\Resources\\ExtraServics' => $baseDir . '/app/Http/Resources/ExtraServics.php',
     'App\\Http\\Resources\\FaqsResource' => $baseDir . '/app/Http/Resources/FaqsResource.php',
     'App\\Http\\Resources\\FilesServiceResourse' => $baseDir . '/app/Http/Resources/FilesServiceResourse.php',
     'App\\Http\\Resources\\FolloweResource' => $baseDir . '/app/Http/Resources/FolloweResource.php',
