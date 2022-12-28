@@ -247,7 +247,7 @@ return array(
                         'bullet'     => '<span class="bullet bullet-dot"></span>',
                     ),
                     array(
-                        'title'      => 'Vedio Cateory',
+                        'title'      => 'Video Cateory',
                         'path'       => 'video_category',
                         'bullet'     => '<span class="bullet bullet-dot"></span>',
                     ),
