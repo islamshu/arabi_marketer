@@ -253,7 +253,7 @@ return array(
                     ),
                     array(
                         'title'      => 'Podcast Cateory',
-                        'path'       => 'podcast_index',
+                        'path'       => 'podcast_category',
                         'bullet'     => '<span class="bullet bullet-dot"></span>',
                     ),
                     array(
