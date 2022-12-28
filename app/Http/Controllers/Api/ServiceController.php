@@ -24,6 +24,7 @@ use App\Models\ServiceFiles;
 use App\Models\ServiceKeyword;
 use App\Models\ServiceSpecialy;
 use App\Models\Specialty;
+use App\Models\TimeExtaService;
 use App\Models\TimeService;
 use App\Models\User;
 use App\Notifications\GeneralNotification;
@@ -58,8 +59,8 @@ class ServiceController extends BaseController
         return $this->sendResponse($userRes, 'جميع الاسعار الخاصة  بالخدمات الاضافية');   
     }
     public function time_for_servcie(){
-        $userRes = ServiceDayResourse::collection(TimeService::get());
-        return $this->sendResponse($userRes, 'جميع الاوقات الخاصة بالخدمات    '); 
+        $userRes = ServiceDayResourse::collection(TimeExtaService::get());
+        return $this->sendResponse($userRes, 'جميع الاوقات الخاصة بالاضافات    '); 
     }
 
     

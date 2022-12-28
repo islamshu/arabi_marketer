@@ -69,6 +69,7 @@ Route::get('single_tool/{id}', [HomeController::class, 'single_tool']);
 Route::get('price_for_servcie', [ServiceController::class, 'price_for_servcie']);
 Route::get('price_for_exta_servcie', [ServiceController::class, 'price_for_extrs_servcie']);
 Route::get('time_for_servcie', [ServiceController::class, 'time_for_servcie']);
+Route::get('time_for_exta_servcie', [ServiceController::class, 'time_for_exta_servcie']);
 
 
 
