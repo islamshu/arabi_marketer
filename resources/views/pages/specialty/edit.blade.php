@@ -2,7 +2,7 @@
 <div class="modal-body ">
     <div id="form-errors" class="text-center"></div>
     <div id="success" class="text-center"></div>
-    <form id="edit_form_new" enctype="multipart/form-data">
+    <form method="post" action="{{ route('update_specialty', $specialty->id) }}" enctype="multipart/form-data">
         @csrf
 
         <div class="form-group">
@@ -43,20 +43,3 @@
     integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
 </script>
 
-<script>
-   
-    $('#edit_form_new').on('submit', function(e) {
-        e.preventDefault();
-        var frm = $('#edit_form_new');
-        var formData = new FormData(frm[0]);
-        formData.append('file', $('#imageedit')[0].files[0]);
-
-        var data = $(this).serialize();
-
-        update("{{ route('update_specialty', $specialty->id) }}", 'post', formData, 'Edit successfully') ;
-
-     
-
-
-    });
-</script>
