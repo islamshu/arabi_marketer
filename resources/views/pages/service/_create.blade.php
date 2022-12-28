@@ -83,6 +83,18 @@
             </select>
          
         </div>
+        <div class="form-group col-md-6">
+
+            <br> <label>مدة الخدمة:</label>
+            <select name="prcie" required class="form-control form-control-solid" id="">
+                <option value="">يرجى اختيار مدة الخدمة</option>
+                @foreach (App\Models\TimeService::get() as $item)
+                <option value="{{ $item->day }}">{{ $item->title }}$</option>
+                    
+                @endforeach
+            </select>
+         
+        </div>
         <div class="form-group col-md-4">
 
             <br> <label>نسبة الادارة من الخدمة:</label>
