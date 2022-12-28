@@ -402,9 +402,9 @@
                         <div class="col-xl-4">
                             <div class="form-group">
                                 <label>سعر الاضافة :</label>
-                                <select class="form-control" name="addmore[` + i + `][title_en]" required>
+                                <select class="form-control" name="addmore[` + i + `][price]" required>
                                     <option value="">يرجى اختيار سعر الاضافة</option>
-                                    @foreach (App\Models\PriceService::get() as $item)
+                                    @foreach (App\Models\PriceExtraService::get() as $item)
                                     <option value="{{ $item->price }}">{{ $item->price }}$</option>
                                         
                                     @endforeach
@@ -415,10 +415,15 @@
                         </div>
                         <div class="col-xl-4">
                             <div class="form-group">
-                                <label>الأيقونة</label>
-                                <input type="text" class="form-control form-control-solid form-control-lg"
-                                    id="name_en" name="addmore[` + i + `][icon]" required
-                                    />
+                                <label> مدة الاضافة :</label>
+                                <select class="form-control" name="addmore[` + i + `][time]" required>
+                                    <option value="">يرجى اختيار مدة اضافية على الخدمة</option>
+                                    @foreach (App\Models\TimeExtaService::get() as $item)
+                                    <option value="{{ $item->day }}">{{ $item->title }}$</option>
+                                        
+                                    @endforeach
+
+                                </select>
                                 
                             </div>
                         </div>
