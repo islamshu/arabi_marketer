@@ -2,7 +2,7 @@
 <div class="modal-body ">
     <div id="form-errors" class="text-center"></div>
     <div id="success" class="text-center"></div>
-    <form id="edit_form_new" enctype="multipart/form-data">
+    <form  enctype="multipart/form-data">
         @csrf
 
         <div class="form-group">
@@ -32,10 +32,10 @@
         <br>
 
 
-        <button class="btn btn-info" type="submit">تعديل</i></button>
+        <button class="btn btn-info" type="button">تعديل</i></button>
     </form>
 
-    
+
 </div>
 @section('scripts')
 
@@ -43,7 +43,8 @@
 
 <script>
    
-    $('#edit_form_new').on('submit', function(e) {
+    $('#edit_form_new').on('click', function(e) {
+        alert('ff');
         e.preventDefault();
         var frm = $('#edit_form_new');
         var formData = new FormData(frm[0]);
