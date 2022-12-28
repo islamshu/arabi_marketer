@@ -35,6 +35,7 @@
         <button class="btn btn-info" type="submit">تعديل</i></button>
     </form>
 
+    
 </div>
 @section('scripts')
 
