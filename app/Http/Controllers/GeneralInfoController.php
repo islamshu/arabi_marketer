@@ -27,6 +27,11 @@ class GeneralInfoController extends Controller
     public function pay_policy(){
         return view('pages.pay_policy');
     }
+    public function rights_guarantee(){
+        return view('pages.rights_guarantee');
+    }
+
+    
     
     public function privacy_policy(){
         return view('pages.privacy_policy');

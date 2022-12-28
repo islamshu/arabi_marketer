@@ -76,6 +76,12 @@ class HomeController extends BaseController
         ];
         return $this->sendResponse($res, 'pay policy page');
     }
+    public function rights_guarantee(){
+        $res =[
+            'body' => get_general_value('rights_guarantee')
+        ];
+        return $this->sendResponse($res, 'rights_guarantee');
+    }
     public function faqs(){
         $faqs = Faqs::orderby('sort','asc')->get();
         $res = FaqsResource::collection($faqs);

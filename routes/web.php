@@ -256,7 +256,9 @@ Route::middleware('auth')->group(function () {
     Route::get('return_exchange_policy', [GeneralInfoController::class,'return_exchange_policy'])->name('return_exchange_policy');
     Route::get('usage_policy', [GeneralInfoController::class,'usage_policy'])->name('usage_policy');
     Route::get('pay_policy', [GeneralInfoController::class,'pay_policy'])->name('pay_policy');
+    Route::get('rights_guarantee', [GeneralInfoController::class,'rights_guarantee'])->name('rights_guarantee');
 
+    
     
     Route::get('privacy_policy', [GeneralInfoController::class,'privacy_policy'])->name('privacy_policy');
     Route::post('update_status_video',[VideoController::class,'update_status_video'])->name('update_status_video');
