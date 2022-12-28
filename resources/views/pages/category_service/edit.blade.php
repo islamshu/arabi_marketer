@@ -71,4 +71,4 @@
 
     });
 </script>
-@endsection
+{{-- @endsection --}}
