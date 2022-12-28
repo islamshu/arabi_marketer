@@ -94,7 +94,7 @@
                         <thead>
                             <tr>
                                 <th># </th>
-                                <th>الصورة</th>
+                                {{-- <th>الصورة</th> --}}
                                 <th>العنوان </th>
                               
                                 <th>العمليات</th>
@@ -104,7 +104,7 @@
                             @foreach ($categories as $key=>$item)
                             <tr>
                                 <td>{{ $key +1 }}</td>
-                                <td><img src="{{ asset('uploads/'.$item->image) }}" width="70" height="70" alt=""></td>
+                                {{-- <td><img src="{{ asset('uploads/'.$item->image) }}" width="70" height="70" alt=""></td> --}}
                              <td>{{ $item->title }}</td>
                 
                            
