@@ -24,7 +24,7 @@ class CategoryController extends Controller
     {
         $categories = Category::ofType('blog')->orderBy('id', 'asc')->get();
 
-        return response()->view('pages.category_blog.index')->with('categories',$categories);
+        return view('pages.category_blog.index')->with('categories',$categories);
     }
     public function consultation_index()
     {
