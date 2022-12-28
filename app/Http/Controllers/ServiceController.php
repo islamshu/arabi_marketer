@@ -14,6 +14,7 @@ use DB;
 use Illuminate\Http\Request;
 use Redirect;
 Use Alert;
+use App\Models\ExtraService;
 use App\Models\Order;
 
 class ServiceController extends Controller
@@ -85,6 +86,7 @@ class ServiceController extends Controller
                 $service->management_ratio = $request->management_ratio;
                 $service->url = $request->url;
                 $service->user_id = $request->user_id;
+                $service->buyer_instructions = $request->buyer_instructions;
                 $service->type = $request->type;
                 $service->time = $request->time;
                 $image_array = array();
@@ -151,6 +153,17 @@ class ServiceController extends Controller
                                 $file->save();
                             }
                         }
+                    }
+                }
+                if(is_array($request->addmore) || is_object($request->addmore)){
+                    foreach ($request->addmore as $key => $value) {
+                        // $extra = ExtraService::create( $value);
+                        $extra = new ExtraService();
+                        $extra->service_id =$service->id ;
+                        $extra->title =$value['title'];
+                        $extra->price =$value['price'];
+                        $extra->time= $value['time'];
+                        $extra->save();
                     }
                 }
 
