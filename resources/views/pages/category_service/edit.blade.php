@@ -42,6 +42,7 @@
 {{-- @section('scripts') --}}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script src="{{ asset('new_js/crud.js') }}"></script>
 
 <script>
     $(".image").change(function() {
