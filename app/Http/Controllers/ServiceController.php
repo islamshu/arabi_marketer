@@ -100,7 +100,7 @@ class ServiceController extends Controller
                         $service->image = $im->store('service');
                     }
                 }
-                dd(json_encode($image_array));
+                // dd(json_encode($image_array));
                 $service->images = json_encode($image_array);
                 $service->save();
 
