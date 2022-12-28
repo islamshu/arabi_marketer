@@ -176,17 +176,17 @@
     </div>
 
 
-    <fieldset>
+      <fieldset>
 
-        <div id="extra">
-
-
+                    <div id="extra">
 
 
 
-        </div>
-        <fieldset>
-        <button type="button" name="add"  class="btn btn-success add_row for-more">{{__('body.Add more')}}</button>
+
+
+                    </div>
+                    <fieldset>
+                    <button type="button" name="add"  class="btn btn-success add_row for-more">{{__('body.Add more')}}</button>
      <br>
     <button class="btn btn-info" id="submitform" style="" type="submit">اضف جديد </i></button>
 </form>
