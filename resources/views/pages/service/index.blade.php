@@ -432,16 +432,16 @@
 
 
                     </div>
-                    <button type="button" class="remove_button btn btn-danger " title="Remove field">Remove</button>
+                    <button type="button" class="remove_button btn btn-danger " title="Remove field">حذف</button>
                     </span>
                     `;
         $('#extra').append(form);
            var wrapper = $('#extra');
-        $(wrapper).on('click', '.remove_button', function (e) {
-                e.preventDefault();
-        $(this).parent('ul').parent('fieldset').remove();
-        
-                     });
+                $(wrapper).on('click', '.remove_button', function(e) {
+                    e.preventDefault();
+                    $(this).parent('span').remove();
+
+                });
         }
         });
         </script>
