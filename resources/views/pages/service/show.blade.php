@@ -131,6 +131,17 @@
                     </div>
                     <div class="form-group col-md-6">
 
+                        <br> <label>مدة الخدمة:</label>
+                        <select name="time" required class="form-control form-control-solid" id="">
+                            <option value="">يرجى اختيار مدة الخدمة</option>
+                            @foreach (App\Models\TimeService::get() as $item)
+                            <option value="{{ $item->day }}" @if($service->time == $item->day) selected @endif>{{ $item->title }}</option>
+                            @endforeach
+                        </select>
+                     
+                    </div>
+                    <div class="form-group col-md-6">
+
                     <label>نسبة الادارة من الخدمة:</label>
                         <input type="number" id="management_ratio"  value="{{ $service->management_ratio }}"  required disabled name="management_ratio" class="form-control form-control-solid"
                             placeholder="نسبة الادارة من الخدمة" />
