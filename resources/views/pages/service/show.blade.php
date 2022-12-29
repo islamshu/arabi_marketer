@@ -121,7 +121,7 @@
                     <div class="form-group col-md-6">
             
                         <label>سعر الخدمة:</label>
-                        <select name="price" required class="form-control form-control-solid" id="">
+                        <select disabled name="price" required class="form-control form-control-solid" id="">
                             <option value="">يرجى اختيار سعر الخدمة</option>
                             @foreach (App\Models\PriceService::get() as $item)
                             <option value="{{ $item->price }}" @if($service->price == $item->price) selected @endif>{{ $item->price }}$</option>
