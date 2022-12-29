@@ -380,14 +380,14 @@ return array(
         ),
         array(
             'title' => 'Creator',
-            'path'  => 'marketers',
+            'path'  => 'creators',
             'permission' => ['read-marketers'],
 
             'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen016.svg", "svg-icon-2"),
         ),
         array(
             'title' => 'Order to be Creator',
-            'path'  => 'markter_order',
+            'path'  => 'creators_order',
             'permission' => ['read-marketers'],
 
             'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen016.svg", "svg-icon-2"),
