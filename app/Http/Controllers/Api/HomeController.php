@@ -58,7 +58,7 @@ class HomeController extends BaseController
         dd(User::where('first_name','like','%'.$title.'%')->get());
         $service= ServiceResource::collection(Service::where('title','like','%'.$title.'%')->get());
 
-        $user = UserResource::collection(User::where('first_name','like','%'.$title.'%')->get());
+        $user = UserResource::collection(User::where('first_name','like','%'.$title.'%')->orwhere('last_name','like','%'.$title.'%')->get());
         // $podcast = PodcastResource::collection()
         $res['service']= $service;
         $res['user']= $user;
