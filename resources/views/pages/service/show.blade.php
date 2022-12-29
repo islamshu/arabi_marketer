@@ -106,7 +106,7 @@
             
                         <br><label> المستخدم :</label>
             
-                        <select class="form-select" required name="user_id"  data-control="select2" data-placeholder="اختر المستخدم">
+                        <select disabled class="form-select" required name="user_id"  data-control="select2" data-placeholder="اختر المستخدم">
                             <option value="" selected disabled>يرجى الاختيار</option>
                             @foreach (App\Models\User::get() as $item)
                             <option value="{{ $item->id }}" @if($service->user->id == $item->id ) selected @endif >{{ $item->name }}</option>
