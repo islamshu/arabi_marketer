@@ -52,6 +52,7 @@ class HomeController extends BaseController
     }
     public function home_search(Request $request){
         $title = $request->title;
+        dd($title);
         $service= ServiceResource::collection(Service::where('title','like','%'.$title.'%')->get());
         $user = UserResource::collection(User::where('first_name','like','%'.$title.'%')->Orwhere('last_name','like','%'.$title.'%')->get());
         // $podcast = PodcastResource::collection()
