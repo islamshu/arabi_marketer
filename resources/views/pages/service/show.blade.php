@@ -45,9 +45,18 @@
             </div>
             <form >
                 @csrf 
-                @method('put')
                 <div class="row">
+                    <div class="form-group col-md-6">
+
+                        <br><label> نوع الخدمة :</label>
             
+                       <select name="type_service" disabled id="type_service" required class="form-control">
+                        <option value="">يرجى اختيار نوع الخدمة</option>
+                        <option value="digital" @if($service->type == 'digital') selected @endif>رقمي</option>
+                        <option value="service"  @if($service->type == 'service') selected @endif>خدمة</option>
+                       </select>
+            
+                    </div>
                     <div class="form-group col-md-6">
             
                         <br><label> عنوان الخدمة :</label>
