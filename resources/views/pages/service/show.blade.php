@@ -202,37 +202,15 @@
                 <div class=" col-md-6">
         
                 <label> ملفات الخدمة    :</label>
-                @foreach ($service->files as $key=> $item)
+                @forelse ($service->files as $key=> $item)
                     <a href="{{ asset('uploads/'.$item->file) }}" target="_blank">الملف {{ $key +1 }}</a> {{ ' ,' }}
-                @endforeach
-                @if($service->files == null)
+                @empty
                 لا يوجد ملفات
-                @endif
+                @endforelse
               
                 </div>
-            <div class="row show_file" style="display: none">
-                <div class="col-md-6">
-                    <br><label>Upload Files </label>
-        
-                    <div class="input-group control-group increment">
-                        <input type="file" disabled name="files[]"  class="form-control fileservice addrequired">
-                        <div class="input-group-btn">
-        
-                            <button style="margin-right: 20px;" class="btn btn-success files" type="button"><i
-                                    class="glyphicon glyphicon-plus"></i>Add more </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="clone hide" style="display: none">
-                    <div class="control-group input-group" style="margin-top:10px">
-                        <input type="file" disabled name="files[]" class="form-control addrequired">
-                        <div class="input-group-btn">
-                            <button style="margin-right: 20px;" class="btn btn-danger" type="button"><i
-                                    class="glyphicon glyphicon-remove"></i> Delete</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+          
                 <br>
             </form>
         </div>
