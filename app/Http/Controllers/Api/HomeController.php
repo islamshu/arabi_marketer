@@ -50,6 +50,18 @@ class HomeController extends BaseController
         return $this->sendResponse($res, 'home page');
 
     }
+    public function home_search(Request $request){
+        $title = $request->title;
+        $service= ServiceResource::collection(Service::where('title','like','%'.$title.'%')->get());
+        $user = UserResource::collection(User::where('first_name','like','%'.$title.'%')->Orwhere('last_name','like','%'.$title.'%')->get());
+        // $podcast = PodcastResource::collection()
+        $res['service']= $service;
+        $res['user']= $user;
+        return $this->sendResponse($res, 'home serach');
+
+
+
+    }
     
     public function return_exchange_policy(){
         $res =[

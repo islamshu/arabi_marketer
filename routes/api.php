@@ -156,6 +156,7 @@ Route::get('/markter_consultations/{id}', [UserController::class, 'get_markter_c
 Route::get('/type_of_user', [UserController::class, 'type_of_user']);
 //end profile
 Route::get('/rss', [HomeController::class, 'rss']);
+Route::get('/home_search', [HomeController::class, 'home_search']);
 
 
 //start blog
