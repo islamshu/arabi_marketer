@@ -25,7 +25,7 @@ class FollowController extends BaseController
         }
         $fo = Followr::where('user_id', auth('api')->id())->where('marketer_id', $id)->first();
         if ($fo) {
-            return   $this->sendError('انت بالفعل متابع هذا المسوق !');
+            return   $this->sendError('انت بالفعل متابع هذا صناع المحتوى !');
         }
         $follower = new Followr();
         $follower->marketer_id = $id;

@@ -537,7 +537,7 @@ class UserController extends BaseController
                 'id' => $user->id,
                 'name' => $user->name,
                 'url' => route('customer.show', $user->id),
-                'title' => 'تذكير لمراجعة حالة المسوق',
+                'title' => 'تذكير لمراجعة حالة صناع المحتوى',
                 'time' => $user->updated_at
             ];
             $admins = User::where('type', 'Admin')->get();

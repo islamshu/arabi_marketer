@@ -77,7 +77,7 @@
         <div class="col-md-12">
             <h3>  الخطوة الثانية</h3>
             <div class="form-group col-md-6 mt-6">
-                <label for="description"> مجالات المسوق</label><br />
+                <label for="description"> مجالات صناع المحتوى</label><br />
                 <select class="form-control" id="select2" wire:model="selection" multiple>
 
                          
@@ -127,7 +127,7 @@
                     <td><strong>{{$password}}</strong></td>
                 </tr>
                 <tr>
-                    <td>مجالات المسوق:</td>
+                    <td>مجالات صناع المحتوى:</td>
                     <td>
                     @foreach ($selection as $item)
                     <strong>{{ App\Models\Category::find($item)->title }}</strong> ,

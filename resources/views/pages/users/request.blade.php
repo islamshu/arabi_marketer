@@ -21,7 +21,7 @@
                                     fill="currentColor"></path>
                             </svg>
                         </span>
-                        <!--end::Svg Icon-->طلبات المسوقين
+                        <!--end::Svg Icon-->طلبات صناع المحتوى
                     </a>
                 </li>
 

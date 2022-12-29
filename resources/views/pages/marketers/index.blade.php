@@ -38,7 +38,7 @@
                                     fill="currentColor"></path>
                             </svg>
                         </span>
-                        <!--end::Svg Icon-->المسوقين
+                        <!--end::Svg Icon-->صناع المحتوى
                     </a>
 
                 </li>
@@ -82,9 +82,9 @@
             <table id="example" class="display" style="width:100%">
                 <thead>
                     <tr>
-                        <th>صورة المسوق </th>
+                        <th>صورة صناع المحتوى </th>
 
-                        <th>اسم المسوق </th>
+                        <th>اسم صناع المحتوى </th>
                         <th>البريد الالكتروني </th>
                         @can('edit-status-marketers')
                         <th>الحالة</th>
