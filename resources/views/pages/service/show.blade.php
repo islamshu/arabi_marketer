@@ -209,6 +209,10 @@
                 @endforelse
               
                 </div>
+                <div class=" col-md-8">
+
+                    <label>  الاضافات    :</label>
+
                 <table id="example" class="display" style="width:100%">
                     <thead>
                 <tr>
@@ -230,6 +234,7 @@
                 </tbody>
 
                 </table>
+                </div>
 
           
                 <br>
