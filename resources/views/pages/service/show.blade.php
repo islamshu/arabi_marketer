@@ -225,13 +225,17 @@
                 </tr>
                 </thead>
                 <tbody>
-                    @foreach ($service->extra as $item)
+                    @forelse ($service->extra as $item)
                     <tr>
                        <th> {{ $item->title }}</th>
                        <th> {{ $item->price }}</th>
                        <th> {{ $item->time }}</th>
                     </tr>   
-                    @endforeach
+                    @empty
+                    <th></th>
+                    <th>لا يوجد ملفات</th>
+                    <th></th>
+                    @endforelse
                    
 
                 </tbody>
