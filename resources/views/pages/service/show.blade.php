@@ -209,6 +209,9 @@
                 @endforelse
               
                 </div>
+                <br>
+                <div class="row">
+                
                 <div class=" col-md-8">
 
                     <label>  الاضافات    :</label>
@@ -235,6 +238,8 @@
 
                 </table>
                 </div>
+            </div>
+
 
           
                 <br>
