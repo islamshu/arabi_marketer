@@ -90,10 +90,12 @@
                     <div class="form-group col-md-6">
             
                         <label>نوع الخدمة:</label>
+                        {{ dd($type_array) }}
                         <select class="form-select form-control form-select-solid " id="type" disabled name="type[]" multiple required
                             data-control="select2" data-close-on-select="false" data-placeholder="Select an option"
                             data-allow-clear="true">
                             <option value=""></option>
+
                             @foreach ($categories as $item)
                             <option value="{{ $item->id }}" @if(in_array($item->id,$type_array)) selected @endif>{{ $item->title }}</option>
                             @endforeach
