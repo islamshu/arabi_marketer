@@ -55,7 +55,9 @@ class HomeController extends BaseController
         if($title == null){
             return $this->sendError('يرجى ادخال نص للبحث');
         }
+        dd(User::where('first_name','like','%'.$title.'%')->get());
         $service= ServiceResource::collection(Service::where('title','like','%'.$title.'%')->get());
+
         $user = UserResource::collection(User::where('first_name','like','%'.$title.'%')->get());
         // $podcast = PodcastResource::collection()
         $res['service']= $service;
