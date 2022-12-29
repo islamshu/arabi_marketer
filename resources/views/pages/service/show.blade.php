@@ -149,9 +149,7 @@
                     <div class="form-group col-md-8">
 
                         <br><label> تعليمات المشتري :</label>
-                        <textarea disabled name="buyer_instructions" class="form-control"  id="kt_docs_ckeditor_classic">
-                            {!! strip_tags($service->buyer_instructions) !!}
-                        </textarea>
+                        <textarea disabled name="buyer_instructions" class="form-control"  id="kt_docs_ckeditor_classic">{!! strip_tags($service->buyer_instructions) !!}</textarea>
             
                     </div>
                     <div class="form-group col-md-6">
@@ -189,8 +187,11 @@
                         <div class="form-group">
                             <br> <label data-error="wrong" data-success="right" for="form3"> صور عن الخدمة <span
                                     class="required"></span></label>
+                                    @foreach ($service->images as $item)
+                                        {{ dd($item) }}
+                                    @endforeach
                             {{-- <input type="file" multiple id="imageupload" disabled name="images[]" class="form-control"> --}}
-                            <input id="file-upload-demo" required type="file" disabled name="images[]" multiple><br />
+                            {{-- <input id="file-upload-demo" required type="file" disabled name="images[]" multiple><br /> --}}
                  
             
                         </div>
