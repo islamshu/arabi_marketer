@@ -131,8 +131,8 @@
                     </div>
                     <div class="form-group col-md-6">
 
-                        <br> <label>مدة الخدمة:</label>
-                        <select name="time" required class="form-control form-control-solid" id="">
+                         <label>مدة الخدمة:</label>
+                        <select name="time" disabled required class="form-control form-control-solid" id="">
                             <option value="">يرجى اختيار مدة الخدمة</option>
                             @foreach (App\Models\TimeService::get() as $item)
                             <option value="{{ $item->day }}" @if($service->time == $item->day) selected @endif>{{ $item->title }}</option>
@@ -145,6 +145,14 @@
                     <label>نسبة الادارة من الخدمة:</label>
                         <input type="number" id="management_ratio"  value="{{ $service->management_ratio }}"  required disabled name="management_ratio" class="form-control form-control-solid"
                             placeholder="نسبة الادارة من الخدمة" />
+                    </div>
+                    <div class="form-group col-md-8">
+
+                        <br><label> تعليمات المشتري :</label>
+                        <textarea disabled name="buyer_instructions" class="form-control"  id="kt_docs_ckeditor_classic">
+                            {!! strip_tags($service->buyer_instructions) !!}
+                        </textarea>
+            
                     </div>
                     <div class="form-group col-md-6">
             
