@@ -60,7 +60,7 @@
                     <div class="form-group col-md-8">
             
                         <br><label> الوصف :</label>
-                        <textarea disabled readonly name="description_ar" class="editor" id="kt_docs_ckeditor_classic">{{ $service->getTranslation('description', 'ar') }}</textarea>
+                        <textarea disabled readonly name="description_ar" class="" id="kt_docs_ckeditor_classic">{!! $service->getTranslation('description', 'ar') !!}</textarea>
             
                     </div>
                     
