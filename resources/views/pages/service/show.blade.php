@@ -121,12 +121,17 @@
                     <div class="form-group col-md-6">
             
                         <label>سعر الخدمة:</label>
-                        <input type="text" id="price" value="{{ $service->price }}" required disabled name="price" class="form-control form-control-solid"
-                            placeholder="Price" />
+                        <select name="price" required class="form-control form-control-solid" id="">
+                            <option value="">يرجى اختيار سعر الخدمة</option>
+                            @foreach (App\Models\PriceService::get() as $item)
+                            <option value="{{ $item->price }}" @if($service->price == $item->price) selected @endif>{{ $item->price }}$</option>
+                                
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group col-md-6">
 
-                        <br> <label>نسبة الادارة من الخدمة:</label>
+                    <label>نسبة الادارة من الخدمة:</label>
                         <input type="number" id="management_ratio"  value="{{ $service->management_ratio }}"  required disabled name="management_ratio" class="form-control form-control-solid"
                             placeholder="نسبة الادارة من الخدمة" />
                     </div>
