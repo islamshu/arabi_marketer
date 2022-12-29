@@ -202,8 +202,8 @@
                 <div class=" col-md-6">
         
                 <label> ملفات الخدمة    :</label>
-                @forelse ($service->files as $item)
-                    {{ dd($item) }}
+                @forelse ($service->files as$key=> $item)
+                    <a href="{{ asset('uploads/'.$item->file) }}" target="_blank">الملف {{ $key +1 }}</a> <br>
                 @empty
                     لا يوجد ملفات
                 @endforelse
