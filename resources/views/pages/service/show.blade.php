@@ -218,7 +218,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                    @foreach ($item->extra as $item)
+                    @foreach ($service->extra as $item)
                     <tr>
                        <th> {{ $item->title }}</th>
                        <th> {{ $item->price }}</th>
