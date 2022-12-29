@@ -187,6 +187,7 @@
                         <div class="form-group">
                             <br> <label data-error="wrong" data-success="right" for="form3"> صور عن الخدمة <span
                                     class="required"></span></label>
+
                                     @foreach (json_decode($service->images) as $item)
                                         <img src="{{ asset('uploads/'.$item) }}" width="100" height="70" alt="">
                                     @endforeach
@@ -200,22 +201,14 @@
                 </div>
                 <div class=" col-md-6">
         
-                <label>هل يوجد ملفات تابعة للخدمة :</label>
-                    @php
-                    if($service->files == '[]'){
-                        $has_file = 0;
-                    }else{
-                        $has_file = 1;
- 
-                    }
-                    @endphp
-                <select class="form-select form-control form-select-solid " disabled name="has_file" id="has_file" required >
-                    <option value="" >يرجى الاختيار</option>
-                    <option value="نعم" @if($has_file == 1) selected @endif>نعم</option>
-                    <option value="لا" @if($has_file == 0) selected @endif>لا</option>
-        
-        
-                </select>
+                <label> ملفات الخدمة    :</label>
+                @forelse ($service->files as $item)
+                    {{ dd($item) }}
+                @empty
+                    لا يوجد ملفات
+                @endforelse
+                   
+              
                 </div>
             <div class="row show_file" style="display: none">
                 <div class="col-md-6">
