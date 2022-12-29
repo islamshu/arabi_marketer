@@ -88,7 +88,7 @@ class UserController extends BaseController
             return $this->sendError('يرجى ادخال اسم');
 
         }
-        $user = User::where('mention', $request->mention)->first();
+        $user = User::where('mention','@'.$request->mention)->first();
         if ($user) {
             return $this->sendError('الاسم مستخدم');
         } else {
@@ -247,7 +247,7 @@ class UserController extends BaseController
         $user = new User();
         $user->name = $request->first_name;
         $user->email = $request->email;
-        $user->mention =  $request->mention;
+        $user->mention =  '@'.$request->mention;
         $user->type = 'user';
         $user->cover = 'cover_profile.jpg';
         $user->image = 'users/defult_user.png';
