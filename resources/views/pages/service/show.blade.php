@@ -40,7 +40,9 @@
 
 
             </ul>
+            <div>
             <a href="{{ route('services.show', $service->id) }}" class="btn btn-success"><i class="fa fa-edit"></i></a>
+            </div>
             <form >
                 @csrf 
                 @method('put')
