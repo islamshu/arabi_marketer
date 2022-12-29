@@ -188,7 +188,7 @@
                             <br> <label data-error="wrong" data-success="right" for="form3"> صور عن الخدمة <span
                                     class="required"></span></label>
                                     @foreach (json_decode($service->images) as $item)
-                                        {{ dd($item) }}
+                                        <img src="{{ asset('uploads/'.$item) }}" width="100" height="70" alt="">
                                     @endforeach
                             {{-- <input type="file" multiple id="imageupload" disabled name="images[]" class="form-control"> --}}
                             {{-- <input id="file-upload-demo" required type="file" disabled name="images[]" multiple><br /> --}}
