@@ -209,6 +209,27 @@
                 @endforelse
               
                 </div>
+                <table>
+                    <thead>
+                <tr>
+                    <th>اسم الاضافة</th>
+                    <th>سعر الاضافة</th>
+                    <th>مدة الاضافة</th>
+                </tr>
+                </thead>
+                <tbody>
+                    @foreach ($item->extra as $item)
+                    <tr>
+                       <th> {{ $item->title }}</th>
+                       <th> {{ $item->price }}</th>
+                       <th> {{ $item->time }}</th>
+                    </tr>   
+                    @endforeach
+                   
+
+                </tbody>
+
+                </table>
 
           
                 <br>
