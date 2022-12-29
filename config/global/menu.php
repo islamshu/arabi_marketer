@@ -210,16 +210,7 @@ return array(
         ),
 
         // Account
-        array(
-            'title'   => 'Specialties',
-            'path'    => 'specialtys',
-            'classes' => array('item' => 'me-lg-1'),
-            'permission' => ['read-specialty'],
-            'icon'       => array(
-                'svg'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen017.svg", "svg-icon-2"),
-                'font' => '<i class="bi bi-layers fa fa-user fs-3"></i>',
-            ),
-        ),
+       
         array(
             'title'      => 'Category',
             'permission' => ['read-category'],
@@ -235,12 +226,7 @@ return array(
             'sub'        => array(
                 'class' => 'menu-sub-accordion menu-active-bg',
                 'items' => array(
-                    array(
-                        'title'      => 'Service Cateory',
-                        'path'       => 'service_category',
-                        'bullet'     => '<span class="bullet bullet-dot"></span>',
-                       
-                    ),
+                    
                     array(
                         'title'      => 'Blog Cateory',
                         'path'       => 'blog_category',
@@ -451,11 +437,38 @@ return array(
             ),
         ),
         array(
-            'title' => 'Services',
-            'path'  => 'services',
-            'permission' => ['read-service'],
-
-            'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen016.svg", "svg-icon-2"),
+            'title'      => 'services',
+            'permission' => ['read-category'],
+        
+            'icon'       => array(
+                'svg'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen009.svg", "svg-icon-2"),
+                'font' => '<i class="bi bi-layers fs-3"></i>',
+            ),
+            'classes'    => array('item' => 'menu-accordion'),
+            'attributes' => array(
+                "data-kt-menu-trigger" => "click",
+            ),
+            'sub'        => array(
+                'class' => 'menu-sub-accordion menu-active-bg',
+                'items' => array(
+                    array(
+                        'title'      => 'all services',
+                        'path'       => 'services',
+                        'bullet'     => '<span class="bullet bullet-dot"></span>', 
+                    ),
+                    array(
+                        'title'      => 'Main Category',
+                        'path'       => 'specialtys',
+                        'bullet'     => '<span class="bullet bullet-dot"></span>', 
+                    ),
+                    array(
+                        'title'      => 'Sub Category',
+                        'path'       => 'service_category',
+                        'bullet'     => '<span class="bullet bullet-dot"></span>', 
+                    ),
+                ),   
+                  
+            ),
         ),
         array(
             'title' => 'Tickets',
