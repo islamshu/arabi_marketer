@@ -187,8 +187,7 @@
                         <div class="form-group">
                             <br> <label data-error="wrong" data-success="right" for="form3"> صور عن الخدمة <span
                                     class="required"></span></label>
-                                    {{ dd($service->images , json_decode($service->images)) }}
-                                    @foreach ($service->images as $item)
+                                    @foreach (json_decode($service->images) as $item)
                                         {{ dd($item) }}
                                     @endforeach
                             {{-- <input type="file" multiple id="imageupload" disabled name="images[]" class="form-control"> --}}
