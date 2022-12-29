@@ -41,7 +41,7 @@
 
             </ul>
             <div style="direction: rtl;margin-right: 12%;">
-            <a href="{{ route('services.show', $service->id) }}" class="btn btn-success"><i class="fa fa-edit"></i>انقر للتعديل</a>
+            <a href="{{ route('services.edit', $service->id) }}" class="btn btn-success"><i class="fa fa-edit"></i>انقر للتعديل</a>
             </div>
             <form >
                 @csrf 
