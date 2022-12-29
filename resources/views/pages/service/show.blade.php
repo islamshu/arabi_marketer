@@ -203,7 +203,7 @@
         
                 <label> ملفات الخدمة    :</label>
                 @foreach ($service->files as $key=> $item)
-                    <a href="{{ asset('uploads/'.$item->file) }}" target="_blank">الملف {{ $key +1 }}</a> <br>
+                    <a href="{{ asset('uploads/'.$item->file) }}" target="_blank">الملف {{ $key +1 }}</a> ' '+','
                 @endforeach
                 @if($service->files == null)
                 لا يوجد ملفات
