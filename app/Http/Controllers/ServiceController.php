@@ -192,6 +192,7 @@ class ServiceController extends Controller
             array_push($selectedspecialty_array, $selc->id);
         }
         $selectedtype = $service->category;
+        dd($selectedtype) 
         $selectedkeywords = $service->keywords;
         $selectedkeywords_array = array();
         foreach ($selectedtype as $selc) {
@@ -199,6 +200,7 @@ class ServiceController extends Controller
         }
         $selectedtype_array = array();
         foreach ($selectedtype as $selc) {
+
             array_push($selectedtype_array, $selc->id);
         }
         return view('pages.service.show')->with('service', $service)
