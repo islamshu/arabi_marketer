@@ -57,9 +57,10 @@ class HomeController extends BaseController
         }
         $service= ServiceResource::collection(Service::where('title','like','%'.$title.'%')->get());
         $user = UserResource::collection(User::where('first_name','like','%'.$title.'%')->orwhere('last_name','like','%'.$title.'%')->get());
-        // $podcast = PodcastResource::collection()
+        $podcast = PodcastResource::collection(NewPodcast::where('title','like','%'.$title.'%')->get());
         $res['service']= $service;
         $res['user']= $user;
+        $res['podcast']= $podcast;
         return $this->sendResponse($res, 'home serach');
 
 
