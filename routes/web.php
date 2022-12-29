@@ -94,8 +94,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('users', UsersController::class);
     Route::resource('tickets', TicketController::class);
     Route::post('send_replay',[TicketController::class,'send_replay'])->name('send_replay');
-    Route::get('marketers',[ProfileController::class,'markters']);
-    Route::get('marketers_requests',[UsersController::class,'marketers_requests'])->name('marketers_requests');
+    Route::get('creators',[ProfileController::class,'markters']);
+    Route::get('creators_requests',[UsersController::class,'marketers_requests'])->name('marketers_requests');
 
     
     Route::get('customers',[ProfileController::class,'users']);
