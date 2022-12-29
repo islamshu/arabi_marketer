@@ -210,16 +210,7 @@ return array(
         ),
 
         // Account
-        array(
-            'title'   => 'Specialties',
-            'path'    => 'specialtys',
-            'classes' => array('item' => 'me-lg-1'),
-            'permission' => ['read-specialty'],
-            'icon'       => array(
-                'svg'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen017.svg", "svg-icon-2"),
-                'font' => '<i class="bi bi-layers fa fa-user fs-3"></i>',
-            ),
-        ),
+    
         array(
             'title'      => 'Category',
             'permission' => ['read-category'],
