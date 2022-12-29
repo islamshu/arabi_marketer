@@ -60,6 +60,7 @@ class PodcastController extends BaseController
         $service = new NewPodcast();
         $service->user_id = auth('api')->id();
         $service->type = 'manual';
+        $service->title = $request->title;
         $service->url = null;
         $service->save();
         $attemp = new OwenPodcast();
