@@ -33,7 +33,7 @@ class ProfileController extends Controller
     }
     public function users()
     {
-        $users = User::where('type', 'user')->get();
+        $users = User::where('type', 'user')->orderBy('id','desc')->get();
         return view('pages.customers.index')->with('users', $users);
     }
     public function markter_order(){
