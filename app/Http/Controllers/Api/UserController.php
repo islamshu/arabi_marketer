@@ -72,7 +72,7 @@ class UserController extends BaseController
         // return (string)json_encode($notification->data['title']);
         // $no = json_decode($notification);
         // $res = new NotificationResourse($notification);
-        dd($not);
+        return $not;
         $res = [
             'id' => $not->id,
             'title' => json_decode($not->data)->title,
