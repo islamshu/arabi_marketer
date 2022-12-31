@@ -24,6 +24,18 @@ class ServiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function price_for_servcie(){
+        $price_service = get_general_value('price_service');
+        $prices= explode('-',$price_service);
+        $ara = [];
+        $price = [];
+        for($i= $prices[0] ; $i <= $prices[1] ; $i++){
+            $price = ['price'=>(int)$i];
+            array_push($ara,$price);
+        }
+       
+        return $ara;   
+    }
     public function index()
     {
         $array_category = array();
@@ -38,6 +50,7 @@ class ServiceController extends Controller
         }
         $category_most = Category::whereIn('id',$array_category)->get();
         $services =  Service::get();
+        $price_service = $this->price_for_servcie;
         $market_services =  Service::whereHas('user', function($q){
             $q->where('type', 'marketer');
         })->get();

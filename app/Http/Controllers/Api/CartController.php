@@ -51,6 +51,7 @@ class CartController extends BaseController
         $cart->type ='service';
         $price_extra = 0;
         $day_extra = 0;
+        
         if($request->extra_ids != null){
             $extra_ids = explode(',',$request->extra_ids);
             $data_send=[]; 

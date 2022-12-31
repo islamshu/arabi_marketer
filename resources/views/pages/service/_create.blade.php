@@ -28,6 +28,7 @@
             <textarea name="description_ar"  class="editor" id="kt_docs_ckeditor_classic"></textarea>
 
         </div>
+        {{ dd($price_service) }}
 
         <div class="form-group col-md-6">
 
