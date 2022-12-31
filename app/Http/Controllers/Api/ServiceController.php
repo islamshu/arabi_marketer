@@ -227,7 +227,7 @@ class ServiceController extends BaseController
         $date = [
             'id' => $service->id,
             'name' => $service->title,
-            'url' => route('services.edit', $service->id),
+            'url' => route('services.show', $service->id),
             'title' => 'تم اضافة خدمة جديدة',
             'time' => $service->updated_at
         ];
