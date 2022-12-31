@@ -16,6 +16,7 @@ use App\Http\Resources\BlogResource;
 use App\Http\Resources\KeywordResource;
 use App\Models\BlogImage;
 use App\Models\RateBlog;
+use App\Models\Specialty;
 use App\Models\Tag;
 use App\Models\User;
 use App\Notifications\GeneralNotification;
@@ -31,7 +32,7 @@ class BlogController extends BaseController
 {
     public function blog_category()
     {
-        $category = Category::ofType('blog')->orderBy('id', 'asc')->get();
+        $category = Specialty::orderBy('id', 'asc')->get();
         $userRes = KeywordResource::collection($category);
         return $this->sendResponse($userRes, 'جميع الكلمات المفتاحية الخاصة بالمقالات');
     }

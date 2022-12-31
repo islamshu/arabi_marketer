@@ -9,6 +9,8 @@ use Storage;
 class CountryController extends Controller
 {
     public function index(){
+        $country = Country::orderBy('id', 'asc');
+
         return response()->view('pages.country.index');
     }
     public function getData(Request $request){
