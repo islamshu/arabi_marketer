@@ -306,7 +306,7 @@
                     foreach ($user->types as $type) {
                         array_push($type_array, $type->type_id);
                     }
-                    $categores = App\Models\Category::whereIn('id', $type_array)->get();
+                    $categores = App\Models\Specialty::whereIn('id', $type_array)->get();
                 } else {
                     return null;
                 }
