@@ -1,5 +1,5 @@
 <div>
-    <table id="example" class="display" style="width:100%">
+    <table id="eexdample" class="display" style="width:100%">
         <thead>
             <tr>
                 <th>صورة الخدمة</th>
@@ -16,6 +16,10 @@
              <td>{{ $item->title }}</td>
              <th><a href="{{ route('marketer.show',$item->user->id) }}">{{ $item->user->name }}</a></th>
              <td>{{ date('Y-m-d', strtotime($item->created_at)); }}</td>
+             <td>
+                <input type="checkbox" data-id="{{ $item->id }}" name="status" class="js-switch allssee"
+                    {{ $item->status == 1 ? 'checked' : '' }}>
+            </td>
              <td>
                 <a href="{{ route('services.show', $item->id) }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
 
