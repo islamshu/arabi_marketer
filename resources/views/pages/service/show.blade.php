@@ -149,7 +149,7 @@
                     <div class="form-group col-md-8">
 
                         <br><label> تعليمات المشتري :</label>
-                        <textarea disabled name="buyer_instructions" class="form-control"  id="kt_docs_ckeditor_classic">{!! strip_tags($service->buyer_instructions) !!}</textarea>
+                        <textarea disabled name="buyer_instructions" class="form-control"  rows="10" cols="5"  id="kt_docs_ckeditor_classic">{!! strip_tags($service->buyer_instructions) !!}</textarea>
             
                     </div>
                     <div class="form-group col-md-6">
