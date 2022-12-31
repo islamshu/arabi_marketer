@@ -86,10 +86,7 @@
 
                         <th>اسم صناع المحتوى </th>
                         <th>البريد الالكتروني </th>
-                        @can('edit-status-marketers')
-                        <th>الحالة</th>
-
-                        @endcan
+                       
                         <th>تاريخ الاضافة</th>
                         <th>العمليات</th>
                     </tr>
@@ -101,13 +98,13 @@
                                     alt=""></td>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->email }}</td>
-                            @can('edit-status-marketers')
+                            {{-- @can('edit-status-marketers')
 
                             <td>
                                 <input type="checkbox" data-id="{{ $item->id }}" name="status" class="js-switch"
                                     {{ $item->status == 1 ? 'checked' : '' }}>
                             </td>
-                            @endcan
+                            @endcan --}}
                             <td>{{ date('Y-m-d', strtotime($item->created_at)) }}</td>
                             <td>
                                 @can('show-marketers')
