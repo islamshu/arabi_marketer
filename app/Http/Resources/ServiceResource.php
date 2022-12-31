@@ -28,7 +28,7 @@ class ServiceResource extends JsonResource
             'specialties'=>$this->get_specialties($this),
             'files'=>$this->get_files($this),
             'number_of_view'=>$this->viewer,
-            'extra'=>ExtraServics::collection($this->extra->orderby('id','desc')),
+            'extra'=>ExtraServics::collection($this->extra),
             'comment_number'=>$this->comments->where('status',1)->count(),
             'comments'=>CommentResourse::collection($this->comments->where('status',1)),
             'buyer_instructions'=>$this->buyer_instructions,
