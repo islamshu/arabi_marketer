@@ -20,6 +20,7 @@ use App\Http\Resources\CategoryResource;
 use App\Http\Resources\FaqsResource;
 use App\Http\Resources\HowItWorksResourse;
 use App\Http\Resources\QuestionResourse;
+use App\Http\Resources\SpialtyResourse;
 use App\Http\Resources\ToolsResoures;
 use App\Http\Resources\UserInOtherResourse;
 use App\Http\Resources\UserNotAuthResource;
@@ -30,6 +31,7 @@ use App\Models\Faqs;
 use App\Models\HowItWork;
 use App\Models\NewPodcast;
 use App\Models\Quastion;
+use App\Models\Specialty;
 use App\Models\Tools;
 use App\Models\User;
 use Carbon\Carbon;
@@ -123,7 +125,7 @@ class HomeController extends BaseController
         return $this->sendResponse($res, 'home page');
     }
     public function all_scope(){
-        $res['all_scope'] = CategoryResource::collection(Category::ofType('user')->get());
+        $res['all_scope'] = SpialtyResourse::collection(Specialty::get());
         return $this->sendResponse($res, 'home page');
     }
     public function get_service(){
