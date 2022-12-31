@@ -57,7 +57,7 @@ class HomeController extends BaseController
         if($title == null){
             return $this->sendError('يرجى ادخال نص للبحث');
         }
-        $service= ServiceResource::collection(Service::where('title','like','%'.$title.'%')->get());
+        $service= ServiceResource::collection(Service::where('title','like','%'.$title.'%')->where('status',1)->get());
         $user = UserResource::collection(User::where('first_name','like','%'.$title.'%')->orwhere('last_name','like','%'.$title.'%')->get());
         $podcast = PodcastResource::collection(NewPodcast::where('title','like','%'.$title.'%')->get());
         $res['service']= $service;
@@ -138,7 +138,7 @@ class HomeController extends BaseController
     }
     public function get_service(){
 
-        $services = ServiceResource::collection(Service::orderby('id', 'desc')->take(6)->get());
+        $services = ServiceResource::collection(Service::orderby('id', 'desc')->where('status',1)->take(6)->get());
 
         $res['service']['home'] = $services;
         $res['service']['new'] = $services;
@@ -233,7 +233,7 @@ class HomeController extends BaseController
         $hows = HowItWorksResourse::collection($howItWork);
         $res['howItWorks'] = $hows;
 
-        $services = ServiceResource::collection(Service::orderby('id', 'desc')->take(6)->get());
+        $services = ServiceResource::collection(Service::orderby('id', 'desc')->where('status',1)->take(6)->get());
         $res['all_scope'] = CategoryResource::collection(Category::ofType('user')->get());
 
         $res['service']['home'] = $services;

@@ -76,7 +76,7 @@ class ServiceController extends BaseController
     }
     public function get_all()
     {
-        $service = Service::orderby('id', 'desc')->paginate(5);
+        $service = Service::orderby('id', 'desc')->where('status',1)->paginate(5);
         $res = ServiceResource::collection($service)->response()->getData(true);
         return $this->sendResponse($res, 'جميع الخدمات  ');
     }
@@ -328,7 +328,7 @@ class ServiceController extends BaseController
     {
         $title = $request->title;
         $query = Service::query();
-        // $query->where('status', 1);
+        $query->where('status', 1);
         $query->when($request->title != null, function ($q) use ($title) {
             return $q->where('title', 'like', '%' . $title . '%');
         });
