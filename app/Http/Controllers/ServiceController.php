@@ -41,10 +41,15 @@ class ServiceController extends Controller
         $market_services =  Service::whereHas('user', function($q){
             $q->where('type', 'marketer');
         })->get();
+        $service_user =  Service::whereHas('user', function($q){
+            $q->where('type', 'user');
+        })->get();
+        
         $orders = Order::count();
         return view('pages.service.index')
             ->with('services', $services)
             ->with('service_marketer', $market_services)
+            ->with('service_user',$service_user)
             ->with('specialty', Specialty::get())
             ->with('orders_count',$orders)
             ->with('category_most',$category_most)
