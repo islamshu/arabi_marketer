@@ -311,6 +311,11 @@ return array(
                         'bullet'     => '<span class="bullet bullet-dot"></span>',
                     ),
                     array(
+                        'title'      => 'About Us',
+                        'path'       => 'about',
+                        'bullet'     => '<span class="bullet bullet-dot"></span>',
+                    ),
+                    array(
                         'title'      => 'Rights Guarantee',
                         'path'       => 'rights_guarantee',
                         'bullet'     => '<span class="bullet bullet-dot"></span>',
