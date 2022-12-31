@@ -40,7 +40,7 @@ class ServiceController extends BaseController
     }
     public function service_category()
     {
-        $category = Category::ofType('service')->orderBy('id', 'asc')->get();
+        $category = Specialty::orderBy('id', 'asc')->get();
         $userRes = KeywordResource::collection($category);
         return $this->sendResponse($userRes, 'جميع الكلمات المفتاحية الخاصة بالخدمات');
     }
