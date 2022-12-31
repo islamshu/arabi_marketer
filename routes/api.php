@@ -111,18 +111,12 @@ Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
 Route::post('/check_name', [UserController::class, 'check_name']);
 Route::post('/check_email', [UserController::class, 'check_email']);
-
-
-
-
 Route::get('/show_notification/{id}', [UserController::class, 'show_notification'])->name('show_notification');
-
 Route::group(['middleware' => 'is_login'], function () {
     Route::post('/edit_profile', [UserController::class, 'edit_profile']);
     Route::post('/upload_profile_image', [UserController::class, 'upload_image']);
     Route::post('/upload_profile_cover', [UserController::class, 'upload_cover']);
     Route::get('/my_services', [UserController::class, 'get_service']);
-
     Route::post('/edit_pio', [UserController::class, 'edit_pio']);
     Route::post('/edit_soical', [UserController::class, 'edit_soical']);
     Route::post('/edit_profile_user', [UserController::class, 'edit_profile_user']);
@@ -309,14 +303,8 @@ Route::get('consultation_profile_search/{id}', [ConsultationController::class, '
 Route::get('/get_all_countires', [GeneralController::class, 'get_all_countires']);
 Route::get('/all_cities', [GeneralController::class, 'all_cites']);
 Route::get('/get_all_city_user_country_id/{id}', [GeneralController::class, 'get_all_city_belong_country']);
-
 Route::get('handle-payment', [PayPalPaymentController::class, 'handlePayment'])->name('make.payment');
-
 Route::get('cancel-payment', [PayPalPaymentController::class, 'paymentCancel'])->name('cancel.payment');
-
 Route::get('payment-success/{id}', [PayPalPaymentController::class, 'paymentSuccess'])->name('success.payment');
-
-
-
 Route::get('cancel-payment-consultion', [CartController::class, 'paymentCancel'])->name('cancel.payment.consultion');
 Route::get('payment-success-consultion/{id}', [CartController::class, 'paymentSuccess'])->name('success.payment.consultion');

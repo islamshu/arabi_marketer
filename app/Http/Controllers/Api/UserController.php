@@ -37,6 +37,7 @@ use App\Models\OrderDetiles;
 use App\Models\Podacst;
 use App\Models\Service;
 use App\Models\SouialUser;
+use App\Models\Specialty;
 use App\Models\UserAnswer;
 use App\Models\UserCategory;
 use App\Models\Video;
@@ -395,20 +396,13 @@ class UserController extends BaseController
 
         
         $user = auth('api')->user();
-    
-        // if ($request->image != null) {
-        //     $user->image = $request->image->store('users');
-        //     dd($user->image);
-        // }
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
         $user->lang = 'ar';
         $user->country_id = $request->country_id;
         $user->city_id = $request->city_id;
-        // $user->email = $request->email;
         $user->pio = $request->cv;
         $user->save();
-
         if ($request->type != null) {
             $types = json_decode($request->type, true);
 
@@ -556,7 +550,8 @@ class UserController extends BaseController
     }
     public function type_of_user()
     {
-        $category = Category::ofType('user')->orderBy('id', 'asc')->get();
+        $category = Specialty::orderBy('id', 'asc')->get();
+        dd($category);
         $userRes = CategoryResource::collection($category);
         return $this->sendResponse($userRes, 'جميع المجالات الخاصة بالمستخدمين');
     }
