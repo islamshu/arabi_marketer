@@ -157,8 +157,8 @@ class HomeController extends BaseController
     }
     public function get_markter_home(){
 
-        $markter = User::where('type', 'marketer')->where('status', 1)->take(5)->get();
-        $markter2 = User::where('type', 'marketer')->where('status', 1)->skip(5)->take(5)->get();
+        $markter = User::where('type', 'marketer')->where('status', 2)->take(5)->get();
+        $markter2 = User::where('type', 'marketer')->where('status', 2)->skip(5)->take(5)->get();
 
         $res['markter'] = UserInOtherResourse::collection($markter);
         $res['markter2'] = UserInOtherResourse::collection($markter2);
