@@ -304,8 +304,14 @@ return array(
                         'title'      => 'About',
                         'path'       => 'about_frontend',
                         'bullet'     => '<span class="bullet bullet-dot"></span>',
-                       
                     ),
+                    array(
+                        'title'      => 'Rights Guarantee',
+                        'path'       => 'rights_guarantee',
+                        'bullet'     => '<span class="bullet bullet-dot"></span>',
+                    ),
+
+                    
                     array(
                         'title'      => 'Return exchange policy',
                         'path'       => 'return_exchange_policy',
