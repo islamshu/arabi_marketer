@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Alert;
 use App\Models\Country;
 use Illuminate\Http\Request;
 use Storage;
@@ -34,8 +35,9 @@ class CountryController extends Controller
         $country->title=['ar'=>$request->title_ar,'en'=>$request->title_en];
         $country->code = $request->code;
         $country->save();
-        return $country;
-    }
+        Alert::success('Success', 'Updated  successfully');
+
+        return redirect()->back();    }
     public function get_form_country(Request $request)
     {
         $country = Country::find($request->id);
@@ -49,7 +51,9 @@ class CountryController extends Controller
         }
         $country->code = $request->code;
         $country->save(); 
-        return $country;
+        Alert::success('Success', 'Updated  successfully');
+
+        return redirect()->back();
     }
 
    
