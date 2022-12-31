@@ -61,6 +61,8 @@ class CountryController extends Controller
     {
         $country = Country::find($id);
         $country->delete();
-        return redirect()->back()->with(['success'=>'تم الحذف بنجاح']);
-    }
+        Alert::success('Success', 'Deleted  successfully');
+
+        return redirect()->back();  
+          }
 }
