@@ -14,6 +14,7 @@ class PriceResourse extends JsonResource
      */
     public function toArray($request)
     {
+        dd($request);
         return [
             'price'=>$this->price,
             ];
