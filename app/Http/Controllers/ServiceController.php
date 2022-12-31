@@ -50,7 +50,7 @@ class ServiceController extends Controller
         }
         $category_most = Category::whereIn('id',$array_category)->get();
         $services =  Service::get();
-        $price_service = $this->price_for_servcie;
+        $price_service = $this->price_for_servcie();
         $market_services =  Service::whereHas('user', function($q){
             $q->where('type', 'marketer');
         })->get();
