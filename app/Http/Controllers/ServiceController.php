@@ -37,7 +37,7 @@ class ServiceController extends Controller
         return $ara;   
     }
     public function price_for_extra_servcie(){
-        $price_service = get_general_value('price_service_extra');
+        $price_service = get_general_value('price_service_exta');
         $prices= explode('-',$price_service);
         $ara = [];
         $price = [];
