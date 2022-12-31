@@ -50,6 +50,10 @@ class GeneralInfoController extends Controller
     public function first_section(){
         return view('pages.configs.home');
     }
+    public function price_service(){
+        return view('pages.configs.price_service');
+    }
+
     public function store(Request $request)
     {
         if ($request->hasFile('general_file')) {
