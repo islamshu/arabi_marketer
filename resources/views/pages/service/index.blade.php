@@ -119,7 +119,9 @@
 
     <script>
         $('#specialty').on('change', function() {
-            let val = this.value;
+            let val = $(this.value);
+            alert(val);
+
          
                 $.ajax({
                     type: "get",
