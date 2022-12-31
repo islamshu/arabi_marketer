@@ -74,7 +74,6 @@ class UserController extends BaseController
         // $res = new NotificationResourse($notification);
         $date = Carbon::parse($not->created_at); // now date is a carbon instance
 
-         return $date->diffForHumans();
         $res = [
             'id' => $not->id,
             'title' => json_decode($not->data)->title,
