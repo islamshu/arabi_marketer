@@ -69,7 +69,7 @@
                     <div class="form-group col-md-8">
             
                         <br><label> الوصف :</label>
-                        <textarea disabled readonly name="description_ar" class="form-control" id="kt_docs_ckeditor_classic">{!! strip_tags($service->getTranslation('description', 'ar')) !!}</textarea>
+                        <textarea disabled readonly name="description_ar" rows="10" cols="5" class="form-control" id="kt_docs_ckeditor_classic">{!! strip_tags($service->getTranslation('description', 'ar')) !!}</textarea>
             
                     </div>
                     
