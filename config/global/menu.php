@@ -279,8 +279,13 @@ return array(
                         'title'      => 'Home Section frontend',
                         'path'       => 'first_section',
                         'bullet'     => '<span class="bullet bullet-dot"></span>',
-                       
                     ),
+                    array(
+                        'title'      => 'Price For Service',
+                        'path'       => 'price_service',
+                        'bullet'     => '<span class="bullet bullet-dot"></span>',
+                    ),
+                    
                
                 ),   
                   
