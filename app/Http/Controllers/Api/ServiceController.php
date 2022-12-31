@@ -55,8 +55,6 @@ class ServiceController extends BaseController
         $prices= explode('-',$price_service);
         $ara = [];
         $price = [];
-
-        
         for($i= $prices[0] ; $i <= $prices[1] ; $i++){
             $price = ['price'=>(int)$i];
             array_push($ara,$price);
@@ -65,9 +63,21 @@ class ServiceController extends BaseController
         return $this->sendResponse($ara, 'جميع الاسعار الخاصة بالخدمات');   
     }
     public function price_for_extrs_servcie(){
-        $userRes = PriceExtraResourse::collection(PriceExtraService::get());
-        return $this->sendResponse($userRes, 'جميع الاسعار الخاصة  بالخدمات الاضافية');   
+        $price_service = get_general_value('price_service_exta');
+        $prices= explode('-',$price_service);
+        $ara = [];
+        $price = [];
+        for($i= $prices[0] ; $i <= $prices[1] ; $i++){
+            $price = ['price'=>(int)$i,'title'=>'مقابل'.(int)$i.' دولار اضافة لسعر الخدمة'];
+            array_push($ara,$price);
+        }
+       
+        return $this->sendResponse($ara, 'جميع الاسعار الخاصة بالخدمات');   
     }
+    // public function price_for_extrs_servcie(){
+    //     $userRes = PriceExtraResourse::collection(PriceExtraService::get());
+    //     return $this->sendResponse($userRes, 'جميع الاسعار الخاصة  بالخدمات الاضافية');   
+    // }
     public function time_for_servcie(){
         $userRes = ServiceDayResourse::collection(TimeService::get());
         return $this->sendResponse($userRes, 'جميع الاوقات الخاصة بالخدمات    '); 
