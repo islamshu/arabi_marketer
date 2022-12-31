@@ -551,7 +551,6 @@ class UserController extends BaseController
     public function type_of_user()
     {
         $category = Specialty::orderBy('id', 'asc')->get();
-        dd($category);
         $userRes = CategoryResource::collection($category);
         return $this->sendResponse($userRes, 'جميع المجالات الخاصة بالمستخدمين');
     }
