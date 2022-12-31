@@ -10,10 +10,10 @@
             </tr>
         </thead>
         <tbody class="text-gray-600 fw-semibold">
-            @foreach ($country as $item)
+            @foreach ($country as $key=>$item)
                 
             <tr>
-                <td>#</td>
+                <td>{{ $key+1 }}</td>
                 <td><img src="{{ asset('public/uploads/'.$item->flag) }}" width="100" height="70" alt=""></td>
                 <td>{{ $item->title }}</td>
                 <td>
