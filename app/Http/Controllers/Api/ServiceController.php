@@ -154,12 +154,12 @@ class ServiceController extends BaseController
             }
         }
 
-        foreach (json_decode($request->specialties) as $specialty) {
+        // foreach (json_decode($request->specialties) as $specialty) {
             $spe = new ServiceSpecialy();
             $spe->service_id = $service->id;
-            $spe->specialts_id = $specialty;
+            $spe->specialts_id = $request->specialties;
             $spe->save();
-        }
+        // }
         $types = json_decode($request->types);
 
         foreach ($types as $category) {

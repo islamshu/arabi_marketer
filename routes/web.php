@@ -96,7 +96,7 @@ Route::middleware('auth')->group(function () {
     Route::post('send_replay',[TicketController::class,'send_replay'])->name('send_replay');
     Route::get('creators',[ProfileController::class,'markters']);
     Route::get('creators_requests',[UsersController::class,'marketers_requests'])->name('marketers_requests');
-    Route::get('get_cats','CategoryController@get_cats')->name('get_cats');
+    Route::get('get_cats',[CategoryController::class,'get_cats'])->name('get_cats');
     
     Route::get('customers',[ProfileController::class,'users']);
     Route::get('creators_order',[ProfileController::class,'markter_order'])->name('markter_order');
