@@ -102,7 +102,7 @@ class UsersController extends Controller
                 'id' => $user->id,
                 'name' => $user->name,
                 'url' => "",
-                'title' => 'تم قبولك كمسوق',
+                'title' => 'تم قبولك كصانع محتوى',
                 'time' => $user->updated_at
             ];
             Notification::send($user, new GeneralNotification($datas));
@@ -112,7 +112,7 @@ class UsersController extends Controller
                 'id' => $user->id,
                 'name' => $user->name,
                 'url' => "",
-                'title' => 'تم رفضك كمسوق',
+                'title' => 'تم رفضك كصانع محتوى',
                 'time' => $user->updated_at
             ];
             Notification::send($user, new GeneralNotification($datas));

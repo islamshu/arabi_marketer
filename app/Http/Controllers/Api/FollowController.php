@@ -21,7 +21,7 @@ class FollowController extends BaseController
     {
         $user = User::find($id);
         if ($user->type != 'marketer') {
-            return  $this->sendError('هذا المستخدم غير مسوق !');
+            return  $this->sendError('هذا المستخدم غير صانع محتوى !');
         }
         $fo = Followr::where('user_id', auth('api')->id())->where('marketer_id', $id)->first();
         if ($fo) {

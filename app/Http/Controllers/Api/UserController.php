@@ -361,7 +361,7 @@ class UserController extends BaseController
             $res = new UserResource($user);
             return $this->sendResponse($res, 'تم ارسال طلبك للادارة');
         } elseif ($user->type == 'marketer') {
-            return $this->sendError('انت بالفعل مسوق لدينا ');
+            return $this->sendError('انت بالفعل صانع محتوى لدينا ');
         } elseif ($user->type != 'user' && $user->type != 'marketer') {
             return $this->sendError('يوجد خطا ما لدينا');
         }
