@@ -18,7 +18,7 @@
              <th><a href="{{ route('marketer.show',$item->user->id) }}">{{ $item->user->name }}</a></th>
              <td>{{ date('Y-m-d', strtotime($item->created_at)); }}</td>
              <td>
-                                <input type="checkbox" data-id="{{ $item->id }}" name="status" class="js-switch service_status"
+                                <input type="checkbox" data-id="{{ $item->id }}" name="status" class="js-switch"
                                     {{ $item->status == 1 ? 'checked' : '' }}>
                             </td>
              <td>
