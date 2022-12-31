@@ -71,7 +71,7 @@
     </div>
     <div class="row">
         @foreach ($price_service as $item)
-        {{ dd($item) }}
+        {{ dd($item['price']) }}
         <option value="{{ $item->price }}">{{ $item->price }}$</option>
             
         @endforeach
