@@ -57,7 +57,6 @@ class CartController extends BaseController
             foreach($extra_ids as $extra){
                 $exx = ExtraService::find($extra);
                 array_push($data_send,$exx->id);
-                array_push($data_send,$exx->id);
                 $day_extra += $exx->time;
 
                 $price_extra += $exx->price;
