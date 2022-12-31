@@ -77,7 +77,6 @@ class Markter extends Component
         $user->name = str_replace('@','',$this->mention);
         $user->mention = $this->mention;
         $user->type = 'marketer';
-        $user->status = 1;
         $user->email = $this->email;
         $user->password =  Hash::make($this->password);
         $user->cover = 'cover_profile.jpg';
@@ -85,7 +84,7 @@ class Markter extends Component
         $user->lang = 'ar';
         $user->image = $this->image->store('users');
         $user->country_id = $this->country;
-
+        $user->status = 2;
         $user->save();
         $soical = new MarkterSoical();
         $soical->user_id = $user->id;
