@@ -17,7 +17,7 @@ class SpialtyResourse extends JsonResource
         return [
             'id'=>$this->id,
             'title'=>$this->title,
-            'image'=>asset('uploads/public/'.$this->image)
+            'image'=>asset('public/uploads/'.$this->image)
         ];
     }
 }
