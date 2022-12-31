@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Category;
 use App\Models\Country;
+use App\Models\MarkterSoical;
 use App\Models\Specialty;
 use App\Models\User;
 use App\Models\UserCategory;
@@ -86,6 +87,9 @@ class Markter extends Component
         $user->country_id = $this->country;
 
         $user->save();
+        $soical = new MarkterSoical();
+        $soical->user_id = $user->id;
+        $soical->save();
    
      
 
