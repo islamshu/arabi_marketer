@@ -28,7 +28,7 @@ class ProfileController extends Controller
     }
     public function markters()
     {
-        $users = User::where('type', 'marketer')->get();
+        $users = User::where('type', 'marketer')->orderby('id','desc')->get();
         return view('pages.marketers.index')->with('users', $users);
     }
     public function users()
