@@ -59,9 +59,9 @@
 
                             <!--begin::Info-->
                             @if($user ->email_verified_at  != null)
-                            <button style="width: 24%;" class=" btn-success">Verified</button>
+                            <button style="width: 25%;" class=" btn-success">Verified</button>
                             @else
-                            <button style="width: 34%;" class=" btn-danger">Not verified</button>
+                            <button style="width: 35%;" class=" btn-danger">Not verified</button>
 
                             @endif
                             <div class="d-flex flex-wrap fw-bold fs-6 mb-4 pe-2">
