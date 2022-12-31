@@ -59,9 +59,9 @@ class ServiceController extends BaseController
             array_push($ara,$i);
         }
         foreach($ara as $key=>$ar){
-            $price['price'][$key]=$ar;
+            $price[$key]=$ar;
         }
-        return collect($ara);
+        return collect($price);
         // $userRes = PriceResourse::collection(PriceService::get());
         return $this->sendResponse($price, 'جميع الاسعار الخاصة بالخدمات');  
     }
