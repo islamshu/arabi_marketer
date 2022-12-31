@@ -130,7 +130,7 @@
                     <td>مجالات صناع المحتوى:</td>
                     <td>
                     @foreach ($selection as $item)
-                    <strong>{{ App\Models\Category::find($item)->title }}</strong> ,
+                    <strong>{{ App\Models\Specialty::find($item)->title }}</strong> ,
                     @endforeach
                     <td>
                 </tr>
