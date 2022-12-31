@@ -72,14 +72,16 @@ class UserController extends BaseController
         // return (string)json_encode($notification->data['title']);
         // $no = json_decode($notification);
         // $res = new NotificationResourse($notification);
-        return $not->created_at->diffForHumans();
+        $date = Carbon::parse($not->created_at); // now date is a carbon instance
+
+         return $date->diffForHumans();
         $res = [
             'id' => $not->id,
             'title' => json_decode($not->data)->title,
             'url' => json_decode($not->data)->url,
             'is_read' => $not->read_at != null ? 1 : 0,
             'created_at' => $not->created_at,
-            'time'=>$not->created_at->diffForHumans()
+            'time'=>$date->diffForHumans()
 
         ];
         return $this->sendResponse($res, 'جميع الاشعارات');
