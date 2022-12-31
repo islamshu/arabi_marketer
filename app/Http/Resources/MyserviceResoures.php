@@ -32,10 +32,17 @@ class MyserviceResoures extends JsonResource
             'comments'=>CommentResourse::collection($this->comments->where('status',1)),
             'buyer_instructions'=>$this->buyer_instructions,
             'time'=>$this->time,
-            'type'=>$this->type,
+            'type'=>$this->get_type($this),
             'url_to_this_service'=>route('single_service',$this->id),
 
         ];
+    }
+    public function get_type($data){
+        if($data->type =='service'){
+            return 'خدمة';
+        }else{
+            return'رقمي';
+        }
     }
     public function get_image($data){
         $images = $data->images;
