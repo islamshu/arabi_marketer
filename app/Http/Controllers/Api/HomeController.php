@@ -291,15 +291,14 @@ class HomeController extends BaseController
     }
     public function get_all_markter()
     {
-        $users = User::where('status', 1)
-        ->whereHas('blogs')
-        ->orWhereHas('videos')
-        ->orWhereHas('podcasts')
-        ->orWhereHas('consutiong')
-        ->orWhereHas('services')
+        $users = User::where('status', 2)
+        // ->whereHas('blogs')
+        // ->orWhereHas('videos')
+        // ->orWhereHas('podcasts')
+        // ->orWhereHas('consutiong')
+        // ->orWhereHas('services')
         ->where('type', 'marketer')
         ->get();
-        return $users->count();
         $res = UserNotAuthResource::collection($users)->response()->getData(true);
         return $this->sendResponse($res, 'all markters');
     }
