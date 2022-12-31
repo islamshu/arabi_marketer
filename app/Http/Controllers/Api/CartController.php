@@ -57,24 +57,17 @@ class CartController extends BaseController
             foreach($extra_ids as $extra){
                 $exx = ExtraService::find($extra);
                 array_push($data_send,$exx->id);
+                array_push($data_send,$exx->id);
+                $day_extra += $exx->time;
+
                 $price_extra += $exx->price;
             }
             $cart->more_data = json_encode($data_send);
 
         }
-        if($request->extra_ids != null){
-            $extra_ids = explode(',',$request->extra_ids);
-            $data_send=[]; 
-            foreach($extra_ids as $extra){
-                $exx = ExtraService::find($extra);
-                array_push($data_send,$exx->id);
-                $day_extra += $exx->time;
-            }
-            $cart->more_data = json_encode($data_send);
-
-        }
+      
         $cart->price = $service->price + $price_extra;
-        $cart->day = $service->price + $day_extra;
+        $cart->day = $service->time + $day_extra;
 
         
         $cart->save();
