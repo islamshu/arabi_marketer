@@ -28,7 +28,6 @@
             <textarea name="description_ar"  class="editor" id="kt_docs_ckeditor_classic"></textarea>
 
         </div>
-        {{ dd($price_service) }}
 
         <div class="form-group col-md-6">
 
@@ -77,7 +76,7 @@
             <br> <label>سعر الخدمة:</label>
             <select name="price" required class="form-control form-control-solid" id="">
                 <option value="">يرجى اختيار سعر الخدمة</option>
-                @foreach (App\Models\PriceService::get() as $item)
+                @foreach ($price_service as $item)
                 <option value="{{ $item->price }}">{{ $item->price }}$</option>
                     
                 @endforeach
