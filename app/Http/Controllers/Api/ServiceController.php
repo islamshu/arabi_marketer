@@ -61,9 +61,9 @@ class ServiceController extends BaseController
         foreach($ara as $key=>$ar){
             $price[$key]=$ar;
         }
-        return json_encode($price);
+        // return json_encode($price);
         // $userRes = PriceResourse::collection(PriceService::get());
-        return $this->sendResponse($price, 'جميع الاسعار الخاصة بالخدمات');  
+        return $this->sendResponse(json_encode($price), 'جميع الاسعار الخاصة بالخدمات');  
     }
     public function price_for_extrs_servcie(){
         $userRes = PriceExtraResourse::collection(PriceExtraService::get());
