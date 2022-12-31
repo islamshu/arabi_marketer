@@ -130,7 +130,7 @@
                     success: function(data) {
                         $('#typeee').html(new Option('chose categorty', '0'));
                         for (var i = 0; i < data.length; i++) {
-                            $('#typeee').append(new Option(data[i].name_en,
+                            $('#typeee').append(new Option(data[i].title,
                                 data[i].id));
                         }
                     }
