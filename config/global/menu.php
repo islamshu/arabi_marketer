@@ -422,6 +422,12 @@ return array(
             'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen016.svg", "svg-icon-2"),
         ),
         array(
+            'title' => 'Tools',
+            'path'  => 'tools',
+
+            'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen016.svg", "svg-icon-2"),
+        ),
+        array(
             'title'      => 'Orders',
             'permission' => ['read-service-orders','read-consulting-orders'],
 
