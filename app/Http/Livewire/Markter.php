@@ -99,7 +99,7 @@ class Markter extends Component
 
      
   
-        $this->successMsg = 'Markter successfully created.';
+        $this->successMsg = 'تم انشاء المسوق بنجاح';
   
         $this->clearForm();
   
