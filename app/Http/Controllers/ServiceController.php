@@ -55,6 +55,16 @@ class ServiceController extends Controller
             ->with('categories', Category::ofType('service')->get())
             ->with('keywords', KeyWord::ofType('service')->get());
     }
+
+    public function updateStatus(Request $request)
+        {
+            $user = Service::findOrFail($request->serviceId);
+            $user->status = $request->status;
+            $user->save();
+    
+            return response()->json(['message' => 'Service status updated successfully.']);
+        }
+
     public function get_cats(Request $request)
     {
         $cats = Category::where('specialt_id',$request->id)->get();
