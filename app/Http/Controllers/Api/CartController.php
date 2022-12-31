@@ -64,6 +64,7 @@ class CartController extends BaseController
             $cart->more_data = json_encode($data_send);
 
         }
+       
       
         $cart->price = $service->price + $price_extra;
         $cart->day = $service->time + $day_extra;
