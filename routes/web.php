@@ -208,7 +208,7 @@ Route::middleware('auth')->group(function () {
     Route::post('blog_keyword', [KeyWordController::class, 'store_blog_keyword'])->name('store_blog_keyword');
     Route::get('blog_keyword', [KeyWordController::class, 'blog_index'])->name('keyword_index');
     Route::resource('countires', CountryController::class);
-    Route::get('countires_store', [CountryController::class,'store'])->name('countires.store_data');
+    Route::post('countires_store', [CountryController::class,'store'])->name('countires.store_data');
     Route::post('update_country/{id}', [CountryController::class,'update_country'])->name('update_country');
     Route::get('country_get_data',[CountryController::class, 'getData'])->name('country.getData');
     Route::get('get_form_country',[CountryController::class, 'get_form_country'])->name('get_form_country');
