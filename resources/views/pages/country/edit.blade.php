@@ -1,8 +1,8 @@
-@extends('layout.main')
+{{-- @extends('layout.main') --}}
 <div class="modal-body ">
     <div id="form-errors" class="text-center"></div>
     <div id="success" class="text-center"></div>
-    <form id="edit_edit">
+    <form method="post" action="{{ route('update_country',$country->id) }}" enctype="multipart/form-data">
         @csrf
 
         <div class="form-group">
@@ -40,64 +40,4 @@
 
 </div>
 @section('scripts')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
-
-<script>
- 
- $('#edit_edit').on('submit', function(e) {
-    e.preventDefault();
-
-        var frm = $('#edit_edit');
-        var token = "{{ csrf_token() }}";
-
-        var formData = new FormData(frm[0]);
-        formData.append('file', $('#imageedit')[0].files[0]);
-
-        var data = $(this).serialize();
-
-        $.ajax({
-            url: "{{ route('update_country', $country->id) }}",
-            type: "post",
-            data: formData,
-            processData: false,
-            contentType: false,
-
-            success: function(data) {
-
-                swal("Edit successfully", {
-                    buttons: false,
-                    timer: 2000,
-                    icon: "success"
-                });
-                setTimeout(function() {
-                    window.location.reload();
-                }, 1000);
-
-
-
-
-
-
-            },
-            error: function(data) {
-                var errors = data.responseJSON;
-                var errors = data.responseJSON;
-                errorsHtml = '<div class="alert alert-danger"><ul>';
-                $.each(errors.errors, function(k, v) {
-                    errorsHtml += '<li>' + v + '</li>';
-                });
-                errorsHtml += '</ul></di>';
-                $('#form-errors').html(errorsHtml);
-            },
-        });
-
-
-    });  
-
-        
-        
-
-
-</script>
-@endsection
 
