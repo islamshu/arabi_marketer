@@ -118,6 +118,28 @@
 @section('scripts')
 
     <script>
+        $('#specialty').on('change', function() {
+            let val = this.value;
+         
+                $.ajax({
+                    type: "get",
+                    url: '{{ route('get_cats' }}',
+                    data: {
+                        "id": val
+                    },
+                    success: function(data) {
+                        $('#typeee').html(new Option('chose categorty', '0'));
+                        for (var i = 0; i < data.length; i++) {
+                            $('#typeee').append(new Option(data[i].name_en,
+                                data[i].id));
+                        }
+                    }
+                });
+            
+        });
+        
+                  
+                
             $(".btnnlock").click(function(){ 
                 $('#management_ratio').prop('readonly', false);
                 $(".btnnlock").css("display", "none");

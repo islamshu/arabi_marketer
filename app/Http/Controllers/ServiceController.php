@@ -51,6 +51,10 @@ class ServiceController extends Controller
             ->with('categories', Category::ofType('service')->get())
             ->with('keywords', KeyWord::ofType('service')->get());
     }
+    public function get_cats(Request $request)
+    {
+        dd($request->all());
+    }
 
     /**
      * Show the form for creating a new resource.
