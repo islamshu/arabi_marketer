@@ -22,7 +22,7 @@ class CartResource extends JsonResource
             'type'=>$this->type,
             'service'=>$this->get_type($this),
             'price'=>$this->price,
-            'time'=>$this->time
+            'day'=>$this->day
            
         ];
     }

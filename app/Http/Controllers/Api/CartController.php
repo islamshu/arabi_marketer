@@ -74,7 +74,7 @@ class CartController extends BaseController
 
         }
         $cart->price = $service->price + $price_extra;
-        $cart->time = $service->price + $day_extra;
+        $cart->day = $service->price + $day_extra;
 
         
         $cart->save();
