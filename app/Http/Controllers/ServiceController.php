@@ -61,6 +61,7 @@ class ServiceController extends Controller
         return view('pages.service.index')
             ->with('services', $services)
             ->with('service_marketer', $market_services)
+            ->with('price_service', $price_service)
             ->with('service_user',$service_user)
             ->with('specialty', Specialty::get())
             ->with('orders_count',$orders)
