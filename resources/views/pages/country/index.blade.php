@@ -189,7 +189,7 @@
 @section('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             "use strict";
             var read_specialty = "{{ auth()->user()->can('edit-countires') }}";
@@ -314,7 +314,7 @@
 
 
         });
-    </script>
+    </script> --}}
     <script type="text/javascript">
         var SelectedPeopleRecord = function(id) {
 
