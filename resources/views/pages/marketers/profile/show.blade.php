@@ -138,7 +138,7 @@
                                         <!--end::Svg Icon-->
                                         <div class="fs-2 fw-bolder counted" data-kt-countup="true"
                                             data-kt-countup-value="4500" data-kt-countup-prefix="$"
-                                            data-kt-initialized="1"><span class="cur"> ريال
+                                            data-kt-initialized="1"><span class="cur"> $
                                             </span>{{ $user->total }}</div>
                                     </div>
                                     <!--end::Number-->
@@ -159,7 +159,7 @@
                                         <!--end::Svg Icon-->
                                         <div class="fs-2 fw-bolder counted" data-kt-countup="true"
                                             data-kt-countup-value="75" data-kt-initialized="1"><span class="cur">
-                                                ريال </span>{{ $user->available }}</div>
+                                                $ </span>{{ $user->available }}</div>
                                     </div>
                                     <!--end::Number-->
 
@@ -179,7 +179,7 @@
                                         <!--end::Svg Icon-->
                                         <div class="fs-2 fw-bolder counted" data-kt-countup="true"
                                             data-kt-countup-value="60" data-kt-countup-prefix="%"
-                                            data-kt-initialized="1"><span class="cur"> ريال
+                                            data-kt-initialized="1"><span class="cur"> $
                                             </span>{{ $user->pending }} </div>
                                     </div>
                                     <!--end::Number-->
