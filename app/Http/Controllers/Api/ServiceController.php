@@ -51,15 +51,12 @@ class ServiceController extends BaseController
         return $this->sendResponse($userRes, 'جميع الكلمات المفتاحية الخاصة بالخدمات');
     }
     public function price_for_servcie(){
-        $ara = [];
+        // $ara = [];
         // $i=5
-        for($i= 5 ; $i <= 60 ; $i++){
-            array_push($ara,$i);
-        }
-        foreach($ara as $ar){
-            dd($ar);
-        }
-        // $userRes = PriceResourse::collection();
+        // for($i== 5 ; $i <= 60 ; $i++){
+        //     array_push($ara,$i);
+        // }
+        $userRes = PriceResourse::collection(PriceService::get());
         return $this->sendResponse($userRes, 'جميع الاسعار الخاصة بالخدمات');  
     }
     public function price_for_extrs_servcie(){
