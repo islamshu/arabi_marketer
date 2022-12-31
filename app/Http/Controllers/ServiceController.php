@@ -44,7 +44,6 @@ class ServiceController extends Controller
         $service_user =  Service::whereHas('user', function($q){
             $q->where('type', 'user');
         })->get();
-        dd($service_user);        
         $orders = Order::count();
         return view('pages.service.index')
             ->with('services', $services)

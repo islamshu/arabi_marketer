@@ -86,7 +86,7 @@
 
                 </div>
                 <div class="tab-pane fade" id="kt_tab_pane_7" role="tabpanel">
-                    @include('pages.service._marketer')
+                    @include('pages.service._user')
 
                 </div>
                 
