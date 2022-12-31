@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Category;
 use App\Models\Country;
+use App\Models\Specialty;
 use App\Models\User;
 use App\Models\UserCategory;
 use Carbon\Carbon;
@@ -27,7 +28,7 @@ class Markter extends Component
     {
 
         return view('livewire.markter', [
-            'categoires' => Category::ofType('user')->orderBy('id', 'asc')->get(),
+            'categoires' => Specialty::orderBy('id', 'asc')->get(),
             'countries'=>Country::get(),
        ]);
     }
