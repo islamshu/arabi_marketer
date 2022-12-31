@@ -298,6 +298,7 @@ class HomeController extends BaseController
         // ->orWhereHas('consutiong')
         // ->orWhereHas('services')
         ->where('type', 'marketer')
+        ->orwhere('type','Admin')
         ->get();
         $res = UserNotAuthResource::collection($users)->response()->getData(true);
         return $this->sendResponse($res, 'all markters');
