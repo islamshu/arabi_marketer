@@ -224,6 +224,9 @@ Route::get('/privacy_policy', [HomeController::class, 'privacy_policy']);
 Route::get('/pay_policy', [HomeController::class, 'pay_policy']);
 Route::get('/faqs', [HomeController::class, 'faqs']);
 Route::get('/rights_guarantee', [HomeController::class, 'rights_guarantee']);
+Route::get('/how_site_work', [HomeController::class, 'how_site_work']);
+
+
 
 
 

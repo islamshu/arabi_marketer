@@ -310,6 +310,12 @@ return array(
                         'path'       => 'rights_guarantee',
                         'bullet'     => '<span class="bullet bullet-dot"></span>',
                     ),
+                    array(
+                        'title'      => 'How Site Work',
+                        'path'       => 'how_site_work',
+                        'bullet'     => '<span class="bullet bullet-dot"></span>',
+                    ),
+                    
 
                     
                     array(

@@ -257,6 +257,7 @@ Route::middleware('auth')->group(function () {
     Route::get('usage_policy', [GeneralInfoController::class,'usage_policy'])->name('usage_policy');
     Route::get('pay_policy', [GeneralInfoController::class,'pay_policy'])->name('pay_policy');
     Route::get('rights_guarantee', [GeneralInfoController::class,'rights_guarantee'])->name('rights_guarantee');
+    Route::get('how_site_work', [GeneralInfoController::class,'how_site_work'])->name('how_site_work');
 
     
     

@@ -100,6 +100,14 @@ class HomeController extends BaseController
         ];
         return $this->sendResponse($res, 'rights_guarantee');
     }
+    public function how_site_work(){
+        $res =[
+            'body' => get_general_value('how_site_work')
+        ];
+        return $this->sendResponse($res, 'how_site_work');
+    }
+
+    
     public function faqs(){
         $faqs = Faqs::orderby('sort','asc')->get();
         $res = FaqsResource::collection($faqs);

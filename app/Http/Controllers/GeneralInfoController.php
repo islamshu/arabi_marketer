@@ -30,7 +30,11 @@ class GeneralInfoController extends Controller
     public function rights_guarantee(){
         return view('pages.rights_guarantee');
     }
+    public function how_site_work(){
+        return view('pages.how_site_work');
+    }
 
+    
     
     
     public function privacy_policy(){
