@@ -53,7 +53,8 @@ class ServiceController extends Controller
     }
     public function get_cats(Request $request)
     {
-        dd($request->all());
+        $cats = Category::where('specialt_id',$request->id)->get();
+        return $cats;
     }
 
     /**
