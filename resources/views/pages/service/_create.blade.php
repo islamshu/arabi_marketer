@@ -78,7 +78,7 @@
                 <option value="">يرجى اختيار سعر الخدمة</option>
                 @foreach ($price_service as $item)
                 <option value="{{ $item['price'] }}">{{ $item['price'] }}$</option>
-                    
+                
                 @endforeach
             </select>
          

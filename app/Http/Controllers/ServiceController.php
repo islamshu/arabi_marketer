@@ -36,6 +36,18 @@ class ServiceController extends Controller
        
         return $ara;   
     }
+    public function price_for_extra_servcie(){
+        $price_service = get_general_value('price_service_extra');
+        $prices= explode('-',$price_service);
+        $ara = [];
+        $price = [];
+        for($i= $prices[0] ; $i <= $prices[1] ; $i++){
+            $price = ['price'=>(int)$i];
+            array_push($ara,$price);
+        }
+       
+        return $ara;   
+    }
     public function index()
     {
         $array_category = array();
@@ -51,6 +63,7 @@ class ServiceController extends Controller
         $category_most = Category::whereIn('id',$array_category)->get();
         $services =  Service::get();
         $price_service = $this->price_for_servcie();
+        $price_extra = $this->price_for_extra_servcie();
         $market_services =  Service::whereHas('user', function($q){
             $q->where('type', 'marketer');
         })->get();
@@ -62,6 +75,7 @@ class ServiceController extends Controller
             ->with('services', $services)
             ->with('service_marketer', $market_services)
             ->with('price_service', $price_service)
+            ->with('price_extra',$price_extra)
             ->with('service_user',$service_user)
             ->with('specialty', Specialty::get())
             ->with('orders_count',$orders)
