@@ -58,7 +58,7 @@ class ServiceController extends BaseController
 
         
         for($i= $prices[0] ; $i <= $prices[1] ; $i++){
-            $price = ['price'=>$i];
+            $price = ['price'=>(int)$i];
             array_push($ara,$price);
         }
        
