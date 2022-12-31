@@ -497,7 +497,7 @@
                     });
                 });
                 $(document).ready(function() {
-                    $("#example").on("change", ".usersss", function() {
+                    $("#exdample").on("change", ".usersss", function() {
                         let status = $(this).prop('checked') === true ? 1 : 0;
                         let userId = $(this).data('id');
                         $.ajax({

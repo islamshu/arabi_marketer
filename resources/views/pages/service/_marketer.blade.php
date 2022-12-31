@@ -1,5 +1,5 @@
 <div>
-    <table id="example" class="display example" style="width:100%">
+    <table id="exdample" class="display example" style="width:100%">
         <thead>
             <tr>
                 <th>صورة الخدمة</th>
