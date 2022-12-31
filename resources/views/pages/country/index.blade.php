@@ -258,7 +258,7 @@
                                 className: 'text-end',
                                 render: function(data, type, row) {
                                     var url = data.id;
-                                    var url_delete = "specialtys/" + url;
+                                    var url_delete = "countires/" + url;
                                     if(read_specialty == true){
                                         var edit = '<a  onclick = SelectedPeopleRecord("' +
                                         url +
