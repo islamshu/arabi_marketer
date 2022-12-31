@@ -63,15 +63,11 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label for="email"> الاسم بالعربية: <span class="required"></span></label>
+                            <label for="email"> الاسم : <span class="required"></span></label>
                             <input type="text" name="title_ar" required class="form-control"
                                 value="{{ old('title_ar') }}" id="title_ar">
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="email"> الاسم بالانجليزية : <span class="required"></span></label>
-                            <input type="text" name="title_en" required class="form-control"
-                                value="{{ old('title_en') }}" id="title_en">
-                        </div>
+                      
 
 
 
@@ -153,7 +149,7 @@
             <div class="modal-header">
 
                 <h5 class="modal-title" id="staticBackdropLabel">
-                    تعديل التخصيص</h5>
+                    تعديل الفئات الرئيسية</h5>
 
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>

@@ -51,7 +51,7 @@ class SpecialtyController extends Controller
     {
         $specialty = new Specialty();
         $specialty->image = $request->icon->store('specialty');
-        $specialty->title=['ar'=>$request->title_ar,'en'=>$request->title_en];
+        $specialty->title=['ar'=>$request->title_ar,'en'=>$request->title_ar];
         $specialty->save();
         Alert::success('Success', 'created successfully');
         return redirect()->back();    }
@@ -62,7 +62,7 @@ class SpecialtyController extends Controller
      
         
         $specialty = Specialty::find($id);
-        $specialty->title = ['ar'=>$request->title_ar,'en'=>$request->title_en];
+        $specialty->title = ['ar'=>$request->title_ar,'en'=>$request->title_ar];
         if($request->icon != null){
             $request->validate([
                 'icon'=>'required|'  

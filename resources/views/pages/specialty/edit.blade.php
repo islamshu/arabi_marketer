@@ -16,15 +16,11 @@
         </div>
         <div class="row">
             <div class="form-group col-md-6">
-                <label for="email"> العنوان بالعربية <span class="required"></span></label>
+                <label for="email"> العنوان  <span class="required"></span></label>
                 <input type="text" name="title_ar" required class="form-control"
                     value="{{ $specialty->getTranslation('title', 'ar') }}" id="title_ar">
             </div>
-            <div class="form-group col-md-6">
-                <label for="email"> العنوان بالانجليزية <span class="required"></span></label>
-                <input type="text" name="title_en" required class="form-control"
-                    value="{{ $specialty->getTranslation('title', 'en') }}" id="title_en">
-            </div>
+         
 
 
 
