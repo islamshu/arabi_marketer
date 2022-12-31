@@ -56,6 +56,7 @@
 
                 <div class="col-md-8" id="form_toshow" style="display: none;margin-top:5px">
                     <form method="post" action="{{ route('countires.store_data') }}" enctype="multipart/form-data">
+                        @csrf
                         <div class="form-body">
                             <div class="row">
                                 <div class="col-md-8">
