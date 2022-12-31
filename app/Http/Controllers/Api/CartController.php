@@ -50,6 +50,7 @@ class CartController extends BaseController
         $cart->service_id = $service->id;
         $cart->type ='service';
         $price_extra = 0;
+        $day_extra = 0;
         if($request->extra_ids != null){
             $extra_ids = explode(',',$request->extra_ids);
             $data_send=[]; 
@@ -61,7 +62,21 @@ class CartController extends BaseController
             $cart->more_data = json_encode($data_send);
 
         }
+        if($request->extra_ids != null){
+            $extra_ids = explode(',',$request->extra_ids);
+            $data_send=[]; 
+            foreach($extra_ids as $extra){
+                $exx = ExtraService::find($extra);
+                array_push($data_send,$exx->id);
+                $day_extra += $exx->time;
+            }
+            $cart->more_data = json_encode($data_send);
+
+        }
         $cart->price = $service->price + $price_extra;
+        $cart->time = $service->price + $day_extra;
+
+        
         $cart->save();
         $res['item'] = new CartResource($cart);
         $res['count'] = Cart::where('user_id',auth('api')->id())->count();
