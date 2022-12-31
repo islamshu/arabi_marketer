@@ -202,7 +202,7 @@
         </div> --}}
         <!--end::Menu-->
     </div>
-    <div class="d-flex align-items-center {{ $itemClass }}">
+    <div class="d-flex align-items-center {{ $itemClass }}"> {{ $count }}
 
         <input type="text" id="selUser" class="form-control form-control-solid h-40px bg-body ps-13 fs-7"
             name="search" value="" placeholder="Search..." data-kt-search-element="input">
