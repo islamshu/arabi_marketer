@@ -32,7 +32,7 @@
         <div class="form-group col-md-6">
 
             <br> <label>التصنيف:</label>
-            <select class="form-select form-control form-select-solid " id="specialty" name="specialty" 
+            <select class="form-select form-control form-select-solid " id="specialty" name="specialty[]" multiple
                 required data-control="select2" data-close-on-select="false" data-placeholder="اختر"
                 data-allow-clear="true">
                 <option value=""></option>
@@ -46,10 +46,12 @@
         <div class="form-group col-md-6">
 
             <br> <label>نوع الخدمة:</label>
-            <select class="form-select form-control form-select-solid  typeee" id="type" name="type[]" multiple required
+            <select class="form-select form-control form-select-solid " id="type" name="type[]" multiple required
                 data-control="select2" data-close-on-select="false" data-placeholder="اختر" data-allow-clear="true">
                 <option value=""></option>
-               
+                @foreach ($categories as $item)
+                    <option value="{{ $item->id }}">{{ $item->title }}</option>
+                @endforeach
             </select>
 
         </div>

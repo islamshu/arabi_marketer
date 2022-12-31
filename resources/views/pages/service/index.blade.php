@@ -118,27 +118,27 @@
 @section('scripts')
 
     <script>
-        $('#specialty').on('change', function() {
-            let val = $(this.value);
-            alert(val);
+        // $('#specialty').on('change', function() {
+        //     let val = $(this.value);
+        //     alert(val);
 
          
-                $.ajax({
-                    type: "get",
-                    url: "{{ route('get_cats') }}",
-                    data: {
-                        "id": val
-                    },
-                    success: function(data) {
-                        $('#typeee').html(new Option('chose categorty', '0'));
-                        for (var i = 0; i < data.length; i++) {
-                            $('#typeee').append(new Option(data[i].title,
-                                data[i].id));
-                        }
-                    }
-                });
+        //         $.ajax({
+        //             type: "get",
+        //             url: "{{ route('get_cats') }}",
+        //             data: {
+        //                 "id": val
+        //             },
+        //             success: function(data) {
+        //                 $('#typeee').html(new Option('chose categorty', '0'));
+        //                 for (var i = 0; i < data.length; i++) {
+        //                     $('#typeee').append(new Option(data[i].title,
+        //                         data[i].id));
+        //                 }
+        //             }
+        //         });
             
-        });
+        // });
         
                   
                 
