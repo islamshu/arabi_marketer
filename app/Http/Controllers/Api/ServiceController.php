@@ -52,6 +52,8 @@ class ServiceController extends BaseController
     }
     public function price_for_servcie(){
         $price_service = get_general_value('price_service');
+        $prices= explode(',',$price_service);
+        dd($prices[0]);
         $ara = [];
         $price = [];
 
