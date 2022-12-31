@@ -70,19 +70,14 @@
         </div>
     </div>
     <div class="row">
-        @foreach ($price_service as $item)
-        {{ dd($item['price']) }}
-        <option value="{{ $item->price }}">{{ $item->price }}$</option>
-            
-        @endforeach
+        
         <div class="form-group col-md-6">
 
             <br> <label>سعر الخدمة:</label>
             <select name="price" required class="form-control form-control-solid" id="">
                 <option value="">يرجى اختيار سعر الخدمة</option>
                 @foreach ($price_service as $item)
-                {{ dd($item) }}
-                <option value="{{ $item->price }}">{{ $item->price }}$</option>
+                <option value="{{ $item['price'] }}">{{ $item['price'] }}$</option>
                     
                 @endforeach
             </select>
