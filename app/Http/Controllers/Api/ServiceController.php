@@ -53,12 +53,11 @@ class ServiceController extends BaseController
     public function price_for_servcie(){
         $price_service = get_general_value('price_service');
         $prices= explode('-',$price_service);
-        dd($prices[0]);
         $ara = [];
         $price = [];
 
         
-        for($i= 5 ; $i <= 50 ; $i++){
+        for($i= $prices[0] ; $i <= $prices[1] ; $i++){
             $price = ['price'=>$i];
             array_push($ara,$price);
         }
