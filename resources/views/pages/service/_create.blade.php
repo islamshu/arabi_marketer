@@ -70,7 +70,11 @@
         </div>
     </div>
     <div class="row">
-        
+        @foreach ($price_service as $item)
+        {{ dd($item) }}
+        <option value="{{ $item->price }}">{{ $item->price }}$</option>
+            
+        @endforeach
         <div class="form-group col-md-6">
 
             <br> <label>سعر الخدمة:</label>
