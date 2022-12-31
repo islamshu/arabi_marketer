@@ -10,7 +10,7 @@ class CountryController extends Controller
 {
     public function index(){
         $country = Country::orderBy('id', 'asc')->get();
-        return response()->view('pages.country.index')->with('country',$country);
+        return view('pages.country.index')->with('country',$country);
     }
     public function getData(Request $request){
         $title = $request->search['value'];
