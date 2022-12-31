@@ -241,6 +241,9 @@
                     <a class="nav-link " data-bs-toggle="tab" href="#kt_tab_pane_4">الاستشارات <span
                             class="count">{{ $consls->count() }}</span></a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link " data-bs-toggle="tab" href="#kt_tab_pane_5">الملف الشخصي </a>
+                </li>
                 
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_8">الرسائل<span
@@ -257,6 +260,10 @@
                 <div class="tab-pane fade" id="kt_tab_pane_4" role="tabpanel">
                     @include('pages.customers.profile.consutiong')
                 </div>
+                <div class="tab-pane fade" id="kt_tab_pane_5" role="tabpanel">
+                    @include('pages.customers.profile.sub_profile')
+                </div>
+
                 <div class="tab-pane fade" id="kt_tab_pane_8" role="tabpanel">
                     @include('pages.customers.profile.messages')
                 </div>
