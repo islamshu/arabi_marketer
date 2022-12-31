@@ -77,6 +77,7 @@
             <select name="price" required class="form-control form-control-solid" id="">
                 <option value="">يرجى اختيار سعر الخدمة</option>
                 @foreach ($price_service as $item)
+                {{ dd($item) }}
                 <option value="{{ $item->price }}">{{ $item->price }}$</option>
                     
                 @endforeach
