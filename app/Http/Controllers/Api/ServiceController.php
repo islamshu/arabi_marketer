@@ -59,11 +59,11 @@ class ServiceController extends BaseController
             array_push($ara,$i);
         }
         foreach($ara as $key=>$ar){
-            $price[$key]=$ar;
+            [$key]=$ar;
         }
         // return json_encode($price);
-        // $userRes = PriceResourse::collection(PriceService::get());
-        return $this->sendResponse(json_encode($price), 'جميع الاسعار الخاصة بالخدمات');  
+        $userRes = PriceResourse::collection(PriceService::get());
+        return $this->sendResponse($userRes, 'جميع الاسعار الخاصة بالخدمات');  
     }
     public function price_for_extrs_servcie(){
         $userRes = PriceExtraResourse::collection(PriceExtraService::get());
