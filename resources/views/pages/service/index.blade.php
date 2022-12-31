@@ -123,7 +123,7 @@
          
                 $.ajax({
                     type: "get",
-                    url: '{{ route('get_cats' }}',
+                    url: "{{ route('get_cats') }}",
                     data: {
                         "id": val
                     },
