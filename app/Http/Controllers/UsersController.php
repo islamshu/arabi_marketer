@@ -128,8 +128,12 @@ class UsersController extends Controller
             $user->save();
             Notification::send($user, new GeneralNotification($data));
         }
+        if($user->status = 2){
+            return redirect()->route('marketer.show',$user->id);
+        }else{
+            return redirect()->route('customer.show',$user->id);
 
-        return redirect()->route('customer.show',$user->id);
+        }
     }
     
 
