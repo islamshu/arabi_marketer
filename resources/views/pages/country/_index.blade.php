@@ -16,6 +16,7 @@
                 <td>#</td>
                 <td><img src="{{ asset('public/uploads/'.$item->flag) }}" width="100" height="70" alt=""></td>
                 <td>{{ $item->title }}</td>
+                <td>
                 @can('edit-countires')
                 <a onclick="SelectedPeopleRecord({{ $item->id }})" class="btn btn-info"><i class="fa fa-edit"></i></a>
                 @endcan
@@ -29,6 +30,7 @@
                             class="fa fa-trash"></i></button>
                 </form>
                 @endcan
+            </td>
             </tr>
             @endforeach
 
