@@ -23,7 +23,7 @@
                 <p>الخطوة الثالثة</p>
             </div>
             <div class="multi-wizard-step">
-                <a href="#step-3" type="button"
+                <a href="#step-4" type="button"
                     class="btn {{ $currentStep != 4 ? 'btn-default' : 'btn-primary' }}"
                     disabled="disabled">3</a>
                 <p>الخطوة الرابعة</p>
