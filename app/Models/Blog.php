@@ -15,7 +15,7 @@ class Blog extends Model
     public $translatable = ['title','description'];
     public function category()
     {
-        return $this->belongsToMany(Category::class, 'blog_categories','blog_id', 'category_id');
+        return $this->belongsToMany(Specialty::class, 'blog_categories','blog_id', 'category_id');
     }
     public function keywords()
     {
