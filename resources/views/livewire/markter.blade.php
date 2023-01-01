@@ -25,7 +25,7 @@
             <div class="multi-wizard-step">
                 <a href="#step-4" type="button"
                     class="btn {{ $currentStep != 4 ? 'btn-default' : 'btn-primary' }}"
-                    disabled="disabled">3</a>
+                    disabled="disabled">4</a>
                 <p>الخطوة الرابعة</p>
             </div>
         </div>
@@ -184,7 +184,7 @@
                 </tr>
             </table>
             <button class="btn btn-success btn-lg pull-right" wire:click="submitForm" type="button">حفظ</button>
-            <button class="btn btn-danger nextBtn btn-lg pull-right" type="button" wire:click="back(2)">رجوع</button>
+            <button class="btn btn-danger nextBtn btn-lg pull-right" type="button" wire:click="back(3)">رجوع</button>
         </div>
     </div>
 </div>
