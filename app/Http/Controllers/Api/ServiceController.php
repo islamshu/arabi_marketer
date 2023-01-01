@@ -357,8 +357,8 @@ class ServiceController extends BaseController
 
 
         $query->when($request->category_id != null && $request->category_id != 'undefined', function ($q) use ($cats) {
-            return $q->whereHas('category',function ($query) use ($cats) {
-                $query->whereIn('category_id', $cats);
+            return $q->whereHas('specialty',function ($query) use ($cats) {
+                $query->whereIn('specialts_id', $cats);
             });
         });
        
