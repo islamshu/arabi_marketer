@@ -337,6 +337,7 @@ class UserController extends BaseController
     }
     public function be_marketer(Request $request)
     {
+        
         $user = User::find($request->user_id);
    
 
@@ -356,8 +357,17 @@ class UserController extends BaseController
                 'title' => 'لديك صانع محتوى جديد',
                 'time' => $user->updated_at
             ];
+            $datee = [
+                'id' => $user->id,
+                'name' => $user->name,
+                'url' => '',
+                'title' => 'تم ارسال طلبك بنجاح',
+                'time' => $user->updated_at
+            ];
             $admins = User::where('type', 'Admin')->get();
             Notification::send($admins, new GeneralNotification($date));
+            $user->notify(new GeneralNotification($datee));
+
             $res = new UserResource($user);
             return $this->sendResponse($res, 'تم ارسال طلبك للادارة');
         } elseif ($user->type == 'marketer') {
