@@ -240,7 +240,8 @@ class ServiceController extends BaseController
     {
 
         $service = Service::find($request->service_id);
-        $service->title = ['ar' => $request->title, 'en' => $request->title];
+        $service->title =$request->title;
+
         $service->description = ['ar' => $request->description, 'en' => $request->description];
         $service->price = $request->price;
         $service->url = $request->url;

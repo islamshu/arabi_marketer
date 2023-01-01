@@ -4,15 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Translatable\HasTranslations;
+// use Spatie\Translatable\HasTranslations;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Service extends Model
 {
     use HasFactory,SoftDeletes;
-    use HasTranslations;
+    // use HasTranslations;
 
-    public $translatable = ['title','description'];
+    // public $translatable = ['title','description'];
     /**
      * Get all of the comments for the Service
      *
