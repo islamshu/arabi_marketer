@@ -36,6 +36,14 @@ class ServiceController extends Controller
        
         return $ara;   
     }
+    public function change_status_service(Request $request,$id){
+        $service = Service::find($id);
+        $service->status = $request->status;
+        $service->save();
+        Alert::success('Success', 'Aproved service');
+
+        return redirect()->back();
+    }
     public function price_for_extra_servcie(){
         $price_service = get_general_value('price_service_exta');
         $prices= explode('-',$price_service);
