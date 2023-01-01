@@ -136,7 +136,8 @@ class ServiceController extends Controller
             DB::transaction(function () use ($request) {
                 $service = new Service();
                 $service->title =$request->title_ar;
-                $service->description = ['ar' => $request->description_ar, 'en' => $request->description_en];
+                $service->description = $request->description_ar;
+
                 $service->price = $request->price;
                 $service->management_ratio = $request->management_ratio;
                 $service->url = $request->url;
@@ -350,7 +351,7 @@ class ServiceController extends Controller
             DB::transaction(function () use ($request,$id) {
                 $service = Service::find($id);
                 $service->title =$request->title_ar;
-                $service->description = ['ar' => $request->description_ar, 'en' => $request->description_en];
+                $service->description = $request->description_ar;
                 $service->price = $request->price;
                 $service->management_ratio = $request->management_ratio;
                 $service->url = $request->url;
