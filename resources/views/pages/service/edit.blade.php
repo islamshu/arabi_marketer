@@ -60,7 +60,7 @@
             
                         <br><label> عنوان الخدمة :</label>
             
-                        <input type="text" id="title_ar" name="title_ar" value="{{ $service->getTranslation('title', 'ar') }}" required class="form-control form-control-solid"
+                        <input type="text" id="title_ar" name="title_ar" value="{{ $service->title}}" required class="form-control form-control-solid"
                             placeholder="العنوان بالعربية" />
             
                     </div>
@@ -68,7 +68,7 @@
                     <div class="form-group col-md-8">
             
                         <br><label> الوصف :</label>
-                        <textarea name="description_ar" class="editor" id="kt_docs_ckeditor_classic">{{ $service->getTranslation('description', 'ar') }}</textarea>
+                        <textarea name="description_ar" class="editor" id="kt_docs_ckeditor_classic">{{ $service->description }}</textarea>
             
                     </div>
                     

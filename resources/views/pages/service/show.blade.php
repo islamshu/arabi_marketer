@@ -81,7 +81,7 @@
             
                         <br><label> عنوان الخدمة :</label>
             
-                        <input type="text" id="title_ar" disabled name="title_ar" value="{{ $service->getTranslation('title', 'ar') }}" required class="form-control form-control-solid"
+                        <input type="text" id="title_ar" disabled name="title_ar" value="{{ $service->title }}" required class="form-control form-control-solid"
                             placeholder="العنوان بالعربية" />
             
                     </div>
@@ -89,7 +89,7 @@
                     <div class="form-group col-md-8">
             
                         <br><label> الوصف :</label>
-                        <textarea disabled readonly name="description_ar" rows="10" cols="5" class="form-control" id="kt_docs_ckeditor_classic">{!! strip_tags($service->getTranslation('description', 'ar')) !!}</textarea>
+                        <textarea disabled readonly name="description_ar" rows="10" cols="5" class="form-control" id="kt_docs_ckeditor_classic">{!! strip_tags($service->description) !!}</textarea>
             
                     </div>
                     
