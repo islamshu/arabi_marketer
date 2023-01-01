@@ -49,7 +49,7 @@
                 <div class="col-md-3">
                     <label for="" class="">حالة الخدمة</label>
                     <select required id="" class="form-control " name="status"  >
-                        <option value="">يرجى اخيار الحالة</option>
+                        <option value="" selected disabled>يرجى اخيار الحالة</option>
                         <option value="1">قبول</option>
                         <option value="0">عدم القبول</option>
                     </select>
