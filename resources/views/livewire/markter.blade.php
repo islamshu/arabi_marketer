@@ -140,10 +140,10 @@
                 </div>
               
                     
-            
-               
+{{--             
+           
             <button class="btn btn-success btn-lg pull-right" wire:click="thirdStepSubmit" type="button">التالي</button>
-            <button class="btn btn-danger nextBtn btn-lg pull-right" type="button" wire:click="back(2)">رجوع</button>
+            <button class="btn btn-danger nextBtn btn-lg pull-right" type="button" wire:click="back(2)">رجوع</button>     --}}
         </div>
     </div>
     <div class="row setup-content {{ $currentStep != 4 ? 'display-none' : '' }}" id="step-4">
