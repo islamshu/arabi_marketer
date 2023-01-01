@@ -326,7 +326,7 @@ class UserController extends BaseController
             } else {
                 $arrr = [];
                 array_push($arrr, 'كلمة المرور غير صحيحة');
-                return $this->sendError('كلمة المرور غير صحيحة');
+                return $this->sendError($arrr);
             }
         } else {
             $arr = [];
