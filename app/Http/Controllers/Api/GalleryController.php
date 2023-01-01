@@ -54,15 +54,7 @@ class GalleryController extends BaseController
             $img->resize(1300, 1300, function ($constraint) {
                 $constraint->aspectRatio();
             })->save($destinationPath.'/'.$input['imagename']);
-    
-                
-                
             $imagee= 'blog/'.$input['imagename'];
-            
-
-
-
-
             $name = preg_replace('/\..+$/', '', $image->getClientOriginalName());
             $pic = new BlogImage();
             $pic->image    = $imagee;

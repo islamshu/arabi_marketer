@@ -167,10 +167,8 @@ Route::get('/get_comments_for_blog/{id}', [CommentController::class, 'get_commen
 Route::get('/get_all_blogs', [BlogController::class, 'get_all']);
 Route::get('/single_blog/{mention}/{id}', [BlogController::class, 'single'])->name('single_blog');
 Route::get('/all_blog_user/{mention}', [BlogController::class, 'all_blog_user'])->name('all_blog_user');
-
 Route::get('/blog_search', [BlogController::class, 'serach']);
 Route::get('/blog_search_in_profile/{id}', [BlogController::class, 'serach_profile']);
-
 Route::get('/related_blogs/{id}', [BlogController::class, 'related_blogs']);
 Route::post('/add_service', [ServiceController::class, 'store']);
 

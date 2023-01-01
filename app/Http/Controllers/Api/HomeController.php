@@ -31,6 +31,7 @@ use App\Models\Faqs;
 use App\Models\HowItWork;
 use App\Models\NewPodcast;
 use App\Models\Quastion;
+use App\Models\Search;
 use App\Models\Specialty;
 use App\Models\Tools;
 use App\Models\User;
@@ -63,6 +64,12 @@ class HomeController extends BaseController
         $res['service']= $service;
         $res['user']= $user;
         $res['podcast']= $podcast;
+        $search = new Search();
+        $search->title = $request->title;
+        $search->user_id = auth('api')->id();
+        $search->save();
+        
+
         return $this->sendResponse($res, 'home serach');
 
 
