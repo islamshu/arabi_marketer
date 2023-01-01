@@ -141,50 +141,9 @@
               
                     
             
-           
-            <button class="btn btn-success btn-lg pull-right" wire:click="thirdStepSubmit" type="button">التالي</button>
-            <button class="btn btn-danger nextBtn btn-lg pull-right" type="button" wire:click="back(2)">رجوع</button>    
+                <button class="btn btn-success btn-lg pull-right" wire:click="submitForm" type="button">حفظ</button>
+                <button class="btn btn-danger nextBtn btn-lg pull-right" type="button" wire:click="back(3)">رجوع</button>
         </div>
     </div>
-    <div class="row setup-content {{ $currentStep != 4 ? 'display-none' : '' }}" id="step-4">
-        <div class="col-md-12">
-            <h3>  الخطوة الثالثة</h3>
-            <table class="table">
-                {{-- <tr>
-                    <td>Image:</td>
-                    <td><strong><img src="{{ $image }}" width="30" height="30" alt=""></strong></td>
-                </tr> --}}
-                <tr>
-                    <td>المنشن:</td>
-                    <td><strong>{{$mention}}</strong></td>
-                </tr>
-                <tr>
-                    <td> الامس الاول:</td>
-                    <td><strong>{{$first_name}}</strong></td>
-                </tr>
-                <tr>
-                    <td> الاسم الثاني:</td>
-                    <td><strong>{{$last_name}}</strong></td>
-                </tr>
-                <tr>
-                    <td>البريد الاكتروني:</td>
-                    <td><strong>{{$email}}</strong></td>
-                </tr>
-                <tr>
-                    <td>كلمة المرور:</td>
-                    <td><strong>{{$password}}</strong></td>
-                </tr>
-                <tr>
-                    <td>مجالات صناع المحتوى:</td>
-                    <td>
-                    @foreach ($selection as $item)
-                    <strong>{{ App\Models\Specialty::find($item)->title }}</strong> ,
-                    @endforeach
-                    <td>
-                </tr>
-            </table>
-            <button class="btn btn-success btn-lg pull-right" wire:click="submitForm" type="button">حفظ</button>
-            <button class="btn btn-danger nextBtn btn-lg pull-right" type="button" wire:click="back(3)">رجوع</button>
-        </div>
-    </div>
+  
 </div>
