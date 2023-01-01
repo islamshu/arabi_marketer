@@ -56,6 +56,11 @@ class ServiceController extends Controller
        
         return $ara;   
     }
+    public function show_pending(){
+        $services  =Service::where('status',0)->orderby('id','desc')->get();
+        return view('pages.service_pending.index')
+        ->with('services', $services);
+    }
     public function index()
     {
         $array_category = array();
