@@ -1,6 +1,6 @@
 <?php
 
-$service = App\Models\Service::where('status',0)->count();
+// $service = App\Models\Service::where('status',0)->count();
 return array(
     // Documentation menu
     // 'documentation' => array(
@@ -485,7 +485,7 @@ return array(
                         'bullet'     => '<span class="bullet bullet-dot"></span>'
                     ), 
                     array(
-                        'title'      => 'Pending services('.$service.')',
+                        'title'      => 'Pending services',
                         'path'       => 'show_pending',
                         'permission' => ['read-service'],
                         'bullet'     => '<span class="bullet bullet-dot"></span>'
