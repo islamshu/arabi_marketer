@@ -43,7 +43,7 @@
             </ul>
             <div style="direction: rtl;margin-right: 12%;">
             <a href="{{ route('services.edit', $service->id) }}" class="btn btn-success"><i class="fa fa-edit"></i>انقر للتعديل</a>
-           @if($service->status == 0)
+           @if($service->status == 1)
             <form action="{{  route('change_status_markter',$service->id) }}" method="post" >
                 @csrf
                 <div class="col-md-3">
