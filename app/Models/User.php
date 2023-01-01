@@ -30,6 +30,11 @@ class User extends Authenticatable implements MustVerifyEmail
     //     'api_token',
     //     'password',
     // ];
+    
+    public function specialty()
+    {
+        return $this->belongsToMany(Specialty::class, 'user_categories','user_id', 'type_id');
+    }
 
     /**
      * The attributes that should be hidden for arrays.

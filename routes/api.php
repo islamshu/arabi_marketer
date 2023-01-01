@@ -151,10 +151,13 @@ Route::get('/type_of_user', [UserController::class, 'type_of_user']);
 //end profile
 Route::get('/rss', [HomeController::class, 'rss']);
 Route::get('/home_search', [HomeController::class, 'home_search']);
+Route::get('/marketer_search', [UserController::class, 'marketer_search']);
 
 
 //start blog
 Route::get('/blog_category', [BlogController::class, 'blog_category']);
+Route::get('/marketer_category', [UserController::class, 'marketer_category']);
+
 Route::get('/blog_keyword', [BlogController::class, 'blog_keyword']);
 Route::group(['middleware' => 'is_login', 'middleware' => 'Is_markter'], function () {
     Route::post('/add_blog', [BlogController::class, 'store']);

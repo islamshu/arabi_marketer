@@ -54,6 +54,36 @@ class UserController extends BaseController
     public function create_markter(){
         return view('pages.marketers.create');
     }
+    public function marketer_category(){
+        return view('pages.marketers.create');
+    }
+    public function marketer_search(Request $request){
+        $title = $request->title;
+        $query = User::query()->where('type','marketer');
+        $category = array();
+      
+        $query->where('status', 2);
+        $query->when($request->title != null, function ($q) use ($title) {
+             $q->where('first_name','like','%'.$title.'%' )->orWhere('last_name','like','%'.$title.'%');
+        });
+        $cats = explode(',',$request->category_id);
+
+
+        $query->when($request->category_id != null && $request->category_id != 'undefined', function ($q) use ($cats) {
+            return $q->whereHas('specialty',function ($query) use ($cats) {
+                $query->whereIn('type_id', $cats);
+            });
+        });
+
+
+        $blogs = $query->where('publish_time','<=',now())->orderby('id', 'desc')->paginate(6);
+        // $blogs = $query->paginate(6);
+
+        $res = BlogResource::collection($blogs)->response()->getData(true);
+        return $this->sendResponse($res, 'جميع المقالات');
+    }
+    
+    
     public function my_notification()
     {
         $notification = auth('api')->user()->notifications;
