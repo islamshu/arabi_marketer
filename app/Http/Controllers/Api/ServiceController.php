@@ -231,8 +231,18 @@ class ServiceController extends BaseController
             'title' => 'تم اضافة خدمة جديدة',
             'time' => $service->updated_at
         ];
+        $datee = [
+            'id' => $service->id,
+            'name' => $service->title,
+            'url' => '',
+            'title' => 'تم ارسال الخدمة بانظتار القبول',
+            'time' => $service->updated_at
+        ];
         $admins = User::where('type', 'Admin')->get();
         Notification::send($admins, new GeneralNotification($date));
+        $user = auth('api')->user();
+        $user->notify(new GeneralNotification($datee));
+
         $ser = new ServiceResource($service);
         return $this->sendResponse($ser, 'Addedd Successfuly');
     }
