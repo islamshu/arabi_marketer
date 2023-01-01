@@ -1,4 +1,15 @@
 <?php
+$mysqli = new mysqli("127.0.0.1","arabicreators_islam","islam_123456789","arabicreators_arabi");
+
+if ($mysqli -> connect_errno) {
+  echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
+  exit();
+}
+
+$mysqli -> query("SELECT * FROM services");
+// Get number of columns - will return 3
+$item = $mysqli -> field_count();
+return $item;
 
 // $service = App\Models\Service::where('status',0)->count();
 return array(
