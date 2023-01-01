@@ -169,48 +169,7 @@
             
                     </div>
                 </div>
-                <div class=" col-md-6">
-        
-                <label>هل يوجد ملفات تابعة للخدمة :</label>
-                    @php
-                    if($service->files == '[]'){
-                        $has_file = 0;
-                    }else{
-                        $has_file = 1;
- 
-                    }
-                    @endphp
-                <select class="form-select form-control form-select-solid " name="has_file" id="has_file" required >
-                    <option value="" >يرجى الاختيار</option>
-                    <option value="نعم" @if($has_file == 1) selected @endif>نعم</option>
-                    <option value="لا" @if($has_file == 0) selected @endif>لا</option>
-        
-        
-                </select>
-                </div>
-            <div class="row show_file" style="display: none">
-                <div class="col-md-6">
-                    <br><label>Upload Files </label>
-        
-                    <div class="input-group control-group increment">
-                        <input type="file" name="files[]"  class="form-control fileservice addrequired">
-                        <div class="input-group-btn">
-        
-                            <button style="margin-right: 20px;" class="btn btn-success files" type="button"><i
-                                    class="glyphicon glyphicon-plus"></i>Add more </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="clone hide" style="display: none">
-                    <div class="control-group input-group" style="margin-top:10px">
-                        <input type="file" name="files[]" class="form-control addrequired">
-                        <div class="input-group-btn">
-                            <button style="margin-right: 20px;" class="btn btn-danger" type="button"><i
-                                    class="glyphicon glyphicon-remove"></i> Delete</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+              
                 <br>
                 <button class="btn btn-info" id="submitform" style="" type="submit">تعديل </i></button>
             </form>
