@@ -69,7 +69,7 @@ class ServiceController extends Controller
             array_push($array_category,$item->category_id);
         }
         $category_most = Category::whereIn('id',$array_category)->get();
-        $services =  Service::get();
+        $services =  Service::where('status',1)->orderby('id','desc')->get();
         $price_service = $this->price_for_servcie();
         $price_extra = $this->price_for_extra_servcie();
         $market_services =  Service::whereHas('user', function($q){
