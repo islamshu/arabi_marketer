@@ -72,10 +72,10 @@ class ServiceController extends Controller
         $services =  Service::where('status',1)->orderby('id','desc')->get();
         $price_service = $this->price_for_servcie();
         $price_extra = $this->price_for_extra_servcie();
-        $market_services =  Service::whereHas('user', function($q){
+        $market_services =  Service::where('status',1)->whereHas('user', function($q){
             $q->where('type', 'marketer');
         })->get();
-        $service_user =  Service::whereHas('user', function($q){
+        $service_user =  Service::where('status',1)->whereHas('user', function($q){
             $q->where('type', 'user');
         })->get();
         $orders = Order::count();
