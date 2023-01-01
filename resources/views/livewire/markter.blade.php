@@ -100,6 +100,48 @@
     </div>
     <div class="row setup-content {{ $currentStep != 3 ? 'display-none' : '' }}" id="step-3">
         <div class="col-md-12">
+            <h3>  بيانات السوشل ميديا </h3>
+            <table class="table">
+                {{-- <tr>
+                    <td>Image:</td>
+                    <td><strong><img src="{{ $image }}" width="30" height="30" alt=""></strong></td>
+                </tr> --}}
+             
+               <div class="form-group col-md-6 mt-6">
+                    <label for="description">الفيس بوك :</label>
+                    <input type="text" wire:model="facebook" class="form-control" id="teamPrice" />
+                    @error('facebook') <span class="error">{{ $message }}</span> @enderror
+                </div> 
+                <div class="form-group col-md-6 mt-6">
+                    <label for="description">الانستجرام  :</label>
+                    <input type="text" wire:model="instagram" class="form-control" id="teamPrice" />
+                    @error('instagram') <span class="error">{{ $message }}</span> @enderror
+                </div>
+                <div class="form-group col-md-6 mt-6">
+                    <label for="description">تويتر  :</label>
+                    <input type="text" wire:model="twitter" class="form-control" id="teamPrice" />
+                    @error('twitter') <span class="error">{{ $message }}</span> @enderror
+                </div>
+                <div class="form-group col-md-6 mt-6">
+                    <label for="description">بنترست  :</label>
+                    <input type="text" wire:model="pinterest" class="form-control" id="teamPrice" />
+                    @error('pinterest') <span class="error">{{ $message }}</span> @enderror
+                </div>
+                <div class="form-group col-md-6 mt-6">
+                    <label for="description">سناب شات  :</label>
+                    <input type="text" wire:model="snapchat" class="form-control" id="teamPrice" />
+                    @error('snapchat') <span class="error">{{ $message }}</span> @enderror
+                </div>
+              
+                    
+            
+               
+            <button class="btn btn-success btn-lg pull-right" wire:click="thirdStepSubmit" type="button">حفظ</button>
+            <button class="btn btn-danger nextBtn btn-lg pull-right" type="button" wire:click="back(2)">رجوع</button>
+        </div>
+    </div>
+    <div class="row setup-content {{ $currentStep != 4 ? 'display-none' : '' }}" id="step-4">
+        <div class="col-md-12">
             <h3>  الخطوة الثالثة</h3>
             <table class="table">
                 {{-- <tr>

@@ -20,6 +20,7 @@ class Markter extends Component
     public $selection=[];
     public $mention,$first_name,$last_name,$email,$password, $price, $detail,$country,$pio, $status = 1;
     public $image;
+    public $facebook,$instagram,$twitter,$pinterest,$snapchat,$linkedin,$website,$followers_number;
     public $successMsg = '';
   
     /**
@@ -65,6 +66,12 @@ class Markter extends Component
   
         $this->currentStep = 3;
     }
+    public function thirdStepSubmit()
+    {
+      
+  
+        $this->currentStep = 4;
+    }
   
     /**
      * Write code on Method
@@ -88,6 +95,11 @@ class Markter extends Component
         $user->save();
         $soical = new MarkterSoical();
         $soical->user_id = $user->id;
+        $soical->facebook = $this->facebook;
+        $soical->twitter = $this->twitter;
+        $soical->pinterest = $this->pinterest;
+        $soical->snapchat = $this->snapchat;
+
         $soical->save();
    
      
