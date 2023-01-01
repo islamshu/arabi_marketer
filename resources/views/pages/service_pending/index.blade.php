@@ -54,7 +54,7 @@
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="kt_tab_pane_4" role="tabpanel">
                     <div>
-                        <table id="eexdample"  class="display example" style="width:100%">
+                        <table id="eexdampleee"  class="display example" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>صورة الخدمة</th>
@@ -76,7 +76,7 @@
                                  <td>{{ date('Y-m-d', strtotime($item->created_at)); }}</td>
                                <td>  {{ $item->user->type }}</td>
                                  <td>
-                                    <input type="checkbox" data-id="{{ $item->id }}" name="status" class="js-switch allssee"
+                                    <input type="checkbox" data-id="{{ $item->id }}" name="status" class="js-switch allsseeeee"
                                         {{ $item->status == 1 ? 'checked' : '' }}>
                                 </td>
                                  <td>
@@ -128,5 +128,25 @@
 @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script>
+      $(document).ready(function() {
+                    $("#eexdampleee").on("change", ".allsseeeee", function() {
+                        let status = $(this).prop('checked') === true ? 1 : 0;
+                        let userId = $(this).data('id');
+                        $.ajax({
+                            type: "GET",
+                            dataType: "json",
+                            url: '{{ route('service.update.status') }}',
+                            data: {
+                                'status': status,
+                                'serviceId': userId
+                            },
+                            success: function(data) {
+                                console.log(data.message);
+                            }
+                        });
+                    });
+                });
+</script>
 
  
