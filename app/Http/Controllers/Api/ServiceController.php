@@ -133,7 +133,7 @@ class ServiceController extends BaseController
         }
         $service = new Service();
         $service->title = $request->title;
-        $service->description = ['ar' => $request->description, 'en' => $request->description];
+        $service->description =  $request->description;
         $service->price = $request->price;
         $service->url = $request->url;
         $service->buyer_instructions = $request->buyer_instructions;
