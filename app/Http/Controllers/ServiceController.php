@@ -291,11 +291,16 @@ class ServiceController extends Controller
         foreach ($selectedtype as $selc) {
             array_push($selectedtype_array, $selc->id);
         }
+        $price_service = $this->price_for_servcie();
+        $price_extra = $this->price_for_extra_servcie();
+
+
         return view('pages.service.edit')->with('service', $service)
             ->with('specialty_array', $selectedspecialty_array)
             ->with('type_array', $selectedtype_array)
             ->with('keywords_array', $selectedkeywords_array)
-
+            ->with('price_service',$price_service)
+            ->with('price_extra',$price_extra)
             ->with('specialty', Specialty::get())
             ->with('categories', Category::ofType('service')->get())
             ->with('keywords', KeyWord::ofType('service')->get());

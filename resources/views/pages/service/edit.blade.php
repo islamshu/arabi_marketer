@@ -44,6 +44,17 @@
                 @csrf 
                 @method('put')
                 <div class="row">
+                    <div class="form-group col-md-6">
+
+                        <br><label> نوع الخدمة :</label>
+            
+                       <select name="type_service"  id="type_service" required class="form-control">
+                        <option value="">يرجى اختيار نوع الخدمة</option>
+                        <option value="digital" @if($service->type == 'digital') selected @endif>رقمي</option>
+                        <option value="service"  @if($service->type == 'service') selected @endif>خدمة</option>
+                       </select>
+            
+                    </div>
             
                     <div class="form-group col-md-6">
             
@@ -91,15 +102,30 @@
                     <div class="form-group col-md-6">
             
                         <label>سعر الخدمة:</label>
-                        <input type="text" id="price" value="{{ $service->price }}" required name="price" class="form-control form-control-solid"
-                            placeholder="Price" />
+                        <select name="price" required class="form-control form-control-solid" id="">
+                            <option value="">يرجى اختيار سعر الخدمة</option>
+                            @foreach ($price_service as $item)
+                            <option value="{{ $item['price'] }}" @if($service->price ==  $item['price'] ) selected @endif>{{ $item['price'] }}$</option>
+                            @endforeach
+                        </select>
                     </div>
-                    <div class="form-group col-md-6">
-
+                    <div class="form-group col-md-4">
                         <br> <label>نسبة الادارة من الخدمة:</label>
-                        <input type="number" id="management_ratio"  value="{{ $service->management_ratio }}"  required name="management_ratio" class="form-control form-control-solid"
+                        <input type="number" id="management_ratio" readonly value="{{ $service->management_ratio }}" required name="management_ratio" class="form-control form-control-solid"
                             placeholder="نسبة الادارة من الخدمة" />
                     </div>
+                    <div class="form-group col-md-2">
+                        <button type="button" style="margin-top: 22%;" class="btn btn-info btnnlock"><i class="fa fa-unlock-alt"></i> </button>
+                        <button type="button" style="margin-top: 22%;display: none" class="btn btn-info btnlock"><i class="fa fa-lock"></i> </button>
+                     </div>
+                    <div class="form-group col-md-8">
+
+                        <br><label> تعليمات المشتري :</label>
+                        <textarea name="buyer_instructions" class="editor"  id="kt_docs_ckeditor_classic">{{ $service->buyer_instructions }}</textarea>
+            
+                    </div>
+                    
+                    
                     <div class="form-group col-md-6">
             
                         <label>رابط الخدمة:</label>
@@ -207,6 +233,16 @@
 @endphp
 @section('scripts')
     <script>
+         $(".btnnlock").click(function(){ 
+                $('#management_ratio').prop('readonly', false);
+                $(".btnnlock").css("display", "none");
+                $(".btnlock").css("display", "block");
+            });
+            $(".btnlock").click(function(){ 
+                $('#management_ratio').prop('readonly', true);
+                $(".btnnlock").css("display", "block");
+                $(".btnlock").css("display", "none");
+            });
         //    $('#send_form_edit').on('submit', function(e) {
         //     e.preventDefault();
         //     var frm = $('#send_form_edit');
