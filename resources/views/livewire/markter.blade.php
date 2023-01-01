@@ -142,7 +142,7 @@
                     
             
                
-            <button class="btn btn-success btn-lg pull-right" wire:click="thirdStepSubmit" type="button">حفظ</button>
+            <button class="btn btn-success btn-lg pull-right" wire:click="thirdStepSubmit" type="button">التالي</button>
             <button class="btn btn-danger nextBtn btn-lg pull-right" type="button" wire:click="back(2)">رجوع</button>
         </div>
     </div>
