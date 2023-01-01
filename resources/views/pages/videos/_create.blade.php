@@ -34,7 +34,7 @@
         </div>
 
        
-        <div class="form-group col-md-6">
+        {{-- <div class="form-group col-md-6">
 
             <br> <label>نوع الفيديو:</label>
             <select class="form-select form-control form-select-solid " id="type" name="type[]" multiple required
@@ -45,7 +45,7 @@
                 @endforeach
             </select>
 
-        </div>
+        </div> --}}
         
         
 

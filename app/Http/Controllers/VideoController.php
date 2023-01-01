@@ -53,12 +53,12 @@ class VideoController extends Controller
 
                 $vi->source = 'test';
                 $vi->save();
-                foreach ($request->type as $category) {
-                    $cat = new VideoCateogry();
-                    $cat->video_id = $vi->id;
-                    $cat->category_id = $category;
-                    $cat->save();
-                }
+                // foreach ($request->type as $category) {
+                //     $cat = new VideoCateogry();
+                //     $cat->video_id = $vi->id;
+                //     $cat->category_id = $category;
+                //     $cat->save();
+                // }
 
                 // dd($request->keywords);
 
