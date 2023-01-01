@@ -76,11 +76,10 @@ class UserController extends BaseController
         });
 
 
-        $blogs = $query->where('publish_time','<=',now())->orderby('id', 'desc')->paginate(6);
-        // $blogs = $query->paginate(6);
+        $blogs = $query->paginate(9);
 
-        $res = BlogResource::collection($blogs)->response()->getData(true);
-        return $this->sendResponse($res, 'جميع المقالات');
+        $res = UserResource::collection($blogs)->response()->getData(true);
+        return $this->sendResponse($res, 'جميع صناع المحتوى');
     }
     
     
