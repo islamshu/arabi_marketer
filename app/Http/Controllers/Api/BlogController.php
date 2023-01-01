@@ -201,12 +201,12 @@ class BlogController extends BaseController
         // $blog_image->save();
         $category = json_decode($request->category);
         // $categorys = explode(',', $request->keywords);
-        // foreach ($category as $category) {
-        //     $cat = new BlogCategory();
-        //     $cat->blog_id = $service->id;
-        //     $cat->category_id = $category;
-        //     $cat->save();
-        // }
+        foreach ($category as $category) {
+            $cat = new BlogCategory();
+            $cat->blog_id = $service->id;
+            $cat->category_id = $category;
+            $cat->save();
+        }
 
         // dd($request->keywords);
         $keywords = explode(',', $request->keywords);
