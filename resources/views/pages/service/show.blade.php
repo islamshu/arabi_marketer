@@ -37,39 +37,35 @@
                     </a>
 
                 </li>
-                <div class="d-flex flex-column flex-grow-1 pe-8" >
-                    <div class="row">
-
-                    <form action="{{  route('change_status_markter',$service->id) }}" method="post" >
-                        @csrf
-                        <div class="col-md-8">
-                            <label for="" class="">حالة الطلب</label>
-                            <select required id="select_change" class="form-control " name="status"  >
-                                <option value="1">تحت التدقيق</option>
-                                <option value="2">قبول</option>
-                                <option value="0">رقض</option>
-                            </select>
-                        </div>
-                        <div class="col-md-8" >
-                            <label  class="">الرسالة (غير ضرورية) </label>
-                           <textarea name="message" class="form-control" id="" cols="30" rows="3">
-
-                           </textarea>
-                        </div>
-                        <div class="col-md-6 mt-10" style="display: none" id="btn_submit">
-                            <button class="btn btn-info">تأكيد</button>
-                        </div>
-                       
-
-                    </div>
-                    </form>
-                </div>
+              
 
 
             </ul>
             <div style="direction: rtl;margin-right: 12%;">
             <a href="{{ route('services.edit', $service->id) }}" class="btn btn-success"><i class="fa fa-edit"></i>انقر للتعديل</a>
-            </div>
+            <form action="{{  route('change_status_markter',$service->id) }}" method="post" >
+                @csrf
+                <div class="col-md-8">
+                    <label for="" class="">حالة الطلب</label>
+                    <select required id="select_change" class="form-control " name="status"  >
+                        <option value="1">تحت التدقيق</option>
+                        <option value="2">قبول</option>
+                        <option value="0">رقض</option>
+                    </select>
+                </div>
+                <div class="col-md-8" >
+                    <label  class="">الرسالة (غير ضرورية) </label>
+                   <textarea name="message" class="form-control" id="" cols="30" rows="3">
+
+                   </textarea>
+                </div>
+                <div class="col-md-6 mt-10" style="display: none" id="btn_submit">
+                    <button class="btn btn-info">تأكيد</button>
+                </div>
+               
+
+            </form>   
+        </div>
             <form >
                 @csrf 
                 <div class="row">
