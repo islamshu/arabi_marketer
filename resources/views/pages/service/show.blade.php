@@ -43,23 +43,24 @@
             </ul>
             <div style="direction: rtl;margin-right: 12%;">
             <a href="{{ route('services.edit', $service->id) }}" class="btn btn-success"><i class="fa fa-edit"></i>انقر للتعديل</a>
+           @if($service->status == 0)
             <form action="{{  route('change_status_markter',$service->id) }}" method="post" >
                 @csrf
-                <div class="col-md-4">
-                    <label for="" class="">حالة الطلب</label>
+                <div class="col-md-3">
+                    <label for="" class="">حالة الخدمة</label>
                     <select required id="select_change" class="form-control " name="status"  >
-                        <option value="1">تحت التدقيق</option>
-                        <option value="2">قبول</option>
-                        <option value="0">رقض</option>
+                        <option value="1">مقبول</option>
+                        <option value="0">عدم القبول</option>
                     </select>
                 </div>
                
-                <div class="col-md-6 mt-10" style="display: none" id="btn_submit">
+                <div class="col-md-6 mt-10"  id="btn_submit">
                     <button class="btn btn-info">تأكيد</button>
                 </div>
                
 
-            </form>   
+            </form> 
+            @endif  
         </div>
             <form >
                 @csrf 
