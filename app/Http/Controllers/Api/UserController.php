@@ -12,6 +12,7 @@ use App\Http\Resources\BlogResource;
 use App\Http\Resources\CategoryResource;
 use App\Http\Resources\ConsultingResource;
 use App\Http\Resources\CounsutionBuyResource;
+use App\Http\Resources\MyblogResourese;
 use App\Http\Resources\myPorofileResoures;
 use App\Http\Resources\NotificationResourse;
 use App\Http\Resources\OrderResource;
@@ -620,7 +621,7 @@ class UserController extends BaseController
     public function get_blog()
     {
         $blogs = Blog::where('user_id', auth('api')->id())->orderBy('id', 'desc')->paginate(5);
-        $res = BlogResource::collection($blogs)->response()->getData(true);
+        $res = MyblogResourese::collection($blogs)->response()->getData(true);
         return $this->sendResponse($res, 'جميع المقالات');
         // return ['success'=>true,'blogs'=>BlogResource::collection($blogs)->response()->getData(true),'message'=>'جميع المقالات'];
     }
