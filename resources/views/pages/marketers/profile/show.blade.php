@@ -109,7 +109,7 @@
                                     <p>Rss Feed Link : {{ route('rss_feed',$user->id) }}</p>
                                     
                                 </a>
-                                <a href=""><img src="https://icons8.com/icon/118466/facebook" alt=""></a>
+                                <a href=""><img src="https://cdn-icons-png.flaticon.com/512/49/49354.png" width="30" height="30" alt=""></a>
 
 
 
