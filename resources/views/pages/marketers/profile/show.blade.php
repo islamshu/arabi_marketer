@@ -106,15 +106,15 @@
                                                 fill="currentColor"></path>
                                         </svg></span>
                                     <!--end::Svg Icon-->
-                                    {{-- <p>Rss Feed Link : {{ route('rss_feed',$user->id) }}</p> --}}
+                                    <p>Rss Feed Link : {{ route('rss_feed',$user->id) }}</p>
                                     
                                 </a>
-
-
-                            </div>
-                            <div>
                                 <a href=""><i class="fa-fa-eye"></i></a>
+
+
+
                             </div>
+                        
                             <!--end::Info-->
                         </div>
                         <!--end::User-->
