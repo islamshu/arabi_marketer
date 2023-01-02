@@ -109,7 +109,7 @@
                                     <p>Rss Feed Link : {{ route('rss_feed',$user->id) }}</p>
                                     
                                 </a>
-                                <a href=""><i class="fa-fa-eye"></i></a>
+                                <a href=""><img src="https://icons8.com/icon/118466/facebook" alt=""></a>
 
 
 
