@@ -620,7 +620,7 @@ class UserController extends BaseController
     }
     public function get_blog()
     {
-
+        return auth('api')->id();
         $blogs = Blog::where('user_id', auth('api')->id())->paginate(5);
         $res = MyblogResourese::collection($blogs)->response()->getData(true);
         return $this->sendResponse($res, 'جميع المقالات');
