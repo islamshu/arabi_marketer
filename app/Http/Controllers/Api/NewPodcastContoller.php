@@ -32,7 +32,7 @@ class NewPodcastContoller extends BaseController
             'id' => $user->id,
             'name' => $user->name,
             'url' => '',
-            'title' => 'سيتم مراجعة طلبك خلال ٢٤ ساعة',
+            'title' => 'سيتم مراجعة  طلبك الخاص بالبودكاست خلال ٢٤ ساعة',
             'time' => $user->updated_at
         ];
         $user->notify(new GeneralNotification($date_send));
