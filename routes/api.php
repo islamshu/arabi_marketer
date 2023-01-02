@@ -133,6 +133,9 @@ Route::group(['middleware' => 'is_login'], function () {
     Route::post('/edit_profile_step_3', [UserController::class, 'edit_profile_step_3']);
     Route::post('/edit_profile_step_4', [UserController::class, 'edit_profile_step_4']);
     Route::post('/remmeber_markter', [UserController::class, 'remmeber_markter']);
+    Route::post('/vendor_chats/{id}', [UserController::class, 'chat_with_seller']);
+
+    
 
 });
 Route::group(['middleware' => 'is_login', 'middleware' => 'Is_markter'], function () {

@@ -435,7 +435,7 @@ class UserController extends BaseController
         $chat->seller_id = $product->user_id;
         $chat->user_id = auth('api')->id();
         $chat->save();
-        return $this->sendResponse('success', 'تم ارسال البيانات بنجاح');
+        return $this->sendResponse('success', 'تم تعديل البيانات بنجاح');
 
     }
     public function upload_cover(Request $request){
