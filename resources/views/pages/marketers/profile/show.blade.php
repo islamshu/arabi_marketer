@@ -109,8 +109,14 @@
                                     <p>Rss Feed Link : {{ route('rss_feed',$user->id) }}</p>
                                     
                                 </a>
-                                <a href=""><img src="https://cdn-icons-png.flaticon.com/512/49/49354.png" width="30" height="30" alt=""></a>
+                                @if( @$user->soical->facebook != null)
+                                <a href="https://www.facebook.com/{{ @$user->soical->facebook }}"><img src="https://cdn-icons-png.flaticon.com/512/49/49354.png" width="30" height="30" alt=""></a>
+                                @endif
+                                @if( @$user->soical->instagram != null)
+                                <a href="https://www.instagram.com/{{ @$user->soical->instagram }}"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png" width="30" height="30" alt=""></a>
+                                @endif
 
+                                
 
 
                             </div>
