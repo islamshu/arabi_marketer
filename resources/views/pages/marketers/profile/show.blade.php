@@ -112,6 +112,9 @@
 
 
                             </div>
+                            <div>
+                                <a href=""><i class="fa-fa-eye"></i></a>
+                            </div>
                             <!--end::Info-->
                         </div>
                         <!--end::User-->
