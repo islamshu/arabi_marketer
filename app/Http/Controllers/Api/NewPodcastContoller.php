@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 use App\Models\NewPodcast;
+use App\Notifications\GeneralNotification;
 use SimpleXMLElement;
 
 class NewPodcastContoller extends BaseController
@@ -26,6 +27,15 @@ class NewPodcastContoller extends BaseController
         $podcast->title = (string)$flux->channel->title;
         $podcast->title = 
         $podcast->save();
+        $user = auth('api')->user();
+        $date_send = [
+            'id' => $user->id,
+            'name' => $user->name,
+            'url' => '',
+            'title' => 'سيتم مراجعة طلبك خلال ٢٤ ساعة',
+            'time' => $user->updated_at
+        ];
+        $user->notify(new GeneralNotification($date_send));
         return $this->sendResponse($podcast , 'added sussefuly');
     }
 }

@@ -387,16 +387,17 @@ class UserController extends BaseController
                 'title' => 'لديك صانع محتوى جديد',
                 'time' => $user->updated_at
             ];
-            $datee = [
+            $date_send = [
                 'id' => $user->id,
                 'name' => $user->name,
                 'url' => '',
-                'title' => 'تم ارسال طلبك بنجاح',
+                'title' => 'سيتم مراجعة طلبك خلال ٢٤ ساعة',
                 'time' => $user->updated_at
             ];
+            $user->notify(new GeneralNotification($date_send));
+
             $admins = User::where('type', 'Admin')->get();
             Notification::send($admins, new GeneralNotification($date));
-            $user->notify(new GeneralNotification($datee));
 
             $res = new UserResource($user);
             return $this->sendResponse($res, 'تم ارسال طلبك للادارة');

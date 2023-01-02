@@ -135,6 +135,15 @@ class VideoController extends BaseController
         ];
         $admins = User::where('type','Admin')->get();
         Notification::send($admins, new GeneralNotification($date));
+        $user = auth('api')->user();
+        $date_send = [
+            'id' => $user->id,
+            'name' => $user->name,
+            'url' => '',
+            'title' => 'سيتم مراجعة طلبك خلال ٢٤ ساعة',
+            'time' => $user->updated_at
+        ];
+        $user->notify(new GeneralNotification($date_send));
 
         $res = new VideoResource($vi);
         return $this->sendResponse($res, 'addedd succeffuly');
