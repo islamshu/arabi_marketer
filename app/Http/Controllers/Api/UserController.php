@@ -40,6 +40,7 @@ use App\Models\SouialUser;
 use App\Models\Specialty;
 use App\Models\UserAnswer;
 use App\Models\UserCategory;
+use App\Models\VendorChat;
 use App\Models\Video;
 use App\Notifications\GeneralNotification;
 use Carbon\Carbon;
@@ -415,6 +416,26 @@ class UserController extends BaseController
         $userRes = new  UserNormalAuthResource($user);
         return $this->sendResponse($userRes, 'تم تعديل البيانات بنجاح');
 
+
+    }
+    public function chat_with_seller(Request $request,$id){
+        $validation = Validator::make($request->all(), [
+            'title' => 'required',
+        ]);
+        if ($validation->fails()) {
+            return $this->sendError($validation->messages()->first());
+        }
+        $product = Service::find($id);
+        if(!$product){
+            return $this->sendError('لم يتم العثور على الخدمة');
+        }
+        $chat = new VendorChat();
+        $chat->title = $request->title;
+        $chat->service_id = $id;
+        $chat->seller_id = $product->user_id;
+        $chat->user_id = auth('api')->id();
+        $chat->save();
+        return $this->sendResponse('success', 'تم ارسال البيانات بنجاح');
 
     }
     public function upload_cover(Request $request){

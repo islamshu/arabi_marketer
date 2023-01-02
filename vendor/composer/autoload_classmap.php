@@ -239,6 +239,7 @@ return array(
     'App\\Models\\UserAnswer' => $baseDir . '/app/Models/UserAnswer.php',
     'App\\Models\\UserCategory' => $baseDir . '/app/Models/UserCategory.php',
     'App\\Models\\UserInfo' => $baseDir . '/app/Models/UserInfo.php',
+    'App\\Models\\VendorChat' => $baseDir . '/app/Models/VendorChat.php',
     'App\\Models\\Video' => $baseDir . '/app/Models/Video.php',
     'App\\Models\\VideoCateogry' => $baseDir . '/app/Models/VideoCateogry.php',
     'App\\Models\\VideoKeyword' => $baseDir . '/app/Models/VideoKeyword.php',
