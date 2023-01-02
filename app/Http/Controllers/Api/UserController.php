@@ -620,7 +620,7 @@ class UserController extends BaseController
     }
     public function get_blog()
     {
-        $blogs = Blog::where('user_id', auth('api')->id())->paginate(5);
+        $blogs = Blog::where('user_id',auth('api')->id())->orderBy('id', 'desc')->paginate(9);
         $res = MyblogResourese::collection($blogs)->response()->getData(true);
         return $this->sendResponse($res, 'جميع المقالات');
         // return ['success'=>true,'blogs'=>BlogResource::collection($blogs)->response()->getData(true),'message'=>'جميع المقالات'];
