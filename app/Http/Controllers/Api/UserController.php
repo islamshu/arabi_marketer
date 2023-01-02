@@ -618,8 +618,9 @@ class UserController extends BaseController
         $userRes = CategoryResource::collection($category);
         return $this->sendResponse($userRes, 'جميع المجالات الخاصة بالمستخدمين');
     }
-    public function get_blog()
+    public function get_blog(Request $request)
     {
+
         $blogs = Blog::where('user_id', auth('api')->id())->orderBy('id', 'desc')->paginate(9);
         $res = BlogResource::collection($blogs)->response()->getData(true);
         return $this->sendResponse($res, 'جميع المقالات');
