@@ -60,7 +60,7 @@ class UserController extends BaseController
         return view('pages.marketers.create');
     }
     public function creator_pending(){
-        return view('pages.marketers.pending')->with('users',User::where('type','marketer')->where('status','!=',2)->get());
+        return view('pages.marketers.pending')->with('users',User::has('markter_order')->get());
     }
     public function marketer_search(Request $request){
         $title = $request->title;
