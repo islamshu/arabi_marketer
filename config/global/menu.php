@@ -532,6 +532,14 @@ return array(
                         'permission' => ['read-blog'],
                         'bullet'     => '<span class="bullet bullet-dot"></span>'
                     ), 
+                    array(
+                        'title'      => 'Creator',
+                        'path'       => 'creator_pending',
+                        'permission' => ['read-blog'],
+                        'bullet'     => '<span class="bullet bullet-dot"></span>'
+                    ), 
+
+                    
               
                                 
                 ),   

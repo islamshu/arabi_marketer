@@ -59,6 +59,9 @@ class UserController extends BaseController
     public function marketer_category(){
         return view('pages.marketers.create');
     }
+    public function creator_pending(){
+        return view('pages.marketers.pending')->with('users',User::where('type','marketer')->where('status','!=',2)->get());
+    }
     public function marketer_search(Request $request){
         $title = $request->title;
         $query = User::query()->where('type','marketer');
