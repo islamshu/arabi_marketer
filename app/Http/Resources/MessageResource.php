@@ -18,7 +18,8 @@ class MessageResource extends JsonResource
             'id'=>$this->id,
             'sender'=>new UserNormalNotAuthResource($this->sender),
             'receiver'=>new UserNormalNotAuthResource($this->receiver),
-            'message'=>$this->message
+            'message'=>$this->message,
+            'time'=>$this->created_at->diffForHumans()
         ];
     }
 }
