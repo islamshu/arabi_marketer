@@ -507,6 +507,37 @@ return array(
                   
             ),
         ),
+        array(
+            'title'      => 'Pending',
+            'icon'       => array(
+                'svg'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen005.svg", "svg-icon-2"),
+                'font' => '<i class="bi bi-layers fs-3"></i>',
+            ),
+            'classes'    => array('item' => 'menu-accordion'),
+            'attributes' => array(
+                "data-kt-menu-trigger" => "click",
+            ),
+            'sub'        => array(
+                'class' => 'menu-sub-accordion menu-active-bg',
+                'items' => array(
+                    array(
+                        'title'      => 'Service',
+                        'path'       => 'show_pending',
+                        'permission' => ['read-service'],
+                        'bullet'     => '<span class="bullet bullet-dot"></span>'
+                    ), 
+                    array(
+                        'title'      => 'Blog',
+                        'path'       => 'blog_pending',
+                        'permission' => ['read-blog'],
+                        'bullet'     => '<span class="bullet bullet-dot"></span>'
+                    ), 
+              
+                                
+                ),   
+                  
+            ),
+        ),
       
         array(
             'title' => 'Tickets',

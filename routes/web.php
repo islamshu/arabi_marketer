@@ -101,6 +101,7 @@ Route::middleware('auth')->group(function () {
     Route::get('creators_requests',[UsersController::class,'marketers_requests'])->name('marketers_requests');
     Route::get('get_cats',[ServiceController::class,'get_cats'])->name('get_cats');
     Route::get('show_pending',[ServiceController::class,'show_pending'])->name('show_pending');
+    Route::get('blog_pending',[BlogController::class,'show_pending'])->name('blog_pending');
 
     Route::get('customers',[ProfileController::class,'users']);
     Route::get('creators_order',[ProfileController::class,'markter_order'])->name('markter_order');

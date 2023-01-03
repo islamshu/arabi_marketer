@@ -33,6 +33,9 @@ class BlogController extends Controller
             ->with('categories', Category::ofType('blog')->get())
             ->with('keywords', KeyWord::ofType('blog')->get());
     }
+    public function show_pending(){
+        return view('pages.blogs.pending')->with('blogs',Blog::where('status',0)->get());
+    }
 
     /**
      * Show the form for creating a new resource.
