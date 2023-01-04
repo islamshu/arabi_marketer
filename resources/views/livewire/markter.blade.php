@@ -9,24 +9,24 @@
             <div class="multi-wizard-step">
                 <a href="#step-1" type="button"
                     class="btn {{ $currentStep != 1 ? 'btn-default' : 'btn-primary' }}">1</a>
-                <p>الخطوة الاولى</p>
+                <p>Step 1</p>
             </div>
             <div class="multi-wizard-step">
                 <a href="#step-2" type="button"
                     class="btn {{ $currentStep != 2 ? 'btn-default' : 'btn-primary' }}">2</a>
-                <p>الخطوة الثانية</p>
+                <p>Step 2</p>
             </div>
             <div class="multi-wizard-step">
                 <a href="#step-3" type="button"
                     class="btn {{ $currentStep != 3 ? 'btn-default' : 'btn-primary' }}"
                     disabled="disabled">3</a>
-                <p>الخطوة الثالثة</p>
+                <p>Step 3</p>
             </div>
         
         </div>
     </div>
     <div class="row setup-content {{ $currentStep != 1 ? 'display-none' : '' }}" id="step-1">
-        <div class="col-md-12">
+                <div class="col-md-12">
             <h3>الخطوة الاولى</h3>
             <div class="form-group col-md-6 mt-6">
                 <label for="title"> الصورة الشخصية:</label>
@@ -75,7 +75,7 @@
         </div>
     </div>
     <div class="row setup-content {{ $currentStep != 2 ? 'display-none' : '' }}" id="step-2">
-        <div class="col-md-12">
+                <div class="col-md-12">
             <h3>  الخطوة الثانية</h3>
             <div class="form-group col-md-6 mt-6">
                 <label for="description"> مجالات صناع المحتوى</label><br />
@@ -102,7 +102,6 @@
     <div class="row setup-content {{ $currentStep != 3 ? 'display-none' : '' }}" id="step-3">
         <div class="col-md-12">
             <h3>  بيانات السوشل ميديا </h3>
-            <table class="table">
                 {{-- <tr>
                     <td>Image:</td>
                     <td><strong><img src="{{ $image }}" width="30" height="30" alt=""></strong></td>
