@@ -21,13 +21,15 @@ class VideoController extends Controller
             ->with('categories', Category::ofType('video')->get());
     }
     public function update_status_video (Request $request){
-        $worker = Video::find($request->booked_id);
-        
+        $worker = Video::find($request->booked_id);   
         $worker->status = $request->status ;
         $worker->save();
-       
         return response()->json(['status'=>true]);
-
+    }
+    public function video_pending(){
+        $videos  =Video::where('status','!=',1)->orderby('id','desc')->get();
+        return view('pages.video_pending.index')
+        ->with('videos', $videos);
     }
     public function store(Request $request)
     {

@@ -10,7 +10,7 @@
                 role="tablist">
                 <!--begin:::Tab item-->
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link text-active-primary pb-5 " href="/" >
+                    <a class="nav-link text-active-primary pb-5 " href="/">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen001.svg-->
                         <span class="svg-icon svg-icon-2 me-2">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -25,13 +25,18 @@
 
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link text-active-primary pb-5 active" >
+                    <a class="nav-link text-active-primary pb-5 active">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen001.svg-->
                         <span class="svg-icon svg-icon-2 me-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path opacity="0.3" d="M21 22H14C13.4 22 13 21.6 13 21V3C13 2.4 13.4 2 14 2H21C21.6 2 22 2.4 22 3V21C22 21.6 21.6 22 21 22Z" fill="currentColor"></path>
-                                <path d="M10 22H3C2.4 22 2 21.6 2 21V3C2 2.4 2.4 2 3 2H10C10.6 2 11 2.4 11 3V21C11 21.6 10.6 22 10 22Z" fill="currentColor"></path>
-                                </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none">
+                                <path opacity="0.3"
+                                    d="M21 22H14C13.4 22 13 21.6 13 21V3C13 2.4 13.4 2 14 2H21C21.6 2 22 2.4 22 3V21C22 21.6 21.6 22 21 22Z"
+                                    fill="currentColor"></path>
+                                <path
+                                    d="M10 22H3C2.4 22 2 21.6 2 21V3C2 2.4 2.4 2 3 2H10C10.6 2 11 2.4 11 3V21C11 21.6 10.6 22 10 22Z"
+                                    fill="currentColor"></path>
+                            </svg>
                         </span>
                         <!--end::Svg Icon-->الفيديوهات
                     </a>
@@ -40,33 +45,33 @@
 
 
             </ul>
-        
+
 
             <ul class="nav nav-tabs nav-line-tabs nav-line-tabs-2x mb-5 fs-6">
                 <li class="nav-item">
                     <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_4">الفيديوهات</a>
                 </li>
-               
+
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_6">اضف جديد</a>
                 </li>
-                
+
             </ul>
 
-            
+
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="kt_tab_pane_4" role="tabpanel">
                     @include('pages.videos._index')
                 </div>
-             
+
                 <div class="tab-pane fade" id="kt_tab_pane_6" role="tabpanel">
                     @include('pages.videos._create')
                 </div>
-              
+
             </div>
             <!--end:::Tabs-->
             <!--begin:::Tab content-->
-            
+
             <!--end:::Tab content-->
         </div>
         <!--end::Card body-->
@@ -80,7 +85,8 @@
                 <h3 class="modal-title">Modal title</h3>
 
                 <!--begin::Close-->
-                <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+                <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
+                    aria-label="Close">
                     <span class="svg-icon svg-icon-1"></span>
                 </div>
                 <!--end::Close-->
@@ -98,63 +104,64 @@
     </div>
 </div>
 
-@include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
+@include('sweetalert::alert', ['cdn' => 'https://cdn.jsdelivr.net/npm/sweetalert2@9'])
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 
 @section('scripts')
-<script>
-    ClassicEditor
-            .create( document.querySelector( '.editor' ) )
-            .then( editor => {
-                    console.log( editor );
-            } )
-            .catch( error => {
-                    console.error( error );
-            } );
-            var input1 = document.querySelector("#kt_tagify_3");
-            new Tagify(input1);
-</script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('.editor'))
+            .then(editor => {
+                console.log(editor);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+        var input1 = document.querySelector("#kt_tagify_3");
+        new Tagify(input1);
+    </script>
     <script>
         $('#send_form').on('submit', function(e) {
-            
+
             e.preventDefault();
             var frm = $('#send_form');
             var formData = new FormData(frm[0]);
             formData.append('file', $('#imagestore')[0].files[0]);
-            storefile("{{ route('podcasts.store') }}",'post', formData,'#kt_datatable_example_2','sendmemessage','#exampleModal','Added successfully');
+            storefile("{{ route('podcasts.store') }}", 'post', formData, '#kt_datatable_example_2', 'sendmemessage',
+                '#exampleModal', 'Added successfully');
             $("#send_form")[0].reset();
-           setTimeout(function () {
-        location.reload(true);
-      }, 3000);
+            setTimeout(function() {
+                location.reload(true);
+            }, 3000);
 
         });
-
     </script>
     <script>
-        $( "#type_file" ).change(function() {
-      if($(this).val() =='url'){
-        $(".url").css("display", "block");
-        $(".video").css("display", "none");
-        $("#url").prop('required',true);
-        $("#video").prop('required',false);
+        $("#type_file").change(function() {
+            if ($(this).val() == 'url') {
+                $(".url").css("display", "block");
+                $(".video").css("display", "none");
+                $("#url").prop('required', true);
+                $("#video").prop('required', false);
 
 
-      }else{
-        $(".video").css("display", "block");
-        $(".url").css("display", "none");
-        $("#url").prop('required',false);
-        $("#video").prop('required',true);
+            } else {
+                $(".video").css("display", "block");
+                $(".url").css("display", "none");
+                $("#url").prop('required', false);
+                $("#video").prop('required', true);
 
-      }
-    });
-    function myFunction(id){
+            }
+        });
+
+        function myFunction(id) {
             // alert('worker_status_'+id);
             // alert($('#worker_status_'+id).val());
-            
-            let status = $('#worker_status_'+id).val();
-            
-            let booked_id =id;
+
+            let status = $('#worker_status_' + id).val();
+
+            let booked_id = id;
             $.ajax({
                 type: 'post',
                 url: "{{ route('update_status_video') }}",
@@ -167,11 +174,11 @@
                 success: function(data) {
                     if (data['status'] == true) {
                         if (status == 1) {
-                            $('#worker_status_'+id).css("backgroundColor", "#5fc69e")
+                            $('#worker_status_' + id).css("backgroundColor", "#5fc69e")
                         } else if (status == 0) {
-                            $('#worker_status_'+id).css("backgroundColor", "#a1a5b7")
+                            $('#worker_status_' + id).css("backgroundColor", "#a1a5b7")
                         } else if (status == 2) {
-                            $('#worker_status_'+id).css("backgroundColor", "#f1416c")
+                            $('#worker_status_' + id).css("backgroundColor", "#f1416c")
                         }
                         toastr.options.closeButton = true;
                         toastr.options.closeMethod = 'fadeOut';
@@ -181,10 +188,9 @@
                     } else {
                         alert('Whoops Something went wrong!!');
                     }
-                   
+
                 }
             });
         }
     </script>
-   
 @endsection
