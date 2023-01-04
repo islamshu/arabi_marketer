@@ -535,9 +535,17 @@ return array(
                     array(
                         'title'      => 'Creator',
                         'path'       => 'creator_pending',
-                        'permission' => ['read-blog'],
+                        'permission' => ['read-user'],
+                        'bullet'     => '<span class="bullet bullet-dot"></span>'
+                    ),
+                    array(
+                        'title'      => 'Video',
+                        'path'       => 'video_pending',
+                        'permission' => ['read-video'],
                         'bullet'     => '<span class="bullet bullet-dot"></span>'
                     ), 
+
+                    
 
                     
               
