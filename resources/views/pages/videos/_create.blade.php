@@ -34,18 +34,18 @@
         </div>
 
        
-        {{-- <div class="form-group col-md-6">
+        <div class="form-group col-md-6">
 
-            <br> <label>نوع الفيديو:</label>
+            <br> <label>تصنيف الفيديو:</label>
             <select class="form-select form-control form-select-solid " id="type" name="type[]" multiple required
                 data-control="select2" data-close-on-select="false" data-placeholder="اختر" data-allow-clear="true">
                 <option value=""></option>
-                @foreach ($categories as $item)
+                @foreach (App\Models\Specialty::get() as $item)
                     <option value="{{ $item->id }}">{{ $item->title }}</option>
                 @endforeach
             </select>
 
-        </div> --}}
+        </div>
         
         
 
