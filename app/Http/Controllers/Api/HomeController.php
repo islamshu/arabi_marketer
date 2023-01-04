@@ -204,7 +204,7 @@ class HomeController extends BaseController
     }
     public function get_video(){
         
-        $videos = VideoResource::collection(Video::orderBy('id', 'desc')->take(4)->get());
+        $videos = VideoResource::collection(Video::orderBy('id', 'desc')->where('status',1)->take(4)->get());
         $res['video'] = $videos;
         return $this->sendResponse($res, 'home page');
 
@@ -260,7 +260,7 @@ class HomeController extends BaseController
         $res['consuliong'] = $cons;
 
 
-        $videos = VideoResource::collection(Video::orderBy('id', 'desc')->take(4)->get());
+        $videos = VideoResource::collection(Video::orderBy('id', 'desc')->where('status',1)->take(4)->get());
         $res['video'] = $videos;
 
 
