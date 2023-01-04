@@ -101,6 +101,7 @@
 
 
             </ul>
+        </div>
             <!--end:::Tabs-->
             <!--begin:::Tab content-->
             <div class="tab-content" id="myTabContent">
