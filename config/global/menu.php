@@ -535,13 +535,13 @@ return array(
                     array(
                         'title'      => 'Creator',
                         'path'       => 'creator_pending',
-                        'permission' => ['read-user'],
+                        'permission' => ['read-marketers'],
                         'bullet'     => '<span class="bullet bullet-dot"></span>'
                     ),
                     array(
                         'title'      => 'Video',
                         'path'       => 'video_pending',
-                        'permission' => ['read-video'],
+                        'permission' => ['read-videos'],
                         'bullet'     => '<span class="bullet bullet-dot"></span>'
                     ), 
 
