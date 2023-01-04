@@ -28,7 +28,7 @@ class VideoController extends Controller
     }
     public function video_pending(){
         $videos  =Video::where('status','!=',1)->orderby('id','desc')->get();
-        return view('pages.video_pending.index')
+        return view('pages.videos.video_pending')
         ->with('videos', $videos);
     }
     public function store(Request $request)
