@@ -11,7 +11,7 @@ class Video extends Model
     use HasFactory,SoftDeletes;
     public function category()
     {
-        return $this->belongsToMany(Category::class, 'video_cateogries','video_id', 'category_id');
+        return $this->belongsToMany(Specialty::class, 'video_cateogries','video_id', 'category_id');
     }
     public function keywords()
     {
