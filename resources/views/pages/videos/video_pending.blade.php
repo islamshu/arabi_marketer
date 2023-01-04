@@ -68,7 +68,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($services as $item)
+                                @foreach ($videos as $item)
                                 <tr>
                                  <td><img src="{{ asset('public/uploads/'.$item->image) }}" width="50" height="50" alt=""></td>
                                  <td>{{ $item->title }}</td>
@@ -80,11 +80,11 @@
                                         {{ $item->status == 1 ? 'checked' : '' }}>
                                 </td>
                                  <td>
-                                    <a href="{{ route('services.show', $item->id) }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
+                                    <a href="{{ route('videos.show', $item->id) }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
                     
                                     {{-- <a href="{{ route('services.edit', $item->id) }}" class="btn btn-info"><i class="fa fa-edit"></i></a> --}}
                                     <form style="display: inline"
-                                        action="{{ route('services.destroy', $item->id) }}"
+                                        action="{{ route('videos.destroy', $item->id) }}"
                                         method="post">
                                         @method('delete') @csrf
                                         <button type="submit" class="btn btn-danger delete-confirm"><i
