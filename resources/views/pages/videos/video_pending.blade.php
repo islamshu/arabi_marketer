@@ -88,7 +88,7 @@
                                         <td>
                                             <select class="target btn" book_id="{{ $item->id }}"
                                                 class="worker_status" id="worker_status_{{ $item->id }}"
-                                                onchange="myFunction('{{ $item->id }}')"
+                                                onchange="myFunctionf('{{ $item->id }}')"
                                                 style="background:{{ get_color_new($item->status) }} "
                                                 data-id="{{ $item->id }}">
                                                 <option value="1" class="btn  btn-success"
@@ -136,7 +136,8 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script>
-         function myFunction(id) {
+         function myFunctionf(id) {
+
             let status = $('#worker_status_' + id).val();
             let booked_id = id;
             $.ajax({
