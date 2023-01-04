@@ -22,12 +22,7 @@
                     disabled="disabled">3</a>
                 <p>الخطوة الثالثة</p>
             </div>
-            <div class="multi-wizard-step">
-                <a href="#step-4" type="button"
-                    class="btn {{ $currentStep != 4 ? 'btn-default' : 'btn-primary' }}"
-                    disabled="disabled">4</a>
-                <p>الخطوة الرابعة</p>
-            </div>
+        
         </div>
     </div>
     <div class="row setup-content {{ $currentStep != 1 ? 'display-none' : '' }}" id="step-1">
