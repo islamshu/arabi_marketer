@@ -12,11 +12,13 @@ use App\Models\Video;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 use App\Jobs\UploadVideo;
+use App\Models\Specialty;
 use App\Models\User;
 use App\Models\VideoCateogry;
 use App\Models\VideoKeyword;
 use App\Notifications\GeneralNotification;
 use Notification;
+use Socialite;
 use Validator;
 use Youtube;
 
@@ -24,7 +26,7 @@ class VideoController extends BaseController
 {
     public function video_category()
     {
-        $category = Category::ofType('video')->orderBy('id', 'asc')->get();
+        $category = Specialty::orderBy('id', 'asc')->get();
         $userRes = KeywordResource::collection($category);
         return $this->sendResponse($userRes, 'جميع التصنيفات الخاصة بالفيديوهات');
     }
