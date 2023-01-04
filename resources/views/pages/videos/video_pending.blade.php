@@ -54,11 +54,11 @@
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="kt_tab_pane_4" role="tabpanel">
                     <div>
-                        <table id="eexdampleee"  class="display example" style="width:100%">
+                        <table id="example" class="display" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>الصورة </th>
-
+                    
                                     <th>عنوان الفيديو</th>
                                     <th>اضيف بواسطة</th>
                                     <th>رابط على اليوتيوب</th>
@@ -70,19 +70,29 @@
                             <tbody>
                                 @foreach ($videos as $item)
                                 <tr>
-                                 <td><img src="{{ asset('public/uploads/'.$item->image) }}" width="50" height="50" alt=""></td>
+                                    <td><img src="{{ asset('public/uploads/'.$item->image) }}" width="80" height="50" alt=""></td>
+                    
                                  <td>{{ $item->title }}</td>
                                  <th><a href="{{ route('marketer.show',$item->user->id) }}">{{ $item->user->name }}</a></th>
-                                 <td>{{ date('Y-m-d', strtotime($item->created_at)); }}</td>
-                               <td>  {{ $item->user->type }}</td>
-                                 <td>
-                                    <input type="checkbox" data-id="{{ $item->id }}" name="status" class="js-switch allsseeeee"
-                                        {{ $item->status == 1 ? 'checked' : '' }}>
-                                </td>
-                                 <td>
-                                    <a href="{{ route('videos.show', $item->id) }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
                     
-                                    {{-- <a href="{{ route('services.edit', $item->id) }}" class="btn btn-info"><i class="fa fa-edit"></i></a> --}}
+                                 <th><a href="{{ $item->url }}" target="_blacnk"><i class="fa fa-eye"></i></a></th>
+                                 <td>{{ date('Y-m-d', strtotime($item->created_at)); }}</td>
+                                 <td>
+                                    <select class="target btn" book_id="{{ $item->id }}" class="worker_status" id="worker_status_{{ $item->id }}" onchange="myFunction('{{ $item->id }}')"
+                                        style="background:{{ get_color_new($item->status) }} "
+                                        data-id="{{ $item->id }}">
+                                        <option value="1" class="btn  btn-success"
+                                            @if ($item->status == 1) selected @endif>
+                                            @lang('مقبول')</option>
+                                        <option value="0" class="btn btn-dark"
+                                            @if ($item->status == 0) selected @endif>@lang('تحت المراجعة')
+                                        </option>
+                                        <option value="2" class="btn btn-danger "
+                                            @if ($item->status == 2) selected @endif>@lang('رفض')</option>
+                                    </select>
+                                 </td>
+                                 <td>
+                                    <a href="{{ route('videos.edit', $item->id) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
                                     <form style="display: inline"
                                         action="{{ route('videos.destroy', $item->id) }}"
                                         method="post">
@@ -94,7 +104,7 @@
                                 </tr>
                                     
                                 @endforeach
-                            </tfoot>
+                            </tbody>
                         </table>
                     </div>
                 </div>
