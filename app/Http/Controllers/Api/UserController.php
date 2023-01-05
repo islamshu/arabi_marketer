@@ -394,8 +394,8 @@ class UserController extends BaseController
             $date_send = [
                 'id' => $user->id,
                 'name' => $user->name,
-                'url' => '',
-                'title' => 'سيتم مراجعة طلبك خلال ٢٤ ساعة',
+                'url' => 'https://sub.arabicreators.com/marketerProfile',
+                'title' => 'سيتم مراجعة طلب ان تكون صانع محتوى خلال ٢٤ ساعة',
                 'time' => $user->updated_at
             ];
             $user->notify(new GeneralNotification($date_send));
