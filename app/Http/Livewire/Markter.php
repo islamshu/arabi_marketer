@@ -12,6 +12,7 @@ use Carbon\Carbon;
 use Hash;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Str;
 
 class Markter extends Component
 {
@@ -133,6 +134,11 @@ class Markter extends Component
     /**
      * Write code on Method
      */
+    
+     public function generatePassword()
+     {
+         $this->password = Str::random(8);
+     }
     public function clearForm()
     {
         $this->first_name = '';

@@ -70,6 +70,10 @@
                 <input type="password" wire:model="password" class="form-control" id="teamPrice" />
                 @error('password') <span class="error">{{ $message }}</span> @enderror
             </div>
+            <button wire:click="generatePassword">Generate Password</button>
+            <p>{{ $password }}</p>
+
+
             <button class="btn btn-primary nextBtn btn-lg pull-right mt-3" wire:click="firstStepSubmit"
                 type="button">التالي</button>
         </div>
