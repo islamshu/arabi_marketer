@@ -36,7 +36,7 @@ class Service extends Model
     }
     public function extra()
     {
-        return $this->hasMany(ExtraService::class, 'service_id')->orderBy('id','desc');;
+        return $this->hasMany(ExtraService::class, 'service_id');
     }
     /**
      * Get the user that owns the Service
