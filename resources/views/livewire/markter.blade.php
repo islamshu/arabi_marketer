@@ -55,9 +55,11 @@
             </div>
             <div class="form-group col-md-6 mt-6">
                 <label for="description"> الدولة </label><br />
-                <select class="form-control" id="select2" wire:model="country" >
+               
+                <select class="form-control" id="select2" wire:model.defer="country" id="country"  >
 
-                         
+                    <option value="null" disabled>{{ __('يرجى الاختيار') }}</option>
+
                     @foreach($countries as $perm)
                         <option value={{$perm->id}}>{{ $perm->title }}</option>
                     @endforeach
@@ -94,6 +96,8 @@
             <h3>  الخطوة الثانية</h3>
             <div class="form-group col-md-6 mt-6">
                 <label for="description"> مجالات صناع المحتوى</label><br />
+                
+
                 <select class="form-control" id="select2" wire:model="selection" multiple>
 
                          
