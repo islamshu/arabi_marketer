@@ -34,7 +34,7 @@
                 @error('image') <span class="error">{{ $message }}</span> @enderror
             </div>
             <div class="form-group col-md-6 mt-6">
-                <label for="title"> المنشن:</label>
+                <label for="title"> اسم المستخدم:</label>
                 <input type="text" wire:model="mention" class="form-control" id="taskTitle">
                 @error('mention') <span class="error">{{ $message }}</span> @enderror
             </div>
@@ -43,11 +43,11 @@
                 <input type="text" wire:model="first_name" class="form-control" id="teamPrice" />
                 @error('first_name') <span class="error">{{ $message }}</span> @enderror
             </div>
-            <div class="form-group col-md-6 mt-6">
+            {{-- <div class="form-group col-md-6 mt-6">
                 <label for="description"> الاسم الثاني:</label>
                 <input type="text" wire:model="last_name" class="form-control" id="teamPrice" />
                 @error('price') <span class="error">{{ $message }}</span> @enderror
-            </div>
+            </div> --}}
             <div class="form-group col-md-6 mt-6">
                 <label for="description">البريد الاكتروني:</label>
                 <input type="email" wire:model="email" class="form-control" id="teamPrice" />
@@ -145,6 +145,13 @@
                     <input type="text" wire:model="snapchat" class="form-control" id="teamPrice" />
                     @error('snapchat') <span class="error">{{ $message }}</span> @enderror
                 </div>
+                <div class="form-group col-md-6 mt-6">
+                    <label for="description">عدد المتابعين   :</label>
+                    <input type="text" wire:model="followers_number" class="form-control" id="teamPrice" />
+                    @error('followers_number') <span class="error">{{ $message }}</span> @enderror
+                </div>
+
+                
               
                     
             

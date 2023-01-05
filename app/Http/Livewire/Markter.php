@@ -45,7 +45,7 @@ class Markter extends Component
             'mention' => 'required|unique:users,mention',
             'email' => 'email|required|unique:users,email',
             'first_name' => 'required',
-            'last_name' => 'required',
+            // 'last_name' => 'required',
             'country'=>'required',
             'password'=>'required',
             'confirm_password'=>'required|same:password',
@@ -101,6 +101,7 @@ class Markter extends Component
         $soical->twitter = $this->twitter;
         $soical->pinterest = $this->pinterest;
         $soical->snapchat = $this->snapchat;
+        $soical->followers_number = $this->followers_number;
 
         $soical->save();
    
