@@ -117,7 +117,7 @@
                                          --}}
 
                                     
-                                <form style="display: inline" action="{{ route('creators.destroy', $item->id) }}"
+                                <form style="display: inline" action="{{ route('delete_creators', $item->id) }}"
                                     method="post">
                                     @method('delete') @csrf
                                     <button type="submit" class="btn btn-danger delete-confirm"><i
@@ -149,6 +149,10 @@
     </div>
 
 </x-base-layout>
+
+@include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 
 
 
