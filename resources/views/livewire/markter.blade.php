@@ -81,8 +81,10 @@
             </div>
             
             <p> <span style="color: red">{{ $password }} {{ ' ' }}</span>   :  كلمة المرور المنشأة هي  </p>
+            <div class="form-group col-md-6 mt-6">
 
             <input type="checkbox" wire:model="required_change" wire:click="updateAgreementStatus">   الاجبار على تغير كلمة المرور
+            </div>
             <button class="btn btn-primary nextBtn btn-lg pull-right mt-3" wire:click="firstStepSubmit"
                 type="button">التالي</button>
         </div>
@@ -156,7 +158,7 @@
                     
             
                 <button class="btn btn-success btn-lg pull-right" wire:click="submitForm" type="button">حفظ</button>
-                <button class="btn btn-danger nextBtn btn-lg pull-right" type="button" wire:click="back(3)">رجوع</button>
+                <button class="btn btn-danger nextBtn btn-lg pull-right" type="button" wire:click="back(2)">رجوع</button>
         </div>
     </div>
   
