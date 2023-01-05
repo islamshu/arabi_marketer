@@ -23,7 +23,7 @@ class Markter extends Component
     public $selection=[];
     public $mention,$first_name,$last_name,$email,$password,$confirm_password, $price, $detail,$country,$pio, $status = 1;
     public $image;
-    public $required_change = 0;
+    public $required_change ;
     public $facebook,$instagram,$twitter,$pinterest,$snapchat,$linkedin,$website,$followers_number;
     public $successMsg = '';
   
@@ -54,6 +54,7 @@ class Markter extends Component
             'confirm_password'=>'required|same:password',
             'image'=>'required'
         ]);
+        dd($this->required_change);
 
  
         $this->currentStep = 2;
@@ -82,7 +83,7 @@ class Markter extends Component
         if($this->required_change == 0 ){
             $this->required_change = 1;
         }else{
-            $this->required_change=0;
+            $this->required_change =0;
         }
     }
   
