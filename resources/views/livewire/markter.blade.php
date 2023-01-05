@@ -65,7 +65,7 @@
                 
                 @error('country') <span class="error">{{ $message }}</span> @enderror
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 mt-6">
                 <button class="btn btn-info" wire:click="generatePassword">Generate Password</button>
             </div>
             <div class=" col-md-6 mt-6">
