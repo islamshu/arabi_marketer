@@ -70,11 +70,12 @@
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_7">خدمات المستقلين </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_77">خدمات المستقلين </a>
-                </li>
+               
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_6">اضف جديد</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_77">خدمات المعلقة </a>
                 </li>
                 
             </ul>
@@ -92,13 +93,15 @@
                     @include('pages.service._user')
 
                 </div>
-                <div class="tab-pane fade" id="kt_tab_pane_77" role="tabpanel">
-                    @include('pages.service._pending')
-                </div>
+               
                 
                 <div class="tab-pane fade" id="kt_tab_pane_6" role="tabpanel">
                     @include('pages.service._create')
                 </div>
+                <div class="tab-pane fade" id="kt_tab_pane_77" role="tabpanel">
+                    @include('pages.service._pending')
+                </div>
+
 
                 
               
