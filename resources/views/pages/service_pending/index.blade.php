@@ -47,13 +47,13 @@
                     <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_1"> الخدمات</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_2"> المقالات</a>
+                    <a class="nav-link " data-bs-toggle="tab" href="#kt_tab_pane_2"> المقالات</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_3"> المستخدمين</a>
+                    <a class="nav-link " data-bs-toggle="tab" href="#kt_tab_pane_3"> المستخدمين</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_4"> الفيديوهات</a>
+                    <a class="nav-link " data-bs-toggle="tab" href="#kt_tab_pane_4"> الفيديوهات</a>
                 </li>
             
             
