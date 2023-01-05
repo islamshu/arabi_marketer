@@ -114,14 +114,15 @@
                                 @endcan
                                 {{-- <a href="{{ route('services.edit', $item->id) }}" class="btn btn-info"><i
                                         class="fa fa-edit"></i></a>
+                                         --}}
 
                                     
-                                <form style="display: inline" action="{{ route('services.destroy', $item->id) }}"
+                                <form style="display: inline" action="{{ route('creators.destroy', $item->id) }}"
                                     method="post">
                                     @method('delete') @csrf
                                     <button type="submit" class="btn btn-danger delete-confirm"><i
                                             class="fa fa-trash"></i></button>
-                                </form> --}}
+                                </form>
                             </td>
                         </tr>
                     @endforeach

@@ -10,12 +10,13 @@ use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use Laravel\Passport\HasApiTokens;
 use League\OAuth1\Client\Server\Server;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasFactory, Notifiable;
     use SpatieLogsActivity;
-    use HasRoles,HasApiTokens;
+    use HasRoles,SoftDeletes,HasApiTokens;
 
     /**
      * The attributes that are mass assignable.

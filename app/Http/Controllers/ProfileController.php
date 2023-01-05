@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Alert;
 use App\Models\BookingConsultion;
 use App\Models\Consulting;
 use App\Models\Message;
@@ -144,8 +145,12 @@ class ProfileController extends Controller
     public function show_order($id){
         $order = Order::find($id);
         return view('pages.customers.order')->with('order',$order);
+    }
+    public function delete_creators($id){
+        $user = User::find($id)->delete();
+        Alert::warning('Success', 'Deleted successfully');
 
-    
+        return redirect()->back();
     }
 
     
