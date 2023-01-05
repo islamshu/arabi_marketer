@@ -65,12 +65,12 @@
                 
                 @error('country') <span class="error">{{ $message }}</span> @enderror
             </div>
-            <div class="col-md-4 mt-6">
-                <button class="btn btn-info" wire:click="generatePassword">Generate Password</button>
-            </div>
+           
             <div class=" col-md-6 mt-6">
                 <label for="description">كلمة المرور:</label>
                 <input type="password" wire:model="password" class="form-control" id="teamPrice" />
+                <button class="btn btn-info" wire:click="generatePassword">Generate Password</button>
+
                 @error('password') <span class="error">{{ $message }}</span> @enderror
             </div>
             
