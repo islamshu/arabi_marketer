@@ -29,7 +29,7 @@
                 <div class="col-md-12">
             <h3>الخطوة الاولى</h3>
             <div class="form-group col-md-6 mt-6">
-                <label for="title"> الصورة الشخصية:</label>
+                <label for="title">(150 * 150) الصورة الشخصية:</label>
                 <input type="file" wire:model="image" class="form-control" id="taskTitle">
                 @error('image') <span class="error">{{ $message }}</span> @enderror
             </div>
