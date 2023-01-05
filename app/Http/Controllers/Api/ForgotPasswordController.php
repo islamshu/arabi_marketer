@@ -65,7 +65,8 @@ class ForgotPasswordController extends BaseController
         $email = $code->email;
         $user = User::where('email', $email)->first();
         $user->update([
-            'password' => Hash::make($request->password)
+            'password' => Hash::make($request->password),
+            'required_change'=>0
         ]);
         $code->delete();
         return $this->sendResponse('reset', "Password has been successfully changed");

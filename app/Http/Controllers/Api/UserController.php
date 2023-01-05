@@ -178,6 +178,7 @@ class UserController extends BaseController
         }
         if (Hash::check($request->old_password, $user->password)) {
                $user->password= Hash::make($request->new_password);
+               $user->required_change= 0;
                $user->save();
          }else{
             return $this->sendError('كلمة المرور الحالية خاطئة');
