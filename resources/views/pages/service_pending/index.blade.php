@@ -38,7 +38,7 @@
                                     fill="currentColor"></path>
                             </svg>
                         </span>
-                        <!--end::Svg Icon-->الخدمات
+                        <!--end::Svg Icon-->التطبيقات المعلقة
                     </a>
 
                 </li>
@@ -49,16 +49,16 @@
 
             <ul class="nav nav-tabs nav-line-tabs nav-line-tabs-2x mb-5 fs-6">
                 <li class="nav-item">
-                    <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_1"> الخدمات</a>
+                    <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_1"> الخدمات ({{ $services->count() }})</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " data-bs-toggle="tab" href="#kt_tab_pane_2"> المقالات</a>
+                    <a class="nav-link " data-bs-toggle="tab" href="#kt_tab_pane_2"> المقالات  ({{ $blogs->count() }})</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " data-bs-toggle="tab" href="#kt_tab_pane_3"> المستخدمين</a>
+                    <a class="nav-link " data-bs-toggle="tab" href="#kt_tab_pane_3"> المستخدمين ({{ $users->count() }})</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " data-bs-toggle="tab" href="#kt_tab_pane_4"> الفيديوهات</a>
+                    <a class="nav-link " data-bs-toggle="tab" href="#kt_tab_pane_4"> الفيديوهات  ({{ $videos->count() }})</a>
                 </li>
 
 
