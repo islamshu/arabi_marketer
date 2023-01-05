@@ -12,7 +12,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($services as $item)
+        @foreach (App\Models\Service::where('status','!=',1)->orderby('id','desc')->get() as $item)
             <tr>
                 <td><img src="{{ asset('public/uploads/' . $item->image) }}" width="50"
                         height="50" alt=""></td>
