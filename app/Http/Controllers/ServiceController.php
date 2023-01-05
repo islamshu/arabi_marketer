@@ -14,8 +14,11 @@ use DB;
 use Illuminate\Http\Request;
 use Redirect;
 Use Alert;
+use App\Models\Blog;
 use App\Models\ExtraService;
 use App\Models\Order;
+use App\Models\User;
+use App\Models\Video;
 
 class ServiceController extends Controller
 {
@@ -58,7 +61,13 @@ class ServiceController extends Controller
     }
     public function show_pending(){
         $services  =Service::where('status',0)->orderby('id','desc')->get();
+        $videos  =Video::where('status','!=',1)->orderby('id','desc')->get();
+        $users = User::has('markter_order')->get();
+        $blogs = Blog::where('status',0)->get();
         return view('pages.service_pending.index')
+        ->with('users', $users)
+        ->with('blogs', $blogs)
+        ->with('videos', $videos)
         ->with('services', $services);
     }
     public function index()
