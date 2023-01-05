@@ -71,7 +71,7 @@
                 @error('password') <span class="error">{{ $message }}</span> @enderror
             </div>
             <div class="col-md-4">
-                <button wire:click="generatePassword">Generate Password</button>
+                <button class="btn btn-info" wire:click="generatePassword">Generate Password</button>
             </div>
             <div class="form-group col-md-6 mt-6">
                 <label for="description">تاكيد كلمة المرور:</label>
