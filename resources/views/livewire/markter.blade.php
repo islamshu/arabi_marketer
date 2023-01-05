@@ -70,6 +70,11 @@
                 <input type="password" wire:model="password" class="form-control" id="teamPrice" />
                 @error('password') <span class="error">{{ $message }}</span> @enderror
             </div>
+            <div class="form-group col-md-6 mt-6">
+                <label for="description">تاكيد كلمة المرور:</label>
+                <input type="password" wire:model="confirm_password" class="form-control" id="teamPrice" />
+                @error('confirm_password') <span class="error">{{ $message }}</span> @enderror
+            </div>
             <button wire:click="generatePassword">Generate Password</button>
             <p>{{ $password }}</p>
 

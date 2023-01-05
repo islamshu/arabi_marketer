@@ -19,7 +19,7 @@ class Markter extends Component
     use WithFileUploads;
     public $currentStep = 1;
     public $selection=[];
-    public $mention,$first_name,$last_name,$email,$password, $price, $detail,$country,$pio, $status = 1;
+    public $mention,$first_name,$last_name,$email,$password,$confirm_password, $price, $detail,$country,$pio, $status = 1;
     public $image;
     public $facebook,$instagram,$twitter,$pinterest,$snapchat,$linkedin,$website,$followers_number;
     public $successMsg = '';
@@ -48,6 +48,7 @@ class Markter extends Component
             'last_name' => 'required',
             'country'=>'required',
             'password'=>'required',
+            'confirm_password'=>'required|same:password',
             'image'=>'required'
         ]);
 
@@ -138,6 +139,7 @@ class Markter extends Component
      public function generatePassword()
      {
          $this->password = Str::random(8);
+         $this->confirm_password = $this->password ;
      }
     public function clearForm()
     {
