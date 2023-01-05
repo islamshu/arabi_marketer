@@ -23,7 +23,7 @@ class Markter extends Component
     public $selection=[];
     public $mention,$first_name,$last_name,$email,$password,$confirm_password, $price, $detail,$country,$pio, $status = 1;
     public $image;
-    public $required_change = 0;
+    public $required_change = false;
     public $facebook,$instagram,$twitter,$pinterest,$snapchat,$linkedin,$website,$followers_number;
     public $successMsg = '';
   
@@ -79,7 +79,7 @@ class Markter extends Component
     }
     public function updateAgreementStatus()
     {
-       $this->required_change = 1;
+       $this->required_change =!$this->agreedToTerms;
     }
   
     /**
