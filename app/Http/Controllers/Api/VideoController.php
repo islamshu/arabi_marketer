@@ -44,7 +44,7 @@ class VideoController extends BaseController
     }
     public function get_all()
     {
-        $service = Video::orderby('id', 'desc')->paginate(9);
+        $service = Video::orderby('id', 'desc')->where('status',1)->paginate(9);
         $res = VideoResource::collection($service)->response()->getData(true);
         return $this->sendResponse($res, 'جميع الفيديوهات  ');
     }
@@ -222,7 +222,7 @@ class VideoController extends BaseController
     public function serach(Request $request){
         $title = $request->title;
         $query = Video::query();
-        // $query->where('status',1);
+        $query->where('status',1);
         $query->when($request->title != null, function ($q) use ($title) {
             return $q->where('title','like','%'.$title.'%');
         });
@@ -264,7 +264,7 @@ class VideoController extends BaseController
         foreach ($blog->category as $cat) {
             array_push($category_id, $cat->id);
         }
-        $blogs =   Video::has('category')->with(['category' => function ($query) use ($category_id) {
+        $blogs =   Video::has('category')->where('status',1)->with(['category' => function ($query) use ($category_id) {
             $query->whereIn('category_id', $category_id);
         }])->where('id', '!=', $id)->orderby('id', 'desc')->take(5)->get();
         $res = VideoResource::collection($blogs);
