@@ -44,6 +44,8 @@ class Markter extends Component
      */
     public function firstStepSubmit()
     {
+        dd($this->required_change);
+
         $validatedData = $this->validate([
             'mention' => 'required|unique:users,mention',
             'email' => 'email|required|unique:users,email',
@@ -54,7 +56,6 @@ class Markter extends Component
             'confirm_password'=>'required|same:password',
             'image'=>'required'
         ]);
-        dd($this->required_change);
 
  
         $this->currentStep = 2;
