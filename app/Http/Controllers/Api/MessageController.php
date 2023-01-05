@@ -34,7 +34,7 @@ class MessageController extends BaseController
 
     }
     public function message_betwwen_2($id1,$id2){
-        $messages =Message::where('sender_id',$id1)->Where('receiver_id',$id2)->orwhere('sender_id',$id2)->where('receiver_id',$id1)->orderby('id','desc')->get();
+        $messages =Message::where('sender_id',$id1)->Where('receiver_id',$id2)->orwhere('sender_id',$id2)->where('receiver_id',$id1)->get();
         $res = MessageResource::collection($messages);
         return $this->sendResponse($res,'all message');
     }
