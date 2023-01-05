@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Mail\WelcomEmail;
 use App\Models\Category;
 use App\Models\Country;
 use App\Models\MarkterSoical;
@@ -12,6 +13,7 @@ use Carbon\Carbon;
 use Hash;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Mail;
 use Str;
 
 class Markter extends Component
@@ -104,6 +106,7 @@ class Markter extends Component
         $soical->followers_number = $this->followers_number;
 
         $soical->save();
+
    
      
 
@@ -117,8 +120,10 @@ class Markter extends Component
         
 
      
-  
+            Mail::to($this->email)->send(new WelcomEmail($this->name,$this->email,$this->password));
+
         $this->successMsg = 'تم انشاء الصانع محتوى بنجاح';
+        
   
         $this->clearForm();
   
