@@ -120,7 +120,7 @@ class Markter extends Component
         
 
      
-            Mail::to($this->email)->send(new WelcomEmail($this->name,$this->email,$this->password));
+            Mail::to($this->email)->send(new WelcomEmail($this->first_name,$this->email,$this->password));
 
         $this->successMsg = 'تم انشاء الصانع محتوى بنجاح';
         
