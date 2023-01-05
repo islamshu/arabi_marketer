@@ -110,7 +110,7 @@
                 </div>
                 <div class="tab-pane fade " id="kt_tab_pane_2" role="tabpanel">
                     <div>
-                        <table class="display example_blog" id="example_blog" style="width:100%">
+                        <table class="display example" id="example_blog" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>صورة المقال</th>
@@ -150,7 +150,7 @@
                 </div>
                 <div class="tab-pane fade " id="kt_tab_pane_3" role="tabpanel">
                     <div>
-                        <table id="example_user" class="display" style="width:100%">
+                        <table id="example_user" class="display example" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>صورة صناع المحتوى </th>
@@ -200,7 +200,7 @@
                 </div>
                 <div class="tab-pane fade " id="kt_tab_pane_4" role="tabpanel">
                     <div>
-                        <table id="example_video" class="display" style="width:100%">
+                        <table id="example_video" class="display example" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>الصورة </th>
