@@ -122,7 +122,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($bending_blog as $item)
+                                @foreach ($blogs as $item)
                                     <tr>
                                         <td><img src="{{ asset('public/uploads/' . $item->image_blog->image) }}" width="50" height="50"
                                                 alt=""></td>
