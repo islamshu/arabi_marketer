@@ -71,6 +71,9 @@
                     <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_7">خدمات المستقلين </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_77">خدمات المستقلين </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_6">اضف جديد</a>
                 </li>
                 
@@ -89,10 +92,15 @@
                     @include('pages.service._user')
 
                 </div>
+                <div class="tab-pane fade" id="kt_tab_pane_77" role="tabpanel">
+                    @include('pages.service._pending')
+                </div>
                 
                 <div class="tab-pane fade" id="kt_tab_pane_6" role="tabpanel">
                     @include('pages.service._create')
                 </div>
+
+                
               
             </div>
             <!--end:::Tabs-->
@@ -514,6 +522,26 @@
                         });
                     });
                 });
+                $(document).ready(function() {
+                    $("#example_service").on("change", ".testswitch", function() {
+                        let status = $(this).prop('checked') === true ? 1 : 0;
+                        let userId = $(this).data('id');
+                        $.ajax({
+                            type: "GET",
+                            dataType: "json",
+                            url: '{{ route('service.update.status') }}',
+                            data: {
+                                'status': status,
+                                'serviceId': userId
+                            },
+                            success: function(data) {
+                                console.log(data.message);
+                            }
+                        });
+                    });
+                });
+
+                
                 $(document).ready(function() {
                     $("#eexdample").on("change", ".allssee", function() {
                         let status = $(this).prop('checked') === true ? 1 : 0;

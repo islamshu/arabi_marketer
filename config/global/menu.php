@@ -484,12 +484,12 @@ return array(
                         'permission' => ['read-service'],
                         'bullet'     => '<span class="bullet bullet-dot"></span>'
                     ), 
-                    array(
-                        'title'      => 'Pending services',
-                        'path'       => 'show_pending',
-                        'permission' => ['read-service'],
-                        'bullet'     => '<span class="bullet bullet-dot"></span>'
-                    ), 
+                    // array(
+                    //     'title'      => 'Pending services',
+                    //     'path'       => 'show_pending',
+                    //     'permission' => ['read-service'],
+                    //     'bullet'     => '<span class="bullet bullet-dot"></span>'
+                    // ), 
                     array(
                         'title'      => 'Main Category',
                         'path'       => 'specialtys',
@@ -507,54 +507,59 @@ return array(
                   
             ),
         ),
-        array(
-            'title'      => 'Pending',
-            'icon'       => array(
-                'svg'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen005.svg", "svg-icon-2"),
-                'font' => '<i class="bi bi-layers fs-3"></i>',
-            ),
-            'classes'    => array('item' => 'menu-accordion'),
-            'attributes' => array(
-                "data-kt-menu-trigger" => "click",
-            ),
-            'sub'        => array(
-                'class' => 'menu-sub-accordion menu-active-bg',
-                'items' => array(
-                    array(
-                        'title'      => 'Service',
-                        'path'       => 'show_pending',
-                        'permission' => ['read-service'],
-                        'bullet'     => '<span class="bullet bullet-dot"></span>'
-                    ), 
-                    array(
-                        'title'      => 'Blog',
-                        'path'       => 'blog_pending',
-                        'permission' => ['read-blog'],
-                        'bullet'     => '<span class="bullet bullet-dot"></span>'
-                    ), 
-                    array(
-                        'title'      => 'Creator',
-                        'path'       => 'creator_pending',
-                        'permission' => ['read-marketers'],
-                        'bullet'     => '<span class="bullet bullet-dot"></span>'
-                    ),
-                    array(
-                        'title'      => 'Video',
-                        'path'       => 'video_pending',
-                        'permission' => ['read-videos'],
-                        'bullet'     => '<span class="bullet bullet-dot"></span>'
-                    ), 
+        // array(
+        //     'title'      => 'Pending',
+        //     'icon'       => array(
+        //         'svg'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen005.svg", "svg-icon-2"),
+        //         'font' => '<i class="bi bi-layers fs-3"></i>',
+        //     ),
+        //     'classes'    => array('item' => 'menu-accordion'),
+        //     'attributes' => array(
+        //         "data-kt-menu-trigger" => "click",
+        //     ),
+        //     'sub'        => array(
+        //         'class' => 'menu-sub-accordion menu-active-bg',
+        //         'items' => array(
+        //             array(
+        //                 'title'      => 'Service',
+        //                 'path'       => 'show_pending',
+        //                 'permission' => ['read-service'],
+        //                 'bullet'     => '<span class="bullet bullet-dot"></span>'
+        //             ), 
+        //             array(
+        //                 'title'      => 'Blog',
+        //                 'path'       => 'blog_pending',
+        //                 'permission' => ['read-blog'],
+        //                 'bullet'     => '<span class="bullet bullet-dot"></span>'
+        //             ), 
+        //             array(
+        //                 'title'      => 'Creator',
+        //                 'path'       => 'creator_pending',
+        //                 'permission' => ['read-marketers'],
+        //                 'bullet'     => '<span class="bullet bullet-dot"></span>'
+        //             ),
+        //             array(
+        //                 'title'      => 'Video',
+        //                 'path'       => 'video_pending',
+        //                 'permission' => ['read-videos'],
+        //                 'bullet'     => '<span class="bullet bullet-dot"></span>'
+        //             ), 
 
                     
 
                     
               
                                 
-                ),   
+        //         ),   
                   
-            ),
+        //     ),
+        // ),
+        array(
+            'title' => 'Pending',
+            'path'  => 'show_pending',
+
+            'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen018.svg", "svg-icon-2"),
         ),
-      
         array(
             'title' => 'Tickets',
             'path'  => 'tickets',
@@ -562,6 +567,7 @@ return array(
 
             'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen018.svg", "svg-icon-2"),
         ),
+        
         array(
             'title' => 'Blogs',
             'path'  => 'blogs',
