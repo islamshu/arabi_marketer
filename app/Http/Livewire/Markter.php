@@ -44,7 +44,6 @@ class Markter extends Component
      */
     public function firstStepSubmit()
     {
-        dd($this->required_change);
 
         $validatedData = $this->validate([
             'mention' => 'required|unique:users,mention',
