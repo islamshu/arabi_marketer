@@ -37,6 +37,7 @@ class UserInOtherResourse extends JsonResource
             'last_name' => $this->last_name,
             'message'=>$this->message,
             'cover' => $this->cover == null ? asset('public/uploads/cover_profile.jpg') : asset('public/uploads/' . $this->cover),
+            'required_change_password'=>$this->required_change,
 
             'image' => $this->image == null ? asset('public/uploads/users/defult_user.png') : asset('public/uploads/' . $this->image),
         ];

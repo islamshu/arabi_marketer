@@ -27,6 +27,7 @@ class UserMainInfoResource extends JsonResource
             'type' => $this->type,
             'types' => $this->get_type($this),
             'message'=>$this->message,
+            'required_change_password'=>$this->required_change,
 
             'rss_url' => route('rss_feed', $this->id),
 

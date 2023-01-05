@@ -43,6 +43,7 @@ class UserResource extends JsonResource
             'rss_url' => route('rss_feed', $this->id),
             'answer_questione' =>  AnsweResourse::collection($this->answer),
             'message'=>$this->message,
+            'required_change_password'=>$this->required_change,
 
             'token' => $this->createToken('Personal Access Token')->accessToken,
         ];

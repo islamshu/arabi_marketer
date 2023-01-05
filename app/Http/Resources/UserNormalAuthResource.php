@@ -24,6 +24,7 @@ class UserNormalAuthResource extends JsonResource
             'mention' => $this->mention,
             'email' => $this->email,
             'email_verified'=>$this->email_verified_at == null ? 0 : 1,
+            'required_change_password'=>$this->required_change,
 
             // 'first_name'=>$this->first_name,
             // 'last_name'=>$this->last_name,

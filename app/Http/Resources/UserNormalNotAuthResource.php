@@ -26,6 +26,7 @@ class UserNormalNotAuthResource extends JsonResource
             'type' => $this->type,
             'email_verified'=>$this->email_verified_at == null ? 0 : 1,
             'message'=>$this->message,
+            'required_change_password'=>$this->required_change,
 
 
             // 'first_name'=>$this->first_name,
