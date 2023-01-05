@@ -79,7 +79,7 @@ class Markter extends Component
     }
     public function updateAgreementStatus()
     {
-       $this->required_change =!$this->agreedToTerms;
+       $this->required_change =!$this->required_change;
     }
   
     /**
