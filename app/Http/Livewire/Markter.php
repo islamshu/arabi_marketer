@@ -77,9 +77,13 @@ class Markter extends Component
   
         $this->currentStep = 4;
     }
-    public function updateAgreementStatus()
+    public function toggleAgreedToTerms()
     {
-       $this->required_change =!$this->required_change;
+        if($this->required_change == 0 ){
+            $this->required_change = 1;
+        }else{
+            $this->required_change=0;
+        }
     }
   
     /**
