@@ -23,6 +23,7 @@ class Markter extends Component
     public $selection=[];
     public $mention,$first_name,$last_name,$email,$password,$confirm_password, $price, $detail,$country,$pio, $status = 1;
     public $image;
+    public $required_change = 0;
     public $facebook,$instagram,$twitter,$pinterest,$snapchat,$linkedin,$website,$followers_number;
     public $successMsg = '';
   
@@ -76,6 +77,10 @@ class Markter extends Component
   
         $this->currentStep = 4;
     }
+    public function updateAgreementStatus()
+    {
+       $this->required_change = 1;
+    }
   
     /**
      * Write code on Method
@@ -96,6 +101,7 @@ class Markter extends Component
         $user->image = $this->image->store('users');
         $user->country_id = $this->country;
         $user->status = 2;
+        $user->required_change = $this->required_change;
         $user->save();
         $soical = new MarkterSoical();
         $soical->user_id = $user->id;

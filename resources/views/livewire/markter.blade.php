@@ -82,7 +82,7 @@
             
             <p> <span style="color: red">{{ $password }} {{ ' ' }}</span>   :  كلمة المرور المنشأة هي  </p>
 
-
+            <input type="checkbox" wire:model="required_change" wire:click="updateAgreementStatus">   الاجبار على تغير كلمة المرور
             <button class="btn btn-primary nextBtn btn-lg pull-right mt-3" wire:click="firstStepSubmit"
                 type="button">التالي</button>
         </div>
