@@ -168,6 +168,9 @@ class Markter extends Component
         $this->selection = [];
         $this->pio = '';
         $this->image = '';
+        $this->required_change ='';
+        $this->confirm_password ='';
+
 
         $this->password = '';
     }
