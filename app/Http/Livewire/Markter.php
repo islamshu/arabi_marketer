@@ -23,7 +23,7 @@ class Markter extends Component
     public $selection=[];
     public $mention,$first_name,$last_name,$email,$password,$confirm_password, $price, $detail,$country,$pio, $status = 1;
     public $image;
-    public $required_change = false;
+    public $required_change = 0;
     public $facebook,$instagram,$twitter,$pinterest,$snapchat,$linkedin,$website,$followers_number;
     public $successMsg = '';
   
