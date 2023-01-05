@@ -80,7 +80,7 @@
                 @error('confirm_password') <span class="error">{{ $message }}</span> @enderror
             </div>
             
-            <p> {{ $password }}  :  كلمة المرور المنشأة هي  </p>
+            <p> <span style="color: red">{{ $password }} {{ ' ' }}</span>   :  كلمة المرور المنشأة هي  </p>
 
 
             <button class="btn btn-primary nextBtn btn-lg pull-right mt-3" wire:click="firstStepSubmit"
