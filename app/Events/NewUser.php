@@ -6,6 +6,7 @@ use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Support\Str;
 class NewUser implements ShouldBroadcast
@@ -38,7 +39,7 @@ class NewUser implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-      return new Channel('pusher_internal:subscription_succeeded');
+      return new PrivateChannel('new-user');
         // return['new-user'];
     }
 }
