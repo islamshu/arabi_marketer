@@ -280,7 +280,7 @@ class HomeController extends BaseController
             'time' => 'test'
         ];
         $admins = User::where('type', 'Admin')->get();
-        Notification::send($admins, new GeneralNotification($date_send ));
+        Notification::send($admins, new GeneralNotification($date_send));
     }
     public function get_markter($id)
     {
