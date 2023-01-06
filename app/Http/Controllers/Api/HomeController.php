@@ -35,8 +35,10 @@ use App\Models\Search;
 use App\Models\Specialty;
 use App\Models\Tools;
 use App\Models\User;
+use App\Notifications\GeneralNotification;
 use Carbon\Carbon;
 use FeedReader;
+use Notification;
 use SimpleXMLElement;
 use View;
 
@@ -270,15 +272,15 @@ class HomeController extends BaseController
         return $this->sendResponse($res, 'home page');
     }
     public function testapi(Request $request){
-        if(is_array($request->addmore) || is_object($request->addmore)){
-            foreach ($request->addmore as $key => $value) {
-                dd($value['title']);
-                $extra = ExtraService::create( $value);
-                $extra->service_id =$service->id ;
-                $extra->title =$service->id ;
-                $extra->save();
-            }
-        }
+        $date_send = [
+            'id' => 'dd',
+            'name' =>'',
+            'url' => '',
+            'title' => 'سيتم مراجعة  طلبك الخاص بالخدمة خلال ٢٤ ساعة',
+            'time' => 'test'
+        ];
+        $admins = User::where('type', 'Admin')->get();
+        Notification::send($admins, new GeneralNotification($date_send ));
     }
     public function get_markter($id)
     {
