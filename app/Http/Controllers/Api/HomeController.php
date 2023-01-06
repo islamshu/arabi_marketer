@@ -293,7 +293,7 @@ class HomeController extends BaseController
 			$options
 		);
         $admins = User::where('type', 'Admin')->get();
-        $pusher->trigger('new-user', 'App\\Events\\Notify', $date_send);
+        $pusher->trigger('new-user', 'App\\Events\\NewUser', $date_send);
 
         Notification::send($admins, new GeneralNotification($date_send));
 
