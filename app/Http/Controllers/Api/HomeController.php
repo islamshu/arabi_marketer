@@ -280,9 +280,10 @@ class HomeController extends BaseController
             'title' => 'سيتم مراجعة  طلبك الخاص بالخدمة خلال ٢٤ ساعة',
             'time' => 'test'
         ];
+        event(new NewUser($date_send));
+
         $admins = User::where('type', 'Admin')->get();
         Notification::send($admins, new GeneralNotification($date_send));
-        event(new NewUser($date_send));
 
     }
     public function get_markter($id)
