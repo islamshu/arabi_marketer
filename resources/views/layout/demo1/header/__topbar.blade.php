@@ -234,7 +234,7 @@
                     <li class="scrollable-container">
                         @forelse  ($notifications as $item)
 
-                        <a href="{{ route('show_notify',$item->id) }}" >
+                        <a href="" >
                             <span class="table-img msg-user">
                                 <img src="{{ asset('uploads/user/deflut.png') }}" alt="">
                             </span>
