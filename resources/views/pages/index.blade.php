@@ -96,7 +96,7 @@
     var notifications = notificationsWrapper.find('li.scrollable-container');
 
     // Subscribe to the channel we specified in our Laravel Event
-    var channel = pusher.subscribe('new-user');
+    var channel = pusher.subscribe('pusher_internal:subscription_succeeded');
     // Bind a function to a Event (the full Laravel class)
     channel.bind('App\\Events\\NewUser', function(data) {
         alert('dd');

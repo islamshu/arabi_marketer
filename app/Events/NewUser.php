@@ -38,7 +38,7 @@ class NewUser implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-      return new Channel('new-user');
+      return new Channel('pusher_internal:subscription_succeeded');
         // return['new-user'];
     }
 }
