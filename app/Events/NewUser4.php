@@ -3,17 +3,22 @@
 namespace App\Events;
 
 use Illuminate\Broadcasting\Channel;
-use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Broadcasting\PresenceChannel;
-use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
-
-class NewUser
+use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Support\Str;
+class NewUser implements ShouldBroadcast
 {
+    
+
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    /**
+     * Create a new event instance.
+     *
+     * @return void
+     */
     public $name;
     public $title;
     public $time;
@@ -25,6 +30,7 @@ class NewUser
         $this->title = $data['title'];
         $this->url = $data['url'];
         $this->time = $data['time'];
+
     }
 
     /**
@@ -34,6 +40,7 @@ class NewUser
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('new-user');
+    //   return new Channel('new-user');
+        return['new-user'];
     }
 }
