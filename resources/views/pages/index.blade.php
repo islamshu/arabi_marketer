@@ -99,6 +99,7 @@
     var channel = pusher.subscribe('new-user');
     // Bind a function to a Event (the full Laravel class)
     channel.bind('App\\Events\\NewUser', function(data) {
+        alert('dd');
         var existingNotifications = notifications.html();
 
         var newNotificationHtml = `<a href="` + data.url + `"><span class="table-img msg-user">
