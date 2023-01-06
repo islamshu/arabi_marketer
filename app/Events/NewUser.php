@@ -17,14 +17,18 @@ class NewUser implements ShouldBroadcast
      *
      * @return void
      */
-    public $user_id;
+    public $name;
     public $title;
+    public $time;
     public $url;
+
     public function __construct($data)
     {
-        $this->user_id = $data['user_id'];
+        $this->name = $data['name'];
         $this->title = $data['title'];
         $this->url = $data['url'];
+        $this->time = $data['time'];
+
     }
 
     /**
