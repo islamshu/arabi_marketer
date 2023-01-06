@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Events\NewUser;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\BlogResource;
 use App\Http\Resources\ConsultingResource;
@@ -281,6 +282,8 @@ class HomeController extends BaseController
         ];
         $admins = User::where('type', 'Admin')->get();
         Notification::send($admins, new GeneralNotification($date_send));
+        event(new NewUser($date_send));
+
     }
     public function get_markter($id)
     {
