@@ -518,6 +518,7 @@
 
     });
 </script>
+<script src="https://js.pusher.com/7.2/pusher.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
 </script>
@@ -526,6 +527,42 @@
 
 
 @yield('scripts')
+<script>
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('ecfcb8c328a3a23a2978', {
+        cluster: 'ap2'
+    });
+</script>
+<script>
+    var notificationsWrapper = $('.dropdown-notifications');
+    var notificationsToggle = notificationsWrapper.find('a[data-toggle]');
+    var notificationsCountElem = notificationsToggle.find('span[data-count]');
+    var notificationsCount = parseInt(notificationsCountElem.data('count'));
+    var notifications = notificationsWrapper.find('li.scrollable-container');
+
+    // Subscribe to the channel we specified in our Laravel Event
+    var channel = pusher.subscribe('new-user');
+    // Bind a function to a Event (the full Laravel class)
+    channel.bind('App\\Events\\NewUser', function(data) {
+        var existingNotifications = notifications.html();
+
+        var newNotificationHtml = `<a href="` + data.url + `"><span class="table-img msg-user">
+                                        <img src="` + `{{ asset('uploads/user/deflut.png') }}` + `" alt="">
+                                    </span><span class="menu-info"><span class="menu-title">` + data.title + `</span><span class="menu-desc">
+                                            <i class="material-icons"></i> 
+                                        </span>
+                                    </span>
+                                </a>`;
+        notifications.html(newNotificationHtml + existingNotifications);
+        notificationsCount += 1;
+        notificationsCountElem.attr('data-count', notificationsCount);
+        notificationsWrapper.find('.notif-count').text(notificationsCount);
+        notificationsWrapper.show();
+        $('.delll').empty();
+
+    });
+</script>
 <script>
     let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
 

@@ -38,6 +38,7 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         'cf150f72bd303a2ff07711c9a70f2d53' => __DIR__ . '/..' . '/google/apiclient/src/Google/autoload.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
+        '3109cb1a231dcd04bee1f9f620d46975' => __DIR__ . '/..' . '/paragonie/sodium_compat/autoload.php',
         '9475354b4ef53b0ad02aebf6d3246661' => __DIR__ . '/..' . '/anlutro/l4-settings/src/helpers.php',
         '4a1f389d6ce373bda9e57857d3b61c84' => __DIR__ . '/..' . '/barryvdh/laravel-debugbar/src/helpers.php',
         '6b34c85f7b1ad6faa15aa12109e030f2' => __DIR__ . '/..' . '/realrashid/sweet-alert/src/functions.php',
@@ -132,6 +133,7 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         ),
         'P' => 
         array (
+            'Pusher\\' => 7,
             'Psy\\' => 4,
             'Psr\\SimpleCache\\' => 16,
             'Psr\\Log\\' => 8,
@@ -473,6 +475,10 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         'Ramsey\\Collection\\' => 
         array (
             0 => __DIR__ . '/..' . '/ramsey/collection/src',
+        ),
+        'Pusher\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pusher/pusher-php-server/src',
         ),
         'Psy\\' => 
         array (
@@ -824,6 +830,7 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         'App\\Core\\Util' => __DIR__ . '/../..' . '/app/Core/Util.php',
         'App\\DataTables\\Logs\\AuditLogsDataTable' => __DIR__ . '/../..' . '/app/DataTables/Logs/AuditLogsDataTable.php',
         'App\\DataTables\\Logs\\SystemLogsDataTable' => __DIR__ . '/../..' . '/app/DataTables/Logs/SystemLogsDataTable.php',
+        'App\\Events\\NewUser' => __DIR__ . '/../..' . '/app/Events/NewUser.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\AboutPageController' => __DIR__ . '/../..' . '/app/Http/Controllers/AboutPageController.php',
         'App\\Http\\Controllers\\Account\\SettingsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Account/SettingsController.php',
@@ -968,6 +975,7 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         'App\\Jobs\\UploadVideo' => __DIR__ . '/../..' . '/app/Jobs/UploadVideo.php',
         'App\\Mail\\SendResetMail' => __DIR__ . '/../..' . '/app/Mail/SendResetMail.php',
         'App\\Mail\\VerifyEmail' => __DIR__ . '/../..' . '/app/Mail/VerifyEmail.php',
+        'App\\Mail\\WelcomEmail' => __DIR__ . '/../..' . '/app/Mail/WelcomEmail.php',
         'App\\Models\\About' => __DIR__ . '/../..' . '/app/Models/About.php',
         'App\\Models\\AboutPage' => __DIR__ . '/../..' . '/app/Models/AboutPage.php',
         'App\\Models\\Answer' => __DIR__ . '/../..' . '/app/Models/Answer.php',
@@ -5877,6 +5885,13 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         'Psy\\VersionUpdater\\GitHubChecker' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/GitHubChecker.php',
         'Psy\\VersionUpdater\\IntervalChecker' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/IntervalChecker.php',
         'Psy\\VersionUpdater\\NoopChecker' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/NoopChecker.php',
+        'Pusher\\ApiErrorException' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/ApiErrorException.php',
+        'Pusher\\Pusher' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/Pusher.php',
+        'Pusher\\PusherCrypto' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/PusherCrypto.php',
+        'Pusher\\PusherException' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/PusherException.php',
+        'Pusher\\PusherInstance' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/PusherInstance.php',
+        'Pusher\\PusherInterface' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/PusherInterface.php',
+        'Pusher\\Webhook' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/Webhook.php',
         'Ramsey\\Collection\\AbstractArray' => __DIR__ . '/..' . '/ramsey/collection/src/AbstractArray.php',
         'Ramsey\\Collection\\AbstractCollection' => __DIR__ . '/..' . '/ramsey/collection/src/AbstractCollection.php',
         'Ramsey\\Collection\\AbstractSet' => __DIR__ . '/..' . '/ramsey/collection/src/AbstractSet.php',
