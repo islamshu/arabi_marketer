@@ -305,6 +305,7 @@ class UserController extends BaseController
         ];
         $admins = User::where('type', 'Admin')->get();
         Notification::send($admins, new GeneralNotification($date));
+               send_notification($date);
 
         Mail::to($request->email)->send(new VerifyEmail($url));
       
@@ -403,6 +404,7 @@ class UserController extends BaseController
 
             $admins = User::where('type', 'Admin')->get();
             Notification::send($admins, new GeneralNotification($date));
+               send_notification($date);
 
             $res = new UserResource($user);
             return $this->sendResponse($res, 'تم ارسال طلبك للادارة');
@@ -604,6 +606,7 @@ class UserController extends BaseController
             ];
             $admins = User::where('type', 'Admin')->get();
             Notification::send($admins, new GeneralNotification($date));
+               send_notification($date);
             return $this->sendResponse('success', 'تم ارسال تذكير بنجاح');
 
         }else{

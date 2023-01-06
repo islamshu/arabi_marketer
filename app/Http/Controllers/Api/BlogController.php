@@ -247,6 +247,7 @@ class BlogController extends BaseController
         ];
         $admins = User::where('type','Admin')->get();
         Notification::send($admins, new GeneralNotification($date));
+               send_notification($date);
         $user = auth('api')->user();
         $date_send = [
             'id' => $user->id,

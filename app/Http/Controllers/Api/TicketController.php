@@ -92,6 +92,7 @@ class TicketController extends BaseController
         ];
         $admins = User::where('type','Admin')->get();
         Notification::send($admins, new GeneralNotification($date));
+               send_notification($date);
 
         $res = new TicketResourse($ticket);
         return $this->sendResponse($res,'تم الاضافة بنجاح');
