@@ -2,6 +2,7 @@
 
 use App\Models\GeneralInfo;
 use App\Models\User;
+use Pusher\Pusher;
 
 if (!function_exists('get_svg_icon')) {
     function get_svg_icon($path, $class = null, $svgClass = null)
@@ -135,6 +136,19 @@ if (!function_exists('theme')) {
     {
         return app(\App\Core\Adapters\Theme::class);
     }
+}
+function send_notification($data){
+    $options = array(
+        'cluster' => env('PUSHER_APP_CLUSTER'),
+        'encrypted' => true
+    );
+    $pusher = new Pusher(
+        env('PUSHER_APP_KEY'),
+        env('PUSHER_APP_SECRET'),
+        env('PUSHER_APP_ID'), 
+        $options
+    );
+    $pusher->trigger('new-user', 'App\\Events\\NewUser', $data);
 }
 function datatable_paginate($builder)
 {
@@ -278,4 +292,6 @@ if (!function_exists('preloadCss')) {
 
        return '';
     }
+
 }
+

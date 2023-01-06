@@ -282,20 +282,22 @@ class HomeController extends BaseController
             'time' => 'test'
         ];
         event(new NewUser($date_send));
-        $options = array(
-			'cluster' => env('PUSHER_APP_CLUSTER'),
-			'encrypted' => true
-		);
-        $pusher = new Pusher(
-			env('PUSHER_APP_KEY'),
-			env('PUSHER_APP_SECRET'),
-			env('PUSHER_APP_ID'), 
-			$options
-		);
+        // $options = array(
+		// 	'cluster' => env('PUSHER_APP_CLUSTER'),
+		// 	'encrypted' => true
+		// );
+        // $pusher = new Pusher(
+		// 	env('PUSHER_APP_KEY'),
+		// 	env('PUSHER_APP_SECRET'),
+		// 	env('PUSHER_APP_ID'), 
+		// 	$options
+		// );
         $admins = User::where('type', 'Admin')->get();
-        $pusher->trigger('new-user', 'App\\Events\\NewUser', $date_send);
+        // $pusher->trigger('new-user', 'App\\Events\\NewUser', $date_send);
 
         Notification::send($admins, new GeneralNotification($date_send));
+        send_notification($date_send);
+
 
     }
     public function get_markter($id)
