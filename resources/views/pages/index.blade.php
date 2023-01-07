@@ -140,20 +140,14 @@
         notificationsWrapper.find('.notif-count').text(notificationsCount);
         notificationsWrapper.show();
         $('.delll').empty();
-        $('#butoonaudionew').click();
+        const audioContainer = document.getElementById("audioContainer"); 
+
+        audioContainer.play(); 
 
 
     });
 </script>
-<script>
-    function play2() {
 
-        /* Audio link for notification */
-        var audio = new Audio("https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_700KB.mp3");
-        audio.muted = true;
-        audio.play();
-    }
-</script>
 <script>
     
 $("#selUser").keyup(function() {
