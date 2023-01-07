@@ -146,15 +146,21 @@
         notificationsWrapper.find('.notif-count').text(notificationsCount);
         notificationsWrapper.show();
         $('.delll').empty();
-        r = document.getElementsByClassName("audio-element-payment")[0];
-                r.muted = false; 
-                r.loop = true;
-                r.play();
+        playAudio();
+
 
         });
-        
 
+</script>
+<script>
+      function playAudio() {
+      var x = new Audio('https://cdn.pixabay.com/audio/2021/08/04/audio_12b0c7443c.mp3');
+      // Show loading animation.
+       x.play();
+       alert('test');
 
+    
+  }
 </script>
 
 
