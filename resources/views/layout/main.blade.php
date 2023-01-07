@@ -520,8 +520,11 @@
 </script>
 <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
 <button id="play-button"></button>
-<audio id="notification-sound" src="https://cdn.pixabay.com/audio/2021/08/04/audio_12b0c7443c.mp3"></audio>
 
+<audio controls="" muted id="notification-sound" class="audio-element-payment" style="position: absolute; z-index: -999; top: -500px;">
+    <source src="https://cdn.pixabay.com/audio/2021/08/04/audio_12b0c7443c.mp3">
+    <source src="https://cdn.pixabay.com/audio/2021/08/04/audio_12b0c7443c.mp3">
+</audio>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
 </script>
@@ -619,12 +622,11 @@
         notificationsWrapper.find('.notif-count').text(notificationsCount);
         notificationsWrapper.show();
         $('.delll').empty();
-        function soundNoti()
-    {
-        // appending HTML5 Audio Tag in HTML Body
-        $('.notifications_sounds').html(`<iframe width="10" height="10" src="https://www.youtube.com/embed/PkYRoWztD2c?&autoplay=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&playlist=PkYRoWztD2c"  frameborder="0" allow="accelerometer; allow="autoplay"; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`);
-        return;
-    }
+        r = document.getElementsByClassName("audio-element-payment")[0];
+                r.muted = false; 
+                r.loop = true;
+                r.play();
+
         });
 
 </script>
