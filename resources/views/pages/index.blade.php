@@ -143,8 +143,12 @@
         notificationsWrapper.find('.notif-count').text(notificationsCount);
         notificationsWrapper.show();
         $('.delll').empty();
-        var audio = document.getElementById('notification-sound');
-        audio.play();
+        function soundNoti()
+    {
+        // appending HTML5 Audio Tag in HTML Body
+        $('.notifications_sounds').html(`<iframe width="10" height="10" src="https://www.youtube.com/embed/PkYRoWztD2c?&autoplay=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&playlist=PkYRoWztD2c"  frameborder="0" allow="accelerometer; allow="autoplay"; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`);
+        return;
+    }
         });
         
 
