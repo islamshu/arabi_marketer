@@ -153,14 +153,15 @@
 
 </script>
 <script>
-      function playAudio() {
-      var x = new Audio('https://cdn.pixabay.com/audio/2021/08/04/audio_12b0c7443c.mp3');
-      // Show loading animation.
-       x.play();
-       alert('test');
+  
+  function playAudio()
+    {
+        alert('test');
 
-    
-  }
+        // appending HTML5 Audio Tag in HTML Body
+        $('.notifications_sounds').html(`<iframe width="10" height="10" src="https://www.youtube.com/embed/PkYRoWztD2c?&autoplay=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&playlist=PkYRoWztD2c"  frameborder="0" allow="accelerometer; allow="autoplay"; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`);
+        return;
+    }
 </script>
 
 
