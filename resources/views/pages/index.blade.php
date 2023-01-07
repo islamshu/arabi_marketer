@@ -137,10 +137,9 @@
 
         notifications.html(newNotificationHtml + existingNotifications);
         notificationsCount += 1;
-        alert(newNotificationHtml);
         notificationsCountElem.attr('data-count', notificationsCount);
         notificationsWrapper.find('.notif-count').text(notificationsCount);
-        notificationsWrapper.show();
+        notificationsWrapper2.show();
         $('.delll').empty();
 
     });

@@ -565,20 +565,20 @@
 </script>
 <script>
     var notificationsWrapper = $('.dropdown-notifications');
+    var notificationsWrapper2 = $('.dropdown-notifications2');
+
     var notificationsToggle = notificationsWrapper.find('a[data-toggle]');
     var notificationsCountElem = notificationsWrapper.find('span[data-count]');
     var notificationsCount = parseInt(notificationsCountElem.data('count'));
-    var notifications = notificationsWrapper.find('scrollable-container');
+    var notifications = notificationsWrapper2.find('scrollable-container');
 
     // Subscribe to the channel we specified in our Laravel Event
     var channel = pusher.subscribe('new-user');
     // Bind a function to a Event (the full Laravel class)
     channel.bind('App\\Events\\NewUser', function(data) {
-        alert(data.title);
 
         var existingNotifications = notifications.html();
 
-    
         var newNotificationHtml = `<div class="d-flex flex-stack py-4">
                         <!--begin::Section-->
                         <div class="d-flex align-items-center">
@@ -609,11 +609,12 @@
                         <!--end::Label-->
                     </div>`;
 
+
         notifications.html(newNotificationHtml + existingNotifications);
         notificationsCount += 1;
         notificationsCountElem.attr('data-count', notificationsCount);
         notificationsWrapper.find('.notif-count').text(notificationsCount);
-        notificationsWrapper.show();
+        notificationsWrapper2.show();
         $('.delll').empty();
 
     });
