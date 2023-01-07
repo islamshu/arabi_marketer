@@ -6,7 +6,7 @@
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    @yield('css')
+@yield('css')
 @livewireStyles
 
 <style>
@@ -595,7 +595,8 @@
 
                             <!--begin::Title-->
                             <div class="mb-0 me-2">
-                                <a href="` + data.url +`" class="fs-6 text-gray-800 text-hover-primary fw-bolder">` + data.title +`
+                                <a href="` + data.url + `" class="fs-6 text-gray-800 text-hover-primary fw-bolder">` +
+            data.title + `
                                     </a>
                                 {{-- <div class="text-gray-400 fs-7">يوجد لديك رسالة جديدة من </div> --}}
                             </div>
@@ -604,7 +605,7 @@
                         <!--end::Section-->
 
                         <!--begin::Label-->
-                        <span class="badge badge-light fs-8">` + data.time +`</span>
+                        <span class="badge badge-light fs-8">` + data.time + `</span>
                         <!--end::Label-->
                     </div>`;
 
@@ -615,9 +616,11 @@
         notificationsWrapper.find('.notif-count').text(notificationsCount);
         notificationsWrapper.show();
         $('.delll').empty();
-        var audio = document.getElementById('notification-sound');
-        audio.currentTime = 0; // reset audio to the start
-        audio.play();
+        document.getElementById('play-button').addEventListener('click', function() {
+            var audio = document.getElementById('notification-sound');
+            audio.currentTime = 0; // reset audio to the start
+            audio.play();
+        });
 
     });
 </script>
@@ -673,17 +676,16 @@
         });
 
     });
-    
 </script>
 <script>
-var allEditors = document.querySelectorAll('.editor');
-for (var i = 0; i < allEditors.length; ++i) {
-    ClassicEditor.create(allEditors[i]);
-}
-    
-        
+    var allEditors = document.querySelectorAll('.editor');
+    for (var i = 0; i < allEditors.length; ++i) {
+        ClassicEditor.create(allEditors[i]);
+    }
 
-        
+
+
+
     var input1 = document.querySelector("#kt_tagify_3");
     new Tagify(input1);
     var input2 = document.querySelector("#kt_tagify_44");

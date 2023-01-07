@@ -154,6 +154,8 @@
                
                 <div class="tab-pane fade show active " id="kt_topbar_notifications_1" role="tabpanel">
                     <!--begin::Items-->
+                    <button id="play-button">Play Sound</button>
+
                     <audio id="notification-sound" src="https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_700KB.mp3"></audio>
 
                  
