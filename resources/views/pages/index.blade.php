@@ -163,6 +163,10 @@
 
   <script>
      function myFunction() {
+         var audio = document.getElementById('notification-sound');
+        audio.currentTime = 0; // reset audio to the start
+         audio.play();
+
     alert('You clicked the button!');
   }
   </script>
