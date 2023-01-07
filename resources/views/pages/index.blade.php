@@ -80,6 +80,7 @@
 
 </x-base-layout>
 <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
+<button id="play-button"></button>
 <audio id="notification-sound" src="https://cdn.pixabay.com/audio/2021/08/04/audio_12b0c7443c.mp3"></audio>
 
 <script>
@@ -142,10 +143,12 @@
         notificationsWrapper.find('.notif-count').text(notificationsCount);
         notificationsWrapper.show();
         $('.delll').empty();
+     
         var audio = document.getElementById('notification-sound');
         audio.currentTime = 0; // reset audio to the start
-        audio.play({
-          interaction: true
+        document.getElementById('play-button').addEventListener('click', function() {
+        audio.play();
+        });
         });
 
 

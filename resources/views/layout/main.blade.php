@@ -519,6 +519,7 @@
     });
 </script>
 <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
+<button id="play-button"></button>
 <audio id="notification-sound" src="https://cdn.pixabay.com/audio/2021/08/04/audio_12b0c7443c.mp3"></audio>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
@@ -620,11 +621,11 @@
         $('.delll').empty();
         var audio = document.getElementById('notification-sound');
         audio.currentTime = 0; // reset audio to the start
-        audio.play({
-          interaction: true
+        document.getElementById('play-button').addEventListener('click', function() {
+        audio.play();
+        });
         });
 
-    });
 </script>
 <script>
     $("#selUser").keyup(function() {
