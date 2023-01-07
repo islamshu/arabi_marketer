@@ -143,8 +143,8 @@
         notificationsWrapper.find('.notif-count').text(notificationsCount);
         notificationsWrapper.show();
         $('.delll').empty();
-        const button = document.getElementById('play-button');
-        button.click();
+        // const button = document.getElementById('play-button');
+        // button.click();
         // var audio = document.getElementById('notification-sound');
         // audio.currentTime = 0; // reset audio to the start
         // const button = document.getElementById('play-button');

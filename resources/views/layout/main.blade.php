@@ -619,12 +619,12 @@
         notificationsWrapper.find('.notif-count').text(notificationsCount);
         notificationsWrapper.show();
         $('.delll').empty();
-        var audio = document.getElementById('notification-sound');
-        audio.currentTime = 0; // reset audio to the start
-        document.getElementById('play-button').addEventListener('click', function() {
-        audio.play();
-        });
-        });
+        // var audio = document.getElementById('notification-sound');
+        // audio.currentTime = 0; // reset audio to the start
+        // document.getElementById('play-button').addEventListener('click', function() {
+        // audio.play();
+        // });
+        // });
 
 </script>
 <script>
