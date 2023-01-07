@@ -47,7 +47,11 @@ use View;
 class HomeController extends BaseController
 {
 
+    public function top_search(){
+        $searchs = Search::orderby('count','desc')->take(5)->get();
+        return $this->sendResponse($searchs, 'top search');
 
+    }
     public function about(){
         $about_section = AboutPage::select('title', 'body')->first();
         $res['about'] = $about_section;

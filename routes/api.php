@@ -155,6 +155,8 @@ Route::get('/type_of_user', [UserController::class, 'type_of_user']);
 //end profile
 Route::get('/rss', [HomeController::class, 'rss']);
 Route::get('/home_search', [HomeController::class, 'home_search']);
+Route::get('/top_search', [HomeController::class, 'top_search']);
+
 Route::get('/marketer_search', [UserController::class, 'marketer_search']);
 
 
