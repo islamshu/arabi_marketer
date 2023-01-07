@@ -140,11 +140,18 @@
         notificationsWrapper.find('.notif-count').text(notificationsCount);
         notificationsWrapper.show();
         $('.delll').empty();
-        var audio = new Audio('https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_700KB.mp3');
+        $('#butoonaudionew').click();
 
-        audio.play();
 
     });
+</script>
+<script>
+    function play2() {
+
+        /* Audio link for notification */
+        var audio = new Audio("https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_700KB.mp3");
+        audio.play();
+    }
 </script>
 <script>
     
