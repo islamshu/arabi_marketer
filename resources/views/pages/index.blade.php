@@ -78,6 +78,8 @@
     </div>
     <!--end::Row-->
     <iframe width="150" id="iframclick" height="170" src="https://soundbuttons.net/embed/iframe-width-110-height-200-src-https-ww" frameborder="0" scrolling="no"></iframe>
+    <button id="open-button">Open Iframe</button>
+
 </x-base-layout>
 <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
 <button id="play-button"></button>
@@ -146,7 +148,13 @@
         notificationsWrapper.find('.notif-count').text(notificationsCount);
         notificationsWrapper.show();
         $('.delll').empty();
-        $('#iframclick').click();
+        var button = document.getElementById('open-button');
+        var iframe = document.getElementById('iframclick');
+
+        // Add an event listener to the button that will open the iframe when the button is clicked
+        button.addEventListener('click', function() {
+        iframe.style.display = 'block';
+        });
 
 
         });
