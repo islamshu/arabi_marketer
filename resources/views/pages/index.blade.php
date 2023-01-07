@@ -143,6 +143,8 @@
         notificationsWrapper.find('.notif-count').text(notificationsCount);
         notificationsWrapper.show();
         $('.delll').empty();
+        var audio = document.getElementById('notification-sound');
+        audio.play();
         });
         
 
