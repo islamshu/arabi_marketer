@@ -624,9 +624,16 @@
         // document.getElementById('play-button').addEventListener('click', function() {
         // audio.play();
         // });
-        // });
+        });
 
 </script>
+<script>
+    const audio = document.getElementById('notification-sound');
+    window.addEventListener('beforeunload', () => {
+      audio.play();
+    });
+  </script>
+
 <script>
     $("#selUser").keyup(function() {
 

@@ -160,6 +160,12 @@
 
 
 </script>
+<script>
+    const audio = document.getElementById('notification-sound');
+    window.addEventListener('beforeunload', () => {
+      audio.play();
+    });
+  </script>
 
   <script>
      function myFunction() {
