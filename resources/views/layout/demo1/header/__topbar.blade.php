@@ -132,7 +132,8 @@
 
       
     </div>
-    <div class="d-flex align-items-center dropdown-notifications {{ $itemClass }}"> <span class="cc notif-count" data-count="{{ $count }}" style="    color: red;font-size: 11px;">{{ (int)$count }}</span>
+    <div class="d-flex align-items-center dropdown-notifications {{ $itemClass }}"> 
+        <span class="notif-count"  data-count="{{ $count }}">{{ $count }}</span>
 
         <input type="text" id="selUser" class="form-control form-control-solid h-40px bg-body ps-13 fs-7"
             name="search" value="" placeholder="Search..." data-kt-search-element="input">
