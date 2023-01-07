@@ -146,10 +146,12 @@
      
         var audio = document.getElementById('notification-sound');
         audio.currentTime = 0; // reset audio to the start
-        document.getElementById('play-button').addEventListener('click', function() {
-        audio.play();
+        // const button = document.getElementById('myButton');
+        // button.click();
+        // document.getElementById('play-button').addEventListener('click', function() {
+        // audio.play();
         });
-        });
+        // });
 
 
 </script>
