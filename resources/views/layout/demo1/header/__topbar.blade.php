@@ -154,10 +154,9 @@
                
                 <div class="tab-pane fade show active " id="kt_topbar_notifications_1" role="tabpanel">
                     <!--begin::Items-->
-                    
-                    <audio id="audioContainer" autoplay controls loop >
-                        <source src="https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_700KB.mp3" type="audio/mpeg">
-                    </audio>
+                    <audio id="notification-sound" src="https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_700KB.mp3"></audio>
+
+                 
                     <div class="scroll-y mh-325px my-5 px-8">
                         
                         <div class="scroll-y mh-325px my-5 px-8 scrollable-container">

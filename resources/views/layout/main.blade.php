@@ -615,7 +615,8 @@
         notificationsWrapper.find('.notif-count').text(notificationsCount);
         notificationsWrapper.show();
         $('.delll').empty();
-        const audio = new Audio('https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_700KB.mp3');
+        var audio = document.getElementById('notification-sound');
+        audio.currentTime = 0; // reset audio to the start
         audio.play();
 
     });

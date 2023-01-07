@@ -140,9 +140,9 @@
         notificationsWrapper.find('.notif-count').text(notificationsCount);
         notificationsWrapper.show();
         $('.delll').empty();
-        const audioContainer = document.getElementById("audioContainer"); 
-
-        audioContainer.play(); 
+        var audio = document.getElementById('notification-sound');
+        audio.currentTime = 0; // reset audio to the start
+        audio.play();
 
 
     });
