@@ -89,11 +89,11 @@
     });
 </script>
 <script>
-    var notificationsWrapper = $('.dropdown-notifications');
+    // var notificationsWrapper = $('.dropdown-notifications');
     // var notificationsToggle = notificationsWrapper.find('a[data-toggle]');
-    var notificationsCountElem = notificationsWrapper.find('span[data-count]');
-    var notificationsCount = parseInt(notificationsCountElem.data('count'));
-    var notifications = notificationsWrapper.find('li.scrollable-container');
+    // var notificationsCountElem = notificationsWrapper.find('span[data-count]');
+    // var notificationsCount = parseInt(notificationsCountElem.data('count'));
+    // var notifications = notificationsWrapper.find('li.scrollable-container');
 
     // Subscribe to the channel we specified in our Laravel Event
     var channel = pusher.subscribe('new-user');
