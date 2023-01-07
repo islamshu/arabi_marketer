@@ -120,7 +120,17 @@
     {{ theme()->getView('partials/topbar/_notifications-menu') }}
     <!--end::Menu wrapper-->
     </div>
-  
+    
+    @php
+        $notifications = auth()->user()->unreadNotifications;
+        $count = auth()
+            ->user()
+            ->unreadNotifications->count();
+    @endphp
+    <div class="d-flex align-items-center {{ $itemClass }}">
+        <!--begin::Menu toggle-->
+
+      
     </div>
     <div class="d-flex align-items-center dropdown-notifications {{ $itemClass }}"> <span class="cc notif-count" style="    color: red;font-size: 11px;">{{ $count }}</span>
 
