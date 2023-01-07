@@ -90,8 +90,8 @@
 </script>
 <script>
     var notificationsWrapper = $('.dropdown-notifications');
-    var notificationsToggle = notificationsWrapper.find('a[data-toggle]');
-    var notificationsCountElem = notificationsToggle.find('span[data-count]');
+    // var notificationsToggle = notificationsWrapper.find('a[data-toggle]');
+    var notificationsCountElem = notificationsWrapper.find('span[data-count]');
     var notificationsCount = parseInt(notificationsCountElem.data('count'));
     var notifications = notificationsWrapper.find('li.scrollable-container');
 
