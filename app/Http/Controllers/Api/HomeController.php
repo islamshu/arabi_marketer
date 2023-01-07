@@ -278,7 +278,7 @@ class HomeController extends BaseController
             'id' => 'dd',
             'name' =>'',
             'url' => '',
-            'title' => 'سيتم مراجعة  طلبك الخاص بالخدمة خلال ٢٤ ساعة',
+            'title' => 'تسيت',
             'time' => 'test'
         ];
         event(new NewUser($date_send));
