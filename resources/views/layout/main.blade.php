@@ -566,7 +566,7 @@
 <script>
     var notificationsWrapper = $('.dropdown-notifications');
     var notificationsToggle = notificationsWrapper.find('a[data-toggle]');
-    var notificationsCountElem = notificationsToggle.find('span[data-count]');
+    var notificationsCountElem = notificationsWrapper.find('span[data-count]');
     var notificationsCount = parseInt(notificationsCountElem.data('count'));
     var notifications = notificationsWrapper.find('li.scrollable-container');
 
@@ -574,6 +574,8 @@
     var channel = pusher.subscribe('new-user');
     // Bind a function to a Event (the full Laravel class)
     channel.bind('App\\Events\\NewUser', function(data) {
+        alert(data.title);
+
         var existingNotifications = notifications.html();
 
         var newNotificationHtml = `<a href="` + data.url + `"><span class="table-img msg-user">
