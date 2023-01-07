@@ -519,6 +519,8 @@
     });
 </script>
 <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
+<audio id="notification-sound" src="path/to/audio.mp3"></audio>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
 </script>
@@ -616,10 +618,10 @@
         notificationsWrapper.find('.notif-count').text(notificationsCount);
         notificationsWrapper.show();
         $('.delll').empty();
-        document.getElementById('play-button').addEventListener('click', function() {
-            var audio = document.getElementById('notification-sound');
-            audio.currentTime = 0; // reset audio to the start
-            audio.play();
+        var audio = document.getElementById('notification-sound');
+        audio.currentTime = 0; // reset audio to the start
+        audio.play({
+          interaction: true
         });
 
     });

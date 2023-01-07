@@ -156,7 +156,6 @@
                     <!--begin::Items-->
                     <button id="play-button">Play Sound</button>
 
-                    <audio id="notification-sound" src="https://cdn.pixabay.com/audio/2021/08/04/audio_12b0c7443c.mp3"></audio>
 
                  
                     <div class="scroll-y mh-325px my-5 px-8">

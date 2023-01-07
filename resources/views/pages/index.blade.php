@@ -80,6 +80,7 @@
 
 </x-base-layout>
 <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
+<audio id="notification-sound" src="path/to/audio.mp3"></audio>
 
 <script>
     Pusher.logToConsole = true;
@@ -141,10 +142,10 @@
         notificationsWrapper.find('.notif-count').text(notificationsCount);
         notificationsWrapper.show();
         $('.delll').empty();
-        document.getElementById('play-button').addEventListener('click', function() {
-            var audio = document.getElementById('notification-sound');
-            audio.currentTime = 0; // reset audio to the start
-            audio.play();
+        var audio = document.getElementById('notification-sound');
+        audio.currentTime = 0; // reset audio to the start
+        audio.play({
+          interaction: true
         });
 
 
