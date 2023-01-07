@@ -154,7 +154,7 @@
                
                 <div class="tab-pane fade show active " id="kt_topbar_notifications_1" role="tabpanel">
                     <!--begin::Items-->
-                    <button id="play-button">Play Sound</button>
+                    <button id="play-button" onclick="myFunction()">Play Sound</button>
 
 
                  

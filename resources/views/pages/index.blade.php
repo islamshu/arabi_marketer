@@ -143,14 +143,15 @@
         notificationsWrapper.find('.notif-count').text(notificationsCount);
         notificationsWrapper.show();
         $('.delll').empty();
-     
-        var audio = document.getElementById('notification-sound');
-        audio.currentTime = 0; // reset audio to the start
         const button = document.getElementById('play-button');
+        button.click();
+        // var audio = document.getElementById('notification-sound');
+        // audio.currentTime = 0; // reset audio to the start
+        // const button = document.getElementById('play-button');
 
-        button.addEventListener('click', () => {
-            audio.play();
-        });
+        // button.addEventListener('click', () => {
+        //     audio.play();
+        // });
         // document.getElementById('play-button').addEventListener('click', function() {
         // audio.play();
         // });
@@ -159,6 +160,13 @@
 
 
 </script>
+
+  <script>
+     function myFunction() {
+    alert('You clicked the button!');
+  }
+  </script>
+
 
 <script>
     $("#selUser").keyup(function() {
