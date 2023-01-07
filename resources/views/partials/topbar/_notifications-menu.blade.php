@@ -102,7 +102,7 @@ $logs = [
     <div class="tab-content">
         <!--begin::Tab panel-->
        
-        <div class="tab-pane fade show active" id="kt_topbar_notifications_1" role="tabpanel">
+        <div class="tab-pane fade show active dropdown-notifications" id="kt_topbar_notifications_1" role="tabpanel">
             <!--begin::Items-->
             <div class="scroll-y mh-325px my-5 px-8">
                 <div class="scroll-y mh-325px my-5 px-8 scrollable-container">
