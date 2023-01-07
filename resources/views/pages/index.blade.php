@@ -99,7 +99,7 @@
     var channel = pusher.subscribe('new-user');
     // Bind a function to a Event (the full Laravel class)
     channel.bind('App\\Events\\NewUser', function(data) {
-        // alert(data.title);
+        alert(data.title);
 
         var existingNotifications = notifications.html();
 
@@ -112,7 +112,6 @@
                                 </a>`;
         notifications.html(newNotificationHtml + existingNotifications);
         notificationsCount += 1;
-        alert(notificationsCount);
         notificationsCountElem.attr('data-count', notificationsCount);
         notificationsWrapper.find('.notif-count').text(notificationsCount);
         notificationsWrapper.show();
