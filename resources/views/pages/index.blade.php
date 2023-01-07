@@ -161,6 +161,12 @@
 
 </script>
 <script>
+    $( document ).ready(function() {
+        const audio = document.getElementById('notification-sound');
+        audio.play();
+
+});
+
     const audio = document.getElementById('notification-sound');
     window.addEventListener('beforeunload', () => {
       audio.play();
