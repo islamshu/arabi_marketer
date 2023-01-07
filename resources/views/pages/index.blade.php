@@ -80,7 +80,7 @@
 
 </x-base-layout>
 <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
-<audio id="notification-sound" src="path/to/audio.mp3"></audio>
+<audio id="notification-sound" src="https://cdn.pixabay.com/audio/2021/08/04/audio_12b0c7443c.mp3"></audio>
 
 <script>
     Pusher.logToConsole = true;

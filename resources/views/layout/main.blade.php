@@ -519,7 +519,7 @@
     });
 </script>
 <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
-<audio id="notification-sound" src="path/to/audio.mp3"></audio>
+<audio id="notification-sound" src="https://cdn.pixabay.com/audio/2021/08/04/audio_12b0c7443c.mp3"></audio>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
