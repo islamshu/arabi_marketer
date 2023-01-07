@@ -112,28 +112,115 @@
     <!--end::Activities-->
 
     <!--begin::Notifications-->
-    <div class="d-flex align-items-center {{ $itemClass }}">
-        <!--begin::Menu- wrapper-->
-        <div class="{{ $btnClass }}" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
-            {!! theme()->getSvgIcon("icons/duotune/general/gen022.svg", $btnIconClass) !!}
-        </div>
-    {{ theme()->getView('partials/topbar/_notifications-menu') }}
-    <!--end::Menu wrapper-->
-    </div>
-    
     @php
         $notifications = auth()->user()->unreadNotifications;
         $count = auth()
             ->user()
             ->unreadNotifications->count();
     @endphp
+    <div class="d-flex align-items-center dropdown-notifications {{ $itemClass }}">
+        <span class="notif-count"  data-count="{{ $count }}">{{ $count }}</span>
+
+        <!--begin::Menu- wrapper-->
+        <div class="{{ $btnClass }}" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
+            {!! theme()->getSvgIcon("icons/duotune/general/gen022.svg", $btnIconClass) !!}
+        </div>
+        <div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px" data-kt-menu="true"> 
+            <!--begin::Heading-->
+            <div class="d-flex flex-column bgi-no-repeat rounded-top"
+                style="background-image:url('{{ asset(theme()->getMediaUrlPath() . 'misc/pattern-1.jpg') }}')">
+                <!--begin::Title-->
+                <h3 class="text-white fw-bold px-9 mt-10 mb-6">
+                    Notifications <span class="fs-8 opacity-75 ps-3">{{ $count }}</span>
+                </h3>
+                <!--end::Title-->
+        
+                <!--begin::Tabs-->
+                <ul class="nav nav-line-tabs nav-line-tabs-2x nav-stretch fw-bold px-9">
+                    <li class="nav-item">
+                        <a class="nav-link text-white opacity-75 opacity-state-100 pb-4 active" data-bs-toggle="tab"
+                            href="#kt_topbar_notifications_1">Alerts</a>
+                    </li>
+        
+        
+                </ul>
+                <!--end::Tabs-->
+            </div>
+            <!--end::Heading-->
+        
+            <!--begin::Tab content-->
+            <div class="tab-content">
+                <!--begin::Tab panel-->
+               
+                <div class="tab-pane fade show active " id="kt_topbar_notifications_1" role="tabpanel">
+                    <!--begin::Items-->
+                    <div class="scroll-y mh-325px my-5 px-8">
+                        <div class="scroll-y mh-325px my-5 px-8 scrollable-container">
+                            <!--begin::Item-->
+                            @foreach ($notifications as $item)
+                                
+                            <div class="d-flex flex-stack py-4">
+                                <!--begin::Section-->
+                                <div class="d-flex align-items-center">
+                                    <!--begin::Symbol-->
+                                    <div class="symbol symbol-35px me-4">
+                                        <span class="symbol-label bg-light-Direct">
+                                            <!--begin::Svg Icon | path: assets/media/icons/duotune/general/gen044.svg-->
+                                            <span class="svg-icon svg-icon-2 svg-icon-Direct">
+                                                <i class="fa fa-bell"></i>
+                                            </span>
+                                            <!--end::Svg Icon-->
+                                        </span>
+                                    </div>
+                                    <!--end::Symbol-->
+        
+                                    <!--begin::Title-->
+                                    <div class="mb-0 me-2">
+                                        <a href="{{ route('show.notification', $item->id) }}" class="fs-6 text-gray-800 text-hover-primary fw-bolder">{{ $item->data['title'] }}
+                                            </a>
+                                        {{-- <div class="text-gray-400 fs-7">يوجد لديك رسالة جديدة من </div> --}}
+                                    </div>
+                                    <!--end::Title-->
+                                </div>
+                                <!--end::Section-->
+        
+                                <!--begin::Label-->
+                                <span class="badge badge-light fs-8">{{ $item->created_at }}</span>
+                                <!--end::Label-->
+                            </div>
+                            @endforeach
+        
+                          
+                            <!--end::Item-->
+                        </div>
+                    </div>
+                    <!--end::Items-->
+        
+                    <!--begin::View more-->
+                    {{-- <div class="py-3 text-center border-top">
+                        <a href="{{ theme()->getPageUrl('pages/profile/activity') }}"
+                            class="btn btn-color-gray-600 btn-active-color-primary">
+                            View All
+                            {!! theme()->getSvgIcon('icons/duotune/arrows/arr064.svg', 'svg-icon-5') !!}
+                        </a>
+                    </div> --}}
+                    <!--end::View more-->
+                </div>
+        
+                <!--end::Tab panel-->
+            </div>
+            <!--end::Tab content-->
+        </div>
+    <!--end::Menu wrapper-->
+    </div>
+    
+    
     <div class="d-flex align-items-center {{ $itemClass }}">
         <!--begin::Menu toggle-->
 
       
     </div>
     <div class="d-flex align-items-center dropdown-notifications {{ $itemClass }}"> 
-        <span class="notif-count"  data-count="{{ $count }}">{{ $count }}</span>
 
         <input type="text" id="selUser" class="form-control form-control-solid h-40px bg-body ps-13 fs-7"
             name="search" value="" placeholder="Search..." data-kt-search-element="input">
