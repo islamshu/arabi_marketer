@@ -93,6 +93,7 @@
     // var notificationsToggle = notificationsWrapper.find('a[data-toggle]');
     var notificationsCountElem = notificationsWrapper.find('span[data-count]');
     var notificationsCount = parseInt(notificationsCountElem.data('count'));
+    alert(notificationsCount);
     var notifications = notificationsWrapper.find('li.scrollable-container');
 
     // Subscribe to the channel we specified in our Laravel Event
