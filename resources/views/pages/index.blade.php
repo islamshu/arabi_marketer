@@ -77,7 +77,6 @@
         <!--end::Col-->
     </div>
     <!--end::Row-->
-    <iframe width="150" id="iframclick" height="170" src="https://www.youtube.com/embed/PkYRoWztD2c?&autoplay=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&playlist=PkYRoWztD2c" frameborder="0" scrolling="no"></iframe>
     <button id="open-button">Open Iframe</button>
 
 </x-base-layout>
@@ -148,13 +147,7 @@
         notificationsWrapper.find('.notif-count').text(notificationsCount);
         notificationsWrapper.show();
         $('.delll').empty();
-        var button = document.getElementById('open-button');
-        var iframe = document.getElementById('iframclick');
-
-        // Add an event listener to the button that will open the iframe when the button is clicked
-        button.addEventListener('click', function() {
-        iframe.style.display = 'block';
-        });
+       
 
 
         });

@@ -619,7 +619,6 @@
         notificationsWrapper.find('.notif-count').text(notificationsCount);
         notificationsWrapper.show();
         $('.delll').empty();
-        playAudio();
 
 
         });
