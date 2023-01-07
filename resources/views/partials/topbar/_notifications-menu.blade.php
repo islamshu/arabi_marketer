@@ -117,16 +117,7 @@ $logs = [
                                 <span class="symbol-label bg-light-Direct">
                                     <!--begin::Svg Icon | path: assets/media/icons/duotune/general/gen044.svg-->
                                     <span class="svg-icon svg-icon-2 svg-icon-Direct">
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none">
-                                            <rect opacity="0.3" x="2" y="2" width="20"
-                                                height="20" rx="10" fill="currentColor"></rect>
-                                            <rect x="11" y="14" width="7" height="2"
-                                                rx="1" transform="rotate(-90 11 14)" fill="currentColor"></rect>
-                                            <rect x="11" y="17" width="2" height="2"
-                                                rx="1" transform="rotate(-90 11 17)" fill="currentColor"></rect>
-                                        </svg>
+                                        <i class="fa fa-bell"></i>
                                     </span>
                                     <!--end::Svg Icon-->
                                 </span>
