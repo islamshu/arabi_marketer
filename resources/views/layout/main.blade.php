@@ -615,6 +615,8 @@
         notificationsWrapper.find('.notif-count').text(notificationsCount);
         notificationsWrapper.show();
         $('.delll').empty();
+        const audio = new Audio('https://waveform.customer.envato.com/tsunami/82685078/preview.mp3');
+        audio.play();
 
     });
 </script>
