@@ -68,10 +68,17 @@ class HomeController extends BaseController
         $res['service']= $service;
         $res['user']= $user;
         $res['podcast']= $podcast;
-        $search = new Search();
-        $search->title = $request->title;
-        $search->user_id = auth('api')->id();
-        $search->save();
+        $search_check=  Search::where('title','like','%'.$request->title.'%')->first();
+        if($search_check){
+            $search_check->count =  $search_check->count+1;
+            $search_check->save();
+        }else{
+            $search = new Search();
+            $search->title = $request->title;
+            $search->user_id = auth('api')->id();
+            $search->save();
+        }
+       
         
 
         return $this->sendResponse($res, 'home serach');
