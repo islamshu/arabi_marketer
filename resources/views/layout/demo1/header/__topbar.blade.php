@@ -202,7 +202,7 @@
         </div> --}}
         <!--end::Menu-->
     </div>
-    <div class="d-flex align-items-center {{ $itemClass }}"> <span class="cc" style="    color: red;font-size: 11px;">{{ $count }}</span>
+    <div class="d-flex align-items-center dropdown-notifications {{ $itemClass }}"> <span class="cc notif-count" style="    color: red;font-size: 11px;">{{ $count }}</span>
 
         <input type="text" id="selUser" class="form-control form-control-solid h-40px bg-body ps-13 fs-7"
             name="search" value="" placeholder="Search..." data-kt-search-element="input">
