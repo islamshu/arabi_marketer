@@ -568,7 +568,7 @@
     var notificationsToggle = notificationsWrapper.find('a[data-toggle]');
     var notificationsCountElem = notificationsWrapper.find('span[data-count]');
     var notificationsCount = parseInt(notificationsCountElem.data('count'));
-    var notifications = notificationsWrapper.find('li.scrollable-container');
+    var notifications = notificationsWrapper.find('scrollable-container');
 
     // Subscribe to the channel we specified in our Laravel Event
     var channel = pusher.subscribe('new-user');
@@ -578,13 +578,37 @@
 
         var existingNotifications = notifications.html();
 
-        var newNotificationHtml = `<a href="` + data.url + `"><span class="table-img msg-user">
-                                        <img src="` + `{{ asset('uploads/user/deflut.png') }}` + `" alt="">
-                                    </span><span class="menu-info"><span class="menu-title">` + data.title + `</span><span class="menu-desc">
-                                            <i class="material-icons"></i> 
-                                        </span>
+    
+        var newNotificationHtml = `<div class="d-flex flex-stack py-4">
+                        <!--begin::Section-->
+                        <div class="d-flex align-items-center">
+                            <!--begin::Symbol-->
+                            <div class="symbol symbol-35px me-4">
+                                <span class="symbol-label bg-light-Direct">
+                                    <!--begin::Svg Icon | path: assets/media/icons/duotune/general/gen044.svg-->
+                                    <span class="svg-icon svg-icon-2 svg-icon-Direct">
+                                        <i class="fa fa-bell"></i>
                                     </span>
-                                </a>`;
+                                    <!--end::Svg Icon-->
+                                </span>
+                            </div>
+                            <!--end::Symbol-->
+
+                            <!--begin::Title-->
+                            <div class="mb-0 me-2">
+                                <a href="` + data.url +`" class="fs-6 text-gray-800 text-hover-primary fw-bolder">` + data.title +`
+                                    </a>
+                                {{-- <div class="text-gray-400 fs-7">يوجد لديك رسالة جديدة من </div> --}}
+                            </div>
+                            <!--end::Title-->
+                        </div>
+                        <!--end::Section-->
+
+                        <!--begin::Label-->
+                        <span class="badge badge-light fs-8">` + data.time +`</span>
+                        <!--end::Label-->
+                    </div>`;
+
         notifications.html(newNotificationHtml + existingNotifications);
         notificationsCount += 1;
         notificationsCountElem.attr('data-count', notificationsCount);
