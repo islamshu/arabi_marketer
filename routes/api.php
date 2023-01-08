@@ -139,7 +139,7 @@ Route::group(['middleware' => 'is_login'], function () {
     
 
 });
-Route::group(['middleware' => 'is_login', 'middleware' => 'Is_markter','middleware'=>'Is_pand'], function () {
+Route::group(['middleware' => 'is_login', 'middleware' => 'Is_markter'], function () {
     Route::post('add_bank_info', [UserController::class, 'add_bank_info']);
     Route::get('/my_blogs', [UserController::class, 'get_blog']);
     Route::get('/my_podcasts', [UserController::class, 'get_podcasts']);
@@ -165,7 +165,7 @@ Route::get('/blog_category', [BlogController::class, 'blog_category']);
 Route::get('/marketer_category', [UserController::class, 'marketer_category']);
 
 Route::get('/blog_keyword', [BlogController::class, 'blog_keyword']);
-Route::group(['middleware' => 'is_login', 'middleware' => 'Is_markter','middleware'=>'Is_pand'], function () {
+Route::group(['middleware' => 'is_login', 'middleware' => 'Is_markter'], function () {
     Route::post('/add_blog', [BlogController::class, 'store']);
     Route::post('/update_blog', [BlogController::class, 'update']);
     Route::delete('/delete_blog/{id}', [BlogController::class, 'delete']);
