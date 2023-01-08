@@ -54,7 +54,7 @@ Route::get('/home', [HomeController::class, 'home']);
 Route::get('/get_about_home', [HomeController::class, 'about']);
 Route::get('/get_all_scope_home', [HomeController::class, 'all_scope']);
 Route::get('home_service', [HomeController::class, 'get_service']);
-Route::get('home_blog', [HomeController::class, 'get_blog'])->middleware('gzip');
+Route::get('home_blog', [HomeController::class, 'get_blog']);
 Route::get('home_podcasts', [HomeController::class, 'get_podcast']);
 Route::get('get_podcast_admin', [HomeController::class, 'get_podcast_admin']);
 Route::get('main_images', [HomeController::class, 'main_image']);
@@ -112,7 +112,7 @@ Route::post('/login', [UserController::class, 'login']);
 Route::post('/check_name', [UserController::class, 'check_name']);
 Route::post('/check_email', [UserController::class, 'check_email']);
 Route::get('/show_notification/{id}', [UserController::class, 'show_notification'])->name('show_notification');
-Route::group(['middleware' => 'is_login','middleware'=>'gzip'], function () {
+Route::group(['middleware' => 'is_login'], function () {
     Route::post('/edit_profile', [UserController::class, 'edit_profile']);
     Route::post('/upload_profile_image', [UserController::class, 'upload_image']);
     Route::post('/upload_profile_cover', [UserController::class, 'upload_cover']);
@@ -139,14 +139,14 @@ Route::group(['middleware' => 'is_login','middleware'=>'gzip'], function () {
     
 
 });
-Route::group(['middleware' => 'is_login', 'middleware' => 'Is_markter','middleware'=>'gzip'], function () {
+Route::group(['middleware' => 'is_login', 'middleware' => 'Is_markter'], function () {
     Route::post('add_bank_info', [UserController::class, 'add_bank_info']);
     Route::get('/my_blogs', [UserController::class, 'get_blog']);
     Route::get('/my_podcasts', [UserController::class, 'get_podcasts']);
     Route::get('/get_videos', [UserController::class, 'get_videos']);
     Route::get('/get_consultations', [UserController::class, 'get_consultations']);
 });
-Route::get('/markter_blogs/{id}', [UserController::class, 'get_markter_blog'])->middleware('gzip');
+Route::get('/markter_blogs/{id}', [UserController::class, 'get_markter_blog']);
 Route::get('/markter_services/{id}', [UserController::class, 'get_markter_service']);
 Route::get('/markter_podcasts/{id}', [UserController::class, 'get_markter_podcasts']);
 Route::get('/markter_videos/{id}', [UserController::class, 'get_markter_videos']);
@@ -165,7 +165,7 @@ Route::get('/blog_category', [BlogController::class, 'blog_category']);
 Route::get('/marketer_category', [UserController::class, 'marketer_category']);
 
 Route::get('/blog_keyword', [BlogController::class, 'blog_keyword']);
-Route::group(['middleware' => 'is_login', 'middleware' => 'Is_markter','middleware'=>'gzip'], function () {
+Route::group(['middleware' => 'is_login', 'middleware' => 'Is_markter'], function () {
     Route::post('/add_blog', [BlogController::class, 'store']);
     Route::post('/update_blog', [BlogController::class, 'update']);
     Route::delete('/delete_blog/{id}', [BlogController::class, 'delete']);
