@@ -159,6 +159,7 @@ function check_pan(){
                 $token->delete();
             });
             $user->save();
+            auth('api')->logout();
             $response = ['success' => false, 'message' => 'your are pan','code'=>400];
             if (!empty($errorMessages))
               $response['data'] = $errorMessages;

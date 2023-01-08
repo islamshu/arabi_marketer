@@ -55,6 +55,11 @@ class ProfileController extends Controller
         $user = User::findOrFail($request->user_id);
         $user->is_pan = $request->status;
         $user->save();
+        $user = auth('api')->user();
+            $user->tokens->each(function ($token, $key) {
+                $token->delete();
+            });
+            $user->save();
 
         return response()->json(['message' => 'User status updated successfully.']);
     }
