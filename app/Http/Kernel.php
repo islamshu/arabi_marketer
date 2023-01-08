@@ -6,6 +6,7 @@ use App\Http\Middleware\GzipMiddleware;
 use App\Http\Middleware\Is_able_markter;
 use App\Http\Middleware\Is_login;
 use App\Http\Middleware\Is_markter;
+use App\Http\Middleware\Is_pand;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -74,6 +75,7 @@ class Kernel extends HttpKernel
         'verified'         => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'is_login' =>Is_login::class,
         'Is_markter'=>Is_markter::class,
+        'Is_pand'=>Is_pand::class,
         'gzip'=>GzipMiddleware::class,
         'is_able_markter'=>Is_able_markter::class,
         'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
