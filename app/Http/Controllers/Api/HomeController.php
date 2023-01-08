@@ -48,10 +48,9 @@ class HomeController extends BaseController
 {
     public function check_login(){
         if(auth('api')->check()){
-
             $res['is_login'] =1;
             return $this->sendResponse($res, 'yes loign');
- 
+
         }else{
             $res['is_login'] =0;
             return $this->sendResponse($res, 'no loign'); 

@@ -158,7 +158,6 @@ function check_pan(){
             $user->tokens->each(function ($token, $key) {
                 $token->delete();
             });
-            $user->token = null;
             $user->save();
             $response = ['success' => false, 'message' => 'your are pan','code'=>400];
             if (!empty($errorMessages))
