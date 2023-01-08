@@ -350,7 +350,13 @@ class UserController extends BaseController
             return $this->sendError($validation->messages()->all());
         }
         $user = User::where('email', $request->email)->where('type', '!=', 'staff')->first();
+    
         if ($user) {
+            if($user->is_pan == 1){
+                $arrrr = [];
+                array_push($arrrr, 'هذا المستخدم محظور');
+                return $this->sendError($arrrr);
+            }
             if (Hash::check($request->password, $user->password)) {
                 $token = $user->createToken('Personal Access Token')->accessToken;
                 if ($user->type == 'user') {
