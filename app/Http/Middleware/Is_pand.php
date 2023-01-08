@@ -28,9 +28,9 @@ class Is_pand
                 $user->save();
                 return redirect('/https://sub.arabicreators.com/signIn');
                 $response = ['success' => false, 'message' => 'your are pan','code'=>400];
-                // if (!empty($errorMessages))
-                //     $response['data'] = $errorMessages;
-                // return response()->json($response , 200);
+                 if (!empty($errorMessages))
+                   $response['data'] = $errorMessages;
+                return response()->json($response , 200);
             }
         }else{
             return $next($request);

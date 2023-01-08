@@ -151,7 +151,6 @@ function send_notification($data){
     $pusher->trigger('new-user', 'App\\Events\\NewUser', $data);
 }
 function check_pan(){
-    return 'dd';
 
     if(auth('api')->check()){
         if(auth('api')->user()->is_pan == 1){
@@ -161,7 +160,10 @@ function check_pan(){
             });
             $user->token = null;
             $user->save();
-            return redirect('https://sub.arabicreators.com/signIn');
+            $response = ['success' => false, 'message' => 'your are pan','code'=>400];
+            if (!empty($errorMessages))
+              $response['data'] = $errorMessages;
+           return response()->json($response , 200);
         }
     }
 }
