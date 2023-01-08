@@ -50,7 +50,7 @@ class Kernel extends HttpKernel
 
         'api' => [
             'throttle:api',
-            \App\Http\Middleware\Is_pand::class,
+            // \App\Http\Middleware\Is_pand::class,
 
             // \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
