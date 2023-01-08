@@ -175,7 +175,7 @@ class HomeController extends BaseController
         $res['blog']['new'] = $blogs;
         $res['blog']['best'] = $blogs;
         
-        return response()->json($res)->withHeaders(['Content-Encoding' => 'gzip']);
+        // return response()->json($res)->wi/thHeaders(['Content-Encoding' => 'gzip']);
         return $this->sendResponse($res, 'home page');
 
     }
