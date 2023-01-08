@@ -46,7 +46,17 @@ use View;
 
 class HomeController extends BaseController
 {
+    public function check_login(){
+        if(auth('api')->check()){
 
+            $res['is_login'] =1;
+            return $this->sendResponse($res, 'yes loign');
+ 
+        }else{
+            $res['is_login'] =0;
+            return $this->sendResponse($res, 'no loign'); 
+        }
+    }
     public function top_search(){
         $searchs = Search::orderby('count','desc')->take(5)->get();
         return $this->sendResponse($searchs, 'top search');

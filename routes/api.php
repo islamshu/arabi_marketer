@@ -79,6 +79,7 @@ Route::get('time_for_exta_servcie', [ServiceController::class, 'time_for_exta_se
 
 Route::get('/homeddd', [HomeController::class, 'edit']);
 Route::get('/rss_feed/{id}', [SoundController::class, 'rss_feed']);
+Route::get('/check_login', [HomeController::class, 'check_login']);
 
 Route::get('/questions', [HomeController::class, 'questions']);
 Route::get('/get_markter/{id}', [HomeController::class, 'get_markter']);
