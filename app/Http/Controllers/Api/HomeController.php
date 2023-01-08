@@ -174,7 +174,7 @@ class HomeController extends BaseController
 
         $res['blog']['new'] = $blogs;
         $res['blog']['best'] = $blogs;
-        return $this->sendResponse($res, 'home page');
+        return response()->json($res)->setEncodingOptions(JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT)->withHeaders(['Content-Encoding' => 'gzip']);
 
     }
     public function get_markter_home(){
