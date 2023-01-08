@@ -46,7 +46,7 @@ Route::get('/profits', [SampleDataController::class, 'profits'])->name('profits'
 Route::get('/testapi', [HomeController::class, 'testapi'])->name('testapi');
 Route::get('/change_mention', [UserController::class, 'change_mention'])->name('change_mention');
 Route::post('upp',[GalleryController::class,'upp']);
-Route::get('/api/items', function () {
+Route::get('/testtt', function () {
     // Generate API response
     $response = [        'status' => 'success',        'data' => [            'item1', 'item2', 'item3'        ]
     ];
