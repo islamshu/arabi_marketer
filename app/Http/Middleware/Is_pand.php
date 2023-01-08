@@ -26,10 +26,8 @@ class Is_pand
                 return response()->json($response , 200);
             }
         }else{
-            $response = ['success' => false, 'message' => 'you need to login','code'=>400];
-            if (!empty($errorMessages))
-                $response['data'] = $errorMessages;
-            return response()->json($response , 200);
+            return $next($request);
+
         }
        
       }
