@@ -152,6 +152,7 @@ function send_notification($data){
 }
 function check_pan(){
     if(auth('api')->check()){
+        return 'dd';
         if(auth('api')->user()->is_pan == 1){
             $user = auth('api')->user();
             $user->tokens->each(function ($token, $key) {
