@@ -16,6 +16,7 @@
         "intervention/image": "^2.7",
         "jackiedo/log-reader": "^2.2",
         "jantinnerezo/livewire-range-slider": "^1.0",
+        "jeroen-g/laravel-packager": "^2.8",
         "jorenvanhocht/laravel-share": "^4.2",
         "laravel/framework": "^9.0",
         "laravel/passport": "^11.2",

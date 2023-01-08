@@ -37,8 +37,8 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
         'cf150f72bd303a2ff07711c9a70f2d53' => __DIR__ . '/..' . '/google/apiclient/src/Google/autoload.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
-        'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         '3109cb1a231dcd04bee1f9f620d46975' => __DIR__ . '/..' . '/paragonie/sodium_compat/autoload.php',
+        'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         '9475354b4ef53b0ad02aebf6d3246661' => __DIR__ . '/..' . '/anlutro/l4-settings/src/helpers.php',
         '4a1f389d6ce373bda9e57857d3b61c84' => __DIR__ . '/..' . '/barryvdh/laravel-debugbar/src/helpers.php',
         '6b34c85f7b1ad6faa15aa12109e030f2' => __DIR__ . '/..' . '/realrashid/sweet-alert/src/functions.php',
@@ -182,6 +182,7 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         'J' => 
         array (
             'Jorenvh\\Share\\' => 14,
+            'JeroenG\\Packager\\' => 17,
             'Jantinnerezo\\LivewireRangeSlider\\' => 33,
             'Jackiedo\\LogReader\\' => 19,
         ),
@@ -625,6 +626,10 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         'Jorenvh\\Share\\' => 
         array (
             0 => __DIR__ . '/..' . '/jorenvanhocht/laravel-share/src',
+        ),
+        'JeroenG\\Packager\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src',
         ),
         'Jantinnerezo\\LivewireRangeSlider\\' => 
         array (
@@ -3798,6 +3803,27 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         'Jantinnerezo\\LivewireRangeSlider\\Exceptions\\RangeSliderException' => __DIR__ . '/..' . '/jantinnerezo/livewire-range-slider/src/Exceptions/RangeSliderException.php',
         'Jantinnerezo\\LivewireRangeSlider\\LivewireRangeSlider' => __DIR__ . '/..' . '/jantinnerezo/livewire-range-slider/src/LivewireRangeSlider.php',
         'Jantinnerezo\\LivewireRangeSlider\\LivewireRangeSliderServiceProvider' => __DIR__ . '/..' . '/jantinnerezo/livewire-range-slider/src/LivewireRangeSliderServiceProvider.php',
+        'JeroenG\\Packager\\ArchiveExtractors\\Extractor' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/ArchiveExtractors/Extractor.php',
+        'JeroenG\\Packager\\ArchiveExtractors\\Manager' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/ArchiveExtractors/Manager.php',
+        'JeroenG\\Packager\\ArchiveExtractors\\Tar' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/ArchiveExtractors/Tar.php',
+        'JeroenG\\Packager\\ArchiveExtractors\\TarGz' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/ArchiveExtractors/TarGz.php',
+        'JeroenG\\Packager\\ArchiveExtractors\\Zip' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/ArchiveExtractors/Zip.php',
+        'JeroenG\\Packager\\Commands\\CheckPackage' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/Commands/CheckPackage.php',
+        'JeroenG\\Packager\\Commands\\DisablePackage' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/Commands/DisablePackage.php',
+        'JeroenG\\Packager\\Commands\\EnablePackage' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/Commands/EnablePackage.php',
+        'JeroenG\\Packager\\Commands\\GetPackage' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/Commands/GetPackage.php',
+        'JeroenG\\Packager\\Commands\\GitPackage' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/Commands/GitPackage.php',
+        'JeroenG\\Packager\\Commands\\ListPackages' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/Commands/ListPackages.php',
+        'JeroenG\\Packager\\Commands\\MoveTests' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/Commands/MoveTests.php',
+        'JeroenG\\Packager\\Commands\\NewPackage' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/Commands/NewPackage.php',
+        'JeroenG\\Packager\\Commands\\PublishPackage' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/Commands/PublishPackage.php',
+        'JeroenG\\Packager\\Commands\\RemovePackage' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/Commands/RemovePackage.php',
+        'JeroenG\\Packager\\Conveyor' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/Conveyor.php',
+        'JeroenG\\Packager\\FileHandler' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/FileHandler.php',
+        'JeroenG\\Packager\\PackagerServiceProvider' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/PackagerServiceProvider.php',
+        'JeroenG\\Packager\\ProgressBar' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/ProgressBar.php',
+        'JeroenG\\Packager\\ValidationRules\\ValidClassName' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/ValidationRules/ValidClassName.php',
+        'JeroenG\\Packager\\Wrapping' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/Wrapping.php',
         'Jorenvh\\Share\\Providers\\ShareServiceProvider' => __DIR__ . '/..' . '/jorenvanhocht/laravel-share/src/Providers/ShareServiceProvider.php',
         'Jorenvh\\Share\\Share' => __DIR__ . '/..' . '/jorenvanhocht/laravel-share/src/Share.php',
         'Jorenvh\\Share\\ShareFacade' => __DIR__ . '/..' . '/jorenvanhocht/laravel-share/src/ShareFacade.php',

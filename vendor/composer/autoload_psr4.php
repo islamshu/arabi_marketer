@@ -98,6 +98,7 @@ return array(
     'Laravel\\Passport\\' => array($vendorDir . '/laravel/passport/src'),
     'Laravel\\Breeze\\' => array($vendorDir . '/laravel/breeze/src'),
     'Jorenvh\\Share\\' => array($vendorDir . '/jorenvanhocht/laravel-share/src'),
+    'JeroenG\\Packager\\' => array($vendorDir . '/jeroen-g/laravel-packager/src'),
     'Jantinnerezo\\LivewireRangeSlider\\' => array($vendorDir . '/jantinnerezo/livewire-range-slider/src'),
     'Jackiedo\\LogReader\\' => array($vendorDir . '/jackiedo/log-reader/src/Jackiedo/LogReader'),
     'Intervention\\Image\\' => array($vendorDir . '/intervention/image/src/Intervention/Image'),

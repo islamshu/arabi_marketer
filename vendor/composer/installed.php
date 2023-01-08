@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'eca4240a92bbccc1e01614de6f40c2eaebb8d27b',
+        'reference' => 'd420c99852266400e84f440d3d054d67e4b0e0f2',
         'name' => 'keenthemes/metronic-laravel',
         'dev' => true,
     ),
@@ -511,6 +511,15 @@
             'reference' => 'e2c20e78a30ee399f8614df64c293a1a69c799b7',
             'dev_requirement' => false,
         ),
+        'jeroen-g/laravel-packager' => array(
+            'pretty_version' => '2.8.0',
+            'version' => '2.8.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../jeroen-g/laravel-packager',
+            'aliases' => array(),
+            'reference' => '27bddbe896a753ddbb4cf38ae799baa3ba66d3d6',
+            'dev_requirement' => false,
+        ),
         'jorenvanhocht/laravel-share' => array(
             'pretty_version' => '4.2.0',
             'version' => '4.2.0.0',
@@ -526,7 +535,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'eca4240a92bbccc1e01614de6f40c2eaebb8d27b',
+            'reference' => 'd420c99852266400e84f440d3d054d67e4b0e0f2',
             'dev_requirement' => false,
         ),
         'kodova/hamcrest-php' => array(
