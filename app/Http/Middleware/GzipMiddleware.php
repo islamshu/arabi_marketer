@@ -15,3 +15,4 @@ class GzipMiddleware
         return $response;
     }
 }
+
