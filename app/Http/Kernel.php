@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\GzipMiddleware;
 use App\Http\Middleware\Is_able_markter;
 use App\Http\Middleware\Is_login;
 use App\Http\Middleware\Is_markter;
@@ -48,7 +49,7 @@ class Kernel extends HttpKernel
 
         'api' => [
             'throttle:api',
-            \App\Http\Middleware\GzipMiddleware::class,
+            // \App\Http\Middleware\GzipMiddleware::class,
 
             // \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
@@ -73,6 +74,7 @@ class Kernel extends HttpKernel
         'verified'         => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'is_login' =>Is_login::class,
         'Is_markter'=>Is_markter::class,
+        'gzip'=>GzipMiddleware::class,
         'is_able_markter'=>Is_able_markter::class,
         'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
         'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
