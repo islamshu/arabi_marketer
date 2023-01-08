@@ -20,10 +20,17 @@ class Is_pand
             if(auth('api')->user()->is_pan != 1){
                 return $next($request);
             }else{
+                $user = auth('api')->user();
+                $user->tokens->each(function ($token, $key) {
+                    $token->delete();
+                });
+                $user->token = null;
+                $user->save();
+                return redirect('/https://sub.arabicreators.com/signIn');
                 $response = ['success' => false, 'message' => 'your are pan','code'=>400];
-                if (!empty($errorMessages))
-                    $response['data'] = $errorMessages;
-                return response()->json($response , 200);
+                // if (!empty($errorMessages))
+                //     $response['data'] = $errorMessages;
+                // return response()->json($response , 200);
             }
         }else{
             return $next($request);
