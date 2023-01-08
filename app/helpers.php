@@ -151,8 +151,9 @@ function send_notification($data){
     $pusher->trigger('new-user', 'App\\Events\\NewUser', $data);
 }
 function check_pan(){
+    return 'dd';
+
     if(auth('api')->check()){
-        return 'dd';
         if(auth('api')->user()->is_pan == 1){
             $user = auth('api')->user();
             $user->tokens->each(function ($token, $key) {
