@@ -46,7 +46,14 @@ Route::get('/profits', [SampleDataController::class, 'profits'])->name('profits'
 Route::get('/testapi', [HomeController::class, 'testapi'])->name('testapi');
 Route::get('/change_mention', [UserController::class, 'change_mention'])->name('change_mention');
 Route::post('upp',[GalleryController::class,'upp']);
+Route::get('/api/items', function () {
+    // Generate API response
+    $response = [        'status' => 'success',        'data' => [            'item1', 'item2', 'item3'        ]
+    ];
 
+    // Return the response as a JSON object with Gzip compression
+    return response()->json($response)->setEncodingOptions(JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT)->withHeaders(['Content-Encoding' => 'gzip']);
+})->middleware('gzip');
 
 
 
