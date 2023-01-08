@@ -150,6 +150,19 @@ function send_notification($data){
     );
     $pusher->trigger('new-user', 'App\\Events\\NewUser', $data);
 }
+function check_pan(){
+    if(auth('api')->check()){
+        if(auth('api')->user()->is_pan == 1){
+            $user = auth('api')->user();
+            $user->tokens->each(function ($token, $key) {
+                $token->delete();
+            });
+            $user->token = null;
+            $user->save();
+            return redirect('https://sub.arabicreators.com/signIn');
+        }
+    }
+}
 function datatable_paginate($builder)
 {
     $draw = request()->get('draw');
