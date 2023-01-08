@@ -123,6 +123,9 @@ Route::middleware('auth')->group(function () {
     
     Route::get('marketer/{id}',[ProfileController::class,'show'])->name('marketer.show');
     Route::get('/status/update',[ProfileController::class,'updateStatus'])->name('users.update.status');    
+    Route::get('/pan/update',[ProfileController::class,'updatepan'])->name('users.update.pan');    
+
+    
     Route::get('/status/blogs',[BlogController::class,'updateStatus'])->name('blogs.update.status');  
     Route::get('/status/service',[ServiceController::class,'updateStatus'])->name('service.update.status');  
     Route::get('user/getData', [UsersController::class, 'getData'])->name('users.getDat');

@@ -88,6 +88,8 @@
                         <th>البريد الالكتروني </th>
                        
                         <th>تاريخ الاضافة</th>
+                        <th> محظور !</th>
+
                         <th>العمليات</th>
                     </tr>
                 </thead>
@@ -106,6 +108,10 @@
                             </td>
                             @endcan --}}
                             <td>{{ date('Y-m-d', strtotime($item->created_at)) }}</td>
+                            <td>
+                                <input type="checkbox" data-id="{{ $item->id }}" name="is_pan"
+                                    class="js-switch testswitch"  {{ $item->is_pan == 1 ? 'checked' : '' }}>
+                            </td>
                             <td>
                                 @can('show-marketers')
 
@@ -166,7 +172,7 @@
                 $.ajax({
                     type: "GET",
                     dataType: "json",
-                    url: '{{ route('users.update.status') }}',
+                    url: '{{ route('users.update.pan') }}',
                     data: {
                         'status': status,
                         'user_id': userId

@@ -50,6 +50,15 @@ class ProfileController extends Controller
 
         return response()->json(['message' => 'User status updated successfully.']);
     }
+    public function updatepan(Request $request)
+    {
+        $user = User::findOrFail($request->user_id);
+        $user->is_pan = $request->status;
+        $user->save();
+
+        return response()->json(['message' => 'User status updated successfully.']);
+    }
+    
     public function show($id){
         $user = User::find($id);
         $services = $user->services;
