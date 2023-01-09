@@ -76,7 +76,7 @@ class HomeController extends BaseController
             return $this->sendError('يرجى ادخال نص للبحث');
         }
         $service= ServiceResource::collection(Service::where('title','like','%'.$title.'%')->where('status',1)->get());
-        $user = UserResource::collection(User::where('type','marketer')->where('status',2)->where('first_name','like','%'.$title.'%')->orwhere('last_name','like','%'.$title.'%')->get());
+        $user = UserResource::collection(User::where('type','marketer')->where('status',2)->where('is_pan',0)->where('first_name','like','%'.$title.'%')->orwhere('last_name','like','%'.$title.'%')->get());
         $podcast = PodcastResource::collection(NewPodcast::where('title','like','%'.$title.'%')->get());
         $res['service']= $service;
         $res['user']= $user;
