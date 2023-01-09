@@ -62,7 +62,6 @@ class ProfileController extends Controller
                 $token->delete();
             });
             $user->save();
-        }
         $service = Service::where('user_id',$user->id)->get();
         foreach($service as $s){
             $s->status = 0;
@@ -78,6 +77,7 @@ class ProfileController extends Controller
             $s->status = 2;
             $s->save();
         }
+    }
             
 
         return response()->json(['message' => 'User status updated successfully.']);
