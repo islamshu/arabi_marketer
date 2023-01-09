@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Alert;
+use App\Models\Blog;
 use App\Models\BookingConsultion;
 use App\Models\Consulting;
 use App\Models\Message;
@@ -10,6 +11,7 @@ use App\Models\Order;
 use App\Models\OrderDetiles;
 use App\Models\Service;
 use App\Models\User;
+use App\Models\Video;
 use DB;
 use Illuminate\Http\Request;
 
@@ -60,6 +62,21 @@ class ProfileController extends Controller
                 $token->delete();
             });
             $user->save();
+        }
+        $service = Service::where('user_id',$user->id)->get();
+        foreach($service as $s){
+            $s->status = 0;
+            $s->save();
+        }
+        $blogs = Blog::where('user_id',$user->id)->get();
+        foreach($blogs as $s){
+            $s->status = 0;
+            $s->save();
+        }
+        $videos = Video::where('user_id',$user->id)->get();
+        foreach($videos as $s){
+            $s->status = 2;
+            $s->save();
         }
             
 
