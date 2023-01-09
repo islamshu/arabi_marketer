@@ -197,7 +197,7 @@ Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('google/callback', [GoogleController::class, 'handleGoogleCallback']);
 Route::get('auth/facebook', [FacebookController::class, 'redirectToGoogle']);
 Route::get('facebook/callback', [FacebookController::class, 'handleGoogleCallback']);
-Route::group(['middleware' => 'is_login', 'middleware' => 'is_able_markter'], function () {
+Route::group(['middleware' => 'is_login', 'middleware' => 'Is_markter'], function () {
     Route::post('/store_sound', [SoundController::class, 'store']);
 
     // Route::post('/add_service', [ServiceController::class, 'store']);
@@ -237,7 +237,7 @@ Route::get('/single_podcast/{id}', [PodcastController::class, 'single'])->name('
 Route::get('/podcast_search', [PodcastController::class, 'serach']);
 Route::get('/podcast_profile_search/{id}', [PodcastController::class, 'podcast_profile_search']);
 
-Route::group(['middleware' => 'is_login', 'middleware' => 'is_able_markter'], function () {
+Route::group(['middleware' => 'is_login', 'middleware' => 'Is_markter'], function () {
 
     Route::post('/add_podcast', [PodcastController::class, 'store']);
     Route::post('/update_podcast', [PodcastController::class, 'update']);
@@ -282,7 +282,7 @@ Route::get('/video_profile_search/{id}', [VideoController::class, 'video_profile
 Route::get('/related_videos/{id}', [VideoController::class, 'related_videos']);
 
 
-Route::group(['middleware' => 'is_login', 'middleware' => 'is_able_markter'], function () {
+Route::group(['middleware' => 'is_login', 'middleware' => 'Is_markter'], function () {
 
     Route::post('/add_video', [VideoController::class, 'store']);
     Route::post('/update_video', [VideoController::class, 'update']);
@@ -298,7 +298,7 @@ Route::get('/consultation_payments', [ConsultationController::class, 'payments']
 Route::get('/get_all_consultation', [ConsultationController::class, 'all_consultation']);
 Route::get('/single_consultion/{id}', [ConsultationController::class, 'single_consultion']);
 
-Route::group(['middleware' => 'is_login', 'middleware' => 'is_able_markter'], function () {
+Route::group(['middleware' => 'is_login', 'middleware' => 'Is_markter'], function () {
     Route::post('/add_consultion', [ConsultationController::class, 'store']);
     Route::post('/update_consultion/{id}', [ConsultationController::class, 'update']);
 });
