@@ -50,7 +50,6 @@ class VideoController extends BaseController
     }
     public function store(Request $request)
     {
-        return $request->type == "false";
         $validation = Validator::make($request->all(), [
             'title' => 'required',
             'description' => 'required',
@@ -58,8 +57,8 @@ class VideoController extends BaseController
             'types' => 'required',
             'keywords' => 'required',
             'type' => 'required',
-            'url' =>  $request->type == false ? 'required' : '',
-            'video' =>  $request->type == true ? 'required' : '',
+            'url' =>  $request->type == "false" ? 'required' : '',
+            'video' =>  $request->type == "true" ? 'required' : '',
         ]);
         if ($validation->fails()) {
             return $this->sendError($validation->messages()->all());
