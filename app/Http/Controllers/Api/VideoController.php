@@ -50,6 +50,7 @@ class VideoController extends BaseController
     }
     public function store(Request $request)
     {
+        return $request->type;
         $validation = Validator::make($request->all(), [
             'title' => 'required',
             'description' => 'required',
