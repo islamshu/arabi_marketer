@@ -50,7 +50,6 @@ class PayPalPaymentController extends BaseController
         $res = $paypalModule->setExpressCheckout($product, true);
         $order->more_info=json_encode($res);
         $order->save();
-        // dd($product);
         $ress['link']=$res['paypal_link'];
         $ress['payment_type']='paypal';
 

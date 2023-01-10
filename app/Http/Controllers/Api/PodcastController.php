@@ -15,6 +15,7 @@ use App\Models\OwenPodcast;
 use App\Models\Podacst;
 use App\Models\PodacstKeyword;
 use App\Models\PodcastCategory;
+use App\Models\Specialty;
 use App\Models\User;
 use App\Notifications\GeneralNotification;
 use Notification;
@@ -23,7 +24,7 @@ use Validator;
 class PodcastController extends BaseController
 {
     public function podcast_category(){
-        $category = Category::ofType('podcast')->orderBy('id', 'asc')->get();
+        $category = Specialty::orderBy('id', 'asc')->get();
         $userRes =KeywordResource::collection($category);
         return $this->sendResponse($userRes,'جميع التصنيفات الخاصة بالخدمات');
 
