@@ -5,6 +5,7 @@ namespace App\Http\Resources;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\Country;
+use App\Models\Specialty;
 use Arr;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -62,7 +63,7 @@ class UserNormalNotAuthResource extends JsonResource
             foreach ($data->types as $type) {
                 array_push($type_array, $type->type_id);
             }
-            return CategoryResource::collection(Category::whereIn('id', $type_array)->get());
+            return CategoryResource::collection(Specialty::whereIn('id', $type_array)->get());
         } else {
             return null;
         }
