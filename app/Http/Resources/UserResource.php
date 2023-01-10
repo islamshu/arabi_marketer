@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\Followr;
+use App\Models\Specialty;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class UserResource extends JsonResource
@@ -63,7 +64,7 @@ class UserResource extends JsonResource
             foreach ($data->types as $type) {
                 array_push($type_array, $type->type_id);
             }
-            return CategoryResource::collection(Category::whereIn('id', $type_array)->get());
+            return CategoryResource::collection(Specialty::whereIn('id', $type_array)->get());
         } else {
             return null;
         }
