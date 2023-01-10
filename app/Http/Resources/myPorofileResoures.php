@@ -11,6 +11,7 @@ use App\Models\Followr;
 use App\Models\NewPodcast;
 use App\Models\Podacst;
 use App\Models\Service;
+use App\Models\Specialty;
 use App\Models\Video;
 use Arr;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -120,7 +121,7 @@ class myPorofileResoures extends JsonResource
             foreach ($data->types as $type) {
                 array_push($type_array, $type->type_id);
             }
-            return CategoryResource::collection(Category::whereIn('id', $type_array)->get());
+            return CategoryResource::collection(Specialty::whereIn('id', $type_array)->get());
         } else {
             return null;
         }
