@@ -14,10 +14,14 @@
             <td><img alt="Pic" src="{{ asset('public/uploads/' . $item->image) }}" width="50" height="50" ></td>
 
          <td>{{ $item->name }}</td>
-         <td>{{ $item->created_at->format('Y-m-d') }}</td>
 
          <td>
-            <a href="{{ route('show_message_from_user', [$item->id, $user]) }}" class="btn btn-info"><i class="fa fa-eye"></i></a>
+            @if($item->type == 'user')
+            <a href="{{ route('marketer.show', [$item->id]) }}" class="btn btn-info"><i class="fa fa-eye"></i></a>
+            @else
+            <a href="{{ route('customer.show', [$item->id]) }}" class="btn btn-info"><i class="fa fa-eye"></i></a>
+
+            @endif
             
         </td>
         </tr>
