@@ -91,6 +91,7 @@ class ProfileController extends Controller
         $podcasts = $user->podcasts;
         $consls =$user->consutiong;
         $conversations =Message::where('sender_id',$id)->orWhere('receiver_id',$id)->get();
+        // $users_follows = User:
         $users = $conversations->map(function($conversation) use($id){
         if($conversation->sender_id == $id) {
             return $conversation->receiver;

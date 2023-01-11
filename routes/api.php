@@ -71,6 +71,7 @@ Route::get('price_for_exta_servcie', [ServiceController::class, 'price_for_extrs
 Route::get('time_for_servcie', [ServiceController::class, 'time_for_servcie']);
 Route::get('time_for_exta_servcie', [ServiceController::class, 'time_for_exta_servcie']);
 
+Route::post('/change_status/{id}', [ServiceController::class, 'change_status']);
 
 
 
@@ -135,7 +136,6 @@ Route::group(['middleware' => 'is_login'], function () {
     Route::post('/edit_profile_step_4', [UserController::class, 'edit_profile_step_4']);
     Route::post('/remmeber_markter', [UserController::class, 'remmeber_markter']);
     Route::post('/vendor_chats/{id}', [UserController::class, 'chat_with_seller']);
-    Route::post('/change_status/{id}', [ServiceController::class, 'change_status']);
 
     
 

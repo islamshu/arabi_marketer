@@ -251,6 +251,12 @@
                     
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_11"> المتابعين  ({{  App\Models\Followr::where('marketer_id', $this->id)->count() }})</a>
+                    
+                </li>
+
+               
+                <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_9">الرسائل<span
                             class="count">{{ count($users) }}</span></a>
                 </li>
@@ -277,8 +283,12 @@
                 <div class="tab-pane fade" id="kt_tab_pane_8" role="tabpanel">
                     @include('pages.marketers.profile.consutiong')
                 </div>
+
                 <div class="tab-pane fade" id="kt_tab_pane_10" role="tabpanel">
                     @include('pages.marketers.profile.sub_profile')
+                </div>
+                <div class="tab-pane fade" id="kt_tab_pane_11" role="tabpanel">
+                    @include('pages.marketers.profile.follower_user')
                 </div>
                 <div class="tab-pane fade" id="kt_tab_pane_9" role="tabpanel">
                     @include('pages.marketers.profile.messages')
