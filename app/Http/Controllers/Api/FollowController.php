@@ -36,7 +36,7 @@ class FollowController extends BaseController
     }
     public function delete($id)
     {
-        $followr = Followr::find($id);
+        $followr = Followr::where('user_id',auth('api')->id())->where('marketer_id',$id)->first();
         if (!$followr) {
             $this->sendError('هناك خطأ ما !');
         }
