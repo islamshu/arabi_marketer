@@ -251,7 +251,7 @@
                     
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_11"> المتابعين  ({{  App\Models\Followr::where('marketer_id', $this->id)->count() }})</a>
+                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_11"> المتابعين  ({{  App\Models\Followr::where('marketer_id', $user->id)->count() }})</a>
                     
                 </li>
 
