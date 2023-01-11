@@ -19,6 +19,8 @@ use App\Models\ExtraService;
 use App\Models\Order;
 use App\Models\User;
 use App\Models\Video;
+use App\Notifications\GeneralNotification;
+use Notification;
 
 class ServiceController extends Controller
 {
@@ -44,7 +46,20 @@ class ServiceController extends Controller
         $service->status = $request->status;
         $service->save();
         Alert::success('Success', 'Aproved service');
-
+        $admins = User::where('type','Admin')->get();
+        if($request->status ==1){
+           $title = 'تم قبول الخدمة'; 
+        }else{
+            $title = 'تم رفض الخدمة'; 
+        }
+        $date = [
+            'id'=>$service->id,
+            'name' => $title,
+            'title' =>  $title,
+            'time' => $service->updated_at
+        ];
+        Notification::send($service->user->email, new GeneralNotification($date));
+               send_notification($date);
         return redirect()->back();
     }
     public function price_for_extra_servcie(){
