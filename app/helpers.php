@@ -169,18 +169,16 @@ function check_pan(){
     }
 }
 function is_follow_fun($id){
+    return auth('api')->id();
     if(auth('api')->check()){
         $follow = Followr::where('user_id',auth('api')->id())->where('marketer_id',$id)->first();
         if($follow){
             return 1;
         }else{
-            return 5;
 
             return 0;
         }
-
     }else{
-        return 6;
 
         return 0;
     }
