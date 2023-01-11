@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Followr;
 use App\Models\GeneralInfo;
 use App\Models\User;
 use Pusher\Pusher;
@@ -165,6 +166,19 @@ function check_pan(){
               $response['data'] = $errorMessages;
            return response()->json($response , 200);
         }
+    }
+}
+function is_follow_fun($id){
+    if(auth('api')->check()){
+        $follow = Followr::where('user_id',auth('api')->id())->where('marketer_id',$id)->first();
+        if($follow){
+            return 1;
+        }else{
+            return 0;
+        }
+
+    }else{
+        return 0;
     }
 }
 function datatable_paginate($builder)

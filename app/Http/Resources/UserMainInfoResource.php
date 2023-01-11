@@ -5,6 +5,7 @@ namespace App\Http\Resources;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\Country;
+use App\Models\Followr;
 use App\Models\Specialty;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -29,7 +30,8 @@ class UserMainInfoResource extends JsonResource
             'types' => $this->get_type($this),
             'message'=>$this->message,
             'required_change_password'=>$this->required_change,
-
+            'is_follow'=>is_follow_fun($this->id),
+            'followe_number' => Followr::where('marketer_id', $this->id)->count(),
             'rss_url' => route('rss_feed', $this->id),
 
             'last_name' => $this->last_name,

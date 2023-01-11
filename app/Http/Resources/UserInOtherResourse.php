@@ -38,7 +38,8 @@ class UserInOtherResourse extends JsonResource
             'message'=>$this->message,
             'cover' => $this->cover == null ? asset('public/uploads/cover_profile.jpg') : asset('public/uploads/' . $this->cover),
             'required_change_password'=>$this->required_change,
-
+            'is_follow'=>is_follow_fun($this->id),
+            'followe_number' => Followr::where('marketer_id', $this->id)->count(),
             'image' => $this->image == null ? asset('public/uploads/users/defult_user.png') : asset('public/uploads/' . $this->image),
         ];
     }
