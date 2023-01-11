@@ -59,7 +59,7 @@ class ServiceController extends Controller
             'time' => $service->updated_at
         ];
         Notification::send($service->user->email, new GeneralNotification($date));
-               send_notification($date);
+            // send_notification($date);
         return redirect()->back();
     }
     public function price_for_extra_servcie(){
