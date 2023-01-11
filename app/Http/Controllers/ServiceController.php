@@ -54,7 +54,7 @@ class ServiceController extends Controller
         }
         $date = [
             'id'=>$service->id,
-            'url' => '',
+            'url' => 'https://sub.arabicreators.com/OurServices/'.$service->id,
             'title' =>  $title,
             'time' => $service->updated_at
         ];
