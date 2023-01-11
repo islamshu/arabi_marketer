@@ -58,7 +58,7 @@ class ServiceController extends Controller
             'title' =>  $title,
             'time' => $service->updated_at
         ];
-        Notification::send($service->user->id, new GeneralNotification($date));
+        Notification::send($service->user, new GeneralNotification($date));
             // send_notification($date);
         return redirect()->back();
     }
