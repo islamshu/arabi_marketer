@@ -174,10 +174,14 @@ function is_follow_fun($id){
         if($follow){
             return 1;
         }else{
+            return 5;
+
             return 0;
         }
 
     }else{
+        return 6;
+
         return 0;
     }
 }
