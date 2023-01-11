@@ -54,7 +54,7 @@ class ServiceController extends Controller
         }
         $date = [
             'id'=>$service->id,
-            'name' => $title,
+            'url' => '',
             'title' =>  $title,
             'time' => $service->updated_at
         ];
