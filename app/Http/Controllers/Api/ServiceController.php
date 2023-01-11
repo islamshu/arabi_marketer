@@ -86,9 +86,9 @@ class ServiceController extends BaseController
         $userRes = ServiceDayResourse::collection(TimeExtaService::get());
         return $this->sendResponse($userRes, 'جميع الاوقات الخاصة بالاضافات    '); 
     }
-    public function change_status($id){
+    public function change_status(Request $request , $id){
         $service = Service::find($id);
-        if($service->user_id != auth('api')->id()){
+        if($service->user_id != $request->user_id){
             return $this->sendError('فقط صاحب الخدمة من يقول بتغير الحالة');
         }
         $service->status = 0;
