@@ -211,12 +211,12 @@ $order = App\Models\Order::find($order_id);
                         <tr>
                           <td width="117" align="right" style="padding:24px 0 24px 10px; text-align:left;">
                             <a href="https://supplify.de/" target="_blank" style="text-decoration:none; color:#000; outline:0;">
-                              <img src="{{ asset('public/uploads/'.$service->image) }}" border="0">
+                              <img src="{{ asset('public/uploads/'.$service->image) }}" width="200" height="150" border="0">
                             </a>
                           </td>
                           <td width="270" style="vertical-align:middle; padding:0 0 0 10px; font-family:'Roboto', Arial !important;">
                             <p style="font-size:16px; margin:0; color:#000; line-height:20px; font-family:'Roboto', Arial !important">
-                              <a href="https://www.chewy.com/dp/117261?utm_medium=email&amp;utm_source=transactional&amp;utm_campaign=OrderConfirmation" target="_blank" style="text-decoration:none; color:#000; outline:0;">
+                              <a target="_blank" style="text-decoration:none; color:#000; outline:0;">
                                 {{ $service->title }}
                             </a>
                             </p>
