@@ -20,7 +20,7 @@ class Order extends Mailable
     }
     public function build()
     {
-        return $this->view('mail.welcom')
+        return $this->view('mail.order')
         ->with([
            'order' => $this->order,
         ]);
