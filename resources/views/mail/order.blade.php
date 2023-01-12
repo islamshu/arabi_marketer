@@ -190,7 +190,7 @@ $order = App\Models\Order::find($order_id);
   
                 <tr>
                   <td style=" font-family:'Roboto', Arial !important;padding:0;" align="center">
-                    <table width="550" style="border-collapse:collapse;margin: 0 auto;border-bottom: 1px solid #EBEBEB">
+                    <table width="400" style="border-collapse:collapse;margin: 0 auto;border-bottom: 1px solid #EBEBEB">
                       <tbody>
                         @foreach ($order->orderdetiles as $item)
                             @php
@@ -210,7 +210,7 @@ $order = App\Models\Order::find($order_id);
                             </p>
                            
                           </td>
-                          <td align="center" width="60" style="vertical-align:middle; font-family:'Roboto', Arial !important;padding:0;">
+                          <td align="center" width="400" style="vertical-align:middle; font-family:'Roboto', Arial !important;padding:0;">
                             <p style="font-size:18px; color:#000; margin:0; font-family:'Roboto', Arial !important;text-align:center;">
                                 @php
                                     $extra = json_decode($item->extra_data);
