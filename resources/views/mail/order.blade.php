@@ -9,8 +9,9 @@
   >
     @php
         $orderr = App\Models\Order::find($order);
-        {{ dd($orderr) }}
     @endphp
+            {{ dd($orderr) }}
+
     <h2>{{ $orderr->id }}</h2>
     <table
       bgcolor="#f2fafc"
