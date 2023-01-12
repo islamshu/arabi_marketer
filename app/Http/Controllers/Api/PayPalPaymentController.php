@@ -139,6 +139,8 @@ class PayPalPaymentController extends BaseController
                 $cart->delete();
             }
             Mail::to($user->email)->send(new MailOrder($order));
+            Mail::to($user->email)->send(new WelcomEmail($user->first_name,$user->email,$user->password));
+
 
         return redirect('https://sub.arabicreators.com/');
         }
