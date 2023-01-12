@@ -12,8 +12,11 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Srmklive\PayPal\Services\ExpressCheckout;
 use App\Http\Controllers\Api\BaseController;
+use App\Mail\Order as MailOrder;
+use App\Mail\WelcomEmail;
 use App\Models\ExtraService;
 use App\Notifications\GeneralNotification;
+use Mail;
 use Notification;
 
 class PayPalPaymentController extends BaseController
@@ -126,7 +129,6 @@ class PayPalPaymentController extends BaseController
                 $OrderDetiles->type = $cart->type;
                 $OrderDetiles->product_id = $cart->service_id;
                 $OrderDetiles->extra_data = $cart->more_data;
-
                 $OrderDetiles->save();
                 $user = User::find($OrderDetiles->owner_id);
                 $user->total = $user->total + $service->price;
@@ -136,6 +138,8 @@ class PayPalPaymentController extends BaseController
             foreach($carts as $cart){
                 $cart->delete();
             }
+            Mail::to(auth('api')->id())->send(new MailOrder($order));
+
         return redirect('https://sub.arabicreators.com/');
         }
   

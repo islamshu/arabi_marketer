@@ -7,28 +7,22 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class WelcomEmail extends Mailable
+class Order extends Mailable
 {
     use Queueable, SerializesModels;
-    public $name;
-    public $email;
-    public $password;
+    public $order;
 
    
-    public function __construct($name,$email,$password)
+    public function __construct($order)
     {
-        $this->name = $name;
-        $this->email = $email;
-        $this->password = $password;
-
+        $this->order = $order;
+ 
     }
     public function build()
     {
         return $this->view('mail.welcom')
         ->with([
-           'name' => $this->name,
-           'email' => $this->email,
-           'password' => $this->password
+           'order' => $this->order,
         ]);
     }
 
