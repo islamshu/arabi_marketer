@@ -114,7 +114,11 @@ class PayPalPaymentController extends BaseController
                 }
                 
                 $extra = ExtraService::whereIn('id',json_decode($cart->more_data))->get();
-                dd($extra);
+                $pricc= 0;
+                foreach($extra as $s){
+                    $pricc = $pricc + $s->price;
+                }
+                dd($pricc);
                 $OrderDetiles = new OrderDetiles();
                 $OrderDetiles->order_id = $order->id;
                 $OrderDetiles->owner_id = $service->user_id;
