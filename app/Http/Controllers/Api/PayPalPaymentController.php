@@ -118,11 +118,11 @@ class PayPalPaymentController extends BaseController
                 foreach($extra as $s){
                     $pricc = $pricc + $s->price;
                 }
-                dd($pricc);
+                // dd($pricc);
                 $OrderDetiles = new OrderDetiles();
                 $OrderDetiles->order_id = $order->id;
                 $OrderDetiles->owner_id = $service->user_id;
-                $OrderDetiles->price = $service->price;
+                $OrderDetiles->price = $service->price + $pricc;
                 $OrderDetiles->type = $cart->type;
                 $OrderDetiles->product_id = $cart->service_id;
                 $OrderDetiles->extra_data = $cart->more_data;
