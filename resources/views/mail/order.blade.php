@@ -93,7 +93,7 @@ $order = App\Models\Order::find($order_id);
                                             </td>
                                             <td align="left" style="font-family:'Roboto', Arial !important">
                                               <p style="font-size:16px; color:#000; margin:0 0 10px 0; font-family:'Roboto', Arial !important">
-                                               {{ $order->code }}
+                                               #{{ $order->code }}
                                               </p>
                                             </td>
                                           </tr>
