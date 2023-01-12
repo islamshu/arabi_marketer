@@ -67,7 +67,6 @@ class PayPalPaymentController extends BaseController
   
     public function paymentSuccess(Request $request,$id)
     {
-        dd(auth('api')->user()->email);
         $paypalModule = new ExpressCheckout;
         $response = $paypalModule->getExpressCheckoutDetails($request->token);
   
@@ -139,7 +138,7 @@ class PayPalPaymentController extends BaseController
             foreach($carts as $cart){
                 $cart->delete();
             }
-            Mail::to(auth('api')->user()->email)->send(new MailOrder($order));
+            Mail::to($user->email)->send(new MailOrder($order));
 
         return redirect('https://sub.arabicreators.com/');
         }
