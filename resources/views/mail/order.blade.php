@@ -8,7 +8,8 @@
     "
   >
     @php
-        $orderr = App\Models\Order::find($order)
+        $orderr = App\Models\Order::find($order);
+        {{ dd($orderr) }}
     @endphp
     <h2>{{ $orderr->id }}</h2>
     <table
