@@ -115,9 +115,10 @@ class PayPalPaymentController extends BaseController
                 }else{
                     $service = Consulting::find($cart->service_id);
                 }
-                
-                $extra = ExtraService::whereIn('id',json_decode($cart->more_data))->get();
                 $pricc= 0;
+
+                dd(json_decode($cart->more_data));
+                $extra = ExtraService::whereIn('id',json_decode($cart->more_data))->get();
                 foreach($extra as $s){
                     $pricc = $pricc + $s->price;
                 }
