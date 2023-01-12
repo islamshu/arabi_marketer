@@ -61,19 +61,7 @@ $order = App\Models\Order::find($order_id);
                             </p>
                           </td>
                         </tr>
-                        <tr>
-                          <td align="center" style="padding-bottom:30px">
-                            <table style="width:255px; margin:0 auto;">
-                              <tbody>
-                                <tr>
-                                  <td width="255" style="background-color:#008AF1; text-align:center; border-radius:5px; vertical-align:middle; padding:13px 0">
-                                    <a href="https://supplify.de/Mein-Konto">Bestellstatus</a>
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </td>
-                        </tr>
+                     
                       </tbody>
                     </table>
                   </td>
