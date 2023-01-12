@@ -242,73 +242,7 @@ $order = App\Models\Order::find($order_id);
             </table>
           </td>
         </tr>
-        <tr>
-          <td align="center" style="padding-top:20px">
-            <table width="604" style="border-collapse:collapse;background-color:#FFF; font-family:'Roboto', Arial !important; border-radius:5px">
-              <tbody>
-                <tr>
-                  <td colspan="4" style="vertical-align:middle;background-color: #128ced;border-radius: 5px 5px 0 0;">
-                    <table style="background-color:#128ced; width:100%; border-radius:5px 5px 0 0; border-collapse:collapse">
-                      <tbody>
-                        <tr>
-                          <td align="center" style="vertical-align:middle; padding:22px 0; font-family:'Roboto', Arial !important">
-                            <p style="color:#FFF; font-size:18px; margin:0; font-family:'Roboto', Arial !important">
-                              Ruf uns an: <a href="tel:+4942219447744" target="_blank" style="text-decoration:none; color:#FFF; font-weight:bold;outline:0;">+49 (0)4221 944 77 44</a> oder antworte auf diese Email
-                            </p>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="padding:0">
-                    <table cellpadding="20" style="width:100%; border-collapse:collapse">
-                      <tbody>
-                        <tr>
-                          <td align="center" style="border-right:1px solid #EBEBEB; font-family:'Roboto', Arial !important">
-                            <a href="https://www.chewy.com?utm_medium=email&amp;utm_source=transactional&amp;utm_campaign=OrderConfirmation" target="_blank" style="outline:0;color:#128ced; text-decoration:none">
-                              <p style="margin:0 0 8px 0"><img src="https://www.chewy.com/static/cms/lp/email/csr_icon.png" border="0"></p>
-                              <p style="color:#444; font-size:13px; text-transform:uppercase; margin:0; font-family:'Roboto', Arial !important">
-                                Kunden <br> Support
-                              </p>
-                            </a>
-                          </td>
-                          <td align="center" style="border-right:1px solid #EBEBEB; font-family:'Roboto', Arial !important; vertical-align:bottom">
-                            <a href="https://www.chewy.com?utm_medium=email&amp;utm_source=transactional&amp;utm_campaign=OrderConfirmation" target="_blank" style="outline:0;color:#128ced; text-decoration:none">
-                              <p style="margin:0 0 14px 0; font-family:'Roboto', Arial !important"><img src="https://www.chewy.com/static/cms/lp/email/shipping_icon.png" border="0"></p>
-                              <p style="color:#444; font-size:13px; text-transform:uppercase; margin:0; font-family:'Roboto', Arial !important">
-                                Gratisversand <br> ab EUR49.00
-                              </p>
-                            </a>
-                          </td>
-                          <td align="center" style="border-right:1px solid #EBEBEB; font-family:'Roboto', Arial !important">
-                            <a href="https://www.chewy.com?utm_medium=email&amp;utm_source=transactional&amp;utm_campaign=OrderConfirmation" target="_blank" style="outline:0;color:#128ced; text-decoration:none">
-                              <p style="margin:0 0 8px 0"><img src="https://www.chewy.com/static/cms/lp/email/moneyback_icon.png" border="0">
-                              </p>
-                              <p style="color:#444; font-size:13px; text-transform:uppercase; margin:0; font-family:'Roboto', Arial !important">
-                                 Zufriedenheitsgarantie
-                              </p>
-                            </a>
-                          </td>
-                          <td align="center" style="font-family:'Roboto', Arial !important">
-                            <a href="https://www.chewy.com?utm_medium=email&amp;utm_source=transactional&amp;utm_campaign=OrderConfirmation" target="_blank" style="outline:0;color:#128ced; text-decoration:none">
-                              <p style="margin:0 0 8px 0"><img src="https://www.chewy.com/static/cms/lp/email/return_icon.png" border="0"></p>
-                              <p style="color:#444; font-size:13px; text-transform:uppercase; margin:0; font-family:'Roboto', Arial !important">
-                                Sonstige <br> Features
-                              </p>
-                            </a>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-        </tr>
-       
+      
       </tbody>
     </table>
   </body>
