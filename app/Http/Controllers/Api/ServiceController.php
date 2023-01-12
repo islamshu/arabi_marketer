@@ -136,7 +136,6 @@ class ServiceController extends BaseController
             'time'=>'required',
             'buyer_instructions'=>'required',
             'attach_file' =>  $request->has_file == 1 ? 'required' : '',
-
         ]);
         if ($validation->fails()) {
             return $this->sendError($validation->messages()->all());
@@ -262,11 +261,29 @@ class ServiceController extends BaseController
     {
 
         $service = Service::find($request->service_id);
-        $service->title =$request->title;
-
+          // return $request->all();
+          $validation = Validator::make($request->all(), [
+            'type_service'=>'required',
+            'title' => 'required',
+            'description' => 'required',
+            // 'url' => 'required',
+            'specialties' => 'required',
+            'types' => 'required',
+            'keywords' => 'required',
+            'has_file' => 'required',
+            // 'time'=>'required',
+            'buyer_instructions'=>'required',
+            'attach_file' =>  $request->has_file == 1 ? 'required' : '',
+        ]);
+        if ($validation->fails()) {
+            return $this->sendError($validation->messages()->all());
+        }
+        $service->title = $request->title;
         $service->description =  $request->description;
-        $service->price = $request->price;
         $service->url = $request->url;
+        $service->buyer_instructions = $request->buyer_instructions;
+        $service->type = $request->type_service;
+        // $service->time = $request->time;
         $image_array = array();
         if ($request->images != null) {
             foreach ($request->images as $key => $image) {
@@ -282,16 +299,31 @@ class ServiceController extends BaseController
         }
 
         $service->save();
+        if(is_array($request->addmore) || is_object($request->addmore)){
+            foreach ($request->addmore as $key => $value) {
+                // $extra = ExtraService::create( $value);
+                $extra = new ExtraService();
+                $extra->service_id =$service->id ;
+                $extra->title =$value['title'];
+                $extra->price =$value['price'];
+                if($value['has_time'] == 0){
+                    $extra->time=0;
+                }else{
+                    $extra->time= $value['time'];
+                }
+                $extra->save();
+            }
+        }
         $servicespecialty = ServiceSpecialy::where('service_id', $service->id)->get();
         foreach ($servicespecialty as $se) {
             $se->delete();
         }
+        $spe = new ServiceSpecialy();
+        $spe->service_id = $service->id;
+        $spe->specialts_id = $request->specialties;
+        $spe->save();
         foreach ($request->specialties as $specialty) {
-            $spe = new ServiceSpecialy();
-            $spe->service_id = $service->id;
-            $spe->specialts_id = $specialty;
-            $spe->save();
-        }
+    
         $servicecategory = ServiceCategory::where('service_id', $service->id)->get();
         foreach ($servicecategory as $se) {
             $se->delete();
