@@ -143,7 +143,10 @@ class PayPalPaymentController extends BaseController
             }
             $ordermail = Order::find($id);
             $userorder = User::find($ordermail->user_id);
-            Mail::to($userorder->email)->send(new OrderMail($order));
+
+
+            Mail::to($userorder->email)->send(new OrderMail($ordermail));
+            dd('test');
 
 
         return redirect('https://sub.arabicreators.com/');
