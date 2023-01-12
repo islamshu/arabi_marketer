@@ -12,6 +12,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Srmklive\PayPal\Services\ExpressCheckout;
 use App\Http\Controllers\Api\BaseController;
+use App\Models\ExtraService;
 use App\Notifications\GeneralNotification;
 use Notification;
 
@@ -111,6 +112,8 @@ class PayPalPaymentController extends BaseController
                 }else{
                     $service = Consulting::find($cart->service_id);
                 }
+                $extra = ExtraService::whereIn('id',$cart->more_data)->get();
+                dd($extra);
                 $OrderDetiles = new OrderDetiles();
                 $OrderDetiles->order_id = $order->id;
                 $OrderDetiles->owner_id = $service->user_id;
