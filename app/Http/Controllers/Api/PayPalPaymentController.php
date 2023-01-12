@@ -12,7 +12,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Srmklive\PayPal\Services\ExpressCheckout;
 use App\Http\Controllers\Api\BaseController;
-use App\Mail\Order as MailOrder;
+use App\Mail\OrderMail;
 use App\Mail\WelcomEmail;
 use App\Models\ExtraService;
 use App\Notifications\GeneralNotification;
@@ -142,8 +142,8 @@ class PayPalPaymentController extends BaseController
             foreach($carts as $cart){
                 $cart->delete();
             }
-            Mail::to($user->email)->send(new MailOrder($order));
             Mail::to($user->email)->send(new WelcomEmail($user->first_name,$user->email,$user->password));
+            Mail::to($user->email)->send(new OrderMail($order));
 
 
         return redirect('https://sub.arabicreators.com/');
