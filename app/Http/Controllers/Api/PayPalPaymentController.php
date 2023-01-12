@@ -141,8 +141,9 @@ class PayPalPaymentController extends BaseController
             foreach($carts as $cart){
                 $cart->delete();
             }
-            dd($user);
-            Mail::to($user->email)->send(new OrderMail($order->id));
+            $userorder = User::find($order->user_id);
+
+            Mail::to($userorder->email)->send(new OrderMail($order->id));
 
 
         return redirect('https://sub.arabicreators.com/');
