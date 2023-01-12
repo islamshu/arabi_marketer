@@ -216,7 +216,8 @@ $order = App\Models\Order::find($order_id);
                                     $extra = json_decode($item->extra_data);
                                 @endphp
                                 @if($extra != null)
-                                @foreach ($extra as $item)
+
+                                @foreach (App\Models\ExtraService::whereIn('id',$extra)->get() as $item)
                                   {{ $item->title  }} ,  <br>
                                 @endforeach
                                 @else
