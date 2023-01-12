@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Srmklive\PayPal\Services\ExpressCheckout;
 use App\Http\Controllers\Api\BaseController;
 use App\Mail\OrderMail;
+use App\Mail\WelcomEmail;
 use App\Models\ExtraService;
 use App\Notifications\GeneralNotification;
 use Mail;
@@ -145,7 +146,7 @@ class PayPalPaymentController extends BaseController
             $userorder = User::find($ordermail->user_id);
 
 
-            Mail::to($userorder->email)->send(new OrderMail($ordermail));
+            Mail::to($userorder->email)->send(new WelcomEmail($userorder->name,$userorder->email,$userorder->password));
             dd('test');
 
 
