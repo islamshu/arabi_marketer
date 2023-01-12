@@ -211,7 +211,7 @@ $order = App\Models\Order::find($order_id);
                         <tr>
                           <td width="117" align="right" style="padding:24px 0 24px 10px; text-align:left;">
                             <a href="https://supplify.de/" target="_blank" style="text-decoration:none; color:#000; outline:0;">
-                              <img src="{{ asset('public/uploads/'.$service->image) }}" width="200" height="150" border="0">
+                              <img src="{{ asset('public/uploads/'.$service->image) }}" width="150" height="100" border="0">
                             </a>
                           </td>
                           <td width="270" style="vertical-align:middle; padding:0 0 0 10px; font-family:'Roboto', Arial !important;">
@@ -231,6 +231,8 @@ $order = App\Models\Order::find($order_id);
                                 @foreach ($extra as $item)
                                   {{ $item->title  }} ,  <br>
                                 @endforeach
+                                @else
+                                _
                                 @endif
                             </p>
                           </td>
