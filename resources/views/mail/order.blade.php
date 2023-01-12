@@ -117,7 +117,7 @@ $order = App\Models\Order::find($order_id);
                                             </td>
                                             <td align="left" style="font-family:'Roboto', Arial !important">
                                               <p style="font-size:16px; color:#000; margin:0 0 10px 0; font-family:'Roboto', Arial !important">
-                                               {{ $order->total }}
+                                               {{ $order->total }} $
                                               </p>
                                             </td>
                                           </tr>
@@ -239,7 +239,7 @@ $order = App\Models\Order::find($order_id);
                           <td align="center" width="80" style="font-family:'Roboto', Arial !important;padding:0 10px 0 0;">
                             
                             <p style="font-size:18px; color:#bc0101; margin:0; font-family:'Roboto', Arial !important;text-align:center;font-weight:bold;text-align: right;">
-                           {{ $item->price }}
+                           {{ $item->price }}$
                             </p>
                           </td>
                         </tr>
