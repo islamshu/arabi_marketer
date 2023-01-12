@@ -117,6 +117,8 @@ class PayPalPaymentController extends BaseController
                 $OrderDetiles->price = $service->price;
                 $OrderDetiles->type = $cart->type;
                 $OrderDetiles->product_id = $cart->service_id;
+                $OrderDetiles->extra_data = $cart->more_data;
+
                 $OrderDetiles->save();
                 $user = User::find($OrderDetiles->owner_id);
                 $user->total = $user->total + $service->price;
@@ -126,7 +128,7 @@ class PayPalPaymentController extends BaseController
             foreach($carts as $cart){
                 $cart->delete();
             }
-        return view('success_paid');
+        return redirect('https://sub.arabicreators.com/');
         }
   
         dd('Error occured!');
