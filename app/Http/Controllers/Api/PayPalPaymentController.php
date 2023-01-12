@@ -142,7 +142,7 @@ class PayPalPaymentController extends BaseController
                 $cart->delete();
             }
             $userorder = User::find($order->user_id);
-
+            dd($userorder);
             Mail::to($userorder->email)->send(new OrderMail($order->id));
 
 
