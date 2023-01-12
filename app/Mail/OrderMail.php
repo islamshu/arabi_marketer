@@ -22,7 +22,7 @@ class OrderMail extends Mailable
     {
         return $this->view('mail.order')
         ->with([
-           'order' => $this->order,
+           'order_id' => $this->order,
         ]);
     }
 
