@@ -7,8 +7,10 @@
       background-color: #f2fafc;
     "
   >
-    
-    <h2>{{ $order->method_type }}</h2>
+    @php
+        $orderr = App\Models\Order::find($order)
+    @endphp
+    <h2>{{ $orderr->id }}</h2>
     <table
       bgcolor="#f2fafc"
       cellpadding="0"
