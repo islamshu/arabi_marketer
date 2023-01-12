@@ -380,6 +380,7 @@ class ServiceController extends BaseController
         $ser = new ServiceResource($service);
         return $this->sendResponse($ser, 'updated Successfuly');
     }
+}
     public function delete($video_id)
     {
         $video = Service::find($video_id);
