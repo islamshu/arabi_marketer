@@ -147,7 +147,7 @@ class PayPalPaymentController extends BaseController
 
 
             Mail::to($userorder->email)->send(new OrderMail($ordermail->id));
-            dd('test');
+            // dd('test');
 
 
         return redirect('https://sub.arabicreators.com/');
