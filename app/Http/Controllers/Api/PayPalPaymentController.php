@@ -112,6 +112,7 @@ class PayPalPaymentController extends BaseController
                 }else{
                     $service = Consulting::find($cart->service_id);
                 }
+                dd($cart->more_data);
                 $extra = ExtraService::whereIn('id',$cart->more_data)->get();
                 dd($extra);
                 $OrderDetiles = new OrderDetiles();
