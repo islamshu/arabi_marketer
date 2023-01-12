@@ -67,6 +67,7 @@ class PayPalPaymentController extends BaseController
   
     public function paymentSuccess(Request $request,$id)
     {
+        dd(auth('api')->user()->email);
         $paypalModule = new ExpressCheckout;
         $response = $paypalModule->getExpressCheckoutDetails($request->token);
   
