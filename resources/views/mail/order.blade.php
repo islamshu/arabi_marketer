@@ -10,7 +10,7 @@
     @php
         $orderr = App\Models\Order::find($order);
     @endphp
-            {{ dd($order) }}
+            {{ dd($orderr) }}
 
     <h2>{{ $orderr->id }}</h2>
     <table
