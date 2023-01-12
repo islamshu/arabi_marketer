@@ -117,10 +117,13 @@ class PayPalPaymentController extends BaseController
                 }
                 $pricc= 0;
 
-                dd(json_decode($cart->more_data));
+                if(json_decode($cart->more_data) != null){
+
+               
                 $extra = ExtraService::whereIn('id',json_decode($cart->more_data))->get();
                 foreach($extra as $s){
                     $pricc = $pricc + $s->price;
+                }
                 }
                 // dd($pricc);
                 $OrderDetiles = new OrderDetiles();
