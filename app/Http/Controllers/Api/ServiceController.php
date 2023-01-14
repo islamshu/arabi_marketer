@@ -93,7 +93,8 @@ class ServiceController extends BaseController
         }
         $service->status = (int)$request->status;
         $service->save();
-        return $this->sendResponse('success', 'تم تغير الحالة بنجاح'); 
+        $res = new ServiceResource($service);
+        return $this->sendResponse($res, 'تم تغير الحالة بنجاح'); 
 
     }
 
