@@ -180,6 +180,7 @@ $order = App\Models\Order::find($order_id);
                                     الاجمالي 
                                 </td>
                         </tr>
+                        
                       </tbody>
                     </table>
                   </td>
@@ -228,6 +229,13 @@ $order = App\Models\Order::find($order_id);
                            {{ $item->price }}$
                             </p>
                           </td>
+                        </tr>
+                        <tr>
+                          @forelse ($service->files as $key=> $item)
+                          <a href="{{ asset('uploads/'.$item->file) }}" target="_blank">الملف {{ $key +1 }}</a> {{ ' ,' }}
+                      @empty
+                      لا يوجد ملفات
+                      @endforelse
                         </tr>
                         @endforeach
 
