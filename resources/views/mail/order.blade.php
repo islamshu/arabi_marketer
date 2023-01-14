@@ -161,15 +161,15 @@ $order = App\Models\Order::find($order_id);
                 </tr>
                 <tr>
                   <td align="center" cellspacing="0" style="padding:0; vertical-align:middle">
-                    <table width="700" style="border-collapse:collapse; background-color:#FaFaFa; margin:0 auto; border-bottom:1px solid #E5E5E5">
+                    <table width="800" style="border-collapse:collapse; background-color:#FaFaFa; margin:0 auto; border-bottom:1px solid #E5E5E5">
                       <tbody>
                         <tr>
-                          <td width="200" align="left" style="padding:15px 0 15px 25px; font-family:'Roboto', Arial !important">
+                          <td width="50" align="left" style="padding:15px 0 15px 25px; font-family:'Roboto', Arial !important">
                             <p style="text-transform:uppercase;font-size:16px; color:#333333; margin:0; font-weight:400; font-family:'Roboto', Arial !important; ">
                               <span style="font-weight: 900;">  الخدمات المشتراه</span>
                             </p>
                           </td>
-                          <td width="600" align="right" style="font-family:'Roboto', Arial !important">
+                          <td width="700" align="right" style="font-family:'Roboto', Arial !important">
                             <p style="margin:0; font-size:14px; color:#333333;padding:0;font-family:'Roboto', Arial !important;text-align:center;">
                               الخدمة</p>
                           </td>
@@ -187,25 +187,27 @@ $order = App\Models\Order::find($order_id);
   
                 <tr>
                   <td style=" font-family:'Roboto', Arial !important;padding:0;" align="center">
-                    <table width="700" style="border-collapse:collapse;margin: 0 auto;border-bottom: 1px solid #EBEBEB">
+                    <table width="800" style="border-collapse:collapse;margin: 0 auto;border-bottom: 1px solid #EBEBEB">
                       <tbody>
                         @foreach ($order->orderdetiles as $item)
                             @php
                                 $service = App\Models\Service::find($item->product_id);
                             @endphp
                         <tr>
-                          <td width="200" align="right" style="padding:24px 0 24px 10px; text-align:left;">
+                          <td width="50" align="right" style="padding:24px 0 24px 10px; text-align:left;">
                             <a href="https://supplify.de/" target="_blank" style="text-decoration:none; color:#000; outline:0;">
                               <img src="{{ asset('public/uploads/'.$service->image) }}" width="150" height="100" border="0">
                             </a>
                             
                           </td>
-                          <td width="600" style="vertical-align:middle; padding:0 0 0 10px; font-family:'Roboto', Arial !important;">
+                          <td width="700" style="vertical-align:middle; padding:0 0 0 10px; font-family:'Roboto', Arial !important;">
                             <p style="font-size:16px; margin:0; color:#000; line-height:20px; font-family:'Roboto', Arial !important">
                               <a target="_blank" style="text-decoration:none; color:#000; outline:0;">
                                 {{ $service->title }}
                             </a>
-                            <p> @php
+                            <p>الاضافات : 
+                              
+                              @php
                               $extra = json_decode($item->extra_data);
                           @endphp
                           @if($extra != null)
