@@ -53,8 +53,8 @@ class MessageController extends BaseController
                 $mesage->seen_receiver = 1;
             }else{
                 $mesage->seen = 1;
-
             }
+            $mesage->save();
         }
         $res = MessageResource::collection($messages);
         return $this->sendResponse($res,'all message');
