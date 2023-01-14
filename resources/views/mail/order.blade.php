@@ -169,15 +169,12 @@ $order = App\Models\Order::find($order_id);
                               <span style="font-weight: 900;">  الخدمات المشتراه</span>
                             </p>
                           </td>
-                          <td width="200" align="right" style="font-family:'Roboto', Arial !important">
+                          <td width="600" align="right" style="font-family:'Roboto', Arial !important">
                             <p style="margin:0; font-size:14px; color:#333333;padding:0;font-family:'Roboto', Arial !important;text-align:center;">
                               الخدمة</p>
                           </td>
                          
-                          <td width="250" align="right" style="font-family:'Roboto', Arial !important;padding-right:10px;">
-                            <p style="margin:0; font-size:14px; color:#333333;padding:0;font-family:'Roboto', Arial !important;text-align:right;">
-                                الاضافات 
-                            </td>
+                         
                             <td width="50" align="right" style="font-family:'Roboto', Arial !important;padding-right:10px;">
                                 <p style="margin:0; font-size:14px; color:#333333;padding:0;font-family:'Roboto', Arial !important;text-align:right;">
                                     الاجمالي 
@@ -203,30 +200,26 @@ $order = App\Models\Order::find($order_id);
                             </a>
                             
                           </td>
-                          <td width="200" style="vertical-align:middle; padding:0 0 0 10px; font-family:'Roboto', Arial !important;">
+                          <td width="600" style="vertical-align:middle; padding:0 0 0 10px; font-family:'Roboto', Arial !important;">
                             <p style="font-size:16px; margin:0; color:#000; line-height:20px; font-family:'Roboto', Arial !important">
                               <a target="_blank" style="text-decoration:none; color:#000; outline:0;">
                                 {{ $service->title }}
                             </a>
-                            <p></p>
+                            <p> @php
+                              $extra = json_decode($item->extra_data);
+                          @endphp
+                          @if($extra != null)
+
+                          @foreach (App\Models\ExtraService::whereIn('id',$extra)->get() as $item)
+                            {{ $item->title  }} ,  <br>
+                          @endforeach
+                          @else
+                          _
+                          @endif</p>
                             </p>
                            
                           </td>
-                          <td align="center" width="250" style="vertical-align:middle; font-family:'Roboto', Arial !important;padding:0;">
-                            <p style="font-size:18px; color:#000; margin:0; font-family:'Roboto', Arial !important;text-align:center;">
-                                @php
-                                    $extra = json_decode($item->extra_data);
-                                @endphp
-                                @if($extra != null)
-
-                                @foreach (App\Models\ExtraService::whereIn('id',$extra)->get() as $item)
-                                  {{ $item->title  }} ,  <br>
-                                @endforeach
-                                @else
-                                _
-                                @endif
-                            </p>
-                          </td>
+                    
                           <td align="center" width="50" style="font-family:'Roboto', Arial !important;padding:0 10px 0 0;">
                             
                             <p style="font-size:18px; color:#bc0101; margin:0; font-family:'Roboto', Arial !important;text-align:center;font-weight:bold;text-align: right;">
