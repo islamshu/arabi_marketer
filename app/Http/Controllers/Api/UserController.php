@@ -275,8 +275,6 @@ class UserController extends BaseController
             'last_name' => 'required',
             'country_id' => 'required',
             'mention' => 'required|unique:users,mention'
-
-
         ]);
         if ($validation->fails()) {
             return $this->sendError($validation->messages());

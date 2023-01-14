@@ -101,7 +101,7 @@ Route::post('/forgot_password', [PasswordResetLinkController::class, 'apiStore']
 Route::post('/verify_token', [AuthenticatedSessionController::class, 'apiVerifyToken']);
 Route::post('forget_email', [ForgotPasswordController::class, 'forgot']);
 Route::post('reset_my_password', [ForgotPasswordController::class, 'reset'])->name('api_reset');
-
+Route::get('chat_count',[MessageController::class,'get_count']);
 
 
 
