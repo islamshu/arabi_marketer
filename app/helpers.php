@@ -151,6 +151,19 @@ function send_notification($data){
     );
     $pusher->trigger('new-user', 'App\\Events\\NewUser', $data);
 }
+function send_message($data){
+    $options = array(
+        'cluster' => env('PUSHER_APP_CLUSTER'),
+        'encrypted' => true
+    );
+    $pusher = new Pusher(
+        env('PUSHER_APP_KEY'),
+        env('PUSHER_APP_SECRET'),
+        env('PUSHER_APP_ID'), 
+        $options
+    );
+    $pusher->trigger('chat-user', 'App\\Events\\ChatUser', $data);
+}
 function check_pan(){
 
     if(auth('api')->check()){

@@ -251,7 +251,7 @@ class ServiceController extends BaseController
         $user->notify(new GeneralNotification($date_send));
         $admins = User::where('type', 'Admin')->get();
         Notification::send($admins, new GeneralNotification($date));
-               send_notification($date);
+        send_notification($date);
         
 
         $ser = new ServiceResource($service);

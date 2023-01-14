@@ -296,29 +296,16 @@ class HomeController extends BaseController
         return $this->sendResponse($res, 'home page');
     }
     public function testapi(Request $request){
-        $date_send = [
-            'id' => 'dd',
-            'name' =>'',
-            'url' => '',
-            'title' => 'تسيت',
-            'time' => 'test'
+        $data = [
+            'id' => '5',
+            'user_id' => 5,
+            'user_name' => 'islam',
+            'user_image' =>'https://dashboard.arabicreators.com/public/uploads/users/defult_user.png' ,
+            'message' => 'ارسال رسالة',
+            'time' => 'منذ دقيقة'
         ];
-        event(new NewUser($date_send));
-        // $options = array(
-		// 	'cluster' => env('PUSHER_APP_CLUSTER'),
-		// 	'encrypted' => true
-		// );
-        // $pusher = new Pusher(
-		// 	env('PUSHER_APP_KEY'),
-		// 	env('PUSHER_APP_SECRET'),
-		// 	env('PUSHER_APP_ID'), 
-		// 	$options
-		// );
-        $admins = User::where('type', 'Admin')->get();
-        // $pusher->trigger('new-user', 'App\\Events\\NewUser', $date_send);
-
-        Notification::send($admins, new GeneralNotification($date_send));
-        send_notification($date_send);
+        send_message($data);
+        // send_notification($date_send);
 
 
     }

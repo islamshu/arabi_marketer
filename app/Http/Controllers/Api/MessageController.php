@@ -18,6 +18,15 @@ class MessageController extends BaseController
         $message->message = $request->message;
         $message->save();
         $res = new MessageResource($message);
+        $data = [
+            'id' => $message->id,
+            'user_id' => auth('api')->id(),
+            'user_name' => auth('api')->user()->first_name,
+            'user_image' =>asset('public/uploads/'.auth('api')->user()->image) ,
+            'message' => $request->message,
+            'time' => $message->updated_at
+        ];
+        send_message($data);
         return $this->sendResponse($res , 'send');
     }
     public function index(){
