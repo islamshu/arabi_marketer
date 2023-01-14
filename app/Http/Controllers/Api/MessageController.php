@@ -20,6 +20,7 @@ class MessageController extends BaseController
         $message->sender_id = auth('api')->id();
         $message->receiver_id = $request->receiver_id;
         $message->message = $request->message;
+        $message->seen = 1;
         $message->save();
         $res = new MessageResource($message);
         $data = [
