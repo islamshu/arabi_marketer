@@ -91,7 +91,7 @@ class ServiceController extends BaseController
         if($service->user_id != $request->user_id){
             return $this->sendError('فقط صاحب الخدمة من يقول بتغير الحالة');
         }
-        $service->status = $request->status;
+        $service->status = (int)$request->status;
         $service->save();
         return $this->sendResponse('success', 'تم تغير الحالة بنجاح'); 
 
