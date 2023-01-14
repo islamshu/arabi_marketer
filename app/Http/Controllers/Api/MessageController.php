@@ -12,7 +12,10 @@ use App\Http\Resources\MessageResource;
 class MessageController extends BaseController
 {
     public function get_count(){
-        $message = Message::where('receiver_id',auth('api')->id())->where('seen_receiver',0)->count();
+        $message = Message::where('receiver_id',auth('api')->id())->where('seen_receiver',0)->get();
+        $unique = $message->unique('sender_id');
+        dd($unique);
+
         return $this->sendResponse($message , 'count of message' .auth('api')->id() );
     }
     public function store(Request $request){
