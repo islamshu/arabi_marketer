@@ -578,9 +578,7 @@
     var channel = pusher.subscribe('new-user');
     // Bind a function to a Event (the full Laravel class)
     channel.bind('App\\Events\\NewUser', function(data) {
-
         var existingNotifications = notifications.html();
-
         var newNotificationHtml = `<div class="d-flex flex-stack py-4">
                         <!--begin::Section-->
                         <div class="d-flex align-items-center">

@@ -279,7 +279,7 @@ class UserController extends BaseController
 
         ]);
         if ($validation->fails()) {
-            return $this->sendError($validation->messages()->all());
+            return $this->sendError($validation->messages());
         }
 
         $user = new User();
