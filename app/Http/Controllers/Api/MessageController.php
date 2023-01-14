@@ -31,7 +31,7 @@ class MessageController extends BaseController
             'user_name' => auth('api')->user()->first_name,
             'user_image' =>asset('public/uploads/'.auth('api')->user()->image) ,
             'message' => $request->message,
-            'time' => $message->updated_at
+            'time' => $message->updated_at->diffForHumans()
         ];
         send_message($data);
         return $this->sendResponse($res , 'send');
