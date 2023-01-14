@@ -208,6 +208,7 @@ $order = App\Models\Order::find($order_id);
                               <a target="_blank" style="text-decoration:none; color:#000; outline:0;">
                                 {{ $service->title }}
                             </a>
+                            <p></p>
                             </p>
                            
                           </td>
@@ -232,7 +233,6 @@ $order = App\Models\Order::find($order_id);
                            {{ $item->price }}$
                             </p>
                           </td>
-                          <p>test test test test test test test test test test test test test test test test test test test </p>
                         </tr>
                         @endforeach
 

@@ -33,6 +33,7 @@ class ServiceResource extends JsonResource
             'comments'=>CommentResourse::collection($this->comments->where('status',1)),
             'buyer_instructions'=>$this->buyer_instructions,
             'time'=>$this->time,
+            'status'=>$this->status,
             'type'=>$this->get_type($this),
             'url_to_this_service'=>route('single_service',$this->id),
 
