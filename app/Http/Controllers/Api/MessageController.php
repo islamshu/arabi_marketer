@@ -12,7 +12,8 @@ use App\Http\Resources\MessageResource;
 class MessageController extends BaseController
 {
     public function get_count(){
-        $message = Message::where('receiver_id',auth('api')->id())->where('seen_receiver',0)->get();
+        $id = 264;
+        $message = Message::where('receiver_id',$id)->where('seen_receiver',0)->get();
         // $unique = $message->unique('sender_id');
         dd($message);
 
