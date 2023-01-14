@@ -231,11 +231,16 @@ $order = App\Models\Order::find($order_id);
                           </td>
                         </tr>
                         <tr>
+                          <td></td>
+                          <td>
                           @forelse ($service->files as $key=> $item)
                           <a href="{{ asset('uploads/'.$item->file) }}" target="_blank">الملف {{ $key +1 }}</a> {{ ' ,' }}
                       @empty
                       لا يوجد ملفات
                       @endforelse
+                          </td>
+                          <td></td>
+
                         </tr>
                         @endforeach
 
