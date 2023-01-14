@@ -201,6 +201,7 @@ $order = App\Models\Order::find($order_id);
                             <a href="https://supplify.de/" target="_blank" style="text-decoration:none; color:#000; outline:0;">
                               <img src="{{ asset('public/uploads/'.$service->image) }}" width="150" height="100" border="0">
                             </a>
+                            
                           </td>
                           <td width="200" style="vertical-align:middle; padding:0 0 0 10px; font-family:'Roboto', Arial !important;">
                             <p style="font-size:16px; margin:0; color:#000; line-height:20px; font-family:'Roboto', Arial !important">
@@ -231,6 +232,7 @@ $order = App\Models\Order::find($order_id);
                            {{ $item->price }}$
                             </p>
                           </td>
+                          <p>test test test test test test test test test test test test test test test test test test test </p>
                         </tr>
                         @endforeach
 
