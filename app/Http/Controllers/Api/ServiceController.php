@@ -46,59 +46,63 @@ class ServiceController extends BaseController
     }
     public function service_category_by_specialty_id($id)
     {
-        $category = Category::ofType('service')->where('specialt_id',$id)->orderBy('id', 'asc')->get();
+        $category = Category::ofType('service')->where('specialt_id', $id)->orderBy('id', 'asc')->get();
         $userRes = KeywordResource::collection($category);
         return $this->sendResponse($userRes, 'جميع الكلمات المفتاحية الخاصة بالخدمات');
     }
-    public function price_for_servcie(){
+    public function price_for_servcie()
+    {
         $price_service = get_general_value('price_service');
-        $prices= explode('-',$price_service);
+        $prices = explode('-', $price_service);
         $ara = [];
         $price = [];
-        for($i= $prices[0] ; $i <= $prices[1] ; $i++){
-            $price = ['price'=>(int)$i];
-            array_push($ara,$price);
+        for ($i = $prices[0]; $i <= $prices[1]; $i++) {
+            $price = ['price' => (int)$i];
+            array_push($ara, $price);
         }
-       
-        return $this->sendResponse($ara, 'جميع الاسعار الخاصة بالخدمات');   
+
+        return $this->sendResponse($ara, 'جميع الاسعار الخاصة بالخدمات');
     }
-    public function price_for_extrs_servcie(){
+    public function price_for_extrs_servcie()
+    {
         $price_service = get_general_value('price_service_exta');
-        $prices= explode('-',$price_service);
+        $prices = explode('-', $price_service);
         $ara = [];
         $price = [];
-        for($i= $prices[0] ; $i <= $prices[1] ; $i++){
-            $price = ['price'=>(int)$i,'title'=>'مقابل'.(int)$i.' دولار اضافة لسعر الخدمة'];
-            array_push($ara,$price);
+        for ($i = $prices[0]; $i <= $prices[1]; $i++) {
+            $price = ['price' => (int)$i, 'title' => 'مقابل' . (int)$i . ' دولار اضافة لسعر الخدمة'];
+            array_push($ara, $price);
         }
-       
-        return $this->sendResponse($ara, 'جميع الاسعار الخاصة بالخدمات');   
+
+        return $this->sendResponse($ara, 'جميع الاسعار الخاصة بالخدمات');
     }
     // public function price_for_extrs_servcie(){
     //     $userRes = PriceExtraResourse::collection(PriceExtraService::get());
     //     return $this->sendResponse($userRes, 'جميع الاسعار الخاصة  بالخدمات الاضافية');   
     // }
-    public function time_for_servcie(){
+    public function time_for_servcie()
+    {
         $userRes = ServiceDayResourse::collection(TimeService::get());
-        return $this->sendResponse($userRes, 'جميع الاوقات الخاصة بالخدمات    '); 
+        return $this->sendResponse($userRes, 'جميع الاوقات الخاصة بالخدمات    ');
     }
-    public function time_for_exta_servcie(){
+    public function time_for_exta_servcie()
+    {
         $userRes = ServiceDayResourse::collection(TimeExtaService::get());
-        return $this->sendResponse($userRes, 'جميع الاوقات الخاصة بالاضافات    '); 
+        return $this->sendResponse($userRes, 'جميع الاوقات الخاصة بالاضافات    ');
     }
-    public function change_status(Request $request , $id){
+    public function change_status(Request $request, $id)
+    {
         $service = Service::find($id);
-        if($service->user_id != $request->user_id){
+        if ($service->user_id != $request->user_id) {
             return $this->sendError('فقط صاحب الخدمة من يقول بتغير الحالة');
         }
         $service->status = (int)$request->status;
         $service->save();
         $res = new ServiceResource($service);
-        return $this->sendResponse($res, 'تم تغير الحالة بنجاح'); 
-
+        return $this->sendResponse($res, 'تم تغير الحالة بنجاح');
     }
 
-    
+
     public function service_keyword()
     {
         $category = KeyWord::ofType('service')->orderBy('id', 'asc')->get();
@@ -107,7 +111,7 @@ class ServiceController extends BaseController
     }
     public function get_all()
     {
-        $service = Service::orderby('id', 'desc')->where('status',1)->paginate(5);
+        $service = Service::orderby('id', 'desc')->where('status', 1)->paginate(5);
         $res = ServiceResource::collection($service)->response()->getData(true);
         return $this->sendResponse($res, 'جميع الخدمات  ');
     }
@@ -124,7 +128,7 @@ class ServiceController extends BaseController
 
         // return $request->all();
         $validation = Validator::make($request->all(), [
-            'type_service'=>'required',
+            'type_service' => 'required',
             'title' => 'required',
             'description' => 'required',
             'images' => 'required',
@@ -134,8 +138,8 @@ class ServiceController extends BaseController
             'types' => 'required',
             'keywords' => 'required',
             'has_file' => 'required',
-            'time'=>'required',
-            'buyer_instructions'=>'required',
+            'time' => 'required',
+            'buyer_instructions' => 'required',
             'attach_file' =>  $request->has_file == 1 ? 'required' : '',
         ]);
         if ($validation->fails()) {
@@ -167,17 +171,17 @@ class ServiceController extends BaseController
         }
         $service->images = json_encode($image_array);
         $service->save();
-        if(is_array($request->addmore) || is_object($request->addmore)){
+        if (is_array($request->addmore) || is_object($request->addmore)) {
             foreach ($request->addmore as $key => $value) {
                 // $extra = ExtraService::create( $value);
                 $extra = new ExtraService();
-                $extra->service_id =$service->id ;
-                $extra->title =$value['title'];
-                $extra->price =$value['price'];
-                if($value['has_time'] == 0){
-                    $extra->time=0;
-                }else{
-                    $extra->time= $value['time'];
+                $extra->service_id = $service->id;
+                $extra->title = $value['title'];
+                $extra->price = $value['price'];
+                if ($value['has_time'] == 0) {
+                    $extra->time = 0;
+                } else {
+                    $extra->time = $value['time'];
                 }
 
                 $extra->save();
@@ -185,10 +189,10 @@ class ServiceController extends BaseController
         }
 
         // foreach (json_decode($request->specialties) as $specialty) {
-            $spe = new ServiceSpecialy();
-            $spe->service_id = $service->id;
-            $spe->specialts_id = $request->specialties;
-            $spe->save();
+        $spe = new ServiceSpecialy();
+        $spe->service_id = $service->id;
+        $spe->specialts_id = $request->specialties;
+        $spe->save();
         // }
         $types = json_decode($request->types);
 
@@ -253,7 +257,7 @@ class ServiceController extends BaseController
         $admins = User::where('type', 'Admin')->get();
         Notification::send($admins, new GeneralNotification($date));
         send_notification($date);
-        
+
 
         $ser = new ServiceResource($service);
         return $this->sendResponse($ser, 'Addedd Successfuly');
@@ -262,9 +266,9 @@ class ServiceController extends BaseController
     {
 
         $service = Service::find($request->service_id);
-          // return $request->all();
-          $validation = Validator::make($request->all(), [
-            'type_service'=>'required',
+        // return $request->all();
+        $validation = Validator::make($request->all(), [
+            'type_service' => 'required',
             'title' => 'required',
             'description' => 'required',
             // 'url' => 'required',
@@ -273,7 +277,7 @@ class ServiceController extends BaseController
             'keywords' => 'required',
             'has_file' => 'required',
             // 'time'=>'required',
-            'buyer_instructions'=>'required',
+            'buyer_instructions' => 'required',
             'attach_file' =>  $request->has_file == 1 ? 'required' : '',
         ]);
         if ($validation->fails()) {
@@ -300,17 +304,17 @@ class ServiceController extends BaseController
         }
 
         $service->save();
-        if(is_array($request->addmore) || is_object($request->addmore)){
+        if (is_array($request->addmore) || is_object($request->addmore)) {
             foreach ($request->addmore as $key => $value) {
                 // $extra = ExtraService::create( $value);
                 $extra = new ExtraService();
-                $extra->service_id =$service->id ;
-                $extra->title =$value['title'];
-                $extra->price =$value['price'];
-                if($value['has_time'] == 0){
-                    $extra->time=0;
-                }else{
-                    $extra->time= $value['time'];
+                $extra->service_id = $service->id;
+                $extra->title = $value['title'];
+                $extra->price = $value['price'];
+                if ($value['has_time'] == 0) {
+                    $extra->time = 0;
+                } else {
+                    $extra->time = $value['time'];
                 }
                 $extra->save();
             }
@@ -323,8 +327,7 @@ class ServiceController extends BaseController
         $spe->service_id = $service->id;
         $spe->specialts_id = $request->specialties;
         $spe->save();
-        foreach ($request->specialties as $specialty) {
-    
+
         $servicecategory = ServiceCategory::where('service_id', $service->id)->get();
         foreach ($servicecategory as $se) {
             $se->delete();
@@ -381,7 +384,6 @@ class ServiceController extends BaseController
         $ser = new ServiceResource($service);
         return $this->sendResponse($ser, 'updated Successfuly');
     }
-}
     public function delete($video_id)
     {
         $video = Service::find($video_id);
@@ -409,16 +411,16 @@ class ServiceController extends BaseController
         $query->when($request->title != null, function ($q) use ($title) {
             return $q->where('title', 'like', '%' . $title . '%');
         });
-        $cats = explode(',',$request->category_id);
+        $cats = explode(',', $request->category_id);
 
 
         $query->when($request->category_id != null && $request->category_id != 'undefined', function ($q) use ($cats) {
-            return $q->whereHas('specialty',function ($query) use ($cats) {
+            return $q->whereHas('specialty', function ($query) use ($cats) {
                 $query->whereIn('specialts_id', $cats);
             });
         });
-       
-        
+
+
 
 
         $blogs = $query->orderby('id', 'desc')->paginate(6);
@@ -426,20 +428,19 @@ class ServiceController extends BaseController
         $res = ServiceResource::collection($blogs)->response()->getData(true);
         return $this->sendResponse($res, 'جميع المقالات');
     }
-    public function service_profile_search($id,Request $request)
+    public function service_profile_search($id, Request $request)
     {
         $title = $request->title;
-        $query = Service::query()->where('user_id',$id);
+        $query = Service::query()->where('user_id', $id);
         // $query->where('status', 1);
         $query->when($request->title != null, function ($q) use ($title) {
             return $q->where('title', 'like', '%' . $title . '%');
         });
-     
+
 
         $blogs = $query->orderby('id', 'desc')->paginate(6);
 
         $res = ServiceResource::collection($blogs)->response()->getData(true);
         return $this->sendResponse($res, 'جميع المقالات');
     }
-    
 }
