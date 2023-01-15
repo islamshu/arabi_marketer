@@ -162,7 +162,7 @@ function send_message($data){
         env('PUSHER_APP_ID'), 
         $options
     );
-    $pusher->trigger('chat-user', 'chat_userr', $data);
+    $pusher->trigger('chat-user', 'chat_user', $data);
 }
 function check_pan(){
 
