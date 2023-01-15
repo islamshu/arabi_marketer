@@ -149,7 +149,7 @@ function send_notification($data){
         env('PUSHER_APP_ID'), 
         $options
     );
-    $pusher->trigger('new-user', 'chat_user', $data);
+    $pusher->trigger('new-user', 'App\\Events\\NewUser', $data);
 }
 function send_message($data){
     $options = array(
@@ -162,7 +162,7 @@ function send_message($data){
         env('PUSHER_APP_ID'), 
         $options
     );
-    $pusher->trigger('chat-user', 'App\\Events\\ChatUser', $data);
+    $pusher->trigger('chat-user', 'chat_userr', $data);
 }
 function check_pan(){
 
