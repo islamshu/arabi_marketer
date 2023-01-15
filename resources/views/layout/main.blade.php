@@ -575,9 +575,9 @@
     var notifications = notificationsWrapper.find('.scrollable-container');
 
     // Subscribe to the channel we specified in our Laravel Event
-    var channel = pusher.subscribe('new-user');
+    var channel = pusher.subscribe('chat-user');
     // Bind a function to a Event (the full Laravel class)
-    channel.bind('App\\Events\\NewUser', function(data) {
+    channel.bind('chat_user', function(data) {
         var existingNotifications = notifications.html();
         var newNotificationHtml = `<div class="d-flex flex-stack py-4">
                         <!--begin::Section-->

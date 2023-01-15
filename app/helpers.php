@@ -149,7 +149,7 @@ function send_notification($data){
         env('PUSHER_APP_ID'), 
         $options
     );
-    $pusher->trigger('new-user', 'App\\Events\\NewUser', $data);
+    $pusher->trigger('new-user', 'chat_user', $data);
 }
 function send_message($data){
     $options = array(
