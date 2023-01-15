@@ -40,6 +40,8 @@ class UserInOtherResourse extends JsonResource
             'required_change_password'=>$this->required_change,
             'is_follow'=>is_follow_fun($this->id),
             'followe_number' => Followr::where('marketer_id', $this->id)->count(),
+            'following_number' => Followr::where('user_id', $this->id)->count(),
+
             'image' => $this->image == null ? asset('public/uploads/users/defult_user.png') : asset('public/uploads/' . $this->image),
         ];
     }

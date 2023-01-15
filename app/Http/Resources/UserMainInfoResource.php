@@ -32,6 +32,8 @@ class UserMainInfoResource extends JsonResource
             'required_change_password'=>$this->required_change,
             'is_follow'=>is_follow_fun($this->id),
             'followe_number' => Followr::where('marketer_id', $this->id)->count(),
+            'following_number' => Followr::where('user_id', $this->id)->count(),
+
             'rss_url' => route('rss_feed', $this->id),
 
             'last_name' => $this->last_name,

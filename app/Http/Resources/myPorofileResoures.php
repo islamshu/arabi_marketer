@@ -43,6 +43,8 @@ class myPorofileResoures extends JsonResource
             'types' => $this->get_type($this),
             'status' => $this->status,
             'followe_number' => Followr::where('marketer_id', $this->id)->count(),
+            'following_number' => Followr::where('user_id', $this->id)->count(),
+
             'number_of_blogs' => $this->blogs->count(),
             'number_of_services' => $this->services->count(),
             'number_of_videos' => $this->videos->count(),

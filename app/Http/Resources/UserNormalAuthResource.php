@@ -5,6 +5,7 @@ namespace App\Http\Resources;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\Country;
+use App\Models\Followr;
 use App\Models\Specialty;
 use Arr;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -27,6 +28,7 @@ class UserNormalAuthResource extends JsonResource
             'email_verified'=>$this->email_verified_at == null ? 0 : 1,
             'required_change_password'=>$this->required_change,
             'is_follow'=>is_follow_fun($this->id),
+            'following_number' => Followr::where('user_id', $this->id)->count(),
 
             // 'first_name'=>$this->first_name,
             // 'last_name'=>$this->last_name,
