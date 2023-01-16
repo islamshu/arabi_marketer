@@ -332,7 +332,9 @@ class ServiceController extends BaseController
         foreach ($servicecategory as $se) {
             $se->delete();
         }
-        foreach ($request->types as $category) {
+        $types = json_decode($request->types);
+
+        foreach ($types as $category) {
             $cat = new ServiceCategory();
             $cat->service_id = $service->id;
             $cat->category_id = $category;
