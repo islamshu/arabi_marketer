@@ -345,7 +345,7 @@ class UserController extends BaseController
             'password' => 'required',
         ]);
         if ($validation->fails()) {
-            return $this->sendError($validation->messages()->all());
+            return $this->sendError($validation->messages());
         }
         $user = User::where('email', $request->email)->where('type', '!=', 'staff')->first();
     
