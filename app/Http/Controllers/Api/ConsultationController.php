@@ -14,6 +14,7 @@ use App\Http\Resources\ConsultingResource;
 use App\Http\Resources\PaymentResource;
 use App\Models\Consulting;
 use App\Models\ConsutingDate;
+use App\Models\Specialty;
 use App\Models\User;
 use App\Notifications\GeneralNotification;
 use Notification;
