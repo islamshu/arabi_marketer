@@ -117,11 +117,13 @@ return [
 
     'attributes' => [
         'name' => 'الاسم',
+        'country_id'=>'الدولة',
+        'mention'=>'اسم المستخدم',
         'confirm_password'=>'تأكيد كلمة المرور',
         'username' => 'اسم المُستخدم',
         'email' => 'البريد الالكتروني',
         'first_name' => 'الاسم الأول',
-        'last_name' => 'اسم الاخير',
+        'last_name' => 'الاسم الاخير',
         'password' => 'كلمة السر',
         'password_confirmation' => 'تأكيد كلمة السر',
         'city' => 'المدينة',
