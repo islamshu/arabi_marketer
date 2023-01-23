@@ -23,9 +23,9 @@ class ConsultationController extends BaseController
 {
     public function consultation_category()
     {
-        $category = Category::ofType('consultation')->orderBy('id', 'asc')->get();
+        $category = Specialty::orderBy('id', 'asc')->get();
         $userRes = KeywordResource::collection($category);
-        return $this->sendResponse($userRes, 'جميع الكلمات المفتاحية الخاصة بالاستشارات');
+        return $this->sendResponse($userRes, 'جميع الانواع  الخاصة بالاستشارات');
     }
     public function consultation_keyword()
     {

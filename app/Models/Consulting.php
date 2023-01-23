@@ -14,6 +14,10 @@ class Consulting extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
+    public function category()
+    {
+        return $this->belongsToMany(Specialty::class, 'consultion_categories','consultion_id', 'category_id');
+    }
     public function user()
     {
         return $this->belongsTo(User::class);
