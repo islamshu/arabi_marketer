@@ -177,7 +177,7 @@ class BlogController extends BaseController
             // 'slug'=>'required|unique:blogs',
         ]);
         if ($validation->fails()) {
-            return $this->sendError($validation->messages()->all());
+            return $this->sendError($validation->messages());
         }
         $service = new Blog();
         $service->title = ['ar' => $request->title, 'en' => $request->title];

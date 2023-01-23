@@ -61,7 +61,7 @@ class VideoController extends BaseController
             'video' =>  $request->type == "true" ? 'required' : '',
         ]);
         if ($validation->fails()) {
-            return $this->sendError($validation->messages()->all());
+            return $this->sendError($validation->messages());
         }
         $vi = new Video();
         $image = $request->thum_image->store('video');

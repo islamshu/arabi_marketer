@@ -25,7 +25,7 @@ class ForgotPasswordController extends BaseController
             'email' => 'required',
         ]);
         if ($validation->fails()) {
-            return $this->sendError($validation->messages()->all());
+            return $this->sendError($validation->messages());
         }
         $cc = CodeMail::where('email', $request->email)->first();
         if ($cc) {
@@ -56,7 +56,7 @@ class ForgotPasswordController extends BaseController
             'confirm_password' => 'required|same:password'
         ]);
         if ($validation->fails()) {
-            return $this->sendError($validation->messages()->all());
+            return $this->sendError($validation->messages());
         }
         $code = CodeMail::where('code', $request->code)->first();
         if (!$code) {

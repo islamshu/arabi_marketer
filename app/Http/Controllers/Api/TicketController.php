@@ -36,7 +36,7 @@ class TicketController extends BaseController
             'body' => 'required',
         ]);
         if ($validation->fails()) {
-            return $this->sendError($validation->messages()->all());
+            return $this->sendError($validation->messages());
         }
         if($ticket->user_id != auth('api')->id()){
             return $this->sendError('هذه التذكرة غير خاصة بك');
@@ -60,7 +60,7 @@ class TicketController extends BaseController
             'body' => 'required',
         ]);
         if ($validation->fails()) {
-            return $this->sendError($validation->messages()->all());
+            return $this->sendError($validation->messages());
         }
         $ticket = new Ticket();
         $ticket->title = $request->title;

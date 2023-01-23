@@ -29,7 +29,7 @@ class CartController extends BaseController
             'service_id' => 'required',
         ]);
         if ($validation->fails()) {
-            return $this->sendError($validation->messages()->all());
+            return $this->sendError($validation->messages());
         }
         $service = Service::find($request->service_id);
 
@@ -125,7 +125,7 @@ class CartController extends BaseController
             'consult_id' => 'required',
         ]);
         if ($validation->fails()) {
-            return $this->sendError($validation->messages()->all());
+            return $this->sendError($validation->messages());
         }
         $service = Consulting::find($request->consult_id);
 

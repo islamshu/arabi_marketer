@@ -74,7 +74,7 @@ class ConsultationController extends BaseController
             'mints'=>'required',
         ]);
         if ($validation->fails()) {
-            return $this->sendError($validation->messages()->all());
+            return $this->sendError($validation->messages());
         }
         
         $con = Consulting::create([
@@ -139,7 +139,7 @@ class ConsultationController extends BaseController
             'mints'=>'required',
         ]);
         if ($validation->fails()) {
-            return $this->sendError($validation->messages()->all());
+            return $this->sendError($validation->messages());
         }
         $con ->update([
             'title' => $request->title,

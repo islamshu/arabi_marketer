@@ -52,7 +52,7 @@ class PodcastController extends BaseController
             'image'=>'required'
         ]);
         if ($validation->fails()) {
-            return $this->sendError($validation->messages()->all());
+            return $this->sendError($validation->messages());
         }
 
 

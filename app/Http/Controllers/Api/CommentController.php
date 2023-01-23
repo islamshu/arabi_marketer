@@ -23,7 +23,7 @@ class CommentController extends BaseController
             'body' => 'required',
         ]);
         if ($validation->fails()) {
-            return $this->sendError($validation->messages()->all());
+            return $this->sendError($validation->messages());
         }
         $comment  = new Comment();
         $comment->blog_id = $request->blog_id;

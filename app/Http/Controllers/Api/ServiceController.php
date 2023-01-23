@@ -143,7 +143,7 @@ class ServiceController extends BaseController
             'attach_file' =>  $request->has_file == 1 ? 'required' : '',
         ]);
         if ($validation->fails()) {
-            return $this->sendError($validation->messages()->all());
+            return $this->sendError($validation->messages());
         }
         $service = new Service();
         $service->title = $request->title;
@@ -281,7 +281,7 @@ class ServiceController extends BaseController
             'attach_file' =>  $request->has_file == 1 ? 'required' : '',
         ]);
         if ($validation->fails()) {
-            return $this->sendError($validation->messages()->all());
+            return $this->sendError($validation->messages());
         }
         $service->title = $request->title;
         $service->description =  $request->description;
