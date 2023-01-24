@@ -92,7 +92,7 @@ class ServiceController extends BaseController
     }
     public function change_status(Request $request, $id)
     {
-        return $request;
+        // return $request;
         $service = Service::find($id);
         if ($service->user_id != (int)$request->user_id) {
             return $this->sendError('فقط صاحب الخدمة من يقول بتغير الحالة');
