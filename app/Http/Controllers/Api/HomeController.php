@@ -296,16 +296,11 @@ class HomeController extends BaseController
         return $this->sendResponse($res, 'home page');
     }
     public function testapi(Request $request){
-        $data = [
-            'id' => '5',
-            'user_id' => 5,
-            'user_name' => 'islam',
-            'user_image' =>'https://dashboard.arabicreators.com/public/uploads/users/defult_user.png' ,
-            'message' => 'ارسال رسالة',
-            'time' => 'منذ دقيقة'
-        ];
-        send_message($data);
-        // send_notification($date_send);
+      $service = Service::get();
+      foreach ($service as $ser){
+        $ser->slug = str_replace(' ','_',$ser->title).'_'.$ser->id;
+        $ser->save();
+      }
 
 
     }
