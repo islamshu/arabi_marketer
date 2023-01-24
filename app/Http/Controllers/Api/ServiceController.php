@@ -118,7 +118,7 @@ class ServiceController extends BaseController
     }
     public function single($id)
     {
-        $service = Service::find($id);
+        $service = Service::where('slug',$id)->first();
         $service->viewer += 1;
         $service->save();
         $ser = new ServiceResource($service);
