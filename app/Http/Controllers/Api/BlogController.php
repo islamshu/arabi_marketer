@@ -184,7 +184,7 @@ class BlogController extends BaseController
         $service->description = ['ar' => $request->description, 'en' => $request->description];
         $service->image_id = $request->image;
         $service->user_id = auth('api')->id();
-        $service->status = 1;
+        $service->status = 0;
         $service->small_description = $request->meta_description;
         $service->meta_title = $request->title;
         if($request->publish_time != null){
