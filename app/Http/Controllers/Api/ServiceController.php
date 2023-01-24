@@ -140,7 +140,7 @@ class ServiceController extends BaseController
             'keywords' => 'required',
             'has_file' => 'required',
             'time' => 'required',
-            'buyer_instructions' => 'required',
+            // 'buyer_instructions' => 'required',
             'attach_file' =>  $request->has_file == 1 ? 'required' : '',
         ]);
         if ($validation->fails()) {
@@ -280,7 +280,7 @@ class ServiceController extends BaseController
             'keywords' => 'required',
             'has_file' => 'required',
             // 'time'=>'required',
-            'buyer_instructions' => 'required',
+            // 'buyer_instructions' => 'required',
             'attach_file' =>  $request->has_file == 1 ? 'required' : '',
         ]);
         if ($validation->fails()) {
