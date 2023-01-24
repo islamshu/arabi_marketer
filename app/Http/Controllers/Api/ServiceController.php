@@ -94,7 +94,7 @@ class ServiceController extends BaseController
     {
         return $request;
         $service = Service::find($id);
-        if ($service->user_id != $request->user_id) {
+        if ($service->user_id != (int)$request->user_id) {
             return $this->sendError('فقط صاحب الخدمة من يقول بتغير الحالة');
         }
         $service->status = (int)$request->status;
