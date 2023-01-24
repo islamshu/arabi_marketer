@@ -189,6 +189,8 @@ class ServiceController extends Controller
                 $service->images = json_encode($image_array);
                 // dd($request->all());
                 $service->save();
+                $service->slug = str_replace(' ','_',$request->title).'_'.$service->id;
+
 
                 foreach ($request->specialty as $specialty) {
                     $spe = new ServiceSpecialy();
@@ -400,6 +402,8 @@ class ServiceController extends Controller
                 $service->images = json_encode($image_array);
                }
                 $service->save();
+                $service->slug = str_replace(' ','_',$request->title).'_'.$service->id;
+
 
                
                 $servicespecialty = ServiceSpecialy::where('service_id',$service->id)->get();
