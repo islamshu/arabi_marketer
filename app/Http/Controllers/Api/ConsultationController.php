@@ -100,9 +100,12 @@ class ConsultationController extends BaseController
             'title' => 'Have a new Consultiong',
             'time' => $con->updated_at
         ];
-        foreach ($request->day as $key => $value) {
-            ConsutingDate::create(['consulte_id'=>$con->id,'day' => $request->day[$key], 'from' => $request->from[$key] , 'to' => $request->to[$key]]);
+        if($request->day != null){
+            foreach ($request->day as $key => $value) {
+                ConsutingDate::create(['consulte_id'=>$con->id,'day' => $request->day[$key], 'from' => $request->from[$key] , 'to' => $request->to[$key]]);
+            }
         }
+        
            // dd($this->day,$this->from,$this->to);
         
         $admins = User::where('type','Admin')->get();
