@@ -65,7 +65,7 @@
                 <select wire:model.defer="type" id="type"
                     class="form-control {{ $errors->first('type') ? 'is-invalid' : '' }}">
                     <option value="null" disabled>{{ __('يرجى الاختيار') }}</option>
-                    @foreach (App\Models\Category::ofType('consultation')->get() as $type)
+                    @foreach (App\Models\Specialty::get() as $type)
                         <option value="{{ $type->id }}" wire:key="{{ $type->id }}">{{ $type->title }}
                         </option>
                     @endforeach
