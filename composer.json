@@ -8,6 +8,7 @@
     ],
     "license": "MIT",
     "require": {
+        "php": "^7.3|^8.0",
         "anlutro/l4-settings": "^1.0",
         "dawson/youtube": "^2.0",
         "doctrine/dbal": "^3.4",
