@@ -20,7 +20,7 @@ class BlogResource extends JsonResource
      */
     public function toArray($request)
     {
-    
+        $url = 'https://sub.arabicreators.com/blog/'.$this->user->mention.'/'.$this->slug;
         return [
             'id' => $this->id,
             'title' => $this->title,
@@ -42,8 +42,7 @@ class BlogResource extends JsonResource
             'rate' => $this->get_rate($this),
             
             'share'=>[
-            "facebook" => "https://www.facebook.com/sharer/sharer.php?u=".'https://sub.arabicreators.com/blog/'.$this->user->mention.'/'.$this->slug,
-
+            "facebook" => "https://www.facebook.com/sharer/sharer.php?u=".$url,
             ]
             // 'related_blog' =>$this->get_related($this),
 
