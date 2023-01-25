@@ -43,6 +43,9 @@ class BlogResource extends JsonResource
             
             'share'=>[
             "facebook" => "https://www.facebook.com/sharer/sharer.php?u=".$url,
+            "twitter" => "https://www.twitter.com/sharer/sharer.php?u=".$url,
+            "instagram" => "https://www.instagram.com/sharer/sharer.php?u=".$url,
+            "snapchat" => "https://www.snapchat.com/sharer/sharer.php?u=".$url,
             ]
             // 'related_blog' =>$this->get_related($this),
 
