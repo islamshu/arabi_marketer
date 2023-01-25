@@ -39,6 +39,7 @@ class BlogResource extends JsonResource
             'comment_number' => $this->comments->where('status', 1)->count(),
             'comments' => CommentResourse::collection($this->comments),
             'rate' => $this->get_rate($this),
+            
             'share'=>[
                 'facebook'=>Share::page('http://jorenvanhocht.be')->facebook()
             ]
