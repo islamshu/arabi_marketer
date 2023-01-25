@@ -59,7 +59,9 @@ class ConsultationController extends BaseController
     }
     public function check_url($id,$title)
     {
-        
+        if($title == null){
+            return $this->sendError('يجب ادخال الرابط');
+        }
         $cons = Consulting::where('user_id',$id)->where('url',str_replace(' ','_',$title))->first();
         if($cons){
             return $this->sendError('الرابط موجود بالفعل');
