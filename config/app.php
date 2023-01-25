@@ -164,7 +164,7 @@ return [
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Jorenvh\Share\Providers\ShareServiceProvider::class,
         Srmklive\PayPal\Providers\PayPalServiceProvider::class,
-
+        Jorenvh\Share\Providers\ShareServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -243,6 +243,7 @@ return [
         'FeedReader' => Vedmant\FeedReader\Facades\FeedReader::class, // Add this line
         'PayPal' => Srmklive\PayPal\Facades\PayPal::class,
         'ExpressCheckout'=>Srmklive\PayPal\Services::class,
+        'Share' => Jorenvh\Share\ShareFacade::class,
         'Image' => 'Intervention\Image\Facades\Image'
 
 
