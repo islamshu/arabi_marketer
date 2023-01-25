@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use App\Models\Blog;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Jorenvh\Share\Share;
+// use Jorenvh\Share\Share;
 
 // use Share;
 
@@ -38,7 +38,7 @@ class BlogResource extends JsonResource
             'comments' => CommentResourse::collection($this->comments),
             'rate' => $this->get_rate($this),
             'share'=>[
-                'share'=>Share::page('http://jorenvanhocht.be')->facebook()
+                'share'=>\Share::page('http://jorenvanhocht.be')->facebook()
             ]
             // 'related_blog' =>$this->get_related($this),
 
