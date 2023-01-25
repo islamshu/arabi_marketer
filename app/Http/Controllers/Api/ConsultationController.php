@@ -57,6 +57,17 @@ class ConsultationController extends BaseController
         $res = ConsultingResource::collection($cons)->response()->getData(true);
         return $this->sendResponse($res, 'جميع الاستشارات');
     }
+    public function check_url($id,$title)
+    {
+        
+        $cons = Consulting::where('user_id',$id)->where('url',str_replace(' ','_',$title))->first();
+        if($cons){
+            return $this->sendError('الرابط موجود بالفعل');
+        }else{
+            return $this->sendResponse('success', 'الاسم متاح');  
+        }
+      
+    }
     public function store(Request $request)
     {
         $validation = Validator::make($request->all(), [

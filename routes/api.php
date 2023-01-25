@@ -266,6 +266,9 @@ Route::group(['middleware' => 'is_login'], function () {
     Route::delete('/delete_follow_marketer/{id}', [FollowController::class, 'delete']);
 });
 Route::get('all_message_between_user/{id}/{id2}', [MessageController::class, 'message_betwwen_2'])->name('message_two');
+Route::get('check_url/{id}/{title}', [ConsultationController::class, 'check_url']);
+
+
 
 
 //end podcasts
