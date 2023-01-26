@@ -14,7 +14,7 @@ class MyConsultiongResourse extends JsonResource
      */
     public function toArray($request)
     {
-        $url = 'https://sub.arabicreators.com/consultation/' . $this->user->mention . '/' . $this->url;
+        $url = 'https://sub.arabicreators.com/consulting/' . $this->user->mention . '/' . $this->url;
         return [
             'id' => $this->id,
             'title' => $this->title,
