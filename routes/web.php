@@ -263,6 +263,10 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('videos', VideoController::class);
     Route::resource('consloution', ConsultingController::class);
+    Route::resource('consloution', ConsultingController::class);
+
+    Route::post('change_status_consulting/{id}', [ConsultingController::class,'change_status_consulting'])->name('change_status_consulting');
+
     Route::resource('faqs', FaqsController::class);
     Route::post('update_sort_faqs',[FaqsController::class,'update_sort_faqs'])->name('update_sort_faqs'); 
 

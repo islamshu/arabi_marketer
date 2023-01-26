@@ -112,6 +112,7 @@ class ConsultationController extends BaseController
             'price'=>$request->price,
             'url'=>$request->url,
             'payment_id'=>$request->payment_id,
+            'status'=>2,
             'user_id'=>auth('api')->id(),
         ]);
         $date = [

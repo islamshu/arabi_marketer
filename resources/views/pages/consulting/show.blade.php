@@ -196,7 +196,7 @@
             <div class="tab-content" id="myTabContent">
                 <div style="direction: rtl;margin-right: 12%;">
                    @if($co->status == 0)
-                    <form action="{{  route('change_status_service',$co->id) }}" method="post" >
+                    <form action="{{  route('change_status_consulting',$co->id) }}" method="post" >
                         @csrf
                         <div class="col-md-3">
                             <label for="" class="">حالة الاستشارة</label>

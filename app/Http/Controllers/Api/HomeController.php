@@ -223,7 +223,7 @@ class HomeController extends BaseController
 
     
     public function get_consulting(){
-        $cons = ConsultingResource::collection(Consulting::orderby('id', 'desc')->take(3)->get());
+        $cons = ConsultingResource::collection(Consulting::orderby('id', 'desc')->where('status',1)->take(3)->get());
         $res['consuliong'] = $cons;
         return $this->sendResponse($res, 'home page');
 
@@ -282,7 +282,7 @@ class HomeController extends BaseController
         $res['markter'] = UserNotAuthResource::collection($markter);
 
 
-        $cons = ConsultingResource::collection(Consulting::orderby('id', 'desc')->take(3)->get());
+        $cons = ConsultingResource::collection(Consulting::orderby('id', 'desc')->where('status',1)->take(3)->get());
         $res['consuliong'] = $cons;
 
 
