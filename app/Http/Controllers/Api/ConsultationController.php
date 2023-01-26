@@ -97,7 +97,7 @@ class ConsultationController extends BaseController
             'color' => $request->color,
             'place_id' => $request->place_id,
             'type_id' => $request->type_id,
-            'hour' => $request->hour,
+            // 'hour' => $request->hour,
             'min' => $request->mints,
             'start_at'=>$request->start_date,
             'end_at'=>$request->end_date,
