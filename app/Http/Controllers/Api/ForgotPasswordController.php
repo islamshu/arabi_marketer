@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ResetPasswordRequest;
 use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\Api\BaseController;
+use App\Mail\AfterReset;
 use App\Mail\SendResetMail;
 use App\Models\CodeMail;
 use App\Models\Password as ModelsPassword;
@@ -68,7 +69,11 @@ class ForgotPasswordController extends BaseController
             'password' => Hash::make($request->password),
             'required_change'=>0
         ]);
+        Mail::to($code->email)->send(new AfterReset());
+
         $code->delete();
+
+        
         return $this->sendResponse('reset', "Password has been successfully changed");
     }
 }
