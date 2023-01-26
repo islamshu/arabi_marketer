@@ -15,6 +15,8 @@ class MyblogResourese extends JsonResource
      */
     public function toArray($request)
     {
+        $url = 'https://sub.arabicreators.com/blog/'.$this->user->mention.'/'.$this->slug;
+
         return [
             'id' => $this->id,
             'title' => $this->title,
@@ -33,6 +35,14 @@ class MyblogResourese extends JsonResource
             'publish_time'=>$this->publish_time,
             'comment_number' => $this->comments->where('status', 1)->count(),
             'comments' => CommentResourse::collection($this->comments),
+             'share'=>[
+            "facebook" => "https://www.facebook.com/sharer/sharer.php?u=".$url,
+            "twitter" => "https://twitter.com/intent/tweet?text=Default+share+text&url=".$url,
+            "telegram" => "https://telegram.me/share/url?url=".$url,
+            "reddit" => "https://www.reddit.com/submit?title=Default+share+text&url=".$url,
+            "whatsapp" => "https://wa.me/?text=".$url,
+            "linkedin" => "https://www.linkedin.com/sharing/share-offsite?mini=true&url=".$url,
+             ],
             'rate' => $this->get_rate($this)
             // 'related_blog' =>$this->get_related($this),
 

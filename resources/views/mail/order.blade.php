@@ -29,7 +29,7 @@ $order = App\Models\Order::find($order_id);
   
   <body style="margin: 0; padding: 0;background-color:#EEEEEE;">
     <div style="display:none;font-size:1px;color:#333333;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;">
-      Habt Ihr Fragen? Ruft uns unter 04221 97 44 77 an oder antwortet einfach auf diese Email | supplify.de
+      {{-- Habt Ihr Fragen? Ruft uns unter 04221 97 44 77 an oder antwortet einfach auf diese Email | supplify.de --}}
     </div>
     <table cellspacing="0" style="margin:0 auto; width:100%; border-collapse:collapse; background-color:#EEEEEE; font-family:'Roboto', Arial !important">
       <tbody>

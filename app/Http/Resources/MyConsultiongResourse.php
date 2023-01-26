@@ -14,20 +14,29 @@ class MyConsultiongResourse extends JsonResource
      */
     public function toArray($request)
     {
+        $url = 'https://sub.arabicreators.com/consultation/' . $this->user->mention . '/' . $this->url;
         return [
-            'id'=>$this->id,
-            'title'=>$this->title,
-            'description'=>($this->description ),
-            'color'=>$this->color,
-            'hour'=>$this->hour,
-            'minutes'=>$this->min,
-            'price'=>$this->price,
-            'url'=>$this->url,
-            'payment'=>new PaymentResource($this->payment),
-            'place'=>new KeywordResource($this->place),
+            'id' => $this->id,
+            'title' => $this->title,
+            'description' => ($this->description),
+            'color' => $this->color,
+            'hour' => $this->hour,
+            'minutes' => $this->min,
+            'price' => $this->price,
+            'url' => $this->url,
+            'payment' => new PaymentResource($this->payment),
+            'place' => new KeywordResource($this->place),
             // 'user_info'=> new UserInOtherResourse($this->user),
-            'type'=>new KeywordResource($this->type),
-            'date'=>ConsultingDateResource::collection($this->date)
+            'type' => new KeywordResource($this->type),
+            'date' => ConsultingDateResource::collection($this->date),
+            'share' => [
+                "facebook" => "https://www.facebook.com/sharer/sharer.php?u=" . $url,
+                "twitter" => "https://twitter.com/intent/tweet?text=Default+share+text&url=" . $url,
+                "telegram" => "https://telegram.me/share/url?url=" . $url,
+                "reddit" => "https://www.reddit.com/submit?title=Default+share+text&url=" . $url,
+                "whatsapp" => "https://wa.me/?text=" . $url,
+                "linkedin" => "https://www.linkedin.com/sharing/share-offsite?mini=true&url=" . $url,
+            ]
             // 'day'=>
         ];
     }

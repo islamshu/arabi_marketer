@@ -1,18 +1,16 @@
 <div style="text-align: center">
 <p style="text-align: center">
-    Hello!
-    You are receiving this email because we received a password reset request for your account.
-    Reset Password 
+    مرحبا!
+    أنت تتلقى هذا البريد الإلكتروني لأننا تلقينا طلب إعادة تعيين كلمة المرور لحسابك.
+    إعادة تعيين كلمة المرور 
     
 </p>
-  <h2> the code is :<span style="color: red"> {{ $otp }} </span></h2>
+  <h2>   رمز التحقق هو :<span style="color: red"> {{ $otp }} </span></h2>
     <p>
     
     
-    This password reset link will expire in 60 minutes.
-    If you did not request a password reset, no further action is required.
-    Regards,
-    Laravel.
+      ستنتهي صلاحية رابط إعادة تعيين كلمة المرور هذا خلال 60 دقيقة.
+      إذا لم تطلب إعادة تعيين كلمة المرور ، فلا داعي لاتخاذ أي إجراء آخر.
 
 
 </div>

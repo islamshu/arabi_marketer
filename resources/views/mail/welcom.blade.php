@@ -218,18 +218,18 @@ footer {
     </div>
     <div class="illustration">
       <div class="hgroup">
-        <span class="name">Hello, {{ $name }}</span>
+        <span class="name">مرحبا بك في Arabicreators, {{ $name }}</span>
       
       </div>
     </div>
   
     <div class="hgroup">
     
-          <span class="raised">Your email is : {{ $email }}</span>
+          <span class="raised">  البريد الاكتروني  : {{ $email }}</span>
       <br>
-      <span class="raised">Your name is : {{ $name }}</span>
+      <span class="raised">  اسم المستخدم : {{ $name }}</span>
         <br>
-       <span class="raised">Your password is : {{ $password }}</span>
+       <span class="raised">  كلمة المرور : {{ $password }}</span>
       
       
   
