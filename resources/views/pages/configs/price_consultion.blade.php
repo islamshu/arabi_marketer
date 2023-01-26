@@ -55,11 +55,11 @@
                      
                         <div class="form-group col-md-6">
                             <label>{{ __('السعر البدائي') }}:</label>
-                            <input type="text" name="general[first_price_consultion]" class="form-control" placeholder="1-20" value="{{ get_general_value('first_price_consultion') }}" id="">
+                            <input type="text" name="general[first_price_consultion]" class="form-control" placeholder="1" value="{{ get_general_value('first_price_consultion') }}" id="">
                         </div>
                         <div class="form-group col-md-6">
                             <label>{{ __('السعر النهائي') }}:</label>
-                            <input type="text" name="general[last_price_consultion]" class="form-control" placeholder="1-20" value="{{ get_general_value('last_price_consultion') }}" id="">
+                            <input type="text" name="general[last_price_consultion]" class="form-control" placeholder="200" value="{{ get_general_value('last_price_consultion') }}" id="">
                         </div>
                      
                      
