@@ -19,6 +19,7 @@ class ConsultingController extends Controller
     public function create(){
         return view('pages.consulting.create');
     }
+    
     public function destroy($id){
         Consulting::find($id)->delete();
         Alert::success('Success', 'Deleted successfully');

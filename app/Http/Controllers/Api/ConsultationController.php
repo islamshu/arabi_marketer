@@ -34,6 +34,13 @@ class ConsultationController extends BaseController
         $userRes = KeywordResource::collection($category);
         return $this->sendResponse($userRes, 'جميع الكلمات المفتاحية الخاصة بالاستشارات');
     }
+    public function price_for_consultion(){
+        $ara['first_price'] = get_general_value('first_price_consultion');
+        $ara['last_price'] = get_general_value('last_price_consultion');
+
+        return $this->sendResponse($ara, 'جميع الاسعار الخاصة بالخدمات');
+
+    }
     public function places()
     {
         $category = Placetype::orderBy('id', 'asc')->get();
