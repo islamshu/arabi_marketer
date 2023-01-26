@@ -17,7 +17,8 @@ class ConsultingController extends Controller
         return view('pages.consulting.edit');
     }
     public function show($id){
-        return view('pages.consulting.show');
+        
+        return view('pages.consulting.show')->with('co',Consulting::find($id));
     }
     public function create(){
         return view('pages.consulting.create');
