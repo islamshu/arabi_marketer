@@ -53,6 +53,11 @@ class GeneralInfoController extends Controller
     public function price_service(){
         return view('pages.configs.price_service');
     }
+    public function price_consultion(){
+        return view('pages.configs.price_consultion');
+    }
+
+    
 
     public function store(Request $request)
     {

@@ -242,6 +242,7 @@ Route::middleware('auth')->group(function () {
     Route::get('general_data',[GeneralInfoController::class,'general_data'])->name('general_data');
     Route::get('first_section',[GeneralInfoController::class,'first_section'])->name('first_section');
     Route::get('price_service',[GeneralInfoController::class,'price_service'])->name('price_service');
+    Route::get('price_consultion',[GeneralInfoController::class,'price_consultion'])->name('price_consultion');
 
     
     Route::get('myfatoorah_config',[GeneralInfoController::class,'myfatoorah']);

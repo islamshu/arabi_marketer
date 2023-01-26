@@ -286,6 +286,11 @@ return array(
                         'path'       => 'price_service',
                         'bullet'     => '<span class="bullet bullet-dot"></span>',
                     ),
+                    array(
+                        'title'      => 'Price for Consultiong',
+                        'path'       => 'price_consultion',
+                        'bullet'     => '<span class="bullet bullet-dot"></span>',
+                    ),
                     
                
                 ),   
