@@ -24,6 +24,7 @@ class EditConsoltion extends Component
     public $day_select_2=[];
     public $form_select_2 = [];
     public $to_select_2 = [];
+    public $mention;
 
 
 

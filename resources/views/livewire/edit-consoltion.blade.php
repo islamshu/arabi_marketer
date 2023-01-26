@@ -343,7 +343,10 @@
                 <li class="list-group-item">تاريخ انتهاء الاستشارة: {{ $end_date }}</li>
                 <li class="list-group-item">سعر الاستشارة: {{ $price }}</li>
                 <li class="list-group-item">طريقة الدفع  للاستشارة: {{ $payment }}</li>
-                <li class="list-group-item">رابط الاستشارة   : {{ "https://sub.arabicreators.com/Consulting/@Areej/"$url }}</li>
+                @php
+                    $mention = App\Models\User::find($user);
+                @endphp
+                <li class="list-group-item">رابط الاستشارة   : {{ "https://sub.arabicreators.com/Consulting/".$mention->mention"/".$url }}</li>
 
 
             </ul>
