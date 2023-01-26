@@ -41,6 +41,9 @@ class ServiceController extends Controller
        
         return $ara;   
     }
+    public function number_in_follower_range(){
+        return view('pages.configs.number_in_follower_range');
+    }
     public function change_status_service(Request $request,$id){
         $service = Service::find($id);
         $service->status = $request->status;

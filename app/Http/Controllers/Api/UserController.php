@@ -58,6 +58,7 @@ class UserController extends BaseController
     public function create_markter(){
         return view('pages.marketers.create');
     }
+   
     public function marketer_category(){
         return view('pages.marketers.create');
     }

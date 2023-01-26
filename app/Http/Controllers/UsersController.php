@@ -26,6 +26,7 @@ class UsersController extends Controller
         $users =User::orderBy('id', 'asc')->where('type','!=','user')->where('type','!=','marketer')->get();
        return view('pages.users.index')->with('users',$users);
     }
+   
     public function verfty_email($id){
        $encid = Crypt::decrypt($id);
        $user = User::find($encid);

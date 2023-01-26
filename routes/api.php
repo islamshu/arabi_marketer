@@ -46,10 +46,6 @@ Route::get('/profits', [SampleDataController::class, 'profits'])->name('profits'
 Route::get('/testapi', [HomeController::class, 'testapi'])->name('testapi');
 Route::get('/change_mention', [UserController::class, 'change_mention'])->name('change_mention');
 Route::post('upp',[GalleryController::class,'upp']);
-
-
-
-
 Route::get('/home', [HomeController::class, 'home']);
 Route::get('/get_about_home', [HomeController::class, 'about']);
 Route::get('/get_all_scope_home', [HomeController::class, 'all_scope']);
@@ -59,8 +55,6 @@ Route::get('home_podcasts', [HomeController::class, 'get_podcast']);
 Route::get('get_podcast_admin', [HomeController::class, 'get_podcast_admin']);
 Route::get('main_images', [HomeController::class, 'main_image']);
 Route::get('first_section', [HomeController::class, 'first_section']);
-
-
 Route::get('home_video', [HomeController::class, 'get_video']);
 Route::get('home_consulting', [HomeController::class, 'get_consulting']);
 Route::get('home_markter', [HomeController::class, 'get_markter_home']);
@@ -68,48 +62,30 @@ Route::get('home_tools', [HomeController::class, 'get_home_tools']);
 Route::get('single_tool/{id}', [HomeController::class, 'single_tool']);
 Route::get('price_for_servcie', [ServiceController::class, 'price_for_servcie']);
 Route::get('price_for_consultion', [ConsultationController::class, 'price_for_consultion']);
-
+Route::get('number_in_follower_range', [UserController::class, 'number_in_follower_range']);
 Route::get('price_for_exta_servcie', [ServiceController::class, 'price_for_extrs_servcie']);
 Route::get('time_for_servcie', [ServiceController::class, 'time_for_servcie']);
 Route::get('time_for_exta_servcie', [ServiceController::class, 'time_for_exta_servcie']);
-
 Route::post('/change_status/{id}', [ServiceController::class, 'change_status']);
-
-
-
-
-
-
 Route::get('/homeddd', [HomeController::class, 'edit']);
 Route::get('/rss_feed/{id}', [SoundController::class, 'rss_feed']);
 Route::get('/check_login', [HomeController::class, 'check_login']);
-
 Route::get('/questions', [HomeController::class, 'questions']);
 Route::get('/get_markter/{id}', [HomeController::class, 'get_markter']);
 Route::post('upload_images', [GalleryController::class, 'upload'])->name('upload_image');
 Route::get('get_all_media', [GalleryController::class, 'index']);
 Route::get('singe_media/{id}', [GalleryController::class, 'single']);
 Route::post('update_media/{id}', [GalleryController::class, 'edit']);
-
-
-
 // start marketer
 Route::get('/get_markter/{id}', [HomeController::class, 'get_markter']);
 Route::get('/get_all_markter', [HomeController::class, 'get_all_markter']);
-
-
-
 Route::post('/forgot_password', [PasswordResetLinkController::class, 'apiStore']);
 Route::post('/verify_token', [AuthenticatedSessionController::class, 'apiVerifyToken']);
 Route::post('forget_email', [ForgotPasswordController::class, 'forgot']);
 Route::post('reset_my_password', [ForgotPasswordController::class, 'reset'])->name('api_reset');
 Route::get('chat_count',[MessageController::class,'get_count']);
-
-
-
 //start user profrle
 Route::get('/send_email', [UserController::class, 'send_email']);
-
 Route::get('/users', [SampleDataController::class, 'getUsers']);
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
@@ -138,9 +114,6 @@ Route::group(['middleware' => 'is_login'], function () {
     Route::post('/edit_profile_step_4', [UserController::class, 'edit_profile_step_4']);
     Route::post('/remmeber_markter', [UserController::class, 'remmeber_markter']);
     Route::post('/vendor_chats/{id}', [UserController::class, 'chat_with_seller']);
-
-    
-
 });
 Route::group(['middleware' => 'is_login', 'middleware' => 'Is_markter'], function () {
     Route::post('add_bank_info', [UserController::class, 'add_bank_info']);
@@ -159,14 +132,10 @@ Route::get('/type_of_user', [UserController::class, 'type_of_user']);
 Route::get('/rss', [HomeController::class, 'rss']);
 Route::get('/home_search', [HomeController::class, 'home_search']);
 Route::get('/top_search', [HomeController::class, 'top_search']);
-
 Route::get('/marketer_search', [UserController::class, 'marketer_search']);
-
-
 //start blog
 Route::get('/blog_category', [BlogController::class, 'blog_category']);
 Route::get('/marketer_category', [UserController::class, 'marketer_category']);
-
 Route::get('/blog_keyword', [BlogController::class, 'blog_keyword']);
 Route::group(['middleware' => 'is_login', 'middleware' => 'Is_markter'], function () {
     Route::post('/add_blog', [BlogController::class, 'store']);
@@ -183,7 +152,6 @@ Route::get('/blog_search', [BlogController::class, 'serach']);
 Route::get('/blog_search_in_profile/{id}', [BlogController::class, 'serach_profile']);
 Route::get('/related_blogs/{id}', [BlogController::class, 'related_blogs']);
 Route::post('/add_service', [ServiceController::class, 'store']);
-
 //end blog 
 
 //start service

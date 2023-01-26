@@ -291,6 +291,12 @@ return array(
                         'path'       => 'price_consultion',
                         'bullet'     => '<span class="bullet bullet-dot"></span>',
                     ),
+                    array(
+                        'title'      => 'Range Off follow',
+                        'path'       => 'number_in_follower_range',
+                        'bullet'     => '<span class="bullet bullet-dot"></span>',
+                    ),
+                    
                     
                
                 ),   
