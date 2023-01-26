@@ -16,6 +16,9 @@ class ConsultingController extends Controller
     public function edit($id){
         return view('pages.consulting.edit');
     }
+    public function show($id){
+        return view('pages.consulting.show');
+    }
     public function create(){
         return view('pages.consulting.create');
     }

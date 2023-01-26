@@ -76,6 +76,8 @@
                                  <td>{{ $item->created_at->format('Y-m-d') }}</td>
 
                                  <td>
+                                    <a href="{{ route('consloution.show', $item->id) }}" class="btn btn-info"><i class="fa fa-eye"></i></a>
+
                                     <a href="{{ route('consloution.edit', $item->id) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
                                     <form style="display: inline"
                                         action="{{ route('consloution.destroy', $item->id) }}"
