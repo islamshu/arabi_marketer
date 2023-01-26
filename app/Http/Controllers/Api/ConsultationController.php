@@ -118,7 +118,7 @@ class ConsultationController extends BaseController
         $date = [
             'id'=>$con->id,
             'name' => $con->title,
-            'url' => route('consloution.edit',$con->id),
+            'url' => route('consloution.show',$con->id),
             'title' => 'Have a new Consultiong',
             'time' => $con->updated_at
         ];
