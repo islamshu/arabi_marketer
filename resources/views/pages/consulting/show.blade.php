@@ -198,7 +198,7 @@
                 <div class="tab-pane fade active show" id="kt_ecommerce_settings_general" role="tabpanel">
 
                     <!--begin::Form-->
-                    <livewire:edit-consoltion>
+                    <livewire:show-consoltion>
                         <!--end::Form-->
                 </div>
 
