@@ -11,9 +11,9 @@
         <li class="nav-item">
             <a class="nav-link {{ $currentSection != 2 ? '' : 'active' }}" href="#step2">بيانات اضافية</a>
         </li>
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link {{ $currentSection != 3 ? '' : 'active' }}" href="#step3">تأكيد</a>
-        </li>
+        </li> --}}
     </ul>
     <div class="row pt-3">
         {{-- Step 1 --}}
@@ -332,7 +332,7 @@
         </div>
 
         {{-- Step 3 --}}
-        <div id="step3" style="display: {{ $currentSection != 3 ? 'none' : '' }}">
+        {{-- <div id="step3" style="display: {{ $currentSection != 3 ? 'none' : '' }}">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">عنوان الاستشارة: {{$title}}</li>
                 <li class="list-group-item">وصف الاتشارة: {{ $description }}</li>
@@ -352,7 +352,7 @@
             </ul>
             <button class="btn btn-danger" type="button" wire:click="back(2)">رجوع</button>
             <button class="btn btn-success" wire:click="step3" type="button">تأكيد وحفظ</button>
-        </div>
+        </div> --}}
     </div>
 </div>
 @push('scripts')
