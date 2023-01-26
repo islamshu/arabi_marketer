@@ -346,7 +346,7 @@
                 @php
                     $mention = App\Models\User::find($user);
                 @endphp
-                <li class="list-group-item">رابط الاستشارة   : {{ "https://sub.arabicreators.com/Consulting/".$mention->mention"/".$url }}</li>
+                <li class="list-group-item">رابط الاستشارة   : {{ "https://sub.arabicreators.com/Consulting/".$mention->mention."/".$url }}</li>
 
 
             </ul>
