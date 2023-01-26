@@ -18,13 +18,13 @@
     <div class="row pt-3">
         {{-- Step 1 --}}
         <div id="step1" class="needs-validation" style="display: {{ $currentSection != 1 ? 'none' : '' }}">
-            <input disabled type="hidden" wire:model="con_id" 
+            <input  type="hidden" wire:model="con_id" 
          
             aria-describedby="con_id">
             <div class="mb-3 col-md-6">
                 <label for="title" class="form-label">عنوان الاستشارة</label>
             
-                <input disabled type="text" wire:model="title"  
+                <input  type="text" wire:model="title"  
                     class="form-control {{ $errors->first('day') ? 'is-invalid' : '' }}" id="title"
                     aria-describedby="title">
                 @error('title')
@@ -35,7 +35,7 @@
             </div>
             <div class="mb-3 col-md-6">
                 <label for="description" class="form-label">وصف الاستشارة</label>
-                <textarea disabled name="description" wire:model="description"
+                <textarea  name="description" wire:model="description"
                     class="form-control {{ $errors->first('description') ? 'is-invalid' : '' }}"  id="description" cols="30"
                     rows="10"></textarea>
                 @error('description')
@@ -46,9 +46,9 @@
             </div>
             <div class="mb-3 col-md-6">
                 <label for="user" class="form-label"> صاحب الاستشارة </label>
-                <select disabled wire:model.defer="user" id="user"
+                <select  wire:model.defer="user" id="user"
                     class="form-control {{ $errors->first('user') ? 'is-invalid' : '' }}">
-                    <option value="null" disabledd>{{ __('يرجى الاختيار') }}</option>
+                    <option value="null" d>{{ __('يرجى الاختيار') }}</option>
                     @foreach (App\Models\User::get() as $department)
                         <option value="{{ $department->id }}" wire:key="{{ $department->id }}">
                             {{ $department->name }}</option>
@@ -62,9 +62,9 @@
             </div>
             <div class="mb-3 col-md-6">
                 <label for="place" class="form-label"> نوع الاستشارة </label>
-                <select disabled wire:model.defer="type" id="type"
+                <select  wire:model.defer="type" id="type"
                     class="form-control {{ $errors->first('type') ? 'is-invalid' : '' }}">
-                    <option value="null" disabledd>{{ __('يرجى الاختيار') }}</option>
+                    <option value="null" d>{{ __('يرجى الاختيار') }}</option>
                     @foreach (App\Models\Specialty::get() as $type)
                         <option value="{{ $type->id }}" wire:key="{{ $type->id }}">{{ $type->title }}
                         </option>
@@ -78,9 +78,9 @@
             </div>
             <div class="mb-3 col-md-6">
                 <label for="place" class="form-label"> مكان الاستشارة </label>
-                <select disabled wire:model.defer="place" id="place"
+                <select  wire:model.defer="place" id="place"
                     class="form-control {{ $errors->first('place') ? 'is-invalid' : '' }}">
-                    <option value="null" disabledd>{{ __('يرجى الاختيار') }}</option>
+                    <option value="null" d>{{ __('يرجى الاختيار') }}</option>
                     @foreach (App\Models\Placetype::get() as $department)
                         <option value="{{ $department->id }}" wire:key="{{ $department->id }}">
                             {{ $department->title }}</option>
@@ -94,7 +94,7 @@
             </div>
             <div class="mb-3 col-md-6">
                 <label for="color" class="form-label"> لون الاستشارة </label>
-                <input disabled type="color" wire:model="color" name="color" id="color"
+                <input  type="color" wire:model="color" name="color" id="color"
                     class="form-control {{ $errors->first('color') ? 'is-invalid' : '' }}">
                 @error('color')
                     <div class="invalid-feedback">
@@ -109,9 +109,9 @@
         <div id="step2" style="display: {{ $currentSection != 2 ? 'none' : '' }}">
             <div class="mb-3">
                 <label for="email" class="form-label">مدة الاستشارة</label>
-                <select disabled name="time_duration" id="time_duration" wire:model="time_duration"
+                <select  name="time_duration" id="time_duration" wire:model="time_duration"
                     class="form-control {{ $errors->first('time_duration') ? 'is-invalid' : '' }}">
-                    <option value="" disabledd selected>اختر مدة الاستشارة</option>
+                    <option value="" d selected>اختر مدة الاستشارة</option>
                     <option value="30">30</option>
                     <option value="60">ساعة</option>
                     <option value="120">ساعتين</option>
@@ -128,7 +128,7 @@
                 <div class="mb-3 row">
                     <div class="col-md-6">
                         <label for="phone" class="form-label"> عدد الساعات</label>
-                        <input disabled type="number" wire:model="hour"
+                        <input  type="number" wire:model="hour"
                             class="form-control {{ $errors->first('hour') ? 'is-invalid' : '' }}" id="hour">
                         @error('hour')
                             <div class="invalid-feedback">
@@ -140,7 +140,7 @@
                     <div class="col-md-6">
 
                         <label for="phone" class="form-label"> عدد الدقائق</label>
-                        <input disabled type="number" wire:model="mints"
+                        <input  type="number" wire:model="mints"
                             class="form-control {{ $errors->first('mints') ? 'is-invalid' : '' }}" id="mints">
                         @error('mints')
                             <div class="invalid-feedback">
@@ -153,7 +153,7 @@
             <div class="mb-3 row">
                 <div class="col-md-6">
                     <label for="date" class="form-label"> تاريخ بداية الاستشارة </label>
-                    <input disabled type="date" wire:model="start_date"
+                    <input  type="date" wire:model="start_date"
                         class="form-control {{ $errors->first('start_date') ? 'is-invalid' : '' }}" id="hour">
                     @error('start_date')
                         <div class="invalid-feedback">
@@ -163,7 +163,7 @@
                 </div>
                 <div class="col-md-6">
                     <label for="date" class="form-label"> تاريخ نهاية الاستشارة </label>
-                    <input disabled type="date" wire:model="end_date"
+                    <input  type="date" wire:model="end_date"
                         class="form-control {{ $errors->first('end_date') ? 'is-invalid' : '' }}" id="end_date">
                     @error('end_date')
                         <div class="invalid-feedback">
@@ -177,7 +177,7 @@
             <div class="mb-3 row">
                 <div class="col-md-4">
                     <label for="phone" class="form-label"> اليوم </label>
-                    <select disabled name="day[]" id="day" wire:model="day_select.{{ $key }}"
+                    <select  name="day[]" id="day" wire:model="day_select.{{ $key }}"
                         class="form-control {{ $errors->first('day_select.'.$key) ? 'is-invalid' : '' }}">
                         <option value="" selected></option>
                         <option value="Monday">الاثنين</option>
@@ -197,7 +197,7 @@
                 </div>
                 <div class="col-md-3">
                     <label for="from" class="form-label"> من</label>
-                    <input disabled type="time" wire:model="form_select.{{ $key }}"
+                    <input  type="time" wire:model="form_select.{{ $key }}"
                         class="form-control {{ $errors->first('form_select.'.$key) ? 'is-invalid' : '' }}" id="from">
                     @error('form_select.'.$key)
                         <div class="invalid-feedback">
@@ -208,7 +208,7 @@
                 <div class="col-md-3">
 
                     <label for="to" class="form-label"> الى</label>
-                    <input disabled type="time" wire:model="to_select.{{ $key }}"
+                    <input  type="time" wire:model="to_select.{{ $key }}"
                         class="form-control {{ $errors->first('to_select.'.$key) ? 'is-invalid' : '' }}" id="to">
                     @error('to_select.'.$key)
                         <div class="invalid-feedback">
@@ -231,7 +231,7 @@
             <div class="mb-3 row">
                 <div class="col-md-4">
                     <label for="phone" class="form-label"> اليوم </label>
-                    <select disabled name="day[]" id="day" wire:model="day_select_2.{{ $value }}"
+                    <select  name="day[]" id="day" wire:model="day_select_2.{{ $value }}"
                         class="form-control {{ $errors->first('day_select_2.' . $value) ? 'is-invalid' : '' }}">
                         <option value="" selected></option>
                         <option value="Monday">الاثنين</option>
@@ -252,7 +252,7 @@
                 <div class="col-md-3">
 
                     <label for="from" class="form-label"> من</label>
-                    <input disabled type="time" wire:model="form_select_2.{{ $value }}"
+                    <input  type="time" wire:model="form_select_2.{{ $value }}"
                         class="form-control {{ $errors->first('form_select_2.' . $value) ? 'is-invalid' : '' }}"
                         id="from">
                     @error('form_select_2.' . $value)
@@ -264,7 +264,7 @@
                 <div class="col-md-3">
 
                     <label for="to" class="form-label"> الى</label>
-                    <input disabled type="time" wire:model="to_select_2.{{ $value }}"
+                    <input  type="time" wire:model="to_select_2.{{ $value }}"
                         class="form-control {{ $errors->first('to_select_2.' . $value) ? 'is-invalid' : '' }}"
                         id="to">
                     @error('to_select_2.' . $value)
@@ -284,7 +284,7 @@
             <div class="mb-3 row">
                 <div class="col-md-6">
                     <label for="price" class="form-label"> سعر الاستشارة   </label>
-                    <input disabled type="range" min="10" max="500" wire:model="price"
+                    <input  type="range" min="10" max="500" wire:model="price"
                         class="form-control {{ $errors->first('price') ? 'is-invalid' : '' }}" id="price">
                     @error('price')
                         <div class="invalid-feedback">
@@ -298,9 +298,9 @@
             </div>
             <div class="mb-3 col-md-6">
                 <label for="payment" class="form-label"> طريقة الدفع   </label>
-                <select disabled wire:model.defer="payment" id="payment"
+                <select  wire:model.defer="payment" id="payment"
                     class="form-control {{ $errors->first('payment') ? 'is-invalid' : '' }}">
-                    <option value="null" disabledd>{{ __('يرجى الاختيار') }}</option>
+                    <option value="null" d>{{ __('يرجى الاختيار') }}</option>
                     @foreach (App\Models\Payment::get() as $department)
                         <option value="{{ $department->id }}" wire:key="{{ $department->id }}">
                             {{ $department->title }}</option>
@@ -315,7 +315,7 @@
             <div class="mb-3 ">
                 <div class="col-md-6">
                     <label for="url" class="form-label"> رابط الاستشارة   </label>
-                    <input disabled type="url" wire:model="url"
+                    <input  type="url" wire:model="url"
                         class="form-control {{ $errors->first('url') ? 'is-invalid' : '' }}" id="url">
                     @error('url')
                         <div class="invalid-feedback">
