@@ -25,6 +25,8 @@ use App\Http\Resources\UserNotAuthResource;
 use App\Http\Resources\UserResource;
 use App\Http\Resources\VideoResource;
 use App\Mail\VerifyEmail;
+use App\Mail\WelcomEmail;
+use App\Mail\WelcomRgister;
 use App\Models\Answer;
 use App\Models\BankInfo;
 use App\Models\Blog;
@@ -303,7 +305,8 @@ class UserController extends BaseController
         ];
         $admins = User::where('type', 'Admin')->get();
         Notification::send($admins, new GeneralNotification($date));
-               send_notification($date);
+        send_notification($date);
+        Mail::to($request->email)->send(new WelcomRgister($request->first_name,$request->email));
 
         Mail::to($request->email)->send(new VerifyEmail($url));
       
