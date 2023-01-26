@@ -202,9 +202,9 @@
                             <label for="" class="">حالة الاستشارة</label>
                             <select required id="" class="form-control " name="status"  >
                                 <option value="" selected disabled>يرجى اخيار الحالة</option>
-                                <option value="1">قبول</option>
-                                <option value="2">في الانتظار</option>
-                                <option value="0">عدم القبول</option>
+                                <option value="1" @if($co->status == 1) selected @endif>قبول</option>
+                                <option value="2" @if($co->status == 2) selected @endif>في الانتظار</option>
+                                <option value="0" @if($co->status == 0) selected @endif>عدم القبول</option>
                             </select>
                         </div>
                        
