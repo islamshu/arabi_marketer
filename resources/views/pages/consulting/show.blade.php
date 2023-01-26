@@ -195,7 +195,6 @@
             <!--begin:::Tab content-->
             <div class="tab-content" id="myTabContent">
                 <div style="direction: rtl;margin-right: 12%;">
-                    <a href="{{ route('services.edit', $co->id) }}" class="btn btn-success"><i class="fa fa-edit"></i>انقر للتعديل</a>
                    @if($co->status == 0)
                     <form action="{{  route('change_status_service',$co->id) }}" method="post" >
                         @csrf
@@ -204,6 +203,7 @@
                             <select required id="" class="form-control " name="status"  >
                                 <option value="" selected disabled>يرجى اخيار الحالة</option>
                                 <option value="1">قبول</option>
+                                <option value="2">في الانتظار</option>
                                 <option value="0">عدم القبول</option>
                             </select>
                         </div>
