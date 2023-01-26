@@ -328,7 +328,7 @@
 
 
             <button class="btn btn-danger" type="button" wire:click="back(1)">رجوع</button>
-            <button class="btn btn-primary" type="button" wire:click="step2">التالي</button>
+            {{-- <button class="btn btn-primary" type="button" wire:click="step2">التالي</button> --}}
         </div>
 
         {{-- Step 3 --}}
