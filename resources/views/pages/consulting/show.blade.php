@@ -194,6 +194,28 @@
             <!--end:::Tabs-->
             <!--begin:::Tab content-->
             <div class="tab-content" id="myTabContent">
+                <div style="direction: rtl;margin-right: 12%;">
+                    <a href="{{ route('services.edit', $service->id) }}" class="btn btn-success"><i class="fa fa-edit"></i>انقر للتعديل</a>
+                   @if($service->status == 0)
+                    <form action="{{  route('change_status_service',$service->id) }}" method="post" >
+                        @csrf
+                        <div class="col-md-3">
+                            <label for="" class="">حالة الخدمة</label>
+                            <select required id="" class="form-control " name="status"  >
+                                <option value="" selected disabled>يرجى اخيار الحالة</option>
+                                <option value="1">قبول</option>
+                                <option value="0">عدم القبول</option>
+                            </select>
+                        </div>
+                       
+                        <div class="col-md-6 mt-10"  id="btn_submit">
+                            <button class="btn btn-info">تأكيد</button>
+                        </div>
+                       
+        
+                    </form> 
+                    @endif  
+                </div>
 
                 <div class="tab-pane fade active show" id="kt_ecommerce_settings_general" role="tabpanel">
 
