@@ -40,7 +40,8 @@ class BlogResource extends JsonResource
             'comment_number' => $this->comments->where('status', 1)->count(),
             'comments' => CommentResourse::collection($this->comments),
             'rate' => $this->get_rate($this),
-            
+            'url_for_this_blog'=>$url,
+
             'share'=>[
             "facebook" => "https://www.facebook.com/sharer/sharer.php?u=".$url,
             "twitter" => "https://twitter.com/intent/tweet?text=Default+share+text&url=".$url,

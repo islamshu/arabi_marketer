@@ -30,6 +30,8 @@ class ConsultingResource extends JsonResource
             'type'=>new KeywordResource($this->type),
             'date'=>ConsultingDateResource::collection($this->date),
             // 'day'=>
+            'url_for_this_cons'=>$url,
+
             'share'=>[
             "facebook" => "https://www.facebook.com/sharer/sharer.php?u=".$url,
             "twitter" => "https://twitter.com/intent/tweet?text=Default+share+text&url=".$url,

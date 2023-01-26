@@ -27,6 +27,7 @@ class MyConsultiongResourse extends JsonResource
             'payment' => new PaymentResource($this->payment),
             'place' => new KeywordResource($this->place),
             // 'user_info'=> new UserInOtherResourse($this->user),
+            'url_for_this_cons'=>$url,
             'type' => new KeywordResource($this->type),
             'date' => ConsultingDateResource::collection($this->date),
             'share' => [
