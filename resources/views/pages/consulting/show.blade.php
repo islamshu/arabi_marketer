@@ -196,7 +196,7 @@
             <div class="tab-content" id="myTabContent">
                 <div style="direction: rtl;margin-right: 12%;">
                     <a href="{{ route('services.edit', $co->id) }}" class="btn btn-success"><i class="fa fa-edit"></i>انقر للتعديل</a>
-                   @if($service->status == 0)
+                   @if($co->status == 0)
                     <form action="{{  route('change_status_service',$co->id) }}" method="post" >
                         @csrf
                         <div class="col-md-3">
