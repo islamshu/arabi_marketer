@@ -195,7 +195,7 @@
             <!--begin:::Tab content-->
             <div class="tab-content" id="myTabContent">
                 <div style="direction: rtl;margin-right: 12%;">
-                   @if($co->status == 0)
+                   {{-- @if($co->status == 0) --}}
                     <form action="{{  route('change_status_consulting',$co->id) }}" method="post" >
                         @csrf
                         <div class="col-md-3">
@@ -214,7 +214,7 @@
                        
         
                     </form> 
-                    @endif  
+                    {{-- @endif   --}}
                 </div>
 
                 <div class="tab-pane fade active show" id="kt_ecommerce_settings_general" role="tabpanel">
