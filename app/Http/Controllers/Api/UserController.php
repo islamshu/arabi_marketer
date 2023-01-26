@@ -62,6 +62,15 @@ class UserController extends BaseController
     public function marketer_category(){
         return view('pages.marketers.create');
     }
+    public function number_in_follower_range(){
+        $ar['first']= get_general_value('first_follow_range');
+        $ar['secand']= get_general_value('secand_follow_range');
+        $ar['third']= get_general_value('third_follow_range');
+        $ar['four']= get_general_value('fourth_follow_range');
+        return $this->sendResponse($ar, 'جميع ارقام المتابعين ');
+
+
+    }
     public function creator_pending(){
         return view('pages.marketers.pending')->with('users',User::has('markter_order')->get());
     }
