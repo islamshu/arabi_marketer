@@ -199,7 +199,7 @@
                     <form action="{{  route('change_status_service',$co->id) }}" method="post" >
                         @csrf
                         <div class="col-md-3">
-                            <label for="" class="">حالة الخدمة</label>
+                            <label for="" class="">حالة الاستشارة</label>
                             <select required id="" class="form-control " name="status"  >
                                 <option value="" selected disabled>يرجى اخيار الحالة</option>
                                 <option value="1">قبول</option>
@@ -218,7 +218,6 @@
                 </div>
 
                 <div class="tab-pane fade active show" id="kt_ecommerce_settings_general" role="tabpanel">
-
                     <!--begin::Form-->
                     <livewire:show-consoltion>
                         <!--end::Form-->
