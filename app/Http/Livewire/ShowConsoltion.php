@@ -82,7 +82,7 @@ class ShowConsoltion extends Component
 
     public function render()
     {
-        return view('livewire.show1`        -consoltion');
+        return view('livewire.show-consoltion');
     }
     public function remove($i)
     {   
