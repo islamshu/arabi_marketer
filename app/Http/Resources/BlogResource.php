@@ -43,9 +43,11 @@ class BlogResource extends JsonResource
             
             'share'=>[
             "facebook" => "https://www.facebook.com/sharer/sharer.php?u=".$url,
-            "twitter" => "https://www.twitter.com/sharer/sharer.php?u=".$url,
-            "instagram" => "https://www.instagram.com/sharer/sharer.php?u=".$url,
-            "snapchat" => "https://www.snapchat.com/sharer/sharer.php?u=".$url,
+            "twitter" => "https://twitter.com/intent/tweet?text=Default+share+text&url=".$url,
+            "telegram" => "https://telegram.me/share/url?url=".$url,
+            "reddit" => "https://www.reddit.com/submit?title=Default+share+text&url=".$url,
+            "whatsapp" => "https://wa.me/?text=".$url,
+            "linkedin" => "https://www.linkedin.com/sharing/share-offsite?mini=true&url=".$url,
             ]
             // 'related_blog' =>$this->get_related($this),
 
