@@ -179,6 +179,8 @@ class ConsultationController extends BaseController
             'end_at'=>$request->end_date,
             'price'=>$request->price,
             'payment_id'=>$request->payment_id,
+            'status'=>2,
+            'message'=>null
         ]);
         if($request->day != null){
             ConsutingDate::where('consulte_id',$con->id)->delete();
@@ -186,6 +188,25 @@ class ConsultationController extends BaseController
                 ConsutingDate::create(['consulte_id'=>$con->id,'day' => $request->day[$key], 'from' => $request->from[$key] , 'to' => $request->to[$key]]);
             }
         }
+        $admins = User::where('type','Admin')->get();
+        $date = [
+            'id'=>$con->id,
+            'name' => $con->title,
+            'url' => route('consloution.show',$con->id),
+            'title' => 'Have a new Consultiong',
+            'time' => $con->updated_at
+        ];
+        Notification::send($admins, new GeneralNotification($date));
+               send_notification($date);
+        $user = auth('api')->user();
+        $date_send = [
+            'id' => $user->id,
+            'name' => $user->name,
+            'url' => '',
+            'title' => 'سيتم مراجعة  طلبك الخاص بالاستشارة خلال ٢٤ ساعة',
+            'time' => $user->updated_at
+        ];
+        $user->notify(new GeneralNotification($date_send));
        
         $res = new ConsultingResource($con);
         return $this->sendResponse($res,'تم التعديل بنجاح');
