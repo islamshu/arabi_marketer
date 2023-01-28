@@ -200,7 +200,7 @@
                         @csrf
                         <div class="col-md-3">
                             <label for="" class="">حالة الاستشارة</label>
-                            <select required id="" class="form-control " name="status"  >
+                            <select required id="edit_status" class="form-control " name="status"  >
                                 <option value="" selected disabled>يرجى اخيار الحالة</option>
                                 <option value="1" @if($co->status == 1) selected @endif>قبول</option>
                                 <option value="2" @if($co->status == 2) selected @endif>في الانتظار</option>
@@ -244,7 +244,12 @@
             $("#hour_and_mins").hide();
         }
 });
+$('#edit_status').change(function() {
+    alert($('#edit_status').val());
 });
+
+});
+
 </script>
 
 @endsection

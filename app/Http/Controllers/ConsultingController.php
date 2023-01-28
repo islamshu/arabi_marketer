@@ -27,15 +27,21 @@ class ConsultingController extends Controller
         $admins = User::where('type','Admin')->get();
         if($request->status ==1){
            $title = 'تم قبول الاستشارة'; 
-        }else{
-            $title = 'تم رفض الاستشارة'; 
-        }
-        $date = [
+           $date = [
             'id'=>$service->id,
             'url' => 'https://sub.arabicreators.com/Consulting/'.$service->user->mention.'/'.$service->url,
             'title' =>  $title,
             'time' => $service->updated_at
         ];
+        }else{
+            $title = 'تم رفض الاستشارة'; 
+            $date = [
+                'id'=>$service->id,
+                'url' => 'https://sub.arabicreators.com/EditConsultation/'.$service->id,
+                'title' =>  $title,
+                'time' => $service->updated_at
+            ];
+        }
         Notification::send($service->user, new GeneralNotification($date));
             // send_notification($date);
         return redirect()->back();

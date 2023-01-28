@@ -23,6 +23,7 @@ class ConsultingResource extends JsonResource
             'hour'=>$this->hour,
             'minutes'=>$this->min,
             'price'=>$this->price,
+            'message'=>$this->message,
             'url'=>$this->url,
             'payment'=>new PaymentResource($this->payment),
             'place'=>new KeywordResource($this->place),
