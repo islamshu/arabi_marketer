@@ -296,7 +296,7 @@ class HomeController extends BaseController
         return $this->sendResponse($res, 'home page');
     }
     public function testapi(Request $request){
-      $service = Service::get();
+      $service = Video::get();
       foreach ($service as $ser){
         $ser->slug = str_replace(' ','_',$ser->title).'_'.$ser->id;
         $ser->save();
