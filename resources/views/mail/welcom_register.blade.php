@@ -229,7 +229,6 @@ footer {
       <br>
       <span class="raised">  اسم المستخدم : {{ $name }}</span>
         <br>
-       <span class="raised">  كلمة المرور : {{ $password }}</span>
       
       
   
