@@ -233,9 +233,14 @@
                                 <form action="{{ route('reject_cons') }}" method="post">
                                 @csrf
                                 <input type="hidden" name="cons_id" value="{{ $co->id }}">
-                                <label for="">سبب الرفض</label>
-                                <textarea name="message" id="" cols="30" rows="10"></textarea>
-                                <button type="submit" class="btn btn-info">ارسال </button>
+
+                               
+                                  <div class="form-group">
+                                    <label for="exampleInputPassword1">سبب الرفض</label>
+                                    <textarea name="message" class="form-control" id="" cols="30" rows="10"></textarea>
+                                </div>
+                               
+                                <button type="submit" class="btn btn-primary">ارسال </button>
                                 </form>
                                
                             </div>
