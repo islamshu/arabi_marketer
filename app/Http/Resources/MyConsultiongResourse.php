@@ -28,6 +28,7 @@ class MyConsultiongResourse extends JsonResource
             'place' => new KeywordResource($this->place),
             // 'user_info'=> new UserInOtherResourse($this->user),
             'url_for_this_cons'=>$url,
+            'message'=>$this->message,
             'type' => new KeywordResource($this->type),
             'date' => ConsultingDateResource::collection($this->date),
             'share' => [
