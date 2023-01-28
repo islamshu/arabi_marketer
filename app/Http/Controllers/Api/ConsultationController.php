@@ -98,7 +98,8 @@ class ConsultationController extends BaseController
         if ($validation->fails()) {
             return $this->sendError($validation->messages());
         }
-        
+        $date_explode = explode(',',$request->start_date) ;
+
         $con = Consulting::create([
             'title' => $request->title,
             'description' => $request->description,
@@ -107,8 +108,8 @@ class ConsultationController extends BaseController
             'type_id' => $request->type_id,
             'hour' => $request->hour,
             'min' => $request->mints,
-            'start_at'=>$request->start_date,
-            'end_at'=>$request->end_date,
+            'start_at'=>$date_explode[0],
+            'end_at'=>$date_explode[1],
             'price'=>$request->price,
             'url'=>$request->url,
             'payment_id'=>$request->payment_id,
@@ -167,6 +168,7 @@ class ConsultationController extends BaseController
         if ($validation->fails()) {
             return $this->sendError($validation->messages());
         }
+        $date_explode = explode(',',$request->start_date) ;
         $con ->update([
             'title' => $request->title,
             'description' => $request->description,
@@ -175,8 +177,8 @@ class ConsultationController extends BaseController
             'type_id' => $request->type_id,
             'hour' => $request->hour,
             'min' => $request->mints,
-            'start_at'=>$request->start_date,
-            'end_at'=>$request->end_date,
+            'start_at'=>$date_explode[0],
+            'end_at'=>$date_explode[1],
             'price'=>$request->price,
             'payment_id'=>$request->payment_id,
             'status'=>2,
