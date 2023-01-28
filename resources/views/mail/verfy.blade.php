@@ -95,9 +95,7 @@
 <body style="background-color: #e9ecef;">
 
   <!-- start preheader -->
-  <div class="preheader" style="display: none; max-width: 0; max-height: 0; overflow: hidden; font-size: 1px; line-height: 1px; color: #fff; opacity: 0;">
-    A preheader is the short summary text that follows the subject line when an email is viewed in the inbox.
-  </div>
+ 
   <!-- end preheader -->
 
   <!-- start body -->
@@ -122,7 +120,7 @@
         <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
           <tr>
             <td align="left" bgcolor="#ffffff" style="padding: 36px 24px 0; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; border-top: 3px solid #d4dadf;">
-              <h1 style="margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -1px; line-height: 48px;">Confirm Your Email Address</h1>
+              <h1 style="margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -1px; line-height: 48px;">قم بتأكيد عنوان بريدك الإلكتروني</h1>
             </td>
           </tr>
         </table>
@@ -148,7 +146,8 @@
           <!-- start copy -->
           <tr>
             <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-              <p style="margin: 0;">Tap the button below to confirm your email address. If you didn't create an account with <a href="http://arabicreators.com/">Arabicreator</a>, you can safely delete this email.</p>
+              <p style="margin: 0;">اضغط على الزر أدناه لتأكيد عنوان بريدك الإلكتروني. إذا لم تقم بإنشاء حساب مع <a href="http://arabicreators.com/">Arabicreator</a>, يمكنك حذف هذا البريد الإلكتروني بأمان.
+              </p>
             </td>
           </tr>
           <!-- end copy -->
@@ -162,7 +161,7 @@
                     <table border="0" cellpadding="0" cellspacing="0">
                       <tr>
                         <td align="center" bgcolor="#1a82e2" style="border-radius: 6px;">
-                          <a href="{{ $url }}" target="_blank" style="display: inline-block; padding: 16px 36px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; border-radius: 6px;">Open Link Here</a>
+                          <a href="{{ $url }}" target="_blank" style="display: inline-block; padding: 16px 36px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; border-radius: 6px;">افتح الرابط هنا</a>
                         </td>
                       </tr>
                     </table>
@@ -197,7 +196,7 @@
 
           <tr>
             <td align="center" bgcolor="#e9ecef" style="padding: 12px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; color: #666;">
-              <p style="margin: 0;">You received this email because we received a request for register for your account. If you didn't request register you can safely delete this email.</p>
+              <p style="margin: 0;">لقد تلقيت هذا البريد الإلكتروني لأننا تلقينا طلبًا للتسجيل في حسابك. إذا لم تطلب التسجيل ، يمكنك حذف هذا البريد الإلكتروني بأمان.</p>
             </td>
           </tr>
          

@@ -316,7 +316,7 @@ class UserController extends BaseController
         $admins = User::where('type', 'Admin')->get();
         Notification::send($admins, new GeneralNotification($date));
         send_notification($date);
-
+        Mail::to($request->email)->send(new WelcomRgister($user->name,$user->email));
         Mail::to($request->email)->send(new VerifyEmail($url));
       
         $userRes = new  UserNormalAuthResource($user);

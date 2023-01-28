@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Alert;
+use App\Mail\Confirm_email;
 use App\Models\MarkterOrder;
 use App\Models\User;
 use App\Notifications\GeneralNotification;
@@ -13,6 +14,7 @@ use Illuminate\Http\Request;
 use Notification;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Redirect;
+use Mail;
 
 class UsersController extends Controller
 {
@@ -32,6 +34,8 @@ class UsersController extends Controller
        $user = User::find($encid);
        $user->email_verified_at = now();
        $user->save();
+       Mail::to($user->email)->send(new Confirm_email ());
+
        return Redirect::to('https://sub.arabicreators.com/');
     }
     public function create()
