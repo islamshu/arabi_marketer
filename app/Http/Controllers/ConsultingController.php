@@ -46,6 +46,11 @@ class ConsultingController extends Controller
             // send_notification($date);
         return redirect()->back();
     }
+    public function reject_cons(Request $request){
+     $cons = Consulting::find($request->cons_id);
+     $cons->message = $request->message;
+     $cons->save();
+    }
    
     public function show($id){
         
@@ -58,5 +63,6 @@ class ConsultingController extends Controller
     public function destroy($id){
         Consulting::find($id)->delete();
         Alert::success('Success', 'Deleted successfully');
-        return redirect()->back();    }
+        return redirect()->back();  
+      }
 }
