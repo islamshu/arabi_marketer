@@ -264,6 +264,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('videos', VideoController::class);
     Route::resource('consloution', ConsultingController::class);
     Route::resource('consloution', ConsultingController::class);
+    Route::post('reject_cons', [ConsultingController::class,'reject_cons'])->name('reject_cons');
+
+    
 
     Route::post('change_status_consulting/{id}', [ConsultingController::class,'change_status_consulting'])->name('change_status_consulting');
 
