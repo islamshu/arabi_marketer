@@ -38,7 +38,7 @@ class VideoController extends BaseController
     }
     public function single($id)
     {
-        $service = Video::find($id);
+        $service = Video::where('slug',$id)->first();
         $ser = new VideoResource($service);
         return $this->sendResponse($ser, ' تم ارجاع الفيديو بنجاح');
     }
@@ -87,6 +87,8 @@ class VideoController extends BaseController
 
         $vi->source = 'test';
         $vi->save();
+        $vi->slug = str_replace(' ','_',$vi->title).'_'.$vi->id;
+
         
         $data =[
             'video'=>$vi->id,
@@ -169,6 +171,7 @@ class VideoController extends BaseController
         $vi->description = $request->description;
         $vi->source = 'test';
         $vi->save();
+        $vi->slug = str_replace(' ','_',$vi->title).'_'.$vi->id;
         $types = json_decode($request->types, true);
         $vv = VideoCateogry::where('video_id', $vi->id)->get();
         foreach ($vv as $e) {
