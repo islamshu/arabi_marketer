@@ -49,7 +49,10 @@ class ConsultingController extends Controller
     public function reject_cons(Request $request){
      $cons = Consulting::find($request->cons_id);
      $cons->message = $request->message;
+     $cons->status = 0;
      $cons->save();
+     Alert::success('Success', 'Deleted successfully');
+     return redirect()->back();  
     }
    
     public function show($id){
