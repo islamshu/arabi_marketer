@@ -216,6 +216,34 @@
                     </form> 
                     {{-- @endif   --}}
                 </div>
+                <div class="modal fade" tabindex="-1" id="kt_modal_1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="modal-title">Modal title</h3>
+                
+                                <!--begin::Close-->
+                                <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+                                    <span class="svg-icon svg-icon-1"></span>
+                                </div>
+                                <!--end::Close-->
+                            </div>
+                
+                            <div class="modal-body">
+                                <form action="{{ route('reject_cons') }}" method="post">
+                                @csrf
+                                <input type="hidden" name="cons_id" value="{{ $co->id }}">
+                                <label for="">سبب الرفض</label>
+                                <textarea name="message" id="" cols="30" rows="10"></textarea>
+                                <button type="submit" class="btn btn-info">ارسال </button>
+                                </form>
+                               
+                            </div>
+                
+                            
+                        </div>
+                    </div>
+                </div>
 
                 <div class="tab-pane fade active show" id="kt_ecommerce_settings_general" role="tabpanel">
                     <!--begin::Form-->
@@ -245,7 +273,11 @@
         }
 });
 $('#edit_status').change(function() {
-    alert($('#edit_status').val());
+    
+    if($('#edit_status').val() == 0){
+        $('#kt_modal_1').modal('show'); 
+
+    }
 });
 
 });
