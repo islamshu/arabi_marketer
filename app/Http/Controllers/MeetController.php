@@ -5,14 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Google_Client;
 use Google_Service_Calendar;
-use Google_Service_Calendar_Event;
+// use Google_Service_Calendar_Event;
 
 class MeetController extends Controller
 {
     public function meet()
     {
 
-        $event = new Google_Service_Calendar_Event(array(
+        $event = new \Google_Service_Calendar_Event(array(
             'summary' => 'Google I/O 2015',
             'location' => '800 Howard St., San Francisco, CA 94103',
             'description' => 'A chance to hear more about Google\'s developer products.',
