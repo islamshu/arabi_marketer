@@ -49,11 +49,11 @@
             <!--begin:::Tab content-->
             <div class="tab-content" id="myTabContent">
                 <!--begin:::Tab pane-->
-                @can('create-place')
+                {{-- @can('create-place') --}}
                 <button id="slide-toggle-button" class="btn btn-primary">
                     اضف جديد
                 </button>
-                @endcan
+                {{-- @endcan --}}
                
                 <div class="col-md-8" id="form_toshow" style="display: none;margin-top:5px">
                     <form id="sendmemessage">
@@ -80,6 +80,14 @@
                                 <input type="text" name="title_en" required class="form-control"
                                     value="{{ old('title_en') }}" id="title_en">
                             </div>
+                            <div class="form-group col-md-6">
+                                <label for="email"> فئة العرض  : <span class="required"></span></label>
+                                <select name="type" class="form-control" required id="">
+                                    <option value="" selected disabled>اختر </option>
+                                    <option value="free">Free</option>
+                                    <option value="premium">Premium</option>
+                                </select>                      
+                            </div>
 
 
 
@@ -99,8 +107,10 @@
                     <table id="example" class="display" style="width:100%">
                         <thead>
                             <tr>
-                                <th>صورة المقال</th>
+                                <th>صورة </th>
                                 <th>عنوان</th>
+                                <th>النوع</th>
+
                                 <th>العمليات</th>
                             </tr>
                         </thead>
@@ -109,16 +119,17 @@
                             <tr>
                              <td><img src="{{ asset('public/uploads/'.$item->logo) }}" width="50" height="50" alt=""></td>
                              <td>{{ $item->title }}</td>
-                            
+                             <td>{{ $item->type }}</td>
+
                              <td>
-                                @can('edit-place')
+                                {{-- @can('edit-place') --}}
 
                                 <button class="btn btn-info" data-toggle="modal"
                                 data-target="#myModal4"
                                 onclick="SelectedPeopleRecord('{{ $item->id }}')"><i
                                     class="fa fa-edit"></i></button>
-                                @endcan
-                                @can('delete-place')
+                                {{-- @endcan --}}
+                                {{-- @can('delete-place') --}}
 
                                 <form style="display: inline"
                                     action="{{ route('places.destroy', $item->id) }}"
@@ -127,7 +138,7 @@
                                     <button type="submit" class="btn btn-danger delete-confirm"><i
                                             class="fa fa-trash"></i></button>
                                 </form>
-                                @endcan
+                                {{-- @endcan --}}
                             </td>
                             </tr>
                                 

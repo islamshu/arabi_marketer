@@ -26,6 +26,14 @@
             <input type="text" name="title_en" required class="form-control"
                 value="{{ $place->getTranslation('title', 'en') }}" id="title_en">
         </div>
+        <div class="form-group col-md-6">
+            <label for="email"> فئة العرض  : <span class="required"></span></label>
+            <select name="type" class="form-control" required id="">
+                <option value=""  disabled>اختر </option>
+                <option value="free" @if($place->type == 'free') selected @endif>Free</option>
+                <option value="premium"@if($place->type != 'free') selected @endif>Premium</option>
+            </select>                      
+        </div>
 
 
 

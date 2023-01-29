@@ -42,6 +42,7 @@ class PlacetypeController extends Controller
         $place = new Placetype();
         $place->title = ['ar'=>$request->title_ar,'en'=>$request->title_en];
         $place->logo = $request->icon->store('place');
+        $place->type = $request->type;
         $place->save();
         return true;
     }
@@ -82,6 +83,7 @@ class PlacetypeController extends Controller
         if($request->icon != null){
             $place->logo = $request->icon->store('place');
         }
+        $place->type = $request->type;
         $place->save();
         return true;
     }
