@@ -136,9 +136,7 @@ Route::middleware('auth')->group(function () {
     Route::get('cons',function(){
         return view('pages.consl');
     });
-    Route::get('createMeeting',['MeetController@createMeeting'])->name('meet.create');
-    Route::get('callbackMeeting',['MeetController@callback'])->name('meet.callback');
-
+  
     Route::resource('places', PlacetypeController::class);
     Route::resource('city', CityController::class);
     Route::resource('about', AboutPageController::class);
