@@ -193,12 +193,11 @@ class ConsultationController extends BaseController
             'status'=>2,
             'message'=>null
         ]);
-        $category = json_decode($request->category);
         $blog_category_array = ConsultingCategory::where('blog_id', $con->id)->get();
         foreach ($blog_category_array as $se) {
             $se->delete();
         }
-        // $categorys = explode(',', $request->keywords);
+        $category = explode(',', $request->type_id);
         foreach ($category as $category) {
             $cat = new ConsultingCategory();
             $cat->blog_id = $con->id;
@@ -255,6 +254,22 @@ class ConsultationController extends BaseController
     public function consultation_profile_search($id,Request $request){
         $title = $request->title;
         $query = Consulting::query()->where('user_id',$id);
+        // $query->where('status',1);
+        $query->when($request->title != null, function ($q) use ($title) {
+            return $q->where('title','like','%'.$title.'%');
+        });
+       
+
+       
+        $blogs = $query->orderby('id','desc')->paginate(6);
+
+        $res = ConsultingResource::collection($blogs)->response()->getData(true);
+        return $this->sendResponse($res, 'جميع البودكاست');
+
+    }
+    public function search(Request $request){
+        $title = $request->title;
+        $query = Consulting::query()->where('status',1);
         // $query->where('status',1);
         $query->when($request->title != null, function ($q) use ($title) {
             return $q->where('title','like','%'.$title.'%');
