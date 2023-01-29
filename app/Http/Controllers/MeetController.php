@@ -39,6 +39,7 @@ class MeetController extends Controller
                 ),
             ),
         ));
+        dd($event);
 
         $calendarId = 'primary';
         // $event = $event->events->insert($calendarId, $event);
