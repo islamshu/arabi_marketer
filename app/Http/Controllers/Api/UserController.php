@@ -84,7 +84,7 @@ class UserController extends BaseController
         });
 
         $cat = Specialty::where('title->en','like','%'.$title.'%')->first();
-        dd($cat);
+        dd($cat->id);
         if($cat){
             $id_cat = $cat->id;
             $query->when($id_cat != null, function ($q) use ($id_cat) {
