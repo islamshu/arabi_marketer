@@ -80,20 +80,28 @@ class UserController extends BaseController
         $category = array();
         $query->where('status', 2);
 
-        // $query->when($request->title != null, function ($q) use ($title) {
-        //      $q->where('first_name','like','%'.$title.'%' )->orWhere('last_name','like','%'.$title.'%');
-        // });
-
-        $cat = Specialty::where('title->en','like','%'.$title.'%')->first();
-        if($cat){
-            $id_cat = $cat->id;
-            $query->when($request->title != null, function ($q) use ($id_cat) {
-                return $id_cat;
+        $query->when($request->title != null, function ($q) use ($title) {
+             $q->where('first_name','like','%'.$title.'%' )->orWhere('last_name','like','%'.$title.'%');
+             $cat = Specialty::where('title->en','like','%'.$title.'%')->first();
+             
+             if($cat){
+                $id_cat = $cat->id;
                 return $q->whereHas('specialty',function ($query) use ($id_cat) {
                     $query->where('type_id', $id_cat);
                 });
-            });
-        }
+             }
+        });
+
+        // $cat = Specialty::where('title->en','like','%'.$title.'%')->first();
+        // if($cat){
+        //     $id_cat = $cat->id;
+        //     $query->when($request->title != null, function ($q) use ($id_cat) {
+        //         return $id_cat;
+        //         return $q->whereHas('specialty',function ($query) use ($id_cat) {
+        //             $query->where('type_id', $id_cat);
+        //         });
+        //     });
+        // }
         
         // if($cat != null){
         //     $id_cat = $cat->id;
