@@ -87,6 +87,7 @@ class UserController extends BaseController
         if($cat != null){
             $query->when($request->title, function ($q) use ($cat) {
                 return $q->whereHas('specialty',function ($query) use ($cat) {
+                    return $cat->id;
                     $query->where('type_id', $cat->id);
                 });
             });
