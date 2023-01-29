@@ -83,14 +83,14 @@ class UserController extends BaseController
              $q->where('first_name','like','%'.$title.'%' )->orWhere('last_name','like','%'.$title.'%');
         });
 
-        // $cat = Specialty::where('title->en','like','%'.$title.'%')->first();
-        // if($cat != null){
-        //     $query->when($request->title, function ($q) use ($cat) {
-        //         return $q->whereHas('types',function ($query) use ($cat) {
-        //             $query->whereIn('type_id', $cat);
-        //         });
-        //     });
-        // }
+        $cat = Specialty::where('title->en','like','%'.$title.'%')->first();
+        if($cat != null){
+            $query->when($request->title, function ($q) use ($cat) {
+                return $q->whereHas('types',function ($query) use ($cat) {
+                    $query->whereIn('type_id', $cat->id);
+                });
+            });
+        }
        
         $cats = explode(',',$request->category_id);
 
