@@ -19,6 +19,7 @@ use App\Http\Controllers\HowItWorkController;
 use App\Http\Controllers\KeyWordController;
 use App\Http\Controllers\Logs\AuditLogsController;
 use App\Http\Controllers\Logs\SystemLogsController;
+use App\Http\Controllers\MeetController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PaymentController;
@@ -106,6 +107,7 @@ Route::middleware('auth')->group(function () {
     Route::get('blog_pending',[BlogController::class,'show_pending'])->name('blog_pending');
     Route::get('video_pending',[VideoController::class,'video_pending'])->name('video_pending');
     Route::get('creator_pending',[UserController::class,'creator_pending'])->name('creator_pending');
+    Route::get('meet',[MeetController::class,'meet'])->name('meet');
 
     Route::get('customers',[ProfileController::class,'users']);
     Route::get('creators_order',[ProfileController::class,'markter_order'])->name('markter_order');
