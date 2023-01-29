@@ -35,7 +35,6 @@
         "vedmant/laravel-feed-reader": "^1.5",
         "yajra/laravel-datatables": "9.0",
         "yajra/laravel-datatables-buttons": "^9.0",
-        "google/apiclient": "^1.1",
         "yajra/laravel-datatables-oracle": "10.0"
     },
     "require-dev": {

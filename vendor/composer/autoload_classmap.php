@@ -78,6 +78,7 @@ return array(
     'App\\Http\\Controllers\\KeyWordController' => $baseDir . '/app/Http/Controllers/KeyWordController.php',
     'App\\Http\\Controllers\\Logs\\AuditLogsController' => $baseDir . '/app/Http/Controllers/Logs/AuditLogsController.php',
     'App\\Http\\Controllers\\Logs\\SystemLogsController' => $baseDir . '/app/Http/Controllers/Logs/SystemLogsController.php',
+    'App\\Http\\Controllers\\MeetController' => $baseDir . '/app/Http/Controllers/MeetController.php',
     'App\\Http\\Controllers\\MessageController' => $baseDir . '/app/Http/Controllers/MessageController.php',
     'App\\Http\\Controllers\\OrderController' => $baseDir . '/app/Http/Controllers/OrderController.php',
     'App\\Http\\Controllers\\PagesController' => $baseDir . '/app/Http/Controllers/PagesController.php',
