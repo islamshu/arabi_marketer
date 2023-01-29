@@ -117,7 +117,7 @@
                         <tbody>
                             @foreach ($places as $item)
                             <tr>
-                             <td><img src="{{ asset('public/uploads/'.$item->logo) }}" width="50" height="50" alt=""></td>
+                             <td><img src="{{ asset('public/uploads/'.$item->logo) }}" width="100" height="80" alt=""></td>
                              <td>{{ $item->title }}</td>
                              <td>{{ $item->type }}</td>
 
