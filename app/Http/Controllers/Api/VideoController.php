@@ -88,6 +88,7 @@ class VideoController extends BaseController
         $vi->source = 'test';
         $vi->save();
         $vi->slug = str_replace(' ','_',$vi->title).'_'.$vi->id;
+        $vi->save();
 
         
         $data =[
@@ -172,6 +173,7 @@ class VideoController extends BaseController
         $vi->source = 'test';
         $vi->save();
         $vi->slug = str_replace(' ','_',$vi->title).'_'.$vi->id;
+        $vi->save();
         $types = json_decode($request->types, true);
         $vv = VideoCateogry::where('video_id', $vi->id)->get();
         foreach ($vv as $e) {

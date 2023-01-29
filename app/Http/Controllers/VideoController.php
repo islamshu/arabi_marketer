@@ -54,8 +54,10 @@ class VideoController extends Controller
                 $vi->type = $request->type_video;
 
                 $vi->source = 'test';
+ 
                 $vi->save();
                 $vi->slug = str_replace(' ','_',$vi->title).'_'.$vi->id;
+                $vi->save();
                 foreach ($request->type as $category) {
                     $cat = new VideoCateogry();
                     $cat->video_id = $vi->id;
@@ -150,7 +152,7 @@ class VideoController extends Controller
                 }
                 $vi->save();
                 $vi->slug = str_replace(' ','_',$vi->title).'_'.$vi->id;
-
+                $vi->save();
                $vv= VideoCateogry::where('video_id',$vi->id)->get();
                foreach($vv as $e){
                 $e->delete();
