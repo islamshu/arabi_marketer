@@ -86,7 +86,7 @@ class UserController extends BaseController
         $cat = Specialty::where('title->en','like','%'.$title.'%')->first();
         if($cat != null){
             $id_cat = $cat->id;
-            $query->when($request->title, function ($q) use ($id_cat) {
+            $query->when($request->title != null, function ($q) use ($id_cat) {
                 return $id_cat;
                 return $q->whereHas('specialty',function ($query) use ($id_cat) {
                     $query->where('type_id', $id_cat);
