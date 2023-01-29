@@ -11,6 +11,7 @@ class MeetController extends Controller
 {
     public function createMeeting()
     {
+        dd('f');
         // Create a new Google_Client instance
         $client = new Google_Client();
 
