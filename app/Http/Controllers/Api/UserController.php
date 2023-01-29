@@ -87,7 +87,7 @@ class UserController extends BaseController
         if($cat != null){
             $query->when($request->title, function ($q) use ($cat) {
                 return $q->whereHas('types',function ($query) use ($cat) {
-                    $query->whereIn('type_id', $cat->id);
+                    $query->where('type_id', $cat->id);
                 });
             });
         }
