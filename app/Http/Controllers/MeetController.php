@@ -9,66 +9,39 @@ use Google_Service_Calendar_Event;
 
 class MeetController extends Controller
 {
-    public function createMeeting()
+    public function meet()
     {
-        // Create a new Google_Client instance
-        $client = new Google_Client();
 
-        // Set the client id and client secret
-        $client->setClientId(env('GOOGLE_CLIENT_ID'));
-        $client->setClientSecret(env('GOOGLE_CLIENT_SECRET'));
+        $event = new Google_Service_Calendar_Event(array(
+            'summary' => 'Google I/O 2015',
+            'location' => '800 Howard St., San Francisco, CA 94103',
+            'description' => 'A chance to hear more about Google\'s developer products.',
+            'start' => array(
+                'dateTime' => '2023-01-28T09:00:00-07:00',
+                'timeZone' => 'America/Los_Angeles',
+            ),
+            'end' => array(
+                'dateTime' => '2023-05-30T17:00:00-07:00',
+                'timeZone' => 'America/Los_Angeles',
+            ),
+            'recurrence' => array(
+                'RRULE:FREQ=DAILY;COUNT=2'
+            ),
+            'attendees' => array(
+                array('email' => 'islamshu12@gmail.com'),
+                array('email' => 'sbrin@example.com'),
+            ),
+            'reminders' => array(
+                'useDefault' => FALSE,
+                'overrides' => array(
+                    array('method' => 'email', 'minutes' => 24 * 60),
+                    array('method' => 'popup', 'minutes' => 10),
+                ),
+            ),
+        ));
 
-        // Set the redirect URI
-        $client->setRedirectUri(route('meet.callback'));
-
-        // Set the scopes
-        $client->addScope(Google_Service_Calendar::CALENDAR);
-
-        // Check if the user has granted access
-        if (!$client->getAccessToken()) {
-            // Redirect the user to the authorization page
-            return redirect($client->createAuthUrl());
-        }
-
-        // Create a new instance of the Calendar service
-        $service = new Google_Service_Calendar($client);
-
-        // Create a new event
-        $event = new Google_Service_Calendar_Event();
-        $event->setSummary('Test Meeting');
-
-        // Insert the event
-        $createdEvent = $service->events->insert('primary', $event);
-
-        // Get the join URL for the meeting
-        $joinURL = $createdEvent->getJoinUrl();
-
-        // Redirect the user to the join URL
-        return redirect($joinURL);
-    }
-
-    public function callback(Request $request)
-    {
-        // Create a new Google_Client instance
-        $client = new Google_Client();
-
-        // Set the client id and client secret
-        $client->setClientId(env('GOOGLE_CLIENT_ID'));
-        $client->setClientSecret(env('GOOGLE_CLIENT_SECRET'));
-
-        // Set the redirect URI
-        $client->setRedirectUri(route('meet.callback'));
-
-        // Set the scopes
-        $client->addScope(Google_Service_Calendar::CALENDAR);
-
-        // Get the access token
-        $client->fetchAccessTokenWithAuthCode($request->get('code'));
-
-        // Store the access token in the session
-        session(['access_token' => $client->getAccessToken()]);
-
-        // Redirect the user back to the create meeting page
-        return redirect()->route('meet.create');
+        $calendarId = 'primary';
+        // $event = $event->events->insert($calendarId, $event);
+        printf('Event created: %s\n', $event->htmlLink);
     }
 }

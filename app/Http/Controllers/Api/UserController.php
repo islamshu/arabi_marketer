@@ -88,6 +88,7 @@ class UserController extends BaseController
                     $query->where('type_id', $id_cat);
                 });
         }else{
+            
             return $q->where('first_name','like','%'.$title.'%' )->orWhere('last_name','like','%'.$title.'%');
         }
 
