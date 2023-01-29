@@ -78,11 +78,20 @@ class UserController extends BaseController
         $title = $request->title;
         $query = User::query()->where('type','marketer');
         $category = array();
-      
         $query->where('status', 2);
         $query->when($request->title != null, function ($q) use ($title) {
              $q->where('first_name','like','%'.$title.'%' )->orWhere('last_name','like','%'.$title.'%');
         });
+
+        $cat = Specialty::where('title','like','%'.$title.'%')->first();
+        if($cat != null){
+            $query->when($request->title, function ($q) use ($cat) {
+                return $q->whereHas('category',function ($query) use ($cat) {
+                    $query->whereIn('category_id', $cat);
+                });
+            });
+        }
+       
         $cats = explode(',',$request->category_id);
 
 
