@@ -22,6 +22,8 @@ class ConsultingResource extends JsonResource
             'color'=>$this->color,
             'hour'=>$this->hour,
             'minutes'=>$this->min,
+            'categories' => $this->get_category($this),
+
             'price'=>$this->price,
             'message'=>$this->message,
             'url'=>$this->url,
@@ -42,5 +44,10 @@ class ConsultingResource extends JsonResource
             "linkedin" => "https://www.linkedin.com/sharing/share-offsite?mini=true&url=".$url,
             ]
         ];
+    }
+    function get_category($data)
+    {
+        $category = $data->category;
+        return CategoryResource::collection($category);
     }
 }

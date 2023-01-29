@@ -21,6 +21,8 @@ class MyConsultiongResourse extends JsonResource
             'description' => ($this->description),
             'color' => $this->color,
             'hour' => $this->hour,
+            'categories' => $this->get_category($this),
+
             'minutes' => $this->min,
             'price' => $this->price,
             'url' => $this->url,
@@ -41,5 +43,10 @@ class MyConsultiongResourse extends JsonResource
             ]
             // 'day'=>
         ];
+    }
+    function get_category($data)
+    {
+        $category = $data->category;
+        return CategoryResource::collection($category);
     }
 }

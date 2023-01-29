@@ -216,7 +216,7 @@ class ConsultationController extends BaseController
             'id'=>$con->id,
             'name' => $con->title,
             'url' => route('consloution.show',$con->id),
-            'title' => 'Have a new Consultiong',
+            'title' => 'قد تم تعديل استشارة',
             'time' => $con->updated_at
         ];
         Notification::send($admins, new GeneralNotification($date));
