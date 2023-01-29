@@ -13,6 +13,7 @@ use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\ConsultingResource;
 use App\Http\Resources\PaymentResource;
 use App\Models\Consulting;
+use App\Models\ConsultingCategory;
 use App\Models\ConsutingDate;
 use App\Models\Specialty;
 use App\Models\User;
@@ -105,7 +106,7 @@ class ConsultationController extends BaseController
             'description' => $request->description,
             'color' => $request->color,
             'place_id' => $request->place_id,
-            'type_id' => $request->type_id,
+            // 'type_id' => $request->type_id,
             'hour' => $request->hour,
             'min' => $request->mints,
             'start_at'=>$date_explode[0],
@@ -116,6 +117,14 @@ class ConsultationController extends BaseController
             'status'=>2,
             'user_id'=>auth('api')->id(),
         ]);
+        $category = json_decode($request->type_id);
+        // $categorys = explode(',', $request->keywords);
+        foreach ($category as $category) {
+            $cat = new ConsultingCategory();
+            $cat->consultion_id = $con->id;
+            $cat->category_id = $category;
+            $cat->save();
+        }
         $date = [
             'id'=>$con->id,
             'name' => $con->title,
@@ -174,7 +183,7 @@ class ConsultationController extends BaseController
             'description' => $request->description,
             'color' => $request->color,
             'place_id' => $request->place_id,
-            'type_id' => $request->type_id,
+            // 'type_id' => $request->type_id,
             'hour' => $request->hour,
             'min' => $request->mints,
             'start_at'=>$date_explode[0],
@@ -184,6 +193,18 @@ class ConsultationController extends BaseController
             'status'=>2,
             'message'=>null
         ]);
+        $category = json_decode($request->category);
+        $blog_category_array = ConsultingCategory::where('blog_id', $con->id)->get();
+        foreach ($blog_category_array as $se) {
+            $se->delete();
+        }
+        // $categorys = explode(',', $request->keywords);
+        foreach ($category as $category) {
+            $cat = new ConsultingCategory();
+            $cat->blog_id = $con->id;
+            $cat->category_id = $category;
+            $cat->save();
+        }
         if($request->day != null){
             ConsutingDate::where('consulte_id',$con->id)->delete();
             foreach ($request->day as $key => $value) {
