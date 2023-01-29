@@ -117,8 +117,8 @@ class ConsultationController extends BaseController
             'status'=>2,
             'user_id'=>auth('api')->id(),
         ]);
-        $category = json_decode($request->type_id);
-        // $categorys = explode(',', $request->keywords);
+        // $category = json_decode($request->type_id);
+        $category = explode(',', $request->type_id);
         foreach ($category as $category) {
             $cat = new ConsultingCategory();
             $cat->consultion_id = $con->id;
