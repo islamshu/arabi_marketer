@@ -83,7 +83,7 @@ class UserController extends BaseController
              $q->where('first_name','like','%'.$title.'%' )->orWhere('last_name','like','%'.$title.'%');
         });
 
-        $cat = Specialty::where('title','like','%'.$title.'%')->first();
+        $cat = Specialty::where('title->en','like','%'.$title.'%')->first();
         return $cat;
         if($cat != null){
             $query->when($request->title, function ($q) use ($cat) {
