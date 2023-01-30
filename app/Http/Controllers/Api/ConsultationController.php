@@ -100,7 +100,7 @@ class ConsultationController extends BaseController
             return $this->sendError($validation->messages());
         }
         $date_explode = explode(',',$request->start_date) ;
-
+        $min_api = str_replace('د','',$request->mints);
         $con = Consulting::create([
             'title' => $request->title,
             'description' => $request->description,
@@ -108,7 +108,7 @@ class ConsultationController extends BaseController
             'place_id' => $request->place_id,
             // 'type_id' => $request->type_id,
             'hour' => $request->hour,
-            'min' => $request->mints,
+            'min' => $min_api,
             'start_at'=>$date_explode[0],
             'end_at'=>$date_explode[1],
             'price'=>$request->price,
@@ -177,6 +177,8 @@ class ConsultationController extends BaseController
         if ($validation->fails()) {
             return $this->sendError($validation->messages());
         }
+        $min_api = str_replace('د','',$request->mints);
+
         $date_explode = explode(',',$request->start_date) ;
         $con ->update([
             'title' => $request->title,
@@ -185,7 +187,7 @@ class ConsultationController extends BaseController
             'place_id' => $request->place_id,
             // 'type_id' => $request->type_id,
             'hour' => $request->hour,
-            'min' => $request->mints,
+            'min' => $min_api,
             'start_at'=>$date_explode[0],
             'end_at'=>$date_explode[1],
             'price'=>$request->price,
