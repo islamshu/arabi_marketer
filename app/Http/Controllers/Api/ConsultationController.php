@@ -238,7 +238,7 @@ class ConsultationController extends BaseController
     public function serach(Request $request){
         $title = $request->title;
         $query = Consulting::query();
-        // $query->where('status',1);
+        $query->where('status',1);
         $query->when($request->title != null, function ($q) use ($title) {
             return $q->where('title','like','%'.$title.'%');
         });
@@ -269,23 +269,7 @@ class ConsultationController extends BaseController
         return $this->sendResponse($res, 'جميع البودكاست');
 
     }
-    public function search(Request $request){
-        $title = $request->title;
-        $query = Consulting::query()->where('status',1);
-        // $query->where('status',1);
-        $query->when($request->title != null, function ($q) use ($title) {
-            return $q->where('title','like','%'.$title.'%');
-        });
-       
-
-       
-        $blogs = $query->orderby('id','desc')->paginate(6);
-
-        $res = ConsultingResource::collection($blogs)->response()->getData(true);
-        return $this->sendResponse($res, 'جميع البودكاست');
-
-    }
-
+  
     
     public function single($id){
         $service = Consulting::find($id);
