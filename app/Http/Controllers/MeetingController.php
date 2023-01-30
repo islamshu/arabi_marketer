@@ -16,6 +16,22 @@ class MeetingController extends Controller
     const MEETING_TYPE_RECURRING = 3;
     const MEETING_TYPE_FIXED_RECURRING_FIXED = 8;
 
+    public function index()
+    {
+        $path = 'users/me/meetings';
+        $response = $this->zoomGet($path);
+
+        $data = json_decode($response->body(), true);
+        $data['meetings'] = array_map(function (&$m) {
+            $m['start_at'] = $this->toUnixTimeStamp($m['start_time'], $m['timezone']);
+            return $m;
+        }, $data['meetings']);
+
+        return [
+            'success' => $response->ok(),
+            'data' => $data,
+        ];
+    }
     public function show($id)
     {
         $meeting = $this->get($id);
@@ -25,9 +41,43 @@ class MeetingController extends Controller
 
     public function store(Request $request)
     {
-        $this->create($request->all());
+        $topic = 'اسم الجلسة';
+        $start_time = '2022-10-16 12:17:37';
+        $agenda = 'اسم الجلسة';
 
-        return redirect()->route('meetings.index');
+        // $validator = Validator::make($request->all(), [
+        //     'topic' => 'required|string',
+        //     'start_time' => 'required|date',
+        //     'agenda' => 'string|nullable',
+        // ]);
+        
+        // if ($validator->fails()) {
+        //     return [
+        //         'success' => false,
+        //         'data' => $validator->errors(),
+        //     ];
+        // }
+        // $data = $validator->validated();
+    
+        $path = 'users/me/meetings';
+        $response = $this->zoomPost($path, [
+            'topic' => $topic,
+            'type' => self::MEETING_TYPE_SCHEDULE,
+            'start_time' => $this->toZoomTimeFormat($start_time),
+            'duration' => 30,
+            'agenda' => $agenda,
+            'settings' => [
+                'host_video' => false,
+                'participant_video' => false,
+                'waiting_room' => true,
+            ]
+        ]);
+    
+    
+        return [
+            'success' => $response->status() === 201,
+            'data' => json_decode($response->body(), true),
+        ];
     }
 
     public function update($meeting, Request $request)

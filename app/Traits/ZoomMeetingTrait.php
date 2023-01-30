@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Traits;
 
 use GuzzleHttp\Client;
@@ -18,7 +19,7 @@ trait ZoomMeetingTrait
         $this->client = new Client();
         $this->jwt = $this->generateZoomToken();
         $this->headers = [
-            'Authorization' => 'Bearer '.$this->jwt,
+            'Authorization' => 'Bearer ' . $this->jwt,
             'Content-Type'  => 'application/json',
             'Accept'        => 'application/json',
         ];
@@ -39,6 +40,41 @@ trait ZoomMeetingTrait
     {
         return env('ZOOM_API_URL', '');
     }
+    private function zoomRequest()
+    {
+        $jwt = $this->generateZoomToken();
+        return \Illuminate\Support\Facades\Http::withHeaders([
+            'authorization' => 'Bearer ' . $jwt,
+            'content-type' => 'application/json',
+        ]);
+    }
+    public function zoomGet(string $path, array $query = [])
+    {
+        $url = $this->retrieveZoomUrl();
+        $request = $this->zoomRequest();
+        return $request->get($url . $path, $query);
+    }
+
+    public function zoomPost(string $path, array $body = [])
+    {
+        $url = $this->retrieveZoomUrl();
+        $request = $this->zoomRequest();
+        return $request->post($url . $path, $body);
+    }
+
+    public function zoomPatch(string $path, array $body = [])
+    {
+        $url = $this->retrieveZoomUrl();
+        $request = $this->zoomRequest();
+        return $request->patch($url . $path, $body);
+    }
+
+    public function zoomDelete(string $path, array $body = [])
+    {
+        $url = $this->retrieveZoomUrl();
+        $request = $this->zoomRequest();
+        return $request->delete($url . $path, $body);
+    }
 
     public function toZoomTimeFormat(string $dateTime)
     {
@@ -47,8 +83,18 @@ trait ZoomMeetingTrait
 
             return $date->format('Y-m-d\TH:i:s');
         } catch (\Exception $e) {
-            Log::error('ZoomJWT->toZoomTimeFormat : '.$e->getMessage());
+            Log::error('ZoomJWT->toZoomTimeFormat : ' . $e->getMessage());
 
+            return '';
+        }
+    }
+    public function toUnixTimeStamp(string $dateTime, string $timezone)
+    {
+        try {
+            $date = new \DateTime($dateTime, new \DateTimeZone($timezone));
+            return $date->getTimestamp();
+        } catch (\Exception $e) {
+            Log::error('ZoomJWT->toUnixTimeStamp : ' . $e->getMessage());
             return '';
         }
     }
@@ -65,7 +111,7 @@ trait ZoomMeetingTrait
                 'type'       => self::MEETING_TYPE_SCHEDULE,
                 'start_time' => $this->toZoomTimeFormat($data['start_time']),
                 'duration'   => $data['duration'],
-                'agenda'     => (! empty($data['agenda'])) ? $data['agenda'] : null,
+                'agenda'     => (!empty($data['agenda'])) ? $data['agenda'] : null,
                 'timezone'     => 'Asia/Kolkata',
                 'settings'   => [
                     'host_video'        => ($data['host_video'] == "1") ? true : false,
@@ -75,7 +121,7 @@ trait ZoomMeetingTrait
             ]),
         ];
 
-        $response =  $this->client->post($url.$path, $body);
+        $response =  $this->client->post($url . $path, $body);
 
         return [
             'success' => $response->getStatusCode() === 201,
@@ -85,7 +131,7 @@ trait ZoomMeetingTrait
 
     public function update($id, $data)
     {
-        $path = 'meetings/'.$id;
+        $path = 'meetings/' . $id;
         $url = $this->retrieveZoomUrl();
 
         $body = [
@@ -95,7 +141,7 @@ trait ZoomMeetingTrait
                 'type'       => self::MEETING_TYPE_SCHEDULE,
                 'start_time' => $this->toZoomTimeFormat($data['start_time']),
                 'duration'   => $data['duration'],
-                'agenda'     => (! empty($data['agenda'])) ? $data['agenda'] : null,
+                'agenda'     => (!empty($data['agenda'])) ? $data['agenda'] : null,
                 'timezone'     => 'Asia/Kolkata',
                 'settings'   => [
                     'host_video'        => ($data['host_video'] == "1") ? true : false,
@@ -104,7 +150,7 @@ trait ZoomMeetingTrait
                 ],
             ]),
         ];
-        $response =  $this->client->patch($url.$path, $body);
+        $response =  $this->client->patch($url . $path, $body);
 
         return [
             'success' => $response->getStatusCode() === 204,
@@ -114,7 +160,7 @@ trait ZoomMeetingTrait
 
     public function get($id)
     {
-        $path = 'meetings/'.$id;
+        $path = 'meetings/' . $id;
         $url = $this->retrieveZoomUrl();
         $this->jwt = $this->generateZoomToken();
         $body = [
@@ -122,7 +168,7 @@ trait ZoomMeetingTrait
             'body'    => json_encode([]),
         ];
 
-        $response =  $this->client->get($url.$path, $body);
+        $response =  $this->client->get($url . $path, $body);
 
         return [
             'success' => $response->getStatusCode() === 204,
@@ -137,14 +183,14 @@ trait ZoomMeetingTrait
      */
     public function delete($id)
     {
-        $path = 'meetings/'.$id;
+        $path = 'meetings/' . $id;
         $url = $this->retrieveZoomUrl();
         $body = [
             'headers' => $this->headers,
             'body'    => json_encode([]),
         ];
 
-        $response =  $this->client->delete($url.$path, $body);
+        $response =  $this->client->delete($url . $path, $body);
 
         return [
             'success' => $response->getStatusCode() === 204,
