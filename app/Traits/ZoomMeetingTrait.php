@@ -59,7 +59,7 @@ trait ZoomMeetingTrait
     {
         $url = $this->retrieveZoomUrl();
         $request = $this->zoomRequest();
-        dd($url);
+        dd($body);
         return $request->post($url . $path, $body);
     }
 
