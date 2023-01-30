@@ -69,8 +69,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($consls as $item)
+                                @foreach ($consls as $key=>$item)
                                 <tr>
+                                 <td>{{ $key+1 }}</td>
                                  <td>{{ $item->title }}</td>
                                  <th><a href="{{ route('marketer.show',$item->user->id) }}">{{ $item->user->name }}</a></th>
                                  <td>{{ $item->created_at->format('Y-m-d') }}</td>
