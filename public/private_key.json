@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "arab-marketer",
+  "private_key_id": "252e9db2e9e2e03e8707957507573a37b69aec08",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDCUpBkUGDGH6Ek\n+t+HLQ1SkzEBGfjWgBndoZSKVnkPF6Ec0RL7q3R6JYsAbZvkK82+o3cPLJWYFEm9\nFN2Ws0lCjGgrlZdR5TYcFMCmo22D02GWXRCdayQ54o0nW5wNpOlsV6PleQn+ulmo\nwlYfd+Qxpl5mvhfoec4EE79QiDb64KA0alnfzdVfnd6Nr2oQFZF0c9ke4PO71Gkb\nbEpBy1bVG9tdvpwZOd/v3inxcgcXsE6Wo2K5qKwlpL3NORePyA73UPzNB+49kxzf\nQSZjq19305v9OETCSKsJON/ebYJ0hyMHmvurtYdXQFl+BADa3TZrQmyQXE7tXMqY\nuF9KMH6rAgMBAAECggEAEp9H8B0V0RbJ4hnanwEtxCqP6Sucga3gDLHF4uX7jvs0\nOOc+Wvjo3iXH5uAaLukVu/29VKpwoZTcJi8gNydyT1rWRsr8p9//6fwBJFcIETiK\nIxdDFtrkK1nvLgTk9RfHONdDQSPy1cL1AauyBiz+pNVtOYphDynRGOntjSGopy0B\n2Y0ccdTVzJ3Qlgo2W302RjWdztIqRkILCeCtjBk6yAwwZH1T48QMqD2NrCfj0w9J\nT94L82ZgfY4+kE97kzX6XNIxxPdzYJrSmBetW4D/FK8TXVZEYcC0ieXMeyNhspqI\nU+t8WcPZyQz38eGUbYLQdDa2bjo5A/C9ORFs+w/+YQKBgQDlLhOp2Mo54aTXS3Iz\nEHbDe51VssMac96aW93WT0NLpd4/YDktQM9zR2d7+uM9u9H8hVEmgXecCCNuwFxa\nYiLKaQWKRv7e1wkHAuubhODXvUkRRxbjpDheJKgECaTppm2waYHVFJnq0e0YRrFd\n4kBspWVJIHtiGY9baBN/5KrU4QKBgQDZEDRTgIgoOMF7racdx5ItpDjuKGSlmWNM\n2I33g02y91vBLXKBH3b7ZD3H1n8ilkERzTHg2w9Bj6rW55rQBb0CFSu7RoqA21UG\n1/tmv6KfI3lmWyqp+iEVAVRVXOkr9ASpkMGv0pcn/ScHdrnFGteGvXsKfmIgut3f\n8WrjVJt5CwKBgChiAhz/kkK4u+8j4C+XSxYPBh4/rZlPqX3RijllJhqCU7MfJXQP\n434Qqu9xufD603mHlFEQpx7bYEL3qk5S1IaOEufWsrpZccHGhfWVaHkbZXCh8iqS\nmUwdcW2ktWZmaRWYwcPmKWjzLLAGZOKCJ4/9ZOeJzbPvhQ86O5VhmaiBAoGANFZd\n54xkSB53OJUEaH/IVUz1lScULYGwmcTVZkq4n2BZNVj59PxbOf5PjzG+8d38zogF\ncMwg/5Peg3bQszvO+QOVydAWcT9xXvcQ3RNz6J8rFG0C+n0fIOtzJCoE5t4tiZ0n\ntnc2jyPRF1GfNVFlik2Br2QN0Qp9mROizDGIU0UCgYA8x2vTM3Ar6LPvijmbrYp7\nWB8prjLCM7DKyBnXEaE/paBVHCoeDSoc0LAyKWuXl7Nmt5NKXCVlvZcQxU7RJpYm\nrkKqLGEMt0aI5E6XSSia1aXUyhXZ7GC+V5X5TdeAtdxeV9bwPYpTF+tPGreRR/1W\nQQcbo7elCSvj8j/8skf1WA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "googlemeet-test@arab-marketer.iam.gserviceaccount.com",
+  "client_id": "112387818085448972133",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/googlemeet-test%40arab-marketer.iam.gserviceaccount.com"
+}
