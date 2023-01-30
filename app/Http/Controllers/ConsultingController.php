@@ -13,7 +13,7 @@ use Notification;
 class ConsultingController extends Controller
 {
     public function index(){
-        return view('pages.consulting.index')->with('consls',Consulting::orderby('created_at', 'desc')->get());
+        return view('pages.consulting.index')->with('consls',Consulting::orderby('created_at', 'desc')->paginete(15));
     }
     public function edit($id){
         return view('pages.consulting.edit');
