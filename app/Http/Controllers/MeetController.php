@@ -18,7 +18,7 @@ class MeetController extends Controller
         $client = new Google_Client();
         $client->setApplicationName('Your App Name');
         $client->setScopes(Google_Service_Calendar::CALENDAR);
-        $client->setAuthConfig(asset('public.storage.data.credentials.json'));
+        $client->setAuthConfig(asset('storage.data.credentials.json'));
 
         // create a new calendar service
         $service = new Google_Service_Calendar($client);
