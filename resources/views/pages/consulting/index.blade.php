@@ -58,7 +58,7 @@
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="kt_tab_pane_1" role="tabpanel">
                     <div>
-                        <table id=""  class="display " style="width:100%">
+                        <table id="example" class="display" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>عنوان الاستشارة </th>
