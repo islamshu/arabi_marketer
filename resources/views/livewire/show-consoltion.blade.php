@@ -63,7 +63,7 @@
             <div class="mb-3 col-md-6">
                 <label for="place" class="form-label"> نوع الاستشارة </label>
                 <select disabled wire:model.defer="type" id="type"
-                    class="form-control {{ $errors->first('type') ? 'is-invalid' : '' }}">
+                    class="form-control {{ $errors->first('type') ? 'is-invalid' : '' }}" multiple> 
                     <option value="null" disabledd>{{ __('يرجى الاختيار') }}</option>
                     @foreach (App\Models\Specialty::get() as $type)
                         <option value="{{ $type->id }}" wire:key="{{ $type->id }}">{{ $type->title }}
