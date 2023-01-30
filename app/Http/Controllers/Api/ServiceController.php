@@ -173,6 +173,7 @@ class ServiceController extends BaseController
         $service->images = json_encode($image_array);
         $service->save();
         $service->slug = str_replace(' ','_',$request->title).'_'.$service->id;
+        $service->save();
 
         if (is_array($request->addmore) || is_object($request->addmore)) {
             foreach ($request->addmore as $key => $value) {
@@ -308,6 +309,7 @@ class ServiceController extends BaseController
 
         $service->save();
         $service->slug = str_replace(' ','_',$request->title).'_'.$service->id;
+        $service->save();
 
         if (is_array($request->addmore) || is_object($request->addmore)) {
             foreach ($request->addmore as $key => $value) {

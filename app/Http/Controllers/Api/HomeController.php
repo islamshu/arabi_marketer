@@ -301,6 +301,11 @@ class HomeController extends BaseController
         $ser->slug = str_replace(' ','_',$ser->title).'_'.$ser->id;
         $ser->save();
       }
+      $services = Service::get();
+      foreach ($services as $ser){
+        $ser->slug = str_replace(' ','_',$ser->title).'_'.$ser->id;
+        $ser->save();
+      }
 
 
     }

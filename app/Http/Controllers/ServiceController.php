@@ -193,6 +193,7 @@ class ServiceController extends Controller
                 // dd($request->all());
                 $service->save();
                 $service->slug = str_replace(' ','_',$request->title).'_'.$service->id;
+                $service->save();
 
 
                 foreach ($request->specialty as $specialty) {
@@ -406,6 +407,7 @@ class ServiceController extends Controller
                }
                 $service->save();
                 $service->slug = str_replace(' ','_',$request->title).'_'.$service->id;
+                $service->save();
 
 
                
