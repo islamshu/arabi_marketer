@@ -61,6 +61,7 @@
                         <table id="example" class="display" style="width:100%">
                             <thead>
                                 <tr>
+                                    <th>#</th>
                                     <th>عنوان الاستشارة </th>
                                     <th>اضيف بواسطة </th>
                                     <th>تاريخ الاضافة </th>
