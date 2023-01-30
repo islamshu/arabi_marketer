@@ -42,7 +42,7 @@ class MeetingController extends Controller
     public function store(Request $request)
     {
         $topic = 'اسم الجلسة';
-        $start_time = '2023-02-02 12:17:37';
+        $start_time = '2023-01-30 16:25:00';
         $agenda = 'اسم الجلسة';
 
         // $validator = Validator::make($request->all(), [
