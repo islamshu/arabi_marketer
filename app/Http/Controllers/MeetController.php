@@ -21,7 +21,7 @@ class MeetController extends Controller
         $client->setApplicationName("Google Meet Laravel");
         // $client->setScopes([Google_Service_Calendar::CALENDAR, Google_Service_Calendar::CALENDAR_EVENTS]);
         $privateKeyJsonFile = file_get_contents(public_path("private_key.json"));
-        dd($privateKeyJsonFile);
+        // dd($privateKeyJsonFile);
 
         $client->setAuthConfig($privateKeyJsonFile);
         $service = new Google_Service_Calendar($client);
