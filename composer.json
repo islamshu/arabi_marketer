@@ -13,6 +13,7 @@
         "dawson/youtube": "^2.0",
         "doctrine/dbal": "^3.4",
         "fruitcake/laravel-cors": "^2.0",
+        "google/apiclient": "1.1.*",
         "guzzlehttp/guzzle": "^7.0.1",
         "intervention/image": "^2.7",
         "jackiedo/log-reader": "^2.2",

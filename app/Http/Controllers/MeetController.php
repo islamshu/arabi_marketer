@@ -6,45 +6,38 @@ use Illuminate\Http\Request;
 use Google_Client;
 use Google_Service_Calendar;
 use Google_Service_Calendar_Event;
+use Google_Service_Calendar_EventDateTime;
 
 // use Google_Service_Calendar_Event;
 
 class MeetController extends Controller
 {
-    public function meet()
+    public function createMeeting()
     {
+        // create a new Google client
+        $client = new Google_Client();
+        $client->setApplicationName('Your App Name');
+        $client->setScopes(Google_Service_Calendar::CALENDAR);
+        $client->setAuthConfig(asset('public.storage.data.credentials.json'));
 
-        $event = new Google_Service_Calendar_Event(array(
-            'summary' => 'Google I/O 2015',
-            'location' => '800 Howard St., San Francisco, CA 94103',
-            'description' => 'A chance to hear more about Google\'s developer products.',
-            'start' => array(
-                'dateTime' => '2023-01-28T09:00:00-07:00',
-                'timeZone' => 'America/Los_Angeles',
-            ),
-            'end' => array(
-                'dateTime' => '2023-05-30T17:00:00-07:00',
-                'timeZone' => 'America/Los_Angeles',
-            ),
-            'recurrence' => array(
-                'RRULE:FREQ=DAILY;COUNT=2'
-            ),
-            'attendees' => array(
-                array('email' => 'islamshu12@gmail.com'),
-                array('email' => 'sbrin@example.com'),
-            ),
-            'reminders' => array(
-                'useDefault' => FALSE,
-                'overrides' => array(
-                    array('method' => 'email', 'minutes' => 24 * 60),
-                    array('method' => 'popup', 'minutes' => 10),
-                ),
-            ),
-        ));
-        dd($event->htmlLink);
+        // create a new calendar service
+        $service = new Google_Service_Calendar($client);
+        // create a new event
+        $event = new Google_Service_Calendar_Event();
+        $event->setSummary('Test Meeting');
+        $event->setLocation('Online');
+        $start = new Google_Service_Calendar_EventDateTime();
+        $start->setDateTime('2022-01-01T09:00:00.000Z');
+        $event->setStart($start);
+        $end = new Google_Service_Calendar_EventDateTime();
+        $end->setDateTime('2022-01-01T10:00:00.000Z');
+        $event->setEnd($end);
 
-        $calendarId = 'primary';
-        // $event = $event->events->insert($calendarId, $event);
-        printf('Event created: %s\n', $event->htmlLink);
+        // insert the event
+        $createdEvent = $service->events->insert('primary', $event);
+
+        // return the event details
+        return $createdEvent;
     }
+
 }
