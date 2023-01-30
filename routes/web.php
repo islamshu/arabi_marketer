@@ -20,6 +20,7 @@ use App\Http\Controllers\KeyWordController;
 use App\Http\Controllers\Logs\AuditLogsController;
 use App\Http\Controllers\Logs\SystemLogsController;
 use App\Http\Controllers\MeetController;
+use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PaymentController;
@@ -94,6 +95,9 @@ Route::get('verify_email/{id}',[UsersController::class,'verfty_email'])->name('s
 Route::middleware('auth')->group(function () {
     Route::resource('users', UsersController::class);
     Route::resource('tickets', TicketController::class);
+    Route::resource('metting', MeetingController::class);
+
+    
     Route::post('send_replay',[TicketController::class,'send_replay'])->name('send_replay');
     Route::post('change_status_service/{id}',[ServiceController::class,'change_status_service'])->name('change_status_service');
 
@@ -108,6 +112,8 @@ Route::middleware('auth')->group(function () {
     Route::get('video_pending',[VideoController::class,'video_pending'])->name('video_pending');
     Route::get('creator_pending',[UserController::class,'creator_pending'])->name('creator_pending');
     Route::get('meet',[MeetController::class,'createMeeting'])->name('meet');
+
+    
 
     Route::get('customers',[ProfileController::class,'users']);
     Route::get('creators_order',[ProfileController::class,'markter_order'])->name('markter_order');
