@@ -100,7 +100,7 @@ class ShowConsoltion extends Component
         $validatedData = $this->validate([
             'title' => 'required',
             'description' => 'required',
-            'type' => 'required',
+            // 'type' => 'required',
             'place' => 'required',
             'color' => 'required',
             'user' => 'required'
