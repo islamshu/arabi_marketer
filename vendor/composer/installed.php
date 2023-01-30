@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'd66dfaf20b7e900ac29b3f2c6e21558167e20c5d',
+        'reference' => '6ab636b935327b7632f89d5005f9ace1e4357273',
         'name' => 'keenthemes/metronic-laravel',
         'dev' => true,
     ),
@@ -535,7 +535,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'd66dfaf20b7e900ac29b3f2c6e21558167e20c5d',
+            'reference' => '6ab636b935327b7632f89d5005f9ace1e4357273',
             'dev_requirement' => false,
         ),
         'kodova/hamcrest-php' => array(
