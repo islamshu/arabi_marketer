@@ -77,11 +77,11 @@ class CartController extends BaseController
         return $this->sendResponse($res,'added');
     }
     public function delete($id){
-        $cart = Cart::find($id);
-        if(!$cart){
-            return $this->sendError('يوجد خطأ ما !');
+        $ids = explode(',',$id);
+        $carts = Cart::whereIn('id',$ids)->get();
+        foreach($carts as $c){
+            $c->delete();
         }
-        $cart->delete();
         return $this->sendResponse('delete', 'deleted succeffuly');
 
     }
