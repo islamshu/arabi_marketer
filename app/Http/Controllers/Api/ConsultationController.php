@@ -31,7 +31,7 @@ class ConsultationController extends BaseController
     }
     public function consultion_user($id){
         $user = User::where('mention',$id)->first();
-        $cons = Consulting::where('user_id',$user->id)->orderby('id','desc')->paginate(6);
+        $cons = Consulting::where('user_id',$user->id)->where('status',1)->orderby('id','desc')->paginate(6);
         $res = ConsultingResource::collection($cons)->response()->getData(true);
         return $this->sendResponse($res, 'تم ارجاع الاستشارات بنجاح');
     }
