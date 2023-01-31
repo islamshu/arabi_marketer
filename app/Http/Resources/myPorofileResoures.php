@@ -12,6 +12,7 @@ use App\Models\NewPodcast;
 use App\Models\Podacst;
 use App\Models\Service;
 use App\Models\Specialty;
+use App\Models\UserConsultion;
 use App\Models\Video;
 use Arr;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -42,6 +43,7 @@ class myPorofileResoures extends JsonResource
             'city' => new CityResource(City::find($this->city_id)),
             'types' => $this->get_type($this),
             'status' => $this->status,
+            'have_defult_consultion_value'=>$this->have_defult_value(),
             'followe_number' => Followr::where('marketer_id', $this->id)->count(),
             'following_number' => Followr::where('user_id', $this->id)->count(),
 
@@ -64,6 +66,14 @@ class myPorofileResoures extends JsonResource
 
 
         ];
+    }
+    function have_defult_value(){
+        $UserConsultion = UserConsultion::where('user_id',auth('api')->id())->first();
+        if($UserConsultion){
+            return 1;
+        }else{
+            return 0;
+        }
     }
     function get_service($data)
     {

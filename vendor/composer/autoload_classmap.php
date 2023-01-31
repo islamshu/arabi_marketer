@@ -251,6 +251,7 @@ return array(
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\UserAnswer' => $baseDir . '/app/Models/UserAnswer.php',
     'App\\Models\\UserCategory' => $baseDir . '/app/Models/UserCategory.php',
+    'App\\Models\\UserConsultion' => $baseDir . '/app/Models/UserConsultion.php',
     'App\\Models\\UserInfo' => $baseDir . '/app/Models/UserInfo.php',
     'App\\Models\\VendorChat' => $baseDir . '/app/Models/VendorChat.php',
     'App\\Models\\Video' => $baseDir . '/app/Models/Video.php',

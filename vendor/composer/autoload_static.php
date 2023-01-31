@@ -1057,6 +1057,7 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\UserAnswer' => __DIR__ . '/../..' . '/app/Models/UserAnswer.php',
         'App\\Models\\UserCategory' => __DIR__ . '/../..' . '/app/Models/UserCategory.php',
+        'App\\Models\\UserConsultion' => __DIR__ . '/../..' . '/app/Models/UserConsultion.php',
         'App\\Models\\UserInfo' => __DIR__ . '/../..' . '/app/Models/UserInfo.php',
         'App\\Models\\VendorChat' => __DIR__ . '/../..' . '/app/Models/VendorChat.php',
         'App\\Models\\Video' => __DIR__ . '/../..' . '/app/Models/Video.php',
