@@ -63,6 +63,7 @@ class myPorofileResoures extends JsonResource
             'bank_info' => $this->bank_info($this),
             'answer_questione' =>  AnsweResourse::collection($this->answer),
             'message'=>$this->message,
+            'have_defult_consultion_value'=>$this->defult_consultion_value(),
 
 
         ];
@@ -74,6 +75,22 @@ class myPorofileResoures extends JsonResource
         }else{
             return 0;
         }
+    }
+    function defult_consultion_value(){
+        $UserConsultion = UserConsultion::where('user_id',auth('api')->id())->first();
+        if($UserConsultion){
+            $con = 
+            [
+                'start_at'=>$UserConsultion->start_at,
+                'end_at'=>$UserConsultion->end_at,
+                'days'=>$UserConsultion->dates
+            ];
+        }else{
+            $con =[];
+        }
+        
+        return $con;
+
     }
     function get_service($data)
     {
