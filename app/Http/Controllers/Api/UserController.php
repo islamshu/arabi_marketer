@@ -55,7 +55,7 @@ use Validator;
 class UserController extends BaseController
 {
     public function edit_con_value(Request $request){
-        
+        dd($request);
     }
    
     public function create_markter(){
