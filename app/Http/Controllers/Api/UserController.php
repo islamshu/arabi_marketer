@@ -69,7 +69,7 @@ class UserController extends BaseController
             $usercond->start_at = $request->start_at;
             $usercond->end_at = $request->end_at;
             $usercond->dates = $request->days;
-            $usercon->save(); 
+            $usercond->save(); 
             return $this->sendResponse($usercond, 'جميع ارقام المتابعين ');
 
         }
