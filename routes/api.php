@@ -77,6 +77,8 @@ Route::get('get_all_media', [GalleryController::class, 'index']);
 Route::get('singe_media/{id}', [GalleryController::class, 'single']);
 Route::post('update_media/{id}', [GalleryController::class, 'edit']);
 // start marketer
+Route::get('/consultion_user/{id}', [ConsultationController::class, 'consultion_user']);
+
 Route::get('/get_markter/{id}', [HomeController::class, 'get_markter']);
 Route::get('/get_all_markter', [HomeController::class, 'get_all_markter']);
 Route::post('/forgot_password', [PasswordResetLinkController::class, 'apiStore']);

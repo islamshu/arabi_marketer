@@ -29,6 +29,11 @@ class ConsultationController extends BaseController
         $userRes = KeywordResource::collection($category);
         return $this->sendResponse($userRes, 'جميع الانواع  الخاصة بالاستشارات');
     }
+    public function consultion_user($id){
+        $cons = Consulting::where('user_id',$id)->orderby('id','desc')->paginate(6);
+        $res = ConsultingResource::collection($cons)->response()->getData(true);
+        return $this->sendResponse($res, 'تم ارجاع الاستشارات بنجاح');
+    }
     public function consultation_keyword()
     {
         $category = KeyWord::ofType('consultation')->orderBy('id', 'asc')->get();
