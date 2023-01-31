@@ -63,7 +63,7 @@ class myPorofileResoures extends JsonResource
             'bank_info' => $this->bank_info($this),
             'answer_questione' =>  AnsweResourse::collection($this->answer),
             'message'=>$this->message,
-            'have_defult_consultion_value'=>$this->defult_consultion_value(),
+            'defult_consultion_value'=>$this->defult_consultion_value(),
 
 
         ];
