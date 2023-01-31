@@ -100,6 +100,8 @@ Route::group(['middleware' => 'is_login'], function () {
     Route::post('/upload_profile_cover', [UserController::class, 'upload_cover']);
     Route::get('/my_services', [UserController::class, 'get_service']);
     Route::post('/edit_pio', [UserController::class, 'edit_pio']);
+    Route::post('/edit_con_value', [UserController::class, 'edit_con_value']);
+
     Route::post('/edit_soical', [UserController::class, 'edit_soical']);
     Route::post('/edit_profile_user', [UserController::class, 'edit_profile_user']);
     Route::post('/edit_password', [UserController::class, 'edit_password']);
