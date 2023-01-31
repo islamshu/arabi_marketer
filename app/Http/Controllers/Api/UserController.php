@@ -63,7 +63,6 @@ class UserController extends BaseController
             $usercon->dates = $request->days;
             $usercon->save();
             return $this->sendResponse($usercon, 'جميع ارقام المتابعين ');
-
         }else{
             $usercond = new UserConsultion();
             $usercond->user_id = auth('api')->id();
@@ -72,8 +71,21 @@ class UserController extends BaseController
             $usercond->dates = $request->days;
             $usercond->save(); 
             return $this->sendResponse($usercond, 'جميع ارقام المتابعين ');
-
         }
+    }
+    public function consultion_value(){
+        $UserConsultion = UserConsultion::where('user_id',auth('api')->id())->first();
+        if($UserConsultion){
+            $con = 
+            [
+                'start_at'=>$UserConsultion->start_at,
+                'end_at'=>$UserConsultion->end_at,
+                'days'=>$UserConsultion->dates
+            ];
+        }else{
+            $con =[];
+        }
+        return $this->sendResponse($con, 'القيم الافتراضية');
     }
    
     public function create_markter(){
