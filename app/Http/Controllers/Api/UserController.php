@@ -43,6 +43,7 @@ use App\Models\SouialUser;
 use App\Models\Specialty;
 use App\Models\UserAnswer;
 use App\Models\UserCategory;
+use App\Models\UserConsultion;
 use App\Models\VendorChat;
 use App\Models\Video;
 use App\Notifications\GeneralNotification;
@@ -55,7 +56,23 @@ use Validator;
 class UserController extends BaseController
 {
     public function edit_con_value(Request $request){
-        dd($request);
+        $usercon = UserConsultion::where('user_id',auth('api')->id())->first();
+        if($usercon){
+            $usercon->start_at = $request->start_at;
+            $usercon->end_at = $request->end_at;
+            $usercon->dates = $request->days;
+            $usercon->save();
+            return $this->sendResponse($usercon, 'جميع ارقام المتابعين ');
+
+        }else{
+            $usercond = new UserConsultion();
+            $usercond->start_at = $request->start_at;
+            $usercond->end_at = $request->end_at;
+            $usercond->dates = $request->days;
+            $usercon->save(); 
+            return $this->sendResponse($usercond, 'جميع ارقام المتابعين ');
+
+        }
     }
    
     public function create_markter(){
