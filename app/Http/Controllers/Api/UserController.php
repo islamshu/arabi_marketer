@@ -66,6 +66,7 @@ class UserController extends BaseController
 
         }else{
             $usercond = new UserConsultion();
+            $usercond->user_id = auth('api')->id();
             $usercond->start_at = $request->start_at;
             $usercond->end_at = $request->end_at;
             $usercond->dates = $request->days;
