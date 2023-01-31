@@ -69,13 +69,13 @@ class UserNotAuthResource extends JsonResource
     }
     function get_service($data)
     {
-        $service = Service::where('user_id', $data->id)->orderby('id', 'desc')->paginate(5);
+        $service = Service::where('user_id', $data->id)->where('status',1)->orderby('id', 'desc')->paginate(5);
         $res = ServiceResource::collection($service)->response()->getData(true);
         return $res;
     }
     function get_videos($data)
     {
-        $cons = Video::where('user_id', $data->id)->orderby('id', 'desc')->paginate(5);
+        $cons = Video::where('user_id', $data->id)->where('status',1)->orderby('id', 'desc')->paginate(5);
         $res = VideoResource::collection($cons)->response()->getData(true);
         return $res;
     }
@@ -93,7 +93,7 @@ class UserNotAuthResource extends JsonResource
     }
     function get_consult($data)
     {
-        $cons = Consulting::where('user_id', $data->id)->orderby('id', 'desc')->paginate(5);
+        $cons = Consulting::where('user_id', $data->id)->where('status',1)->orderby('id', 'desc')->paginate(5);
         $res = ConsultingResource::collection($cons)->response()->getData(true);
         return $res;
     }
