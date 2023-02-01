@@ -71,13 +71,8 @@ class MeetingController extends Controller
                 'waiting_room'      => false,
 
             ],
-            "authentication_domains"=> "example.com",
-            "authentication_exception"=> [
-              [
-                "email"=> "islamshublaq@hotmail.com",
-                "name"=> "Jill Chill"
-                ]
-            ],
+            'schedule_for'=> 'islamshublaq@hotmail.com',
+            
         ]);
         $data = json_decode($response->body(), true);
         // dd($data['id']);
