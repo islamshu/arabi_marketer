@@ -141,7 +141,7 @@ trait ZoomMeetingTrait
             'body'    => json_encode([
                 'schedule_for'=> 'islamshublaq@hotmail.com',
                 'topic'      => 'islam',
-                'type'       => self::MEETING_TYPE_SCHEDULE,
+                'type'       => 2,
                 // 'schedule_for'=> 'islamshublaq@hotmail.com',
                 'start_time' => $this->toZoomTimeFormat($start_time),
                 'duration'   => '30',
@@ -150,6 +150,7 @@ trait ZoomMeetingTrait
                 'settings'   => [
                     // 'host_video'        => ($data['host_video'] == "1") ? true : false,
                     // 'participant_video' => ($data['participant_video'] == "1") ? true : false,
+                    ;
                     'waiting_room'      => false,
                 ],
             ]),
