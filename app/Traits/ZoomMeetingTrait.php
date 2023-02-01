@@ -133,16 +133,18 @@ trait ZoomMeetingTrait
     {
         $path = 'meetings/' . $id;
         $url = $this->retrieveZoomUrl();
+        $start_time = now();
+        $agenda = 'اسم الجلسة';
 
         $body = [
             'headers' => $this->headers,
             'body'    => json_encode([
-                'topic'      => $data['topic'],
+                'topic'      => 'islam',
                 'type'       => self::MEETING_TYPE_SCHEDULE,
                 'schedule_for'=> 'islamshublaq@hotmail.com',
-                'start_time' => $this->toZoomTimeFormat($data['start_time']),
-                'duration'   => $data['duration'],
-                'agenda'     => (!empty($data['agenda'])) ? $data['agenda'] : null,
+                'start_time' => $this->toZoomTimeFormat($start_time),
+                'duration'   => '30',
+                'agenda'     => (!empty($agenda)) ? $agenda : null,
                 'timezone'     => 'Asia/Kolkata',
                 'settings'   => [
                     'host_video'        => ($data['host_video'] == "1") ? true : false,
