@@ -147,8 +147,8 @@ trait ZoomMeetingTrait
                 'agenda'     => (!empty($agenda)) ? $agenda : null,
                 'timezone'     => 'Asia/Kolkata',
                 'settings'   => [
-                    'host_video'        => ($data['host_video'] == "1") ? true : false,
-                    'participant_video' => ($data['participant_video'] == "1") ? true : false,
+                    // 'host_video'        => ($data['host_video'] == "1") ? true : false,
+                    // 'participant_video' => ($data['participant_video'] == "1") ? true : false,
                     'waiting_room'      => true,
                 ],
             ]),
