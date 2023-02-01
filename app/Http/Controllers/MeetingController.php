@@ -69,8 +69,14 @@ class MeetingController extends Controller
             'timezone'     => 'Asia/Riyadh',
             'settings'   => [
                 'waiting_room'      => false,
-                "alternative_hosts"=>"testmail24444@gmail.com",
 
+            ],
+            "authentication_domains"=> "example.com",
+            "authentication_exception"=> [
+              [
+                "email"=> "islamshublaq@hotmail.com",
+                "name"=> "Jill Chill"
+                ]
             ],
         ]);
         $data = json_decode($response->body(), true);
