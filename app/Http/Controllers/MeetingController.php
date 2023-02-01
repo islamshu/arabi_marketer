@@ -75,7 +75,7 @@ class MeetingController extends Controller
         ]);
         $data = json_decode($response->body(), true);
         // dd($data['id']);
-        $this->update($data['id'], $request->all());
+        // $this->update($data['id'], $request->all());
 
     
     
