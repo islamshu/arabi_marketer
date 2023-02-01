@@ -69,6 +69,7 @@ class MeetingController extends Controller
             'timezone'     => 'Asia/Riyadh',
             'settings'   => [
                 'waiting_room'      => false,
+                "alternative_hosts"=>"jchill@example.com;thill@example.com",
 
             ],
         ]);

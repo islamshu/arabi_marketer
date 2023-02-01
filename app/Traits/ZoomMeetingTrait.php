@@ -150,7 +150,7 @@ trait ZoomMeetingTrait
                 'settings'   => [
                     // 'host_video'        => ($data['host_video'] == "1") ? true : false,
                     // 'participant_video' => ($data['participant_video'] == "1") ? true : false,
-                    'alternative_hosts'=> 'islamshublaq@hotmail.com',
+                    // 'alternative_hosts'=> 'islamshublaq@hotmail.com',
                     'waiting_room'      => false,
                 ],
             ]),
