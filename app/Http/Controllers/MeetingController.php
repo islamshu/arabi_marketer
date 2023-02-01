@@ -66,6 +66,7 @@ class MeetingController extends Controller
             'start_time' => $this->toZoomTimeFormat($start_time),
             'duration' => 30,
             'agenda' => $agenda,
+            'timezone'     => 'Asia/Riyadh',
             'settings' => [
                 'host_video' => true,
                 'participant_video' => true,
