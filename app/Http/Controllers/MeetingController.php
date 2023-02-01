@@ -65,22 +65,16 @@ class MeetingController extends Controller
             'type' => self::MEETING_TYPE_SCHEDULE,
             'start_time' => $this->toZoomTimeFormat($start_time),
             'duration' => 30,
-            "pre_schedule" => true,
             'agenda' => $agenda,
             'timezone'     => 'Asia/Riyadh',
             'settings'   => [
                 'waiting_room'      => false,
-
             ],
-            'schedule_for'=> 'islamshublaq@hotmail.com',
-            
+            // 'schedule_for'=> 'islamshublaq@hotmail.com',
         ]);
         $data = json_decode($response->body(), true);
         // dd($data['id']);
         // $this->update($data['id'], $request->all());
-
-    
-    
         return [
             'success' => $response->status() === 201,
             'data' => json_decode($response->body(), true),
