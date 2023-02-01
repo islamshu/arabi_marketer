@@ -65,12 +65,11 @@ class MeetingController extends Controller
             'type' => self::MEETING_TYPE_SCHEDULE,
             'start_time' => $this->toZoomTimeFormat($start_time),
             'duration' => 30,
-            'host_email'=>'islamshublaq@gmail.com',
             'agenda' => $agenda,
             'settings' => [
-                'host_video' => false,
-                'participant_video' => false,
-                'waiting_room' => true,
+                'host_video' => true,
+                'participant_video' => true,
+                'waiting_room' => false,
             ]
         ]);
     

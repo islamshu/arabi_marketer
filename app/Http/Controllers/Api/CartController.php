@@ -149,31 +149,34 @@ class CartController extends BaseController
         $booking->user_id = auth('api')->id();
         $booking->consultiong_id = $request->consult_id;
         $booking->note = $request->note;
-        $booking->consultiong_id = $request->consult_id;
+        // $booking->consultiong_id = $request->consult_id;
         $booking->info = $data_send;
         $booking->price = $service->price;
         $booking->paid_status = 'unpaid';
-        $booking->paymet_method = 'paypal';
+        $booking->paymet_method = $request->paymet_method;
+        $booking->notifaction_after = $request->notifaction_after;
+        $booking->notifaction_befor = $request->notifaction_befor;
 
         $booking->save();
-        $product = [];
-        $i=0;
-            $product['items'][$i]['name']= $booking->consult->title;
-            $product['items'][$i]['price']=$booking->consult->price;
-            $product['items'][$i]['desc']= $booking->consult->title;
-            $product['items'][$i]['qty']= 1;
+        
+        // $product = [];
+        // $i=0;
+        //     $product['items'][$i]['name']= $booking->consult->title;
+        //     $product['items'][$i]['price']=$booking->consult->price;
+        //     $product['items'][$i]['desc']= $booking->consult->title;
+        //     $product['items'][$i]['qty']= 1;
          
-        $product['invoice_id'] = $booking->code;
-        $product['invoice_description'] = "Order #{$product['invoice_id']} Bill";
-        $product['return_url'] = route('success.payment.consultion',$booking->id);
-        $product['cancel_url'] = route('cancel.payment.consultion');
-        $product['total'] = $booking->consult->price;
-        $paypalModule = new ExpressCheckout;
-        $res = $paypalModule->setExpressCheckout($product);
-        $res = $paypalModule->setExpressCheckout($product, true);
-        $ress['link']=$res['paypal_link'];
-        $ress['payment_type']='paypal';
-        return $this->sendResponse($ress,'Open Link');
+        // $product['invoice_id'] = $booking->code;
+        // $product['invoice_description'] = "Order #{$product['invoice_id']} Bill";
+        // $product['return_url'] = route('success.payment.consultion',$booking->id);
+        // $product['cancel_url'] = route('cancel.payment.consultion');
+        // $product['total'] = $booking->consult->price;
+        // $paypalModule = new ExpressCheckout;
+        // $res = $paypalModule->setExpressCheckout($product);
+        // $res = $paypalModule->setExpressCheckout($product, true);
+        // $ress['link']=$res['paypal_link'];
+        // $ress['payment_type']='paypal';
+        // return $this->sendResponse($ress,'Open Link');
     }
 
     public function paymentCancel()
