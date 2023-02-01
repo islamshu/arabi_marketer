@@ -139,7 +139,7 @@ trait ZoomMeetingTrait
         $body = [
             'headers' => $this->headers,
             'body'    => json_encode([
-                'schedule_for'=> 'jchill@example.com',
+                'schedule_for'=> 'islamshu12@gmail.com',
                 'topic'      => 'islam',
                 'type'       => self::MEETING_TYPE_SCHEDULE,
                 // 'schedule_for'=> 'islamshublaq@hotmail.com',
