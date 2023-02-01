@@ -68,8 +68,8 @@ class MeetingController extends Controller
             'agenda' => $agenda,
             'timezone'     => 'Asia/Riyadh',
             'settings' => [
-                'host_video' => true,
-                'participant_video' => true,
+                'host_video' => false,
+                'participant_video' => false,
                 'waiting_room' => false,
             ]
         ]);
