@@ -122,7 +122,11 @@ class ConsultationController extends BaseController
             'payment_id'=>$request->payment_id,
             'status'=>2,
             'user_id'=>auth('api')->id(),
+            'notifaction_after'=>$request->notifaction_after,
+            'notifaction_befor'=>$request->notifaction_befor,
+
         ]);
+    
         // $category = json_decode($request->type_id);
         $category = explode(',', $request->type_id);
         foreach ($category as $category) {
