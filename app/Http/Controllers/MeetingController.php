@@ -71,7 +71,8 @@ class MeetingController extends Controller
                 'waiting_room'      => false,
             ],
         ]);
-        dd(json_decode($response->body(), true)->id);
+        $data = json_decode($response->body(), true);
+        dd($data['id']);
 
     
     
