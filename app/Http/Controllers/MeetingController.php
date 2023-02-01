@@ -64,7 +64,6 @@ class MeetingController extends Controller
             'topic' => $topic,
             'type' => self::MEETING_TYPE_SCHEDULE,
             'start_time' => $this->toZoomTimeFormat($start_time),
-            'schedule_for'=>'islamshu12@gmail.com',
             'duration' => 30,
             'agenda' => $agenda,
             'timezone'     => 'Asia/Riyadh',
@@ -72,6 +71,7 @@ class MeetingController extends Controller
                 'waiting_room'      => false,
             ],
         ]);
+        dd($response);
 
     
     
