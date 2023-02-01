@@ -83,12 +83,12 @@ class MeetingController extends Controller
         ];
     }
 
-    public function update($meeting, Request $request)
-    {
-        $this->update($meeting->zoom_meeting_id, $request->all());
+    // public function update($meeting, Request $request)
+    // {
+    //     $this->update($meeting->zoom_meeting_id, $request->all());
 
-        return redirect()->route('meetings.index');
-    }
+    //     return redirect()->route('meetings.index');
+    // }
 
     public function destroy(ZoomMeeting $meeting)
     {
