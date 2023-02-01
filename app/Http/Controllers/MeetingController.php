@@ -65,6 +65,7 @@ class MeetingController extends Controller
             'type' => self::MEETING_TYPE_SCHEDULE,
             'start_time' => $this->toZoomTimeFormat($start_time),
             'duration' => 30,
+            "pre_schedule" => true,
             'agenda' => $agenda,
             'timezone'     => 'Asia/Riyadh',
             'settings'   => [
