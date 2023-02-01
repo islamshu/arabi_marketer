@@ -68,7 +68,7 @@ class MeetingController extends Controller
             'agenda' => $agenda,
             'timezone'     => 'Asia/Riyadh',
             'settings'   => [
-                'waiting_room'      => true,
+                'waiting_room'      => false,
             ],
         ]);
     
