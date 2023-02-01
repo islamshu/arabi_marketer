@@ -70,7 +70,7 @@ class MeetingController extends Controller
             'settings' => [
                 'host_video' => false,
                 'participant_video' => false,
-                'waiting_room' => false,
+                'waiting_room' => true,
             ]
         ]);
     
