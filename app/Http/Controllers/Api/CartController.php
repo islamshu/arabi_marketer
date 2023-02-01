@@ -154,11 +154,11 @@ class CartController extends BaseController
         $booking->price = $service->price;
         $booking->paid_status = 'unpaid';
         $booking->paymet_method = $request->paymet_method;
+        $booking->meeting_app = $request->meeting_app;
         $booking->notifaction_after = $request->notifaction_after;
         $booking->notifaction_befor = $request->notifaction_befor;
-
         $booking->save();
-        
+
         // $product = [];
         // $i=0;
         //     $product['items'][$i]['name']= $booking->consult->title;
@@ -176,7 +176,7 @@ class CartController extends BaseController
         // $res = $paypalModule->setExpressCheckout($product, true);
         // $ress['link']=$res['paypal_link'];
         // $ress['payment_type']='paypal';
-        // return $this->sendResponse($ress,'Open Link');
+        return $this->sendResponse($booking,'success booking');
     }
 
     public function paymentCancel()
