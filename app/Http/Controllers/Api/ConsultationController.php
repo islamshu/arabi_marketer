@@ -56,6 +56,7 @@ class ConsultationController extends BaseController
         $time2 = new DateTime('2022-01-01 14:30:00');
         $duration = new DateInterval('PT1H');
         $period = new DatePeriod($time1, $duration, $time2);
+        dd($period);
         
         $hours = iterator_count($period);
         
