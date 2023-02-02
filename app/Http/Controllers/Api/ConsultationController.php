@@ -54,7 +54,7 @@ class ConsultationController extends BaseController
     public function get_json($id){
         $start = new DateTime('2022-01-01 10:00:00');
         $end = new DateTime('2022-01-01 14:30:00');
-        $duration = new DateInterval('PT30M');
+        $duration = new DateInterval('PT120M');
         $period = new DatePeriod($start, $duration, $end);
         $date =[];
         foreach ($period as $time) {
