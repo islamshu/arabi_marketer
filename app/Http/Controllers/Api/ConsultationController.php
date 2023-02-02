@@ -58,7 +58,7 @@ class ConsultationController extends BaseController
         $end_time = $cons->user->con_user->end_at;
 
        dd($cons);
-        $period = CarbonPeriod::create('2018-06-14', '2018-06-20');
+        $period = CarbonPeriod::create($cons->start_at, $cons->end_at);
 
         // Iterate over the period
         foreach ($period as $date) {
