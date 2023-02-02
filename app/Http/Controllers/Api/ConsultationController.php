@@ -81,7 +81,11 @@ class ConsultationController extends BaseController
             $d    = new DateTime($d);
             $name_of_day = $d->format('l');
             if(in_array($name_of_day,json_decode($cons->user->con_user->dates) )){
-                // $datee =Carbon::createFromFormat('Y-m-d H:i:s',$d);
+                $datee =$d->format('Y-m-d H:i:s');
+                $date = Carbon::createFromFormat('Y-m-d H:i:s', $datee);
+
+                $datee = $date->toIso8601String();
+                dd($datee);
                 $json_date['date']=$d->format('Y-m-d H:i:s');
                 dd($d->format('Y-m-d H:i:s'));
 
