@@ -72,6 +72,8 @@ class ConsultationController extends BaseController
             $name_of_day = $d->format('l');
             if(array_key_exists($name_of_day, $cons->user->con_user->dates)){
                 return 'true';
+            }else{
+                return 'false';
             }
 
             }
