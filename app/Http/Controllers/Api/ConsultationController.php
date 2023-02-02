@@ -76,7 +76,6 @@ class ConsultationController extends BaseController
         $dates = $period->toArray();
        
         foreach($dates as $key=>$d){
-            if($key == 0){
 
             $d    = new DateTime($d);
             $name_of_day = $d->format('l');
@@ -98,7 +97,7 @@ class ConsultationController extends BaseController
             }else{
                   $json_date['slot']=[];
             }
-            }
+            
             array_push($json_all_date,$json_date);
             }
             return $json_all_date;
