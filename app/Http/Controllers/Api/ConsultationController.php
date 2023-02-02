@@ -19,6 +19,7 @@ use App\Models\Specialty;
 use App\Models\User;
 use App\Notifications\GeneralNotification;
 use Carbon\Carbon;
+use DateTime;
 use Notification;
 use Validator;
 
@@ -49,10 +50,20 @@ class ConsultationController extends BaseController
         return $this->sendResponse($ara, 'جميع الاسعار الخاصة بالخدمات');
     }
     public function get_json($id){
-        $time1 = strtotime('08:00:00');
-        $time2 = strtotime('09:30:00');
-        $difference = round(abs($time2 - $time1) / 3600,2);
-        return $difference;
+        $datetime_1 = '2022-04-10 11:15:30'; 
+        $datetime_2 = '2022-04-12 13:30:45'; 
+         
+        $start_datetime = new DateTime($datetime_1); 
+        $diff = $start_datetime->diff(new DateTime($datetime_2)); 
+         
+        echo $diff->days.' Days total<br>'; 
+        echo $diff->y.' Years<br>'; 
+        echo $diff->m.' Months<br>'; 
+        echo $diff->d.' Days<br>'; 
+        echo $diff->h.' Hours<br>'; 
+        echo $diff->i.' Minutes<br>'; 
+        echo $diff->s.' Seconds<br>';
+        
     //    return $start->diff($end)->format('%H:%I:%S');
         // {
         //     "date": "2021-01-13T00:00:00.000Z",
