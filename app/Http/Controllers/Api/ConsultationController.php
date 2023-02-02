@@ -57,7 +57,6 @@ class ConsultationController extends BaseController
         $start_time = $cons->user->con_user->start_at;
         $end_time = $cons->user->con_user->end_at;
 
-       dd($cons);
         $period = CarbonPeriod::create($cons->start_at, $cons->end_at);
 
         // Iterate over the period
@@ -66,7 +65,7 @@ class ConsultationController extends BaseController
         }
         
         // Convert the period to an array of dates
-        $dates = $period->toArray();
+        // $dates = $period->toArray();
         // get all hour ***
         // $start = new DateTime('2022-01-01 10:00:00');
         // $end = new DateTime('2022-01-01 14:30:00');
