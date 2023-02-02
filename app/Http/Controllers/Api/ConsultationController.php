@@ -94,7 +94,7 @@ class ConsultationController extends BaseController
                 // fore
 
             }else{
-                return  $json_date['slot']=[];
+                  $json_date['slot']=[];
             }
             }
                 }
