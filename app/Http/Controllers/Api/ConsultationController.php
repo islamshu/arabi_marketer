@@ -103,6 +103,7 @@ class ConsultationController extends BaseController
                         "slots" => []
                       ];
                     foreach ($date as $slot) {
+                        dd($slot);
                         $newSlot = [
                           "date" => (new DateTime($slot))->format('Y-m-d\TH:i:s.u\Z')
                         ];
