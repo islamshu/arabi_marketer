@@ -99,13 +99,10 @@ class ConsultationController extends BaseController
                         array_push($date,$datee); 
                     }
                     $day =[];
-                    $newData = [
-                        "slots" => []
-                      ];
+                    $newData = [];
                     foreach ($date as $slot) {
-                        dd($slot);
                         $newSlot = [
-                          "date" => (new DateTime($slot))->format('Y-m-d\TH:i:s.u\Z')
+                          "date" => $slot
                         ];
                         array_push($newData, $newSlot);
                       }
