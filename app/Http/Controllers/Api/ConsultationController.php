@@ -99,9 +99,9 @@ class ConsultationController extends BaseController
                         array_push($date,$datee); 
                     }
                     foreach($date as $ddd){
-                        dd($ddd);
+                       array_push( $json_date['slot'],$date);
                     }
-                    $json_date['slot']=$date;
+                    // $json_date['slot']=$date;
                     
                 // fore
 
