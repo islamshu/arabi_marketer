@@ -68,10 +68,9 @@ class ConsultationController extends BaseController
         // Convert the period to an array of dates
         $dates = $period->toArray();
         foreach($dates as $d){
-            dd($d);
-            $d    = new DateTime($date);
+            $d    = new DateTime($d);
             $name_of_day = $d->format('l');
-            // dd();
+            dd($name_of_day);
             if(array_key_exists($name_of_day,json_decode($cons->user->con_user->dates) )){
                 return 'true';
             }else{
