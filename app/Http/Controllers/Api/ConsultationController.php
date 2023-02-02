@@ -87,17 +87,18 @@ class ConsultationController extends BaseController
                     $period = new DatePeriod($start, $duration, $end);
                     $date =[];
                     foreach ($period as $time) {
-
                         array_push($date,$time->format('Y-m-d H:i:s') . PHP_EOL); 
                     }
-                    dd($date);
+                    $json_date['slot']=$date;
+                    
                 // fore
 
             }else{
-                return 'false';
+                return  $json_date['slot']=[];
             }
             }
                 }
+                return $json_date;
         // get all hour ***
         // $start = new DateTime('2022-01-01 10:00:00');
         // $end = new DateTime('2022-01-01 14:30:00');
