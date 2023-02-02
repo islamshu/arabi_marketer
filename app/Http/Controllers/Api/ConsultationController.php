@@ -59,6 +59,7 @@ class ConsultationController extends BaseController
 
         $period = CarbonPeriod::create($cons->start_at, $cons->end_at);
         $start_date = $cons->start_at.'T00:00:00.000Z';
+        $mints = str_replace('د','',$cons->min);
         
         $json_date = [];
         // $json_date['date']=$start_date;
@@ -79,16 +80,17 @@ class ConsultationController extends BaseController
             $name_of_day = $d->format('l');
             if(in_array($name_of_day,json_decode($cons->user->con_user->dates) )){
                 $json_date['date']=$d->format('Y-m-d');
-                dd($d->format('Y-m-d'));
-                  $start = new DateTime($d);
-                    $end = new DateTime('2022-01-01 14:30:00');
-                    $duration = new DateInterval('PT30M');
+                // dd($d->format('Y-m-d'));
+                  $start = new DateTime($d->format('Y-m-d').' '.$start_time);
+                    $end =  new DateTime($d->format('Y-m-d').' '.$end_time);
+                    $duration = new DateInterval('PT'.$mints.'M');
                     $period = new DatePeriod($start, $duration, $end);
                     $date =[];
                     foreach ($period as $time) {
 
                         array_push($date,$time->format('Y-m-d H:i:s') . PHP_EOL); 
                     }
+                    dd($date);
                 // fore
 
             }else{
