@@ -56,10 +56,12 @@ class ConsultationController extends BaseController
         $end = new DateTime('2022-01-01 14:30:00');
         $duration = new DateInterval('PT30M');
         $period = new DatePeriod($start, $duration, $end);
-
+        $date =[];
         foreach ($period as $time) {
-            echo $time->format('Y-m-d H:i:s') . PHP_EOL;
+
+            array_push($date,$time->format('Y-m-d H:i:s') . PHP_EOL); 
         }
+        return $date;
     //    return $start->diff($end)->format('%H:%I:%S');
         // {
         //     "date": "2021-01-13T00:00:00.000Z",
