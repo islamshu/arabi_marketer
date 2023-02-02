@@ -74,7 +74,7 @@ class ConsultationController extends BaseController
         
         // Convert the period to an array of dates
         $dates = $period->toArray();
-        dd($dates);
+        // dd($dates);
        
         foreach($dates as $key=>$d){
 
