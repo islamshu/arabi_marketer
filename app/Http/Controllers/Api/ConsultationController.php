@@ -74,6 +74,7 @@ class ConsultationController extends BaseController
         
         // Convert the period to an array of dates
         $dates = $period->toArray();
+        dd($dates);
        
         foreach($dates as $key=>$d){
 
@@ -98,9 +99,9 @@ class ConsultationController extends BaseController
                   $json_date['slot']=[];
             }
             
-            array_push($json_all_date,$json_date);
+            // array_push($json_all_date,$json_date);
             }
-            return $json_all_date;
+            return $json_date;
         // get all hour ***
         // $start = new DateTime('2022-01-01 10:00:00');
         // $end = new DateTime('2022-01-01 14:30:00');
