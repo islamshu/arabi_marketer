@@ -50,12 +50,12 @@ class ConsultationController extends BaseController
         return $this->sendResponse($ara, 'جميع الاسعار الخاصة بالخدمات');
     }
     public function get_json($id){
-        $to = Carbon::createFromFormat('Y-m-d H:s:i', '2015-5-5 3:30:34');
-        $from = Carbon::createFromFormat('Y-m-d H:s:i', '2015-5-5 9:30:34');
-  
-        $diff_in_hours = $to->diffInHours($from);
-               
-        dd($diff_in_hours);
+        $time1 = new DateTime('2022-01-01 10:00:00');
+        $time2 = new DateTime('2022-01-01 14:30:00');
+        $interval = $time1->diff($time2);
+        $hours = $interval->format('%h');
+        
+        echo $hours;
         
     //    return $start->diff($end)->format('%H:%I:%S');
         // {
