@@ -94,8 +94,9 @@ class ConsultationController extends BaseController
                     $period = new DatePeriod($start, $duration, $end);
                     $date =[];
                     foreach ($period as $time) {
-                        dd($time->format('Y-m-d H:i:s'));
-                        array_push($date,$time->format('Y-m-d H:i:s') . PHP_EOL); 
+                        $dateeformat = Carbon::createFromFormat('Y-m-d H:i:s', $time->format('Y-m-d H:i:s'));
+                        $datee = $dateeformat->toIso8601String();
+                        array_push($date,$date); 
                     }
                     $json_date['slot']=$date;
                     
