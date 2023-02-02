@@ -51,9 +51,10 @@ class ConsultationController extends BaseController
     public function get_json($id){
         $con = Consulting::find($id);
         // $json = $data['date']= ;
-        $start  = new Carbon('2018-10-04 15:00:03');
-        $end    = new Carbon('2018-10-05 17:00:09');
-       return $start->diff($end)->format('%H:%I:%S');
+        $start_time = new Carbon('14:53:00');
+        $end_time = new Carbon('15:00:00');
+        return $time_difference_in_minutes = $end_time->diffInMinutes($start_time)
+    //    return $start->diff($end)->format('%H:%I:%S');
         // {
         //     "date": "2021-01-13T00:00:00.000Z",
         //     "slots": [
