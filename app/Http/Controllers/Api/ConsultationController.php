@@ -53,7 +53,7 @@ class ConsultationController extends BaseController
         // $json = $data['date']= ;
         $start_time = new Carbon('12:00:00');
         $end_time = new Carbon('15:00:00');
-        return $time_difference_in_minutes = $end_time->diffInMinutes('30');
+        return $time_difference_in_minutes = $end_time->diffInHours();
     //    return $start->diff($end)->format('%H:%I:%S');
         // {
         //     "date": "2021-01-13T00:00:00.000Z",
