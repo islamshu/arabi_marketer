@@ -60,14 +60,15 @@ class ConsultationController extends BaseController
         $period = CarbonPeriod::create($cons->start_at, $cons->end_at);
 
         // Iterate over the period
-        foreach ($period as $date) {
+        // foreach ($period as $date) {
 
-            echo $date->format('Y-m-d');
-        }
+        //     echo $date->format('Y-m-d');
+        // }
         
         // Convert the period to an array of dates
         $dates = $period->toArray();
         foreach($dates as $d){
+            dd($d);
             $d    = new DateTime($date);
             $name_of_day = $d->format('l');
             // dd();
