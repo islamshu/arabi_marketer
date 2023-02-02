@@ -78,7 +78,7 @@ class ConsultationController extends BaseController
             $d    = new DateTime($d);
             $name_of_day = $d->format('l');
             if(in_array($name_of_day,json_decode($cons->user->con_user->dates) )){
-                $json_date['date']=$d;
+                $json_date['date']=$d->format('Y-m-d');
                 dd($d);
                   $start = new DateTime($d);
                     $end = new DateTime('2022-01-01 14:30:00');
