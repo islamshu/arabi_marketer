@@ -81,6 +81,8 @@ class ConsultationController extends BaseController
             $d    = new DateTime($d);
             $name_of_day = $d->format('l');
             if(in_array($name_of_day,json_decode($cons->user->con_user->dates) )){
+                $datee =Carbon::createFromFormat('Y-m-d H:i:s',$d->format('Y-m-d'));
+                dd($datee);
                 $json_date['date']=$d->format('Y-m-d');
                 // dd($d->format('Y-m-d'));
                   $start = new DateTime($d->format('Y-m-d').' '.$start_time);
