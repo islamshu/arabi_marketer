@@ -67,17 +67,22 @@ class ConsultationController extends BaseController
         
         // Convert the period to an array of dates
         $dates = $period->toArray();
-        foreach($dates as $d){
+        foreach($dates as $key=>$d){
+            if($key == 0){
+
             $d    = new DateTime($d);
             $name_of_day = $d->format('l');
             // $name_of_day = 'Monday';
             // dd($cons->user->con_user->dates);
             // 'Monday'
+           
             if(in_array($name_of_day,json_decode($cons->user->con_user->dates) )){
                 return 'true';
             }else{
                 return 'false';
             }
+        }
+
 
             }
         dd($dates);
