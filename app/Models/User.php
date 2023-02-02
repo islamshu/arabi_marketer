@@ -121,6 +121,11 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasOne(MarkterSoical::class);
     }
+    public function con_user()
+    {
+        return $this->hasOne(UserConsultion::class);
+    }
+    
     public function consutiong()
     {
         return $this->hasMany(Consulting::class);

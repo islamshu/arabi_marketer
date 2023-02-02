@@ -287,6 +287,8 @@ Route::get('consultation_profile_search/{id}', [ConsultationController::class, '
 //start general data
 Route::get('/get_all_countires', [GeneralController::class, 'get_all_countires']);
 Route::get('/all_cities', [GeneralController::class, 'all_cites']);
+Route::get('/get_json/{id}', [ConsultationController::class, 'get_json']);
+
 Route::get('/get_all_city_user_country_id/{id}', [GeneralController::class, 'get_all_city_belong_country']);
 Route::get('handle-payment', [PayPalPaymentController::class, 'handlePayment'])->name('make.payment');
 Route::get('cancel-payment', [PayPalPaymentController::class, 'paymentCancel'])->name('cancel.payment');

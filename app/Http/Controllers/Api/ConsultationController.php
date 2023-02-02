@@ -18,6 +18,7 @@ use App\Models\ConsutingDate;
 use App\Models\Specialty;
 use App\Models\User;
 use App\Notifications\GeneralNotification;
+use Carbon\Carbon;
 use Notification;
 use Validator;
 
@@ -46,7 +47,30 @@ class ConsultationController extends BaseController
         $ara['last_price'] = get_general_value('last_price_consultion');
 
         return $this->sendResponse($ara, 'جميع الاسعار الخاصة بالخدمات');
-
+    }
+    public function get_json($id){
+        $con = Consulting::find($id);
+        // $json = $data['date']= ;
+        $start  = new Carbon('2018-10-04 15:00:03');
+        $end    = new Carbon('2018-10-05 17:00:09');
+       return $start->diff($end)->format('%H:%I:%S');
+        // {
+        //     "date": "2021-01-13T00:00:00.000Z",
+        //     "slots": [
+        //       {
+        //         "date": "2021-01-13T13:30:00.000Z"
+        //       },
+        //       {
+        //         "date": "2021-01-13T14:00:00.000Z"
+        //       },
+        //       {
+        //         "date": "2021-01-13T14:30:00.000Z"
+        //       },
+        //       {
+        //         "date": "2021-01-13T15:00:00.000Z"
+        //       }
+        //     ]
+        //   }
     }
     public function places()
     {
