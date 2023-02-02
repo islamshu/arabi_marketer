@@ -101,7 +101,7 @@ class ConsultationController extends BaseController
             
             array_push($json_all_date,$json_date);
             }
-            return $json_date;
+            return $json_all_date;
         // get all hour ***
         // $start = new DateTime('2022-01-01 10:00:00');
         // $end = new DateTime('2022-01-01 14:30:00');
