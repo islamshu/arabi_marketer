@@ -19,6 +19,7 @@ use App\Models\Specialty;
 use App\Models\User;
 use App\Notifications\GeneralNotification;
 use Carbon\Carbon;
+use Carbon\CarbonPeriod;
 use DateInterval;
 use DatePeriod;
 use DateTime;
@@ -53,7 +54,10 @@ class ConsultationController extends BaseController
     }
     public function get_json($id){
         $cons = Consulting::find($id);
-       dd($cons->user->con_user);
+        $start_time = $cons->user->con_user->start_at;
+        $end_time = $cons->user->con_user->end_at;
+
+       dd($cons);
         $period = CarbonPeriod::create('2018-06-14', '2018-06-20');
 
         // Iterate over the period
