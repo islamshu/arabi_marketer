@@ -67,26 +67,19 @@ class ConsultationController extends BaseController
         
         // Convert the period to an array of dates
         $dates = $period->toArray();
+        dd($dates);
         foreach($dates as $key=>$d){
             if($key == 0){
 
             $d    = new DateTime($d);
             $name_of_day = $d->format('l');
-            // $name_of_day = 'Monday';
-            // dd($cons->user->con_user->dates);
-            // 'Monday'
-            // dd($name_of_day);
-           
             if(in_array($name_of_day,json_decode($cons->user->con_user->dates) )){
                 return 'true';
             }else{
                 return 'false';
             }
-        }
-
-
             }
-        dd($dates);
+                }
         // get all hour ***
         // $start = new DateTime('2022-01-01 10:00:00');
         // $end = new DateTime('2022-01-01 14:30:00');
