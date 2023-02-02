@@ -98,8 +98,12 @@ class ConsultationController extends BaseController
                         $datee = $dateeformat->toIso8601String();
                         array_push($date,$datee); 
                     }
+                    $day =[];
+                    foreach($date as $ddd){
+                        array_push($day,$ddd);
+                    }
                     
-                    $json_date['slot']=$date;
+                    $json_date['slot']=$day;
                     
                 // fore
 
