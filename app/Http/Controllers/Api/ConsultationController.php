@@ -52,16 +52,14 @@ class ConsultationController extends BaseController
         return $this->sendResponse($ara, 'جميع الاسعار الخاصة بالخدمات');
     }
     public function get_json($id){
-        $time1 = new DateTime('2022-01-01 12:00:00');
-        $time2 = new DateTime('2022-01-01 14:30:00');
-        $duration = new DateInterval('PT1H');
-        // dd($duration);
-        $period = new DatePeriod($time1, 30, $time2);
-        dd($period);
-        
-        $hours = iterator_count($period);
-        
-        echo $hours;
+        $start = new DateTime('2022-01-01 10:00:00');
+        $end = new DateTime('2022-01-01 14:30:00');
+        $duration = new DateInterval('PT30M');
+        $period = new DatePeriod($start, $duration, $end);
+
+        foreach ($period as $time) {
+            echo $time->format('Y-m-d H:i:s') . PHP_EOL;
+        }
     //    return $start->diff($end)->format('%H:%I:%S');
         // {
         //     "date": "2021-01-13T00:00:00.000Z",
