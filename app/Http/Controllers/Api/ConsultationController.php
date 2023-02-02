@@ -82,20 +82,19 @@ class ConsultationController extends BaseController
             $name_of_day = $d->format('l');
             if(in_array($name_of_day,json_decode($cons->user->con_user->dates) )){
                 $datee =$d->format('Y-m-d H:i:s');
-                $date = Carbon::createFromFormat('Y-m-d H:i:s', $datee);
-
-                $datee = $date->toIso8601String();
-                dd($datee);
-                $json_date['date']=$d->format('Y-m-d H:i:s');
-                dd($d->format('Y-m-d H:i:s'));
+                $dateeformat = Carbon::createFromFormat('Y-m-d H:i:s', $datee);
+                $datee = $dateeformat->toIso8601String();
+                $json_date['date']=$datee;
+                // dd($d->format('Y-m-d H:i:s'));
 
                 // dd($d->format('Y-m-d'));
-                  $start = new DateTime($d->format('Y-m-d').' '.$start_time);
+                    $start = new DateTime($d->format('Y-m-d').' '.$start_time);
                     $end =  new DateTime($d->format('Y-m-d').' '.$end_time);
                     $duration = new DateInterval('PT'.$mints.'M');
                     $period = new DatePeriod($start, $duration, $end);
                     $date =[];
                     foreach ($period as $time) {
+                        dd($time->format('Y-m-d H:i:s') . PHP_EOL);
                         array_push($date,$time->format('Y-m-d H:i:s') . PHP_EOL); 
                     }
                     $json_date['slot']=$date;
