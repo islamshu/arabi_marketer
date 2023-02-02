@@ -99,11 +99,17 @@ class ConsultationController extends BaseController
                         array_push($date,$datee); 
                     }
                     $day =[];
-                    foreach($date as $ddd){
-                        array_push($day,$ddd);
-                    }
+                    $newData = [
+                        "slots" => []
+                      ];
+                    foreach ($date as $slot) {
+                        $newSlot = [
+                          "date" => (new DateTime($slot))->format('Y-m-d\TH:i:s.u\Z')
+                        ];
+                        array_push($newData['slots'], $newSlot);
+                      }
                     
-                    $json_date['slot']=$day;
+                    $json_date['slots']=$newData;
                     
                 // fore
 
@@ -113,7 +119,7 @@ class ConsultationController extends BaseController
                 $dateeformat = Carbon::createFromFormat('Y-m-d H:i:s', $datee);
                 $datee = $dateeformat->toIso8601String();
                 $json_date['date']=$datee;
-                $json_date['slot']=[];
+                $json_date['slots']=[];
             }
             
             array_push($json_all_date,$json_date);
