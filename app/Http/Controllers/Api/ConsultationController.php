@@ -89,7 +89,7 @@ class ConsultationController extends BaseController
 
                         array_push($date,$time->format('Y-m-d H:i:s') . PHP_EOL); 
                     }
-                fore
+                // fore
 
             }else{
                 return 'false';
