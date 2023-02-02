@@ -103,8 +103,12 @@ class ConsultationController extends BaseController
                 // fore
 
             }else{
-                $json_date['date']=$d->format('Y-m-d');
-                  $json_date['slot']=[];
+                
+                $datee =$d->format('Y-m-d H:i:s');
+                $dateeformat = Carbon::createFromFormat('Y-m-d H:i:s', $datee);
+                $datee = $dateeformat->toIso8601String();
+                $json_date['date']=$datee;
+                $json_date['slot']=[];
             }
             
             array_push($json_all_date,$json_date);
