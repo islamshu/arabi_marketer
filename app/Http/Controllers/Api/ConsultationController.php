@@ -106,7 +106,7 @@ class ConsultationController extends BaseController
                         $newSlot = [
                           "date" => (new DateTime($slot))->format('Y-m-d\TH:i:s.u\Z')
                         ];
-                        array_push($newData['slots'], $newSlot);
+                        array_push($newData, $newSlot);
                       }
                     
                     $json_date['slots']=$newData;
