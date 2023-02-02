@@ -52,34 +52,29 @@ class ConsultationController extends BaseController
         return $this->sendResponse($ara, 'جميع الاسعار الخاصة بالخدمات');
     }
     public function get_json($id){
-        $start = new DateTime('2022-01-01 10:00:00');
-        $end = new DateTime('2022-01-01 14:30:00');
-        $duration = new DateInterval('PT120M');
-        $period = new DatePeriod($start, $duration, $end);
-        $date =[];
-        foreach ($period as $time) {
+        $cons = Consulting::find($id);
+       dd($cons->user->con_user);
+        $period = CarbonPeriod::create('2018-06-14', '2018-06-20');
 
-            array_push($date,$time->format('Y-m-d H:i:s') . PHP_EOL); 
+        // Iterate over the period
+        foreach ($period as $date) {
+            echo $date->format('Y-m-d');
         }
-        return $date;
-    //    return $start->diff($end)->format('%H:%I:%S');
-        // {
-        //     "date": "2021-01-13T00:00:00.000Z",
-        //     "slots": [
-        //       {
-        //         "date": "2021-01-13T13:30:00.000Z"
-        //       },
-        //       {
-        //         "date": "2021-01-13T14:00:00.000Z"
-        //       },
-        //       {
-        //         "date": "2021-01-13T14:30:00.000Z"
-        //       },
-        //       {
-        //         "date": "2021-01-13T15:00:00.000Z"
-        //       }
-        //     ]
-        //   }
+        
+        // Convert the period to an array of dates
+        $dates = $period->toArray();
+        // get all hour ***
+        // $start = new DateTime('2022-01-01 10:00:00');
+        // $end = new DateTime('2022-01-01 14:30:00');
+        // $duration = new DateInterval('PT30M');
+        // $period = new DatePeriod($start, $duration, $end);
+        // $date =[];
+        // foreach ($period as $time) {
+
+        //     array_push($date,$time->format('Y-m-d H:i:s') . PHP_EOL); 
+        // }
+        // return $date;
+  
     }
     public function places()
     {
