@@ -71,7 +71,7 @@ class ConsultationController extends BaseController
             $d    = new DateTime($d);
             // $name_of_day = $d->format('l');
             $name_of_day = 'Monday';
-            dd($name_of_day ,$cons->user->con_user->dates);
+            dd($cons->user->con_user->dates);
             // 'Monday'
             if(array_key_exists($name_of_day,json_decode($cons->user->con_user->dates) )){
                 return 'true';
