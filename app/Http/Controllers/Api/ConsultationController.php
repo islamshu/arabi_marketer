@@ -61,7 +61,6 @@ class ConsultationController extends BaseController
         $start_date = $cons->start_at.'T00:00:00.000Z';
         $mints = str_replace('د','',$cons->min);
         
-        $json_date = [];
         $json_all_date = [];
 
         // $json_date['date']=$start_date;
@@ -77,6 +76,7 @@ class ConsultationController extends BaseController
         // dd($dates);
        
         foreach($dates as $key=>$d){
+            $json_date = [];
 
             $d    = new DateTime($d);
             $name_of_day = $d->format('l');
