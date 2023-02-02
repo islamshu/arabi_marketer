@@ -49,11 +49,10 @@ class ConsultationController extends BaseController
         return $this->sendResponse($ara, 'جميع الاسعار الخاصة بالخدمات');
     }
     public function get_json($id){
-        $con = Consulting::find($id);
-        // $json = $data['date']= ;
-        $start_time = new Carbon('12:00:00');
-        $end_time = new Carbon('15:00:00');
-        return $time_difference_in_minutes = $end_time->diffInHours();
+        $time1 = strtotime('08:00:00');
+        $time2 = strtotime('09:30:00');
+        $difference = round(abs($time2 - $time1) / 3600,2);
+        return $difference;
     //    return $start->diff($end)->format('%H:%I:%S');
         // {
         //     "date": "2021-01-13T00:00:00.000Z",
