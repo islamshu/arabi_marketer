@@ -58,23 +58,39 @@ class ConsultationController extends BaseController
         $end_time = $cons->user->con_user->end_at;
 
         $period = CarbonPeriod::create($cons->start_at, $cons->end_at);
-
+        $start_date = $cons->start_at.'T00:00:00.000Z';
+        
+        $json_date = [];
+        // $json_date['date']=$start_date;
         // Iterate over the period
         // foreach ($period as $date) {
 
         //     echo $date->format('Y-m-d');
         // }
+
         
         // Convert the period to an array of dates
         $dates = $period->toArray();
-        dd($dates);
+       
         foreach($dates as $key=>$d){
             if($key == 0){
 
             $d    = new DateTime($d);
             $name_of_day = $d->format('l');
             if(in_array($name_of_day,json_decode($cons->user->con_user->dates) )){
-                return 'true';
+                $json_date['date']=$d;
+                dd($d);
+                  $start = new DateTime($d);
+                    $end = new DateTime('2022-01-01 14:30:00');
+                    $duration = new DateInterval('PT30M');
+                    $period = new DatePeriod($start, $duration, $end);
+                    $date =[];
+                    foreach ($period as $time) {
+
+                        array_push($date,$time->format('Y-m-d H:i:s') . PHP_EOL); 
+                    }
+                fore
+
             }else{
                 return 'false';
             }
