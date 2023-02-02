@@ -65,7 +65,8 @@ class ConsultationController extends BaseController
         }
         
         // Convert the period to an array of dates
-        // $dates = $period->toArray();
+        $dates = $period->toArray();
+        dd($dates);
         // get all hour ***
         // $start = new DateTime('2022-01-01 10:00:00');
         // $end = new DateTime('2022-01-01 14:30:00');
