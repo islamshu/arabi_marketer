@@ -61,6 +61,7 @@ class ConsultationController extends BaseController
 
         // Iterate over the period
         foreach ($period as $date) {
+
             echo $date->format('Y-m-d');
         }
         
@@ -68,7 +69,11 @@ class ConsultationController extends BaseController
         $dates = $period->toArray();
         foreach($dates as $d){
             $d    = new DateTime($date);
-            dd($d->format('l') ); 
+            $name_of_day = $d->format('l');
+            if(array_key_exists($name_of_day, $cons->user->con_user->dates)){
+                return 'true';
+            }
+
             }
         dd($dates);
         // get all hour ***
