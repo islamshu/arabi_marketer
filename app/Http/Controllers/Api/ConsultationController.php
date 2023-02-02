@@ -99,7 +99,7 @@ class ConsultationController extends BaseController
                   $json_date['slot']=[];
             }
             
-            // array_push($json_all_date,$json_date);
+            array_push($json_all_date,$json_date);
             }
             return $json_date;
         // get all hour ***
