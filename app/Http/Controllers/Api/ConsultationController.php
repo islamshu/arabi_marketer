@@ -96,6 +96,7 @@ class ConsultationController extends BaseController
                 // fore
 
             }else{
+                $json_date['date']=$d->format('Y-m-d');
                   $json_date['slot']=[];
             }
             
