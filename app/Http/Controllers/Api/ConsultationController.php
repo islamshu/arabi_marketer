@@ -70,8 +70,8 @@ class ConsultationController extends BaseController
         foreach($dates as $d){
             $d    = new DateTime($date);
             $name_of_day = $d->format('l');
-            dd(json_decode($cons->user->con_user->dates));
-            if(array_key_exists($name_of_day,$cons->user->con_user->dates )){
+            // dd();
+            if(array_key_exists($name_of_day,json_decode($cons->user->con_user->dates) )){
                 return 'true';
             }else{
                 return 'false';
