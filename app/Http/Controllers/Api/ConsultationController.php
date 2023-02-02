@@ -62,6 +62,8 @@ class ConsultationController extends BaseController
         $mints = str_replace('د','',$cons->min);
         
         $json_date = [];
+        $json_all_date = [];
+
         // $json_date['date']=$start_date;
         // Iterate over the period
         // foreach ($period as $date) {
@@ -97,8 +99,9 @@ class ConsultationController extends BaseController
                   $json_date['slot']=[];
             }
             }
-                }
-                return $json_date;
+            array_push($json_all_date,$json_date);
+            }
+            return $json_all_date;
         // get all hour ***
         // $start = new DateTime('2022-01-01 10:00:00');
         // $end = new DateTime('2022-01-01 14:30:00');
