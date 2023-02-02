@@ -69,8 +69,9 @@ class ConsultationController extends BaseController
         $dates = $period->toArray();
         foreach($dates as $d){
             $d    = new DateTime($d);
-            $name_of_day = $d->format('l');
-            dd($name_of_day);
+            // $name_of_day = $d->format('l');
+            $name_of_day = 'Monday';
+            // 'Monday'
             if(array_key_exists($name_of_day,json_decode($cons->user->con_user->dates) )){
                 return 'true';
             }else{
