@@ -55,6 +55,7 @@ class ConsultationController extends BaseController
         $time1 = new DateTime('2022-01-01 12:00:00');
         $time2 = new DateTime('2022-01-01 14:30:00');
         $duration = new DateInterval('PT1H');
+        dd($duration);
         $period = new DatePeriod($time1, $duration, $time2);
         dd($period);
         
