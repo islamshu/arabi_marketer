@@ -115,7 +115,6 @@ class ConsultationController extends BaseController
                     $day =[];
                     $newData = [];
                     foreach ($date as $slot) {
-                        dd($slot);
                         $newSlot = [
                           "date" => $slot
                         ];
