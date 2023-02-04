@@ -140,7 +140,7 @@ class CartController extends BaseController
         $newDate = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $request->date)
 
         ->format('Y-m-d H:i:s');
-        return $newDate;
+        // return $newDate;
      
        
         $data_send = json_encode($request->date);
@@ -148,7 +148,7 @@ class CartController extends BaseController
         $booking->user_id = auth('api')->id();
         $booking->consultiong_id = $request->consult_id;
         $booking->note = $request->note;
-        $booking->date = $request->date->format('Y-m-d H:i:s');
+        $booking->date = $newDate;
         // $booking->consultiong_id = $request->consult_id;
         $booking->info = $data_send;
         $booking->price = $service->price;
