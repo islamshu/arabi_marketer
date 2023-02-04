@@ -116,7 +116,6 @@ class ConsultationController extends BaseController
                     $day =[];
                     $newData = [];
                     foreach ($date as $slot) {
-                        dd($date,$slot);
                         $newSlot = [
                           "date" => $slot
                         ];
@@ -124,15 +123,12 @@ class ConsultationController extends BaseController
                       }
                     
                     $json_date['slots']=$newData;
-                    
-                // fore
+            
 
             }else{
                 
                 $datee =$d->format('Y-m-d H:i:s');
-                // $dateeformat = Carbon::createFromFormat('Y-m-d H:i:s', $datee);
-                // $dateeformat->timezone = 'Asia/Kolkata';
-                // $datee = $dateeformat->toIso8601String();
+           
                 $json_date['date']=$datee;
                 $json_date['name_this_daye']=$d->format('l');
                 $json_date['slots']=[];
@@ -141,18 +137,7 @@ class ConsultationController extends BaseController
             array_push($json_all_date,$json_date);
             }
             return $json_all_date;
-        // get all hour ***
-        // $start = new DateTime('2022-01-01 10:00:00');
-        // $end = new DateTime('2022-01-01 14:30:00');
-        // $duration = new DateInterval('PT30M');
-        // $period = new DatePeriod($start, $duration, $end);
-        // $date =[];
-        // foreach ($period as $time) {
-
-        //     array_push($date,$time->format('Y-m-d H:i:s') . PHP_EOL); 
-        // }
-        // return $date;
-  
+        
     }
     public function places()
     {
