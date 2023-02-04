@@ -119,9 +119,9 @@ class ConsultationController extends BaseController
             }else{
                 
                 $datee =$d->format('Y-m-d H:i:s');
-                $dateeformat = Carbon::createFromFormat('Y-m-d H:i:s', $datee);
-                $dateeformat->timezone = 'Asia/Kolkata';
-                $datee = $dateeformat->toIso8601String();
+                // $dateeformat = Carbon::createFromFormat('Y-m-d H:i:s', $datee);
+                // $dateeformat->timezone = 'Asia/Kolkata';
+                // $datee = $dateeformat->toIso8601String();
                 $json_date['date']=$datee;
                 $json_date['name_this_daye']=$d->format('l');
                 $json_date['slots']=[];
