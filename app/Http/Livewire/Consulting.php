@@ -109,6 +109,7 @@ class Consulting extends Component
             'url'=>$this->url,
             'payment_id'=>$this->payment,
             'user_id'=>$this->user,
+            'status'=>2
         ]);
         // dd($this->day,$this->from,$this->to);
         foreach ($this->day as $key => $value) {
