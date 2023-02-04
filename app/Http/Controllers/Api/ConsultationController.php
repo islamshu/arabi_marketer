@@ -83,6 +83,7 @@ class ConsultationController extends BaseController
             if(in_array($name_of_day,json_decode($cons->user->con_user->dates) )){
                 $datee =$d->format('Y-m-d H:i:s');
                 $dateeformat = Carbon::createFromFormat('Y-m-d H:i:s', $datee);
+                $dateeformat->timezone = 'Asia/Kolkata';
                 $datee = $dateeformat->toIso8601String();
                 $json_date['date']=$datee;
                 // dd($d->format('Y-m-d H:i:s'));
@@ -95,6 +96,8 @@ class ConsultationController extends BaseController
                     $date =[];
                     foreach ($period as $time) {
                         $dateeformat = Carbon::createFromFormat('Y-m-d H:i:s', $time->format('Y-m-d H:i:s'));
+                        $dateeformat->timezone = 'Asia/Kolkata';
+
                         $datee = $dateeformat->toIso8601String();
                         array_push($date,$datee); 
                     }
@@ -115,6 +118,7 @@ class ConsultationController extends BaseController
                 
                 $datee =$d->format('Y-m-d H:i:s');
                 $dateeformat = Carbon::createFromFormat('Y-m-d H:i:s', $datee);
+                $dateeformat->timezone = 'Asia/Kolkata';
                 $datee = $dateeformat->toIso8601String();
                 $json_date['date']=$datee;
                 $json_date['slots']=[];
