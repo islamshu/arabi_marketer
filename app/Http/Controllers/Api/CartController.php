@@ -137,7 +137,10 @@ class CartController extends BaseController
         //     return $this->sendError('اليوم والتاريخ لحجز الاستشارة مطلوب !');
         // }
        
-      
+        $newDate = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $request->date)
+
+        ->format('Y-m-d H:i:s');
+        return $newDate;
      
        
         $data_send = json_encode($request->date);
