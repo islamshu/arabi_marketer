@@ -93,13 +93,7 @@ class Consulting extends Component
             $hour = 2;
             $mints = 0;
         }
-        foreach ($this->type as $category) {
-            dd($category);
-            $cat = new ConsultingCategory();
-            $cat->consultion_id = $con->id;
-            $cat->category_id = $category;
-            $cat->save();
-        }
+     
 
         $con = ModelsConsulting::create([
             'title' => $this->title,
@@ -122,6 +116,12 @@ class Consulting extends Component
             ConsutingDate::create(['consulte_id'=>$con->id,'day' => $this->day[$key], 'from' => $this->from[$key] , 'to' => $this->to[$key]]);
         }
         
+        foreach ($this->type as $category) {
+            $cat = new ConsultingCategory();
+            $cat->consultion_id = $con->id;
+            $cat->category_id = $category;
+            $cat->save();
+        }
  
 
         $this->successMessage = "تم الاضافة بنجاح";
