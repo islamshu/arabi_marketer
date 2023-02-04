@@ -83,8 +83,12 @@ class ConsultationController extends BaseController
             $d    = new DateTime($d);
             $name_of_day = $d->format('l');
             $days = $cons->date;
-            dd($days);
-            if(in_array($name_of_day,json_decode($cons->user->con_user->dates) )){
+            $array_day =[];
+            foreach($days as $da){
+                array_push($array_day,$da->day);
+            }
+            dd($array_day);
+            if(in_array($name_of_day,($array_day) )){
                 $datee =$d->format('Y-m-d H:i:s');
                 $dateeformat = Carbon::createFromFormat('Y-m-d H:i:s', $datee);
                 // $dateeformat->timezone = 'Asia/Kolkata';
