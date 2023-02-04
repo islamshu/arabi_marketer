@@ -94,11 +94,7 @@ class ConsultationController extends BaseController
                 $dateeformat = Carbon::createFromFormat('Y-m-d H:i:s', $datee);
                 // $dateeformat->timezone = 'Asia/Kolkata';
                 // $datee = $dateeformat->toIso8601String();
-                $check = BookingConsultion::where('consultiong_id',$cons->id)->where('date',$datee)->first();
-               
-                if($check){
-                    continue;
-                }
+                
                 $json_date['date']=$datee;
                 $json_date['name_this_daye']=$d->format('l');
                 $start_time = ConsutingDate::where('consulte_id',$cons->id)->where('day',$d->format('l'))->first()->from;
@@ -116,6 +112,11 @@ class ConsultationController extends BaseController
                         $dateeformat = Carbon::createFromFormat('Y-m-d H:i:s', $time->format('Y-m-d H:i:s'));
                     //   $dateeformat->timezone = 'Asia/Riyadh';
                     //   $date->setTimezone('7');
+                    $check = BookingConsultion::where('consultiong_id',$cons->id)->where('date',$dateeformat)->first();
+               
+                        if($check){
+                            continue;
+                        }
 
 
                         $datee = $dateeformat->toIso8601String();
