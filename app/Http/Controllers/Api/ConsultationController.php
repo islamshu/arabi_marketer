@@ -107,7 +107,7 @@ class ConsultationController extends BaseController
                     $date =[];
                     foreach ($period as $time) {
                         $dateeformat = Carbon::createFromFormat('Y-m-d H:i:s', $time->format('Y-m-d H:i:s'));
-                        // $dateeformat->timezone = 'Asia/Kolkata';
+                        $dateeformat->timezone = 'Asia/Riyadh';
 
                         // $datee = $dateeformat->toIso8601String();
                         array_push($date,$dateeformat); 
