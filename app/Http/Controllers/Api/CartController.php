@@ -133,9 +133,9 @@ class CartController extends BaseController
             return $this->sendError('الاستشارة غير متوفرة');
         }
 
-        if($request->date == null || $request->start_at == null || $request->end_at == null){
-            return $this->sendError('اليوم والتاريخ لحجز الاستشارة مطلوب !');
-        }
+        // if($request->date == null || $request->start_at == null || $request->end_at == null){
+        //     return $this->sendError('اليوم والتاريخ لحجز الاستشارة مطلوب !');
+        // }
        
       
      
