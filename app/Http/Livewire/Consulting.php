@@ -11,8 +11,9 @@ use Request;
 class Consulting extends Component
 {
     public $currentSection = 1;
-    public $title, $description,$user, $type, $place,$color,$time_duration,$hour,$mints,$day,$from,$to,$price,$payment,$start_date,$end_date,$url;
+    public $title, $description,$user, $place,$color,$time_duration,$hour,$mints,$day,$from,$to,$price,$payment,$start_date,$end_date,$url;
     public $i = 1;
+    public  $type = [];
     public $inputs = [];
     public $successMessage;
     public $values;
@@ -91,12 +92,14 @@ class Consulting extends Component
             $hour = 2;
             $mints = 0;
         }
+        dd($this->type);
+
         $con = ModelsConsulting::create([
             'title' => $this->title,
             'description' => $this->description,
             'color' => $this->color,
             'place_id' => $this->place,
-            'type_id' => $this->type,
+            // 'type_id' => $this->type,
             'hour' => $hour,
             'min' => $mints,
             'start_at'=>$this->start_date,
