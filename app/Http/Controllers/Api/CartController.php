@@ -132,31 +132,28 @@ class CartController extends BaseController
         if(!$service){
             return $this->sendError('الاستشارة غير متوفرة');
         }
+
         if($request->date == null || $request->start_at == null || $request->end_at == null){
             return $this->sendError('اليوم والتاريخ لحجز الاستشارة مطلوب !');
         }
        
       
-        $is_exisit=  $service->date->where('day',$request->date)->where('from',$request->start_at)->where('to',$request->end_at)->first();
-        if($is_exisit == null){
-        return $this->sendError(' لا يوجد وقت للاستشارة متاح بهذه الاوقات يرجى التأكد من الاوقات وكتابتهم بشكل صحيح');
-        }
-        $date['day']=$request->date;
-        $date['form']=$request->start_at;
-        $date['to']=$request->end_at;
-        $data_send = json_encode($date);
+     
+       
+        $data_send = json_encode($request->date);
         $booking = new BookingConsultion();
         $booking->user_id = auth('api')->id();
         $booking->consultiong_id = $request->consult_id;
         $booking->note = $request->note;
+        $booking->date = $request->date;
         // $booking->consultiong_id = $request->consult_id;
         $booking->info = $data_send;
         $booking->price = $service->price;
         $booking->paid_status = 'unpaid';
-        $booking->paymet_method = $request->paymet_method;
-        $booking->meeting_app = $request->meeting_app;
-        $booking->notifaction_after = $request->notifaction_after;
-        $booking->notifaction_befor = $request->notifaction_befor;
+        $booking->paymet_method = $service->payment->title;
+        $booking->meeting_app = $service->place->title;
+        $booking->notifaction_after = $service->notifaction_after;
+        $booking->notifaction_befor = $service->notifaction_befor;
         $booking->save();
 
         // $product = [];

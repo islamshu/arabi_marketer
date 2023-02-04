@@ -38,6 +38,6 @@ class Consulting extends Model
     {
         return $this->hasMany(ConsutingDate::class,'consulte_id');
     }
-    
+   
 
 }
