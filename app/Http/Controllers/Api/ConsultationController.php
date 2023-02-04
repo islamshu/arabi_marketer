@@ -86,6 +86,8 @@ class ConsultationController extends BaseController
                 $dateeformat->timezone = 'Asia/Kolkata';
                 $datee = $dateeformat->toIso8601String();
                 $json_date['date']=$datee;
+                $json_date['name_this_daye']=$d->format('l');
+
                 // dd($d->format('Y-m-d H:i:s'));
 
                 // dd($d->format('Y-m-d'));
@@ -121,6 +123,7 @@ class ConsultationController extends BaseController
                 $dateeformat->timezone = 'Asia/Kolkata';
                 $datee = $dateeformat->toIso8601String();
                 $json_date['date']=$datee;
+                $json_date['name_this_daye']=$d->format('l');
                 $json_date['slots']=[];
             }
             
