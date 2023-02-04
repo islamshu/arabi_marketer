@@ -87,7 +87,6 @@ class ConsultationController extends BaseController
             foreach($days as $da){
                 array_push($array_day,$da->day);
             }
-            dd($array_day);
             if(in_array($name_of_day,($array_day) )){
                 $datee =$d->format('Y-m-d H:i:s');
                 $dateeformat = Carbon::createFromFormat('Y-m-d H:i:s', $datee);
@@ -95,6 +94,8 @@ class ConsultationController extends BaseController
                 // $datee = $dateeformat->toIso8601String();
                 $json_date['date']=$datee;
                 $json_date['name_this_daye']=$d->format('l');
+                $start_time = ConsutingDate::where('consulte_id',$cons->id)->where('day',$d->format('l'))->first()->from;
+                $end_time = ConsutingDate::where('consulte_id',$cons->id)->where('day',$d->format('l'))->first()->to;
 
                 // dd($d->format('Y-m-d H:i:s'));
 
@@ -103,6 +104,7 @@ class ConsultationController extends BaseController
                     $end =  new DateTime($d->format('Y-m-d').' '.$end_time);
                     $duration = new DateInterval('PT'.$mints.'M');
                     $period = new DatePeriod($start, $duration, $end);
+                    dd($period);
                     $date =[];
                     foreach ($period as $time) {
                         $dateeformat = Carbon::createFromFormat('Y-m-d H:i:s', $time->format('Y-m-d H:i:s'));
