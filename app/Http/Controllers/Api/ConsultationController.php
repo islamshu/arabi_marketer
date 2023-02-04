@@ -96,9 +96,9 @@ class ConsultationController extends BaseController
                 // $datee = $dateeformat->toIso8601String();
                 $check = BookingConsultion::where('consultiong_id',$cons->id)->where('date',$datee)->first();
                
-                // if($check){
-                //     continue;
-                // }
+                if($check){
+                    continue;
+                }
                 $json_date['date']=$datee;
                 $json_date['name_this_daye']=$d->format('l');
                 $start_time = ConsutingDate::where('consulte_id',$cons->id)->where('day',$d->format('l'))->first()->from;
