@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\ConsultingResource;
 use App\Http\Resources\PaymentResource;
+use App\Models\BookingConsultion;
 use App\Models\Consulting;
 use App\Models\ConsultingCategory;
 use App\Models\ConsutingDate;
@@ -88,10 +89,15 @@ class ConsultationController extends BaseController
                 array_push($array_day,$da->day);
             }
             if(in_array($name_of_day,($array_day) )){
+                
                 $datee =$d->format('Y-m-d H:i:s');
                 $dateeformat = Carbon::createFromFormat('Y-m-d H:i:s', $datee);
                 // $dateeformat->timezone = 'Asia/Kolkata';
                 // $datee = $dateeformat->toIso8601String();
+                $check = BookingConsultion::where('consultiong_id',$cons->id)->where('date',$dateeformat)->first();
+                if($check){
+                    continue;
+                }
                 $json_date['date']=$datee;
                 $json_date['name_this_daye']=$d->format('l');
                 $start_time = ConsutingDate::where('consulte_id',$cons->id)->where('day',$d->format('l'))->first()->from;
