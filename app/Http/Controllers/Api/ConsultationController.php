@@ -102,10 +102,8 @@ class ConsultationController extends BaseController
                 // dd($d->format('Y-m-d'));
                     $start = new DateTime($d->format('Y-m-d').' '.$start_time);
                     $end =  new DateTime($d->format('Y-m-d').' '.$end_time);
-                    dd($start , $end);
                     $duration = new DateInterval('PT'.$mints.'M');
                     $period = new DatePeriod($start, $duration, $end);
-                    dd($period);
                     $date =[];
                     foreach ($period as $time) {
                         $dateeformat = Carbon::createFromFormat('Y-m-d H:i:s', $time->format('Y-m-d H:i:s'));
