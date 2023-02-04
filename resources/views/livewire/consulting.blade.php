@@ -63,7 +63,7 @@
             </div>
             <div class="mb-3 col-md-6">
                 <label for="place" class="form-label"> نوع الاستشارة </label>
-                <select wire:model.defer="type" id="type"
+                <select wire:model.defer="type" id="type" multiple
                     class="form-control {{ $errors->first('type') ? 'is-invalid' : '' }}">
                     <option value="null" disabled>{{ __('يرجى الاختيار') }}</option>
                     @foreach (App\Models\Specialty::get() as $type)
