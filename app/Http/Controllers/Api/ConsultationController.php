@@ -95,8 +95,8 @@ class ConsultationController extends BaseController
                 // $dateeformat->timezone = 'Asia/Kolkata';
                 // $datee = $dateeformat->toIso8601String();
                 $datecheck =  \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $dateeformat);
-                dd($datecheck);
                 $check = BookingConsultion::where('consultiong_id',$cons->id)->where('date',$datecheck)->first();
+                dd($check);
                 if($check){
                     dd($check);
                     continue;
