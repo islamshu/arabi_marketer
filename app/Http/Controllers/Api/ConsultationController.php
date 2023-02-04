@@ -112,7 +112,7 @@ class ConsultationController extends BaseController
 
 
                         $datee = $dateeformat->toIso8601String();
-                        array_push($date,$datee); 
+                        array_push($date, $time->format('Y-m-d H:i:s')); 
                     }
                     $day =[];
                     $newData = [];
