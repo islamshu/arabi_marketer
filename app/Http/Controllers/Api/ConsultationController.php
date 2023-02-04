@@ -110,7 +110,7 @@ class ConsultationController extends BaseController
                        $t= $dateeformat->timezone = 'Asia/Riyadh';
 
                         // $datee = $dateeformat->toIso8601String();
-                        array_push($date,$dateeformat); 
+                        array_push($date,$t); 
                     }
                     $day =[];
                     $newData = [];
