@@ -74,12 +74,16 @@ class ConsultationController extends BaseController
         // Convert the period to an array of dates
         $dates = $period->toArray();
         // dd($dates);
+
        
         foreach($dates as $key=>$d){
+            
             $json_date = [];
 
             $d    = new DateTime($d);
             $name_of_day = $d->format('l');
+            $days = $cons->date;
+            dd($days);
             if(in_array($name_of_day,json_decode($cons->user->con_user->dates) )){
                 $datee =$d->format('Y-m-d H:i:s');
                 $dateeformat = Carbon::createFromFormat('Y-m-d H:i:s', $datee);
