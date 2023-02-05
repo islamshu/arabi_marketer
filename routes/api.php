@@ -23,6 +23,7 @@ use App\Http\Controllers\Api\VideoController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\GoogleCalendarController;
 use App\Http\Controllers\SampleDataController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,6 +43,7 @@ use Illuminate\Support\Facades\Route;
 });*/
 
 // Sample API route
+Route::get('/GoogleCalendarController', [GoogleCalendarController::class, 'index']);
 Route::get('/profits', [SampleDataController::class, 'profits'])->name('profits');
 Route::get('/testapi', [HomeController::class, 'testapi'])->name('testapi');
 Route::get('/change_mention', [UserController::class, 'change_mention'])->name('change_mention');
