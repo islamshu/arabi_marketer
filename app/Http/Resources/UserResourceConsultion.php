@@ -31,7 +31,7 @@ class UserResourceConsultion extends JsonResource
             'pio'=>$this->pio,
             'image' => $this->image == null ? asset('public/uploads/users/defult_user.png') : asset('public/uploads/' . $this->image),
             'cover' => $this->cover == null ? asset('public/uploads/cover_profile.jpg') : asset('public/uploads/' . $this->cover),
-            'consultion'=>ConsultingResource::collection($this->consutiong->where('status',1)->paginate(6))->response()->getData(true),
+            'consultion'=>ConsultingResource::collection($this->consutiong->where('status',1))->response()->getData(true),
           
         ];
     }
