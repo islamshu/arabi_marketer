@@ -20,7 +20,7 @@ class UserResourceConsultion extends JsonResource
      */
     public function toArray($request)
     {
-        $url = 'http://localhost:8080/Consultinglink/'.$this->mention;
+        $url = 'https://sub.arabicreators.com/Consultinglink/'.$this->mention;
 
         return [
             'id' => $this->id,
