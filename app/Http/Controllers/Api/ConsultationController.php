@@ -12,6 +12,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\ConsultingResource;
 use App\Http\Resources\PaymentResource;
+use App\Http\Resources\UserResource;
+use App\Http\Resources\UserResourceConsultion;
 use App\Models\BookingConsultion;
 use App\Models\Consulting;
 use App\Models\ConsultingCategory;
@@ -37,9 +39,8 @@ class ConsultationController extends BaseController
     }
     public function consultion_user($id){
         $user = User::where('mention',$id)->first();
-        $cons = Consulting::where('user_id',$user->id)->where('status',1)->orderby('id','desc')->paginate(6);
-        $res = ConsultingResource::collection($cons)->response()->getData(true);
-        return $this->sendResponse($res, 'تم ارجاع الاستشارات بنجاح');
+       $res = new UserResourceConsultion($user);
+        return $this->sendResponse($res, 'تم ارجاع بيانات المستخدم مع الاستشارات  ');
     }
     public function consultation_keyword()
     {
