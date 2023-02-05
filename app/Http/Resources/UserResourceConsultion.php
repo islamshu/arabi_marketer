@@ -20,6 +20,8 @@ class UserResourceConsultion extends JsonResource
      */
     public function toArray($request)
     {
+        $url = 'http://localhost:8080/Consultinglink/'.$this->mention;
+
         return [
             'id' => $this->id,
             'name' => $this->name,
@@ -29,6 +31,7 @@ class UserResourceConsultion extends JsonResource
             'first_name' => $this->first_name,
             'last_name' => $this->last_name,
             'pio'=>$this->pio,
+            'link_to_copy'=>$url,
             'image' => $this->image == null ? asset('public/uploads/users/defult_user.png') : asset('public/uploads/' . $this->image),
             'cover' => $this->cover == null ? asset('public/uploads/cover_profile.jpg') : asset('public/uploads/' . $this->cover),
             'consultion'=>ConsultingResource::collection($this->consutiong->where('status',1))->response()->getData(true),
