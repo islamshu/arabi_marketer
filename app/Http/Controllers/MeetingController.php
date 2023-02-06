@@ -89,13 +89,17 @@ class MeetingController extends Controller
         // $email = $request->input('email');
         // $first_name = $request->input('first_name');
         // $last_name = $request->input('last_name');
+        $data = [
+            'action' => 'create',
+            'user_info' => [
+                'email' => 'islamshublaq@hotmail.com',
+                'type' => 2,
+                'first_name' => 'John',
+                'last_name' => 'Doe',
+            ]
+        ];
         
-        $user = $zoomClient->createUser([
-            'email' => 'islamshublaq@hotmail.com',
-            'first_name' => 'islam',
-            'last_name' => 'shublaq',
-            'password '=>'test123'
-        ]);
+        $user = $zoomClient->createUser($data);
         return $user;
         
         // Store the user's Zoom user ID in your database
