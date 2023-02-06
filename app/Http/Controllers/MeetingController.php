@@ -96,7 +96,7 @@ class MeetingController extends Controller
                 'type' => 1,
                 'first_name' => 'John',
                 'last_name' => 'Doe',
-                'password' => 'islam05972326456',
+                'password' => 'Islam05972326456',
 
             ]
         ];
