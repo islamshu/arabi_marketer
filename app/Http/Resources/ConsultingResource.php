@@ -32,6 +32,8 @@ class ConsultingResource extends JsonResource
             'user_info'=> new UserInOtherResourse($this->user),
             'type'=>new KeywordResource($this->type),
             'date'=>ConsultingDateResource::collection($this->date),
+            'start_day'=>$this->start_at,
+            'end_day'=>$this->end_at,
             // 'day'=>
             'url_for_this_cons'=>$url,
 
