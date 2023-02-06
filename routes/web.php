@@ -21,6 +21,7 @@ use App\Http\Controllers\Logs\AuditLogsController;
 use App\Http\Controllers\Logs\SystemLogsController;
 use App\Http\Controllers\MeetController;
 use App\Http\Controllers\MeetingController;
+use App\Http\Controllers\MyFatoorahController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PaymentController;
@@ -98,6 +99,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('metting', MeetingController::class);
     Route::get('storemetting', [MeetingController::class,'store']);
     Route::get('store2', [MeetingController::class,'store2']);
+    Route::get('myfatoora_test', [MyFatoorahController::class,'index']);
+    Route::get('myfatoora_call_back', [MyFatoorahController::class,'callback'])->name('myfatoorah.callback');
+
 
     
 

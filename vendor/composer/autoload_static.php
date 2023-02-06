@@ -15,20 +15,20 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         '09f6b20656683369174dd6fa83b7e5fb' => __DIR__ . '/..' . '/symfony/polyfill-uuid/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
-        'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
         'decc78cc4436b1292c6c0d151b19445c' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/bootstrap.php',
         '35a6ad97d21e794e7e22a17d806652e4' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Functions.php',
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
-        '0b47d6d4a00ca9112ba3953b49e7c9a4' => __DIR__ . '/..' . '/yajra/laravel-datatables-oracle/src/helper.php',
         '265b4faa2b3a9766332744949e83bf97' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Collections/helpers.php',
         'c7a3c339e7e14b60e06a2d7fcce9476b' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Events/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        '0b47d6d4a00ca9112ba3953b49e7c9a4' => __DIR__ . '/..' . '/yajra/laravel-datatables-oracle/src/helper.php',
         'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         '3bd81c9b8fcc150b69d8b63b4d2ccf23' => __DIR__ . '/..' . '/spatie/flare-client-php/src/helpers.php',
@@ -38,12 +38,13 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '3109cb1a231dcd04bee1f9f620d46975' => __DIR__ . '/..' . '/paragonie/sodium_compat/autoload.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
+        '25816eff4fe327907d5e058e7312d09b' => __DIR__ . '/..' . '/myfatoorah/library/autoload.php',
         '9475354b4ef53b0ad02aebf6d3246661' => __DIR__ . '/..' . '/anlutro/l4-settings/src/helpers.php',
+        '4a1f389d6ce373bda9e57857d3b61c84' => __DIR__ . '/..' . '/barryvdh/laravel-debugbar/src/helpers.php',
         '6b34c85f7b1ad6faa15aa12109e030f2' => __DIR__ . '/..' . '/realrashid/sweet-alert/src/functions.php',
         '72b1e3f4a2af9b30b3f137b3ec2057fc' => __DIR__ . '/..' . '/spatie/laravel-activitylog/src/helpers.php',
         '320163ac6b93aebe3dc25b60a0533d56' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/helpers.php',
         '377b22b161c09ed6e5152de788ca020a' => __DIR__ . '/..' . '/spatie/laravel-permission/src/helpers.php',
-        '4a1f389d6ce373bda9e57857d3b61c84' => __DIR__ . '/..' . '/barryvdh/laravel-debugbar/src/helpers.php',
         '4dfce7b1a1b9bf499e5cb17937cc0c9f' => __DIR__ . '/../..' . '/app/helpers.php',
     );
 
@@ -152,6 +153,8 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         ),
         'M' => 
         array (
+            'MyFatoorah\\Library\\' => 19,
+            'MyFatoorah\\LaravelPackage\\' => 26,
             'Monolog\\' => 8,
         ),
         'L' => 
@@ -534,6 +537,14 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         array (
             0 => __DIR__ . '/..' . '/nunomaduro/collision/src',
         ),
+        'MyFatoorah\\Library\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/myfatoorah/library/src',
+        ),
+        'MyFatoorah\\LaravelPackage\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/myfatoorah/laravel-package/src',
+        ),
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
@@ -817,6 +828,7 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
     );
 
     public static $classMap = array (
+        'App\\Classes\\ZoomClient' => __DIR__ . '/../..' . '/app/Classes/ZoomClient.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Core\\Adapters\\BootstrapBase' => __DIR__ . '/../..' . '/app/Core/Adapters/BootstrapBase.php',
         'App\\Core\\Adapters\\Menu' => __DIR__ . '/../..' . '/app/Core/Adapters/Menu.php',
@@ -885,6 +897,7 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         'App\\Http\\Controllers\\FaqsController' => __DIR__ . '/../..' . '/app/Http/Controllers/FaqsController.php',
         'App\\Http\\Controllers\\GalleryController' => __DIR__ . '/../..' . '/app/Http/Controllers/GalleryController.php',
         'App\\Http\\Controllers\\GeneralInfoController' => __DIR__ . '/../..' . '/app/Http/Controllers/GeneralInfoController.php',
+        'App\\Http\\Controllers\\GoogleCalendarController' => __DIR__ . '/../..' . '/app/Http/Controllers/GoogleCalendarController.php',
         'App\\Http\\Controllers\\HowItWorkController' => __DIR__ . '/../..' . '/app/Http/Controllers/HowItWorkController.php',
         'App\\Http\\Controllers\\KeyWordController' => __DIR__ . '/../..' . '/app/Http/Controllers/KeyWordController.php',
         'App\\Http\\Controllers\\Logs\\AuditLogsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Logs/AuditLogsController.php',
@@ -4987,6 +5000,10 @@ class ComposerStaticInitc4439e0112d44072538923b61837fd3b
         'Monolog\\SignalHandler' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/SignalHandler.php',
         'Monolog\\Test\\TestCase' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Test/TestCase.php',
         'Monolog\\Utils' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Utils.php',
+        'MyFatoorah\\LaravelPackage\\MyFatoorahServiceProvider' => __DIR__ . '/..' . '/myfatoorah/laravel-package/src/MyFatoorahServiceProvider.php',
+        'MyFatoorah\\Library\\MyfatoorahApiV2' => __DIR__ . '/..' . '/myfatoorah/library/src/MyfatoorahApiV2.php',
+        'MyFatoorah\\Library\\PaymentMyfatoorahApiV2' => __DIR__ . '/..' . '/myfatoorah/library/src/PaymentMyfatoorahApiV2.php',
+        'MyFatoorah\\Library\\ShippingMyfatoorahApiV2' => __DIR__ . '/..' . '/myfatoorah/library/src/ShippingMyfatoorahApiV2.php',
         'Nette\\ArgumentOutOfRangeException' => __DIR__ . '/..' . '/nette/utils/src/exceptions.php',
         'Nette\\DeprecatedException' => __DIR__ . '/..' . '/nette/utils/src/exceptions.php',
         'Nette\\DirectoryNotFoundException' => __DIR__ . '/..' . '/nette/utils/src/exceptions.php',

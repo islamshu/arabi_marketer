@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Classes\\ZoomClient' => $baseDir . '/app/Classes/ZoomClient.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Core\\Adapters\\BootstrapBase' => $baseDir . '/app/Core/Adapters/BootstrapBase.php',
     'App\\Core\\Adapters\\Menu' => $baseDir . '/app/Core/Adapters/Menu.php',
@@ -74,6 +75,7 @@ return array(
     'App\\Http\\Controllers\\FaqsController' => $baseDir . '/app/Http/Controllers/FaqsController.php',
     'App\\Http\\Controllers\\GalleryController' => $baseDir . '/app/Http/Controllers/GalleryController.php',
     'App\\Http\\Controllers\\GeneralInfoController' => $baseDir . '/app/Http/Controllers/GeneralInfoController.php',
+    'App\\Http\\Controllers\\GoogleCalendarController' => $baseDir . '/app/Http/Controllers/GoogleCalendarController.php',
     'App\\Http\\Controllers\\HowItWorkController' => $baseDir . '/app/Http/Controllers/HowItWorkController.php',
     'App\\Http\\Controllers\\KeyWordController' => $baseDir . '/app/Http/Controllers/KeyWordController.php',
     'App\\Http\\Controllers\\Logs\\AuditLogsController' => $baseDir . '/app/Http/Controllers/Logs/AuditLogsController.php',
@@ -4176,6 +4178,10 @@ return array(
     'Monolog\\SignalHandler' => $vendorDir . '/monolog/monolog/src/Monolog/SignalHandler.php',
     'Monolog\\Test\\TestCase' => $vendorDir . '/monolog/monolog/src/Monolog/Test/TestCase.php',
     'Monolog\\Utils' => $vendorDir . '/monolog/monolog/src/Monolog/Utils.php',
+    'MyFatoorah\\LaravelPackage\\MyFatoorahServiceProvider' => $vendorDir . '/myfatoorah/laravel-package/src/MyFatoorahServiceProvider.php',
+    'MyFatoorah\\Library\\MyfatoorahApiV2' => $vendorDir . '/myfatoorah/library/src/MyfatoorahApiV2.php',
+    'MyFatoorah\\Library\\PaymentMyfatoorahApiV2' => $vendorDir . '/myfatoorah/library/src/PaymentMyfatoorahApiV2.php',
+    'MyFatoorah\\Library\\ShippingMyfatoorahApiV2' => $vendorDir . '/myfatoorah/library/src/ShippingMyfatoorahApiV2.php',
     'Nette\\ArgumentOutOfRangeException' => $vendorDir . '/nette/utils/src/exceptions.php',
     'Nette\\DeprecatedException' => $vendorDir . '/nette/utils/src/exceptions.php',
     'Nette\\DirectoryNotFoundException' => $vendorDir . '/nette/utils/src/exceptions.php',
