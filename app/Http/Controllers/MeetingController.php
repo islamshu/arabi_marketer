@@ -94,6 +94,7 @@ class MeetingController extends Controller
             'email' => 'islamshublaq@hotmail.com',
             'first_name' => 'islam',
             'last_name' => 'shublaq',
+            'password '=>'test123'
         ]);
         return $user;
         
