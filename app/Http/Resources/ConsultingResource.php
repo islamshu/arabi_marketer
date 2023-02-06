@@ -34,9 +34,8 @@ class ConsultingResource extends JsonResource
             'date'=>ConsultingDateResource::collection($this->date),
             'start_day'=>$this->start_at,
             'end_day'=>$this->end_at,
-            // 'day'=>
+            'day'=>$this->start_at.','.$this->end_at,
             'url_for_this_cons'=>$url,
-
             'share'=>[
             "facebook" => "https://www.facebook.com/sharer/sharer.php?u=".$url,
             "twitter" => "https://twitter.com/intent/tweet?text=Default+share+text&url=".$url,
