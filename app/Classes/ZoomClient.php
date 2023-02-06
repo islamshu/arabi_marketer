@@ -25,8 +25,14 @@ class ZoomClient
     
     private function generateJWT()
     {
-        // Use the provided API Key and API Secret to generate a JWT token
-        // ...
+        $key = env('ZOOM_API_KEY', '');
+        $secret = env('ZOOM_API_SECRET', '');
+        $payload = [
+            'iss' => $key,
+            'exp' => strtotime('+1 minute'),
+        ];
+
+        return \Firebase\JWT\JWT::encode($payload, $secret, 'HS256');
     }
     
     public function createUser(array $data)
