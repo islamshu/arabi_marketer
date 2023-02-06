@@ -74,7 +74,6 @@ class MyFatoorahController extends Controller {
         try {
             $paymentId = request('paymentId');
             $data      = $this->mfObj->getPaymentStatus($paymentId, 'PaymentId');
-            dd($data);
             if ($data->InvoiceStatus == 'Paid') {
                 $msg = 'Invoice is paid.';
             } else if ($data->InvoiceStatus == 'Failed') {
