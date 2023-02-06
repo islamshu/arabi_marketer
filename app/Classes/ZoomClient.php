@@ -1,4 +1,5 @@
 <?php
+namespace App\Classes;
 
 use GuzzleHttp\Client;
 

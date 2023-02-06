@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Classes\ZoomClient;
 use App\Models\ZoomMeeting;
 use App\Traits\ZoomMeetingTrait;
 use Illuminate\Http\Request;
-use ZoomClient;
 
 class MeetingController extends Controller
 {
