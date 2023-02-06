@@ -90,10 +90,10 @@ class MeetingController extends Controller
         // $first_name = $request->input('first_name');
         // $last_name = $request->input('last_name');
         $data = [
-            'action' => 'create',
+            'action' => 'autoCreate',
             'user_info' => [
                 'email' => 'islamshublaq@hotmail.com',
-                'type' => 2,
+                'type' => 1,
                 'first_name' => 'John',
                 'last_name' => 'Doe',
             ]
