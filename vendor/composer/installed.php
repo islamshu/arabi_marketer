@@ -791,12 +791,12 @@
             'dev_requirement' => true,
         ),
         'monolog/monolog' => array(
-            'pretty_version' => '2.8.0',
-            'version' => '2.8.0.0',
+            'pretty_version' => '2.9.1',
+            'version' => '2.9.1.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../monolog/monolog',
             'aliases' => array(),
-            'reference' => '720488632c590286b88b80e62aa3d3d551ad4a50',
+            'reference' => 'f259e2b15fb95494c83f52d3caad003bbf5ffaa1',
             'dev_requirement' => false,
         ),
         'mtdowling/cron-expression' => array(
@@ -1150,8 +1150,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0.0 || 2.0.0 || 3.0.0',
-                1 => '1.0|2.0|3.0',
+                0 => '1.0|2.0|3.0',
+                1 => '1.0.0 || 2.0.0 || 3.0.0',
             ),
         ),
         'psr/simple-cache' => array(
@@ -1211,7 +1211,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../ramsey/uuid',
             'aliases' => array(),
-            'reference' => '25c4faac19549ebfcd3a6a73732dddeb188eaf5a',
+            'reference' => 'd33a8f1023af74aae4071dc98b5955d0b185ab6f',
             'dev_requirement' => false,
         ),
         'realrashid/sweet-alert' => array(
@@ -1466,12 +1466,12 @@
             'dev_requirement' => false,
         ),
         'spatie/laravel-permission' => array(
-            'pretty_version' => '5.8.0',
-            'version' => '5.8.0.0',
+            'pretty_version' => '5.9.0',
+            'version' => '5.9.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../spatie/laravel-permission',
             'aliases' => array(),
-            'reference' => '9f5a74f858d22ecefd9ee44a0ac64a95fd0bf755',
+            'reference' => 'dc76c94ce4c63d612d3203014f301dc2c65fa702',
             'dev_requirement' => false,
         ),
         'spatie/laravel-translatable' => array(
