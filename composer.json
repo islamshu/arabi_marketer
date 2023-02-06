@@ -15,7 +15,7 @@
         "firebase/php-jwt": "^6.3",
         "fruitcake/laravel-cors": "^2.0",
         "google/apiclient": "^2.13",
-        "guzzlehttp/guzzle": "5.3.*",
+        "guzzlehttp/guzzle": "^7.0.1",
         "intervention/image": "^2.7",
         "jackiedo/log-reader": "^2.2",
         "jantinnerezo/livewire-range-slider": "^1.0",
