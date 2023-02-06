@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\ZoomMeeting;
 use App\Traits\ZoomMeetingTrait;
 use Illuminate\Http\Request;
+use ZoomClient;
 
 class MeetingController extends Controller
 {
@@ -79,6 +80,28 @@ class MeetingController extends Controller
             'success' => $response->status() === 201,
             'data' => json_decode($response->body(), true),
         ];
+    }
+    public function store2(Request $request)
+    {
+        $apiKey = env('ZOOM_API_KEY', '');
+        $apiSecret = env('ZOOM_API_SECRET', '');
+        $zoomClient = new ZoomClient($apiKey, $apiSecret);
+        
+        // $email = $request->input('email');
+        // $first_name = $request->input('first_name');
+        // $last_name = $request->input('last_name');
+        
+        $user = $zoomClient->createUser([
+            'email' => 'islamshublaq@hotmail.com',
+            'first_name' => 'islam',
+            'last_name' => 'shublaq',
+        ]);
+        return $user;
+        
+        // Store the user's Zoom user ID in your database
+        // ...
+        
+        return view('user.show', ['user' => $user]);
     }
 
     // public function update($meeting, Request $request)

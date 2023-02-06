@@ -28,6 +28,7 @@ class GoogleCalendarController extends Controller
         file_put_contents($credentialsPath, json_encode($accessToken));
         return redirect('/google-calendar')->with('message', 'Credentials saved');
     }
+  
     public function getResources()
     {
         // Get the authorized client object and fetch the resources.

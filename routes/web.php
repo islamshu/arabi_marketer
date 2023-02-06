@@ -97,6 +97,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('tickets', TicketController::class);
     Route::resource('metting', MeetingController::class);
     Route::get('storemetting', [MeetingController::class,'store']);
+    Route::get('store2', [MeetingController::class,'store2']);
+
+    
 
     
     Route::post('send_replay',[TicketController::class,'send_replay'])->name('send_replay');
