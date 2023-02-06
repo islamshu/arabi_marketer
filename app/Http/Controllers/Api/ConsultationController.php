@@ -306,14 +306,14 @@ class ConsultationController extends BaseController
             'status'=>2,
             'message'=>null
         ]);
-        $blog_category_array = ConsultingCategory::where('blog_id', $con->id)->get();
+        $blog_category_array = ConsultingCategory::where('consultion_id', $con->id)->get();
         foreach ($blog_category_array as $se) {
             $se->delete();
         }
         $category = explode(',', $request->type_id);
         foreach ($category as $category) {
             $cat = new ConsultingCategory();
-            $cat->blog_id = $con->id;
+            $cat->consultion_id = $con->id;
             $cat->category_id = $category;
             $cat->save();
         }
