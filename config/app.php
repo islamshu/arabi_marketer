@@ -180,7 +180,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\TelescopeServiceProvider::class,
-        Dawson\Youtube\YoutubeServiceProvider::class,
+        // Dawson\Youtube\YoutubeServiceProvider::class,
         Illuminate\Foundation\Providers\ArtisanServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Vedmant\FeedReader\FeedReaderServiceProvider::class, // Add this line
@@ -236,7 +236,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
-        'Youtube' => Dawson\Youtube\Facades\Youtube::class,
+        // 'Youtube' => Dawson\Youtube\Facades\Youtube::class,
         'Share' => Jorenvh\Share\ShareFacade::class,
         'App'        => Illuminate\Support\Facades\App::class,
         'Artisan'    => Illuminate\Support\Facades\Artisan::class,
