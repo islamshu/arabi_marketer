@@ -16,7 +16,7 @@ class GoogleMeetService
         $this->client->setApplicationName('Google Meet Integration');
         $this->client->setScopes(Google_Service_Calendar::CALENDAR);
         $this->client->setAuthConfig(config_path('google_api_credentials.json'));
-        $this->client->setAccessType('offline');
+        $this->client->setAccessType('online');
         $this->client->setPrompt('select_account consent');
     }
 
@@ -53,7 +53,6 @@ public function createMeet($summary, $description, $startTime, $endTime)
             ],
         ],
     ]);
-
     $event = $calendarService->events->insert($calendarId, $event);
     return $event;
 }
