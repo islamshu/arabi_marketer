@@ -38,29 +38,37 @@ class GoogleMeetService
     {
         $calendarService = new Google_Service_Calendar($this->client);
 
-        // Define the calendar ID
+        $attendees = [
+            [
+                'email' => 'islamshublaq@hotmail.com',
+                'responseStatus' => 'accepted'
+            ],
+          
+        ];
+        
+        $event = new Google_Service_Calendar_Event([
+            'summary' => 'Test Meeting',
+            'location' => 'Online',
+            'description' => 'This is a test meeting',
+            'start' => [
+                'dateTime' => '2023-05-28T09:00:00-07:00',
+                'timeZone' => 'America/Los_Angeles',
+            ],
+            'end' => [
+                'dateTime' => '2023-05-28T10:00:00-07:00',
+                'timeZone' => 'America/Los_Angeles',
+            ],
+            'attendees' => $attendees,
+            'reminders' => [
+                'useDefault' => FALSE,
+                'overrides' => [
+                    ['method' => 'email', 'minutes' => 24 * 60],
+                    ['method' => 'popup', 'minutes' => 10],
+                ],
+            ],
+        ]);
+        
         $calendarId = 'primary';
-
-        // Create the Google Meet event
-        $event = new Google_Service_Calendar_Event();
-        $event->setSummary("Test Meeting");
-        $event->setLocation("Online");
-        $start = new Google_Service_Calendar_EventDateTime();
-        $start->setDateTime("2023-02-07T12:00:00+05:30");
-        $start->setTimeZone("Asia/Kolkata");
-        $event->setStart($start);
-        $end = new Google_Service_Calendar_EventDateTime();
-        $end->setDateTime("2023-02-07T13:00:00+05:30");
-        $end->setTimeZone("Asia/Kolkata");
-        $event->setEnd($end);
-
-        // Add attendees to the event
-        $attendee1 = new Google_Service_Calendar_EventAttendee();
-        $attendee1->setEmail("attendee1@example.com");
-        $attendees = array($attendee1);
-        $event->attendees = $attendees;
-
-        // Insert the event on the calendar
         $event = $calendarService->events->insert($calendarId, $event);
 
         // Get the join URL for the meeting
