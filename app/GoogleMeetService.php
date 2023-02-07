@@ -51,11 +51,11 @@ class GoogleMeetService
             'location' => 'Online',
             'description' => 'This is a test meeting',
             'start' => [
-                'dateTime' => '2023-05-28T09:00:00-07:00',
+                'dateTime' => '2023-02-28T09:00:00-07:00',
                 'timeZone' => 'America/Los_Angeles',
             ],
             'end' => [
-                'dateTime' => '2023-05-28T10:00:00-07:00',
+                'dateTime' => '2023-02-28T10:00:00-07:00',
                 'timeZone' => 'America/Los_Angeles',
             ],
             'attendees' => $attendees,
@@ -68,7 +68,7 @@ class GoogleMeetService
             ],
         ]);
         
-        $calendarId = 'primary';
+        $calendarId = env('GOOGLE_CALENDAR_ID');
         $event = $calendarService->events->insert($calendarId, $event);
 
         // Get the join URL for the meeting
