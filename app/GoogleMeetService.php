@@ -53,7 +53,6 @@ public function createMeet($summary, $description, $startTime, $endTime)
             ],
         ],
     ]);
-    dd($event);
 
     $event = $calendarService->events->insert($calendarId, $event);
     return $event;
