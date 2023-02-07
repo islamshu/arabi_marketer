@@ -44,7 +44,17 @@ class MeetController extends Controller
         // ]);
         // $event->addAttendee(['email' => 'attendee@example.com']);
         
-        $event->save();
+        $event->addAttendee([
+            'email' => 'juan.perez@example.com',
+            'name' => 'juan',
+            'comment' => 'prueba de la API',
+        ]);
+        
+        $optParams = [
+            'sendNotifications' => true
+        ];
+        
+        $event->save('insertEvent', $optParams);
         dd($event);
     }
     public function createMeeting(Request $request)
