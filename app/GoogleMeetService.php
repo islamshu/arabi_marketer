@@ -56,14 +56,7 @@ public function createMeet($summary, $description, $startTime, $endTime)
         ],
     ]);
     $event = $calendarService->events->insert($calendarId, $event);
-    $attendee = new Google_Service_Calendar_EventAttendee();
-    $attendee->setEmail('islamshublaq@hotmail.com');
-
-    // Add the attendee to the event's list of attendees
-    $event->attendees[] = $attendee;
-
-    // Update the event with the new attendee
-    $calendarService->events->patch($calendarId, $event->getId(), $event);
     
+    return $event;
 }
 }
