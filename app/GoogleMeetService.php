@@ -61,6 +61,7 @@ class GoogleMeetService
             'conferenceData' => [
                'createRequest'=>[
                 'requestId'=>rand(11111,99999).time()
+               ]
             ],
             // 'attendees' => $attendees,
             'reminders' => [
