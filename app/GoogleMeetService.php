@@ -8,7 +8,8 @@ use Google_Service_Calendar_Event;
 use Google_Service_Calendar_EventAttendee;
 use Google_Service_Calendar_EventDateTime;
 use Google\Apis\Meet\v1\MeetService;
-
+use Google_Service_HangoutsMeet;
+use Google_Service_HangoutsMeet_Meeting;
 class GoogleMeetService
 {
     private $client;
@@ -36,6 +37,8 @@ class GoogleMeetService
     }
     public function createMeet($summary, $description, $startTime, $endTime)
     {
+        $calendarId = env('GOOGLE_CALENDAR_ID');
+
         $calendarService = new Google_Service_Calendar($this->client);
 
         $attendees = [
@@ -75,6 +78,14 @@ class GoogleMeetService
         
         $calendarId = env('GOOGLE_CALENDAR_ID');
         $event = $calendarService->events->insert($calendarId, $event,['conferenceDataVersion'=>1]);
+        $meetService = new Google_Service_HangoutsMeet($this->client);
+        
+        $meeting = new Google_Service_HangoutsMeet_Meeting();
+        $meeting->setTitle('testt');
+        
+        $createdMeeting = $meetService->meetings->create($meeting);
+        $joinURL = $createdMeeting->getJoinURL();
+        dd($joinURL);
 
         // Get the join URL for the meeting
         $joinUrl = $event;
