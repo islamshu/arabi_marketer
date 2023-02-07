@@ -197,7 +197,7 @@ class ConsultationController extends BaseController
             'price' => 'required',
             // 'time_duration' => 'required',
             'url' => 'required',
-            // 'start_date' => 'required',
+            'start_date' => 'required',
             // 'end_date' => 'required',
             'payment_id' => 'required',
             // 'hour'=>'required',
