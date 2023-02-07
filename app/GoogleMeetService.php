@@ -58,7 +58,7 @@ class GoogleMeetService
                 'dateTime' => '2023-02-28T10:00:00-07:00',
                 'timeZone' => 'America/Los_Angeles',
             ],
-            'attendees' => $attendees,
+            // 'attendees' => $attendees,
             'reminders' => [
                 'useDefault' => FALSE,
                 'overrides' => [
