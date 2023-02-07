@@ -32,10 +32,14 @@ class MeetController extends Controller
     {
         $summary = 'test';
         $description = 'test';
-        $startTime = now();
-        $endTime = now()->addHour();
+        $startTime = now()->addHour();
+        $endTime = now()->addHours(2);
+        // $newDateTime = Carbon::now()->addHours(5);
+
+
         $googleAPI = new GoogleMeetService();
         $event = $googleAPI->createMeet($summary, $description, $startTime, $endTime);
+        dd($event);
         return response()->json([
             'event' => $event,
         ]);

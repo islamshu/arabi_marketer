@@ -5,6 +5,7 @@ namespace App;
 use Google_Client;
 use Google_Service_Calendar;
 use Google_Service_Calendar_Event;
+use Google_Service_Calendar_EventAttendee;
 
 class GoogleMeetService
 {
@@ -55,8 +56,14 @@ public function createMeet($summary, $description, $startTime, $endTime)
         ],
     ]);
     $event = $calendarService->events->insert($calendarId, $event);
-    return  $event->htmlLink;
+    $attendee = new Google_Service_Calendar_EventAttendee();
+    $attendee->setEmail('islamshublaq@hotmail.com');
 
-    return $event;
+    // Add the attendee to the event's list of attendees
+    $event->attendees[] = $attendee;
+
+    // Update the event with the new attendee
+    $calendarService->events->patch($calendarId, $event->getId(), $event);
+    
 }
 }
