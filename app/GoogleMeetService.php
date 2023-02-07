@@ -52,13 +52,8 @@ $end->setTimeZone("UTC");
 $event->setEnd($end);
 $calendarId = "primary";
 $event = $calendarService->events->insert($calendarId, $event);
-$meetService = new MeetService($this->client);
-
-// Generate a Google Meet link
-$meet = $meetService->create();
-$link = $meet->getJoinUrl();
-// Get join URL for the created event
-dd($link);
+$joinUrl = $event->htmlLink;
+dd($joinUrl);
 
 }
 }
