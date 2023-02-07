@@ -23,6 +23,8 @@ class GoogleMeetService
 
         $this->client->setAccessType('offile');
         $this->client->setPrompt('select_account consent');
+        $meetService = new Google_Service_HangoutsMeet($this->client);
+
     }
 
     public function getClient()
