@@ -62,10 +62,21 @@ class GoogleMeetService
                 'dateTime' => '2023-02-11T11:00:00-07:00',
                 'timeZone' => 'America/Los_Angeles',
             ],
+            'attendees' => [
+                [
+                    'email' => 'guest1@example.com',
+                ],
+                [
+                    'email' => 'guest2@example.com',
+                ],
+            ],
             'conferenceData' => [
-               'createRequest'=>[
-                'requestId'=>rand(11111,99999).time()
-               ]
+                'createRequest' => [
+                    'requestId' => uniqid(),
+                    'conferenceSolutionKey' => [
+                        'type' => 'hangoutsMeet',
+                    ],
+                ],
             ],
             // 'attendees' => $attendees,
             'reminders' => [
