@@ -118,6 +118,7 @@ return [
     'attributes' => [
         'name' => 'الاسم',
         'start_date'=>'التاريخ',
+        'payment id'=>'وسيلة الدفع',
         'country_id'=>'الدولة',
         'mention'=>'اسم المستخدم',
         'confirm_password'=>'تأكيد كلمة المرور',
