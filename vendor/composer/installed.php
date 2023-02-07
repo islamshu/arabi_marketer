@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '2ad33698a8552d0ea336d6bad0dad1e3626cd139',
+        'reference' => '34b59a1d064dd0ebe408411d17fb7530a3c68c62',
         'name' => 'keenthemes/metronic-laravel',
         'dev' => true,
     ),
@@ -17,15 +17,6 @@
             'install_path' => __DIR__ . '/../anlutro/l4-settings',
             'aliases' => array(),
             'reference' => 'e154dbb7352ce1525442a27592e7aeb3d1392754',
-            'dev_requirement' => false,
-        ),
-        'asm89/stack-cors' => array(
-            'pretty_version' => 'v2.1.1',
-            'version' => '2.1.1.0',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../asm89/stack-cors',
-            'aliases' => array(),
-            'reference' => '73e5b88775c64ccc0b84fb60836b30dc9d92ac4a',
             'dev_requirement' => false,
         ),
         'barryvdh/laravel-debugbar' => array(
@@ -221,12 +212,12 @@
             'dev_requirement' => false,
         ),
         'fruitcake/laravel-cors' => array(
-            'pretty_version' => 'v2.2.0',
-            'version' => '2.2.0.0',
+            'pretty_version' => 'v3.0.0',
+            'version' => '3.0.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../fruitcake/laravel-cors',
             'aliases' => array(),
-            'reference' => '783a74f5e3431d7b9805be8afb60fd0a8f743534',
+            'reference' => '7c036ec08972d8d5d9db637e772af6887828faf5',
             'dev_requirement' => false,
         ),
         'fruitcake/php-cors' => array(
@@ -237,6 +228,24 @@
             'aliases' => array(),
             'reference' => '58571acbaa5f9f462c9c77e911700ac66f446d4e',
             'dev_requirement' => false,
+        ),
+        'google/access-context-manager' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.3.2',
+            ),
+        ),
+        'google/analytics-admin' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.8.2',
+            ),
+        ),
+        'google/analytics-data' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.9.3',
+            ),
         ),
         'google/apiclient' => array(
             'pretty_version' => 'v2.13.0',
@@ -265,6 +274,894 @@
             'reference' => '0865c44ab50378f7b145827dfcbd1e7a238f7759',
             'dev_requirement' => false,
         ),
+        'google/cloud' => array(
+            'pretty_version' => 'v0.196.0',
+            'version' => '0.196.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../google/cloud',
+            'aliases' => array(),
+            'reference' => '7e53fe9c6e71e1a2321265a13299c734cbf575b4',
+            'dev_requirement' => false,
+        ),
+        'google/cloud-access-approval' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-ai-platform' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.11.1',
+            ),
+        ),
+        'google/cloud-api-gateway' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-api-keys' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.1.3',
+            ),
+        ),
+        'google/cloud-apigee-connect' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-apigee-registry' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.2.4',
+            ),
+        ),
+        'google/cloud-appengine-admin' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-artifact-registry' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.3.8',
+            ),
+        ),
+        'google/cloud-asset' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.10.0',
+            ),
+        ),
+        'google/cloud-assured-workloads' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.7.3',
+            ),
+        ),
+        'google/cloud-automl' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.4.13',
+            ),
+        ),
+        'google/cloud-bare-metal-solution' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.2.5',
+            ),
+        ),
+        'google/cloud-batch' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.3.0',
+            ),
+        ),
+        'google/cloud-beyondcorp-appconnections' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.1.3',
+            ),
+        ),
+        'google/cloud-beyondcorp-appconnectors' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.1.3',
+            ),
+        ),
+        'google/cloud-beyondcorp-appgateways' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.1.3',
+            ),
+        ),
+        'google/cloud-beyondcorp-clientconnectorservices' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.1.3',
+            ),
+        ),
+        'google/cloud-beyondcorp-clientgateways' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.1.3',
+            ),
+        ),
+        'google/cloud-bigquery' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.24.0',
+            ),
+        ),
+        'google/cloud-bigquery-analyticshub' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.1.3',
+            ),
+        ),
+        'google/cloud-bigquery-connection' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-bigquery-data-exchange' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.2.3',
+            ),
+        ),
+        'google/cloud-bigquery-datapolicies' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.2.1',
+            ),
+        ),
+        'google/cloud-bigquery-migration' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.1.3',
+            ),
+        ),
+        'google/cloud-bigquery-reservation' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-bigquery-storage' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.2.9',
+            ),
+        ),
+        'google/cloud-bigquerydatatransfer' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.4.0',
+            ),
+        ),
+        'google/cloud-bigtable' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.20.3',
+            ),
+        ),
+        'google/cloud-billing' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.5.2',
+            ),
+        ),
+        'google/cloud-billing-budgets' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-binary-authorization' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.5.6',
+            ),
+        ),
+        'google/cloud-build' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.3.7',
+            ),
+        ),
+        'google/cloud-certificate-manager' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.3.3',
+            ),
+        ),
+        'google/cloud-channel' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.1.0',
+            ),
+        ),
+        'google/cloud-common-protos' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.3.8',
+            ),
+        ),
+        'google/cloud-compute' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.6.1',
+            ),
+        ),
+        'google/cloud-contact-center-insights' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-container' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.10.0',
+            ),
+        ),
+        'google/cloud-container-analysis' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.2.9',
+            ),
+        ),
+        'google/cloud-core' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.49.0',
+            ),
+        ),
+        'google/cloud-data-catalog' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.3.8',
+            ),
+        ),
+        'google/cloud-data-fusion' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.2.8',
+            ),
+        ),
+        'google/cloud-dataflow' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.3.7',
+            ),
+        ),
+        'google/cloud-dataform' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.1.3',
+            ),
+        ),
+        'google/cloud-datalabeling' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.1.11',
+            ),
+        ),
+        'google/cloud-dataplex' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.2.0',
+            ),
+        ),
+        'google/cloud-dataproc' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '3.3.0',
+            ),
+        ),
+        'google/cloud-dataproc-metastore' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.5.0',
+            ),
+        ),
+        'google/cloud-datastore' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.18.0',
+            ),
+        ),
+        'google/cloud-datastore-admin' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.5.5',
+            ),
+        ),
+        'google/cloud-datastream' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-debugger' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.4.13',
+            ),
+        ),
+        'google/cloud-deploy' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.3.3',
+            ),
+        ),
+        'google/cloud-dialogflow' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.1.0',
+            ),
+        ),
+        'google/cloud-dlp' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.8.2',
+            ),
+        ),
+        'google/cloud-dms' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-document-ai' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.1.0',
+            ),
+        ),
+        'google/cloud-domains' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.2.7',
+            ),
+        ),
+        'google/cloud-error-reporting' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.19.9',
+            ),
+        ),
+        'google/cloud-essential-contacts' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.2.10',
+            ),
+        ),
+        'google/cloud-eventarc' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-eventarc-publishing' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.3.2',
+            ),
+        ),
+        'google/cloud-filestore' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-firestore' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.27.2',
+            ),
+        ),
+        'google/cloud-functions' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-game-servers' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-gke-backup' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.1.4',
+            ),
+        ),
+        'google/cloud-gke-connect-gateway' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.1.10',
+            ),
+        ),
+        'google/cloud-gke-hub' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.5.5',
+            ),
+        ),
+        'google/cloud-gke-multi-cloud' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.2.0',
+            ),
+        ),
+        'google/cloud-gsuite-addons' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.1.3',
+            ),
+        ),
+        'google/cloud-iam' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.1.3',
+            ),
+        ),
+        'google/cloud-iam-credentials' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-iap' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.1.0',
+            ),
+        ),
+        'google/cloud-ids' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.1.9',
+            ),
+        ),
+        'google/cloud-iot' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.5.8',
+            ),
+        ),
+        'google/cloud-kms' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.15.2',
+            ),
+        ),
+        'google/cloud-language' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.28.2',
+            ),
+        ),
+        'google/cloud-life-sciences' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.3.2',
+            ),
+        ),
+        'google/cloud-logging' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.25.0',
+            ),
+        ),
+        'google/cloud-managed-identities' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-media-translation' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.2.9',
+            ),
+        ),
+        'google/cloud-memcache' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-monitoring' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.3.0',
+            ),
+        ),
+        'google/cloud-network-connectivity' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-network-management' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-network-security' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.3.3',
+            ),
+        ),
+        'google/cloud-notebooks' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.3.2',
+            ),
+        ),
+        'google/cloud-optimization' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.1.6',
+            ),
+        ),
+        'google/cloud-orchestration-airflow' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-org-policy' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.3.7',
+            ),
+        ),
+        'google/cloud-osconfig' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-oslogin' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.4.2',
+            ),
+        ),
+        'google/cloud-policy-troubleshooter' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-private-catalog' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.2.11',
+            ),
+        ),
+        'google/cloud-profiler' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-pubsub' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.40.0',
+            ),
+        ),
+        'google/cloud-recaptcha-enterprise' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.2.5',
+            ),
+        ),
+        'google/cloud-recommendations-ai' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.4.9',
+            ),
+        ),
+        'google/cloud-recommender' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.7.4',
+            ),
+        ),
+        'google/cloud-redis' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.6.8',
+            ),
+        ),
+        'google/cloud-resource-manager' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.3.8',
+            ),
+        ),
+        'google/cloud-resource-settings' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-retail' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.1.0',
+            ),
+        ),
+        'google/cloud-run' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.3.2',
+            ),
+        ),
+        'google/cloud-scheduler' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.7.0',
+            ),
+        ),
+        'google/cloud-secret-manager' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.10.0',
+            ),
+        ),
+        'google/cloud-security-center' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.14.0',
+            ),
+        ),
+        'google/cloud-security-private-ca' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-security-public-ca' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.1.3',
+            ),
+        ),
+        'google/cloud-service-control' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-service-directory' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-service-management' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-service-usage' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-shell' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-spanner' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.55.0',
+            ),
+        ),
+        'google/cloud-speech' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.9.0',
+            ),
+        ),
+        'google/cloud-sql-admin' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.2.8',
+            ),
+        ),
+        'google/cloud-storage' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.30.2',
+            ),
+        ),
+        'google/cloud-storage-transfer' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-talent' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-tasks' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.11.8',
+            ),
+        ),
+        'google/cloud-text-to-speech' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.5.1',
+            ),
+        ),
+        'google/cloud-tpu' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-trace' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.5.0',
+            ),
+        ),
+        'google/cloud-translate' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.12.11',
+            ),
+        ),
+        'google/cloud-video-live-stream' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.2.5',
+            ),
+        ),
+        'google/cloud-video-stitcher' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.3.3',
+            ),
+        ),
+        'google/cloud-video-transcoder' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.5.2',
+            ),
+        ),
+        'google/cloud-videointelligence' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.12.13',
+            ),
+        ),
+        'google/cloud-vision' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.6.3',
+            ),
+        ),
+        'google/cloud-vm-migration' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.2.3',
+            ),
+        ),
+        'google/cloud-vmware-engine' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.1.1',
+            ),
+        ),
+        'google/cloud-vpc-access' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.0.2',
+            ),
+        ),
+        'google/cloud-web-risk' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '1.2.3',
+            ),
+        ),
+        'google/cloud-web-security-scanner' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.7.10',
+            ),
+        ),
+        'google/cloud-workflows' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.2.11',
+            ),
+        ),
+        'google/common-protos' => array(
+            'pretty_version' => 'v3.2.0',
+            'version' => '3.2.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../google/common-protos',
+            'aliases' => array(),
+            'reference' => '57d4ad36cc48cc0369123042908013ef2a86bb98',
+            'dev_requirement' => false,
+        ),
+        'google/crc32' => array(
+            'pretty_version' => 'v0.1.0',
+            'version' => '0.1.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../google/crc32',
+            'aliases' => array(),
+            'reference' => 'a8525f0dea6fca1893e1bae2f6e804c5f7d007fb',
+            'dev_requirement' => false,
+        ),
+        'google/gax' => array(
+            'pretty_version' => 'v1.19.0',
+            'version' => '1.19.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../google/gax',
+            'aliases' => array(),
+            'reference' => 'd537fd00dcdb1b5599386c1253ccb79e69d5d9f2',
+            'dev_requirement' => false,
+        ),
+        'google/grafeas' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.4.3',
+            ),
+        ),
+        'google/grpc-gcp' => array(
+            'pretty_version' => 'v0.2.1',
+            'version' => '0.2.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../google/grpc-gcp',
+            'aliases' => array(),
+            'reference' => '899d0112812a812df7692617a59f4076f0d01719',
+            'dev_requirement' => false,
+        ),
+        'google/longrunning' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '0.2.3',
+            ),
+        ),
+        'google/protobuf' => array(
+            'pretty_version' => 'v3.21.12',
+            'version' => '3.21.12.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../google/protobuf',
+            'aliases' => array(),
+            'reference' => '93019df2df0f8c5c01757ef79f3f077d2cb35b65',
+            'dev_requirement' => false,
+        ),
         'graham-campbell/result-type' => array(
             'pretty_version' => 'v1.1.0',
             'version' => '1.1.0.0',
@@ -272,6 +1169,15 @@
             'install_path' => __DIR__ . '/../graham-campbell/result-type',
             'aliases' => array(),
             'reference' => 'a878d45c1914464426dc94da61c9e1d36ae262a8',
+            'dev_requirement' => false,
+        ),
+        'grpc/grpc' => array(
+            'pretty_version' => '1.42.0',
+            'version' => '1.42.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../grpc/grpc',
+            'aliases' => array(),
+            'reference' => '9fa44f104cb92e924d4da547323a97f3d8aca6d4',
             'dev_requirement' => false,
         ),
         'guzzlehttp/guzzle' => array(
@@ -553,7 +1459,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '2ad33698a8552d0ea336d6bad0dad1e3626cd139',
+            'reference' => '34b59a1d064dd0ebe408411d17fb7530a3c68c62',
             'dev_requirement' => false,
         ),
         'kodova/hamcrest-php' => array(
@@ -1139,12 +2045,12 @@
             ),
         ),
         'psr/log' => array(
-            'pretty_version' => '3.0.0',
-            'version' => '3.0.0.0',
+            'pretty_version' => '2.0.0',
+            'version' => '2.0.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../psr/log',
             'aliases' => array(),
-            'reference' => 'fe5ea303b0887d5caefd3d431c3e61ad47037001',
+            'reference' => 'ef29f6d262798707a9edd554e2b82517ef3a9376',
             'dev_requirement' => false,
         ),
         'psr/log-implementation' => array(
@@ -1228,6 +2134,15 @@
             'replaced' => array(
                 0 => '4.x-dev',
             ),
+        ),
+        'rize/uri-template' => array(
+            'pretty_version' => '0.3.5',
+            'version' => '0.3.5.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../rize/uri-template',
+            'aliases' => array(),
+            'reference' => '5ed4ba8ea34af84485dea815d4b6b620794d1168',
+            'dev_requirement' => false,
         ),
         'roave/security-advisories' => array(
             'pretty_version' => 'dev-latest',
