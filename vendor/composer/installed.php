@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '64f4e90f01c21c088527e208437654d7e3361233',
+        'reference' => '15fa86f75cf95aa25262e4f6e06b57883d43a1ca',
         'name' => 'keenthemes/metronic-laravel',
         'dev' => true,
     ),
@@ -1459,7 +1459,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '64f4e90f01c21c088527e208437654d7e3361233',
+            'reference' => '15fa86f75cf95aa25262e4f6e06b57883d43a1ca',
             'dev_requirement' => false,
         ),
         'kodova/hamcrest-php' => array(
@@ -2351,6 +2351,15 @@
             'install_path' => __DIR__ . '/../spatie/laravel-activitylog',
             'aliases' => array(),
             'reference' => 'ec65a478a909b8df1b4f0c3c45de2592ca7639e5',
+            'dev_requirement' => false,
+        ),
+        'spatie/laravel-google-calendar' => array(
+            'pretty_version' => '3.5.3',
+            'version' => '3.5.3.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../spatie/laravel-google-calendar',
+            'aliases' => array(),
+            'reference' => '37322a2b0b7705e87a6023e1813098cb9f4fe06f',
             'dev_requirement' => false,
         ),
         'spatie/laravel-ignition' => array(

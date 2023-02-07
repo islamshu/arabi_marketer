@@ -21,6 +21,7 @@ use Google\Cloud\Core\LongRunning\OperationsTransport;
 use Google\Cloud\Meet\V1\Meeting;
 use Google\Cloud\Meet\V1\MeetingServiceClient;
 use App\GoogleMeetService;
+use Spatie\GoogleCalendar\Event;
 use Illuminate\Http\Request;
 
 
@@ -28,6 +29,10 @@ use Illuminate\Http\Request;
 
 class MeetController extends Controller
 {
+    public function google_meet(){
+        $e = Event::get();
+        dd($e);
+    }
     public function createMeeting(Request $request)
     {
         $summary = 'test';

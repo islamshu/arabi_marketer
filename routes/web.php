@@ -120,6 +120,7 @@ Route::middleware('auth')->group(function () {
     Route::get('video_pending',[VideoController::class,'video_pending'])->name('video_pending');
     Route::get('creator_pending',[UserController::class,'creator_pending'])->name('creator_pending');
     Route::get('meet',[MeetController::class,'createMeeting'])->name('meet');
+    Route::get('googlemeet',[MeetController::class,'google_meet'])->name('google_meet');
 
     
 
