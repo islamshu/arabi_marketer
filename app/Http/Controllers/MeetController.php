@@ -34,7 +34,7 @@ class MeetController extends Controller
         $event = new Event;
 
         $event->name = 'test';
-        $event->description = 'Event description';
+        $event->description = 'Event descriptionfff';
         $event->startDateTime = Carbon::now();
         $event->endDateTime = Carbon::now()->addHour();
         // $event->addAttendee([
