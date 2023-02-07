@@ -41,11 +41,11 @@ public function createMeet($summary, $description, $startTime, $endTime)
         'description' => $description,
         'start' => [
             'dateTime' => $startTime,
-            'timeZone' => 'Asia/Kolkata',
+            'timeZone' => 'Asia/Riyadh',
         ],
         'end' => [
             'dateTime' => $endTime,
-            'timeZone' => 'Asia/Kolkata',
+            'timeZone' => 'Asia/Riyadh',
         ],
         'reminders' => [
             'useDefault' => false,
