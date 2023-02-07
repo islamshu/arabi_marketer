@@ -33,7 +33,6 @@ class GoogleMeetService
 public function createMeet($summary, $description, $startTime, $endTime)
 {
     $calendarService = new Google_Service_Calendar($this->client);
-    dd($calendarService);
     $calendarId = 'primary';
     $event = new Google_Service_Calendar_Event([
         'summary' => $summary,
@@ -54,6 +53,7 @@ public function createMeet($summary, $description, $startTime, $endTime)
             ],
         ],
     ]);
+    dd($event);
 
     $event = $calendarService->events->insert($calendarId, $event);
     return $event;
