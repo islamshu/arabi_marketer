@@ -21,7 +21,7 @@ class GoogleMeetService
         $this->client->setScopes(Google_Service_Calendar::CALENDAR);
         $this->client->setAuthConfig(config_path('google_api_credentials.json'));
 
-        $this->client->setAccessType('offile');
+        // $this->client->setAccessType('offile');
         $this->client->setPrompt('select_account consent');
 
     }
@@ -55,11 +55,11 @@ class GoogleMeetService
             'location' => 'Online',
             'description' => 'This is a test meeting',
             'start' => [
-                'dateTime' => '2023-02-09T09:00:00-07:00',
+                'dateTime' => '2023-02-10T09:00:00-07:00',
                 'timeZone' => 'America/Los_Angeles',
             ],
             'end' => [
-                'dateTime' => '2023-02-09T10:00:00-07:00',
+                'dateTime' => '2023-02-10T10:00:00-07:00',
                 'timeZone' => 'America/Los_Angeles',
             ],
             'conferenceData' => [
