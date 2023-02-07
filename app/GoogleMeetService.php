@@ -55,6 +55,8 @@ public function createMeet($summary, $description, $startTime, $endTime)
         ],
     ]);
     $event = $calendarService->events->insert($calendarId, $event);
+    return  $event->htmlLink;
+
     return $event;
 }
 }
