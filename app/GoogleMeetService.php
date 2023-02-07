@@ -15,7 +15,13 @@ class GoogleMeetService
         $this->client = new Google_Client();
         $this->client->setApplicationName('Google Meet Integration');
         $this->client->setScopes(Google_Service_Calendar::CALENDAR);
-        $this->client->setAuthConfig(config_path('google_api_credentials.json'));
+        $authConfig = array(
+            'client_id' => env('GOOGLE_CLIENT_ID'),
+            'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+            'redirect_uri' => 'your-redirect-uri',
+            'access_type' => 'offline',
+            'grant_type' => 'authorization_code'
+        );
         $this->client->setAccessType('online');
         $this->client->setPrompt('select_account consent');
     }
