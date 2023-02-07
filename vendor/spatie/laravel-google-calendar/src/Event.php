@@ -38,6 +38,14 @@ class Event
      */
     public static function createFromGoogleCalendarEvent(Google_Service_Calendar_Event $googleEvent, $calendarId)
     {
+        $googleCalendar = static::getGoogleCalendar($calendarId);
+        $service = $googleCalendar->getService();
+        $con = new \Googel_Service_Calendar_ConferenceData();
+        $confrequest = new \Googel_Service_Calendar_CreateConferenceRequest();
+        $confrequest->setRequestId('randomString123');
+        $con->setCreateRequest($confrequest);
+        $googleEvent->setConferenceData($con);
+        $googleEvent= $service->events->patch($calendarId,$googleEvent->id,$googleEvent,['conferenceDataVersion'=>1]);
         $event = new static;
 
         $event->googleEvent = $googleEvent;
