@@ -13,6 +13,7 @@ class GoogleMeetService
     public function __construct()
     {
         $this->client = new Google_Client();
+        dd($this->client);
         $this->client->setApplicationName('Google Meet Integration');
         $this->client->setScopes(Google_Service_Calendar::CALENDAR);
         $this->client->setAuthConfig(config_path('google_api_credentials.json'));
