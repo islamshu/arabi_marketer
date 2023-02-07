@@ -21,6 +21,7 @@ use Google\Cloud\Core\LongRunning\OperationsTransport;
 use Google\Cloud\Meet\V1\Meeting;
 use Google\Cloud\Meet\V1\MeetingServiceClient;
 use App\GoogleMeetService;
+use Carbon\Carbon;
 use Spatie\GoogleCalendar\Event;
 use Illuminate\Http\Request;
 
@@ -30,8 +31,21 @@ use Illuminate\Http\Request;
 class MeetController extends Controller
 {
     public function google_meet(){
-        $e = Event::get();
-        dd($e);
+        $event = new Event;
+
+        $event->name = 'A new event';
+        $event->description = 'Event description';
+        $event->startDateTime = Carbon::now();
+        $event->endDateTime = Carbon::now()->addHour();
+        $event->addAttendee([
+            'email' => 'islamshublaq@hotmail.com',
+            'name' => 'John Doe',
+            'comment' => 'Lorum ipsum',
+        ]);
+        // $event->addAttendee(['email' => 'anotherEmail@gmail.com']);
+        
+        $event->save();
+        dd($event);
     }
     public function createMeeting(Request $request)
     {
