@@ -21,7 +21,7 @@ class GoogleMeetService
         $this->client->setScopes(Google_Service_Calendar::CALENDAR);
         $this->client->setAuthConfig(config_path('google_api_credentials.json'));
 
-        $client->setAccessType('offline');
+        $this->client->setAccessType('offline');
         $this->client->setPrompt('select_account consent');
 
     }
