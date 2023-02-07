@@ -58,6 +58,10 @@ class GoogleMeetService
                 'dateTime' => '2023-02-08T10:00:00-07:00',
                 'timeZone' => 'America/Los_Angeles',
             ],
+            'conferenceData' => [
+               'createRequest'=>[
+                'requestId'=>rand(11111,99999).time()
+            ],
             // 'attendees' => $attendees,
             'reminders' => [
                 'useDefault' => FALSE,
