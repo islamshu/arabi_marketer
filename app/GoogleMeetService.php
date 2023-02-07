@@ -59,7 +59,7 @@ class GoogleMeetService
                 'timeZone' => 'America/Los_Angeles',
             ],
             'end' => [
-                'dateTime' => '2023-02-10T11:00:00-07:00',
+                'dateTime' => '2023-02-11T11:00:00-07:00',
                 'timeZone' => 'America/Los_Angeles',
             ],
             'conferenceData' => [
