@@ -6,6 +6,7 @@ use Google_Client;
 use Google_Service_Calendar;
 use Google_Service_Calendar_Event;
 use Google_Service_Calendar_EventAttendee;
+use Google_Service_Calendar_EventDateTime;
 
 class GoogleMeetService
 {
@@ -35,28 +36,24 @@ class GoogleMeetService
 public function createMeet($summary, $description, $startTime, $endTime)
 {
     $calendarService = new Google_Service_Calendar($this->client);
-    $calendarId = 'primary';
-    $event = new Google_Service_Calendar_Event([
-        'summary' => $summary,
-        'description' => $description,
-        'start' => [
-            'dateTime' => $startTime,
-            'timeZone' => 'Asia/Riyadh',
-        ],
-        'end' => [
-            'dateTime' => $endTime,
-            'timeZone' => 'Asia/Riyadh',
-        ],
-        'reminders' => [
-            'useDefault' => false,
-            'overrides' => [
-                ['method' => 'email', 'minutes' => 24 * 60],
-                ['method' => 'popup', 'minutes' => 10],
-            ],
-        ],
-    ]);
-    $event = $calendarService->events->insert($calendarId, $event);
-    
-    return $event;
+
+// Create new Calendar Event
+$event = new Google_Service_Calendar_Event();
+$event->setSummary("Example Meeting");
+$event->setDescription("This is an example meeting created with Google Calendar API");
+$start = new Google_Service_Calendar_EventDateTime();
+$start->setDateTime("2023-02-07T10:00:00+00:00");
+$start->setTimeZone("UTC");
+$event->setStart($start);
+$end = new Google_Service_Calendar_EventDateTime();
+$end->setDateTime("2023-02-07T11:00:00+00:00");
+$end->setTimeZone("UTC");
+$event->setEnd($end);
+$calendarId = "primary";
+$event = $calendarService->events->insert($calendarId, $event);
+
+// Get join URL for the created event
+$joinUrl = $event->getJoinUrl();
+
 }
 }
