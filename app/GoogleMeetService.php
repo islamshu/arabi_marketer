@@ -7,6 +7,7 @@ use Google_Service_Calendar;
 use Google_Service_Calendar_Event;
 use Google_Service_Calendar_EventAttendee;
 use Google_Service_Calendar_EventDateTime;
+use Google\Apis\Meet\v1\MeetService;
 
 class GoogleMeetService
 {
@@ -51,9 +52,13 @@ $end->setTimeZone("UTC");
 $event->setEnd($end);
 $calendarId = "primary";
 $event = $calendarService->events->insert($calendarId, $event);
+$meetService = new MeetService($this->client);
 
+// Generate a Google Meet link
+$meet = $meetService->create();
+$link = $meet->getJoinUrl();
 // Get join URL for the created event
-$joinUrl = $event->getJoinUrl();
+dd($link);
 
 }
 }
