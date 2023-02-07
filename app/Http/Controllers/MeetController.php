@@ -20,31 +20,24 @@ use Google\Cloud\Core\LongRunning\OperationsClientInterface;
 use Google\Cloud\Core\LongRunning\OperationsTransport;
 use Google\Cloud\Meet\V1\Meeting;
 use Google\Cloud\Meet\V1\MeetingServiceClient;
+use App\GoogleMeetService;
+use Illuminate\Http\Request;
 
 
 // use Google_Service_Calendar_Event;
 
 class MeetController extends Controller
 {
-    public function createMeeting()
+    public function create(Request $request)
     {
-        $client = new MeetingServiceClient();
-
-        $meeting = new Meeting();
-        $meeting->setTitle('Example Meeting');
-        $meeting->setAttendees(['attendee1@example.com', 'attendee2@example.com']);
-
-        // Set the start time of the meeting in Unix timestamp format
-        $startTime = (new DateTime('+1 hour'))->getTimestamp();
-        $meeting->setStartTime($startTime);
-
-        try {
-            $createdMeeting = $client->createMeeting($meeting);
-            return $createdMeeting->getJoinUrl();
-        } catch (GoogleException $e) {
-            return $e->getMessage();
-        } finally {
-            $client->close();
-        }
+        $summary = 'test';
+        $description = 'test';
+        $startTime = now();
+        $endTime = now()->addHour();
+        $googleAPI = new GoogleMeetService();
+        $event = $googleAPI->createMeet($summary, $description, $startTime, $endTime);
+        return response()->json([
+            'event' => $event,
+        ]);
     }
 }
