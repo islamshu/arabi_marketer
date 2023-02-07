@@ -53,6 +53,7 @@ $calendarId = "primary";
 $event = $calendarService->events->insert($calendarId, $event);
 
 // Get join URL for the created event
+return $event;
 $joinUrl = $event->getJoinUrl();
 
 }
