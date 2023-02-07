@@ -12,6 +12,8 @@ use Google_Service_Calendar_EventSource;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
+use Googel_Service_Calendar_ConferenceData;
+use Googel_Service_Calendar_CreateConferenceRequest;
 
 class Event
 {
@@ -40,8 +42,8 @@ class Event
     {
         $googleCalendar = static::getGoogleCalendar($calendarId);
         $service = $googleCalendar->getService();
-        $con = new \Googel_Service_Calendar_ConferenceData();
-        $confrequest = new \Googel_Service_Calendar_CreateConferenceRequest();
+        $con = new Googel_Service_Calendar_ConferenceData();
+        $confrequest = new Googel_Service_Calendar_CreateConferenceRequest();
         $confrequest->setRequestId('randomString123');
         $con->setCreateRequest($confrequest);
         $googleEvent->setConferenceData($con);
