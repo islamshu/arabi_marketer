@@ -33,7 +33,7 @@ class MeetController extends Controller
     public function google_meet(){
         $event = new Event;
 
-        $event->name = 'A new event';
+        $event->name = 'test';
         $event->description = 'Event description';
         $event->startDateTime = Carbon::now();
         $event->endDateTime = Carbon::now()->addHour();
@@ -42,7 +42,7 @@ class MeetController extends Controller
         //     'name' => 'John Doe',
         //     'comment' => 'Lorum ipsum',
         // ]);
-        // $event->addAttendee(['email' => 'anotherEmail@gmail.com']);
+        $event->addAttendee(['email' => 'islamshublaq@hotmail.com']);
         
         $event->save();
         dd($event);
