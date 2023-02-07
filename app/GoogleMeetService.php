@@ -18,7 +18,6 @@ class GoogleMeetService
         $this->client->setAuthConfig(config_path('google_api_credentials.json'));
         $this->client->setAccessType('offline');
         $this->client->setPrompt('select_account consent');
-        dd($this->client);
     }
 
     public function getClient()
@@ -34,6 +33,7 @@ class GoogleMeetService
 public function createMeet($summary, $description, $startTime, $endTime)
 {
     $calendarService = new Google_Service_Calendar($this->client);
+    dd($calendarService);
     $calendarId = 'primary';
     $event = new Google_Service_Calendar_Event([
         'summary' => $summary,
