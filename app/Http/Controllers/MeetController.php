@@ -42,7 +42,7 @@ class MeetController extends Controller
         //     'name' => 'John Doe',
         //     'comment' => 'Lorum ipsum',
         // ]);
-        $event->addAttendee(['email' => 'islamshublaq@hotmail.com']);
+        $event->addAttendee(['email' => 'attendee@example.com']);
         
         $event->save();
         dd($event);
