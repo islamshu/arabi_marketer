@@ -79,18 +79,20 @@ class GoogleMeetService
         ]);
         
         $calendarId = env('GOOGLE_CALENDAR_ID');
-        $event = $calendarService->events->insert($calendarId, $event,['conferenceDataVersion'=>1]);
-        $meetService = new Google_Service_HangoutsMeet($this->client);
-        
-        $meeting = new Google_Service_HangoutsMeet_Meeting();
-        $meeting->setTitle('testt');
-        
-        $createdMeeting = $meetService->meetings->create($meeting);
-        $joinURL = $createdMeeting->getJoinURL();
-        dd($joinURL);
+        // $event = $calendarService->events->insert($calendarId, $event,['conferenceDataVersion'=>1]);
+        $event = $calendarService->events->insert($calendarId, $event);
 
-        // Get the join URL for the meeting
-        $joinUrl = $event;
-        return $joinUrl;
+        printf('Event created: %s', $event->htmlLink);
+
+        $conference = new \Google_Service_Calendar_ConferenceData();
+        $conferenceRequest = new \Google_Service_Calendar_CreateConferenceRequest();
+        $conferenceRequest->setRequestId('randomString123');
+        $conference->setCreateRequest($conferenceRequest);
+        $event->setConferenceData($conference);
+
+        $event = $calendarService->events->patch($calendarId, $event->id, $event, ['conferenceDataVersion' => 1]);
+
+        printf('<br>Conference created: %s', $event->hangoutLink);
+      
     }
 }
