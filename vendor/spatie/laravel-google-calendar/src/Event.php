@@ -12,8 +12,9 @@ use Google_Service_Calendar_EventSource;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use Googel_Service_Calendar_ConferenceData;
-use Googel_Service_Calendar_CreateConferenceRequest;
+use Google_Service_Calendar_ConferenceData;
+
+use Google_Service_Calendar_CreateConferenceRequest;
 
 class Event
 {
@@ -42,12 +43,12 @@ class Event
     {
         $googleCalendar = static::getGoogleCalendar($calendarId);
         $service = $googleCalendar->getService();
-        $con = new Googel_Service_Calendar_ConferenceData();
-        $confrequest = new Googel_Service_Calendar_CreateConferenceRequest();
-        $confrequest->setRequestId('randomString123');
-        $con->setCreateRequest($confrequest);
-        $googleEvent->setConferenceData($con);
-        $googleEvent= $service->events->patch($calendarId,$googleEvent->id,$googleEvent,['conferenceDataVersion'=>1]);
+        $conference = new Google_Service_Calendar_ConferenceData();
+        $conferenceRequest = new Google_Service_Calendar_CreateConferenceRequest();
+        $conferenceRequest->setRequestId('randomString123');
+        $conference->setCreateRequest($conferenceRequest);
+        $googleEvent->setConferenceData($conference);
+        $googleEvent = $service->events->patch($calendarId, $googleEvent->id, $googleEvent, ['conferenceDataVersion' => 1]);
         $event = new static;
 
         $event->googleEvent = $googleEvent;
