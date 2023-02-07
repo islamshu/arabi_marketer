@@ -21,7 +21,7 @@ class GoogleMeetService
         $this->client->setScopes(Google_Service_Calendar::CALENDAR);
         $this->client->setAuthConfig(config_path('google_api_credentials.json'));
 
-        // $this->client->setAccessType('offile');
+        $client->setAccessType('offline');
         $this->client->setPrompt('select_account consent');
 
     }
@@ -78,20 +78,9 @@ class GoogleMeetService
         ]);
         
         $calendarId = env('GOOGLE_CALENDAR_ID');
-        // $event = $calendarService->events->insert($calendarId, $event,['conferenceDataVersion'=>1]);
-        $event = $calendarService->events->insert($calendarId, $event);
+        $calendarService->events->insert('primary', $event);
+        return $calendarService;
 
-        printf('Event created: %s', $event->htmlLink);
-
-        $conference = new \Google_Service_Calendar_ConferenceData();
-        $conferenceRequest = new \Google_Service_Calendar_CreateConferenceRequest();
-        $conferenceRequest->setRequestId('randomString123');
-        $conference->setCreateRequest($conferenceRequest);
-        $event->setConferenceData($conference);
-
-        $event = $calendarService->events->patch($calendarId, $event->id, $event, ['conferenceDataVersion' => 1]);
-
-        printf('<br>Conference created: %s', $event->hangoutLink);
       
     }
 }
