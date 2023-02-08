@@ -63,12 +63,11 @@ class GoogleMeetService
                 'dateTime' => '2023-02-09T11:00:00-07:00',
                 'timeZone' => 'America/Los_Angeles',
             ],
-            // 'attendees' => [
-            //     [
-            //         'email' => 'islamshu12@gmail.com',
-            //     ],
-               
-            // ],
+            'attendees' => [
+                [
+                    'email' => 'islamshu12@gmail.com',
+                ],
+            ],
            
             'conferenceData' => [
                 'createRequest' => [
