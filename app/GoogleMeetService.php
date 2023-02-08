@@ -56,11 +56,11 @@ class GoogleMeetService
             'location' => 'Online',
             'description' => 'This is a test meeting',
             'start' => [
-                'dateTime' => '2023-02-08T09:00:00-07:00',
+                'dateTime' => '2023-02-09T09:00:00-07:00',
                 'timeZone' => 'America/Los_Angeles',
             ],
             'end' => [
-                'dateTime' => '2023-02-08T11:00:00-07:00',
+                'dateTime' => '2023-02-09T11:00:00-07:00',
                 'timeZone' => 'America/Los_Angeles',
             ],
             // 'attendees' => [
@@ -88,7 +88,7 @@ class GoogleMeetService
         ]);
         
         $calendarId = env('GOOGLE_CALENDAR_ID');
-        $calendarService->events->insert($calendarId, $event);
+        $calendarService->events->insert($calendarId, $event,['conferenceDataVersion' => 1]);
         return $calendarService;
 
       
