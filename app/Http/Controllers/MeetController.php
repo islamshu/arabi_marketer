@@ -31,6 +31,7 @@ use Illuminate\Http\Request;
 class MeetController extends Controller
 {
     public function google_meet(){
+        dd(Event::get());
         $event = new Event;
 
         $event->name = 'test';
