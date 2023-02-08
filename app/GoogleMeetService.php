@@ -18,8 +18,11 @@ class GoogleMeetService
     {
         $this->client = new Google_Client();
         $this->client->setApplicationName('Google Meet Integration');
-        $this->client->setScopes(Google_Service_Calendar::CALENDAR);
-        // $this->client->addScope("https://www.googleapis.com/auth/calendar");
+        // $this->client->setScopes(Google_Service_Calendar::CALENDAR);
+        $this->client->addScope([
+            'https://www.googleapis.com/auth/calendar',
+            'https://www.googleapis.com/auth/calendar.events'
+          ]);
 
         $this->client->setAuthConfig(config_path('google_api_credentials.json'));
         $this->client->setAccessType('offline');
