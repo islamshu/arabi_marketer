@@ -32,7 +32,7 @@ class MeetController extends Controller
 {
     public function google_meet(){
         $events = Event::get();
-        dd($events);
+        // dd($events);
         $event = new Event;
 
         $event->name = 'test';
@@ -46,17 +46,17 @@ class MeetController extends Controller
         // ]);
         // $event->addAttendee(['email' => 'attendee@example.com']);
         
-        $event->addAttendee([
-            'email' => 'islamshu12@gmail.com',
-            'name' => 'juan',
-            'comment' => 'prueba de la API',
-        ]);
+        // $event->addAttendee([
+        //     'email' => 'islamshu12@gmail.com',
+        //     'name' => 'juan',
+        //     'comment' => 'prueba de la API',
+        // ]);
         
-        $optParams = [
-            'sendNotifications' => true
-        ];
+        // $optParams = [
+        //     'sendNotifications' => true
+        // ];
         
-        $event->save('insertEvent', $optParams);
+        $event->save();
         dd($event);
     }
     public function createMeeting(Request $request)
