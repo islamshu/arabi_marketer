@@ -88,6 +88,8 @@ class GoogleMeetService
                 ],
             ],
         ]);
+        $event = $calendarService->events->insert($calendarId, $event);
+
         $conference = new \Google_Service_Calendar_ConferenceData();
         $conferenceRequest = new \Google_Service_Calendar_CreateConferenceRequest();
         $conferenceRequest->setRequestId('randomString123');
