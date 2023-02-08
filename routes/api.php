@@ -280,7 +280,7 @@ Route::get('/single_consultion/{mention}/{slug}', [ConsultationController::class
 Route::group(['middleware' => 'is_login', 'middleware' => 'Is_markter'], function () {
     Route::post('/add_consultion', [ConsultationController::class, 'store']);
     Route::post('/update_consultion/{id}', [ConsultationController::class, 'update']);
-    Route::get('delete_consultion/{id}', [ConsultationController::class, 'delete']);
+    Route::delete('delete_consultion/{id}', [ConsultationController::class, 'delete']);
 
 });
 Route::get('consultation_search', [ConsultationController::class, 'serach']);
