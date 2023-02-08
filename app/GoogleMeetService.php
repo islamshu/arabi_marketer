@@ -88,11 +88,17 @@ class GoogleMeetService
                 ],
             ],
         ]);
+        $conference = new \Google_Service_Calendar_ConferenceData();
+        $conferenceRequest = new \Google_Service_Calendar_CreateConferenceRequest();
+        $conferenceRequest->setRequestId('randomString123');
+        $conference->setCreateRequest($conferenceRequest);
+        $event->setConferenceData($conference);
+
         $optParams = ['conferenceDataVersion' => 1];
 
         $calendarId = env('GOOGLE_CALENDAR_ID');
-        $calendarService->events->insert($calendarId, $event,$optParams);
-        return $calendarService;
+        $event = $calendarService->events->patch($calendarId, $event->id, $event, ['conferenceDataVersion' => 1]);
+        return $event;
 
       
     }
