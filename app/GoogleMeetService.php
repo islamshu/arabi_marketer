@@ -44,7 +44,7 @@ class GoogleMeetService
 
         $attendees = [
             [
-                'email' => 'islamshublaq@hotmail.com',
+                'email' => 'islamshu12@gmail.com',
                 'responseStatus' => 'accepted'
             ],
           
@@ -55,20 +55,18 @@ class GoogleMeetService
             'location' => 'Online',
             'description' => 'This is a test meeting',
             'start' => [
-                'dateTime' => '2023-02-11T09:00:00-07:00',
+                'dateTime' => '2023-02-08T09:00:00-07:00',
                 'timeZone' => 'America/Los_Angeles',
             ],
             'end' => [
-                'dateTime' => '2023-02-11T11:00:00-07:00',
+                'dateTime' => '2023-02-08T11:00:00-07:00',
                 'timeZone' => 'America/Los_Angeles',
             ],
             'attendees' => [
                 [
-                    'email' => 'guest1@example.com',
+                    'email' => 'islamshu12@gmail.com',
                 ],
-                [
-                    'email' => 'guest2@example.com',
-                ],
+               
             ],
             'conferenceData' => [
                 'createRequest' => [
