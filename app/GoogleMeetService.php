@@ -69,12 +69,13 @@ class GoogleMeetService
             //     ],
                
             // ],
+           
             'conferenceData' => [
                 'createRequest' => [
                   'conferenceSolutionKey' => [
                     'type' => 'hangoutsMeet'
                   ],
-                  'requestId' => 'sample232212'
+                  'requestId' => 'randomString123'
                 ]
             ],
             
@@ -87,7 +88,7 @@ class GoogleMeetService
                 ],
             ],
         ]);
-        $optParams = ['conferenceDataVersion' => 0];
+        $optParams = ['conferenceDataVersion' => 1];
 
         $calendarId = env('GOOGLE_CALENDAR_ID');
         $calendarService->events->insert($calendarId, $event,$optParams);
