@@ -282,6 +282,8 @@ Route::group(['middleware' => 'is_login', 'middleware' => 'Is_markter'], functio
     Route::post('/update_consultion/{id}', [ConsultationController::class, 'update']);
 });
 Route::get('consultation_search', [ConsultationController::class, 'serach']);
+Route::get('delete_consultion', [ConsultationController::class, 'delete']);
+
 Route::get('consultation_profile_search/{id}', [ConsultationController::class, 'consultation_profile_search']);
 
 

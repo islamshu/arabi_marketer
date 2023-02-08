@@ -391,4 +391,9 @@ class ConsultationController extends BaseController
         $ser = new ConsultingResource($service);
         return $this->sendResponse($ser,' تم ارجاع الاستشارة بنجاح');
     }
+    public function delete($id){
+        $service = Consulting::find($id);
+        return $this->sendResponse('success',' تم حذف الاستشارة  ');
+
+    }
 }
