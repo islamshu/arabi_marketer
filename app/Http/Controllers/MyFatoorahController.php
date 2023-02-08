@@ -71,15 +71,15 @@ class MyFatoorahController extends Controller {
      * 
      * @return \Illuminate\Http\Response
      */
-    public function callback($id) {
+    public function callback() {
         try {
             $paymentId = request('paymentId');
             $data      = $this->mfObj->getPaymentStatus($paymentId, 'PaymentId');
             if ($data->InvoiceStatus == 'Paid') {
                 $msg = 'Invoice is paid.';
-                $order = BookingConsultion::find($id);
-                $order->paid_status ='paid';
-                $order->save();
+                // $order = BookingConsultion::find($id);
+                // $order->paid_status ='paid';
+                // $order->save();
             } else if ($data->InvoiceStatus == 'Failed') {
                 $msg = 'Invoice is not paid due to ' . $data->InvoiceError;
             } else if ($data->InvoiceStatus == 'Expired') {
