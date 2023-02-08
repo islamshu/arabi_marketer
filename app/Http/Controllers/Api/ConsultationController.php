@@ -393,6 +393,7 @@ class ConsultationController extends BaseController
     }
     public function delete($id){
         $service = Consulting::find($id);
+        $service->delete();
         return $this->sendResponse('success',' تم حذف الاستشارة  ');
 
     }
