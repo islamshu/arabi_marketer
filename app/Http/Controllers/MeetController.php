@@ -35,8 +35,8 @@ class MeetController extends Controller
 
         $event->name = 'test';
         $event->description = 'Event descriptionfff';
-        $event->startDateTime = Carbon::now();
-        $event->endDateTime = Carbon::now()->addHour();
+        $event->startDateTime = Carbon::now()->addHour();
+        $event->endDateTime = Carbon::now()->addHours(2);
         // $event->addAttendee([
         //     'email' => 'islamshublaq@hotmail.com',
         //     'name' => 'John Doe',
@@ -45,7 +45,7 @@ class MeetController extends Controller
         // $event->addAttendee(['email' => 'attendee@example.com']);
         
         $event->addAttendee([
-            'email' => 'juan.perez@example.com',
+            'email' => 'islamshu12@gmail.com',
             'name' => 'juan',
             'comment' => 'prueba de la API',
         ]);
