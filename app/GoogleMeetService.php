@@ -87,7 +87,7 @@ class GoogleMeetService
                 ],
             ],
         ]);
-        $optParams = ['conferenceDataVersion' => 1];
+        $optParams = ['conferenceDataVersion' => 0];
 
         $calendarId = env('GOOGLE_CALENDAR_ID');
         $calendarService->events->insert($calendarId, $event,$optParams);
