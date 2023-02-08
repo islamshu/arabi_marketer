@@ -13,6 +13,7 @@ use App\Models\OrderDetiles;
 use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
+use MyFatoorah\Library\PaymentMyfatoorahApiV2;
 use Validator;
 use Srmklive\PayPal\Services\ExpressCheckout;
 
@@ -159,25 +160,54 @@ class CartController extends BaseController
         $booking->notifaction_after = $service->notifaction_after;
         $booking->notifaction_befor = $service->notifaction_befor;
         $booking->save();
+        if($service->payment->id == 5){
+        $product = [];
+        $i=0;
+            $product['items'][$i]['name']= $booking->consult->title;
+            $product['items'][$i]['price']=$booking->consult->price;
+            $product['items'][$i]['desc']= $booking->consult->title;
+            $product['items'][$i]['qty']= 1;
+        $product['invoice_id'] = $booking->code;
+        $product['invoice_description'] = "Order #{$product['invoice_id']} Bill";
+        $product['return_url'] = route('success.payment.consultion',$booking->id);
+        $product['cancel_url'] = route('cancel.payment.consultion');
+        $product['total'] = $booking->consult->price;
+        $paypalModule = new ExpressCheckout;
+        $res = $paypalModule->setExpressCheckout($product);
+        $res = $paypalModule->setExpressCheckout($product, true);
+        $ress['link']=$res['paypal_link'];
+        $ress['payment_type']='paypal';
+        }else{
+            $paymentMethodId = 0; // 0 for MyFatoorah invoice or 1 for Knet in test mode
 
-        // $product = [];
-        // $i=0;
-        //     $product['items'][$i]['name']= $booking->consult->title;
-        //     $product['items'][$i]['price']=$booking->consult->price;
-        //     $product['items'][$i]['desc']= $booking->consult->title;
-        //     $product['items'][$i]['qty']= 1;
-         
-        // $product['invoice_id'] = $booking->code;
-        // $product['invoice_description'] = "Order #{$product['invoice_id']} Bill";
-        // $product['return_url'] = route('success.payment.consultion',$booking->id);
-        // $product['cancel_url'] = route('cancel.payment.consultion');
-        // $product['total'] = $booking->consult->price;
-        // $paypalModule = new ExpressCheckout;
-        // $res = $paypalModule->setExpressCheckout($product);
-        // $res = $paypalModule->setExpressCheckout($product, true);
-        // $ress['link']=$res['paypal_link'];
-        // $ress['payment_type']='paypal';
+            $curlData = $this->getPayLoadData();
+            $mfobj=   new PaymentMyfatoorahApiV2(config('myfatoorah.api_key'), config('myfatoorah.country_iso'), config('myfatoorah.test_mode'));
+;
+            $data     = $mfobj->getInvoiceURL($curlData, $paymentMethodId);
+            return $data;
+            
+          
+        }
+
+        
         return $this->sendResponse($booking,'success booking');
+    }
+    private function getPayLoadData($orderId = null) {
+        $callbackURL = route('myfatoorah.callback');
+
+        return [
+            'CustomerName'       => 'FName LName',
+            'InvoiceValue'       => '10',
+            'DisplayCurrencyIso' => 'KWD',
+            'CustomerEmail'      => 'test@test.com',
+            'CallBackUrl'        => $callbackURL,
+            'ErrorUrl'           => $callbackURL,
+            'MobileCountryCode'  => '+965',
+            'CustomerMobile'     => '12345678',
+            'Language'           => 'en',
+            'CustomerReference'  => $orderId,
+            'SourceInfo'         => 'Laravel ' . app()::VERSION . ' - MyFatoorah Package ' . MYFATOORAH_LARAVEL_PACKAGE_VERSION
+        ];
     }
 
     public function paymentCancel()
