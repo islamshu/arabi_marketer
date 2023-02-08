@@ -152,7 +152,7 @@ class ConsultationController extends BaseController
     public function places()
     {
         $category = Placetype::orderBy('id', 'asc')->get();
-        $userRes = KeywordResource::collection($category);
+        $userRes = PaymentResource::collection($category);
         return $this->sendResponse($userRes, 'جميع الاماكن لعرض الاستشارة ');
     }
     public function single_consultion($mention,$url){
