@@ -180,10 +180,11 @@ class CartController extends BaseController
         }else{
             $paymentMethodId = 0; // 0 for MyFatoorah invoice or 1 for Knet in test mode
 
-            $curlData = $this->getPayLoadData();
+            $curlData = $this->getPayLoadData($booking->id);
             $mfobj=   new PaymentMyfatoorahApiV2(config('myfatoorah.api_key'), config('myfatoorah.country_iso'), config('myfatoorah.test_mode'));
 ;
             $data     = $mfobj->getInvoiceURL($curlData, $paymentMethodId);
+
             return $data;
             
           
@@ -192,9 +193,10 @@ class CartController extends BaseController
         
         return $this->sendResponse($booking,'success booking');
     }
-    private function getPayLoadData($orderId = null) {
-        $callbackURL = route('myfatoorah.callback');
+    private function getPayLoadData($id) {
 
+        $callbackURL = route('myfatoorah.callback',$id);
+        $orderId = null;
         return [
             'CustomerName'       => 'FName LName',
             'InvoiceValue'       => '10',
