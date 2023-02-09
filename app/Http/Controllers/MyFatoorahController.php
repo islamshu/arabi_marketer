@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SuccessPaymentMail;
 use App\Models\BookingConsultion;
+use Mail;
 use MyFatoorah\Library\PaymentMyfatoorahApiV2;
 
 class MyFatoorahController extends Controller {
@@ -80,6 +82,8 @@ class MyFatoorahController extends Controller {
                 $order = BookingConsultion::find($id);
                 $order->paid_status ='paid';
                 $order->save();
+                Mail::to($user->email)->send(new SuccessPaymentMail($order->id));
+
             } else if ($data->InvoiceStatus == 'Failed') {
                 $msg = 'Invoice is not paid due to ' . $data->InvoiceError;
             } else if ($data->InvoiceStatus == 'Expired') {
