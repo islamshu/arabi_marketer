@@ -163,7 +163,6 @@ class ConsultationController extends BaseController
     }
     public function single_booking_consultion($id){
         $booking = BookingConsultion::where('code',$id)->first();
-        dd($booking);
         $userRes = new BookingConsultionResourse($booking);
         return $this->sendResponse($userRes, 'all booking');
     }
