@@ -301,4 +301,7 @@ Route::get('payment-success/{id}', [PayPalPaymentController::class, 'paymentSucc
 Route::get('cancel-payment-consultion', [CartController::class, 'paymentCancel'])->name('cancel.payment.consultion');
 Route::get('payment-success-consultion/{id}', [CartController::class, 'paymentSuccess'])->name('success.payment.consultion');
 Route::get('my_booking_consultion', [ConsultationController::class, 'my_booking_consultion']);
+Route::get('single_booking_consultion/{id}', [ConsultationController::class, 'single_booking_consultion']);
+
+
 

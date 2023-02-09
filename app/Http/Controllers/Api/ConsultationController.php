@@ -160,7 +160,11 @@ class ConsultationController extends BaseController
         $booking = BookingConsultion::where('user_id',auth('api')->id())->where('paid_status','paid')->get();
         $userRes = BookingConsultionResourse::collection($booking);
         return $this->sendResponse($userRes, 'all booking');
-
+    }
+    public function single_booking_consultion($id){
+        $booking = BookingConsultion::find($id);
+        $userRes = new BookingConsultionResourse($booking);
+        return $this->sendResponse($userRes, 'all booking');
     }
     public function single_consultion($mention,$url){
         $user = User::where('mention',$mention)->first();
