@@ -236,7 +236,7 @@ class CartController extends BaseController
             $order->paid_status ='paid';
             $order->save();
             $user = User::find($order->user_id);
-            Mail::to($user->email)->send(new SuccessPaymentMail());
+            Mail::to($user->email)->send(new SuccessPaymentMail($order->id));
             dd('ee');
           
         return view('success_paid');
