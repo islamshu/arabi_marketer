@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\CartResource;
+use App\Mail\SuccessPaymentMail;
 use App\Models\BookingConsultion;
 use App\Models\Cart;
 use App\Models\Consulting;
@@ -13,6 +14,7 @@ use App\Models\OrderDetiles;
 use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Mail;
 use MyFatoorah\Library\PaymentMyfatoorahApiV2;
 use Validator;
 use Srmklive\PayPal\Services\ExpressCheckout;
@@ -147,6 +149,7 @@ class CartController extends BaseController
         $data_send = json_encode($request->date);
         $booking = new BookingConsultion();
         $booking->user_id = auth('api')->id();
+        $booking->code = date('Ymd-His').rand(10,99);
         $booking->consultiong_id = $request->consult_id;
         $booking->note = $request->note;
         $booking->date = $newDate;
@@ -233,6 +236,8 @@ class CartController extends BaseController
             $order->paid_status ='paid';
             $order->save();
             $user = User::find($order->user_id);
+            Mail::to($user->email)->send(new SuccessPaymentMail($order->id));
+
           
         return view('success_paid');
         }

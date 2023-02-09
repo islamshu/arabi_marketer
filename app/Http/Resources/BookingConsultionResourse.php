@@ -18,6 +18,7 @@ class BookingConsultionResourse extends JsonResource
     {
         return [
             'id'=>$this->id,
+            'code'=>$this->code,
             'user_id'=>new UserNormalNotAuthResource($this->user),
             'consultion'=>new ConsultingResource($this->consult),
             'start_at'=>$this->date,
