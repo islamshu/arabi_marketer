@@ -177,7 +177,7 @@ class CartController extends BaseController
         $res = $paypalModule->setExpressCheckout($product, true);
         $ress['link']=$res['paypal_link'];
         $ress['payment_type']='paypal';
-        return $ress;
+        return $this->sendResponse($ress,'return to payment link');
         }else{
             $paymentMethodId = 0; // 0 for MyFatoorah invoice or 1 for Knet in test mode
 
@@ -187,11 +187,11 @@ class CartController extends BaseController
             $data     = $mfobj->getInvoiceURL($curlData, $paymentMethodId);
             $ress['link']=$data['invoiceURL'];
             $ress['payment_type']='myfatoorah';
-            return $ress;      
+            return $this->sendResponse($ress,'return to payment link');
         }
 
         
-        return $this->sendResponse($booking,'success booking');
+        // return $this->sendResponse($ress,'return to payment link');
     }
     private function getPayLoadData($id) {
 
