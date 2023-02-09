@@ -195,7 +195,7 @@ class CartController extends BaseController
     private function getPayLoadData($id) {
 
         $callbackURL = route('myfatoorah.callback',$id);
-        $callerrbackURL = route('myfatoorah.errorcallback',$id);
+        $callerrbackURL = route('myfatoorah.errorcallback');
 
         $booking= BookingConsultion::find($id);
         $orderId = null;
