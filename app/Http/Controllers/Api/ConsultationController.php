@@ -157,7 +157,7 @@ class ConsultationController extends BaseController
         return $this->sendResponse($userRes, 'جميع الاماكن لعرض الاستشارة ');
     }
     public function my_booking_consultion(){
-        $booking = BookingConsultion::where('user_id',auth('api')->id)->where('paid_status','paid')->get();
+        $booking = BookingConsultion::where('user_id',auth('api')->id())->where('paid_status','paid')->get();
         $userRes = BookingConsultionResourse::collection($booking);
         return $this->sendResponse($userRes, 'all booking');
 
