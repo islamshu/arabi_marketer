@@ -21,7 +21,7 @@ class BookingConsultionResourse extends JsonResource
             'user_id'=>new UserNormalNotAuthResource($this->user),
             'consultion'=>new ConsultingResource($this->consultiong_id),
             'start_at'=>$this->date,
-            'end_at'=>Carbon::createFromFormat('Y-m-d H:i:s', $this->date)->addMinutes($this->const->min),
+            'end_at'=>Carbon::createFromFormat('Y-m-d H:i:s', $this->date)->addMinutes($this->consult->min),
             'payment_method'=>$this->paymet_method,
             'price'=>$this->price,
             'meeting_app'=>$this->meeting_app,
