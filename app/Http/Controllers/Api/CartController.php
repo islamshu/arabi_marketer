@@ -186,7 +186,7 @@ class CartController extends BaseController
             $data     = $mfobj->getInvoiceURL($curlData, $paymentMethodId);
             $ress['link']=$data['invoiceURL'];
             $ress['payment_type']='myfatoorah';
-            return $data;      
+            return $ress;      
         }
 
         
