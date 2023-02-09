@@ -10,20 +10,18 @@ use Illuminate\Queue\SerializesModels;
 class SuccessPaymentMail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $order;
+    // public $order;
 
    
-    public function __construct($order)
-    {
-        $this->order = $order;
+    // public function __construct($order)
+    // {
+    //     $this->order = $order;
  
-    }
+    // }
     public function build()
     {
-        return $this->view('mail.payment_cons')
-        ->with([
-           'order_id' => $this->order,
-        ]);
+        return $this->view('mail.after_reset');
+      
     }
 
           
