@@ -92,9 +92,18 @@ class MyFatoorahController extends Controller {
         }
         return response()->json($response);
     }
-    public function errorcallback($id){
-        return ('error');
+    public function errorcallback(){
+        $paymentId = request('paymentId');
+        $data      = $this->mfObj->getPaymentStatus($paymentId, 'PaymentId');
+    if ($data->InvoiceStatus == 'Failed') {
+        $msg = 'Invoice is not paid due to ' . $data->InvoiceError;
+    } else if ($data->InvoiceStatus == 'Expired') {
+        $msg = 'Invoice is expired.';
     }
+    $response = ['IsSuccess' => 'true', 'Message' => $msg, 'Data' => $data];
+    return response()->json($response);
+
+}
 
 //-----------------------------------------------------------------------------------------------------------------------------------------
 }
