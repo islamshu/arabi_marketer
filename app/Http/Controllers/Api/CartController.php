@@ -184,10 +184,9 @@ class CartController extends BaseController
             $mfobj=   new PaymentMyfatoorahApiV2(config('myfatoorah.api_key'), config('myfatoorah.country_iso'), config('myfatoorah.test_mode'));
 ;
             $data     = $mfobj->getInvoiceURL($curlData, $paymentMethodId);
-
-            return $data;
-            
-          
+            $ress['link']=$data['invoiceURL'];
+            $ress['payment_type']='myfatoorah';
+            return $data;      
         }
 
         
@@ -196,19 +195,22 @@ class CartController extends BaseController
     private function getPayLoadData($id) {
 
         $callbackURL = route('myfatoorah.callback',$id);
+        $callerrbackURL = route('myfatoorah.errorcallback',$id);
+
+        $booking= BookingConsultion::find($id);
         $orderId = null;
         return [
-            'CustomerName'       => 'FName LName',
-            'InvoiceValue'       => '10',
-            'DisplayCurrencyIso' => 'KWD',
-            'CustomerEmail'      => 'test@test.com',
+            'CustomerName'       => auth('api')->user()->first_name .' '.auth('api')->user()->last_name,
+            'InvoiceValue'       => $booking->price,
+            'DisplayCurrencyIso' => 'SAU',
+            'CustomerEmail'      =>auth('api')->user()->email,
             'CallBackUrl'        => $callbackURL,
-            'ErrorUrl'           => $callbackURL,
-            'MobileCountryCode'  => '+965',
+            'ErrorUrl'           => $callerrbackURL,
+            'MobileCountryCode'  => '+'.auth('api')->user()->Country->code,
             'CustomerMobile'     => '12345678',
             'Language'           => 'en',
             'CustomerReference'  => $orderId,
-            'SourceInfo'         => 'Laravel ' . app()::VERSION . ' - MyFatoorah Package ' . MYFATOORAH_LARAVEL_PACKAGE_VERSION
+            'SourceInfo'         => 'Arabicreators ' . app()::VERSION . ' - MyFatoorah Package ' . MYFATOORAH_LARAVEL_PACKAGE_VERSION
         ];
     }
 

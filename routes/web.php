@@ -101,6 +101,9 @@ Route::middleware('auth')->group(function () {
     Route::get('store2', [MeetingController::class,'store2']);
     Route::get('myfatoora_test', [MyFatoorahController::class,'index']);
     Route::get('myfatoora_call_back', [MyFatoorahController::class,'callback'])->name('myfatoorah.callback');
+    Route::get('myfatoora_call_back_error', [MyFatoorahController::class,'errorcallback'])->name('myfatoorah.errorcallback');
+
+    
 
 
     
