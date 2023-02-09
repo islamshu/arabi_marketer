@@ -215,8 +215,10 @@ class CartController extends BaseController
         ];
     }
 
-    public function paymentCancel()
+    public function paymentCancel($id)
     {
+        $booking = BookingConsultion::find($id);
+        $booking->delete();
         dd('Your payment has been declend. The payment cancelation page goes here!');
     }
   

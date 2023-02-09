@@ -92,7 +92,9 @@ class MyFatoorahController extends Controller {
         }
         return response()->json($response);
     }
-    public function errorcallback(){
+    public function errorcallback($id){
+        $booking = BookingConsultion::find($id);
+        $booking->delete();
         $paymentId = request('paymentId');
         $data      = $this->mfObj->getPaymentStatus($paymentId, 'PaymentId');
     if ($data->InvoiceStatus == 'Failed') {

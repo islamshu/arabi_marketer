@@ -298,7 +298,7 @@ Route::get('/get_all_city_user_country_id/{id}', [GeneralController::class, 'get
 Route::get('handle-payment', [PayPalPaymentController::class, 'handlePayment'])->name('make.payment');
 Route::get('cancel-payment', [PayPalPaymentController::class, 'paymentCancel'])->name('cancel.payment');
 Route::get('payment-success/{id}', [PayPalPaymentController::class, 'paymentSuccess'])->name('success.payment');
-Route::get('cancel-payment-consultion', [CartController::class, 'paymentCancel'])->name('cancel.payment.consultion');
+Route::get('cancel-payment-consultion/{id}', [CartController::class, 'paymentCancel'])->name('cancel.payment.consultion');
 Route::get('payment-success-consultion/{id}', [CartController::class, 'paymentSuccess'])->name('success.payment.consultion');
 Route::get('my_booking_consultion', [ConsultationController::class, 'my_booking_consultion']);
 Route::get('single_booking_consultion/{id}', [ConsultationController::class, 'single_booking_consultion']);
