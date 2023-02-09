@@ -10,6 +10,7 @@ use App\Models\Payment;
 use App\Models\Placetype;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
+use App\Http\Resources\BookingConsultionResourse;
 use App\Http\Resources\ConsultingResource;
 use App\Http\Resources\PaymentResource;
 use App\Http\Resources\UserResource;
@@ -154,6 +155,12 @@ class ConsultationController extends BaseController
         $category = Placetype::orderBy('id', 'asc')->get();
         $userRes = PaymentResource::collection($category);
         return $this->sendResponse($userRes, 'جميع الاماكن لعرض الاستشارة ');
+    }
+    public function my_booking_consultion(){
+        $booking = BookingConsultion::where('user_id',auth('api')->id)->where('paid_status','paid')->get();
+        $userRes = BookingConsultionResourse::collection($booking);
+        return $this->sendResponse($userRes, 'all booking');
+
     }
     public function single_consultion($mention,$url){
         $user = User::where('mention',$mention)->first();
