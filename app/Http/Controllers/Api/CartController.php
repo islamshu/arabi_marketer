@@ -170,7 +170,7 @@ class CartController extends BaseController
         $product['invoice_id'] = $booking->code;
         $product['invoice_description'] = "Order #{$product['invoice_id']} Bill";
         $product['return_url'] = route('success.payment.consultion',$booking->id);
-        $product['cancel_url'] = route('cancel.payment.consultion');
+        $product['cancel_url'] = route('cancel.payment.consultion',$booking->id);
         $product['total'] = $booking->consult->price;
         $paypalModule = new ExpressCheckout;
         $res = $paypalModule->setExpressCheckout($product);
