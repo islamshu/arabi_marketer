@@ -114,7 +114,7 @@ class ConsultationController extends BaseController
                         $dateeformat = Carbon::createFromFormat('Y-m-d H:i:s', $time->format('Y-m-d H:i:s'));
                     //   $dateeformat->timezone = 'Asia/Riyadh';
                     //   $date->setTimezone('7');
-                    $check = BookingConsultion::where('consultiong_id',$cons->id)->where('date',$dateeformat)->first();
+                    $check = BookingConsultion::where('consultiong_id',$cons->id)->where('paid_status','paid')->where('date',$dateeformat)->first();
                
                         if($check){
                             continue;
