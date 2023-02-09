@@ -202,7 +202,7 @@ class CartController extends BaseController
         return [
             'CustomerName'       => auth('api')->user()->first_name .' '.auth('api')->user()->last_name,
             'InvoiceValue'       => $booking->price,
-            'DisplayCurrencyIso' => 'SAU',
+            'DisplayCurrencyIso' => 'SAR',
             'CustomerEmail'      =>auth('api')->user()->email,
             'CallBackUrl'        => $callbackURL,
             'ErrorUrl'           => $callerrbackURL,
