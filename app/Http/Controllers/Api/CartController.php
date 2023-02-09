@@ -160,6 +160,7 @@ class CartController extends BaseController
         $booking->notifaction_after = $service->notifaction_after;
         $booking->notifaction_befor = $service->notifaction_befor;
         $booking->save();
+        return $service->payment->id;
         if($service->payment->id == 5){
         $product = [];
         $i=0;
