@@ -26,6 +26,7 @@ class BookingConsultionResourse extends JsonResource
             'price'=>$this->price,
             'meeting_app'=>$this->meeting_app,
             'meeting_url'=>'not provide now',
+            'guests'=>$this->emails
         ];
     }
     function get_type($data){
