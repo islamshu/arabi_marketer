@@ -162,7 +162,7 @@ class ConsultationController extends BaseController
         return $this->sendResponse($userRes, 'all booking');
     }
     public function single_booking_consultion($id){
-        $booking = BookingConsultion::find($id);
+        $booking = BookingConsultion::where('code',$id)->first();
         $userRes = new BookingConsultionResourse($booking);
         return $this->sendResponse($userRes, 'all booking');
     }
