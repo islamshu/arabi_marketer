@@ -186,7 +186,7 @@
                 var fType = $(
                     "<select class=\"fieldtype\"><option value=\"checkbox\">Checked</option><option value=\"textbox\">Text</option><option value=\"textarea\">Paragraph</option></select>"
                     );
-                var removeButton = $("<input type=\"button\" class=\"remove\" value=\"-\" />");
+                var removeButton = $("<input type=\"button\" class=\"remove\" value=\"delete\" />");
                 removeButton.click(function() {
                     $(this).parent().remove();
                 });
