@@ -173,7 +173,7 @@
     var i = 0;
     $("#add-btn").click(function(){
     ++i;
-    $("#dynamicAddRemove").append('<tr><td><input type="text" name="moreFields['+i+'][url]" placeholder="أضف رابط" class="form-control" /></td><td><select name="moreFields['+i+'][type]" class="form-control"><option value="apple">Apple</option><option value="google">Google</option><option value="url">url</option></select></td><td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>');
+    $("#dynamicAddRemove").append('<tr><td><input required type="text" name="moreFields['+i+'][url]" placeholder="أضف رابط" class="form-control" /></td><td><select required name="moreFields['+i+'][type]" class="form-control"><option value="apple">Apple</option><option value="google">Google</option><option value="url">url</option></select></td><td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>');
     });
     $(document).on('click', '.remove-tr', function(){  
     $(this).parents('tr').remove();
