@@ -27,12 +27,20 @@
                 placeholder="رابط الاداة" /> --}}
             <table class="table table-bordered" id="dynamicAddRemove">
                 <tr>
-                    <th>Title</th>
+                    <th>الرابط</th>
+                    <th>النوع</th>
                     <th>Action</th>
                 </tr>
                 <tr>
-                    <td><input type="text" name="moreFields[0][title]" placeholder="Enter title"
+                    <td><input type="text" name="moreFields[0][url]" placeholder="اضف الرابط"
                             class="form-control" /></td>
+                    <td>
+                    <select name="moreFields[0][type]" class="form-control">
+                        <option value="apple">Apple</option>
+                        <option value="google">Google</option>
+                        <option value="url">url</option>
+
+                    </select>
                     <td><button type="button" name="add" id="add-btn" class="btn btn-success">Add More</button>
                     </td>
                 </tr>
