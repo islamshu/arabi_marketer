@@ -168,7 +168,7 @@
         var i ={{ $tool->links->count() +2  }};
         $("#add-btn").click(function() {
             ++i;
-            alert(i);
+        
             $("#dynamicAddRemove").append('<tr><td><input required type="text" name="moreFields[' + i +
                 '][url]" placeholder="أضف رابط" class="form-control" /></td><td><select required name="moreFields[' +
                 i +
