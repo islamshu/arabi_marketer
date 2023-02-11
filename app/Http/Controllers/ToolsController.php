@@ -131,6 +131,22 @@ class ToolsController extends Controller
                     $vi->image = $image;
                 }
                 $vi->save();
+                linkTool::where('tool_id',$vi->id)->delete();
+                foreach ($request->moreFields as $key => $value) {
+                    $link = new linkTool();
+                    $link->tool_id = $vi->id;
+                    $link->url = $value['url'];
+                    $link->type = $value['type'];
+                    $link->save();
+                 }
+                 ToolCategory::where('tool_id',$vi->id)->delete();
+
+                 foreach ($request->specialty as $category) {
+                     $cat = new ToolCategory();
+                     $cat->tool_id = $vi->id;
+                     $cat->category_id = $category;
+                     $cat->save();
+                 }
              
             });
             Alert::success('Success', 'Tools Updated successfully');
