@@ -102,7 +102,7 @@
                                         <option value="url">Url</option>
                                     </select>
                                 <td>
-                                    <button type="button" name="add" id="add-btn" class="btn btn-success">Add More</button>
+                                    <button type="button" name="remove-tr" id="remove-tr" class="btn btn-success">Delete</button>
                                 </td>
                             </tr>
                         </table>
