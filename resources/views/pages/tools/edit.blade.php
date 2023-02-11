@@ -163,6 +163,7 @@
     </script>
     <script type="text/javascript">
         var i = {{ $tool->links->count() +2 }};
+        alert(i);
         $("#add-btn").click(function() {
             ++i;
             $("#dynamicAddRemove").append('<tr><td><input required type="text" name="moreFields[' + i +
