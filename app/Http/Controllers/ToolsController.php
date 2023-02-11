@@ -104,7 +104,7 @@ class ToolsController extends Controller
 
             array_push($selectedkeywords_array, $selc->id);
         }
-        dd($tool->links->count+2);
+        dd($tool->links->count()+2);
         
 
         return view('pages.tools.edit')->with('count',$tool->links->count+2)->with('specialty',Specialty::get())->with('tool',$tool)->with('type_array',$selectedkeywords_array);
