@@ -11,6 +11,6 @@ class Tools extends Model
     use HasFactory;
     public function links()
     {
-        return $this->hasMany(linkTool::class);
+        return $this->hasMany(linkTool::class,'tool_id');
     }
 }
