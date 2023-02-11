@@ -70,6 +70,10 @@ class GoogleMeetService
                     'email' => 'islamshu12@gmail.com',
                     'organizer' => true,
                 ],
+                [
+                    'email' => 'islamshublaq@hotmail.com',
+                    'organizer' => true,
+                ],
             ],
 
 
