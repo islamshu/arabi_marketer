@@ -28,9 +28,9 @@ class GoogleMeetService
         $this->client = new Google_Client();
         $this->client->setAuthConfig(config_path('google_api_credentials.json'));
         $this->client->setAccessType('offline');
-        $this->client->setSubject('islamshu12@gmail.com');
+        // $this->client->setSubject('islamshu12@gmail.com');
         $this->client->setApplicationName("YourApplicationName");
-        $this->client->addScope([\Google_Service_Calendar::CALENDAR, \Google_Service_Calendar::CALENDAR_EVENTS]);
+        $this->client->setScopes([\Google_Service_Calendar::CALENDAR, \Google_Service_Calendar::CALENDAR_EVENTS]);
     }
 
     public function getClient()
