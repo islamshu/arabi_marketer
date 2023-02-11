@@ -109,10 +109,10 @@
                                 </td>
                             @endforeach
                             <tr>
-                                <td><input type="text" required name="moreFields[0][url]" placeholder="اضف الرابط"
+                                <td><input type="text" required name="moreFields[{{ $tool->links->count() +1 }}][url]" placeholder="اضف الرابط"
                                         class="form-control" /></td>
                                 <td>
-                                    <select name="moreFields[0][type]" required class="form-control">
+                                    <select name="moreFields[{{ $tool->links->count() +1 }}][type]" required class="form-control">
                                         <option value="apple">Apple</option>
                                         <option value="google">Google</option>
                                         <option value="url">Url</option>
@@ -162,7 +162,7 @@
         new Tagify(input1);
     </script>
     <script type="text/javascript">
-        var i = {{ $tool->links->count() +1 }};
+        var i = {{ $tool->links->count() +2 }};
         $("#add-btn").click(function() {
             ++i;
             $("#dynamicAddRemove").append('<tr><td><input required type="text" name="moreFields[' + i +
