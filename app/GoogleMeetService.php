@@ -10,6 +10,7 @@ use Google_Service_Calendar_EventDateTime;
 use Google\Apis\Meet\v1\MeetService;
 use Google_Service_HangoutsMeet;
 use Google_Service_HangoutsMeet_Meeting;
+
 class GoogleMeetService
 {
     private $client;
@@ -25,8 +26,6 @@ class GoogleMeetService
         $this->client->setAccessType('offline');
         $this->client->setPrompt('select_account consent');
         $this->client->setSubject('hello@arabicreators.com');
-
-
     }
 
     public function getClient()
@@ -50,9 +49,9 @@ class GoogleMeetService
                 'email' => 'islamshu12@gmail.com',
                 'responseStatus' => 'accepted'
             ],
-          
+
         ];
-        
+
         $event = new Google_Service_Calendar_Event([
             'summary' => 'Test Meeting',
             'location' => 'Online',
@@ -70,19 +69,19 @@ class GoogleMeetService
                     'email' => 'islamshu12@gmail.com',
                 ],
             ],
-            
 
-            
-           
+
+
+
             'conferenceData' => [
                 'createRequest' => [
-                  'conferenceSolutionKey' => [
-                    'type' => 'hangoutsMeet'
-                  ],
-                  'requestId' => 'randomString123'
+                    'conferenceSolutionKey' => [
+                        'type' => 'hangoutsMeet'
+                    ],
+                    'requestId' => 'randomString123'
                 ]
             ],
-            
+
             // 'attendees' => $attendees,
             'reminders' => [
                 'useDefault' => FALSE,
@@ -99,17 +98,22 @@ class GoogleMeetService
         $conferenceRequest->setRequestId('randomString123');
         $conference->setCreateRequest($conferenceRequest);
         $event->setConferenceData($conference);
-        $event->setOrganizer(array(
-            'email' => 'islamshu12@gmail.com',
-            'displayName' => 'test'
-          ));
+
 
         $optParams = ['conferenceDataVersion' => 1];
 
         $calendarId = env('GOOGLE_CALENDAR_ID');
         $event = $calendarService->events->patch($calendarId, $event->id, $event, ['conferenceDataVersion' => 1]);
-        return $event;
+        $eventId =  $event->id;
+        $event = $calendarService->events->get($calendarId, $eventId);
 
-      
+        // Set the owner of the meeting
+        $event->setOrganizer(array(
+            'email' => 'islamshu12@gmail.com',
+            'displayName' => 'test'
+        ));
+        // Update the meeting details
+        $calendarService->events->update($calendarId, $eventId, $event);
+        return $event;
     }
 }
