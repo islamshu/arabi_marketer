@@ -39,6 +39,9 @@
             </div>
 
         </div>
+        <input type="button" value="Preview form" class="add" id="preview" />
+<input type="button" value="Add a field" class="add" id="add" />
+
       
     </div>
    
@@ -48,5 +51,3 @@
 
 <fieldset id="buildyourform">
 </fieldset>
-<input type="button" value="Preview form" class="add" id="preview" />
-<input type="button" value="Add a field" class="add" id="add" />

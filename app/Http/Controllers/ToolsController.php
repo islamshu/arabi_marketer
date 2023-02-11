@@ -37,6 +37,7 @@ class ToolsController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
         try {
             DB::transaction(function () use ($request) {
                 $vi = new Tools();

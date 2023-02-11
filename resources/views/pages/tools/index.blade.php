@@ -182,7 +182,7 @@
                 var intId = (lastField && lastField.length && lastField.data("idx") + 1) || 1;
                 var fieldWrapper = $("<div class=\"fieldwrapper\" id=\"field" + intId + "\"/>");
                 fieldWrapper.data("idx", intId);
-                var fName = $("<input type=\"text\" class=\"fieldname\" />");
+                var fName = $("<input type=\"text\" name="urls[]" class=\"fieldname\" />");
                 var fType = $(
                     "<select class=\"fieldtype\"><option value=\"checkbox\">Checked</option><option value=\"textbox\">Text</option><option value=\"textarea\">Paragraph</option></select>"
                     );
