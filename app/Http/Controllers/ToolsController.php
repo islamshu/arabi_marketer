@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Alert;
+use App\Models\linkTool;
 use App\Models\Tools;
 use DB;
 use Illuminate\Http\Request;
@@ -40,15 +41,20 @@ class ToolsController extends Controller
         // dd(($request->moreFields));
         try {
             DB::transaction(function () use ($request) {
+                foreach ($request->moreFields as $key => $value) {
+                    dd($value);
+                    linkTool::create($value);
+                }
                 $vi = new Tools();
                 $image = $request->image->store('new_tool');
-                $vi->link = json_encode($request->moreFields);
+                // $vi->link = json_encode($request->moreFields);
                 
-            
                 $vi->title = $request->title;
                 $vi->description = $request->description;
                 $vi->image = $image;
                 $vi->save();
+                
+
 
              
             });
