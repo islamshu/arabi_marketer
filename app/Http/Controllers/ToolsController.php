@@ -42,7 +42,7 @@ class ToolsController extends Controller
         try {
             DB::transaction(function () use ($request) {
                 foreach ($request->moreFields as $key => $value) {
-                    dd($value);
+                    dd($value['url']);
                     linkTool::create($value);
                 }
                 $vi = new Tools();
