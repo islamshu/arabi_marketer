@@ -58,21 +58,21 @@ class GoogleMeetService
             'location' => 'Online',
             'description' => 'This is a test meeting',
             'start' => [
-                'dateTime' => '2023-02-15T09:00:00-07:00',
+                'dateTime' => '2023-02-20T09:00:00-07:00',
                 'timeZone' => 'America/Los_Angeles',
             ],
             'end' => [
-                'dateTime' => '2023-02-15T11:00:00-07:00',
+                'dateTime' => '2023-02-20T11:00:00-07:00',
                 'timeZone' => 'America/Los_Angeles',
             ],
             'attendees' => [
                 [
                     'email' => 'islamshu12@gmail.com',
-                    'organizer' => true,
+                    'self' => true,
                 ],
                 [
                     'email' => 'islamshublaq@hotmail.com',
-                    'organizer' => true,
+                    'self' => true,
                 ],
             ],
 
