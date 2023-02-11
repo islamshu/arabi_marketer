@@ -95,6 +95,7 @@
                                 <th>Action</th>
                             </tr>
                             @foreach ($tool->links as $key => $item)
+                            <tr>
                                 <td><input type="text" value="{{ $item->url }}" required
                                         name="moreFields[{{ $key }}][url]" placeholder="اضف الرابط"
                                         class="form-control" /></td>
@@ -107,6 +108,8 @@
                                 <td>
                                     <button type="button" class="btn btn-danger remove-tr">Remove</button>
                                 </td>
+                                
+                            </tr>
                             @endforeach
                             <tr>
                                 <td><input type="text" required name="moreFields[{{ $tool->links->count() +1 }}][url]" placeholder="اضف الرابط"
@@ -163,8 +166,8 @@
     </script>
     <script type="text/javascript">
         var i = {{ $tool->links->count() +2 }};
-        alert(i);
         $("#add-btn").click(function() {
+            alert(i);
             ++i;
             $("#dynamicAddRemove").append('<tr><td><input required type="text" name="moreFields[' + i +
                 '][url]" placeholder="أضف رابط" class="form-control" /></td><td><select required name="moreFields[' +
