@@ -30,7 +30,7 @@ class GoogleMeetService
         $this->client->setAccessType('offline');
         $this->client->setSubject('islamshu12@gmail.com');
         $this->client->setApplicationName("YourApplicationName");
-        $this->client->setScopes([\Google_Service_Calendar::CALENDAR, \Google_Service_Calendar::CALENDAR_EVENTS]);
+        $this->client->addScope([\Google_Service_Calendar::CALENDAR, \Google_Service_Calendar::CALENDAR_EVENTS]);
     }
 
     public function getClient()
