@@ -79,8 +79,18 @@
                                 <th>النوع</th>
                                 <th>Action</th>
                             </tr>
-                            @foreach ($tool->links as $item)
-                                {{ dd($item) }}
+                            @foreach ($tool->links as $key=> $item)
+                            <td><input type="text" value="{{ $item->url }}" required name="moreFields[{{ $key }}][url]" placeholder="اضف الرابط"
+                                class="form-control" /></td>
+                        <td>
+                            <select name="moreFields[{{ $key }}][type]" required class="form-control">
+                                <option value="apple" @if($item->type == 'apple') @endif>Apple</option>
+                                <option value="google" @if($item->type == 'google') @endif>Google</option>
+                                <option value="url" @if($item->type == 'url') @endif>Url</option>
+                            </select>
+                        <td>
+                            <button type="button" name="add" id="add-btn" class="btn btn-success">Add More</button>
+                        </td>
                             @endforeach
                             <tr>
                                 <td><input type="text" required name="moreFields[0][url]" placeholder="اضف الرابط"
