@@ -1,5 +1,6 @@
 @extends('layout.main')
 
+
 <x-base-layout>
 
     <div class="card card-flush">
@@ -10,7 +11,7 @@
                 role="tablist">
                 <!--begin:::Tab item-->
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link text-active-primary pb-5 " href="/" >
+                    <a class="nav-link text-active-primary pb-5 " href="/">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen001.svg-->
                         <span class="svg-icon svg-icon-2 me-2">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -25,13 +26,18 @@
 
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link text-active-primary pb-5 active" >
+                    <a class="nav-link text-active-primary pb-5 active">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen001.svg-->
                         <span class="svg-icon svg-icon-2 me-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path opacity="0.3" d="M21 22H14C13.4 22 13 21.6 13 21V3C13 2.4 13.4 2 14 2H21C21.6 2 22 2.4 22 3V21C22 21.6 21.6 22 21 22Z" fill="currentColor"></path>
-                                <path d="M10 22H3C2.4 22 2 21.6 2 21V3C2 2.4 2.4 2 3 2H10C10.6 2 11 2.4 11 3V21C11 21.6 10.6 22 10 22Z" fill="currentColor"></path>
-                                </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none">
+                                <path opacity="0.3"
+                                    d="M21 22H14C13.4 22 13 21.6 13 21V3C13 2.4 13.4 2 14 2H21C21.6 2 22 2.4 22 3V21C22 21.6 21.6 22 21 22Z"
+                                    fill="currentColor"></path>
+                                <path
+                                    d="M10 22H3C2.4 22 2 21.6 2 21V3C2 2.4 2.4 2 3 2H10C10.6 2 11 2.4 11 3V21C11 21.6 10.6 22 10 22Z"
+                                    fill="currentColor"></path>
+                            </svg>
                         </span>
                         <!--end::Svg Icon-->الادوات
                     </a>
@@ -40,33 +46,33 @@
 
 
             </ul>
-          
+
 
             <ul class="nav nav-tabs nav-line-tabs nav-line-tabs-2x mb-5 fs-6">
                 <li class="nav-item">
                     <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_4">الادوات</a>
                 </li>
-               
+
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_6">اضف جديد</a>
                 </li>
-                
+
             </ul>
 
-            
+
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="kt_tab_pane_4" role="tabpanel">
                     @include('pages.tools._index')
                 </div>
-                
+
                 <div class="tab-pane fade" id="kt_tab_pane_6" role="tabpanel">
                     @include('pages.tools._create')
                 </div>
-              
+
             </div>
             <!--end:::Tabs-->
             <!--begin:::Tab content-->
-            
+
             <!--end:::Tab content-->
         </div>
         <!--end::Card body-->
@@ -74,85 +80,148 @@
 
 </x-base-layout>
 
-@include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
+@include('sweetalert::alert', ['cdn' => 'https://cdn.jsdelivr.net/npm/sweetalert2@9'])
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+@section('css')
+    <style>
+        body {
+            font-family: Gill Sans MT;
+            padding: 10px;
+        }
 
+        fieldset {
+            border: solid 1px #000;
+            padding: 10px;
+            display: block;
+            clear: both;
+            margin: 5px 0px;
+        }
+
+        legend {
+            padding: 0px 10px;
+            background: black;
+            color: #FFF;
+        }
+
+        input.add {
+            float: right;
+        }
+
+        input.fieldname {
+            float: left;
+            clear: left;
+            display: block;
+            margin: 5px;
+        }
+
+        select.fieldtype {
+            float: left;
+            display: block;
+            margin: 5px;
+        }
+
+        input.remove {
+            float: left;
+            display: block;
+            margin: 5px;
+        }
+
+        #yourform label {
+            float: left;
+            clear: left;
+            display: block;
+            margin: 5px;
+        }
+
+        #yourform input,
+        #yourform textarea {
+            float: left;
+            display: block;
+            margin: 5px;
+        }
+    </style>
+@endsection
 @section('scripts')
     <script>
-           $('#send_form').on('submit', function(e) {
+        $('#send_form').on('submit', function(e) {
             e.preventDefault();
             var frm = $('#send_form');
             var formData = new FormData(frm[0]);
             formData.append('file', $('#imagestore')[0].files[0]);
 
-            storefile("{{ route('tools.store') }}",'post', formData,'#kt_datatable_example_2','send_form','#exampleModal','Added successfully');
-    //        $("#send_form")[0].reset();
-    //        setTimeout(function () {
-    //     location.reload(true);
-    //   }, 3000);
+            storefile("{{ route('tools.store') }}", 'post', formData, '#kt_datatable_example_2', 'send_form',
+                '#exampleModal', 'Added successfully');
+            //        $("#send_form")[0].reset();
+            //        setTimeout(function () {
+            //     location.reload(true);
+            //   }, 3000);
 
 
         });
-        
-   
+
+
         // Define chart element
-     
     </script>
     <script>
         ClassicEditor
-                .create( document.querySelector( '.editor' ) )
-                .then( editor => {
-                        console.log( editor );
-                } )
-                .catch( error => {
-                        console.error( error );
-                } );
-                var input1 = document.querySelector("#kt_tagify_3");
-                new Tagify(input1);
+            .create(document.querySelector('.editor'))
+            .then(editor => {
+                console.log(editor);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+        var input1 = document.querySelector("#kt_tagify_3");
+        new Tagify(input1);
     </script>
     <script>
         $(document).ready(function() {
-    $("#add").click(function() {
-        var lastField = $("#buildyourform div:last");
-        var intId = (lastField && lastField.length && lastField.data("idx") + 1) || 1;
-        var fieldWrapper = $("<div class=\"fieldwrapper\" id=\"field" + intId + "\"/>");
-        fieldWrapper.data("idx", intId);
-        var fName = $("<input type=\"text\" class=\"fieldname\" />");
-        var fType = $("<select class=\"fieldtype\"><option value=\"checkbox\">Checked</option><option value=\"textbox\">Text</option><option value=\"textarea\">Paragraph</option></select>");
-        var removeButton = $("<input type=\"button\" class=\"remove\" value=\"-\" />");
-        removeButton.click(function() {
-            $(this).parent().remove();
+            $("#add").click(function() {
+                var lastField = $("#buildyourform div:last");
+                var intId = (lastField && lastField.length && lastField.data("idx") + 1) || 1;
+                var fieldWrapper = $("<div class=\"fieldwrapper\" id=\"field" + intId + "\"/>");
+                fieldWrapper.data("idx", intId);
+                var fName = $("<input type=\"text\" class=\"fieldname\" />");
+                var fType = $(
+                    "<select class=\"fieldtype\"><option value=\"checkbox\">Checked</option><option value=\"textbox\">Text</option><option value=\"textarea\">Paragraph</option></select>"
+                    );
+                var removeButton = $("<input type=\"button\" class=\"remove\" value=\"-\" />");
+                removeButton.click(function() {
+                    $(this).parent().remove();
+                });
+                fieldWrapper.append(fName);
+                fieldWrapper.append(fType);
+                fieldWrapper.append(removeButton);
+                $("#buildyourform").append(fieldWrapper);
+            });
+            $("#preview").click(function() {
+                $("#yourform").remove();
+                var fieldSet = $("<fieldset id=\"yourform\"><legend>Your Form</legend></fieldset>");
+                $("#buildyourform div").each(function() {
+                    var id = "input" + $(this).attr("id").replace("field", "");
+                    var label = $("<label for=\"" + id + "\">" + $(this).find("input.fieldname")
+                        .first().val() + "</label>");
+                    var input;
+                    switch ($(this).find("select.fieldtype").first().val()) {
+                        case "checkbox":
+                            input = $("<input type=\"checkbox\" id=\"" + id + "\" name=\"" + id +
+                                "\" />");
+                            break;
+                        case "textbox":
+                            input = $("<input type=\"text\" id=\"" + id + "\" name=\"" + id +
+                                "\" />");
+                            break;
+                        case "textarea":
+                            input = $("<textarea id=\"" + id + "\" name=\"" + id +
+                                "\" ></textarea>");
+                            break;
+                    }
+                    fieldSet.append(label);
+                    fieldSet.append(input);
+                });
+                $("body").append(fieldSet);
+            });
         });
-        fieldWrapper.append(fName);
-        fieldWrapper.append(fType);
-        fieldWrapper.append(removeButton);
-        $("#buildyourform").append(fieldWrapper);
-    });
-    $("#preview").click(function() {
-        $("#yourform").remove();
-        var fieldSet = $("<fieldset id=\"yourform\"><legend>Your Form</legend></fieldset>");
-        $("#buildyourform div").each(function() {
-            var id = "input" + $(this).attr("id").replace("field","");
-            var label = $("<label for=\"" + id + "\">" + $(this).find("input.fieldname").first().val() + "</label>");
-            var input;
-            switch ($(this).find("select.fieldtype").first().val()) {
-                case "checkbox":
-                    input = $("<input type=\"checkbox\" id=\"" + id + "\" name=\"" + id + "\" />");
-                    break;
-                case "textbox":
-                    input = $("<input type=\"text\" id=\"" + id + "\" name=\"" + id + "\" />");
-                    break;
-                case "textarea":
-                    input = $("<textarea id=\"" + id + "\" name=\"" + id + "\" ></textarea>");
-                    break;    
-            }
-            fieldSet.append(label);
-            fieldSet.append(input);
-        });
-        $("body").append(fieldSet);
-    });
-});
     </script>
-
 @endsection
