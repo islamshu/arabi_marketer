@@ -103,6 +103,7 @@ class ToolsController extends Controller
         foreach ($selectedtype as $selc) {
             array_push($selectedkeywords_array, $selc->title);
         }
+        dd($selectedkeywords_array);
         
 
         return view('pages.tools.edit')->with('specialty',Specialty::get())->with('tool',$tool)->with('type_array',$selectedkeywords_array);
