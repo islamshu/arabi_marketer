@@ -58,11 +58,11 @@ class GoogleMeetService
             'location' => 'Online',
             'description' => 'This is a test meeting',
             'start' => [
-                'dateTime' => '2023-02-13T09:00:00-07:00',
+                'dateTime' => '2023-02-14T09:00:00-07:00',
                 'timeZone' => 'America/Los_Angeles',
             ],
             'end' => [
-                'dateTime' => '2023-02-13T11:00:00-07:00',
+                'dateTime' => '2023-02-14T11:00:00-07:00',
                 'timeZone' => 'America/Los_Angeles',
             ],
             'attendees' => [
@@ -112,6 +112,8 @@ class GoogleMeetService
         $organizer = new Google_Service_Calendar_EventOrganizer();
         $organizer->setEmail($newOwnerEmail);
         $organizer->setDisplayName('New Owner');
+        $event->setOrganizer($organizer);
+
         // Update the meeting details
         $calendarService->events->update($calendarId, $eventId, $event);
         return $event;
