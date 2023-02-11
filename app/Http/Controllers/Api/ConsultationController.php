@@ -162,7 +162,6 @@ class ConsultationController extends BaseController
         return $this->sendResponse($userRes, 'all booking');
     }
     public function booking_consultion_creators(){
-        dd(auth('api')->id());
         $booking = BookingConsultion::has('consult')->wherehas('consult',function($q){
             $q->where('user_id',auth('api')->id());
         } )->get();
