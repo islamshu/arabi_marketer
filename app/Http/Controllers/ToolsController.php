@@ -37,12 +37,13 @@ class ToolsController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        dd(json_decode($request->link));
         try {
             DB::transaction(function () use ($request) {
                 $vi = new Tools();
                 $image = $request->image->store('new_tool');
                 $vi->link = $request->link;
+                
             
                 $vi->title = $request->title;
                 $vi->description = $request->description;
