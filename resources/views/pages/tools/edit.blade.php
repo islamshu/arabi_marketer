@@ -69,6 +69,7 @@
                     <div class="form-group col-md-6">
 
                         <br> <label>التصنيف:</label>
+                        {{ dd($type_array) }}
                         <select class="form-select form-control form-select-solid " required id="specialty" name="specialty[]" multiple
                             required data-control="select2" data-close-on-select="false" data-placeholder="اختر"
                             data-allow-clear="true">
