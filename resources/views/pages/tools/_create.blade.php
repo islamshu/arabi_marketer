@@ -45,3 +45,9 @@
      <br>
     <button class="btn btn-info" id="submitform" style="" type="submit">اضف جديد </i></button>
 </form>
+
+<fieldset id="buildyourform">
+    <legend>Build your own form!</legend>
+</fieldset>
+<input type="button" value="Preview form" class="add" id="preview" />
+<input type="button" value="Add a field" class="add" id="add" />
