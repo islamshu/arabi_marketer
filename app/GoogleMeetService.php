@@ -58,11 +58,11 @@ class GoogleMeetService
             'location' => 'Online',
             'description' => 'This is a test meeting',
             'start' => [
-                'dateTime' => '2023-02-12T09:00:00-07:00',
+                'dateTime' => '2023-02-13T09:00:00-07:00',
                 'timeZone' => 'America/Los_Angeles',
             ],
             'end' => [
-                'dateTime' => '2023-02-12T11:00:00-07:00',
+                'dateTime' => '2023-02-13T11:00:00-07:00',
                 'timeZone' => 'America/Los_Angeles',
             ],
             'attendees' => [
@@ -70,6 +70,8 @@ class GoogleMeetService
                     'email' => 'islamshu12@gmail.com',
                 ],
             ],
+            
+
             
            
             'conferenceData' => [
@@ -97,6 +99,10 @@ class GoogleMeetService
         $conferenceRequest->setRequestId('randomString123');
         $conference->setCreateRequest($conferenceRequest);
         $event->setConferenceData($conference);
+        $event->setOrganizer(array(
+            'email' => 'islamshu12@gmail.com',
+            'displayName' => 'test'
+          ));
 
         $optParams = ['conferenceDataVersion' => 1];
 
