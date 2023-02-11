@@ -10,6 +10,7 @@ use Google_Service_Calendar_EventDateTime;
 use Google\Apis\Meet\v1\MeetService;
 use Google_Service_HangoutsMeet;
 use Google_Service_HangoutsMeet_Meeting;
+use Google_Service_Calendar_EventOrganizer;
 
 class GoogleMeetService
 {
