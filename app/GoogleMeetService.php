@@ -58,11 +58,11 @@ class GoogleMeetService
             'location' => 'Online',
             'description' => 'This is a test meeting',
             'start' => [
-                'dateTime' => '2023-02-14T09:00:00-07:00',
+                'dateTime' => '2023-02-15T09:00:00-07:00',
                 'timeZone' => 'America/Los_Angeles',
             ],
             'end' => [
-                'dateTime' => '2023-02-14T11:00:00-07:00',
+                'dateTime' => '2023-02-15T11:00:00-07:00',
                 'timeZone' => 'America/Los_Angeles',
             ],
             'attendees' => [
