@@ -22,7 +22,7 @@
 
         <div class="form-group col-md-6">
 
-          <br> <label>رابط الخدمة:</label>
+          <br> <label>روابط الاداة :</label>
             {{--   <input type="url" name="link" id="link"  class="form-control form-control-solid"
                 placeholder="رابط الاداة" /> --}}
             <table class="table table-bordered" id="dynamicAddRemove">
@@ -51,7 +51,7 @@
 
         <div class=" col-md-12">
             <div class="form-group">
-                <br> <label data-error="wrong" data-success="right" for="form3"> صور عن الخدمة <span
+                <br> <label data-error="wrong" data-success="right" for="form3"> صور عن الاداة <span
                         class="required"></span></label>
                 {{-- <input type="file" multiple id="imageupload" name="images[]" class="form-control"> --}}
                 <input id="imagestore" class="form-control image" required type="file" name="image"><br />
