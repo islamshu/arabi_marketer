@@ -41,10 +41,7 @@ class ToolsController extends Controller
         // dd(($request->moreFields));
         try {
             DB::transaction(function () use ($request) {
-                foreach ($request->moreFields as $key => $value) {
-                    dd($value['url']);
-                    linkTool::create($value);
-                }
+              
                 $vi = new Tools();
                 $image = $request->image->store('new_tool');
                 // $vi->link = json_encode($request->moreFields);
@@ -53,7 +50,13 @@ class ToolsController extends Controller
                 $vi->description = $request->description;
                 $vi->image = $image;
                 $vi->save();
-                
+                foreach ($request->moreFields as $key => $value) {
+                   $link = new linkTool();
+                   $link->tool_id = $vi->id;
+                   $link->url = $value['url'];
+                   $link->type = $value['type'];
+                   $link->save();
+                }
 
 
              
