@@ -141,16 +141,20 @@
 @section('scripts')
 
     <script>
-        ClassicEditor
-            .create(document.querySelector('.editor'))
-            .then(editor => {
-                console.log(editor);
-            })
-            .catch(error => {
-                console.error(error);
-            });
+      
+        
         var input1 = document.querySelector("#kt_tagify_3");
         new Tagify(input1);
     </script>
+       <script type="text/javascript">
+        var i = 0;
+        $("#add-btn").click(function(){
+        ++i;
+        $("#dynamicAddRemove").append('<tr><td><input required type="text" name="moreFields['+i+'][url]" placeholder="أضف رابط" class="form-control" /></td><td><select required name="moreFields['+i+'][type]" class="form-control"><option value="apple">Apple</option><option value="google">Google</option><option value="url">Url</option></select></td><td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>');
+        });
+        $(document).on('click', '.remove-tr', function(){  
+        $(this).parents('tr').remove();
+        });  
+        </script>
  
 @endsection
