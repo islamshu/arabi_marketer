@@ -54,7 +54,7 @@
                         <select name="moreFields[0][type]" required class="form-control">
                             <option value="apple">Apple</option>
                             <option value="google">Google</option>
-                            <option value="url">url</option>
+                            <option value="url">Url</option>
                         </select>
                     <td>
                         <button type="button" name="add" id="add-btn" class="btn btn-success">Add More</button>
