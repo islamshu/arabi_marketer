@@ -42,7 +42,7 @@ class ToolsController extends Controller
             DB::transaction(function () use ($request) {
                 $vi = new Tools();
                 $image = $request->image->store('new_tool');
-                $vi->link = json_decode($request->moreFields);
+                $vi->link = json_encode($request->moreFields);
                 
             
                 $vi->title = $request->title;
