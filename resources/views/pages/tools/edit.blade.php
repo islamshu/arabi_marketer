@@ -66,7 +66,22 @@
 
                     </div>
 
+                    <div class="form-group col-md-6">
 
+                        <br> <label>التصنيف:</label>
+                        <select class="form-select form-control form-select-solid " required id="specialty" name="specialty[]" multiple
+                            required data-control="select2" data-close-on-select="false" data-placeholder="اختر"
+                            data-allow-clear="true">
+                            <option value=""></option>
+                            @foreach ($specialty as $item)
+                                <option value="{{ $item->id }}" @if(in_array($item->id,$type_array)) selected @endif>{{ $item->title }}</option>
+                            @endforeach
+                        </select>
+            
+            
+                    </div>
+                </div>
+                <div class="row">
 
                     <div class="form-group col-md-6">
 
@@ -147,7 +162,7 @@
         new Tagify(input1);
     </script>
     <script type="text/javascript">
-        var i = 0;
+        var i = $tool->links->count() +1;
         $("#add-btn").click(function() {
             ++i;
             $("#dynamicAddRemove").append('<tr><td><input required type="text" name="moreFields[' + i +

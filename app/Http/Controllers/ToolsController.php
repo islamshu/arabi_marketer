@@ -97,7 +97,15 @@ class ToolsController extends Controller
      */
     public function edit($id)
     {
-        return view('pages.tools.edit')->with('tool',Tools::find($id));
+        $tool =Tools::find($id);
+        $selectedtype = $tool->specialty;
+        $selectedkeywords_array = array();
+        foreach ($selectedtype as $selc) {
+            array_push($selectedkeywords_array, $selc->title);
+        }
+        
+
+        return view('pages.tools.edit')->with('specialty',Specialty::get())->with('tool',$tool)->with('type_array',$selectedkeywords_array);
 
     }
 

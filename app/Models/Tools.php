@@ -13,4 +13,8 @@ class Tools extends Model
     {
         return $this->hasMany(linkTool::class,'tool_id');
     }
+    public function specialty()
+    {
+        return $this->belongsToMany(Specialty::class, 'tool_categories','tool_id', 'category_id');
+    }
 }
