@@ -162,7 +162,7 @@
         new Tagify(input1);
     </script>
     <script type="text/javascript">
-        var i = $tool->links->count() +1;
+        var i = {{ $tool->links->count() +1 }};
         $("#add-btn").click(function() {
             ++i;
             $("#dynamicAddRemove").append('<tr><td><input required type="text" name="moreFields[' + i +
