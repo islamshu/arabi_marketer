@@ -165,7 +165,6 @@ class ConsultationController extends BaseController
         $booking = BookingConsultion::where('paid_status','paid')->has('consult')->wherehas('consult',function($q){
             $q->where('user_id',auth('api')->id());
         } )->get();
-        dd($booking);
         $userRes = BookingConsultionResourse::collection($booking);
         return $this->sendResponse($userRes, 'all booking');
     }
