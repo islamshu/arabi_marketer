@@ -165,13 +165,13 @@
         new Tagify(input1);
     </script>
     <script type="text/javascript">
-        var i ={{$count  }};
+        var d ={{$count  }};
         $("#add-btn").click(function() {
-            ++i;
+            ++d;
         
-            $("#dynamicAddRemove").append('<tr><td><input required type="text" name="moreFields[' + i +
+            $("#dynamicAddRemove").append('<tr><td><input required type="text" name="moreFields[' + d +
                 '][url]" placeholder="أضف رابط" class="form-control" /></td><td><select required name="moreFields[' +
-                i +
+                d +
                 '][type]" class="form-control"><option value="apple">Apple</option><option value="google">Google</option><option value="url">Url</option></select></td><td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>'
                 );
         });
