@@ -37,20 +37,23 @@ class ToolsController extends Controller
      */
     public function store(Request $request)
     {
-        dd(($request->moreFields));
+        // dd(($request->moreFields));
         try {
             DB::transaction(function () use ($request) {
                 $vi = new Tools();
                 $image = $request->image->store('new_tool');
-                $vi->link = $request->link;
+                $vi->link = $request->moreFields;
                 
             
                 $vi->title = $request->title;
                 $vi->description = $request->description;
                 $vi->image = $image;
                 $vi->save();
+                dd($vi);
+
              
             });
+            dd('d');
             Alert::success('Success', 'Tools Uploded successfully');
 
             return redirect()->back();
