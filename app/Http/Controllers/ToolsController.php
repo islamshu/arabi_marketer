@@ -58,8 +58,7 @@ class ToolsController extends Controller
                    $link->type = $value['type'];
                    $link->save();
                 }
-                $category = explode(',', $request->type_id);
-                foreach ($category as $category) {
+                foreach ($request->specialty as $category) {
                     $cat = new ToolCategory();
                     $cat->tool_id = $vi->id;
                     $cat->category_id = $category;
