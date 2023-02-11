@@ -101,6 +101,8 @@ class ToolsController extends Controller
         $selectedtype = $tool->specialty;
         $selectedkeywords_array = array();
         foreach ($selectedtype as $selc) {
+            dd($selc);
+            
             array_push($selectedkeywords_array, $selc->title);
         }
         dd($selectedkeywords_array);
