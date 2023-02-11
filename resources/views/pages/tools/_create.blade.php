@@ -14,7 +14,7 @@
         <div class="form-group col-md-8">
 
             <br><label> الوصف :</label>
-            <textarea name="description" required class="form-control" id=""></textarea>
+            <textarea name="description"  required class="editor" id=""></textarea>
 
         </div>
 
@@ -22,8 +22,8 @@
 
         <div class="form-group col-md-6">
 
-            {{-- <br> <label>رابط الخدمة:</label>
-            <input type="url" name="link" id="link"  class="form-control form-control-solid"
+          <br> <label>رابط الخدمة:</label>
+            {{--   <input type="url" name="link" id="link"  class="form-control form-control-solid"
                 placeholder="رابط الاداة" /> --}}
             <table class="table table-bordered" id="dynamicAddRemove">
                 <tr>
