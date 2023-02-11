@@ -39,7 +39,7 @@ class ToolsController extends Controller
      */
     public function store(Request $request)
     {
-        // dd(($request->moreFields));
+        dd(($request->all()));
         try {
             DB::transaction(function () use ($request) {
               
