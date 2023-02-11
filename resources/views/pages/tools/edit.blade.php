@@ -112,10 +112,10 @@
                             </tr>
                             @endforeach
                             <tr>
-                                <td><input type="text" required name="moreFields[{{ $tool->links->count() +1 }}][url]" placeholder="اضف الرابط"
+                                <td><input type="text"  name="moreFields[{{ $tool->links->count() +1 }}][url]" placeholder="اضف الرابط"
                                         class="form-control" /></td>
                                 <td>
-                                    <select name="moreFields[{{ $tool->links->count() +1 }}][type]" required class="form-control">
+                                    <select name="moreFields[{{ $tool->links->count() +1 }}][type]"  class="form-control">
                                         <option value="apple">Apple</option>
                                         <option value="google">Google</option>
                                         <option value="url">Url</option>
@@ -135,7 +135,7 @@
                             <br> <label data-error="wrong" data-success="right" for="form3"> صور عن الخدمة <span
                                     class="required"></span></label>
                             {{-- <input type="file" multiple id="imageupload" name="images[]" class="form-control"> --}}
-                            <input id="imagestore" class="form-control image" required type="file"
+                            <input id="imagestore" class="form-control image"  type="file"
                                 name="image"><br />
                             <div class="form-group">
                                 <img src="{{ asset('public/uploads/' . $tool->image) }}" style="width: 100px"
