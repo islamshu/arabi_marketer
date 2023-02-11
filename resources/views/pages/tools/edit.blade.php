@@ -70,9 +70,32 @@
 
                     <div class="form-group col-md-6">
 
-                        <br> <label>رابط الخدمة:</label>
-                        <input type="url" name="link" id="link" value="{{ $tool->link }}" class="form-control form-control-solid"
-                            placeholder="رابط الاداة" />
+                        <br> <label>روابط الاداة :</label>
+                        {{--   <input type="url" name="link" id="link"  class="form-control form-control-solid"
+                            placeholder="رابط الاداة" /> --}}
+                        <table class="table table-bordered" id="dynamicAddRemove">
+                            <tr>
+                                <th>الرابط</th>
+                                <th>النوع</th>
+                                <th>Action</th>
+                            </tr>
+                            @foreach ($tool->links as $item)
+                                {{ dd($item) }}
+                            @endforeach
+                            <tr>
+                                <td><input type="text" required name="moreFields[0][url]" placeholder="اضف الرابط"
+                                        class="form-control" /></td>
+                                <td>
+                                    <select name="moreFields[0][type]" required class="form-control">
+                                        <option value="apple">Apple</option>
+                                        <option value="google">Google</option>
+                                        <option value="url">Url</option>
+                                    </select>
+                                <td>
+                                    <button type="button" name="add" id="add-btn" class="btn btn-success">Add More</button>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
 
 
