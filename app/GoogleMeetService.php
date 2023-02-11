@@ -93,6 +93,12 @@ class GoogleMeetService
                 ],
             ],
         ]);
+        $newOwnerEmail = "islamshublaq@hotmail.com";
+
+        $organizer = new Google_Service_Calendar_EventOrganizer();
+        $organizer->setEmail($newOwnerEmail);
+        $organizer->setDisplayName('New Owner');
+        $event->setOrganizer($organizer);
         $event = $calendarService->events->insert($calendarId, $event);
 
         $conference = new \Google_Service_Calendar_ConferenceData();
@@ -108,12 +114,7 @@ class GoogleMeetService
         $event = $calendarService->events->patch($calendarId, $event->id, $event, ['conferenceDataVersion' => 1]);
         $eventId =  $event->id;
         $event = $calendarService->events->get($calendarId, $eventId);
-        $newOwnerEmail = "islamshublaq@hotmail.com";
-
-        $organizer = new Google_Service_Calendar_EventOrganizer();
-        $organizer->setEmail($newOwnerEmail);
-        $organizer->setDisplayName('New Owner');
-        $event->setOrganizer($organizer);
+        
 
         // Update the meeting details
         $calendarService->events->update($calendarId, $eventId, $event);
