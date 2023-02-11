@@ -102,7 +102,7 @@ class ToolsController extends Controller
         $selectedkeywords_array = array();
         foreach ($selectedtype as $selc) {
 
-            array_push($selectedkeywords_array, $selc->title);
+            array_push($selectedkeywords_array, $selc->id);
         }
         
 
