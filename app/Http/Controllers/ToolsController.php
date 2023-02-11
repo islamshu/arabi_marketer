@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Alert;
 use App\Models\linkTool;
+use App\Models\Specialty;
 use App\Models\Tools;
 use DB;
 use Illuminate\Http\Request;
@@ -17,7 +18,7 @@ class ToolsController extends Controller
      */
     public function index()
     {
-        return view('pages.tools.index')->with('tools',Tools::orderby('id','desc')->get());
+        return view('pages.tools.index')->with('tools',Tools::orderby('id','desc')->get())->with('specialty',Specialty::get());
     }
 
     /**

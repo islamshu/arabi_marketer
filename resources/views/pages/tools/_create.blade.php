@@ -17,6 +17,20 @@
             <textarea name="description" name="description" required   class="form-control" id=""></textarea>
 
         </div>
+        <div class="form-group col-md-6">
+
+            <br> <label>التصنيف:</label>
+            <select class="form-select form-control form-select-solid " id="specialty" name="specialty[]" multiple
+                required data-control="select2" data-close-on-select="false" data-placeholder="اختر"
+                data-allow-clear="true">
+                <option value=""></option>
+                @foreach ($specialty as $item)
+                    <option value="{{ $item->id }}">{{ $item->title }}</option>
+                @endforeach
+            </select>
+
+
+        </div>
 
 
 
