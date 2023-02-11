@@ -68,5 +68,4 @@
     <button class="btn btn-info" id="submitform" style="" type="submit">اضف جديد </i></button>
 </form>
 
-<fieldset id="buildyourform">
-</fieldset>
+
