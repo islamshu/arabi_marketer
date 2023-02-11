@@ -39,7 +39,6 @@ class ToolsController extends Controller
      */
     public function store(Request $request)
     {
-        dd(($request->all()));
         try {
             DB::transaction(function () use ($request) {
               
@@ -57,6 +56,13 @@ class ToolsController extends Controller
                    $link->url = $value['url'];
                    $link->type = $value['type'];
                    $link->save();
+                }
+                $category = explode(',', $request->type_id);
+                foreach ($category as $category) {
+                    $cat = new ToolCategory();
+                    $cat->tool_id = $vi->id;
+                    $cat->category_id = $category;
+                    $cat->save();
                 }
 
 
