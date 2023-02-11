@@ -49,14 +49,12 @@ class ToolsController extends Controller
                 $vi->description = $request->description;
                 $vi->image = $image;
                 $vi->save();
-                dd($vi);
 
              
             });
-            dd('d');
             Alert::success('Success', 'Tools Uploded successfully');
 
-            return redirect()->back();
+            // return redirect()->back();
         } catch (\Throwable $e) {
             return $e;
         }
