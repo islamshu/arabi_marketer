@@ -149,14 +149,13 @@
             var frm = $('#send_form');
             var formData = new FormData(frm[0]);
             formData.append('file', $('#imagestore')[0].files[0]);
-            alert(formData);
 
             storefile("{{ route('tools.store') }}", 'post', formData, '#kt_datatable_example_2', 'send_form',
                 '#exampleModal', 'Added successfully');
-                   $("#send_form")[0].reset();
-                   setTimeout(function () {
-                location.reload(true);
-              }, 3000);
+            //        $("#send_form")[0].reset();
+            //        setTimeout(function () {
+            //     location.reload(true);
+            //   }, 3000);
 
 
         });
