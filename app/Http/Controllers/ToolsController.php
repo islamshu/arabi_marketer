@@ -106,7 +106,7 @@ class ToolsController extends Controller
         }
         
 
-        return view('pages.tools.edit')->with('count',$tool->links->count()+2)->with('specialty',Specialty::get())->with('tool',$tool)->with('type_array',$selectedkeywords_array);
+        return view('pages.tools.edit')->with('count',$tool->links->count()+1)->with('specialty',Specialty::get())->with('tool',$tool)->with('type_array',$selectedkeywords_array);
 
     }
 
