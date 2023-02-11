@@ -133,6 +133,7 @@ class ToolsController extends Controller
                 $vi->save();
                 linkTool::where('tool_id',$vi->id)->delete();
                 foreach ($request->moreFields as $key => $value) {
+                    dd($value);
                     $link = new linkTool();
                     $link->tool_id = $vi->id;
                     $link->url = $value['url'];
