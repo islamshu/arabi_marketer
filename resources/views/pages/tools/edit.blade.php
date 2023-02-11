@@ -165,7 +165,7 @@
         new Tagify(input1);
     </script>
     <script type="text/javascript">
-        var i = {{ $tool->links->count()  }} +2;
+        var i ={{ $tool->links->count() +2  }};
         $("#add-btn").click(function() {
             ++i;
             alert(i);
