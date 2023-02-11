@@ -14,7 +14,7 @@
         <div class="form-group col-md-8">
 
             <br><label> الوصف :</label>
-            <textarea name="description" name="description"   class="editor" id=""></textarea>
+            <textarea name="description" name="description"   class="form-control" id=""></textarea>
 
         </div>
 
