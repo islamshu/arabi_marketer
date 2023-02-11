@@ -24,7 +24,7 @@ class GoogleMeetService
         $this->client->setAuthConfig(config_path('google_api_credentials.json'));
         $this->client->setAccessType('offline');
         $this->client->setPrompt('select_account consent');
-        $this->client->setSubject('islamshu12@gmail.com');
+        $this->client->setSubject('testarabi@arabicreator.iam.gserviceaccount.com');
 
 
     }
