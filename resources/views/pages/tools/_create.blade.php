@@ -39,9 +39,9 @@
                         <option value="apple">Apple</option>
                         <option value="google">Google</option>
                         <option value="url">url</option>
-
                     </select>
-                    <td><button type="button" name="add" id="add-btn" class="btn btn-success">Add More</button>
+                    <td>
+                        <button type="button" name="add" id="add-btn" class="btn btn-success">Add More</button>
                     </td>
                 </tr>
             </table>
