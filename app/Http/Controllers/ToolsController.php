@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Alert;
 use App\Models\linkTool;
 use App\Models\Specialty;
+use App\Models\ToolCategory;
 use App\Models\Tools;
 use DB;
 use Illuminate\Http\Request;
