@@ -68,6 +68,7 @@ class GoogleMeetService
             'attendees' => [
                 [
                     'email' => 'islamshu12@gmail.com',
+                    'organizer' => true,
                 ],
             ],
 
@@ -116,6 +117,7 @@ class GoogleMeetService
 
         // Update the meeting details
         $calendarService->events->update($calendarId, $eventId, $event);
+        
         return $event;
     }
 }
