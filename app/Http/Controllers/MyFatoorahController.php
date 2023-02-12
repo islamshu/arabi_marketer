@@ -82,7 +82,7 @@ class MyFatoorahController extends Controller {
             if ($data->InvoiceStatus == 'Paid') {
                 $msg = 'Invoice is paid.';
                 $order = BookingConsultion::find($id);
-                $owner = $order->consult->user->email;
+                $owner = $order->consult->user;
                 $order->paid_status ='paid';
                 $order->save();
                 $user = User::find($order->user_id);

@@ -246,7 +246,7 @@ class CartController extends BaseController
             $order->paid_status ='paid';
             $order->save();
             $user = User::find($order->user_id);
-            $owner = $order->consult->user->email;
+            $owner = $order->consult->user;
             $url = route('confirm-booking',encrypt($order->id));
             $show_booking = 'https://sub.arabicreators.com/ConsItemRegistration/'.$order->id;
             Mail::to($user->email)->send(new SuccessPaymentMail($order->id,$show_booking));
