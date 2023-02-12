@@ -146,7 +146,7 @@
           <!-- start copy -->
           <tr>
             <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-              <p style="margin: 0;">لمشاهدة كل تفاصيل الحجز اضغط على الرابط التالي   {{ $order_id }}<a href="http://arabicreators.com/">Arabicreator</a>
+              <p style="margin: 0;">لمشاهدة كل تفاصيل الحجز اضغط على الرابط التالي  <a href="http://arabicreators.com/">Arabicreator</a>
               </p>
             </td>
           </tr>
@@ -161,7 +161,7 @@
                     <table border="0" cellpadding="0" cellspacing="0">
                       <tr>
                         <td align="center" bgcolor="#1a82e2" style="border-radius: 6px;">
-                          <a href="{{ $order_id }}" target="_blank" style="display: inline-block; padding: 16px 36px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; border-radius: 6px;">افتح الرابط هنا</a>
+                          <a href="{{ $url }}" target="_blank" style="display: inline-block; padding: 16px 36px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; border-radius: 6px;">افتح الرابط هنا</a>
                         </td>
                       </tr>
                     </table>
