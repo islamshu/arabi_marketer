@@ -57,7 +57,7 @@ class ConsultationController extends BaseController
     }
     public function get_json($id){
         $cons = Consulting::find($id);
-        dd($cons);
+        return($cons);
         $start_time = $cons->user->con_user->start_at;
         $end_time = $cons->user->con_user->end_at;
 
