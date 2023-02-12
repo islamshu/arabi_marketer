@@ -59,11 +59,9 @@ class ConsultationController extends BaseController
         $cons = Consulting::find($id);
         $start_time = $cons->user->con_user->start_at;
         $end_time = $cons->user->con_user->end_at;
-
         $period = CarbonPeriod::create($cons->start_at, $cons->end_at);
         $start_date = $cons->start_at.'T00:00:00.000Z';
         $mints = str_replace('د','',$cons->min);
-        
         $json_all_date = [];
 
         // $json_date['date']=$start_date;

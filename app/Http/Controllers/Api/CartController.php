@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Api;
+
+use App\GoogleMeetService;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\CartResource;
@@ -14,6 +16,7 @@ use App\Models\Order;
 use App\Models\OrderDetiles;
 use App\Models\Service;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Mail;
 use MyFatoorah\Library\PaymentMyfatoorahApiV2;
@@ -248,9 +251,21 @@ class CartController extends BaseController
             $user = User::find($order->user_id);
             $owner = $order->consult->user;
             $url = route('confirm-booking',encrypt($order->id));
+            $startTime = Carbon::parse($order->date);
+            $endTime= $startTime->addMinutes($order->consult->min);
+            $email ='';
+
             $show_booking = 'https://sub.arabicreators.com/ConsItemRegistration/'.$order->id;
+            if($order->meeting_app == 'Google Meet'){
+                $googleAPI = new GoogleMeetService();
+                $event = $googleAPI->createMeet($order->consult->title, $order->consult->description, $startTime, $endTime,$email);
+            }
+
             Mail::to($user->email)->send(new SuccessPaymentMail($order->id,$show_booking));
             Mail::to($owner->email)->send(new ShowBookingInfo($url,$show_booking));
+            return response()->json([
+                'event' => $event,
+            ]);
         
           
         return view('success_paid');
