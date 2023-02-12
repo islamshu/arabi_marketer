@@ -64,9 +64,9 @@
                                     <th>#</th>
                                     <th>عنوان الاستشارة </th>
                                     <th>اضيف بواسطة </th>
-                                    <th>تاريخ الاضافة </th>
+                                    {{-- <th>تاريخ الاضافة </th>
 
-                                    <th>العمليات</th>
+                                    <th>العمليات</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
@@ -74,10 +74,11 @@
                                 <tr>
                                  <td>{{ $key+1 }}</td>
                                  <td>{{ $item->title }}</td>
-                                 <th><a href="{{ route('marketer.show',$item->user->id) }}">{{ $item->user->name }}</a></th>
-                                 <td>{{ $item->created_at->format('Y-m-d') }}</td>
+                                 <td>{{ @$item->user->id }}</td>
+                                 {{-- <th><a href="{{ route('marketer.show',$item->user->id) }}">{{ $item->user->name }}</a></th> --}}
+                                 {{-- <td>{{ $item->created_at->format('Y-m-d') }}</td> --}}
 
-                                 <td>
+                                 {{-- <td>
                                     <a href="{{ route('consloution.show', $item->id) }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
 
                                     <a href="{{ route('consloution.edit', $item->id) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
@@ -88,7 +89,7 @@
                                         <button type="submit" class="btn btn-danger delete-confirm"><i
                                                 class="fa fa-trash"></i></button>
                                     </form>
-                                </td>
+                                </td> --}}
                                 </tr>
                                     
                                 @endforeach

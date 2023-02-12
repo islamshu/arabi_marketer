@@ -283,7 +283,6 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('videos', VideoController::class);
     Route::resource('consloution', ConsultingController::class);
-    Route::resource('consloution', ConsultingController::class);
     Route::post('reject_cons', [ConsultingController::class,'reject_cons'])->name('reject_cons');
 
     
