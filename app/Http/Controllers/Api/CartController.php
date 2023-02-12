@@ -260,13 +260,11 @@ class CartController extends BaseController
                 $googleAPI = new GoogleMeetService();
                 $event = $googleAPI->createMeet($order->consult->title, $order->consult->description, $startTime, $endTime,$email);
             }
-
+            $order->meeting_link = $event->hangoutLink;
+            $order->save();
             Mail::to($user->email)->send(new SuccessPaymentMail($order->id,$show_booking));
             Mail::to($owner->email)->send(new ShowBookingInfo($url,$show_booking));
-            return response()->json([
-                'event' => $event,
-            ]);
-        
+           
           
         return view('success_paid');
         }

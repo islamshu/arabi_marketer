@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\GoogleMeetService;
 use App\Mail\ShowBookingInfo;
 use App\Mail\SuccessPaymentMail;
 use App\Models\BookingConsultion;
 use App\Models\User;
+use Carbon\Carbon;
 use Mail;
 use MyFatoorah\Library\PaymentMyfatoorahApiV2;
 
@@ -82,12 +84,22 @@ class MyFatoorahController extends Controller {
             if ($data->InvoiceStatus == 'Paid') {
                 $msg = 'Invoice is paid.';
                 $order = BookingConsultion::find($id);
-                $owner = $order->consult->user;
                 $order->paid_status ='paid';
                 $order->save();
                 $user = User::find($order->user_id);
+                $owner = $order->consult->user;
                 $url = route('confirm-booking',encrypt($order->id));
+                $startTime = Carbon::parse($order->date);
+                $endTime= $startTime->addMinutes($order->consult->min);
+                $email ='';
+    
                 $show_booking = 'https://sub.arabicreators.com/ConsItemRegistration/'.$order->id;
+                if($order->meeting_app == 'Google Meet'){
+                    $googleAPI = new GoogleMeetService();
+                    $event = $googleAPI->createMeet($order->consult->title, $order->consult->description, $startTime, $endTime,$email);
+                }
+                $order->meeting_link = $event->hangoutLink;
+                $order->save();
                 Mail::to($user->email)->send(new SuccessPaymentMail($order->id,$show_booking));
                 Mail::to($owner->email)->send(new ShowBookingInfo($url,$show_booking));
 
