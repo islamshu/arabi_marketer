@@ -459,7 +459,7 @@
                                         
                                         <!--end::Product-->
                                         <!--begin::SKU-->
-                                        <td class="text-end">{{ $booking->day }} ({{ $booking->form }} - {{ $booking->to }}  )</td>
+                                        <td class="text-end">{{ $booking->date }}  )</td>
                                         <!--end::SKU-->
                                         <!--begin::Quantity-->
                                         <td class="text-end">{{ $order->price }}$</td>
