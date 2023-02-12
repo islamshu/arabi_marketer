@@ -189,7 +189,10 @@ class ConsultationController extends BaseController
     }
     public function all_consultation()
     {
-        $cons = Consulting::orderby('id', 'desc')->where('status',1)->get();
+        $cons=  Consulting::with('user')->wherehas('user',function($q){
+            $q->where('deleted_at',null);
+        })->where('status',1)->orderby('id', 'desc')->get();
+        // $cons = Consulting::orderby('id', 'desc')->where('status',1)->get();
         $res = ConsultingResource::collection($cons)->response()->getData(true);
         return $this->sendResponse($res, 'جميع الاستشارات');
     }
