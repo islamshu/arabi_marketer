@@ -94,12 +94,7 @@ class MyFatoorahController extends Controller {
                 $email ='';
     
                 $show_booking = 'https://sub.arabicreators.com/ConsItemRegistration/'.$order->id;
-                if($order->meeting_app == 'Google Meet'){
-                    $googleAPI = new GoogleMeetService();
-                    $event = $googleAPI->createMeet($order->consult->title, $order->consult->description, $startTime, $endTime,$email);
-                }
-                $order->meeting_link = $event->hangoutLink;
-                $order->save();
+                
                 Mail::to($user->email)->send(new SuccessPaymentMail($order->id,$show_booking));
                 Mail::to($owner->email)->send(new ShowBookingInfo($url,$show_booking));
 
