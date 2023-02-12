@@ -48,18 +48,20 @@
                 <table  class="example display" style="width:100%">
                     <thead>
                         <tr>
+                            <th>رقم الحجز</th>
                             <th>الاستشارة</th>
                             <th>سعر الاسشتارة </th>
-                            <th>حالة الدفع </th>
+                            <th> تاريخ الاجتماع </th>
                             <th>العمليات</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($orders as $item)
                         <tr>
-                         <td>#{{ $item->consult->title }}</td>
+                        <td>#{{ $item->code }}</td>
+                         <td>{{ $item->consult->title }}</td>
                          <td>{{ $item->price }}$</td>
-                         <td> <button @if($item->paid_status == 'paid') class="btn btn-success" @else  class="btn btn-warning" @endif>{{ $item->paid_status }}</button></td>
+                         <td> {{ $item->date }}</td>
                          <td>
                             <a href="{{ route('order_consulting.show', $item->id) }}" class="btn btn-info"><i class="fa fa-eye"></i></a>
                            
