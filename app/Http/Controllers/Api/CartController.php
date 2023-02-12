@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\CartResource;
+use App\Mail\ShowBookingInfo;
 use App\Mail\SuccessPaymentMail;
 use App\Models\BookingConsultion;
 use App\Models\Cart;
@@ -245,8 +246,12 @@ class CartController extends BaseController
             $order->paid_status ='paid';
             $order->save();
             $user = User::find($order->user_id);
-            Mail::to($user->email)->send(new SuccessPaymentMail($order->id));
-            dd('ee');
+            $owner = $order->consult->user->email;
+            $url = route('confirm-booking',encrypt($order->id));
+            $show_booking = 'https://sub.arabicreators.com/ConsItemRegistration/'.$order->id;
+            Mail::to($user->email)->send(new SuccessPaymentMail($order->id,$show_booking));
+            Mail::to($owner->email)->send(new ShowBookingInfo($url,$show_booking));
+        
           
         return view('success_paid');
         }
