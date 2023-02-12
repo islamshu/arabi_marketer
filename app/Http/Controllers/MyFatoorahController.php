@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ShowBookingInfo;
 use App\Mail\SuccessPaymentMail;
 use App\Models\BookingConsultion;
+use App\Models\User;
 use Mail;
 use MyFatoorah\Library\PaymentMyfatoorahApiV2;
 
@@ -80,9 +82,14 @@ class MyFatoorahController extends Controller {
             if ($data->InvoiceStatus == 'Paid') {
                 $msg = 'Invoice is paid.';
                 $order = BookingConsultion::find($id);
+                $owner = $order->consult->user->email;
                 $order->paid_status ='paid';
                 $order->save();
-                Mail::to($user->email)->send(new SuccessPaymentMail($order->id));
+                $user = User::find($order->user_id);
+                $url = route('confirm-booking',encrypt($order->id));
+                $show_booking = 'https://sub.arabicreators.com/ConsItemRegistration/'.$order->id;
+                Mail::to($user->email)->send(new SuccessPaymentMail($order->id,$show_booking));
+                Mail::to($owner->email)->send(new ShowBookingInfo($url,$show_booking));
 
             } else if ($data->InvoiceStatus == 'Failed') {
                 $msg = 'Invoice is not paid due to ' . $data->InvoiceError;

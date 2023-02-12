@@ -44,6 +44,9 @@ use Illuminate\Support\Facades\Route;
 
 // Sample API route
 Route::get('/GoogleCalendarController', [GoogleCalendarController::class, 'connect']);
+Route::get('/confirm-booking/{id}', [CartController::class, 'confirm_booking'])->name('confirm-booking');
+
+
 Route::get('/profits', [SampleDataController::class, 'profits'])->name('profits');
 Route::get('/testapi', [HomeController::class, 'testapi'])->name('testapi');
 Route::get('/change_mention', [UserController::class, 'change_mention'])->name('change_mention');

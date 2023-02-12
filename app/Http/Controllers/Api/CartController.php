@@ -17,6 +17,7 @@ use Illuminate\Http\Request;
 use Mail;
 use MyFatoorah\Library\PaymentMyfatoorahApiV2;
 use Validator;
+use Crypt;
 use Srmklive\PayPal\Services\ExpressCheckout;
 
 class CartController extends BaseController
@@ -78,6 +79,14 @@ class CartController extends BaseController
         $res['item'] = new CartResource($cart);
         $res['count'] = Cart::where('user_id',auth('api')->id())->count();
         return $this->sendResponse($res,'added');
+    }
+    public function confirm_booking($id){
+        $encid = Crypt::decrypt($id);
+        $order = BookingConsultion::find($encid);
+        $order->booking_status = 1;
+        $order->save();
+        return redirect('https://sub.arabicreators.com/ConsItemRegistration/'.$order->id);
+
     }
     public function delete($id){
         $ids = explode(',',$id);

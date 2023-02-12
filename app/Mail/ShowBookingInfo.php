@@ -7,25 +7,25 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class SuccessPaymentMail extends Mailable
+class ShowBookingInfo extends Mailable
 {
     use Queueable, SerializesModels;
-    public $order;
     public $url;
+    public $show_booking;
 
    
-    public function __construct($order,$url)
+    public function __construct($url,$show_booking)
     {
-        $this->order = $order;
-        $this->url= $url;
+        $this->url = $url;
+        $this->show_booking = $show_booking;
  
     }
     public function build()
     {
-        return $this->view('mail.payment_cons')
+        return $this->view('mail.confirm_booking')
         ->with([
-           'order_id' => $this->order,
            'url' => $this->url,
+           'show_booking'=>$this->show_booking
         ]);
     }
 
