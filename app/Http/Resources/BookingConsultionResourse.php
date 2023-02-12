@@ -26,7 +26,7 @@ class BookingConsultionResourse extends JsonResource
             'payment_method'=>$this->paymet_method,
             'price'=>$this->price,
             'meeting_app'=>$this->meeting_app,
-            'meeting_url'=>$this->meeting_link,
+            'meeting_url'=>$this->meeting_link != null ? $this->meeting_link : 'لم يتوفر بعد',
             'booking_status'=>$this->booking_status == 0 ? 'pending' : 'success',
             'guests'=>$this->emails
         ];
