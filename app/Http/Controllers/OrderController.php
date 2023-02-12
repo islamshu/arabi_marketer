@@ -13,7 +13,7 @@ class OrderController extends Controller
         return view('pages.orders.index')->with('orders',$orders);
     }
     public function order_consulting(){
-        $bookings = BookingConsultion::orderby('id','desc')->get();
+        $bookings = BookingConsultion::where('paid_status','paid')->orderby('id','desc')->get();
         return view('pages.orders.booking')->with('orders',$bookings);
     }
     public function order_consulting_show($id){
