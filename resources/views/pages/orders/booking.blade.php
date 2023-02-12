@@ -52,6 +52,7 @@
                             <th>الاستشارة</th>
                             <th>سعر الاسشتارة </th>
                             <th> تاريخ الاجتماع </th>
+                            <th>حالة حجز</th>
                             <th>العمليات</th>
                         </tr>
                     </thead>
@@ -62,6 +63,11 @@
                          <td>{{ $item->consult->title }}</td>
                          <td>{{ $item->price }}$</td>
                          <td> {{ $item->date }}</td>
+                         <td> @if($item->booking_status == 1) <button class="btn btn-success">تم التأكيد</button>
+                              @else   <button class="btn btn-warning">بالانتظار </button>
+                              @endif
+                        </td>
+
                          <td>
                             <a href="{{ route('order_consulting.show', $item->id) }}" class="btn btn-info"><i class="fa fa-eye"></i></a>
                            
