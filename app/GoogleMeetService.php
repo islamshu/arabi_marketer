@@ -39,7 +39,7 @@ class GoogleMeetService
         $accessToken = $this->client->getAccessToken();
         $this->client->setAccessToken($accessToken);
     }
-    public function createMeet($summary, $description, $startTime, $endTime)
+    public function createMeet($summary, $description, $startTime, $endTime,$emails)
     {
         $calendarId = env('GOOGLE_CALENDAR_ID');
 
@@ -50,7 +50,6 @@ class GoogleMeetService
                 'email' => 'islamshu12@gmail.com',
                 'responseStatus' => 'accepted'
             ],
-
         ];
 
         $event = new Google_Service_Calendar_Event([
@@ -58,12 +57,12 @@ class GoogleMeetService
             'location' => 'Online',
             'description' => 'This is a test meeting',
             'start' => [
-                'dateTime' => '2023-02-20T09:00:00-07:00',
-                'timeZone' => 'America/Los_Angeles',
+                'dateTime' => $startTime,
+                'timeZone' =>  'Asia/Riyadh',
             ],
             'end' => [
-                'dateTime' => '2023-02-20T11:00:00-07:00',
-                'timeZone' => 'America/Los_Angeles',
+                'dateTime' =>  $endTime,
+                'timeZone' =>  'Asia/Riyadh',
             ],
             'attendees' => [
                 [

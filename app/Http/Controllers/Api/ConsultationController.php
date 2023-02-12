@@ -84,6 +84,9 @@ class ConsultationController extends BaseController
             $json_date = [];
 
             $d    = new DateTime($d);
+            if(now() > $d){
+                continue;
+            }
             $name_of_day = $d->format('l');
             $days = $cons->date;
             $array_day =[];
