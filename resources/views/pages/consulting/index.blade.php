@@ -74,7 +74,7 @@
                                 <tr>
                                  <td>{{ $key+1 }}</td>
                                  <td>{{ $item->title }}</td>
-                                 <td>{{ @$item->user->id }}</td>
+                                 <td>{{ @$item->user->id }} {{ $item->id }}</td>
                                  {{-- <th><a href="{{ route('marketer.show',$item->user->id) }}">{{ $item->user->name }}</a></th> --}}
                                  {{-- <td>{{ $item->created_at->format('Y-m-d') }}</td> --}}
 
