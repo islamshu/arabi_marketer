@@ -119,6 +119,7 @@
                                         <option value="apple">Apple</option>
                                         <option value="google">Google</option>
                                         <option value="url">Url</option>
+                                        <option value="AppGallery">AppGallery</option>
                                     </select>
                                 <td>
                                     <button type="button" name="add" id="add-btn" class="btn btn-success">Add More</button>
@@ -172,7 +173,7 @@
             $("#dynamicAddRemove").append('<tr><td><input required type="text" name="moreFields[' + d +
                 '][url]" placeholder="أضف رابط" class="form-control" /></td><td><select required name="moreFields[' +
                 d +
-                '][type]" class="form-control"><option value="apple">Apple</option><option value="google">Google</option><option value="url">Url</option></select></td><td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>'
+                '][type]" class="form-control"><option value="apple">Apple</option><option value="google">Google</option><option value="url">Url</option><option value="AppGallery">AppGallery</option></select></td><td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>'
                 );
         });
         $(document).on('click', '.remove-tr', function() {

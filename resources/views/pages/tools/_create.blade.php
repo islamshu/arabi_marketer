@@ -55,6 +55,8 @@
                             <option value="apple">Apple</option>
                             <option value="google">Google</option>
                             <option value="url">Url</option>
+                            <option value="AppGallery">AppGallery</option>
+
                         </select>
                     <td>
                         <button type="button" name="add" id="add-btn" class="btn btn-success">Add More</button>
