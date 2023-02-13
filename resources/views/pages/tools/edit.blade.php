@@ -94,16 +94,18 @@
                                 <th>النوع</th>
                                 <th>Action</th>
                             </tr>
-                            @foreach ($tool->links as $key => $item)
+                            @foreach ($tool->links as $key => $it)
                             <tr>
                                 <td><input type="text" value="{{ $item->url }}" required
                                         name="moreFields[{{ $key }}][url]" placeholder="اضف الرابط"
                                         class="form-control" /></td>
                                 <td>
                                     <select name="moreFields[{{ $key }}][type]" required class="form-control">
-                                        <option value="apple" @if ($item->type == 'apple')  @endif>Apple</option>
-                                        <option value="google" @if ($item->type == 'google')  @endif>Google</option>
-                                        <option value="url" @if ($item->type == 'url')  @endif>Url</option>
+                                        <option value="apple" @if ($it->type == 'apple')  @endif>Apple</option>
+                                        <option value="google" @if ($it->type == 'google')  @endif>Google</option>
+                                        <option value="url" @if ($it->type == 'url')  @endif>Url</option>
+                                        <option value="url" @if ($it->type == 'AppGallery')  @endif>AppGallery</option>
+
                                     </select>
                                 <td>
                                     <button type="button" class="btn btn-danger remove-tr">Remove</button>
