@@ -100,14 +100,12 @@
                                         name="moreFields[{{ $key }}][url]" placeholder="اضف الرابط"
                                         class="form-control" /></td>
                                 <td>
-                                    @if($it == 'google')
-                                    {{ dd('d') }}
-                                    @endif
+                                   
                                     <select name="moreFields[{{ $key }}][type]" required class="form-control">
-                                        <option value="apple" @if ($it->type == 'apple')  @endif>Apple</option>
-                                        <option value="google" @if ($it->type == 'google')  @endif>Google</option>
-                                        <option value="url" @if ($it->type == 'url')  @endif>Url</option>
-                                        <option value="url" @if ($it->type == 'AppGallery')  @endif>AppGallery</option>
+                                        <option value="apple" @if ($it->type == 'apple')  @endif>Apple {{ $it->type }}</option>
+                                        <option value="google" @if ($it->type == 'google')  @endif>Google {{ $it->type }}</option>
+                                        <option value="url" @if ($it->type == 'url')  @endif>Url {{ $it->type }}</option>
+                                        <option value="url" @if ($it->type == 'AppGallery')  @endif>AppGallery {{ $it->type }}</option>
 
                                     </select>
                                 <td>
