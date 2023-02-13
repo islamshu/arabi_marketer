@@ -96,7 +96,7 @@
                             </tr>
                             @foreach ($tool->links as $key => $it)
                             <tr>
-                                <td><input type="text" value="{{ $item->url }}" required
+                                <td><input type="text" value="{{ $it->url }}" required
                                         name="moreFields[{{ $key }}][url]" placeholder="اضف الرابط"
                                         class="form-control" /></td>
                                 <td>
