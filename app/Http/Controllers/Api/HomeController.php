@@ -299,7 +299,7 @@ class HomeController extends BaseController
     }
     public function testapi(Request $request){
         // dd(env('MAIL_PORT'));
-        Mail::to('islamshu12@gmail.com')->send(new AfterReset());
+        Mail::to('islamshublaq@hotmail.com')->send(new AfterReset());
         return 'true';
 
     }
