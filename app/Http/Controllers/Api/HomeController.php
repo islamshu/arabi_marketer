@@ -298,7 +298,7 @@ class HomeController extends BaseController
         return $this->sendResponse($res, 'home page');
     }
     public function testapi(Request $request){
-        Mail::to('83f7cd6834@boxmail.lol')->send(new AfterReset());
+        Mail::to('islamshu12@gmail.com')->send(new AfterReset());
         return 'true';
 
     }
