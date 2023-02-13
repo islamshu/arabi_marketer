@@ -102,10 +102,10 @@
                                 <td>
                                    
                                     <select name="moreFields[{{ $key }}][type]" required class="form-control">
-                                        <option value="apple" @if ($it->type == 'apple')  @endif>Apple </option>
-                                        <option value="google" @if ($it->type == 'google')  @endif>Google </option>
-                                        <option value="url" @if ($it->type == 'url')  @endif>Url </option>
-                                        <option value="AppGallery" @if ($it->type == 'AppGallery')  @endif>AppGallery </option>
+                                        <option value="apple" @if ($it->type == 'apple') selected  @endif>Apple </option>
+                                        <option value="google" @if ($it->type == 'google') selected  @endif>Google </option>
+                                        <option value="url" @if ($it->type == 'url') selected @endif>Url </option>
+                                        <option value="AppGallery" @if ($it->type == 'AppGallery') selected @endif>AppGallery </option>
 
                                     </select>
                                 <td>
