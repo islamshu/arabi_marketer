@@ -100,6 +100,7 @@
                                         name="moreFields[{{ $key }}][url]" placeholder="اضف الرابط"
                                         class="form-control" /></td>
                                 <td>
+                                    {{ dd($it) }}
                                     <select name="moreFields[{{ $key }}][type]" required class="form-control">
                                         <option value="apple" @if ($it->type == 'apple')  @endif>Apple</option>
                                         <option value="google" @if ($it->type == 'google')  @endif>Google</option>
