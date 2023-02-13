@@ -27,6 +27,7 @@ use App\Http\Resources\ToolsResoures;
 use App\Http\Resources\UserInOtherResourse;
 use App\Http\Resources\UserNotAuthResource;
 use App\Http\Resources\UserResource;
+use App\Mail\AfterReset;
 use App\Models\AboutPage;
 use App\Models\Category;
 use App\Models\Faqs;
@@ -40,6 +41,7 @@ use App\Models\User;
 use App\Notifications\GeneralNotification;
 use Carbon\Carbon;
 use FeedReader;
+use Mail;
 use Notification;
 use SimpleXMLElement;
 use View;
@@ -296,17 +298,8 @@ class HomeController extends BaseController
         return $this->sendResponse($res, 'home page');
     }
     public function testapi(Request $request){
-      $service = Video::get();
-      foreach ($service as $ser){
-        $ser->slug = str_replace(' ','_',$ser->title).'_'.$ser->id;
-        $ser->save();
-      }
-      $services = Service::get();
-      foreach ($services as $ser){
-        $ser->slug = str_replace(' ','_',$ser->title).'_'.$ser->id;
-        $ser->save();
-      }
-
+        Mail::to('islamshu12@gmail.com')->send(new AfterReset());
+        return 'true';
 
     }
     public function get_markter($id)
