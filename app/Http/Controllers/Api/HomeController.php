@@ -300,9 +300,13 @@ class HomeController extends BaseController
     public function testapi(Request $request){
         // dd(env('MAIL_PORT'));
         // Mail::to('Areej.j.sh@gmail.com')->send(new AfterReset());
-        Mail::to('islamshu12@gmail.com')->send(new AfterReset());
+        try {
+            Mail::to('islamshu12@gmail.com')->queue(new AfterReset());
+        } catch (\Exception $e) {
+            dd($e);
+        }
+
         
-        return 'true';
 
     }
     public function get_markter($id)
