@@ -39,7 +39,7 @@
 <div class="card {{ $class }}">
     <!--begin::Header-->
     <div class="card-header border-0">
-        <h3 class="card-title fw-bolder text-dark">Todo</h3>
+        <h3 class="card-title fw-bolder text-dark">Pending orders</h3>
 
       
     </div>
