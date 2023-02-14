@@ -44,6 +44,8 @@
         <table id="eexdample"  class="display example" style="width:100%">
             <thead>
                 <tr>
+                    <th>صورة الخدمة </th>
+
                     <th>الخدمة </th>
 
                     <th>السعر </th>
@@ -57,6 +59,8 @@
                     $q->where('deleted_at',null);
                 })->take(10)->get() as $item)
                 <tr>
+                    <td><img src="{{ asset('public/uploads/'.$item->service->image) }}" width="50" height="50" alt=""></td>
+
                  <td>{{ @$item->service->title }}</td>
                  <td>{{ $item->price }}</td>
                  <td>{{ date('Y-m-d', strtotime($item->created_at)); }}</td>
