@@ -84,7 +84,7 @@
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
         <h3 class="card-title align-items-start flex-column">
-			<span class="card-label fw-bolder fs-3 mb-1">Members Statistics</span>
+			<span class="card-label fw-bolder fs-3 mb-1">Customer</span>
 
 		</h3>
 
@@ -101,75 +101,36 @@
                 <!--begin::Table head-->
                 <thead>
                     <tr class="fw-bolder text-muted">
-                        <th class="w-25px">
-                            <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                <input class="form-check-input" type="checkbox" value="1"  data-kt-check="true" data-kt-check-target=".widget-9-check"/>
-                            </div>
-                        </th>
-                        <th class="min-w-150px">Authors</th>
-                        <th class="min-w-140px">Company</th>
-                        <th class="min-w-120px">Progress</th>
-                        <th class="min-w-100px text-end">الاجراءات</th>
+                    
+
+                        <th class="min-w-150px">صورة</th>
+                        <th class="min-w-150px">الاسم </th>
+                        <th class="min-w-150px">البريد الاكتروني</th>
+                        <th class="min-w-150px">تاريخ التسجيل</th>
                     </tr>
                 </thead>
                 <!--end::Table head-->
 
                 <!--begin::Table body-->
                 <tbody>
-                    @foreach($tableRows as $row)
-                        <tr>
-                            <td>
-                                <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                    <input class="form-check-input widget-9-check" type="checkbox" value="1"/>
-                                </div>
-                            </td>
+                    @foreach(App\Models\User::where('type', 'marketer')->where('status',2)->orderby('id','desc')->take(10)->get() as $item)
+                    <tr>
+                        <td><img src="{{ asset('public/uploads/' . $item->image) }}" width="50" height="50"
+                                alt="">
+                        </td>
+                        <td><a href="{{ route('marketer.show', $item->id) }}">{{ $item->name }}</a></td>
+                        <td>{{ $item->email }}</td>
+                        {{-- @can('edit-status-marketers')
 
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <div class="symbol symbol-45px me-5">
-                                        <img src="{{ asset(theme()->getMediaUrlPath() . $row['user']['image']) }}" alt=""/>
-                                    </div>
-                                    <div class="d-flex justify-content-start flex-column">
-                                        <a href="#" class="text-dark fw-bolder text-hover-primary fs-6">{{ $row['user']['name'] }}</a>
-
-                                        <span class="text-muted fw-bold text-muted d-block fs-7">{{ $row['user']['skills'] }}</span>
-                                    </div>
-                                </div>
-                            </td>
-
-                            <td>
-                                <a href="#" class="text-dark fw-bolder text-hover-primary d-block fs-6">{{ $row['company']['name'] }}</a>
-                                <span class="text-muted fw-bold text-muted d-block fs-7">{{ $row['company']['skills'] }}</span>
-                            </td>
-
-                            <td class="text-end">
-                                <div class="d-flex flex-column w-100 me-2">
-                                    <div class="d-flex flex-stack mb-2">
-                                        <span class="text-muted me-2 fs-7 fw-bold">
-                                            {{ $row['progress']['value'] }}%
-                                        </span>
-                                    </div>
-
-                                    <div class="progress h-6px w-100">
-                                        <div class="progress-bar bg-{{ $row['progress']['color'] }}" role="progressbar" style="width: {{ $row['progress']['value'] }}%" aria-valuenow="{{ $row['progress']['value'] }}" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </td>
-
-                            <td class="text-end">
-                                <a href="#" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
-                                    {!! theme()->getSvgIcon("icons/duotune/general/gen019.svg", "svg-icon-3") !!}
-                                </a>
-
-                                <a href="#" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
-                                    {!! theme()->getSvgIcon("icons/duotune/art/art005.svg", "svg-icon-3") !!}
-                                </a>
-
-                                <a href="#" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
-                                    {!! theme()->getSvgIcon("icons/duotune/general/gen027.svg", "svg-icon-3") !!}
-                                </a>
-                            </td>
-                        </tr>
+                        <td>
+                            <input type="checkbox" data-id="{{ $item->id }}" name="status" class="js-switch"
+                                {{ $item->status == 1 ? 'checked' : '' }}>
+                        </td>
+                        @endcan --}}
+                        <td>{{ date('Y-m-d', strtotime($item->created_at)) }}</td>
+                       
+                      
+                    </tr>
                     @endforeach
                 </tbody>
                 <!--end::Table body-->
