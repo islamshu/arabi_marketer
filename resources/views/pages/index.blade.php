@@ -235,10 +235,4 @@
     });
     
 </script>
-<script>
-    $(document).ready(function() {
-        $('#example').DataTable();
-        $('.example').DataTable();
 
-    });
-</script>
