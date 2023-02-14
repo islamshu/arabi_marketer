@@ -68,7 +68,7 @@
                 <!--end::Title-->
 
                 <!--begin::Lable-->
-                <span class="fw-bolder text-blue  py-1">{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$item->data['time']  )
+                <span class="fw-bolder text-blue  py-1">{{ $item->created_at->diffForHumans()  }}
 
                 }}</span>
                 <!--end::Lable-->
