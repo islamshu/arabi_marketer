@@ -53,7 +53,7 @@
     <div class="card-body pt-0">
         @foreach(auth()->user()->notifications->take(5) as $item)
             <!--begin::Item-->
-            <div class="d-flex align-items-center  rounded p-3 ">
+            <div class="d-flex align-items-center  rounded p-4 ">
                 <!--begin::Icon-->
                 <span class="svg-icon svg-icon-blue me-5">
                     {!! theme()->getSvgIcon("icons/duotune/abstract/abs027.svg", "svg-icon-1"); !!}
