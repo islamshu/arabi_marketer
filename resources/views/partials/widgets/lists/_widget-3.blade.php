@@ -57,7 +57,7 @@
             <tbody>
                 @foreach (App\Models\Cart::wherehas('service',function($q){
                     $q->where('deleted_at',null);
-                })->take(10)->get() as $item)
+                })->take(10)->orderby('id','desc')->get() as $item)
                 <tr>
                     <td><img src="{{ asset('public/uploads/'.$item->service->image) }}" width="50" height="50" alt=""></td>
 
@@ -79,21 +79,24 @@
         <table id="eexdample"  class="display example" style="width:100%">
             <thead>
                 <tr>
-                    <th>صورة </th>
-                    <th>اسم الخدمة</th>
-                    <th>اضيفة بواسطة</th>
-                    <th>تاريخ الاضافة</th>
-    
+                    <th>كود الطلب </th>
+                    <th>الاجمالي </th>
+                    <th>حالة الدفع </th>
+                    <th>تاريخ </th>
+                    <th>العمليات</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (App\Models\Service::take(10)->get() as $item)
+                @foreach (App\Models\Order::take(10)->orderby('id','desc')->get() as $item)
                 <tr>
-                 <td><img src="{{ asset('public/uploads/'.$item->image) }}" width="50" height="50" alt=""></td>
-                 <td>{{ $item->title }}</td>
-                 <th><a href="{{ route('marketer.show',$item->user->id) }}">{{ $item->user->name }}</a></th>
+                 <td>#{{ $item->code }}</td>
+                 <td>{{ $item->total }}$</td>
+                 <td> <button @if($item->payment_status == 'paid') class="btn btn-success" @else  class="btn btn-warning" @endif>{{ $item->payment_status }}</button></td>
                  <td>{{ date('Y-m-d', strtotime($item->created_at)); }}</td>
-           
+                 <td>
+                    <a href="{{ route('order.show', $item->id) }}" class="btn btn-info"><i class="fa fa-eye"></i></a>
+                   
+                </td>
                 </tr>
                     
                 @endforeach
