@@ -51,7 +51,7 @@
 
     <!--begin::Body-->
     <div class="card-body pt-0">
-        @foreach(auth()->user()->notifications->take(10) as $item)
+        @foreach(auth()->user()->notifications->take(5) as $item)
             <!--begin::Item-->
             <div class="d-flex align-items-center  rounded p-5 ">
                 <!--begin::Icon-->
