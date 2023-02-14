@@ -79,15 +79,16 @@
         <table id="eexdample"  class="display example" style="width:100%">
             <thead>
                 <tr>
-                    <th>كود الطلب </th>
-                    <th>الاجمالي </th>
-                    <th>حالة الدفع </th>
-                    <th>تاريخ </th>
+                    <th>رقم الحجز</th>
+                    <th>الاستشارة</th>
+                    <th>سعر الاسشتارة </th>
+                    <th> تاريخ الاجتماع </th>
+                 
                     <th>العمليات</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (App\Models\Order::take(10)->orderby('id','desc')->get() as $item)
+                @foreach (App\Models\BookingConsultion::where('booking_status',0)->take(10)->orderby('id','desc')->get() as $item)
                 <tr>
                  <td>#{{ $item->code }}</td>
                  <td>{{ $item->total }}$</td>
