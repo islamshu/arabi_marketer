@@ -29,7 +29,10 @@
     <!--begin::Row-->
     <div class="row gy-5 gx-xl-8">
         <!--begin::Col-->
-        <div class="col-xxl-4">
+        <div class="col-xl-6">
+            {{ theme()->getView('partials/widgets/lists/_widget-3', ['class' => 'card-xxl-stretch mb-xl-3']) }}
+        </div>
+        <div class="col-xl-6">
             {{ theme()->getView('partials/widgets/lists/_widget-3', ['class' => 'card-xxl-stretch mb-xl-3']) }}
         </div>
         <!--end::Col-->
