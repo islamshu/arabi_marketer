@@ -48,28 +48,29 @@
                 </div>
                 <!--end::Col-->
             </div> --}}
+            <ul class="nav nav-tabs nav-line-tabs nav-line-tabs-2x mb-5 fs-6">
+                <li class="nav-item">
+                    <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_4">الخدمات</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_5">خدمات صناع المحتوى</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_7">خدمات المستقلين </a>
+                </li>
+               
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_6">اضف جديد</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_77">الخدمات المعلقة </a>
+                </li>
+                
+            </ul>
             <!--end::Row-->
 
             <!--begin::Row-->
-            <div class="row g-0">
-                <!--begin::Col-->
-                <div class="col bg-light-danger px-6 py-8 rounded-2 me-7">
-                    {!! theme()->getSvgIcon("icons/duotune/abstract/abs027.svg", "svg-icon-3x svg-icon-danger d-block my-2") !!}
-                    <a href="#" class="text-danger fw-bold fs-6 mt-2">
-                        Item Orders
-                    </a>
-                </div>
-                <!--end::Col-->
-
-                <!--begin::Col-->
-                <div class="col bg-light-success px-6 py-8 rounded-2">
-                    {!! theme()->getSvgIcon("icons/duotune/communication/com010.svg", "svg-icon-3x svg-icon-success d-block my-2") !!}
-                    <a href="#" class="text-success fw-bold fs-6 mt-2">
-                        Bug Reports
-                    </a>
-                </div>
-                <!--end::Col-->
-            </div>
+            
             <!--end::Row-->
         </div>
         <!--end::Stats-->
