@@ -35,8 +35,11 @@
         <!--end::Col-->
 
         <!--begin::Col-->
-        <div class="col-xl-8">
+        <div class="col-xl-6">
             {{ theme()->getView('partials/widgets/tables/_widget-9', ['class' => 'card-xxl-stretch mb-5 mb-xl-8']) }}
+        </div>
+        <div class="col-xl-6">
+            {{ theme()->getView('partials/widgets/tables/_widget-99', ['class' => 'card-xxl-stretch mb-5 mb-xl-8']) }}
         </div>
         <!--end::Col-->
     </div>
