@@ -120,7 +120,7 @@
                     <tr>
                         <td><img src="{{ asset('public/uploads/' . $item->image) }}" width="50" height="50"
                                 alt=""></td>
-                        <td><a href="{{ route('marketer.show', $item->id) }}"{{ $item->name }}</a></td>
+                        <td><a href="{{ route('marketer.show', $item->id) }}">{{ $item->name }}</a></td>
                         <td>{{ $item->email }}</td>
                         {{-- @can('edit-status-marketers')
 
