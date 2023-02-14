@@ -301,7 +301,7 @@ class HomeController extends BaseController
         // dd(env('MAIL_PORT'));
         // Mail::to('Areej.j.sh@gmail.com')->send(new AfterReset());
         try {
-            Mail::to('dd59401c75@boxmail.lol')->queue(new AfterReset());
+            Mail::to('dd59401c75@boxmail.lol')->send(new AfterReset());
         } catch (\Exception $e) {
             dd($e);
         }
