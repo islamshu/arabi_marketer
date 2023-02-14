@@ -94,10 +94,10 @@ class CartController extends BaseController
         if($order->meeting_app == 'Google Meet'){
             $googleAPI = new GoogleMeetService();
             $event = $googleAPI->createMeet($order->consult->title, $order->consult->description, $startTime, $endTime,$email);
+            $order->meeting_link = $event->hangoutLink;
+            $order->save();
+
         }
-        $order->meeting_link = $event->hangoutLink;
-        $order->save();
-        $order->save();
         return redirect('https://sub.arabicreators.com/ConsItemRegistration/'.$order->id);
 
     }
