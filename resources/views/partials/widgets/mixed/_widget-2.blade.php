@@ -27,25 +27,16 @@
         <!--end::Chart-->
         <ul class="nav nav-tabs nav-line-tabs nav-line-tabs-2x mb-5 fs-6">
             <li class="nav-item">
-                <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_4">الخدمات</a>
+                <a class="nav-link " data-bs-toggle="tab" href="#kt_tab_pane_4">الخدمات</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_5">خدمات صناع المحتوى</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_7">خدمات المستقلين </a>
-            </li>
            
-            <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_6">اضف جديد</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_77">الخدمات المعلقة </a>
-            </li>
             
         </ul>
         <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="kt_tab_pane_4" role="tabpanel">
+            <div class="tab-pane fade " id="kt_tab_pane_4" role="tabpanel">
                 <div>
                     <table id="eexdample"  class="display example" style="width:100%">
                         <thead>
@@ -59,7 +50,41 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (App\Models\Service::get() as $item)
+                            @foreach (App\Models\Service::take(10)->get() as $item)
+                            <tr>
+                             <td><img src="{{ asset('public/uploads/'.$item->image) }}" width="50" height="50" alt=""></td>
+                             <td>{{ $item->title }}</td>
+                             <th><a href="{{ route('marketer.show',$item->user->id) }}">{{ $item->user->name }}</a></th>
+                             <td>{{ date('Y-m-d', strtotime($item->created_at)); }}</td>
+                            
+                             <td>
+                                <a href="{{ route('services.show', $item->id) }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
+                
+                                {{-- <a href="{{ route('services.edit', $item->id) }}" class="btn btn-info"><i class="fa fa-edit"></i></a> --}}
+                               
+                            </td>
+                            </tr>
+                                
+                            @endforeach
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane fade " id="kt_tab_pane_5" role="tabpanel">
+                <div>
+                    <table id="eexdample"  class="display example" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>صورة </th>
+                                <th>اسم الخدمة</th>
+                                <th>اضيفة بواسطة</th>
+                                <th>تاريخ الاضافة</th>
+                
+                                <th>العمليات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (App\Models\Service::take(10)->get() as $item)
                             <tr>
                              <td><img src="{{ asset('public/uploads/'.$item->image) }}" width="50" height="50" alt=""></td>
                              <td>{{ $item->title }}</td>
