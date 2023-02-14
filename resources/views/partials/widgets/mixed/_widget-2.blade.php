@@ -29,7 +29,7 @@
         <!--begin::Stats-->
         <div class="card-p mt-n20 position-relative">
             <!--begin::Row-->
-            <div class="row g-0">
+            {{-- <div class="row g-0">
                 <!--begin::Col-->
                 <div class="col bg-light-warning px-6 py-8 rounded-2 me-7 mb-7">
                     {!! theme()->getSvgIcon("icons/duotune/general/gen032.svg", "svg-icon-3x svg-icon-warning d-block my-2") !!}
@@ -47,7 +47,7 @@
                     </a>
                 </div>
                 <!--end::Col-->
-            </div>
+            </div> --}}
             <!--end::Row-->
 
             <!--begin::Row-->
