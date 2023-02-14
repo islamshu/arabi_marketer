@@ -201,9 +201,9 @@ class VideoController extends Controller
     }
     public function destroy($id){
         $vi = Video::find($id);
-        $url = $vi->url ;
-        $videoId = substr($url, -11);
-        Youtube::delete($videoId);
+        // $url = $vi->url ;
+        // $videoId = substr($url, -11);
+        // Youtube::delete($videoId);
         $vi->delete();
         Alert::success('Success', 'Deleted successfully');
         return redirect()->back();
