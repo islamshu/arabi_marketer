@@ -25,54 +25,27 @@
         <!--begin::Chart-->
         <div class="mixed-widget-2-chart card-rounded-bottom bg-{{ $chartColor }}" data-kt-color="{{ $chartColor }}" data-kt-chart-url="{{ route('profits') }}" style="height: {{ $chartHeight }}"></div>
         <!--end::Chart-->
-
-        <!--begin::Stats-->
-        <div class="card-p mt-n20 position-relative">
-            <!--begin::Row-->
-            {{-- <div class="row g-0">
-                <!--begin::Col-->
-                <div class="col bg-light-warning px-6 py-8 rounded-2 me-7 mb-7">
-                    {!! theme()->getSvgIcon("icons/duotune/general/gen032.svg", "svg-icon-3x svg-icon-warning d-block my-2") !!}
-                    <a href="#" class="text-warning fw-bold fs-6">
-                        Weekly Sales
-                    </a>
-                </div>
-                <!--end::Col-->
-
-                <!--begin::Col-->
-                <div class="col bg-light-primary px-6 py-8 rounded-2 mb-7">
-                    {!! theme()->getSvgIcon("icons/duotune/finance/fin006.svg", "svg-icon-3x svg-icon-primary d-block my-2") !!}
-                    <a href="#" class="text-primary fw-bold fs-6">
-                        New Projects
-                    </a>
-                </div>
-                <!--end::Col-->
-            </div> --}}
-            <ul class="nav nav-tabs nav-line-tabs nav-line-tabs-2x mb-5 fs-6">
-                <li class="nav-item">
-                    <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_4">الخدمات</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_5">خدمات صناع المحتوى</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_7">خدمات المستقلين </a>
-                </li>
-               
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_6">اضف جديد</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_77">الخدمات المعلقة </a>
-                </li>
-                
-            </ul>
-            <!--end::Row-->
-
-            <!--begin::Row-->
+        <ul class="nav nav-tabs nav-line-tabs nav-line-tabs-2x mb-5 fs-6">
+            <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_4">الخدمات</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_5">خدمات صناع المحتوى</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_7">خدمات المستقلين </a>
+            </li>
+           
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_6">اضف جديد</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_77">الخدمات المعلقة </a>
+            </li>
             
-            <!--end::Row-->
-        </div>
+        </ul>
+        <!--begin::Stats-->
+    
         <!--end::Stats-->
     </div>
     <!--end::Body-->
