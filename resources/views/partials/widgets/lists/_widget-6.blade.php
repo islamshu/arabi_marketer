@@ -53,7 +53,7 @@
     <div class="card-body pt-0">
         @foreach(auth()->user()->notifications as $item)
             <!--begin::Item-->
-            {{ dd($item) }}
+            {{-- {{  }} --}}
             <!--end::Item-->
         @endforeach
     </div>
