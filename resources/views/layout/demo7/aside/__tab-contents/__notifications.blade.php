@@ -58,7 +58,7 @@
     <!--end::Header-->
 
     <!--begin::Body-->
-    <div class="mb-12">
+    {{-- <div class="mb-12">
         @foreach($listRows as $row)
             <!--begin::Item-->
             <div class="d-flex align-items-center bg-light-{{ $row['color'] }} rounded p-5 {{ util()->putIf(next($listRows), 'mb-7') }}">
@@ -82,7 +82,7 @@
             </div>
             <!--end::Item-->
         @endforeach
-    </div>
+    </div> --}}
     <!--end::Body-->
 </div>
 <!--end::Notifications-->
