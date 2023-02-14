@@ -1,3 +1,5 @@
+@extends('layout.main')
+
 <x-base-layout>
 
     <!--begin::Row-->
