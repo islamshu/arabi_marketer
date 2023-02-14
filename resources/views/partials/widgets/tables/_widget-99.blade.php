@@ -128,6 +128,8 @@
                 </tbody>
                 <!--end::Table body-->
             </table>
+            <a href="{{ route('get_customers') }}" class="btn btn-success">Show all</a>
+
             <!--end::Table-->
         </div>
         <!--end::Table container-->
