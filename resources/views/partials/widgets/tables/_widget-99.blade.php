@@ -113,21 +113,14 @@
 
                 <!--begin::Table body-->
                 <tbody>
-                    @foreach(App\Models\User::where('type', 'marketer')->where('status',2)->orderby('id','desc')->take(10)->get() as $item)
+                    @foreach(App\Models\User::where('type', 'user')->orderby('id','desc')->take(10)->get() as $item)
                     <tr>
                         <td><img src="{{ asset('public/uploads/' . $item->image) }}" width="50" height="50"
-                                alt="">
-                        </td>
-                        <td><a href="{{ route('marketer.show', $item->id) }}">{{ $item->name }}</a></td>
-                        <td>{{ $item->email }}</td>
-                        {{-- @can('edit-status-marketers')
-
-                        <td>
-                            <input type="checkbox" data-id="{{ $item->id }}" name="status" class="js-switch"
-                                {{ $item->status == 1 ? 'checked' : '' }}>
-                        </td>
-                        @endcan --}}
-                        <td>{{ date('Y-m-d', strtotime($item->created_at)) }}</td>
+                            alt=""></td>
+                    <td> <a href="{{ route('customer.show', $item->id) }}">{{ $item->name }}</a></td>
+                    <td>{{ $item->email }}</td>
+                   
+                    <td>{{ date('Y-m-d', strtotime($item->created_at)) }}</td>
                        
                       
                     </tr>
