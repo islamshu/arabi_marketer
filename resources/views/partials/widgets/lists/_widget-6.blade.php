@@ -53,7 +53,6 @@
     <div class="card-body pt-0">
         @foreach(auth()->user()->notifications as $item)
             <!--begin::Item-->
-            {{ dd($item) }}
             <div class="d-flex align-items-center  rounded p-5 ">
                 <!--begin::Icon-->
                 <span class="svg-icon svg-icon-{{ $row['color'] }} me-5">
