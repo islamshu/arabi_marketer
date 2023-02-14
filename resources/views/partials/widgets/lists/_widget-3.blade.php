@@ -90,15 +90,17 @@
             <tbody>
                 @foreach (App\Models\BookingConsultion::where('booking_status',0)->take(10)->orderby('id','desc')->get() as $item)
                 <tr>
-                 <td>#{{ $item->code }}</td>
-                 <td>{{ $item->total }}$</td>
-                 <td> <button @if($item->payment_status == 'paid') class="btn btn-success" @else  class="btn btn-warning" @endif>{{ $item->payment_status }}</button></td>
-                 <td>{{ date('Y-m-d', strtotime($item->created_at)); }}</td>
-                 <td>
-                    <a href="{{ route('order.show', $item->id) }}" class="btn btn-info"><i class="fa fa-eye"></i></a>
+                    <td>#{{ $item->code }}</td>
+                     <td>{{ $item->consult->title }}</td>
+                     <td>{{ $item->price }}$</td>
+                     <td> {{ $item->date }}</td>
                    
-                </td>
-                </tr>
+
+                     <td>
+                        <a href="{{ route('order_consulting.show', $item->id) }}" class="btn btn-info"><i class="fa fa-eye"></i></a>
+                       
+                    </td>
+                    </tr>
                     
                 @endforeach
             </tfoot>
