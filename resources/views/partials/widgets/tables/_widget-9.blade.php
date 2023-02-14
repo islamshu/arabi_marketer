@@ -106,10 +106,11 @@
                                 <input class="form-check-input" type="checkbox" value="1"  data-kt-check="true" data-kt-check-target=".widget-9-check"/>
                             </div>
                         </th>
+
                         <th class="min-w-150px">صورة</th>
-                        <th class="min-w-140px">الاسم </th>
-                        <th class="min-w-120px">البريد الاكتروني</th>
-                        <th class="min-w-100px text-end">تاريخ التسجيل</th>
+                        <th class="min-w-150px">الاسم </th>
+                        <th class="min-w-150px">البريد الاكتروني</th>
+                        <th class="min-w-150px">تاريخ التسجيل</th>
                     </tr>
                 </thead>
                 <!--end::Table head-->
@@ -119,7 +120,8 @@
                     @foreach(App\Models\User::where('type', 'marketer')->orderby('id','desc')->take(10)->get() as $item)
                     <tr>
                         <td><img src="{{ asset('public/uploads/' . $item->image) }}" width="50" height="50"
-                                alt=""></td>
+                                alt="">
+                        </td>
                         <td><a href="{{ route('marketer.show', $item->id) }}">{{ $item->name }}</a></td>
                         <td>{{ $item->email }}</td>
                         {{-- @can('edit-status-marketers')
