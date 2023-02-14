@@ -51,7 +51,7 @@
 
     <!--begin::Body-->
     <div class="card-body pt-0">
-        @foreach($listRows as $row)
+        {{-- @foreach($listRows as $row)
             <!--begin::Item-->
             <div class="d-flex align-items-center bg-light-{{ $row['color'] }} rounded p-5 {{ util()->putIf(next($listRows), 'mb-7') }}">
                 <!--begin::Icon-->
@@ -73,7 +73,7 @@
                 <!--end::Lable-->
             </div>
             <!--end::Item-->
-        @endforeach
+        @endforeach --}}
     </div>
     <!--end::Body-->
 </div>
