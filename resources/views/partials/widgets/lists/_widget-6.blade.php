@@ -68,9 +68,10 @@
                 <!--end::Title-->
 
                 <!--begin::Lable-->
+                <div>
                 <span class="fw-bolder text-blue  py-1">{{ $item->created_at->diffForHumans()  }}
-
-                }}</span>
+                </div>
+                </span>
                 <!--end::Lable-->
             </div>
             <!--end::Item-->
