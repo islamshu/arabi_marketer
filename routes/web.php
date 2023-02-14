@@ -113,7 +113,7 @@ Route::middleware('auth')->group(function () {
     Route::post('change_status_service/{id}',[ServiceController::class,'change_status_service'])->name('change_status_service');
 
     
-    Route::get('creators',[ProfileController::class,'markters']);
+    Route::get('creators',[ProfileController::class,'markters'])->name('get_creators');
     Route::delete('delete_creators/{id}',[ProfileController::class,'delete_creators'])->name('delete_creators');
 
     Route::get('creators_requests',[UsersController::class,'marketers_requests'])->name('marketers_requests');
