@@ -135,7 +135,7 @@
                 </tbody>
                 <!--end::Table body-->
             </table>
-            <a href="{{ route('creator') }}" class="btn btn-success">Show all</a>
+            <a href="{{ route('get_creators') }}" class="btn btn-success">Show all</a>
 
 
             <!--end::Table-->
