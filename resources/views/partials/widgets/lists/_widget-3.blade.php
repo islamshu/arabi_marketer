@@ -54,7 +54,7 @@
             </thead>
             <tbody>
                 @foreach (App\Models\Cart::wherehas('service',function($q){
-                    $q->where('deleted_at',null)
+                    $q->where('deleted_at',null);
                 })->take(10)->get() as $item)
                 <tr>
                  <td>{{ @$item->service->title }}</td>
