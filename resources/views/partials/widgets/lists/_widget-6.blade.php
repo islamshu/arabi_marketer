@@ -62,9 +62,8 @@
 
                 <!--begin::Title-->
                 <div class="flex-grow-1 me-2">
-                    <a href="#" class="fw-bolder text-gray-800 text-hover-primary fs-6">{{ $item->data['title'] }}</a>
+                    <a class="fw-bolder text-gray-800 text-hover-primary fs-6">{{ $item->data['title'] }}</a>
 
-                    <span class="text-muted fw-bold d-block">{{ $item->data['title'] }}</span>
                 </div>
                 <!--end::Title-->
 
