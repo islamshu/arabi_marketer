@@ -84,22 +84,18 @@
                     <th>سعر الاسشتارة </th>
                     <th> تاريخ الاجتماع </th>
                  
-                    <th>العمليات</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (App\Models\BookingConsultion::where('booking_status',0)->take(10)->orderby('id','desc')->get() as $item)
                 <tr>
                     <td>#{{ $item->code }}</td>
-                     <td>{{ $item->consult->title }}</td>
+                     <td> <a href="{{ route('order_consulting.show', $item->id) }}">{{ $item->consult->title }}</a></td>
                      <td>{{ $item->price }}$</td>
                      <td> {{ $item->date }}</td>
                    
 
-                     <td>
-                        <a href="{{ route('order_consulting.show', $item->id) }}" class="btn btn-info"><i class="fa fa-eye"></i></a>
-                       
-                    </td>
+                 
                     </tr>
                     
                 @endforeach
