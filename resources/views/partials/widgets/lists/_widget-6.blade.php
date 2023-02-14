@@ -55,21 +55,21 @@
             <!--begin::Item-->
             <div class="d-flex align-items-center  rounded p-5 ">
                 <!--begin::Icon-->
-                <span class="svg-icon svg-icon-{{ $row['color'] }} me-5">
+                <span class="svg-icon svg-icon-blue me-5">
                     {!! theme()->getSvgIcon("icons/duotune/abstract/abs027.svg", "svg-icon-1"); !!}
                 </span>
                 <!--end::Icon-->
 
                 <!--begin::Title-->
                 <div class="flex-grow-1 me-2">
-                    <a href="#" class="fw-bolder text-gray-800 text-hover-primary fs-6">{{ $row['title'] }}</a>
+                    <a href="#" class="fw-bolder text-gray-800 text-hover-primary fs-6">{{ $item->data['title'] }}</a>
 
-                    <span class="text-muted fw-bold d-block">{{ $row['text'] }}</span>
+                    <span class="text-muted fw-bold d-block">{{ $item->data['title'] }}</span>
                 </div>
                 <!--end::Title-->
 
                 <!--begin::Lable-->
-                <span class="fw-bolder text-{{ $row['color'] }} py-1">{{ $row['number'] }}</span>
+                <span class="fw-bolder text-blue  py-1">{{ $item->data['time'] }}</span>
                 <!--end::Lable-->
             </div>
             <!--end::Item-->
