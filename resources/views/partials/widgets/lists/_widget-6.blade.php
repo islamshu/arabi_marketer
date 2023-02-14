@@ -51,29 +51,11 @@
 
     <!--begin::Body-->
     <div class="card-body pt-0">
-        {{-- @foreach($listRows as $row)
+        @foreach(auth()->user()->notifications as $item)
             <!--begin::Item-->
-            <div class="d-flex align-items-center bg-light-{{ $row['color'] }} rounded p-5 {{ util()->putIf(next($listRows), 'mb-7') }}">
-                <!--begin::Icon-->
-                <span class="svg-icon svg-icon-{{ $row['color'] }} me-5">
-                    {!! theme()->getSvgIcon("icons/duotune/abstract/abs027.svg", "svg-icon-1"); !!}
-                </span>
-                <!--end::Icon-->
-
-                <!--begin::Title-->
-                <div class="flex-grow-1 me-2">
-                    <a href="#" class="fw-bolder text-gray-800 text-hover-primary fs-6">{{ $row['title'] }}</a>
-
-                    <span class="text-muted fw-bold d-block">{{ $row['text'] }}</span>
-                </div>
-                <!--end::Title-->
-
-                <!--begin::Lable-->
-                <span class="fw-bolder text-{{ $row['color'] }} py-1">{{ $row['number'] }}</span>
-                <!--end::Lable-->
-            </div>
+            {{ dd($item) }}
             <!--end::Item-->
-        @endforeach --}}
+        @endforeach
     </div>
     <!--end::Body-->
 </div>
