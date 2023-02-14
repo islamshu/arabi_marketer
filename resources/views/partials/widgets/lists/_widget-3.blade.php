@@ -75,7 +75,7 @@
         </table>
     </div>
     <div class="col-md-6">
-        <h3 class="card-title fw-bolder text-dark">Pending orders</h3>
+        <h3 class="card-title fw-bolder text-dark">Pending Booking Consultion</h3>
         <table id="eexdample"  class="display example" style="width:100%">
             <thead>
                 <tr>
