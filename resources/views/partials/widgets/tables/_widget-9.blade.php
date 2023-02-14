@@ -101,11 +101,7 @@
                 <!--begin::Table head-->
                 <thead>
                     <tr class="fw-bolder text-muted">
-                        <th class="w-25px">
-                            <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                <input class="form-check-input" type="checkbox" value="1"  data-kt-check="true" data-kt-check-target=".widget-9-check"/>
-                            </div>
-                        </th>
+                    
 
                         <th class="min-w-150px">صورة</th>
                         <th class="min-w-150px">الاسم </th>
