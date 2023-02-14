@@ -83,6 +83,8 @@
                     <th>رقم الحجز</th>
                     <th>الاستشارة</th>
                     <th>سعر الاسشتارة </th>
+                    <th>اضيفة بواسطة</th>
+
                     <th> تاريخ الاجتماع </th>
                  
                 </tr>
@@ -94,9 +96,10 @@
                 <tr>
                     <td><img src="{{ asset('public/uploads/'.@$item->user->image) }}" width="50" height="50" alt=""></td>
 
-                    <td>#{{ $item->code }}</td>
-                     <td> <a href="{{ route('order_consulting.show', $item->id) }}">{{ $item->consult->title }}</a></td>
+                    <td><a href="{{ route('order_consulting.show', $item->id) }}">#{{ $item->code }}</a></td>
+                     <td> {{ $item->consult->title }}</td>
                      <td>{{ $item->price }}$</td>
+                     <th><a href="{{ route('marketer.show',$item->user->id) }}">{{ $item->user->name }}</a></th>
                      <td> {{ $item->date }}</td>
                    
 
