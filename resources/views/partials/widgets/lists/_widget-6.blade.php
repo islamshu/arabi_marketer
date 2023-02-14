@@ -68,7 +68,9 @@
                 <!--end::Title-->
 
                 <!--begin::Lable-->
-                <span class="fw-bolder text-blue  py-1">{{ $item->data['time'] }}</span>
+                <span class="fw-bolder text-blue  py-1">{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$item->data['time']  )
+
+                }}</span>
                 <!--end::Lable-->
             </div>
             <!--end::Item-->
