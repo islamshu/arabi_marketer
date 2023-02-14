@@ -79,6 +79,7 @@
         <table id="eexdample"  class="display example" style="width:100%">
             <thead>
                 <tr>
+                    <th>صورة</th>
                     <th>رقم الحجز</th>
                     <th>الاستشارة</th>
                     <th>سعر الاسشتارة </th>
@@ -89,6 +90,8 @@
             <tbody>
                 @foreach (App\Models\BookingConsultion::where('booking_status',0)->take(10)->orderby('id','desc')->get() as $item)
                 <tr>
+                    <td><img src="{{ asset('public/uploads/'.$item->user->image) }}" width="50" height="50" alt=""></td>
+
                     <td>#{{ $item->code }}</td>
                      <td> <a href="{{ route('order_consulting.show', $item->id) }}">{{ $item->consult->title }}</a></td>
                      <td>{{ $item->price }}$</td>
