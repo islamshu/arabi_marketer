@@ -88,7 +88,9 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (App\Models\BookingConsultion::withoutTrashed('user')->where('booking_status',0)->take(10)->orderby('id','desc')->get() as $item)
+                @foreach (App\Models\BookingConsultion::wherehas('user',function($q){
+                    $q->where('deleted_at',null);
+                })where('booking_status',0)->take(10)->orderby('id','desc')->get() as $item)
                 <tr>
                     <td><img src="{{ asset('public/uploads/'.@$item->user->image) }}" width="50" height="50" alt=""></td>
 
