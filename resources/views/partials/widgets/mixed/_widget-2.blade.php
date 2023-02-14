@@ -25,95 +25,53 @@
         <!--begin::Chart-->
         <div class="mixed-widget-2-chart card-rounded-bottom bg-{{ $chartColor }}" data-kt-color="{{ $chartColor }}" data-kt-chart-url="{{ route('profits') }}" style="height: {{ $chartHeight }}"></div>
         <!--end::Chart-->
-        <ul class="nav nav-tabs nav-line-tabs nav-line-tabs-2x mb-5 fs-6">
-            <li class="nav-item">
-                <a class="nav-link " data-bs-toggle="tab" href="#kt_tab_pane_4">الخدمات</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_5">خدمات صناع المحتوى</a>
-            </li>
-           
-            
-        </ul>
-        <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade " id="kt_tab_pane_4" role="tabpanel">
-                <div>
-                    <table id="eexdample"  class="display example" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>صورة الخدمة</th>
-                                <th>اسم الخدمة</th>
-                                <th>اضيفة بواسطة</th>
-                                <th>تاريخ الاضافة</th>
-                
-                                <th>العمليات</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (App\Models\Service::take(10)->get() as $item)
-                            <tr>
-                             <td><img src="{{ asset('public/uploads/'.$item->image) }}" width="50" height="50" alt=""></td>
-                             <td>{{ $item->title }}</td>
-                             <th><a href="{{ route('marketer.show',$item->user->id) }}">{{ $item->user->name }}</a></th>
-                             <td>{{ date('Y-m-d', strtotime($item->created_at)); }}</td>
-                            
-                             <td>
-                                <a href="{{ route('services.show', $item->id) }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
-                
-                                {{-- <a href="{{ route('services.edit', $item->id) }}" class="btn btn-info"><i class="fa fa-edit"></i></a> --}}
-                               
-                            </td>
-                            </tr>
-                                
-                            @endforeach
-                        </tfoot>
-                    </table>
-                </div>
-            </div>
-            <div class="tab-pane fade " id="kt_tab_pane_5" role="tabpanel">
-                <div>
-                    <table id="eexdample"  class="display example" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>صورة </th>
-                                <th>اسم الخدمة</th>
-                                <th>اضيفة بواسطة</th>
-                                <th>تاريخ الاضافة</th>
-                
-                                <th>العمليات</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (App\Models\Service::take(10)->get() as $item)
-                            <tr>
-                             <td><img src="{{ asset('public/uploads/'.$item->image) }}" width="50" height="50" alt=""></td>
-                             <td>{{ $item->title }}</td>
-                             <th><a href="{{ route('marketer.show',$item->user->id) }}">{{ $item->user->name }}</a></th>
-                             <td>{{ date('Y-m-d', strtotime($item->created_at)); }}</td>
-                            
-                             <td>
-                                <a href="{{ route('services.show', $item->id) }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
-                
-                                {{-- <a href="{{ route('services.edit', $item->id) }}" class="btn btn-info"><i class="fa fa-edit"></i></a> --}}
-                               
-                            </td>
-                            </tr>
-                                
-                            @endforeach
-                        </tfoot>
-                    </table>
-                </div>
-            </div>
-           
-           
-          
 
-
-            
-          
-        </div>
         <!--begin::Stats-->
-    
+        <div class="card-p mt-n20 position-relative">
+            <!--begin::Row-->
+            <div class="row g-0">
+                <!--begin::Col-->
+                <div class="col bg-light-warning px-6 py-8 rounded-2 me-7 mb-7">
+                    {!! theme()->getSvgIcon("icons/duotune/general/gen032.svg", "svg-icon-3x svg-icon-warning d-block my-2") !!}
+                    <a href="#" class="text-warning fw-bold fs-6">
+                        Weekly Sales
+                    </a>
+                </div>
+                <!--end::Col-->
+
+                <!--begin::Col-->
+                <div class="col bg-light-primary px-6 py-8 rounded-2 mb-7">
+                    {!! theme()->getSvgIcon("icons/duotune/finance/fin006.svg", "svg-icon-3x svg-icon-primary d-block my-2") !!}
+                    <a href="#" class="text-primary fw-bold fs-6">
+                        New Projects
+                    </a>
+                </div>
+                <!--end::Col-->
+            </div>
+            <!--end::Row-->
+
+            <!--begin::Row-->
+            <div class="row g-0">
+                <!--begin::Col-->
+                <div class="col bg-light-danger px-6 py-8 rounded-2 me-7">
+                    {!! theme()->getSvgIcon("icons/duotune/abstract/abs027.svg", "svg-icon-3x svg-icon-danger d-block my-2") !!}
+                    <a href="#" class="text-danger fw-bold fs-6 mt-2">
+                        Item Orders
+                    </a>
+                </div>
+                <!--end::Col-->
+
+                <!--begin::Col-->
+                <div class="col bg-light-success px-6 py-8 rounded-2">
+                    {!! theme()->getSvgIcon("icons/duotune/communication/com010.svg", "svg-icon-3x svg-icon-success d-block my-2") !!}
+                    <a href="#" class="text-success fw-bold fs-6 mt-2">
+                        Bug Reports
+                    </a>
+                </div>
+                <!--end::Col-->
+            </div>
+            <!--end::Row-->
+        </div>
         <!--end::Stats-->
     </div>
     <!--end::Body-->
