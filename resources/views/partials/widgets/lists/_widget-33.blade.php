@@ -103,11 +103,13 @@
                     <tr class="fw-bolder text-muted">
                     
 
-                        <th class="min-w-150px">صورة الخدمة</th>
-                        <th class="min-w-150px">الخدمة </th>
-                        <th class="min-w-150px">السعر </th>
+                        <th class="min-w-150px">صورة </th>
+                        <th class="min-w-150px">الكود </th>
+                        <th class="min-w-150px">عنوان الاستشارة </th>
+                        <th class="min-w-150px">السعر  </th>
                         <th class="min-w-150px">اضيف بواسطة </th>
-                        <th class="min-w-150px">تاريخ الاضافة</th>
+                        <th class="min-w-150px">تاريخ الاجتماع</th>
+
 
                     </tr>
                 </thead>
@@ -115,20 +117,21 @@
 
                 <!--begin::Table body-->
                 <tbody>
-                    @foreach (App\Models\Cart::wherehas('service',function($q){
+                    @foreach (App\Models\BookingConsultion::wherehas('user',function($q){
                         $q->where('deleted_at',null);
-                    })->take(10)->orderby('id','desc')->get() as $item)
+                    })->where('booking_status',0)->take(10)->orderby('id','desc')->get() as $item)
                     <tr>
-                        <td><img src="{{ asset('public/uploads/'.$item->service->image) }}" width="50" height="50" alt=""></td>
+                        <td><img src="{{ asset('public/uploads/'.@$item->user->image) }}" width="50" height="50" alt=""></td>
                     
-                     <td>{{ @$item->service->title }}</td>
-                     <td>{{ $item->price }}</td>
-                     <td>{{ date('Y-m-d', strtotime($item->created_at)); }}</td>
+                        <td><a href="{{ route('order_consulting.show', $item->id) }}">#{{ $item->code }}</a></td>
+                         <td> {{ $item->consult->title }}</td>
+                         <td>{{ $item->price }}$</td>
+                         <th><a href="{{ route('marketer.show',$item->user->id) }}">{{ $item->user->name }}</a></th>
+                         <td> {{ $item->date }}</td>
+                       
                     
-                     <th><a href="{{ route('marketer.show',$item->user->id) }}">{{ $item->user->name }}</a></th>
-                    
-                    
-                    </tr>
+                     
+                        </tr>
                         
                     @endforeach
                 </tbody>

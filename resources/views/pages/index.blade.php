@@ -33,7 +33,7 @@
             {{ theme()->getView('partials/widgets/lists/_widget-3', ['class' => 'card-xxl-stretch mb-xl-3']) }}
         </div>
         <div class="col-xl-6">
-            {{ theme()->getView('partials/widgets/lists/_widget-3', ['class' => 'card-xxl-stretch mb-xl-3']) }}
+            {{ theme()->getView('partials/widgets/lists/_widget-33', ['class' => 'card-xxl-stretch mb-xl-3']) }}
         </div>
         <!--end::Col-->
 
