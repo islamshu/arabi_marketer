@@ -116,7 +116,7 @@
 
                 <!--begin::Table body-->
                 <tbody>
-                    @foreach(App\Models\User::where('type', 'marketer')->orderby('id','desc')->take(10)->get() as $row)
+                    @foreach(App\Models\User::where('type', 'marketer')->orderby('id','desc')->take(10)->get() as $item)
                     <tr>
                         <td><img src="{{ asset('public/uploads/' . $item->image) }}" width="50" height="50"
                                 alt=""></td>
