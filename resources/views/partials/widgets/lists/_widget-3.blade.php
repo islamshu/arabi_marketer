@@ -55,7 +55,7 @@
             <tbody>
                 @foreach (App\Models\Cart::take(10)->get() as $item)
                 <tr>
-                 <td>{{ $item->service->title }}</td>
+                 <td>{{ @$item->service->title }}</td>
                  <td>{{ $item->price }}</td>
                  <td>{{ date('Y-m-d', strtotime($item->created_at)); }}</td>
 
