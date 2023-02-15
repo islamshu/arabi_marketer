@@ -57,7 +57,7 @@
         $sales=  App\Models\OrderDetiles::select('product_id')
     ->groupBy('product_id')
     ->orderByRaw('COUNT(*) DESC')
-    ->limit(1)
+    ->limit(5)
     ->get();
 
         @endphp
