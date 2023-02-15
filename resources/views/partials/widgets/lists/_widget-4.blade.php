@@ -55,7 +55,7 @@
 		</h3>
         @php
             $sales = DB::table('services')
-            ->select('services.id')
+            ->select(DB::raw('select services.id'))
             ->leftJoin('order_detiles','services.id','=','order_detiles.product_id')
             ->selectRaw('services.*, COALESCE(sum(order_detiles.product_id),0) total')
             ->groupBy('services.id')
