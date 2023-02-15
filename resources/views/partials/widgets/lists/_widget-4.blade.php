@@ -56,7 +56,7 @@
         @php
             $sales =App\Models\Service::select(DB::raw('select services.*'))
             ->leftJoin('order_detiles','services.id','=','order_detiles.product_id')
-            ->selectRaw('services.*, COALESCE(sum(order_detiles.product_id),0) total')
+            ->selectRaw('COALESCE(sum(order_detiles.product_id),0) total')
             ->groupBy('services.id')
             ->orderBy('total','desc')
             ->take(5)
