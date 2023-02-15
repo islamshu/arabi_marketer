@@ -93,7 +93,7 @@
                 <!--begin::Section-->
                 <div class="d-flex align-items-center flex-row-fluid flex-wrap">
                     <div class="flex-grow-1 me-2">
-                        <a href="{{route('services.show',$row->id)}}" class="text-gray-800 text-hover-primary fs-6 fw-bolder">{{ $row->service->title }}</a>
+                        <a href="{{route('services.show',$row->service->id)}}" class="text-gray-800 text-hover-primary fs-6 fw-bolder">{{ $row->service->title }}</a>
 
                     </div>
 
