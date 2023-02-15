@@ -54,7 +54,11 @@
 			<span class="text-muted mt-1 fw-bold fs-7">Most common Service requests     </span>
 		</h3>
         @php
-            $sales =App\Models\Service::withCount('summaries')->orderBy('summaries_count', 'desc')->first();
+          App\Models\OrderDetiles::select('product_id')
+    ->groupBy('product_id')
+    ->orderByRaw('COUNT(*) DESC')
+    ->limit(1)
+    ->get();
 
         @endphp
         {{ dd($sales) }}
