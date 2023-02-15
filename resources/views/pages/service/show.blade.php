@@ -42,6 +42,9 @@
 
             </ul>
             <div style="direction: rtl;margin-right: 12%;">
+                @if($service->deleted_at != null)
+                <button class="btn-danger btn btn-sm">Is Deleted</button>
+                @else
             <a href="{{ route('services.edit', $service->id) }}" class="btn btn-success"><i class="fa fa-edit"></i>انقر للتعديل</a>
            @if($service->status == 0)
             <form action="{{  route('change_status_service',$service->id) }}" method="post" >
@@ -61,7 +64,8 @@
                
 
             </form> 
-            @endif  
+            @endif
+            @endif
         </div>
             <form >
                 @csrf 
