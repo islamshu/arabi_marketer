@@ -79,7 +79,7 @@
     <!--begin::Body-->
     <div class="card-body pt-5">
         @foreach($sales as $index => $row)
-        
+        {{ dd($row) }}
 
             <!--begin::Item-->
             <div class="d-flex align-items-sm-center {">
