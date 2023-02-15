@@ -51,8 +51,18 @@
         <h3 class="card-title align-items-start flex-column">
 			<span class="card-label fw-bolder text-dark">Trends</span>
 
-			<span class="text-muted mt-1 fw-bold fs-7">Latest tech trends</span>
+			<span class="text-muted mt-1 fw-bold fs-7">Most common Service requests     </span>
 		</h3>
+        @php
+            $sales = DB::table('services')
+            ->leftJoin('order_detiles','services.id','=','order_detiles.product_id')
+            ->selectRaw('services.*, COALESCE(sum(order_detiles.item_count),0) total')
+            ->groupBy('services.id')
+            ->orderBy('total','desc')
+            ->take(5)
+            ->get()
+        @endphp
+        {{ dd($sales) }}
 
         <div class="card-toolbar">
             <!--begin::Menu-->
