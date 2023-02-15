@@ -78,19 +78,15 @@
 
     <!--begin::Body-->
     <div class="card-body pt-5">
-        @foreach($listRows as $index => $row)
-            <?php
-                if ($items > 0 && $index > ($items - 1)) {
-                    break;
-                }
-            ?>
+        @foreach($sales as $index => $row)
+        
 
             <!--begin::Item-->
-            <div class="d-flex align-items-sm-center {{ util()->putIf(next($listRows), 'mb-7') }}">
+            <div class="d-flex align-items-sm-center {">
                 <!--begin::Symbol-->
                 <div class="symbol symbol-50px me-5">
                     <span class="symbol-label">
-                        <img src="{{ asset(theme()->getMediaUrlPath() . $row['image']) }}" class="h-50 align-self-center" alt=""/>
+                        <img src="{{ asset('public/uploads/'.$row->service->image) }}" class="h-50 align-self-center" alt=""/>
                     </span>
                 </div>
                 <!--end::Symbol-->
@@ -98,12 +94,10 @@
                 <!--begin::Section-->
                 <div class="d-flex align-items-center flex-row-fluid flex-wrap">
                     <div class="flex-grow-1 me-2">
-                        <a href="#" class="text-gray-800 text-hover-primary fs-6 fw-bolder">{{ $row['title'] }}</a>
+                        <a href="#" class="text-gray-800 text-hover-primary fs-6 fw-bolder">{{ $row->service->title }}</a>
 
-                        <span class="text-muted fw-bold d-block fs-7">{{ $row['text'] }}</span>
                     </div>
 
-                    <span class="badge badge-light fw-bolder my-2">{{ $row['badge'] }}</span>
                 </div>
                 <!--end::Section-->
             </div>
