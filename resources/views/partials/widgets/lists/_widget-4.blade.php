@@ -95,8 +95,10 @@
                     <div class="flex-grow-1 me-2">
                         
                         <a href="{{route('services.show',$row->service->id)}}" target="_blank" class="text-gray-800 text-hover-primary fs-6 fw-bolder">{{ $row->service->title }}</a>
-
                     </div>
+                    @if($row->service->deleted_at != null)
+                    <button class="btn-dange btn">is deleted</button>
+                    @endif
 
                 </div>
                 <!--end::Section-->
