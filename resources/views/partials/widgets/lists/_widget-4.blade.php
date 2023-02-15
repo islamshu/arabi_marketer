@@ -54,7 +54,7 @@
 			<span class="text-muted mt-1 fw-bold fs-7">Most common Service requests     </span>
 		</h3>
         @php
-          App\Models\OrderDetiles::select('product_id')
+        $sales=  App\Models\OrderDetiles::select('product_id')
     ->groupBy('product_id')
     ->orderByRaw('COUNT(*) DESC')
     ->limit(1)
