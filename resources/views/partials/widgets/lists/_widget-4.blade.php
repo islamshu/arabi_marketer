@@ -61,6 +61,7 @@
     ->get();
     $array=[];
     foreach ($sales as $key => $value) {
+        dd($value->service);
         array_push($array,$value->product_id);
     }
    $services= App\Models\Service::whereIn('id',$array)->get();
