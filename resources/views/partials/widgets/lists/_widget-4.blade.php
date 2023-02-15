@@ -59,8 +59,12 @@
     ->orderByRaw('COUNT(*) DESC')
     ->limit(5)
     ->get();
+    foreach ($sales as $key => $value) {
+        dd($value);
+    }
 
         @endphp
+        
         {{ dd($sales) }}
 
         <div class="card-toolbar">
