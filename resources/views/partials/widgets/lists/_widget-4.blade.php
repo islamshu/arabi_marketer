@@ -59,13 +59,16 @@
     ->orderByRaw('COUNT(*) DESC')
     ->limit(5)
     ->get();
+    $array=[];
     foreach ($sales as $key => $value) {
-        dd($value->product_id);
+        array_push($array,$value->product_id);
     }
+   $services= App\Models\Service::whereIn('id',$array)->get();
+
 
         @endphp
         
-        {{ dd($sales) }}
+        {{ dd($services) }}
 
         <div class="card-toolbar">
             <!--begin::Menu-->
