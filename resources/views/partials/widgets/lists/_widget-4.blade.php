@@ -60,7 +60,7 @@
     ->limit(5)
     ->get();
     foreach ($sales as $key => $value) {
-        dd($value);
+        dd($value->product_id);
     }
 
         @endphp
