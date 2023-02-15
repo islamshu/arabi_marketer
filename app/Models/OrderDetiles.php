@@ -16,7 +16,7 @@ class OrderDetiles extends Model
      */
     public function service()
     {
-        return $this->belongsTo(Service::class, 'product_id');
+        return $this->belongsTo(Service::class, 'product_id')->withTrashed();
     }
     public function consultion()
     {

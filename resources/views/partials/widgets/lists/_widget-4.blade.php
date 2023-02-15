@@ -85,7 +85,7 @@
                 <!--begin::Symbol-->
                 <div class="symbol symbol-50px me-5">
                     <span class="symbol-label">
-                        <img src="{{ asset('public/uploads/'.$row->service->image) }}" class="h-50 align-self-center" alt=""/>
+                        <img src="{{ asset('public/uploads/'.@$row->service->image) }}" class="h-50 align-self-center" alt=""/>
                     </span>
                 </div>
                 <!--end::Symbol-->
@@ -93,6 +93,7 @@
                 <!--begin::Section-->
                 <div class="d-flex align-items-center flex-row-fluid flex-wrap">
                     <div class="flex-grow-1 me-2">
+                        
                         <a href="{{route('services.show',$row->service->id)}}" target="_blank" class="text-gray-800 text-hover-primary fs-6 fw-bolder">{{ $row->service->title }}</a>
 
                     </div>
