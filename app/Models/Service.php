@@ -56,4 +56,8 @@ class Service extends Model
     {
         return $this->hasMany(ServiceComment::class);
     }
+    public function summaries()
+    {
+        return $this->hasMany(OrderDetiles::class, 'order_detiles', 'product_id');
+    }
 }

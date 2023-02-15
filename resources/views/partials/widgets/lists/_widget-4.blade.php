@@ -54,13 +54,8 @@
 			<span class="text-muted mt-1 fw-bold fs-7">Most common Service requests     </span>
 		</h3>
         @php
-            $sales =App\Models\Service::select(DB::raw('select services.*'))
-            ->leftJoin('order_detiles','services.id','=','order_detiles.product_id')
-            ->selectRaw('COALESCE(sum(order_detiles.product_id),0) total')
-            ->groupBy('services.id')
-            ->orderBy('total','desc')
-            ->take(5)
-            ->get()
+            $sales =App\Models\Service::withCount('summaries')->orderBy('summaries_count', 'desc')->first();
+
         @endphp
         {{ dd($sales) }}
 
