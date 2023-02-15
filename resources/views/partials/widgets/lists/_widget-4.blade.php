@@ -54,8 +54,7 @@
 			<span class="text-muted mt-1 fw-bold fs-7">Most common Service requests     </span>
 		</h3>
         @php
-            $sales = DB::table('services')
-            ->select(DB::raw('select services.*'))
+            $sales =App\Models\Service::select(DB::raw('select services.*'))
             ->leftJoin('order_detiles','services.id','=','order_detiles.product_id')
             ->selectRaw('services.*, COALESCE(sum(order_detiles.product_id),0) total')
             ->groupBy('services.id')
