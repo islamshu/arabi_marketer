@@ -27,7 +27,7 @@
     <!--begin::Body-->
     <div class="card-body d-flex flex-column">
         <!--begin::Chart-->
-        <div class="mixed-widget-5-chart card-rounded-top" data-kt-chart-color="{{ $chartColor }}" data-kt-chart-url="{{ route('profits') }}" style="height: "></div>
+        <div class="mixed-widget-5-chart card-rounded-top" data-kt-chart-color="{{ $chartColor }}" data-kt-chart-url="{{ route('profits') }}" style="height: {{ $chartHeight }}"></div>
         <!--end::Chart-->
         @php
             $sales=  App\Models\OrderDetiles::select('product_id')
