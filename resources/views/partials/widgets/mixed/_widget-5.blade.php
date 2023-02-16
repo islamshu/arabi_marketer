@@ -73,11 +73,12 @@
                 {{-- <div class="badge badge-light fw-bold py-4 px-3">+82$</div> --}}
                 <!--end::Label-->
             </div>
-            <a href="{{ route('most_order') }}" class="btn btn-success">Show All</a>
             @endforeach
             <!--end::Item-->
 
             <!--end::Item-->
+            <a href="{{ route('most_order') }}" class="btn btn-success">Show All</a>
+
         </div>
         <!--end::Items-->
     </div>
