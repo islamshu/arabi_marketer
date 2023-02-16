@@ -59,7 +59,7 @@
 
                     <!--begin::Title-->
                     <div>
-                        <a href="{{route('services.show',$item->service->id)}}" target="_blank" class="text-gray-800 text-hover-primary fs-6 fw-bolder">{{ $row->service->title }}</a> 
+                        <a href="{{route('services.show',$item->service->id)}}" target="_blank" class="text-gray-800 text-hover-primary fs-6 fw-bolder">{{ $item->service->title }}</a> 
                         @if($item->service->deleted_at != null)
                         <button class="btn-danger btn btn-sm">Deleted</button>
                         @endif
