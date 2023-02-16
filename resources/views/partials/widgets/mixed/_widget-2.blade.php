@@ -56,7 +56,7 @@
                 <div class="col bg-light-danger px-6 py-8 rounded-2 me-7">
                     {!! theme()->getSvgIcon("icons/duotune/abstract/abs027.svg", "svg-icon-3x svg-icon-danger d-block my-2") !!}
                     <a href="#" class="text-danger fw-bold fs-6 mt-2">
-                        Item Orders
+                        Total Users ({{ App\Models\User::where('type','user')->count() }})
                     </a>
                 </div>
                 <!--end::Col-->
