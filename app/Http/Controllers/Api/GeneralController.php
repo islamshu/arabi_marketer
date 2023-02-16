@@ -10,6 +10,7 @@ use App\Http\Resources\CountryResource;
 use App\Models\Cart;
 use App\Models\City;
 use App\Models\Country;
+use App\Models\OrderDetiles;
 
 class GeneralController extends BaseController
 {
@@ -23,6 +24,15 @@ class GeneralController extends BaseController
         })->orderby('id','desc')->get();
         return view('pages.pendingcart')->with('carts',$carts);
     }
+    public function most_order(){
+        $sales= OrderDetiles::select('product_id')
+        ->groupBy('product_id')
+        ->orderByRaw('COUNT(*) DESC')
+        ->limit(5)
+        ->get();
+        return view('pages.pendingcart')->with('sales',$sales);
+    }
+    
     public function all_cites(){
         $res = CityResource::collection(City::get());
         return $this->sendResponse($res,'all cities');

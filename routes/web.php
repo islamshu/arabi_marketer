@@ -216,6 +216,10 @@ Route::middleware('auth')->group(function () {
     Route::get('all_notification',function(){
         return view('pages.notification');
     })->name('all_notification');
+    Route::get('most_order', [GeneralController::class, 'most_order'])->name('most_order');
+
+
+
 
     Route::get('blog_category', [CategoryController::class, 'blog_index'])->name('blog_index');
     Route::get('podcast_category', [CategoryController::class, 'podcast_index'])->name('podcast_index');

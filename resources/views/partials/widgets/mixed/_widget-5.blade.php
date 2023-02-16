@@ -33,7 +33,7 @@
             $sales=  App\Models\OrderDetiles::select('product_id')
             ->groupBy('product_id')
             ->orderByRaw('COUNT(*) DESC')
-            ->limit(8)
+            ->limit(5)
             ->get();
 
 
@@ -73,6 +73,7 @@
                 {{-- <div class="badge badge-light fw-bold py-4 px-3">+82$</div> --}}
                 <!--end::Label-->
             </div>
+            <a href="{{ route('most_order') }}" class="btn btn-success">Show All</a>
             @endforeach
             <!--end::Item-->
 
