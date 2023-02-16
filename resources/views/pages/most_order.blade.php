@@ -97,8 +97,8 @@
                                 <td><img src="{{ asset('public/uploads/' . $item->service->image) }}" width="50"
                                         height="50" alt=""></td>
 
-                                <td>{{ @$item->service->title }} @if ($item->service->deleted_at != null)
-                                    <button class="btn btn-dagnder btn-sm">محذوف</button>
+                                <td><a href="{{route('services.show',$item->service->id)}}" target="_blank">{{ @$item->service->title }} </a>@if ($item->service->deleted_at != null)
+                                    <button class="btn btn-danger btn-sm">محذوف</button>
                                     @endif
                                 </td>
                                 <td>{{ date('Y-m-d', strtotime($item->created_at)) }}</td>
