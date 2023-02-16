@@ -33,7 +33,7 @@
                 <!--begin::Col-->
                 <div class="col bg-light-warning px-6 py-8 rounded-2 me-7 mb-7">
                     {!! theme()->getSvgIcon("icons/duotune/general/gen032.svg", "svg-icon-3x svg-icon-warning d-block my-2") !!}
-                    <a href="#" class="text-warning fw-bold fs-6">
+                    <a href="{{ route('orders.index') }}" class="text-warning fw-bold fs-6">
                         Total Order  ({{ App\Models\Order::where('payment_status','paid')->count() }})
                     </a>
                 </div>
@@ -42,8 +42,8 @@
                 <!--begin::Col-->
                 <div class="col bg-light-primary px-6 py-8 rounded-2 mb-7">
                     {!! theme()->getSvgIcon("icons/duotune/finance/fin006.svg", "svg-icon-3x svg-icon-primary d-block my-2") !!}
-                    <a href="#" class="text-primary fw-bold fs-6">
-                        New Projects
+                    <a href="{{ route('get_creators') }}" class="text-primary fw-bold fs-6">
+                        Total Creators ({{ App\Models\User::where('type','marketer')->where('status',2)->count() }})
                     </a>
                 </div>
                 <!--end::Col-->
