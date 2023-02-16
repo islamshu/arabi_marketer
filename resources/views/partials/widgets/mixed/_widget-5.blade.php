@@ -59,8 +59,8 @@
 
                     <!--begin::Title-->
                     <div>
-                        <a href="{{route('services.show',$row->service->id)}}" target="_blank" class="text-gray-800 text-hover-primary fs-6 fw-bolder">{{ $row->service->title }}</a> 
-                        @if($row->service->deleted_at != null)
+                        <a href="{{route('services.show',$item->service->id)}}" target="_blank" class="text-gray-800 text-hover-primary fs-6 fw-bolder">{{ $row->service->title }}</a> 
+                        @if($item->service->deleted_at != null)
                         <button class="btn-danger btn btn-sm">Deleted</button>
                         @endif
                         {{-- <div class="fs-7 text-muted fw-bold mt-1">Ricky Hunt, Sandra Trepp</div> --}}
