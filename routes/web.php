@@ -213,6 +213,9 @@ Route::middleware('auth')->group(function () {
     Route::post('blog_category', [CategoryController::class, 'store_blog_category'])->name('store_blog_category');
     Route::post('store_podcast_category', [CategoryController::class, 'store_podcast_category'])->name('store_podcast_category');
     Route::get('pending_cart', [GeneralController::class, 'pending_cart'])->name('pending_cart');
+    Route::get('all_notification',function(){
+        return view('pages.notification');
+    })->name('all_notification');
 
     Route::get('blog_category', [CategoryController::class, 'blog_index'])->name('blog_index');
     Route::get('podcast_category', [CategoryController::class, 'podcast_index'])->name('podcast_index');
