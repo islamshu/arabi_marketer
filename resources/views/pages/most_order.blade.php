@@ -98,7 +98,7 @@
                                         height="50" alt=""></td>
 
                                 <td>{{ @$item->service->title }} @if ($item->service->deleted_at != null)
-                                        <span style="background: red"> محذوفة</span>
+                                    <button class="btn btn-dagnder btn-sm">محذوف</button>
                                     @endif
                                 </td>
                                 <td>{{ date('Y-m-d', strtotime($item->created_at)) }}</td>
