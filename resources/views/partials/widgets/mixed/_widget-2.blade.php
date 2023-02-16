@@ -65,11 +65,11 @@
                 <div class="col bg-light-success px-6 py-8 rounded-2">
                     {!! theme()->getSvgIcon("icons/duotune/communication/com010.svg", "svg-icon-3x svg-icon-success d-block my-2") !!}
                     <a href="#" class="text-success fw-bold fs-6 mt-2">
-                       Total Service {{ App\Models\Service::where('deleted_at',null)->count() }}
+                       Total Service ({{ App\Models\Service::where('deleted_at',null)->count() }})
                     </a><br>
                     <br>
                     <a href="#" class="text-success fw-bold fs-6 mt-2">
-                        Total Consultiong {{ App\Models\Consulting::count() }}
+                        Total Consultiong ({{ App\Models\Consulting::count() }})
 
                     </a>
                 </div>
