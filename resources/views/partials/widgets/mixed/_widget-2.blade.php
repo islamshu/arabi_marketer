@@ -67,6 +67,9 @@
                     <a href="#" class="text-success fw-bold fs-6 mt-2">
                         Bug Reports
                     </a>
+                    <a href="#" class="text-success fw-bold fs-6 mt-2">
+                        Bug Reports
+                    </a>
                 </div>
                 <!--end::Col-->
             </div>
