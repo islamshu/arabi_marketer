@@ -76,8 +76,9 @@
             </div>
             <!--end::Item-->
         @endforeach
+        <a href="{{ route('all_notification') }}" class="btn btn-success">Show All</a>
+
     </div>
-    <a href="{{ route('all_notification') }}" class="btn btn-success">Show All</a>
     <!--end::Body-->
 </div>
 <!--end::List Widget 6-->
