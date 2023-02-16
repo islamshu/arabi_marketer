@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\CityResource;
 use App\Http\Resources\CountryResource;
+use App\Models\Cart;
 use App\Models\City;
 use App\Models\Country;
 
