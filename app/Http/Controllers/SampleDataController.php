@@ -17,9 +17,9 @@ class SampleDataController extends Controller
     {
         $months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
         $arr=array();
-        $orders = Order::where('payment_status','paid')->get();
+        $data = Order::where('payment_status','paid')->get();
         
-        $data = collect(json_decode(file_get_contents(resource_path('samples/sales.json'))));
+        // $orders = collect(json_decode(file_get_contents(resource_path('samples/sales.json'))));
 
         $d = $data->groupBy(function ($data) {
             return Carbon::parse($data->created_at)->format('Y-m');
