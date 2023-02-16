@@ -69,7 +69,7 @@
                     </a><br>
                     <br>
                     <a href="#" class="text-success fw-bold fs-6 mt-2">
-                        Total Consultiong {{ App\Models\Consulting::where('deleted_at',null)->count() }}
+                        Total Consultiong {{ App\Models\Consulting::count() }}
 
                     </a>
                 </div>
