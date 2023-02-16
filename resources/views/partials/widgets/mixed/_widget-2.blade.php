@@ -34,7 +34,7 @@
                 <div class="col bg-light-warning px-6 py-8 rounded-2 me-7 mb-7">
                     {!! theme()->getSvgIcon("icons/duotune/general/gen032.svg", "svg-icon-3x svg-icon-warning d-block my-2") !!}
                     <a href="#" class="text-warning fw-bold fs-6">
-                        Weekly Sales
+                        Total Order  (App\Models\Order::count())
                     </a>
                 </div>
                 <!--end::Col-->
