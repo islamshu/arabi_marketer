@@ -91,7 +91,6 @@
                             <th >اضيف بواسطة </th>
                             <th >تاريخ الاضافة</th>
             
-                            <th class="text-end min-w-50px">الاجراءات</th>
                         </tr>
                     </thead>
                     <tbody class="text-gray-600 fw-semibold">
