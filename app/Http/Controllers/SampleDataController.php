@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Support\Carbon;
 
@@ -15,7 +16,9 @@ class SampleDataController extends Controller
     public function profits()
     {
         $months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
+        $arr=array();
+        $orders = Order::where('payment_status','paid')->get();
+        dd($orders);
         $data = collect(json_decode(file_get_contents(resource_path('samples/sales.json'))));
 
         $d = $data->groupBy(function ($data) {
@@ -23,7 +26,7 @@ class SampleDataController extends Controller
         })->map(function ($data) {
             return [
                 'profit'  => number_format($data->sum('profit') / 11, 2),
-                'revenue' => number_format($data->sum('revenue') / 13, 2),
+                'revenue' => number_format(0, 2),
             ];
         })->sortKeys()->mapWithKeys(function ($data, $key) use ($months) {
             return [$months[Carbon::parse($key)->format('n')] => $data];
