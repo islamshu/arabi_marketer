@@ -1,7 +1,6 @@
 @extends('layout.main')
 
 <x-base-layout>
-
     <div class="card card-flush">
         <!--begin::Card body-->
         <div class="card-body">
@@ -9,7 +8,7 @@
             <ul class="nav nav-tabs nav-line-tabs nav-line-tabs-2x border-transparent fs-4 fw-semibold mb-15"
                 role="tablist">
                 <!--begin:::Tab item-->
-              
+
                 <!--end:::Tab item-->
                 <!--begin:::Tab item-->
                 {{-- <li class="nav-item" role="presentation">
@@ -59,10 +58,10 @@
                         <!--end::Svg Icon-->Mobile
                     </a>
                 </li> --}}
-             
+
                 <li class="nav-item" role="presentation" class="active">
-                    <a class="nav-link text-active-primary pb-5" data-bs-toggle="tab" href="#kt_jobs"
-                        aria-selected="false" tabindex="-1" role="tab">
+                    <a class="nav-link text-active-primary pb-5" data-bs-toggle="tab" href="#kt_jobs" aria-selected="false"
+                        tabindex="-1" role="tab">
                         <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm005.svg-->
                         <span class="svg-icon svg-icon-2 me-2">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -74,7 +73,7 @@
                                     fill="currentColor"></path>
                             </svg>
                         </span>
-                        <!--end::Svg Icon--> الخدمات الاكثر طلبا  
+                        <!--end::Svg Icon--> الخدمات الاكثر طلبا
                     </a>
                 </li>
             </ul>
@@ -86,21 +85,25 @@
                         <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
                             <th>#</th>
                             <th>صورة الخدمة</th>
-                            <th >اسم الخدماة </th>
-                            <th >تاريخ الاضافة</th>
-            
+                            <th>اسم الخدماة </th>
+                            <th>تاريخ الاضافة</th>
+
                         </tr>
                     </thead>
                     <tbody class="text-gray-600 fw-semibold">
-                        @foreach ($sales as $key=> $item)
-                        <tr>
-                            <td>{{ $key+1 }}</td>
-                            <td><img src="{{ asset('public/uploads/'.$item->service->image) }}" width="50" height="50" alt=""></td>
-                    
-                     <td>{{ @$item->service->title }} @if($item->service->deleted_at != null) <span style="background: red"> محذوفة</span>@endif</td>
-                     <td>{{ date('Y-m-d', strtotime($item->created_at)); }}</td>
-                    
-                        </tr>
+                        @foreach ($sales as $key => $item)
+                            <tr>
+                                <td>{{ $key + 1 }}</td>
+                                <td><img src="{{ asset('public/uploads/' . $item->service->image) }}" width="50"
+                                        height="50" alt=""></td>
+
+                                <td>{{ @$item->service->title }} @if ($item->service->deleted_at != null)
+                                        <span style="background: red"> محذوفة</span>
+                                    @endif
+                                </td>
+                                <td>{{ date('Y-m-d', strtotime($item->created_at)) }}</td>
+
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>

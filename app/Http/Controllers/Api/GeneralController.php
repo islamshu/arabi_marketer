@@ -30,7 +30,7 @@ class GeneralController extends BaseController
         ->orderByRaw('COUNT(*) DESC')
         ->limit(5)
         ->get();
-        return view('pages.pendingcart')->with('sales',$sales);
+        return view('pages.most_order')->with('sales',$sales);
     }
     
     public function all_cites(){
