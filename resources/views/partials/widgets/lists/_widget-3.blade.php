@@ -134,6 +134,7 @@
                 </tbody>
                 <!--end::Table body-->
             </table>
+            <a href="{{ route('pending_cart') }}" class="btn btn-success">Show all</a>
             <!--end::Table-->
         </div>
         <!--end::Table container-->

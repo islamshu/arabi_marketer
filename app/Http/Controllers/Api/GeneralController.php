@@ -16,6 +16,12 @@ class GeneralController extends BaseController
         $res = CountryResource::collection(Country::get());
         return $this->sendResponse($res,'all countires');
     }
+    public function pending_cart(){
+        $carts = Cart::wherehas('service',function($q){
+            $q->where('deleted_at',null);
+        })->orderby('id','desc')->get();
+        return view('pages.pendingcart')->with('carts',$carts);
+    }
     public function all_cites(){
         $res = CityResource::collection(City::get());
         return $this->sendResponse($res,'all cities');
