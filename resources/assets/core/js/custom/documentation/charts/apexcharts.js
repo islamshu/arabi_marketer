@@ -1,135 +1,135 @@
 "use strict";
 
 // Class definition
-var KTGeneralApexCharts = function () {
+var KTGeneralApexCharts = function() {
     // Shared variables
 
     // Private functions
-    var example1 = function () {
-        var element = document.getElementById("kt_apexcharts_1");
+    // var example1 = function () {
+    //     var element = document.getElementById("kt_apexcharts_1");
 
-        var height = parseInt(KTUtil.css(element, 'height'));
-        var labelColor = KTUtil.getCssVariableValue('--kt-gray-500');
-        var borderColor = KTUtil.getCssVariableValue('--kt-gray-200');
-        var baseColor = KTUtil.getCssVariableValue('--kt-primary');
-        var secondaryColor = KTUtil.getCssVariableValue('--kt-gray-300');
-        var dangerColor = KTUtil.getCssVariableValue('--kt-danger');
+    //     var height = parseInt(KTUtil.css(element, 'height'));
+    //     var labelColor = KTUtil.getCssVariableValue('--kt-gray-500');
+    //     var borderColor = KTUtil.getCssVariableValue('--kt-gray-200');
+    //     var baseColor = KTUtil.getCssVariableValue('--kt-primary');
+    //     var secondaryColor = KTUtil.getCssVariableValue('--kt-gray-300');
+    //     var dangerColor = KTUtil.getCssVariableValue('--kt-danger');
 
-        if (!element) {
-            return;
-        }
+    //     if (!element) {
+    //         return;
+    //     }
 
-        var options = {
-            series: [{
-                name: 'Net Profit',
-                data: [44, 55, 57, 56, 61, 58, 43, 56, 65, 41, 55, 66]
-            }, {
-                name: 'Cost',
-                data: [32, 34, 52, 46, 27, 60, 41, 49, 13, 11, 44, 33]
-            }, {
-                name: 'Revenue',
-                data: [76, 85, 101, 98, 87, 105, 87, 99, 75, 82, 91, 89]
-            }],
-            chart: {
-                fontFamily: 'inherit',
-                type: 'bar',
-                height: height,
-                toolbar: {
-                    show: false
-                }
-            },
-            plotOptions: {
-                bar: {
-                    horizontal: false,
-                    columnWidth: ['40%'],
-                    borderRadius: [6]
-                },
-            },
-            legend: {
-                show: false
-            },
-            dataLabels: {
-                enabled: false
-            },
-            stroke: {
-                show: true,
-                width: 2,
-                colors: ['transparent']
-            },
-            xaxis: {
-                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                axisBorder: {
-                    show: false,
-                },
-                axisTicks: {
-                    show: false
-                },
-                labels: {
-                    style: {
-                        colors: labelColor,
-                        fontSize: '12px'
-                    }
-                }
-            },
-            yaxis: {
-                labels: {
-                    style: {
-                        colors: labelColor,
-                        fontSize: '12px'
-                    }
-                }
-            },
-            fill: {
-                opacity: 1
-            },
-            states: {
-                normal: {
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                },
-                hover: {
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                },
-                active: {
-                    allowMultipleDataPointsSelection: false,
-                    filter: {
-                        type: 'none',
-                        value: 0
-                    }
-                }
-            },
-            tooltip: {
-                style: {
-                    fontSize: '12px'
-                },
-                y: {
-                    formatter: function (val) {
-                        return "$" + val + " thousands"
-                    }
-                }
-            },
-            colors: [baseColor, dangerColor, secondaryColor],
-            grid: {
-                borderColor: borderColor,
-                strokeDashArray: 4,
-                yaxis: {
-                    lines: {
-                        show: true
-                    }
-                }
-            }
-        };
+    //     var options = {
+    //         series: [{
+    //             name: 'Net Profit',
+    //             data: [44, 55, 57, 56, 61, 58, 43, 56, 65, 41, 55, 66]
+    //         }, {
+    //             name: 'Cost',
+    //             data: [32, 34, 52, 46, 27, 60, 41, 49, 13, 11, 44, 33]
+    //         }, {
+    //             name: 'Revenue',
+    //             data: [76, 85, 101, 98, 87, 105, 87, 99, 75, 82, 91, 89]
+    //         }],
+    //         chart: {
+    //             fontFamily: 'inherit',
+    //             type: 'bar',
+    //             height: height,
+    //             toolbar: {
+    //                 show: false
+    //             }
+    //         },
+    //         plotOptions: {
+    //             bar: {
+    //                 horizontal: false,
+    //                 columnWidth: ['40%'],
+    //                 borderRadius: [6]
+    //             },
+    //         },
+    //         legend: {
+    //             show: false
+    //         },
+    //         dataLabels: {
+    //             enabled: false
+    //         },
+    //         stroke: {
+    //             show: true,
+    //             width: 2,
+    //             colors: ['transparent']
+    //         },
+    //         xaxis: {
+    //             categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    //             axisBorder: {
+    //                 show: false,
+    //             },
+    //             axisTicks: {
+    //                 show: false
+    //             },
+    //             labels: {
+    //                 style: {
+    //                     colors: labelColor,
+    //                     fontSize: '12px'
+    //                 }
+    //             }
+    //         },
+    //         yaxis: {
+    //             labels: {
+    //                 style: {
+    //                     colors: labelColor,
+    //                     fontSize: '12px'
+    //                 }
+    //             }
+    //         },
+    //         fill: {
+    //             opacity: 1
+    //         },
+    //         states: {
+    //             normal: {
+    //                 filter: {
+    //                     type: 'none',
+    //                     value: 0
+    //                 }
+    //             },
+    //             hover: {
+    //                 filter: {
+    //                     type: 'none',
+    //                     value: 0
+    //                 }
+    //             },
+    //             active: {
+    //                 allowMultipleDataPointsSelection: false,
+    //                 filter: {
+    //                     type: 'none',
+    //                     value: 0
+    //                 }
+    //             }
+    //         },
+    //         tooltip: {
+    //             style: {
+    //                 fontSize: '12px'
+    //             },
+    //             y: {
+    //                 formatter: function (val) {
+    //                     return "$" + val + " thousands"
+    //                 }
+    //             }
+    //         },
+    //         colors: [baseColor, dangerColor, secondaryColor],
+    //         grid: {
+    //             borderColor: borderColor,
+    //             strokeDashArray: 4,
+    //             yaxis: {
+    //                 lines: {
+    //                     show: true
+    //                 }
+    //             }
+    //         }
+    //     };
 
-        var chart = new ApexCharts(element, options);
-        chart.render();
-    }
+    //     var chart = new ApexCharts(element, options);
+    //     chart.render();
+    // }
 
-    var example2 = function () {
+    var example2 = function() {
         var element = document.getElementById("kt_apexcharts_2");
 
         var height = parseInt(KTUtil.css(element, 'height'));
@@ -228,7 +228,7 @@ var KTGeneralApexCharts = function () {
                     fontSize: '12px'
                 },
                 y: {
-                    formatter: function (val) {
+                    formatter: function(val) {
                         return "$" + val + " thousands"
                     }
                 }
@@ -249,7 +249,7 @@ var KTGeneralApexCharts = function () {
         chart.render();
     }
 
-    var example3 = function () {
+    var example3 = function() {
         var element = document.getElementById("kt_apexcharts_3");
 
         var height = parseInt(KTUtil.css(element, 'height'));
@@ -359,7 +359,7 @@ var KTGeneralApexCharts = function () {
                     fontSize: '12px'
                 },
                 y: {
-                    formatter: function (val) {
+                    formatter: function(val) {
                         return "$" + val + " thousands"
                     }
                 }
@@ -384,7 +384,7 @@ var KTGeneralApexCharts = function () {
         chart.render();
     }
 
-    var example4 = function () {
+    var example4 = function() {
         var element = document.getElementById("kt_apexcharts_4");
 
         var height = parseInt(KTUtil.css(element, 'height'));
@@ -495,7 +495,7 @@ var KTGeneralApexCharts = function () {
                     fontSize: '12px'
                 },
                 y: {
-                    formatter: function (val) {
+                    formatter: function(val) {
                         return "$" + val + " thousands"
                     }
                 }
@@ -521,7 +521,7 @@ var KTGeneralApexCharts = function () {
         chart.render();
     }
 
-    var example5 = function () {
+    var example5 = function() {
         var element = document.getElementById("kt_apexcharts_5");
 
         var height = parseInt(KTUtil.css(element, 'height'));
@@ -633,7 +633,7 @@ var KTGeneralApexCharts = function () {
                     fontSize: '12px'
                 },
                 y: {
-                    formatter: function (val) {
+                    formatter: function(val) {
                         return "$" + val + " thousands"
                     }
                 }
@@ -660,7 +660,7 @@ var KTGeneralApexCharts = function () {
         chart.render();
     }
 
-    var example6 = function () {
+    var example6 = function() {
         var element = document.getElementById("kt_apexcharts_6");
 
         var height = parseInt(KTUtil.css(element, 'height'));
@@ -674,11 +674,9 @@ var KTGeneralApexCharts = function () {
         }
 
         var options = {
-            series: [
-                {
+            series: [{
                     name: 'Bob',
-                    data: [
-                        {
+                    data: [{
                             x: 'Design',
                             y: [
                                 new Date('2019-03-05').getTime(),
@@ -731,8 +729,7 @@ var KTGeneralApexCharts = function () {
                 },
                 {
                     name: 'Joe',
-                    data: [
-                        {
+                    data: [{
                             x: 'Design',
                             y: [
                                 new Date('2019-03-02').getTime(),
@@ -771,8 +768,7 @@ var KTGeneralApexCharts = function () {
                 },
                 {
                     name: 'Dan',
-                    data: [
-                        {
+                    data: [{
                             x: 'Code',
                             y: [
                                 new Date('2019-03-10').getTime(),
@@ -827,8 +823,8 @@ var KTGeneralApexCharts = function () {
 
     return {
         // Public Functions
-        init: function () {
-            example1();
+        init: function() {
+            // example1();
             example2();
             example3();
             example4();
@@ -839,6 +835,6 @@ var KTGeneralApexCharts = function () {
 }();
 
 // On document ready
-KTUtil.onDOMContentLoaded(function () {
+KTUtil.onDOMContentLoaded(function() {
     KTGeneralApexCharts.init();
 });
