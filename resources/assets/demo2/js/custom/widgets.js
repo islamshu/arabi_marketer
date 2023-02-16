@@ -126,7 +126,7 @@ var KTWidgets = function() {
                     },
                     y: {
                         formatter: function(val) {
-                            return "$" + val + " thousands"
+                            return "$" + val + " thousandssds"
                         }
                     }
                 },
@@ -266,7 +266,7 @@ var KTWidgets = function() {
                     },
                     y: {
                         formatter: function(val) {
-                            return "$" + val + " thousands"
+                            return "$" + val + " thousandssds"
                         }
                     }
                 },
@@ -390,7 +390,7 @@ var KTWidgets = function() {
                     },
                     y: {
                         formatter: function(val) {
-                            return "$" + val + " thousands"
+                            return "$" + val + " thousandssds"
                         }
                     }
                 },
@@ -530,7 +530,7 @@ var KTWidgets = function() {
                     },
                     y: {
                         formatter: function(val) {
-                            return "$" + val + " thousands"
+                            return "$" + val + " thousandssds"
                         }
                     }
                 },
@@ -681,7 +681,7 @@ var KTWidgets = function() {
                     },
                     y: {
                         formatter: function(val) {
-                            return "$" + val + " thousands"
+                            return "$" + val + " thousandssds"
                         }
                     }
                 },
@@ -837,7 +837,7 @@ var KTWidgets = function() {
                     },
                     y: {
                         formatter: function(val) {
-                            return "$" + val + " thousands"
+                            return "$" + val + " thousandssds"
                         }
                     }
                 },
@@ -986,7 +986,7 @@ var KTWidgets = function() {
                     },
                     y: {
                         formatter: function(val) {
-                            return "$" + val + " thousands"
+                            return "$" + val + " thousandssds"
                         }
                     }
                 },
@@ -1139,7 +1139,7 @@ var KTWidgets = function() {
                     },
                     y: {
                         formatter: function(val) {
-                            return "$" + val + " thousands"
+                            return "$" + val + " thousandssds"
                         }
                     }
                 },
@@ -1319,7 +1319,7 @@ var KTWidgets = function() {
                     },
                     y: {
                         formatter: function(val) {
-                            return "$" + val + " thousands"
+                            return "$" + val + " thousandssds"
                         }
                     }
                 },
@@ -1512,7 +1512,7 @@ var KTWidgets = function() {
                     },
                     y: {
                         formatter: function(val) {
-                            return "$" + val + " thousands"
+                            return "$" + val + " thousandssds"
                         }
                     }
                 },
@@ -1677,7 +1677,7 @@ var KTWidgets = function() {
                     },
                     y: {
                         formatter: function(val) {
-                            return "$" + val + " thousands"
+                            return "$" + val + " thousandssds"
                         }
                     },
                     marker: {
@@ -1821,7 +1821,7 @@ var KTWidgets = function() {
                     },
                     y: {
                         formatter: function(val) {
-                            return "$" + val + " thousands"
+                            return "$" + val + " thousandssds"
                         }
                     }
                 },
@@ -2040,7 +2040,7 @@ var KTWidgets = function() {
                     },
                     y: {
                         formatter: function(val) {
-                            return "$" + val + " thousands"
+                            return "$" + val + " thousandssds"
                         }
                     }
                 },
@@ -2181,7 +2181,7 @@ var KTWidgets = function() {
                     },
                     y: {
                         formatter: function(val) {
-                            return "$" + val + " thousands"
+                            return "$" + val + " thousandssds"
                         }
                     }
                 },
@@ -2322,7 +2322,7 @@ var KTWidgets = function() {
                     },
                     y: {
                         formatter: function(val) {
-                            return "$" + val + " thousands"
+                            return "$" + val + " thousandssds"
                         }
                     }
                 },
@@ -2578,7 +2578,7 @@ var KTWidgets = function() {
                     },
                     y: {
                         formatter: function(val) {
-                            return "$" + val + " thousands"
+                            return "$" + val + " thousandssds"
                         }
                     },
                     marker: {
@@ -2740,7 +2740,7 @@ var KTWidgets = function() {
                     },
                     y: {
                         formatter: function(val) {
-                            return "$" + val + " thousands"
+                            return "$" + val + " thousandssds"
                         }
                     }
                 },
@@ -3096,7 +3096,7 @@ var KTWidgets = function() {
                 },
                 y: {
                     formatter: function(val) {
-                        return "$" + val + " thousands"
+                        return "$" + val + " thousandssds"
                     }
                 }
             },
@@ -3231,7 +3231,7 @@ var KTWidgets = function() {
                 },
                 y: {
                     formatter: function(val) {
-                        return "$" + val + " thousands"
+                        return "$" + val + " thousandssds"
                     }
                 }
             },
@@ -3561,7 +3561,7 @@ var KTWidgets = function() {
             initMixedWidget2();
             initMixedWidget3();
             initMixedWidget4();
-            // initMixedWidget5();
+            initMixedWidget5();
             initMixedWidget6();
             initMixedWidget7();
             initMixedWidget10();
