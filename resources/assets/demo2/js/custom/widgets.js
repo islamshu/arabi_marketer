@@ -1,7 +1,7 @@
 "use strict";
 
 // Class definition
-var KTWidgets = function () {
+var KTWidgets = function() {
     // Statistics widgets
     var initStatisticsWidget3 = function() {
         var charts = document.querySelectorAll('.statistics-widget-3-chart');
@@ -9,7 +9,7 @@ var KTWidgets = function () {
         [].slice.call(charts).map(function(element) {
             var height = parseInt(KTUtil.css(element, 'height'));
 
-            if ( !element ) {
+            if (!element) {
                 return;
             }
 
@@ -140,7 +140,7 @@ var KTWidgets = function () {
 
             var chart = new ApexCharts(element, options);
             chart.render();
-        });        
+        });
     }
 
     var initStatisticsWidget4 = function() {
@@ -149,7 +149,7 @@ var KTWidgets = function () {
         [].slice.call(charts).map(function(element) {
             var height = parseInt(KTUtil.css(element, 'height'));
 
-            if ( !element ) {
+            if (!element) {
                 return;
             }
 
@@ -157,7 +157,7 @@ var KTWidgets = function () {
 
             var labelColor = KTUtil.getCssVariableValue('--kt-' + 'gray-800');
             var baseColor = KTUtil.getCssVariableValue('--kt-' + color);
-            var lightColor = KTUtil.getCssVariableValue('--kt-' + color + '-light' );
+            var lightColor = KTUtil.getCssVariableValue('--kt-' + color + '-light');
 
             var options = {
                 series: [{
@@ -280,14 +280,14 @@ var KTWidgets = function () {
 
             var chart = new ApexCharts(element, options);
             chart.render();
-        });        
+        });
     }
 
     // Charts widgets
     var initChartsWidget1 = function() {
         var element = document.getElementById("kt_charts_widget_1_chart");
 
-        if ( !element ) {
+        if (!element) {
             return;
         }
 
@@ -301,7 +301,7 @@ var KTWidgets = function () {
             var labelColor = KTUtil.getCssVariableValue('--kt-gray-500');
             var borderColor = KTUtil.getCssVariableValue('--kt-gray-200');
             var baseColor = KTUtil.getCssVariableValue('--kt-primary');
-            var secondaryColor = KTUtil.getCssVariableValue('--kt-gray-300');        
+            var secondaryColor = KTUtil.getCssVariableValue('--kt-gray-300');
 
             var options = {
                 series: [{
@@ -389,7 +389,7 @@ var KTWidgets = function () {
                         fontSize: '12px'
                     },
                     y: {
-                        formatter: function (val) {
+                        formatter: function(val) {
                             return "$" + val + " thousands"
                         }
                     }
@@ -407,27 +407,27 @@ var KTWidgets = function () {
             };
 
             chart.self = new ApexCharts(element, options);
-            chart.self.render();   
+            chart.self.render();
             chart.rendered = true;
-        } 
+        }
 
         // Init chart
         initChart();
 
         // Update chart on theme mode change
-        KTThemeMode.on("kt.thememode.change", function() {                
+        KTThemeMode.on("kt.thememode.change", function() {
             if (chart.rendered) {
                 chart.self.destroy();
             }
 
             initChart();
-        });              
+        });
     }
 
     var initChartsWidget2 = function() {
         var element = document.getElementById("kt_charts_widget_2_chart");
 
-        if ( !element ) {
+        if (!element) {
             return;
         }
 
@@ -529,7 +529,7 @@ var KTWidgets = function () {
                         fontSize: '12px'
                     },
                     y: {
-                        formatter: function (val) {
+                        formatter: function(val) {
                             return "$" + val + " thousands"
                         }
                     }
@@ -547,7 +547,7 @@ var KTWidgets = function () {
             };
 
             chart.self = new ApexCharts(element, options);
-            chart.self.render();   
+            chart.self.render();
             chart.rendered = true;
         }
 
@@ -555,7 +555,7 @@ var KTWidgets = function () {
         initChart();
 
         // Update chart on theme mode change
-        KTThemeMode.on("kt.thememode.change", function() {                
+        KTThemeMode.on("kt.thememode.change", function() {
             if (chart.rendered) {
                 chart.self.destroy();
             }
@@ -567,7 +567,7 @@ var KTWidgets = function () {
     var initChartsWidget3 = function() {
         var element = document.getElementById("kt_charts_widget_3_chart");
 
-        if ( !element ) {
+        if (!element) {
             return;
         }
 
@@ -581,7 +581,7 @@ var KTWidgets = function () {
             var labelColor = KTUtil.getCssVariableValue('--kt-gray-500');
             var borderColor = KTUtil.getCssVariableValue('--kt-gray-200');
             var baseColor = KTUtil.getCssVariableValue('--kt-info');
-            var lightColor = KTUtil.getCssVariableValue('--kt-info-light');              
+            var lightColor = KTUtil.getCssVariableValue('--kt-info-light');
 
             var options = {
                 series: [{
@@ -680,7 +680,7 @@ var KTWidgets = function () {
                         fontSize: '12px'
                     },
                     y: {
-                        formatter: function (val) {
+                        formatter: function(val) {
                             return "$" + val + " thousands"
                         }
                     }
@@ -702,15 +702,15 @@ var KTWidgets = function () {
             };
 
             chart.self = new ApexCharts(element, options);
-            chart.self.render();   
+            chart.self.render();
             chart.rendered = true;
-        } 
-        
+        }
+
         // Init chart
         initChart();
 
         // Update chart on theme mode change
-        KTThemeMode.on("kt.thememode.change", function() {                
+        KTThemeMode.on("kt.thememode.change", function() {
             if (chart.rendered) {
                 chart.self.destroy();
             }
@@ -722,7 +722,7 @@ var KTWidgets = function () {
     var initChartsWidget4 = function() {
         var element = document.getElementById("kt_charts_widget_4_chart");
 
-        if ( !element ) {
+        if (!element) {
             return;
         }
 
@@ -739,7 +739,7 @@ var KTWidgets = function () {
             var baseColor = KTUtil.getCssVariableValue('--kt-success');
             var baseLightColor = KTUtil.getCssVariableValue('--kt-success-light');
             var secondaryColor = KTUtil.getCssVariableValue('--kt-warning');
-            var secondaryLightColor = KTUtil.getCssVariableValue('--kt-warning-light');        
+            var secondaryLightColor = KTUtil.getCssVariableValue('--kt-warning-light');
 
             var options = {
                 series: [{
@@ -836,7 +836,7 @@ var KTWidgets = function () {
                         fontSize: '12px'
                     },
                     y: {
-                        formatter: function (val) {
+                        formatter: function(val) {
                             return "$" + val + " thousands"
                         }
                     }
@@ -859,27 +859,27 @@ var KTWidgets = function () {
             };
 
             chart.self = new ApexCharts(element, options);
-            chart.self.render();   
+            chart.self.render();
             chart.rendered = true;
-        } 
-        
+        }
+
         // Init chart
         initChart();
 
         // Update chart on theme mode change
-        KTThemeMode.on("kt.thememode.change", function() {                
+        KTThemeMode.on("kt.thememode.change", function() {
             if (chart.rendered) {
                 chart.self.destroy();
             }
 
             initChart();
-        }); 
+        });
     }
 
     var initChartsWidget5 = function() {
         var element = document.getElementById("kt_charts_widget_5_chart");
 
-        if ( !element ) {
+        if (!element) {
             return;
         }
 
@@ -894,7 +894,7 @@ var KTWidgets = function () {
             var borderColor = KTUtil.getCssVariableValue('--kt-gray-200');
 
             var baseColor = KTUtil.getCssVariableValue('--kt-primary');
-            var secondaryColor = KTUtil.getCssVariableValue('--kt-info'); 
+            var secondaryColor = KTUtil.getCssVariableValue('--kt-info');
 
             var options = {
                 series: [{
@@ -985,7 +985,7 @@ var KTWidgets = function () {
                         fontSize: '12px'
                     },
                     y: {
-                        formatter: function (val) {
+                        formatter: function(val) {
                             return "$" + val + " thousands"
                         }
                     }
@@ -1003,27 +1003,27 @@ var KTWidgets = function () {
             };
 
             chart.self = new ApexCharts(element, options);
-            chart.self.render();   
+            chart.self.render();
             chart.rendered = true;
-        } 
-        
+        }
+
         // Init chart
         initChart();
 
         // Update chart on theme mode change
-        KTThemeMode.on("kt.thememode.change", function() {                
+        KTThemeMode.on("kt.thememode.change", function() {
             if (chart.rendered) {
                 chart.self.destroy();
             }
 
             initChart();
-        });   
+        });
     }
 
     var initChartsWidget6 = function() {
         var element = document.getElementById("kt_charts_widget_6_chart");
 
-        if ( !element ) {
+        if (!element) {
             return;
         }
 
@@ -1039,7 +1039,7 @@ var KTWidgets = function () {
 
             var baseColor = KTUtil.getCssVariableValue('--kt-primary');
             var baseLightColor = KTUtil.getCssVariableValue('--kt-primary-light');
-            var secondaryColor = KTUtil.getCssVariableValue('--kt-info');              
+            var secondaryColor = KTUtil.getCssVariableValue('--kt-info');
 
             var options = {
                 series: [{
@@ -1138,7 +1138,7 @@ var KTWidgets = function () {
                         fontSize: '12px'
                     },
                     y: {
-                        formatter: function (val) {
+                        formatter: function(val) {
                             return "$" + val + " thousands"
                         }
                     }
@@ -1162,27 +1162,27 @@ var KTWidgets = function () {
             };
 
             chart.self = new ApexCharts(element, options);
-            chart.self.render();   
+            chart.self.render();
             chart.rendered = true;
-        } 
-        
+        }
+
         // Init chart
         initChart();
 
         // Update chart on theme mode change
-        KTThemeMode.on("kt.thememode.change", function() {                
+        KTThemeMode.on("kt.thememode.change", function() {
             if (chart.rendered) {
                 chart.self.destroy();
             }
 
             initChart();
-        });    
+        });
     }
 
     var initChartsWidget7 = function() {
         var element = document.getElementById("kt_charts_widget_7_chart");
 
-        if ( !element ) {
+        if (!element) {
             return;
         }
 
@@ -1205,8 +1205,8 @@ var KTWidgets = function () {
             var color2 = KTUtil.getCssVariableValue('--kt-success');
             var color2Light = KTUtil.getCssVariableValue('--kt-success-light');
 
-            var color3 = KTUtil.getCssVariableValue('--kt-primary');  
-            var color3Light = KTUtil.getCssVariableValue('--kt-primary-light');         
+            var color3 = KTUtil.getCssVariableValue('--kt-primary');
+            var color3Light = KTUtil.getCssVariableValue('--kt-primary-light');
 
             var options = {
                 series: [{
@@ -1318,7 +1318,7 @@ var KTWidgets = function () {
                         fontSize: '12px'
                     },
                     y: {
-                        formatter: function (val) {
+                        formatter: function(val) {
                             return "$" + val + " thousands"
                         }
                     }
@@ -1341,27 +1341,27 @@ var KTWidgets = function () {
             };
 
             chart.self = new ApexCharts(element, options);
-            chart.self.render();   
+            chart.self.render();
             chart.rendered = true;
-        } 
-        
+        }
+
         // Init chart
         initChart();
 
         // Update chart on theme mode change
-        KTThemeMode.on("kt.thememode.change", function() {                
+        KTThemeMode.on("kt.thememode.change", function() {
             if (chart.rendered) {
                 chart.self.destroy();
             }
 
             initChart();
-        });   
+        });
     }
 
     var initChartsWidget8 = function() {
         var element = document.getElementById("kt_charts_widget_8_chart");
 
-        if ( !element ) {
+        if (!element) {
             return;
         }
 
@@ -1383,9 +1383,9 @@ var KTWidgets = function () {
             var color2 = KTUtil.getCssVariableValue('--kt-success');
             var color2Light = KTUtil.getCssVariableValue('--kt-success-light');
 
-            var color3 = KTUtil.getCssVariableValue('--kt-primary');  
-            var color3Light = KTUtil.getCssVariableValue('--kt-primary-light');  
-    
+            var color3 = KTUtil.getCssVariableValue('--kt-primary');
+            var color3Light = KTUtil.getCssVariableValue('--kt-primary-light');
+
             var options = {
                 series: [{
                     name: 'Net Profit',
@@ -1396,7 +1396,7 @@ var KTWidgets = function () {
                 }, {
                     name: 'Expenses',
                     data: [60, 60, 40, 40, 30, 30]
-                },],
+                }, ],
                 chart: {
                     fontFamily: 'inherit',
                     type: 'area',
@@ -1511,7 +1511,7 @@ var KTWidgets = function () {
                         fontSize: '12px'
                     },
                     y: {
-                        formatter: function (val) {
+                        formatter: function(val) {
                             return "$" + val + " thousands"
                         }
                     }
@@ -1535,21 +1535,21 @@ var KTWidgets = function () {
             };
 
             chart.self = new ApexCharts(element, options);
-            chart.self.render();   
+            chart.self.render();
             chart.rendered = true;
-        } 
-        
+        }
+
         // Init chart
         initChart();
 
         // Update chart on theme mode change
-        KTThemeMode.on("kt.thememode.change", function() {                
+        KTThemeMode.on("kt.thememode.change", function() {
             if (chart.rendered) {
                 chart.self.destroy();
             }
 
             initChart();
-        });  
+        });
     }
 
     // Mixed widgets
@@ -1676,7 +1676,7 @@ var KTWidgets = function () {
                         fontSize: '12px',
                     },
                     y: {
-                        formatter: function (val) {
+                        formatter: function(val) {
                             return "$" + val + " thousands"
                         }
                     },
@@ -1693,17 +1693,17 @@ var KTWidgets = function () {
             };
 
             chart = new ApexCharts(element, options);
-            chart.render();  
-        });        
+            chart.render();
+        });
     }
 
     var initMixedWidget3 = function() {
-        var charts = document.querySelectorAll('.mixed-widget-3-chart');      
-        
+        var charts = document.querySelectorAll('.mixed-widget-3-chart');
+
         [].slice.call(charts).map(function(element) {
             var height = parseInt(KTUtil.css(element, 'height'));
 
-            if ( !element ) {
+            if (!element) {
                 return;
             }
 
@@ -1712,7 +1712,7 @@ var KTWidgets = function () {
             var labelColor = KTUtil.getCssVariableValue('--kt-' + 'gray-800');
             var strokeColor = KTUtil.getCssVariableValue('--kt-' + 'gray-300');
             var baseColor = KTUtil.getCssVariableValue('--kt-' + color);
-            var lightColor = KTUtil.getCssVariableValue('--kt-' + color + '-light' );
+            var lightColor = KTUtil.getCssVariableValue('--kt-' + color + '-light');
 
             var options = {
                 series: [{
@@ -1820,7 +1820,7 @@ var KTWidgets = function () {
                         fontSize: '12px'
                     },
                     y: {
-                        formatter: function (val) {
+                        formatter: function(val) {
                             return "$" + val + " thousands"
                         }
                     }
@@ -1835,7 +1835,7 @@ var KTWidgets = function () {
 
             var chart = new ApexCharts(element, options);
             chart.render();
-        });                         
+        });
     }
 
     var initMixedWidget4 = function() {
@@ -1844,14 +1844,14 @@ var KTWidgets = function () {
         [].slice.call(charts).map(function(element) {
             var height = parseInt(KTUtil.css(element, 'height'));
 
-            if ( !element ) {
+            if (!element) {
                 return;
             }
 
             var color = element.getAttribute('data-kt-chart-color');
 
             var baseColor = KTUtil.getCssVariableValue('--kt-' + color);
-            var lightColor = KTUtil.getCssVariableValue('--kt-' + color + '-light' );
+            var lightColor = KTUtil.getCssVariableValue('--kt-' + color + '-light');
             var labelColor = KTUtil.getCssVariableValue('--kt-' + 'gray-700');
 
             var options = {
@@ -1879,7 +1879,7 @@ var KTWidgets = function () {
                                 fontWeight: '700',
                                 offsetY: 12,
                                 show: true,
-                                formatter: function (val) {
+                                formatter: function(val) {
                                     return val + '%';
                                 }
                             }
@@ -1899,7 +1899,7 @@ var KTWidgets = function () {
 
             var chart = new ApexCharts(element, options);
             chart.render();
-        });        
+        });
     }
 
     var initMixedWidget5 = function() {
@@ -1908,7 +1908,7 @@ var KTWidgets = function () {
         [].slice.call(charts).map(function(element) {
             var height = parseInt(KTUtil.css(element, 'height'));
 
-            if ( !element ) {
+            if (!element) {
                 return;
             }
 
@@ -1917,7 +1917,7 @@ var KTWidgets = function () {
             var labelColor = KTUtil.getCssVariableValue('--kt-' + 'gray-800');
             var strokeColor = KTUtil.getCssVariableValue('--kt-' + 'gray-300');
             var baseColor = KTUtil.getCssVariableValue('--kt-' + color);
-            var lightColor = KTUtil.getCssVariableValue('--kt-' + color + '-light' );
+            var lightColor = KTUtil.getCssVariableValue('--kt-' + color + '-light');
 
             var options = {
                 series: [{
@@ -2039,7 +2039,7 @@ var KTWidgets = function () {
                         fontSize: '12px'
                     },
                     y: {
-                        formatter: function (val) {
+                        formatter: function(val) {
                             return "$" + val + " thousands"
                         }
                     }
@@ -2054,7 +2054,7 @@ var KTWidgets = function () {
 
             var chart = new ApexCharts(element, options);
             chart.render();
-        });        
+        });
     }
 
     var initMixedWidget6 = function() {
@@ -2063,7 +2063,7 @@ var KTWidgets = function () {
         [].slice.call(charts).map(function(element) {
             var height = parseInt(KTUtil.css(element, 'height'));
 
-            if ( !element ) {
+            if (!element) {
                 return;
             }
 
@@ -2072,7 +2072,7 @@ var KTWidgets = function () {
             var labelColor = KTUtil.getCssVariableValue('--kt-' + 'gray-800');
             var strokeColor = KTUtil.getCssVariableValue('--kt-' + 'gray-300');
             var baseColor = KTUtil.getCssVariableValue('--kt-' + color);
-            var lightColor = KTUtil.getCssVariableValue('--kt-' + color + '-light' );
+            var lightColor = KTUtil.getCssVariableValue('--kt-' + color + '-light');
 
             var options = {
                 series: [{
@@ -2180,7 +2180,7 @@ var KTWidgets = function () {
                         fontSize: '12px'
                     },
                     y: {
-                        formatter: function (val) {
+                        formatter: function(val) {
                             return "$" + val + " thousands"
                         }
                     }
@@ -2195,7 +2195,7 @@ var KTWidgets = function () {
 
             var chart = new ApexCharts(element, options);
             chart.render();
-        });        
+        });
     }
 
     var initMixedWidget7 = function() {
@@ -2204,7 +2204,7 @@ var KTWidgets = function () {
         [].slice.call(charts).map(function(element) {
             var height = parseInt(KTUtil.css(element, 'height'));
 
-            if ( !element ) {
+            if (!element) {
                 return;
             }
 
@@ -2321,7 +2321,7 @@ var KTWidgets = function () {
                         fontSize: '12px'
                     },
                     y: {
-                        formatter: function (val) {
+                        formatter: function(val) {
                             return "$" + val + " thousands"
                         }
                     }
@@ -2336,7 +2336,7 @@ var KTWidgets = function () {
 
             var chart = new ApexCharts(element, options);
             chart.render();
-        });        
+        });
     }
 
     var initMixedWidget10 = function() {
@@ -2446,7 +2446,7 @@ var KTWidgets = function () {
                         fontSize: '12px'
                     },
                     y: {
-                        formatter: function (val) {
+                        formatter: function(val) {
                             return "$" + val + " revenue"
                         }
                     }
@@ -2467,8 +2467,8 @@ var KTWidgets = function () {
             };
 
             chart = new ApexCharts(element, options);
-            chart.render();      
-        });        
+            chart.render();
+        });
     }
 
     var initMixedWidget12 = function() {
@@ -2482,7 +2482,7 @@ var KTWidgets = function () {
         var options;
         var chart;
 
-        [].slice.call(charts).map(function(element) {            
+        [].slice.call(charts).map(function(element) {
             height = parseInt(KTUtil.css(element, 'height'));
 
             var options = {
@@ -2577,7 +2577,7 @@ var KTWidgets = function () {
                         fontSize: '12px'
                     },
                     y: {
-                        formatter: function (val) {
+                        formatter: function(val) {
                             return "$" + val + " thousands"
                         }
                     },
@@ -2603,8 +2603,8 @@ var KTWidgets = function () {
 
             var chart = new ApexCharts(element, options);
             chart.render()
-        });        
-    } 
+        });
+    }
 
     var initMixedWidget13 = function() {
         var height;
@@ -2613,10 +2613,10 @@ var KTWidgets = function () {
         [].slice.call(charts).map(function(element) {
             height = parseInt(KTUtil.css(element, 'height'));
 
-            if ( !element ) {
+            if (!element) {
                 return;
             }
-                   
+
             var labelColor = KTUtil.getCssVariableValue('--kt-' + 'gray-800');
             var strokeColor = KTUtil.getCssVariableValue('--kt-' + 'gray-300');
 
@@ -2657,7 +2657,7 @@ var KTWidgets = function () {
                 },
                 fill: {
                     type: 'gradient',
-                    gradient: {                        
+                    gradient: {
                         opacityFrom: 0.4,
                         opacityTo: 0,
                         stops: [20, 120, 120, 120]
@@ -2739,7 +2739,7 @@ var KTWidgets = function () {
                         fontSize: '12px'
                     },
                     y: {
-                        formatter: function (val) {
+                        formatter: function(val) {
                             return "$" + val + " thousands"
                         }
                     }
@@ -2754,18 +2754,18 @@ var KTWidgets = function () {
 
             var chart = new ApexCharts(element, options);
             chart.render();
-        });        
+        });
     }
 
-    var initMixedWidget14 = function() {   		
-		var charts = document.querySelectorAll('.mixed-widget-14-chart');  
+    var initMixedWidget14 = function() {
+        var charts = document.querySelectorAll('.mixed-widget-14-chart');
         var options;
         var chart;
         var height;
 
         [].slice.call(charts).map(function(element) {
-            height = parseInt(KTUtil.css(element, 'height'));      
-            var labelColor = KTUtil.getCssVariableValue('--kt-gray-800');      
+            height = parseInt(KTUtil.css(element, 'height'));
+            var labelColor = KTUtil.getCssVariableValue('--kt-gray-800');
 
             options = {
                 series: [{
@@ -2778,7 +2778,7 @@ var KTWidgets = function () {
                     type: 'bar',
                     toolbar: {
                         show: false
-                    }                             
+                    }
                 },
                 grid: {
                     show: false,
@@ -2788,17 +2788,17 @@ var KTWidgets = function () {
                         left: 0,
                         right: 0
                     }
-                },                
-                colors: ['#ffffff'],         
+                },
+                colors: ['#ffffff'],
                 plotOptions: {
-                    bar: {                    
+                    bar: {
                         borderRadius: 2.5,
                         dataLabels: {
                             position: 'top', // top, center, bottom
                         },
-                        columnWidth: '20%'                             
+                        columnWidth: '20%'
                     }
-                },            
+                },
                 dataLabels: {
                     enabled: false,
                     formatter: function(val) {
@@ -2809,7 +2809,7 @@ var KTWidgets = function () {
                         fontSize: '12px',
                         colors: ["#304758"]
                     }
-                },          
+                },
                 xaxis: {
                     labels: {
                         show: false,
@@ -2843,15 +2843,15 @@ var KTWidgets = function () {
                         formatter: function(val) {
                             return val + "%";
                         }
-                    }                
-                }		
+                    }
+                }
             };
 
             chart = new ApexCharts(element, options);
-            chart.render(); 
-        }); 
-	}
-    
+            chart.render();
+        });
+    }
+
     var initMixedWidget16 = function() {
         var element = document.getElementById("kt_charts_mixed_widget_16_chart");
         var height = parseInt(KTUtil.css(element, 'height'));
@@ -2904,14 +2904,14 @@ var KTWidgets = function () {
             colors: [KTUtil.getCssVariableValue('--kt-primary')],
             stroke: {
                 lineCap: "round",
-            }            
+            }
         };
 
         var chart = new ApexCharts(element, options);
         chart.render();
     }
 
-    var initMixedWidget17 = function() {        
+    var initMixedWidget17 = function() {
         var charts = document.querySelectorAll('.mixed-widget-17-chart');
 
         [].slice.call(charts).map(function(element) {
@@ -2955,7 +2955,7 @@ var KTWidgets = function () {
                                 fontWeight: "600",
                                 offsetY: -40,
                                 show: true,
-                                formatter: function (value) {
+                                formatter: function(value) {
                                     return '8,346';
                                 }
                             }
@@ -2969,19 +2969,19 @@ var KTWidgets = function () {
                 colors: [KTUtil.getCssVariableValue('--kt-' + color)],
                 stroke: {
                     lineCap: "round",
-                }            
+                }
             };
 
             var chart = new ApexCharts(element, options);
             chart.render();
-        }); 
-    }  
+        });
+    }
 
     var initMixedWidget18 = function() {
-        var element = document.getElementById("kt_charts_mixed_widget_18_chart");  
+        var element = document.getElementById("kt_charts_mixed_widget_18_chart");
         var height = parseInt(KTUtil.css(element, 'height'));
 
-        if ( !element ) {
+        if (!element) {
             return;
         }
 
@@ -3095,7 +3095,7 @@ var KTWidgets = function () {
                     fontSize: '12px'
                 },
                 y: {
-                    formatter: function (val) {
+                    formatter: function(val) {
                         return "$" + val + " thousands"
                     }
                 }
@@ -3113,10 +3113,10 @@ var KTWidgets = function () {
     }
 
     var initMixedWidget19 = function() {
-        var element = document.getElementById("kt_charts_mixed_widget_19_chart");  
+        var element = document.getElementById("kt_charts_mixed_widget_19_chart");
         var height = parseInt(KTUtil.css(element, 'height'));
 
-        if ( !element ) {
+        if (!element) {
             return;
         }
 
@@ -3230,7 +3230,7 @@ var KTWidgets = function () {
                     fontSize: '12px'
                 },
                 y: {
-                    formatter: function (val) {
+                    formatter: function(val) {
                         return "$" + val + " thousands"
                     }
                 }
@@ -3252,7 +3252,7 @@ var KTWidgets = function () {
         var formEl = document.querySelector("#kt_forms_widget_1_form");
         var editorId = 'kt_forms_widget_1_editor';
 
-        if ( !formEl ) {
+        if (!formEl) {
             return;
         }
 
@@ -3277,61 +3277,61 @@ var KTWidgets = function () {
 
     var initFeedsWidget4 = function() {
         var btn = document.querySelector('#kt_widget_5_load_more_btn');
-        var widget5 = document.querySelector('#kt_widget_5');        
+        var widget5 = document.querySelector('#kt_widget_5');
 
         if (btn) {
-            btn.addEventListener('click', function(e){
+            btn.addEventListener('click', function(e) {
                 e.preventDefault();
                 btn.setAttribute('data-kt-indicator', 'on');
 
                 setTimeout(function() {
                     btn.removeAttribute('data-kt-indicator');
-                    widget5.classList.remove('d-none');         
-                    btn.classList.add('d-none');         
-                    
+                    widget5.classList.remove('d-none');
+                    btn.classList.add('d-none');
+
                     KTUtil.scrollTo(widget5, 200);
-                }, 2000);                
+                }, 2000);
             });
-        }                 
-    }  
+        }
+    }
 
     // Follow button
     var initUserFollowButton = function() {
         var follow = document.querySelector('#kt_user_follow_button');
 
         if (follow) {
-            follow.addEventListener('click', function(e){
+            follow.addEventListener('click', function(e) {
                 // Prevent default action 
                 e.preventDefault();
-                
+
                 // Show indicator
                 follow.setAttribute('data-kt-indicator', 'on');
-                
+
                 // Disable button to avoid multiple click 
-				follow.disabled = true;
+                follow.disabled = true;
 
                 // Check button state
                 if (follow.classList.contains("btn-success")) {
-                     setTimeout(function() {
+                    setTimeout(function() {
                         follow.removeAttribute('data-kt-indicator');
                         follow.classList.remove("btn-success");
                         follow.classList.add("btn-light");
                         follow.querySelector(".svg-icon").classList.add("d-none");
                         follow.querySelector(".indicator-label").innerHTML = 'Follow';
-				        follow.disabled = false;
-                    }, 1500);   
+                        follow.disabled = false;
+                    }, 1500);
                 } else {
-                     setTimeout(function() {
+                    setTimeout(function() {
                         follow.removeAttribute('data-kt-indicator');
                         follow.classList.add("btn-success");
                         follow.classList.remove("btn-light");
                         follow.querySelector(".svg-icon").classList.remove("d-none");
                         follow.querySelector(".indicator-label").innerHTML = 'Following';
                         follow.disabled = false;
-                    }, 1000);   
-                }        
+                    }, 1000);
+                }
             });
-        }                 
+        }
     }
 
     // Calendar
@@ -3356,7 +3356,7 @@ var KTWidgets = function () {
 
             height: 800,
             contentHeight: 780,
-            aspectRatio: 3,  // see: https://fullcalendar.io/docs/aspectRatio
+            aspectRatio: 3, // see: https://fullcalendar.io/docs/aspectRatio
 
             nowIndicator: true,
             now: TODAY + 'T09:25:00', // just for demo
@@ -3373,8 +3373,7 @@ var KTWidgets = function () {
             editable: true,
             dayMaxEvents: true, // allow "more" link when too many events
             navLinks: true,
-            events: [
-                {
+            events: [{
                     title: 'All Day Event',
                     start: YM + '-01',
                     description: 'Toto lorem ipsum dolor sit incid idunt ut',
@@ -3477,7 +3476,7 @@ var KTWidgets = function () {
     }
 
     // Daterangepicker
-    var initDaterangepicker = function () {
+    var initDaterangepicker = function() {
         if (!document.querySelector('#kt_dashboard_daterangepicker')) {
             return;
         }
@@ -3522,12 +3521,12 @@ var KTWidgets = function () {
         }, cb);
 
         cb(start, end, '');
-    }    
+    }
 
     // Dark mode toggler
     var initDarkModeToggle = function() {
         var toggle = document.querySelector('#kt_user_menu_dark_mode_toggle');
-        
+
         if (toggle) {
             toggle.addEventListener('click', function() {
                 window.location.href = this.getAttribute('data-kt-url');
@@ -3537,16 +3536,16 @@ var KTWidgets = function () {
 
     // Public methods
     return {
-        init: function () {
+        init: function() {
             // Daterangepicker
             initDaterangepicker();
-            
+
             // Dark Mode
             initDarkModeToggle();
 
             // Statistics widgets
             initStatisticsWidget3();
-            initStatisticsWidget4();            
+            initStatisticsWidget4();
 
             // Charts widgets
             initChartsWidget1();
@@ -3562,12 +3561,12 @@ var KTWidgets = function () {
             initMixedWidget2();
             initMixedWidget3();
             initMixedWidget4();
-            initMixedWidget5();
+            // initMixedWidget5();
             initMixedWidget6();
             initMixedWidget7();
-            initMixedWidget10();            
+            initMixedWidget10();
             initMixedWidget12();
-            initMixedWidget13(); 
+            initMixedWidget13();
             initMixedWidget14();
             initMixedWidget16();
             initMixedWidget17();
@@ -3582,8 +3581,8 @@ var KTWidgets = function () {
             initUserFollowButton();
 
             // Calendar
-            initCalendarWidget1();           
-        }   
+            initCalendarWidget1();
+        }
     }
 }();
 
