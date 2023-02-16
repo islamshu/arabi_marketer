@@ -66,7 +66,7 @@
                     {!! theme()->getSvgIcon("icons/duotune/communication/com010.svg", "svg-icon-3x svg-icon-success d-block my-2") !!}
                     <a href="#" class="text-success fw-bold fs-6 mt-2">
                         Bug Reports
-                    </a>
+                    </a><br>
                     <a href="#" class="text-success fw-bold fs-6 mt-2">
                         Bug Reports
                     </a>
