@@ -18,14 +18,14 @@ class SampleDataController extends Controller
         $months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
         $arr=array();
         $orders = Order::where('payment_status','paid')->get();
-        dd($orders);
+        
         $data = collect(json_decode(file_get_contents(resource_path('samples/sales.json'))));
 
         $d = $data->groupBy(function ($data) {
-            return Carbon::parse($data->datetime)->format('Y-m');
+            return Carbon::parse($data->created_at)->format('Y-m');
         })->map(function ($data) {
             return [
-                'profit'  => number_format($data->sum('profit') / 11, 2),
+                'profit'  => number_format($data->sum('total') / 11, 2),
                 'revenue' => number_format(0, 2),
             ];
         })->sortKeys()->mapWithKeys(function ($data, $key) use ($months) {
