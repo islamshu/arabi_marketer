@@ -29,89 +29,53 @@
         <!--begin::Chart-->
         <div class="mixed-widget-5-chart card-rounded-top" data-kt-chart-color="{{ $chartColor }}" data-kt-chart-url="{{ route('profits') }}" style="height: {{ $chartHeight }}"></div>
         <!--end::Chart-->
+        @php
+            $sales=  App\Models\OrderDetiles::select('product_id')
+            ->groupBy('product_id')
+            ->orderByRaw('COUNT(*) DESC')
+            ->limit(8)
+            ->get();
+
+
+
+            @endphp
 
         <!--begin::Items-->
         <div class="mt-5">
             <!--begin::Item-->
+            @foreach ($sales as $item)
+                
+           
             <div class="d-flex flex-stack mb-5">
                 <!--begin::Section-->
                 <div class="d-flex align-items-center me-2">
                     <!--begin::Symbol-->
                     <div class="symbol symbol-50px me-3">
                         <div class="symbol-label bg-light">
-                            <img src="{{ asset(theme()->getMediaUrlPath() . 'svg/brand-logos/plurk.svg') }}" alt="" class="h-50"/>
+                            <img src="{{ asset('public/uploads/'.$item->service->image) }}" alt="" class="h-50"/>
                         </div>
                     </div>
                     <!--end::Symbol-->
 
                     <!--begin::Title-->
                     <div>
-                        <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bolder">Top Authors</a>
-                        <div class="fs-7 text-muted fw-bold mt-1">Ricky Hunt, Sandra Trepp</div>
+                        <a href="{{route('services.show',$row->service->id)}}" target="_blank" class="text-gray-800 text-hover-primary fs-6 fw-bolder">{{ $row->service->title }}</a> 
+                        @if($row->service->deleted_at != null)
+                        <button class="btn-danger btn btn-sm">Deleted</button>
+                        @endif
+                        {{-- <div class="fs-7 text-muted fw-bold mt-1">Ricky Hunt, Sandra Trepp</div> --}}
                     </div>
                     <!--end::Title-->
                 </div>
                 <!--end::Section-->
 
                 <!--begin::Label-->
-                <div class="badge badge-light fw-bold py-4 px-3">+82$</div>
+                {{-- <div class="badge badge-light fw-bold py-4 px-3">+82$</div> --}}
                 <!--end::Label-->
             </div>
+            @endforeach
             <!--end::Item-->
 
-            <!--begin::Item-->
-            <div class="d-flex flex-stack mb-5">
-                <!--begin::Section-->
-                <div class="d-flex align-items-center me-2">
-                    <!--begin::Symbol-->
-                    <div class="symbol symbol-50px me-3">
-                        <div class="symbol-label bg-light">
-                            <img src="{{ asset(theme()->getMediaUrlPath() . 'svg/brand-logos/figma-1.svg') }}" alt="" class="h-50"/>
-                        </div>
-                    </div>
-                    <!--end::Symbol-->
-
-                    <!--begin::Title-->
-                    <div>
-                        <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bolder">Top Sales</a>
-                        <div class="fs-7 text-muted fw-bold mt-1">PitStop Emails</div>
-                    </div>
-                    <!--end::Title-->
-                </div>
-                <!--end::Section-->
-
-                <!--begin::Label-->
-                <div class="badge badge-light fw-bold py-4 px-3">+82$</div>
-                <!--end::Label-->
-            </div>
-            <!--end::Item-->
-
-            <!--begin::Item-->
-            <div class="d-flex flex-stack">
-                <!--begin::Section-->
-                <div class="d-flex align-items-center me-2">
-                    <!--begin::Symbol-->
-                    <div class="symbol symbol-50px me-3">
-                        <div class="symbol-label bg-light">
-                            <img src="{{ asset(theme()->getMediaUrlPath() . 'svg/brand-logos/vimeo.svg') }}" alt="" class="h-50"/>
-                        </div>
-                    </div>
-                    <!--end::Symbol-->
-
-                    <!--begin::Title-->
-                    <div class="py-1">
-                        <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bolder">Top Engagement</a>
-
-                        <div class="fs-7 text-muted fw-bold mt-1">KT.com</div>
-                    </div>
-                    <!--end::Title-->
-                </div>
-                <!--end::Section-->
-
-                <!--begin::Label-->
-                <div class="badge badge-light fw-bold py-4 px-3">+82$</div>
-                <!--end::Label-->
-            </div>
             <!--end::Item-->
         </div>
         <!--end::Items-->
