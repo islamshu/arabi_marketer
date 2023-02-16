@@ -93,52 +93,7 @@
     <!--end::Header-->
 
 	<!--begin::Body-->
-	<div class="card-body py-3">
-        <!--begin::Table container-->
-        <div class="table-responsive">
-            <!--begin::Table-->
-            <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
-                <!--begin::Table head-->
-                <thead>
-                    <tr class="fw-bolder text-muted">
-                    
-
-                        <th class="min-w-150px">صورة الخدمة</th>
-                        <th class="min-w-150px">الخدمة </th>
-                        <th class="min-w-150px">السعر </th>
-                        <th class="min-w-150px">اضيف بواسطة </th>
-                        <th class="min-w-150px">تاريخ الاضافة</th>
-
-                    </tr>
-                </thead>
-                <!--end::Table head-->
-
-                <!--begin::Table body-->
-                <tbody>
-                    @foreach (App\Models\Cart::wherehas('service',function($q){
-                        $q->where('deleted_at',null);
-                    })->take(10)->orderby('id','desc')->get() as $item)
-                    <tr>
-                        <td><img src="{{ asset('public/uploads/'.$item->service->image) }}" width="50" height="50" alt=""></td>
-                    
-                     <td>{{ @$item->service->title }}</td>
-                     <td>{{ $item->price }}</td>
-                     <td>{{ date('Y-m-d', strtotime($item->created_at)); }}</td>
-                    
-                     <th><a href="{{ route('marketer.show',$item->user->id) }}">{{ $item->user->name }}</a></th>
-                    
-                    
-                    </tr>
-                        
-                    @endforeach
-                </tbody>
-                <!--end::Table body-->
-            </table>
-            <a href="{{ route('pending_cart') }}" class="btn btn-success">Show all</a>
-            <!--end::Table-->
-        </div>
-        <!--end::Table container-->
-	</div>
+	
 	<!--begin::Body-->
 </div>
 <!--end::Tables Widget 9-->
