@@ -101,7 +101,7 @@
                                     <button class="btn btn-danger btn-sm">محذوف</button>
                                     @endif
                                 </td>
-                                <td>{{ date('Y-m-d', strtotime($item->created_at)) }}</td>
+                                <td>{{ date('Y-m-d', strtotime($item->service->created_at)) }}</td>
 
                             </tr>
                         @endforeach
