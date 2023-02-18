@@ -129,6 +129,8 @@ class CartController extends BaseController
             $OrderDetiles->order_id = $order->id;
             $OrderDetiles->owner_id = $service->user_id;
             $OrderDetiles->price = $service->price;
+            $count1 = ( $service->management_ratio/100) * $service->price;
+            $OrderDetiles->admin_price = $count1;
             $OrderDetiles->type = $cart->type;
             $OrderDetiles->product_id = $cart->service_id;
             // $extra = ExtraService::whereIn($cart->more_data);
