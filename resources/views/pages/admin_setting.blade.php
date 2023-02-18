@@ -90,13 +90,13 @@
         <div class="form-group col-md-6">
 
             <br><label>   نسبة الادارة من كل خدمة؟     :</label>
-            <input type="number" class="form-control percent" value="{{ get_general_value('admin_service') }}" name="general[admin_service]" id="">
+            <input type="text" class="form-control percent" value="{{ get_general_value('admin_service') }}" name="general[admin_service]" id="">
 
         </div>
         <div class="form-group col-md-6">
 
             <br><label>   نسبة الادارة من كل استشارة؟     :</label>
-            <input type="number" class="form-control percent" value="{{ get_general_value('admin_consultion') }}" name="general[admin_consultion]" id="">
+            <input type="text" class="form-control percent" value="{{ get_general_value('admin_consultion') }}" name="general[admin_consultion]" id="">
 
         </div>
 
