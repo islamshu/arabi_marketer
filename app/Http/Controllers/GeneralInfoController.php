@@ -87,14 +87,7 @@ class GeneralInfoController extends Controller
     }
     public function store_test(Request $request)
     {
-        if ($request->hasFile('general_file')) {
-            foreach ($request->file('general_file') as $name => $value) {
-                if ($value == null) {
-                    continue;
-                }
-                GeneralInfo::setValue($name, $value->store('general'));
-            }
-        }
+     dd($request);
 
         foreach ($request->input('general') as $name => $value) {
             if ($value == null) {
