@@ -96,10 +96,8 @@ class CartController extends BaseController
             $event = $googleAPI->createMeet($order->consult->title, $order->consult->description, $startTime, $endTime,$email);
             $order->meeting_link = $event->hangoutLink;
             $order->save();
-
         }
         return redirect('https://sub.arabicreators.com/ConsItemRegistration/'.$order->id);
-
     }
     public function delete($id){
         $ids = explode(',',$id);
@@ -128,6 +126,7 @@ class CartController extends BaseController
             $OrderDetiles = new OrderDetiles();
             $OrderDetiles->order_id = $order->id;
             $OrderDetiles->owner_id = $service->user_id;
+            $OrderDetiles->user_id = $order->user_id;
             $OrderDetiles->price = $service->price;
             $count1 = ( $service->management_ratio/100) * $service->price;
             $OrderDetiles->admin_price = $count1;

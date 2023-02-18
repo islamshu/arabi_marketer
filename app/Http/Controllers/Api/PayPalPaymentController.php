@@ -129,6 +129,8 @@ class PayPalPaymentController extends BaseController
                 $OrderDetiles = new OrderDetiles();
                 $OrderDetiles->order_id = $order->id;
                 $OrderDetiles->owner_id = $service->user_id;
+                $OrderDetiles->user_id = $order->user_id;
+
                 $OrderDetiles->price = $service->price + $pricc;
                 $count1 = ( $service->management_ratio/100) * $service->price;
                 $OrderDetiles->admin_price = $count1;
