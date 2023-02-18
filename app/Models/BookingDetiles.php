@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class BookingDetiles extends Model
 {
     use HasFactory;
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function service()
+    {
+        return $this->belongsTo(Service::class);
+    }
+    public function owner()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
