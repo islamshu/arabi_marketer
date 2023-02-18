@@ -277,6 +277,15 @@ return array(
                        
                     ),
                     array(
+                        'title'      => 'Admin Setting',
+                        'path'       => 'admin_setting',
+                        'bullet'     => '<span class="bullet bullet-dot"></span>',
+                       
+                    ),
+
+
+                    
+                    array(
                         'title'      => 'Home Section frontend',
                         'path'       => 'first_section',
                         'bullet'     => '<span class="bullet bullet-dot"></span>',

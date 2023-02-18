@@ -18,6 +18,11 @@ class GeneralInfoController extends Controller
     public function about_frontend(){
         return view('pages.about_frontend');
     }
+    public function admin_setting(){
+        return view('pages.admin_setting');
+    }
+
+    
     public function return_exchange_policy(){
         return view('pages.return_exchange_policy');
     }
