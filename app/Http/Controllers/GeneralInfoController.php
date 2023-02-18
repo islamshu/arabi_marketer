@@ -87,14 +87,14 @@ class GeneralInfoController extends Controller
     }
     public function store_test(Request $request)
     {
-     dd($request);
 
         foreach ($request->input('general') as $name => $value) {
             if ($value == null) {
                 continue;
             }
+
             
-            Generalinfo::setValue(str_replace('%','',$name), $value);
+            Generalinfo::setValue($name, str_replace('%','',$value));
         }
 
         Alert::success('Success', 'تم تحديث البيانات بنجاح');
