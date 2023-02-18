@@ -298,13 +298,10 @@ class HomeController extends BaseController
         return $this->sendResponse($res, 'home page');
     }
     public function testapi(Request $request){
-        // dd(env('MAIL_PORT'));
-        // Mail::to('Areej.j.sh@gmail.com')->send(new AfterReset());
-        try {
-            Mail::to('islamshu12@gmail.com')->send(new AfterReset());
-        } catch (\Exception $e) {
-            dd($e);
-        }
+        $service =Service::find(166);
+        $count1 = 100 * $service->management_ratio / $service->price;
+        dd($count1);
+
 
         
 
