@@ -132,6 +132,8 @@ class PayPalPaymentController extends BaseController
                 $OrderDetiles->price = $service->price + $pricc;
                 $count1 = ( $service->management_ratio/100) * $service->price;
                 $OrderDetiles->admin_price = $count1;
+                $OrderDetiles->admin_to_pay = $service->price-$count1;
+
                 $OrderDetiles->type = $cart->type;
                 $OrderDetiles->product_id = $cart->service_id;
                 $OrderDetiles->extra_data = $cart->more_data;
