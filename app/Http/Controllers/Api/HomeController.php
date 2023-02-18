@@ -300,7 +300,8 @@ class HomeController extends BaseController
     public function testapi(Request $request){
         $service =Service::find(166);
         $count1 = 100 * $service->management_ratio / $service->price;
-        dd($count1);
+
+        dd($count1,$service->management_ratio ,$service->price);
 
 
         
