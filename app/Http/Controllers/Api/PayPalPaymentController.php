@@ -14,8 +14,10 @@ use Srmklive\PayPal\Services\ExpressCheckout;
 use App\Http\Controllers\Api\BaseController;
 use App\Mail\OrderMail;
 use App\Mail\WelcomEmail;
+use App\Models\BookingDetiles;
 use App\Models\ExtraService;
 use App\Notifications\GeneralNotification;
+use Carbon\Carbon;
 use Mail;
 use Notification;
 
@@ -130,16 +132,23 @@ class PayPalPaymentController extends BaseController
                 $OrderDetiles->order_id = $order->id;
                 $OrderDetiles->owner_id = $service->user_id;
                 $OrderDetiles->user_id = $order->user_id;
-
                 $OrderDetiles->price = $service->price + $pricc;
+                $OrderDetiles->number_day = $cart->day;
                 $count1 = ( $service->management_ratio/100) * $service->price;
                 $OrderDetiles->admin_price = $count1;
                 $OrderDetiles->admin_to_pay = $service->price-$count1;
-
                 $OrderDetiles->type = $cart->type;
                 $OrderDetiles->product_id = $cart->service_id;
                 $OrderDetiles->extra_data = $cart->more_data;
                 $OrderDetiles->save();
+                $booking_detiles = new BookingDetiles();
+                $booking_detiles->user_id = $order->user_id;
+                $booking_detiles->owner_id = $service->user_id;
+                $booking_detiles->service_id = $service->id;
+                $booking_detiles->start_at = Carbon::now();
+                $booking_detiles->end_at = Carbon::now()->addDays($cart->day);
+                $booking_detiles->save();
+
                 $user = User::find($OrderDetiles->owner_id);
                 $user->total = $user->total + $service->price;
                 $user->available = $user->available + $service->price;
