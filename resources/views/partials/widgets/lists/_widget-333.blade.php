@@ -133,7 +133,6 @@
                 </tbody>
                 <!--end::Table body-->
             </table>
-            <a href="{{ route('order_consulting') }}" class="btn btn-success">Show all</a>
             <!--end::Table-->
         </div>
         <!--end::Table container-->
