@@ -81,7 +81,7 @@
             <!--end:::Tabs-->
             <!--begin:::Tab content-->
             <div id="form-errors"></div>
-<form method="post" action="{{ route('general_info.store') }}" enctype="multipart/form-data">
+<form method="post" action="{{ route('store_test') }}" enctype="multipart/form-data">
     @csrf
     <div class="row">
 
