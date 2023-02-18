@@ -105,7 +105,6 @@
 
                         <th class="min-w-150px">صورة </th>
                         <th class="min-w-150px">عنوان الخدمة </th>
-                        <th class="min-w-150px">السعر  </th>
                         <th class="min-w-150px">تاريخ البدء  </th>
                         <th class="min-w-150px">تاريخ الانتهاء</th>
 
@@ -123,7 +122,6 @@
                         <td><img src="{{ asset('public/uploads/'.@$item->service->image) }}" width="50" height="50" alt=""></td>
                     
                          <td> {{ $item->service->title }}</td>
-                         <td>{{ $item->price }}$</td>
                          <td>{{ $item->start_at }}</td>
                          <td> {{ $item->end_at }}</td>
                        
