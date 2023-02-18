@@ -123,10 +123,10 @@
                     
                      <td>{{ @$item->service->title }}</td>
                      <td>{{ $item->price }}</td>
-                     <td>{{ date('Y-m-d', strtotime($item->created_at)); }}</td>
                     
                      <th><a href="{{ route('marketer.show',$item->user->id) }}">{{ $item->user->name }}</a></th>
-                    
+                    <td>{{ date('Y-m-d', strtotime($item->created_at)); }}</td>
+
                     
                     </tr>
                         
