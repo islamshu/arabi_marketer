@@ -160,7 +160,7 @@ class PayPalPaymentController extends BaseController
             $ordermail = Order::find($id);
             $userorder = User::find($ordermail->user_id);
 
-
+            Mail::to($user->email)->send(new OrderMail($ordermail->id));
             Mail::to($userorder->email)->send(new OrderMail($ordermail->id));
             dd('test');
 
