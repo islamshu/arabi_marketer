@@ -162,6 +162,15 @@ class PayPalPaymentController extends BaseController
 
             Mail::to($user->email)->send(new OrderMail($ordermail->id));
             Mail::to($userorder->email)->send(new OrderMail($ordermail->id));
+            $date = [
+                'id'=>$order->id,
+                'name' => 'لديك طلب جديد',
+                'url' => '',
+                'title' =>'لديك طلب جديد',
+                'time' => $order->updated_at
+            ];
+            Notification::send($admins, new GeneralNotification($date));
+
             dd('test');
 
 
