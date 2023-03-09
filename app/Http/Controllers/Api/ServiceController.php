@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 use App\Http\Resources\CategoryResource;
+use App\Http\Resources\ExtraServics;
 use App\Http\Resources\KeywordResource;
 use App\Http\Resources\PriceExtraResourse;
 use App\Http\Resources\PriceResourse;

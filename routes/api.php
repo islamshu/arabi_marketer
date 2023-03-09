@@ -81,6 +81,9 @@ Route::post('upload_images', [GalleryController::class, 'upload'])->name('upload
 Route::get('get_all_media', [GalleryController::class, 'index']);
 Route::get('singe_media/{id}', [GalleryController::class, 'single']);
 Route::post('update_media/{id}', [GalleryController::class, 'edit']);
+Route::get('price_extra/{id}', [ServiceController::class, 'price_extra']);
+
+
 // start marketer
 Route::get('/consultion_user/{id}', [ConsultationController::class, 'consultion_user']);
 
