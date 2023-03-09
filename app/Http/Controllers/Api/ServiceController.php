@@ -76,6 +76,15 @@ class ServiceController extends BaseController
 
         return $this->sendResponse($ara, 'جميع الاسعار الخاصة بالخدمات');
     }
+    public function price_extra($id){
+        $ex = ExtraService::find($id);
+        if(!$ex){
+            $this->sendError('لم يتم العثور على التطويرة');
+        }else{
+            $res = new ExtraServics($ex);
+            return $this->sendResponse($res,'تم ارجاع التطويرة بنجاح');
+        }
+    }
     // public function price_for_extrs_servcie(){
     //     $userRes = PriceExtraResourse::collection(PriceExtraService::get());
     //     return $this->sendResponse($userRes, 'جميع الاسعار الخاصة  بالخدمات الاضافية');   
