@@ -119,6 +119,9 @@ class ServiceController extends BaseController
     public function single($id)
     {
         $service = Service::where('slug',$id)->first();
+        if(!$service){
+            return $this->sendError('لأم يتم العثور على الخدمة');
+        }
         $service->viewer += 1;
         $service->save();
         $ser = new ServiceResource($service);

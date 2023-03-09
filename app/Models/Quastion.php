@@ -17,4 +17,5 @@ class Quastion extends Model
     {
         return $this->hasMany(Answer::class);
     }
+    
 }
