@@ -80,7 +80,7 @@ class ServiceController extends BaseController
     public function price_extra($id){
         $ex = ExtraService::find($id);
         if(!$ex){
-            $this->sendError('لم يتم العثور على التطويرة');
+           return $this->sendError('لم يتم العثور على التطويرة');
         }else{
             $res = new ExtraServics($ex);
             return $this->sendResponse($res,'تم ارجاع التطويرة بنجاح');
