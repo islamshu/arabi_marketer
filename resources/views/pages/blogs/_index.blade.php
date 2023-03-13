@@ -41,7 +41,7 @@
             <td>{{ $item->created_at->format('Y-m-d') }}</td>
 
              <td>
-                {{ dd(@can('edit-blog')) }}
+                {{ dd(can('edit-blog')) }}
                 @can('edit-blog')
                 <a href="{{ route('blogs.edit', $item->id) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
                 @endcan
