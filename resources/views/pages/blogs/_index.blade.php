@@ -2,7 +2,7 @@
     <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
-                <th>صورة المقال</th>
+                <th>صورةd المقال</th>
                 <th>عنوان</th>
                 <th>اضيف بواسطة</th>
                 @can('red-comment-blog')
