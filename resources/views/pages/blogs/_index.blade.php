@@ -5,15 +5,15 @@
                 <th>صورة المقال</th>
                 <th>عنوان</th>
                 <th>اضيف بواسطة</th>
-                @can('red-comment-blog')
+                @permission('red-comment-blog')
                     
                 <th>عدد التعليقات</th>
-                @endcan
+                @endpermission
 
-                @can('status-blog')
+                @permission('status-blog')
                     
                 <th>الحالة</th>
-                @endcan
+                @endpermission
 
                                 <th>تاريخ الاضافة</th>
 
@@ -26,17 +26,17 @@
              <td><img src="{{ asset('public/uploads/'.$item->image_blog->image) }}" width="50" height="50" alt=""></td>
              <td>{{ $item->title }}</td>
              <th><a href="{{ route('marketer.show',$item->user->id) }}">{{ $item->user->name }}</a></th>
-             @can('red-comment-blog')
+             @permission('red-comment-blog')
 
              <th><a href="{{ route('show_comments',$item->id) }}">{{ $item->comments->count() }}</a> </th>
-             @endcan
-             @can('status-blog')
+             @endpermission
+             @permission('status-blog')
 
              <td>
                 <input type="checkbox" data-id="{{ $item->id }}" name="status" class="js-switch"
                     {{ $item->status == 1 ? 'checked' : '' }}>
             </td>
-            @endcan
+            @endpermission
 
             <td>{{ $item->created_at->format('Y-m-d') }}</td>
 

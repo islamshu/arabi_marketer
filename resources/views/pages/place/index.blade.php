@@ -49,11 +49,11 @@
             <!--begin:::Tab content-->
             <div class="tab-content" id="myTabContent">
                 <!--begin:::Tab pane-->
-                {{-- @can('create-place') --}}
+                {{-- @permission('create-place') --}}
                 <button id="slide-toggle-button" class="btn btn-primary">
                     اضف جديد
                 </button>
-                {{-- @endcan --}}
+                {{-- @endpermission --}}
                
                 <div class="col-md-8" id="form_toshow" style="display: none;margin-top:5px">
                     <form id="sendmemessage">
@@ -122,14 +122,14 @@
                              <td>{{ $item->type }}</td>
 
                              <td>
-                                {{-- @can('edit-place') --}}
+                                {{-- @permission('edit-place') --}}
 
                                 <button class="btn btn-info" data-toggle="modal"
                                 data-target="#myModal4"
                                 onclick="SelectedPeopleRecord('{{ $item->id }}')"><i
                                     class="fa fa-edit"></i></button>
-                                {{-- @endcan --}}
-                                {{-- @can('delete-place') --}}
+                                {{-- @endpermission --}}
+                                {{-- @permission('delete-place') --}}
 
                                 <form style="display: inline"
                                     action="{{ route('places.destroy', $item->id) }}"
@@ -138,7 +138,7 @@
                                     <button type="submit" class="btn btn-danger delete-confirm"><i
                                             class="fa fa-trash"></i></button>
                                 </form>
-                                {{-- @endcan --}}
+                                {{-- @endpermission --}}
                             </td>
                             </tr>
                                 

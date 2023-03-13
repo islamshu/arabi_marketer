@@ -56,9 +56,9 @@
                         <th># </th>
                         <th>عنوان التدوينة </th>
                         <th>التعليق </th>
-                        @can('status-comment-blog')
+                        @permission('status-comment-blog')
                             <th>الحالة</th>
-                        @endcan
+                        @endpermission
                         <th>الاجراءات </th>
 
 
@@ -72,23 +72,23 @@
                             <td>{!! $item->body !!}</td>
                             <td>
 
-                            @can('status-comment-blog')
+                            @permission('status-comment-blog')
                                     <input type="checkbox" data-id="{{ $item->id }}" name="status" class="js-switch"
                                         {{ $item->status == 1 ? 'checked' : '' }}>
-                            @endcan
+                            @endpermission
                             </td>
                             <td>
 
 
 
-                            @can('delete-comment-blog')
+                            @permission('delete-comment-blog')
                                 <form style="display: inline" action="{{ route('comments.destroy', $item->id) }}"
                                     method="post">
                                     @method('delete') @csrf
                                     <button type="submit" class="btn btn-danger delete-confirm"><i
                                             class="fa fa-trash"></i></button>
                                 </form>
-                            @endcan
+                            @endpermission
                         </td>
 
                         </tr>

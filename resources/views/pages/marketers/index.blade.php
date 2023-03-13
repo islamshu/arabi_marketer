@@ -100,24 +100,24 @@
                                     alt=""></td>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->email }}</td>
-                            {{-- @can('edit-status-marketers')
+                            {{-- @permission('edit-status-marketers')
 
                             <td>
                                 <input type="checkbox" data-id="{{ $item->id }}" name="status" class="js-switch"
                                     {{ $item->status == 1 ? 'checked' : '' }}>
                             </td>
-                            @endcan --}}
+                            @endpermission --}}
                             <td>{{ date('Y-m-d', strtotime($item->created_at)) }}</td>
                             <td>
                                 <input type="checkbox" data-id="{{ $item->id }}" name="is_pan"
                                     class="js-switch testswitch"  {{ $item->is_pan == 1 ? 'checked' : '' }}>
                             </td>
                             <td>
-                                @can('show-marketers')
+                                @permission('show-marketers')
 
                                 <a href="{{ route('marketer.show', $item->id) }}" class="btn btn-success"><i
                                         class="fa fa-eye"></i></a>
-                                @endcan
+                                @endpermission
                                 {{-- <a href="{{ route('services.edit', $item->id) }}" class="btn btn-info"><i
                                         class="fa fa-edit"></i></a>
                                          --}}

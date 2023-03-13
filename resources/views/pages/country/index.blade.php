@@ -47,12 +47,12 @@
             <!--begin:::Tab content-->
             <div class="tab-content" id="myTabContent">
                 <!--begin:::Tab pane-->
-                @can('read-countires')
+                @permission('read-countires')
                     
                 <button id="slide-toggle-button" class="btn btn-primary">
                     اضف جديد
                 </button>
-                @endcan
+                @endpermission
 
                 <div class="col-md-8" id="form_toshow" style="display: none;margin-top:5px">
                     <form method="post" action="{{ route('countires.store_data') }}" enctype="multipart/form-data">

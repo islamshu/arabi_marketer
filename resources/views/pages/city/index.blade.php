@@ -49,11 +49,11 @@
             <!--begin:::Tab content-->
             <div class="tab-content" id="myTabContent">
                 <!--begin:::Tab pane-->
-                @can('read-city')
+                @permission('read-city')
                 <button id="slide-toggle-button" class="btn btn-primary">
                     اضف جديد
                 </button>
-                @endcan
+                @endpermission
               
                 <div class="col-md-8" id="form_toshow" style="display: none;margin-top:5px">
                     <form id="sendmemessage">
@@ -112,11 +112,11 @@
                                 <td>{{ $item->title }}</td>
                                  <td>{{ @$item->country->title }}</td>
                                  <td>
-                                    @can('edit-city')
+                                    @permission('edit-city')
                                     <a onclick="SelectedPeopleRecord({{ $item->id }})" class="btn btn-info"><i class="fa fa-edit"></i></a>
  
-                                    @endcan
-                                    @can('delete-city')
+                                    @endpermission
+                                    @permission('delete-city')
                                     <form style="display: inline"
                                     action="{{ route('city.destroy', $item->id) }}"
                                     method="post">
@@ -124,7 +124,7 @@
                                     <button type="submit" class="btn btn-danger delete-confirm"><i
                                             class="fa fa-trash"></i></button>
                                 </form>
-                                    @endcan
+                                    @endpermission
                                    
                                 </td>
                                 </tr>

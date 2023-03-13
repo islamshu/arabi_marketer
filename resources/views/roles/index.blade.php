@@ -49,9 +49,9 @@
             <!--begin:::Tab content-->
             <div class="tab-content" id="myTabContent">
                 <!--begin:::Tab pane-->
-              @can('create-role')
+              @permission('create-role')
               <a href="{{ route('roles.create') }}" class="btn btn-primary" >اضف جديد</a>
-              @endcan
+              @endpermission
                 
                 <div class="tab-pane fade active show" id="kt_ecommerce_settings_general" role="tabpanel">
 
@@ -70,14 +70,14 @@
                                         <td>{{ $key+1 }}</td>
                                         <td>{{ $role->name }}</td>
                                         <td>
-                                            @can('edit-role')
+                                            @permission('edit-role')
                                             <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}"><i class="fa fa-edit"></i></a>
-                                            @endcan
-                                            @can('delete-role')                                         
+                                            @endpermission
+                                            @permission('delete-role')                                         
                                             {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline']) !!}
                                             {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                                             {!! Form::close() !!}
-                                            @endcan
+                                            @endpermission
 
                                             </td>
 

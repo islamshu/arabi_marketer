@@ -17,10 +17,10 @@
                 <td><img src="{{ asset('public/uploads/'.$item->flag) }}" width="100" height="70" alt=""></td>
                 <td>{{ $item->title }}</td>
                 <td>
-                @can('edit-countires')
+                @permission('edit-countires')
                 <a onclick="SelectedPeopleRecord({{ $item->id }})" class="btn btn-info"><i class="fa fa-edit"></i></a>
-                @endcan
-                @can('delete-countires')
+                @endpermission
+                @permission('delete-countires')
 
                 <form style="display: inline"
                     action="{{ route('countires.destroy', $item->id) }}"
@@ -29,7 +29,7 @@
                     <button type="submit" class="btn btn-danger delete-confirm"><i
                             class="fa fa-trash"></i></button>
                 </form>
-                @endcan
+                @endpermission
             </td>
             </tr>
             @endforeach

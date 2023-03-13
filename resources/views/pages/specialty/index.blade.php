@@ -41,12 +41,12 @@
 
 
             </ul>
-            @can('create-specialty')
+            @permission('create-specialty')
                     
             <button id="slide-toggle-button" class="btn btn-primary">
                 اضف جديد
             </button>
-            @endcan
+            @endpermission
 
             <div class="col-md-8" id="form_toshow" style="display: none;margin-top:5px">
                 <form method="post" action="{{ route('specialtys.store') }}" enctype="multipart/form-data">

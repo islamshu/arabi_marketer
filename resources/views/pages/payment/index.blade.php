@@ -49,11 +49,11 @@
             <!--begin:::Tab content-->
             <div class="tab-content" id="myTabContent">
                 <!--begin:::Tab pane-->
-                {{-- @can('create-payments') --}}
+                {{-- @permission('create-payments') --}}
                     <button id="slide-toggle-button" class="btn btn-primary">
                         اضف جديد
                     </button>
-                {{-- @endcan --}}
+                {{-- @endpermission --}}
                 <div class="col-md-8" id="form_toshow" style="display: none;margin-top:5px">
                     <form id="sendmemessage">
                         @csrf
@@ -111,19 +111,19 @@
                                     <td>{{ $item->title }}</td>
 
                                     <td>
-                                        {{-- @can('edit-payments') --}}
+                                        {{-- @permission('edit-payments') --}}
                                             <button class="btn btn-info" data-toggle="modal" data-target="#myModal4"
                                                 onclick="SelectedPeopleRecord('{{ $item->id }}')"><i
                                                     class="fa fa-edit"></i></button>
-                                        {{-- @endcan --}}
-                                        {{-- @can('delete-payments') --}}
+                                        {{-- @endpermission --}}
+                                        {{-- @permission('delete-payments') --}}
                                             <form style="display: inline"
                                                 action="{{ route('payments.destroy', $item->id) }}" method="post">
                                                 @method('delete') @csrf
                                                 <button type="submit" class="btn btn-danger delete-confirm"><i
                                                         class="fa fa-trash"></i></button>
                                             </form>
-                                        {{-- @endcan --}}
+                                        {{-- @endpermission --}}
                                     </td>
                                 </tr>
                             @endforeach

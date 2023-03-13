@@ -182,13 +182,13 @@
                                                 height="50" alt=""></td>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->email }}</td>
-                                        {{-- @can('edit-status-marketers')
+                                        {{-- @permission('edit-status-marketers')
             
                                         <td>
                                             <input type="checkbox" data-id="{{ $item->id }}" name="status" class="js-switch"
                                                 {{ $item->status == 1 ? 'checked' : '' }}>
                                         </td>
-                                        @endcan --}}
+                                        @endpermission --}}
                                         <td>{{ date('Y-m-d', strtotime($item->created_at)) }}</td>
                                         <td>
 
