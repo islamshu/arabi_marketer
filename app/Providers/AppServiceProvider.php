@@ -5,7 +5,8 @@ namespace App\Providers;
 use App\Core\Adapters\Theme;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
-
+use Illuminate\Support\Facades\Blade;
+use Spatie\Permission\Models\Permission;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -27,6 +28,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        
+    Blade::directive('permission', function ($permission) {
+        return "<?php if (auth()->check() && auth()->user()->hasPermissionTo({$permission})) : ?>";
+    });
+
+    Blade::directive('endpermission', function () {
+        return "<?php endif; ?>";
+    });
         $theme = theme();
 
         // Share theme adapter class
@@ -47,5 +56,7 @@ class AppServiceProvider extends ServiceProvider
             Theme::addHtmlAttribute('html', 'style', 'direction:rtl;');
             Theme::addHtmlAttribute('body', 'direction', 'rtl');
         }
+
+        
     }
 }
