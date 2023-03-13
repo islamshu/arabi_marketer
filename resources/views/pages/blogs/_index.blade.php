@@ -42,7 +42,7 @@
 
              <td>
 
-                @if(auth()->user()->can('edit-blog'))
+                @if(auth()->user()->hasDirectPermission('edit-blog'))
                 <a href="{{ route('blogs.edit', $item->id) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
                 @endif
                 @can('delete-blog')
