@@ -45,7 +45,7 @@
                 @permission('edit-blog')
                 <a href="{{ route('blogs.edit', $item->id) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
                 @endpermission
-                @can('delete-blog')
+                @permission('delete-blog')
 
                 <form style="display: inline"
                     action="{{ route('blogs.destroy', $item->id) }}"
@@ -54,7 +54,7 @@
                     <button type="submit" class="btn btn-danger delete-confirm"><i
                             class="fa fa-trash"></i></button>
                 </form>
-                @endcan
+                @endpermission
             </td>
             </tr>
                 
