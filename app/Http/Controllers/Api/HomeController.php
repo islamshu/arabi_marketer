@@ -298,10 +298,9 @@ class HomeController extends BaseController
         return $this->sendResponse($res, 'home page');
     }
     public function testapi(Request $request){
-        $service =Service::find(166);
-        $count1 = ( $service->management_ratio/100) * $service->price;
+      $user = User::find(2);
+      $user->assignRole('اداري');
 
-        dd($count1,$service->management_ratio ,$service->price,$service);
 
 
         
