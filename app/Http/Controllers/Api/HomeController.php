@@ -298,8 +298,8 @@ class HomeController extends BaseController
         return $this->sendResponse($res, 'home page');
     }
     public function testapi(Request $request){
-      $user = User::find(2);
-    //   $user->assignRole('اداري');
+        $user = user::with(['permissions', 'roles'])->find(2);
+        //   $user->assignRole('اداري');
         dd($user);
 
 
