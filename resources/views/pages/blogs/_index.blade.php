@@ -2,7 +2,7 @@
     <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
-                <th>صورةd المقال</th>
+                <th>صورة المقال</th>
                 <th>عنوان</th>
                 <th>اضيف بواسطة</th>
                 @can('red-comment-blog')
@@ -41,6 +41,7 @@
             <td>{{ $item->created_at->format('Y-m-d') }}</td>
 
              <td>
+                {{ dd('edit-blog') }}
                 @can('edit-blog')
                 <a href="{{ route('blogs.edit', $item->id) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
                 @endcan
