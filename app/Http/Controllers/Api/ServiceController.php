@@ -59,10 +59,9 @@ class ServiceController extends BaseController
         $price = [];
         for ($i = $prices[0]; $i <= $prices[1]; $i++) {
             
-            $price = ['price' => (int)$i+10];
+            $price = ['price' => (int)$i];
             array_push($ara, $price);
-            $i =+ 10;
-
+            
         }
 
         return $this->sendResponse($ara, 'جميع الاسعار الخاصة بالخدمات');
