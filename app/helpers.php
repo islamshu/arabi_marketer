@@ -164,6 +164,7 @@ function send_message($data){
     );
     $pusher->trigger('chat-user', 'chat_user', $data);
 }
+
 function check_pan(){
 
     if(auth('api')->check()){

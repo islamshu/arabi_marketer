@@ -70,10 +70,7 @@ class ForgotPasswordController extends BaseController
             'required_change'=>0
         ]);
         Mail::to($code->email)->send(new AfterReset());
-
         $code->delete();
-
-        
         return $this->sendResponse('reset', "Password has been successfully changed");
     }
 }

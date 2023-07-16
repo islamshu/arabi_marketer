@@ -57,7 +57,7 @@ class ServiceController extends BaseController
         $prices = explode('-', $price_service);
         $ara = [];
         $price = [];
-        for ($i = $prices[0]; $i <= $prices[1]; $i++) {
+        for ($i = $prices[0]; $i <= $prices[1]; $i+10) {
             $price = ['price' => (int)$i];
             array_push($ara, $price);
         }

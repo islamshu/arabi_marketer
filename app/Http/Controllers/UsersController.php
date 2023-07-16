@@ -9,12 +9,13 @@ use App\Models\User;
 use App\Notifications\GeneralNotification;
 use Auth;
 use Crypt;
+use Mail;
+
 use Hash;
 use Illuminate\Http\Request;
 use Notification;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Redirect;
-use Mail;
 
 class UsersController extends Controller
 {
