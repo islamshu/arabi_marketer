@@ -161,6 +161,22 @@ class BlogController extends BaseController
         $res = new BlogResource($blog);
         return $this->sendResponse($res, 'تم أرجاع المقال بنجاح');
     }
+    public function single_blog_new($id)
+    {
+        
+        $blog = Blog::where('slug',$id)->first();
+        // if($blog->publish_time = now()){
+        //     dd('dd');
+        // }else{
+        //     dd('dfd');
+        // }
+        if(!$blog){
+            return $this->sendError('not found blog');
+        }
+        $res = new BlogResource($blog);
+        return $this->sendResponse($res, 'تم أرجاع المقال بنجاح');
+    }
+    
 
 
     public function store(Request $request)

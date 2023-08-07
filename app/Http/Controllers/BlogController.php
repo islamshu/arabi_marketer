@@ -84,7 +84,7 @@ class BlogController extends Controller
                 if($request->publish_time != null){
                     $service->publish_time = $request->$request->publish_time;
                 }else{
-                    $service->publish_tim = now(); 
+                    $service->publish_time = now(); 
                 }
 
                 $service->save();
