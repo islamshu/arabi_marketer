@@ -30,7 +30,7 @@ class BlogController extends Controller
             ->with('images',BlogImage::orderby('id', 'desc')->get())
             ->with('blogs', Blog::orderby('id', 'desc')->get())
             ->with('bending_blog', Blog::where('status', 0)->orderby('id', 'desc')->get())
-            ->with('categories', Category::ofType('blog')->get())
+            ->with('categories', Specialty::get())
             ->with('keywords', KeyWord::ofType('blog')->get());
     }
     public function show_pending(){
