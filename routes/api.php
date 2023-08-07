@@ -158,6 +158,8 @@ Route::post('/add_comment', [CommentController::class, 'store']);
 Route::post('/add_rate', [BlogController::class, 'add_rate']);
 Route::get('/get_comments_for_blog/{id}', [CommentController::class, 'get_comment']);
 Route::get('/get_all_blogs', [BlogController::class, 'get_all']);
+Route::get('/get_all_blogs_dashbaord', [BlogController::class, 'get_all_blogs_dashbaord']);
+
 Route::get('/single_blog/{mention}/{id}', [BlogController::class, 'single'])->name('single_blog');
 Route::get('/single_blog_new/{id}', [BlogController::class, 'single_blog_new'])->name('single_blog_new');
 

@@ -50,6 +50,12 @@ class BlogController extends BaseController
         return $this->sendResponse($res, 'جميع المقالات');
         // return ['success'=>true,'blogs'=>BlogResource::collection($blogs)->response()->getData(true),'message'=>'جميع المقالات'];
     }
+    public function get_all_blogs_dashbaord(){
+        $blogs = Blog::where('status', 1)->orderBy('id', 'desc')->get();
+        $res = BlogResource::collection($blogs);
+        return $this->sendResponse($res, 'جميع المقالات');
+
+    }
     public function get_week()
     {
         $date1 = Carbon::parse('2022-10-01');
