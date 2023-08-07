@@ -10,6 +10,7 @@ use App\Models\BlogKeyword;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\KeyWord;
+use App\Models\Specialty;
 use App\Models\Tag;
 use DB;
 use Illuminate\Http\Request;
