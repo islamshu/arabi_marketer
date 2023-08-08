@@ -23,7 +23,7 @@ class RelatedBlogResource extends JsonResource
             'categories'=>$this->get_category($this),
             'keywords'=>$this->get_keywords($this),
             'image'=>asset('public/uploads/'.$this->image),
-            'url'=>route('single_blog',$this->user->mention,$this->id),
+            'url'=>route('single_blog',[$this->user->mention,$this->id]),
             
         ];
     }
