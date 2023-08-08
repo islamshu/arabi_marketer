@@ -53,7 +53,7 @@ class HomeController extends BaseController
         $tags = Tag::where('blog_id',130)->get();
         foreach($tags as $tag){
             $new_string = preg_replace(
-                '/[^a-zA-Z0-9 ]/m', // 1. regex to apply
+                '/[^a-zA-Z0-9 ]/', // 1. regex to apply
                 '',                 // 2. replacement for regex matches 
                 $tag->title             // 3. the original string
             );
