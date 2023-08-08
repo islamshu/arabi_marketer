@@ -91,7 +91,7 @@ class BlogResource extends JsonResource
         $arr = [];
         foreach ($category as $tag) {
             $tage = str_replace('_',' ',$tag->title);
-                $cleanedText = str_replace(['"', ']','['], '', $tage);
+                $cleanedText = str_replace(['"', ']','['], '/', $tage);
                 $tag->title = $cleanedText;
                 $tag->save();
             array_push($arr, $cleanedText);
