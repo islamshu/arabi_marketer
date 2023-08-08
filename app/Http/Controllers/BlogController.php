@@ -78,7 +78,7 @@ class BlogController extends Controller
 
         ]);
         if ($validator->fails()) {
-            return response()->json(['success'=>'false','errors' => $validator->errors()]);
+            return response()->json(['success'=>'false','errors' => $validator->errors()->first()]);
         }
 
         

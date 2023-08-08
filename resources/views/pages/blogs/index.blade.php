@@ -244,6 +244,8 @@
             async: false,
             success: function(response) {
             alert(response.success);
+            alert(response.errors);
+
             }
         });
       });
