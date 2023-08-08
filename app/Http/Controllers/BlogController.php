@@ -148,7 +148,7 @@ class BlogController extends Controller
 
 
 
-                return response()->json(['success'=>'true','success' => 'تم الاضافة بنجاح']);
+                return response()->json(['success'=>'true','message' => 'تم الاضافة بنجاح']);
 
             });
         } catch (\Throwable $e) {

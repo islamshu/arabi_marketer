@@ -247,8 +247,12 @@
                 Swal.fire({
                 buttons: false,
                 icon: "success",
-                title:'تم الاضافة بنجاح'
+                title:response.message
                 });
+                $("#send_form")[0].reset();
+                  setTimeout(function() {
+                window.location.reload();
+            }, 3000);
             }else{
                 Swal.fire({
                 buttons: false,
