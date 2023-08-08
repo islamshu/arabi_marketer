@@ -77,10 +77,10 @@ class BlogController extends Controller
         ];
         
         $validation = Validator::make($request->all(), [
+            'image_id' => 'required',
             'title_ar' => 'required',
             'description_ar' => 'required',
             'small_description' => 'required',
-            'image_id' => 'required',
             'user_id' => 'required',
             'type' => 'required',
             'tags' => 'required',

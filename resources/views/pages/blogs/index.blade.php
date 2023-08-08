@@ -246,8 +246,15 @@
                 Swal.fire({
                 icon: 'success',
                 title: 'Oops...',
-                text: 'تم الاضافة',
-                }) 
+                text: 'تم الاضافة بنجاح',
+                });
+                $("#send_form")[0].reset();
+
+                 setTimeout(function() {
+                window.location.reload();
+            }, 3000);
+            
+
                 }else{
                 Swal.fire({
                 icon: 'error',
