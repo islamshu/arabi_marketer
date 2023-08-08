@@ -54,7 +54,6 @@ class HomeController extends BaseController
         foreach($tags as $tag){
             $tage = str_replace('_',' ',$tag->title);
             $cleanedText = str_replace(['"', ']','['], '', $tage);
-            dd($cleanedText);
             $tag->title = $cleanedText;
             $tag->save();
 
