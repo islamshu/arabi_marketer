@@ -245,7 +245,7 @@
             success: function(response) {
             alert(response.success);
             }
-        }
+        });
       });
             // store("{{ route('blogs.store') }}", 'post', data, '#kt_datatable_example_4', 'sendmemessage',
             //     '#exampleModal', 'Added successfully');
