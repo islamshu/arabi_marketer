@@ -241,11 +241,11 @@
             store("{{ route('blogs.store') }}", 'post', data, '#kt_datatable_example_4', 'sendmemessage',
                 '#exampleModal', 'Added successfully');
             //    location.reload(true);
-            $("#send_form")[0].reset();
+            // $("#send_form")[0].reset();
 
-            setTimeout(function() {
-                window.location.reload();
-            }, 3000);
+            // setTimeout(function() {
+            //     window.location.reload();
+            // }, 3000);
         });
     </script>
   
