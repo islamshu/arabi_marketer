@@ -243,10 +243,18 @@
         success: function(response) {
             // Handle successful response
             if (response.success == 'true') {
-                alert(response.message);
-            }else{
-                alert(response.errors);
-            }
+                Swal.fire({
+                icon: 'success',
+                title: 'Oops...',
+                text: 'تم الاضافة',
+                }) 
+                }else{
+                Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: response.errors,
+                })   
+                     }
         }
     });
 });
