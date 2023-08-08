@@ -50,7 +50,7 @@ use View;
 class HomeController extends BaseController
 {
     public function testt(){
-        $tags = Tag::where('blog_id',130)->get();
+        $tags = Tag::get();
         foreach($tags as $tag){
             $tage = str_replace('_',' ',$tag->title);
             $cleanedText = str_replace(['"', ']','['], '', $tage);
