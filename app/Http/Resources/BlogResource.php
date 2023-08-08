@@ -88,14 +88,13 @@ class BlogResource extends JsonResource
     {
         $category = $data->tags;
         // $category = $data->keywords;
-        $arr = [];
-        foreach ($category as $cat) {
-            array_push($arr, $cat->title);
-        }
-        $str_json = ($arr); 
-        return ($str_json);
-        return KeywordResource::collection($category);
-    }
+        $cleanTags = array_map(function ($tag) {
+            return json_decode($tag);
+        }, $category);
+        
+        return response()->json([
+            'tags' => $cleanTags
+        ]);
 
 
     function get_rate($data)
