@@ -230,6 +230,7 @@ class BlogController extends Controller
         foreach ($selectedtags as $selc) {
             array_push($selectetages_array, $selc->value);
         }
+        dd($selectedtags);
         return view('pages.blogs.edit')->with('blog', $blog)
             ->with('type_array', $selectecategory_array)
             ->with('keywords_array', $selectedkeywords_array)
