@@ -88,13 +88,17 @@ class BlogResource extends JsonResource
     {
         $category = $data->tags;
         // $category = $data->keywords;
-        $cleanTags = collect($category)->map(function ($tag) {
+        $arr = [];
+        foreach ($category as $cat) {
+            array_push($arr, $cat->title);
+        }
+        $cleanTags = array_map(function ($tag) {
             return json_decode($tag);
-        });
-        
-        return response()->json([
-            'tags' => $cleanTags
-        ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+        }, $arr);
+        return $cleanTags;
+        $str_json = json_encode($arr); //array to json string conversion
+        return json_decode($str_json);
+        return KeywordResource::collection($category);
     }
 
 
