@@ -22,7 +22,7 @@ class RelatedBlogResource extends JsonResource
             'user_info'=>new UserMainInfoResource($this->user),
             'categories'=>$this->get_category($this),
             'keywords'=>$this->get_keywords($this),
-            'image'=>asset('public/uploads/'.$this->image),
+            'image' => asset('public/uploads/'.$this->image_blog->image),
             'url'=>route('single_blog',[$this->user->mention,$this->id]),
             
         ];
