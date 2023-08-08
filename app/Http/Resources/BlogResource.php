@@ -90,15 +90,10 @@ class BlogResource extends JsonResource
         // $category = $data->keywords;
         $arr = [];
         foreach ($category as $cat) {
-            $new_string = preg_replace(
-                '/[^a-zA-Z0-9 ]/m', // 1. regex to apply
-                '',                 // 2. replacement for regex matches 
-                $cat->title             // 3. the original string
-            );
-            array_push($arr, $new_string);
+            array_push($arr, $cat->title);
         }
-        $str_json = json_encode($arr); //array to json string conversion
-        return json_decode($str_json);
+        $str_json = json_encode($arr); 
+        return ($str_json);
         return KeywordResource::collection($category);
     }
 
