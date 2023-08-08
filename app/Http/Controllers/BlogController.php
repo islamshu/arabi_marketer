@@ -65,7 +65,6 @@ class BlogController extends Controller
     }
     public function store(Request $request)
     {
-        dd($request->all());
         $validator = Validator::make($request->all(), [
             'title_ar' => 'required',
             'description_ar' => 'required',
@@ -75,8 +74,6 @@ class BlogController extends Controller
             'type'=>'required',
             'tags'=>'required',
             'keywords'=>'required',
-
-
         ]);
         if ($validator->fails()) {
             return response()->json(['success'=>'false','errors' => $validator->errors()->first()]);
