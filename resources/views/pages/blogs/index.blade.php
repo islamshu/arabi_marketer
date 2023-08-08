@@ -242,6 +242,7 @@
             data:data,
             async: false,
             success: function(response) {
+                alert(response.success);
                 if (response.success) {
                     swal(
                 '',

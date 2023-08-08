@@ -78,7 +78,7 @@ class BlogController extends Controller
 
         ]);
         if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()]);
+            return response()->json(['success'=>'false','errors' => $validator->errors()]);
         }
 
         
@@ -150,11 +150,11 @@ class BlogController extends Controller
 
 
 
-                return response()->json(['success' => 'تم الاضافة بنجاح']);
+                return response()->json(['success'=>'true','success' => 'تم الاضافة بنجاح']);
 
             });
         } catch (\Throwable $e) {
-            return response()->json(['errors' => $e]);
+            return response()->json(['success'=>'falsee','errors' => $e]);
 
         }
     }
