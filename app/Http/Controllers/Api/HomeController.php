@@ -52,7 +52,8 @@ class HomeController extends BaseController
     public function testt(){
         $tags = Tag::where('blog_id',130)->get();
         foreach($tags as $tag){
-            $cleanedText = preg_replace('/[^A-Za-z0-9\s]/', 't', $tag->title);
+            $tage = str_replace('_',' ',$tag->title);
+            $cleanedText = preg_replace('/[^A-Za-z0-9\s]/', 't', $tage);
 
             dd($cleanedText);
         }
