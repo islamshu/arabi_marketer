@@ -90,10 +90,10 @@ class BlogResource extends JsonResource
         // $category = $data->keywords;
         $arr = [];
         foreach ($category as $cat) {
-            $new_string = str_replace(
-                [",", "<", ">", "!"], // 1. special chars to remove
-                "",                   // 2. replacement for the chars
-                $cat->title               // 3. the original string
+            $new_string = preg_replace(
+                '/[^a-zA-Z0-9 ]/m', // 1. regex to apply
+                '',                 // 2. replacement for regex matches 
+                $cat->title             // 3. the original string
             );
             array_push($arr, $new_string);
         }
