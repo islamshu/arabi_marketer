@@ -65,7 +65,7 @@ class BlogController extends Controller
     }
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'title_ar' => 'required',
             'description_ar' => 'required',
             'small_description' => 'required',
@@ -75,9 +75,7 @@ class BlogController extends Controller
             'tags'=>'required',
             'keywords'=>'required',
         ]);
-        if ($validator->fails()) {
-            return response()->json(['success'=>'false','errors' => $validator->errors()->first()]);
-        }
+        
 
         
         
@@ -146,12 +144,14 @@ class BlogController extends Controller
                     }
                 }
 
-
+                return redirect()->back()->with(['success'=>'تم اضافة المقال بنجاح']);
 
                 return response()->json(['success'=>'true','message' => 'تم الاضافة بنجاح']);
 
             });
         } catch (\Throwable $e) {
+            return redirect()->back()->with(['error'=>'لقد حدث خلل ما']);
+
             return response()->json(['success'=>'false','errors' =>'لقد حدث خطأ ما']);
 
         }

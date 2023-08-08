@@ -1,10 +1,11 @@
 @extends('layout.main')
 @section('style')
     <style>
-        .activeimage{
+        .activeimage {
             border-radius: 3% !important;
             border: 5px solid #d2cece !important;
         }
+
         .fileInput1 {
             border: var(--darkColor) 2px solid;
             padding: 6px;
@@ -152,6 +153,25 @@
 
             </ul>
 
+            @if (Session::get('success') != null)
+                <div class="alert alert-success" style="text-align: center;">
+                    {{ Session::get('success') }}
+                </div>
+            @endif
+            @if (Session::get('error') != null)
+                <div class="alert alert-danger" style="text-align: center;">
+                    {{ Session::get('error') }}
+                </div>
+            @endif
+            @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul style="text-align: center">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
             <ul class="nav nav-tabs nav-line-tabs nav-line-tabs-2x mb-5 fs-6">
                 <li class="nav-item">
@@ -162,10 +182,9 @@
                 </li>
 
                 @permission('create-blog')
-                    
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_2">اضف جديد</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_2">اضف جديد</a>
+                    </li>
                 @endpermission
 
 
@@ -176,17 +195,16 @@
                 <div class="tab-pane fade show active" id="kt_tab_pane_1" role="tabpanel">
                     @include('pages.blogs._index')
                 </div>
-                
+
                 <div class="tab-pane fade" id="kt_tab_pane_3" role="tabpanel">
                     @include('pages.blogs.bending')
                 </div>
 
 
                 @permission('create-blog')
-
-                <div class="tab-pane fade" id="kt_tab_pane_2" role="tabpanel">
-                    @include('pages.blogs._create')
-                </div>
+                    <div class="tab-pane fade" id="kt_tab_pane_2" role="tabpanel">
+                        @include('pages.blogs._create')
+                    </div>
                 @endpermission
 
 
@@ -232,68 +250,68 @@
     </script>
 
     <script>
-        $('#send_form').on('submit', function(e) {
-            e.preventDefault();
-            var frm = $('#send_form');
-            var data = $(this).serialize();
-       
-            $.ajax({
-            type: "post",
-            url: "{{ route('blogs.store') }}",
-            data:data,
-            async: false,
-            success: function(response) {
-            if(response.success == 'true'){
-                Swal.fire({
-                buttons: false,
-                icon: "success",
-                title:response.message
-                });
-                $("#send_form")[0].reset();
-                  setTimeout(function() {
-                window.location.reload();
-            }, 3000);
-            }else{
-                Swal.fire({
-                buttons: false,
-                icon: "error",
-                title:response.errors
-                });
-            }
-            
+        //     $('#send_form').on('submit', function(e) {
+        //         e.preventDefault();
+        //         var frm = $('#send_form');
+        //         var data = $(this).serialize();
 
-            }
-        });
-      });
-            // store("{{ route('blogs.store') }}", 'post', data, '#kt_datatable_example_4', 'sendmemessage',
-            //     '#exampleModal', 'Added successfully');
-            // //    location.reload(true);
-            // $("#sendmemessage")[0].reset();
+        //         $.ajax({
+        //         type: "post",
+        //         url: "{{ route('blogs.store') }}",
+        //         data:data,
+        //         async: false,
+        //         success: function(response) {
+        //         if(response.success == 'true'){
+        //             Swal.fire({
+        //             buttons: false,
+        //             icon: "success",
+        //             title:response.message
+        //             });
+        //             $("#send_form")[0].reset();
+        //               setTimeout(function() {
+        //             window.location.reload();
+        //         }, 3000);
+        //         }else{
+        //             Swal.fire({
+        //             buttons: false,
+        //             icon: "error",
+        //             title:response.errors
+        //             });
+        //         }
 
-            // setTimeout(function() {
-            //     window.location.reload();
-            // }, 3000);
+
+        //         }
+        //     });
+        //   });
+        // store("{{ route('blogs.store') }}", 'post', data, '#kt_datatable_example_4', 'sendmemessage',
+        //     '#exampleModal', 'Added successfully');
+        // //    location.reload(true);
+        // $("#sendmemessage")[0].reset();
+
+        // setTimeout(function() {
+        //     window.location.reload();
+        // }, 3000);
         // });
     </script>
-  
+
     <script>
         function myImage(id) {
-           var imagee = '.item'+id;
+            var imagee = '.item' + id;
             $(".img-info").css("display", "block");
             const boxes = document.querySelectorAll('.imges');
 
-                boxes.forEach(box => {
+            boxes.forEach(box => {
                 // ✅ Remove class from each element
                 box.classList.remove('activeimage');
 
                 // ✅ Add class to each element
                 // box.classList.add('small');
-                });
-            $( imagee ).addClass( "activeimage" );
+            });
+            $(imagee).addClass("activeimage");
 
 
 
-            var url = '{{ route("get_image", ":id") }}';
+            var url = '{{ route('get_image', ':id') }}';
             get_url = url.replace(':id', id);
             $.ajax({
                 url: get_url,
@@ -304,25 +322,31 @@
                     $('#description_image').val(data.description);
                     $('#image_id_info').val(data.id);
 
-                    
+
                 }
             });
         }
-        function storedata_image(){
-            var image_id =  $('#image_id_info').val();
-            var title_image =  $('#title_image').val();
-            var description_image =  $('#description_image').val();
-            var alt_image =  $('#alt_image').val();
-            
+
+        function storedata_image() {
+            var image_id = $('#image_id_info').val();
+            var title_image = $('#title_image').val();
+            var description_image = $('#description_image').val();
+            var alt_image = $('#alt_image').val();
+
 
             $.ajax({
                 url: "{{ route('update_data_image') }}",
                 type: 'post',
-                data:{"image_id":image_id, "title_image":title_image, "description_image":description_image,"alt_image":alt_image},
-            
+                data: {
+                    "image_id": image_id,
+                    "title_image": title_image,
+                    "description_image": description_image,
+                    "alt_image": alt_image
+                },
+
 
                 success: function(data) {
-      
+
                     swal(
                         '',
                         'Updated successfully',
@@ -337,19 +361,20 @@
             });
 
         }
-        function saveimage(id){
-            var url = '{{ route("get_image", ":id") }}';
+
+        function saveimage(id) {
+            var url = '{{ route('get_image', ':id') }}';
             get_url = url.replace(':id', id);
             $.ajax({
                 url: get_url,
                 type: 'get',
                 success: function(data) {
                     $('#image_idd').val(data.id)
-                    var src1 =`https://dashboard.arabicreators.com/public/uploads/` + data.image ;
+                    var src1 = `https://dashboard.arabicreators.com/public/uploads/` + data.image;
                     $('#src_image').attr("src", src1);
-                    $( "#closeeee" ).click();
+                    $("#closeeee").click();
 
-                    
+
                 }
             });
         }
@@ -371,9 +396,10 @@
                     var text = `<div class="col-md-3 blogsimage" >
                                     <div class="item` + data.id + ` item ">
                                         <div class="img-box">
-                                            <img src="https://dashboard.arabicreators.com/public/uploads/` + data.image + `" ondblclick="saveimage(` + data
-                                                        .id + `)"  onclick="myImage(` + data
-                                                        .id + `)" width="150" height="150" alt="" />
+                                            <img src="https://dashboard.arabicreators.com/public/uploads/` + data
+                        .image + `" ondblclick="saveimage(` + data
+                        .id + `)"  onclick="myImage(` + data
+                        .id + `)" width="150" height="150" alt="" />
                                         </div>
                                     </div>
                                 </div>`;
