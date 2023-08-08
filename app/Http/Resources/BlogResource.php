@@ -92,7 +92,7 @@ class BlogResource extends JsonResource
         foreach ($category as $cat) {
             array_push($arr, $cat->title);
         }
-        $str_json = json_encode($arr); 
+        $str_json = ($arr); 
         return ($str_json);
         return KeywordResource::collection($category);
     }
