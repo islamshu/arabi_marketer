@@ -46,6 +46,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/GoogleCalendarController', [GoogleCalendarController::class, 'connect']);
 Route::get('/confirm-booking/{id}', [CartController::class, 'confirm_booking'])->name('confirm-booking');
 
+Route::get('/testt', [HomeController::class, 'testt'])->name('testt');
 
 Route::get('/profits', [SampleDataController::class, 'profits'])->name('profits');
 Route::get('/testapi', [HomeController::class, 'testapi'])->name('testapi');

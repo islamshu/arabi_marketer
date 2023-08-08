@@ -36,6 +36,7 @@ use App\Models\NewPodcast;
 use App\Models\Quastion;
 use App\Models\Search;
 use App\Models\Specialty;
+use App\Models\Tag;
 use App\Models\Tools;
 use App\Models\User;
 use App\Notifications\GeneralNotification;
@@ -48,6 +49,17 @@ use View;
 
 class HomeController extends BaseController
 {
+    public function testt(){
+        $tags = Tag::where('blog_id',130)->get();
+        foreach($tags as $tag){
+            $new_string = preg_replace(
+                '/[^a-zA-Z0-9 ]/m', // 1. regex to apply
+                '',                 // 2. replacement for regex matches 
+                $tag->title             // 3. the original string
+            );
+            dd($new_string);
+        }
+    }
     public function check_login(){
         if(auth('api')->check()){
             $res['is_login'] =1;
