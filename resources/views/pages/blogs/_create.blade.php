@@ -1,6 +1,6 @@
 <div class="invalid-feedback" id="field_name_error"></div>
 
-<form  method="post" action="{{ route('blogs.store') }}">
+<form id="send_form">
     @csrf
     <div class="row">
 
