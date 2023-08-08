@@ -16,6 +16,7 @@ use DB;
 use Illuminate\Http\Request;
 use Jorenvh\Share\ShareFacade;
 use Share;
+use Validator;
 
 class BlogController extends Controller
 {
@@ -64,6 +65,26 @@ class BlogController extends Controller
     }
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'title_ar' => 'required',
+            'description_ar' => 'required',
+            'small_description' => 'required',
+            'image_id' => 'required',
+            'user_id' => 'required',
+            'type'=>'required',
+            'tags'=>'required',
+            'tags'=>'keywords',
+
+
+        ]);
+        
+        if ($validator->fails()) {
+            return [
+                'success' => false,
+                'data' => $validator->errors(),
+            ];
+        }
+        
         try {
             DB::transaction(function () use ($request) {
                 $service = new Blog();
@@ -131,10 +152,16 @@ class BlogController extends Controller
 
 
 
-                return $service;
+                return [
+                    'success' => true,
+                    'data' => 'تم الارسال بنجاح',
+                ];
             });
         } catch (\Throwable $e) {
-            return $e;
+            return [
+                'success' => false,
+                'data' => $validator->errors(),
+            ];
         }
     }
 
