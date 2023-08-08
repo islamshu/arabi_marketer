@@ -236,41 +236,26 @@
             e.preventDefault();
             var frm = $('#send_form');
             var data = $(this).serialize();
+       
             $.ajax({
             type: "GET",
             url: "{{ route('blogs.store') }}",
             data:data,
             async: false,
             success: function(response) {
-                alert(response.success);
-                if (response.success) {
-                    swal(
-                '',
-                'تم الاضافة بنجاخ',
-                'success'
-            )            }
-         
-        },error: function(xhr) {
-            // Handle validation errors
-            if (xhr.responseJSON.errors) {
-                var errors = xhr.responseJSON.errors;
-                // Display error messages next to the corresponding fields
-                for (var field in errors) {
-                    $('#' + field).addClass('is-invalid');
-                    $('#' + field + '_error').text(errors[field][0]);
-                }
+            alert(response.success);
             }
         }
       });
-       
-
-            //    location.reload(true);
-            // $("#send_form")[0].reset();
+            // store("{{ route('blogs.store') }}", 'post', data, '#kt_datatable_example_4', 'sendmemessage',
+            //     '#exampleModal', 'Added successfully');
+            // //    location.reload(true);
+            // $("#sendmemessage")[0].reset();
 
             // setTimeout(function() {
             //     window.location.reload();
             // }, 3000);
-        });
+        // });
     </script>
   
     <script>
