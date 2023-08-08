@@ -73,7 +73,7 @@ class BlogController extends Controller
             'user_id' => 'required',
             'type'=>'required',
             'tags'=>'required',
-            'tags'=>'keywords',
+            'keywords'=>'required',
 
 
         ]);
