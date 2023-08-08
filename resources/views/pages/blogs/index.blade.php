@@ -244,17 +244,17 @@
             async: false,
             success: function(response) {
             if(response.success == 'true'){
-                swal(message, {
+                Swal.fire(
                 buttons: false,
                 icon: "success",
                 title:'تم الاضافة بنجاح'
-            });
+            );
             }else{
-                swal(message, {
+                Swal.fire(
                 buttons: false,
                 icon: "error",
                 title:response.errors
-            });
+            );
             }
             
 
