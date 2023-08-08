@@ -238,7 +238,7 @@
             var data = $(this).serialize();
        
             $.ajax({
-            type: "GET",
+            type: "post",
             url: "{{ route('blogs.store') }}",
             data:data,
             async: false,
