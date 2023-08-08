@@ -236,6 +236,29 @@
             e.preventDefault();
             var frm = $('#send_form');
             var data = $(this).serialize();
+            $.ajax({
+            type: "GET",
+            url: "{{ route('blogs.store') }}",
+            data:data,
+            async: false,
+            success: function(response) {
+              if(response.success == true){
+                swal(
+                '',
+                'تم الاضافة بنجاخ',
+                'success'
+            )
+            }else{
+                var errors = data.responseJSON;
+            errorsHtml = '<div class="alert alert-danger"><ul>';
+            $.each(errors.errors, function(k, v) {
+                errorsHtml += '<li>' + v + '</li>';
+            });
+            errorsHtml += '</ul></di>';
+            $('#form-errors').html(errorsHtml);
+            }
+        }
+      });
        
 
             store("{{ route('blogs.store') }}", 'post', data, '#kt_datatable_example_4', 'sendmemessage',
