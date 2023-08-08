@@ -242,27 +242,27 @@
             data:data,
             async: false,
             success: function(response) {
-              if(response.success == true){
-                swal(
+                if (response.success) {
+                    swal(
                 '',
                 'تم الاضافة بنجاخ',
                 'success'
-            )
-            }else{
-                var errors = data.responseJSON;
-            errorsHtml = '<div class="alert alert-danger"><ul>';
-            $.each(errors.errors, function(k, v) {
-                errorsHtml += '<li>' + v + '</li>';
-            });
-            errorsHtml += '</ul></di>';
-            $('#form-errors').html(errorsHtml);
+            )            }
+         
+        },error: function(xhr) {
+            // Handle validation errors
+            if (xhr.responseJSON.errors) {
+                var errors = xhr.responseJSON.errors;
+                // Display error messages next to the corresponding fields
+                for (var field in errors) {
+                    $('#' + field).addClass('is-invalid');
+                    $('#' + field + '_error').text(errors[field][0]);
+                }
             }
         }
       });
        
 
-            store("{{ route('blogs.store') }}", 'post', data, '#kt_datatable_example_4', 'sendmemessage',
-                '#exampleModal', 'Added successfully');
             //    location.reload(true);
             // $("#send_form")[0].reset();
 

@@ -77,13 +77,11 @@ class BlogController extends Controller
 
 
         ]);
-        
         if ($validator->fails()) {
-            return [
-                'success' => false,
-                'data' => $validator->errors(),
-            ];
+            return response()->json(['errors' => $validator->errors()]);
         }
+
+        
         
         try {
             DB::transaction(function () use ($request) {
@@ -152,16 +150,12 @@ class BlogController extends Controller
 
 
 
-                return [
-                    'success' => true,
-                    'data' => 'تم الارسال بنجاح',
-                ];
+                return response()->json(['success' => 'تم الاضافة بنجاح']);
+
             });
         } catch (\Throwable $e) {
-            return [
-                'success' => false,
-                'data' => $validator->errors(),
-            ];
+            return response()->json(['errors' => $e]);
+
         }
     }
 
