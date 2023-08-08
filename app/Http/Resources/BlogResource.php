@@ -90,7 +90,12 @@ class BlogResource extends JsonResource
         // $category = $data->keywords;
         $arr = [];
         foreach ($category as $cat) {
-            array_push($arr, $cat->title);
+            $new_string = str_replace(
+                [",", "<", ">", "!"], // 1. special chars to remove
+                "",                   // 2. replacement for the chars
+                $cat->title               // 3. the original string
+            );
+            array_push($arr, $new_string);
         }
         $str_json = json_encode($arr); //array to json string conversion
         return json_decode($str_json);
