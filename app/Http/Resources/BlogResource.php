@@ -95,6 +95,7 @@ class BlogResource extends JsonResource
         return response()->json([
             'tags' => $cleanTags
         ]);
+    }
 
 
     function get_rate($data)
