@@ -228,14 +228,14 @@ class BlogController extends Controller
             array_push($selectecategory_array, $selc->id);
         }
         foreach ($selectedtags as $selc) {
-            array_push($selectetages_array, $selc->id);
+            array_push($selectetages_array, $selc->value);
         }
         return view('pages.blogs.edit')->with('blog', $blog)
             ->with('type_array', $selectecategory_array)
             ->with('keywords_array', $selectedkeywords_array)
             ->with('tags', $selectetages_array)
             ->with('images',BlogImage::orderby('id', 'desc')->get())
-            ->with('categories', Category::ofType('blog')->get())
+            ->with('categories', Specialty::ofType('blog')->get())
             ->with('keywords', KeyWord::ofType('blog')->get());
     }
 
