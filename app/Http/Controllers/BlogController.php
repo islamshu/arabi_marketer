@@ -159,9 +159,10 @@ class BlogController extends Controller
 
                 // return redirect()->back()->with(['success'=>'تم اضافة المقال بنجاح']);
 
-                return response()->json(['success'=>'true','message' => 'تم الاضافة بنجاح']);
 
             });
+            return response()->json(['success'=>'true','message' => 'تم الاضافة بنجاح']);
+
         } catch (\Throwable $e) {
             // return redirect()->back()->with(['error'=>'لقد حدث خلل ما']);
 
