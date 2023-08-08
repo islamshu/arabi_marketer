@@ -89,8 +89,12 @@ class BlogResource extends JsonResource
         $category = $data->tags;
         // $category = $data->keywords;
         $arr = [];
-        foreach ($category as $cat) {
-            array_push($arr, $cat->title);
+        foreach ($category as $tag) {
+            $tage = str_replace('_',' ',$tag->title);
+                $cleanedText = str_replace(['"', ']','['], '', $tage);
+                $tag->title = $cleanedText;
+                $tag->save();
+            array_push($arr, $cleanedText);
         }
         $str_json = json_encode($arr); //array to json string conversion
         return json_decode($str_json);
