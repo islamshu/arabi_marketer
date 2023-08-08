@@ -52,12 +52,9 @@ class HomeController extends BaseController
     public function testt(){
         $tags = Tag::where('blog_id',130)->get();
         foreach($tags as $tag){
-            $new_string = preg_replace(
-                '/[^a-zA-Z0-9 ]/', // 1. regex to apply
-                '',                 // 2. replacement for regex matches 
-                $tag->title             // 3. the original string
-            );
-            dd($new_string);
+            $cleanedText = preg_replace('/[^A-Za-z0-9\s]/', '', $tag->title);
+
+            dd($cleanedText);
         }
     }
     public function check_login(){
