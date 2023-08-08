@@ -88,7 +88,7 @@ class BlogController extends Controller
         ], $customMessages);
         
         if ($validation->fails()) {
-            return response()->json(['success' => false, 'message' => $validation->messages()->first()]);
+            return response()->json(['success' => false, 'errors' => $validation->messages()->first()]);
         }
         
         
