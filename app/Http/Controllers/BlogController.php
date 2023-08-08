@@ -228,9 +228,9 @@ class BlogController extends Controller
             array_push($selectecategory_array, $selc->id);
         }
         foreach ($selectedtags as $selc) {
-            array_push($selectetages_array, $selc->value);
+            array_push($selectetages_array, $selc->title);
         }
-        dd($selectedtags);
+        // dd($selectedtags);
         return view('pages.blogs.edit')->with('blog', $blog)
             ->with('type_array', $selectecategory_array)
             ->with('keywords_array', $selectedkeywords_array)
