@@ -50,7 +50,7 @@ class BlogResource extends JsonResource
             "whatsapp" => "https://wa.me/?text=".$url,
             "linkedin" => "https://www.linkedin.com/sharing/share-offsite?mini=true&url=".$url,
             ]
-            // 'related_blog' =>$this->get_related($this),
+            'related_blog' =>$this->get_related($this),
 
         ];
     }
