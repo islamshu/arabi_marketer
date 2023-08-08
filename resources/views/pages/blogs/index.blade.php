@@ -243,8 +243,20 @@
             data:data,
             async: false,
             success: function(response) {
-            alert(response.success);
-            alert(response.errors);
+            if(response.success == 'true'){
+                swal(message, {
+                buttons: false,
+                icon: "success",
+                title:'تم الاضافة بنجاح'
+            });
+            }else{
+                swal(message, {
+                buttons: false,
+                icon: "error",
+                title:response.errors
+            });
+            }
+            
 
             }
         });

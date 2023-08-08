@@ -154,7 +154,7 @@ class BlogController extends Controller
 
             });
         } catch (\Throwable $e) {
-            return response()->json(['success'=>'falsee','errors' => $e]);
+            return response()->json(['success'=>'false','errors' =>'لقد حدث خطأ ما']);
 
         }
     }
