@@ -65,18 +65,31 @@ class BlogController extends Controller
     }
     public function store(Request $request)
     {
-        $request->validate([
+        $customMessages = [
+            'title_ar.required' => 'The title field is required.',
+            'description_ar.required' => 'The description field is required.',
+            'small_description.required' => 'The small description field is required.',
+            'image_id.required' => 'The image field is required.',
+            'user_id.required' => 'The user field is required.',
+            'type.required' => 'The type field is required.',
+            'tags.required' => 'The tags field is required.',
+            'keywords.required' => 'The keywords field is required.',
+        ];
+        
+        $validation = Validator::make($request->all(), [
             'title_ar' => 'required',
             'description_ar' => 'required',
             'small_description' => 'required',
             'image_id' => 'required',
             'user_id' => 'required',
-            'type'=>'required',
-            'tags'=>'required',
-            'keywords'=>'required',
-        ]);
+            'type' => 'required',
+            'tags' => 'required',
+            'keywords' => 'required',
+        ], $customMessages);
         
-
+        if ($validation->fails()) {
+            return response()->json(['success' => false, 'message' => $validation->messages()->first()]);
+        }
         
         
         try {
@@ -144,13 +157,13 @@ class BlogController extends Controller
                     }
                 }
 
-                return redirect()->back()->with(['success'=>'تم اضافة المقال بنجاح']);
+                // return redirect()->back()->with(['success'=>'تم اضافة المقال بنجاح']);
 
                 return response()->json(['success'=>'true','message' => 'تم الاضافة بنجاح']);
 
             });
         } catch (\Throwable $e) {
-            return redirect()->back()->with(['error'=>'لقد حدث خلل ما']);
+            // return redirect()->back()->with(['error'=>'لقد حدث خلل ما']);
 
             return response()->json(['success'=>'false','errors' =>'لقد حدث خطأ ما']);
 
