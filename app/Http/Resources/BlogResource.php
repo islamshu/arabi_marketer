@@ -41,7 +41,7 @@ class BlogResource extends JsonResource
             'comments' => CommentResourse::collection($this->comments),
             'rate' => $this->get_rate($this),
             'url_for_this_blog'=>$url,
-
+            'related_blog' =>$this->get_related($this),
             'share'=>[
             "facebook" => "https://www.facebook.com/sharer/sharer.php?u=".$url,
             "twitter" => "https://twitter.com/intent/tweet?text=Default+share+text&url=".$url,
@@ -49,8 +49,8 @@ class BlogResource extends JsonResource
             "reddit" => "https://www.reddit.com/submit?title=Default+share+text&url=".$url,
             "whatsapp" => "https://wa.me/?text=".$url,
             "linkedin" => "https://www.linkedin.com/sharing/share-offsite?mini=true&url=".$url,
+
             ]
-            'related_blog' =>$this->get_related($this),
 
         ];
     }
