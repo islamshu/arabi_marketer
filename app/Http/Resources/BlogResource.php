@@ -93,7 +93,7 @@ class BlogResource extends JsonResource
             $tage = str_replace('_',' ',$tag->title);
                 $cleanedText = str_replace(['"', ']','['], '/', $tage);
                 $tag->title = $cleanedText;
-                $tag->save();
+                // $tag->save();
             array_push($arr, $cleanedText);
         }
         $str_json = json_encode($arr); //array to json string conversion
